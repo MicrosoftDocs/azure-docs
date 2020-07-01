@@ -1,6 +1,6 @@
 ---
-title: Create an FCI with Premium File Share
-description: "Use a Premium File Share (PFS) to create a failover cluster instance (FCI) with SQL Server on Azure virtual machines."
+title: Create an FCI with a premium file share
+description: "Use a premium file share (PFS) to create a failover cluster instance (FCI) with SQL Server on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,12 +15,12 @@ ms.date: 06/18/2020
 ms.author: mathoma
 ---
 
-# Create an FCI with Premium File Share (SQL Server on Azure VMs)
+# Create an FCI with a premium file share (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a failover cluster instance (FCI) with SQL Server on Azure Virtual Machines (VMs) by using a [Premium File Share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+This article explains how to create a failover cluster instance (FCI) with SQL Server on Azure Virtual Machines (VMs) by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
-Premium File Shares are Storage Spaces Direct (SSD)-backed, consistently low-latency file shares that are fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium File Shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
+Premium file shares are Storage Spaces Direct (SSD)-backed, consistently low-latency file shares that are fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
@@ -31,13 +31,13 @@ Before you complete the instructions in this article, you should already have:
 - An Azure subscription.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - [Two or more prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in an [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or different [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- A [Premium File Share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
+- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
-## Mount the Premium File Share
+## Mount premium file share
 
 1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
-1. Go to **File Shares** under **File service**, and then select the Premium File Share you want to use for your SQL storage.
+1. Go to **File Shares** under **File service**, and then select the premium file share you want to use for your SQL storage.
 1. Select **Connect** to bring up the connection string for your file share.
 1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
 
@@ -165,7 +165,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Select **New SQL Server failover cluster installation**, and then follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the Premium File Share. Enter the full path of the share, in this format: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you used to access the VM via RDP when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this format: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you used to access the VM via RDP when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
@@ -204,14 +204,14 @@ To route traffic appropriately to the current primary node, configure the connec
 ## Limitations
 
 - Microsoft Distributed Transaction Coordinator (MSDTC) is not supported on Windows Server 2016 and earlier. 
-- Filestream isn't supported for a failover cluster with a Premium File Share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
+- Filestream isn't supported for a failover cluster with a premium file share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
 - Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported. 
 
 ## Next steps
 
 If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
 
-If Premium File Shares are not the appropriate FCI storage solution for you, consider creating your FCI by using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
+If premium file shares are not the appropriate FCI storage solution for you, consider creating your FCI by using [Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md). 
 
