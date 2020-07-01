@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Configure properties for an application in your Azure AD tenant
 
-In the previous quickstart you added an application to your Azure AD tenant. When you add an application you are registering it with Azure AD. In this quickstart you will configure some of the properties for an app.
+In the previous quickstart you added an application to your Azure AD tenant. When you add an application you are registering it with Azure AD tenant. In this quickstart you will configure some of the properties for an app.
  
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
@@ -26,16 +26,16 @@ To configure the properties of an application in your tenant, you need to have a
 
 ## Configure user sign-in properties
 
-When you add an application to your Azure ID tenant you are immediate presented with the settings for it. If you are configuring an application that has already been added then look at the first quickstart which walks you through viewing the applications added to your tenant. 
+When you finish adding an application to your Azure AD tenant you are immediately presented with the overview page for it. If you are configuring an application that has already been added then look at the first quickstart which walks you through viewing the applications added to your tenant. 
 
 To edit the application properties:
 
-1. Select the application to open it.
-2. Select **Properties** to open the properties pane for editing.
+1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to configure.
+2. In the Manage section, select **Properties** to open the properties pane for editing.
 
     ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
 
-3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
+3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign in to the application. And, the options also determine if a user can see the application in the access panel.
 
     - **Enabled for users to sign-in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
@@ -78,9 +78,9 @@ To edit the application properties:
 To use a custom logo:
 
 1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
-1. Since you've already found your application, select the application.
-1. In the left pane, select **Properties**.
-1. Upload the logo.
+1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to configure.
+2. In the Manage section, select **Properties** to open the properties pane for editing. 
+1. Select the upload icon to Upload the logo.
 1. When you're finished, select **Save**. 
 
     ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
