@@ -1,7 +1,7 @@
 ---
-title: Preview features in REST API
+title: Preview feature list
 titleSuffix: Azure Cognitive Search
-description: Preview features are released so that customers can provide feedback on its design and utility. This article is an exhaustive list of all features currently in preview.
+description: Preview features are released so that customers can provide feedback on their design and utility. This article is a comprehensive list of all features currently in preview.
 
 manager: nitinme
 author: HeidiSteen

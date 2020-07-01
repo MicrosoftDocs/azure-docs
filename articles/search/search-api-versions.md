@@ -1,5 +1,5 @@
 ---
-title: API versions for REST and SDKs
+title: API versions
 titleSuffix: Azure Cognitive Search
 description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
 
@@ -29,9 +29,9 @@ This table provides the version history of current and previously released versi
 | Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Backward compatibility issue |
 |-------------|--------|------------------------------|
 | [Management 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) | Generally Available | Newest stable release of the Management REST APIs, with  advancements in endpoint protection. Adds private endpoint, private link support, and network rules for new  services. |
-| Management 2019-10-01-Preview | Preview  | Despite its version number, this is still the current preview version of the Management REST API. There are no preview features at this time. All preview features have recently transitioned to general availability. |
-| Management 2015-08-19  | Stable| The first generally available version of the Management REST API. Provides service provisioning, scale up, and api-key management. |
-| Management 2015-08-19-Preview | Preview| The first preview version of the Management REST API. |
+| [Management 2019-10-01-Preview](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) | Preview  | Despite its version number, this is still the current preview version of the Management REST APIs. There are no preview features at this time. All preview features have recently transitioned to general availability. |
+| Management 2015-08-19  | Stable| The first generally available version of the Management REST APIs. Provides service provisioning, scale up, and api-key management. |
+| Management 2015-08-19-Preview | Preview| The first preview version of the Management REST APIs. |
 | [Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Newest stable release of the Search Search REST APIs, with advancements in relevance scoring. |
 | [Search 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Preview | Preview version associated with stable version. |
 | Search 2019-05-06 | Stable | Adds complex types. |
