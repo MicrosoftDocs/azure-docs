@@ -190,14 +190,14 @@ This topic is for reference only. Follow the configuration steps outlined in:
 ## Create a self-signed certificate
 Execute:
 
-    ```console
-    makecert ^
-      -n "CN=myservice.cloudapp.net" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha256 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
-    ```
+```console
+makecert ^
+  -n "CN=myservice.cloudapp.net" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha256 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 To customize:
 
@@ -208,9 +208,9 @@ To customize:
 ## Create PFX file for self-signed TLS/SSL certificate
 Execute:
 
-    ```console
-    pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
-    ```
+```console
+pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Enter password and then export certificate with these options:
 
@@ -233,9 +233,9 @@ Upload certificate with the existing or generated .PFX file with the TLS key pai
 ## Update TLS/SSL certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    ```console
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-    ```
+```console
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Import TLS/SSL certification authority
 Follow these steps in all account/machine that will communicate with the service:
@@ -263,15 +263,15 @@ Then, copy the same thumbprint as the TLS/SSL certificate in the CA certificate 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
 
-    ```console
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha256 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
-    ```
+```console
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha256 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 To customize it
 
@@ -318,15 +318,15 @@ Each individual authorized to access the service should have a client certificat
 
 The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
-    ```console
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha256 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
-    ```
+```console
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha256 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Customizing:
 
@@ -339,15 +339,15 @@ This command will prompt for a password to be created and then used once. Use a 
 ## Create PFX files for client certificates
 For each generated client certificate, execute:
 
-    ```console
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
-    ```
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    ```console
-    MyID.pvk and MyID.cer with the filename for the client certificate
-    ```
+```console
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Enter password and then export certificate with these options:
 
@@ -392,15 +392,15 @@ The default setting does not check with the Certification Authority for client c
 ## Create PFX file for self-signed encryption certificates
 For an encryption certificate, execute:
 
-    ```console
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
-    ```
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    ```console
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
-    ```
+```console
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Enter password and then export certificate with these options:
 
