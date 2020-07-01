@@ -9,17 +9,19 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-# Create an Azure container offer
+# Create an Azure container offer in Azure Marketplace
 
 This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+
 3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
+   ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -45,10 +47,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page shows different links based on the current status of the offer. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -75,8 +77,8 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 Here are some additional lead management resources:
 
 - [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.

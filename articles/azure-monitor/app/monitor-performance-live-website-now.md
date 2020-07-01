@@ -295,7 +295,7 @@ For applications already instrumented at compile time:
  * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
  * Exception stack trace values.
 
-[Learn more](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Learn more](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## Video
 
