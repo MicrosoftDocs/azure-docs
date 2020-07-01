@@ -222,6 +222,8 @@
         href: service-fabric-manifest-example-container-app.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
+    - name: Hosting activation and deactivation lifecycle advanced topics
+      href: service-fabric-hosting-lifecycle.md
     - name: Application security
       href: service-fabric-application-and-service-security.md
     - name: Service state
