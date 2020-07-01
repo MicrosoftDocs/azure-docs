@@ -28,7 +28,7 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 1. Select **Settings** > **Basic**.
 1. Choose a **Category**, for example `Business and Pages`. This value is required by Facebook, but not used for Azure AD B2C.
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
-1. In **Site URL**, enter `https://your-tenant-name.b2clogin.com/` replacing `your-tenant-name` with the name of your tenant. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com`. The policy URL is a page you maintain to provide privacy information for your application.
+1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
 1. Select **Save Changes**.
 1. At the top of the page, copy the value of **App ID**.
 1. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.

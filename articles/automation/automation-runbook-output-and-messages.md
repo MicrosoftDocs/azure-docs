@@ -82,7 +82,7 @@ The following are examples of output data types:
 
 #### Declare output data type in a workflow
 
-A workflow specifies the data type of its output using the [OutputType attribute](https://technet.microsoft.com/library/hh847785.aspx). This attribute has no effect during runtime, but it provides you an indication at design time of the expected output of the runbook. As the tool set for runbooks continues to evolve, the importance of declaring output data types at design time increases. Therefore it's a best practice to include this declaration in any runbooks that you create.
+A workflow specifies the data type of its output using the [OutputType attribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). This attribute has no effect during runtime, but it provides you an indication at design time of the expected output of the runbook. As the tool set for runbooks continues to evolve, the importance of declaring output data types at design time increases. Therefore it's a best practice to include this declaration in any runbooks that you create.
 
 The following sample runbook outputs a string object and includes a declaration of its output type. If your runbook outputs an array of a certain type, then you should still specify the type as opposed to an array of the type.
 

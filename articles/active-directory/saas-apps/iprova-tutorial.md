@@ -75,11 +75,10 @@ In this section, you retrieve information from iProva to configure Azure AD sing
 
 1. Open a web browser, and go to the **SAML2 info** page in iProva by using the following URL pattern:
 
-	| | |
-	|-|-|
-	| `https://SUBDOMAIN.iprova.nl/saml2info`|
-	| `https://SUBDOMAIN.iprova.be/saml2info`|
-	| | |
+    ```https
+    https://SUBDOMAIN.iprova.nl/saml2info
+    https://SUBDOMAIN.iprova.be/saml2info
+    ```
 
 	![View the iProva SAML2 info page](media/iprova-tutorial/iprova-saml2-info.png)
 
