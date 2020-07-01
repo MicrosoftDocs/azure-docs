@@ -23,7 +23,7 @@ If you want to use manually labeled training data, you must start with at least 
 
 ## Training data tips
 
-It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) operation:
+It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) operation:
 
 * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
 * For filled-in forms, use examples that have all of their fields filled in.
@@ -45,7 +45,7 @@ If you want to use manually labeled data, you'll also have to upload the *.label
 
 ### Organize your data in subfolders (optional)
 
-By default, the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) API will only use form documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
+By default, the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) API will only use form documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
 
 ```json
 {

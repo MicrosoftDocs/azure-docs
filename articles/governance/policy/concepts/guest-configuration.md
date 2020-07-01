@@ -44,9 +44,10 @@ Guest Configuration service. The extension isn't required for Arc Connected Mach
 in the Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> The Guest Configuration extension and a managed identity is required to audit Azure virtual machines. To
-> deploy the extension at scale, assign the following policy initiative: 
->  - [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale, assign the following policy definitions: 
+>  - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### Limits set on the extension
 
@@ -107,15 +108,13 @@ used to reference the Guest Configuration service.
 
 ## Managed identity requirements
 
-Policies in the initiative [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) enable a system-assigned managed identity, if one doesn't exist. There are two policy definitions
-in the initiative that manage identity creation. The IF conditions in the policy definitions ensure the correct
-behavior based on the current state of the machine resource in Azure.
+The **DeployIfNotExists** policies that add the extension to virtual machines also enable a system
+assigned managed identity, if one doesn't exist.
 
-If the machine doesn't currently have any managed identities, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
-
-If the machine currently has a user-assigned system identity, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+> [!WARNING]
+> Avoid enabling user assigned managed identity to virtual machines in scope
+> for policies that enable system assigned managed identity. The user assigned
+> identity is replaced and could machine become unresponsive.
 
 ## Guest Configuration definition requirements
 
