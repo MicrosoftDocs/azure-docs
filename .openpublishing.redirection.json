@@ -22532,6 +22532,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/msal-js-known-issues-safari-browser.md",
+      "redirect_url": "/azure/active-directory/develop/reference-third-party-cookies-spas",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
