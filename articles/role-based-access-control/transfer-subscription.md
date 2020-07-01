@@ -257,7 +257,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 In this step, you transfer the billing ownership of the subscription from the source directory to the target directory.
 
 > [!WARNING]
-> When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscriptions. Be sure you complete the previous steps before performing this step.
+> When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscription. Be sure you complete the previous steps before performing this step.
 
 1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different Azure AD directory, you must check the **Subscription Azure AD tenant** check box.
 
