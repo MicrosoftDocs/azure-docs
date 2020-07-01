@@ -26,7 +26,7 @@ The same rule applies for SDK updates. The Azure Cognitive Search SDK follows th
 
 This table provides the version history of current and previously released versions of the Search Service REST API. Documentation is published for the current stable and preview versions.
 
-| API version | Status | Backward compatibility issue |
+| API version&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Status | Backward compatibility issue |
 |-------------|--------|------------------------------|
 | [**Search 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Modifies relevance scoring. |
 | [**Search 2020-06-30-Preview**](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Preview | Preview version associated with stable version. |

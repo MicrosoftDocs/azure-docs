@@ -16,7 +16,7 @@ This article is a comprehensive list of all features that are in preview so that
 
 Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it is generally available. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
-|Feature  | Category | Description | Availability  |
+|Feature&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
 | [**featuresMode parameter**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Relevance (scoring) | Relevance score expansion to include details: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial). | Add this query parameter using [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) with api-version=2020-06-30-Preview or 2019-05-06-Preview. |
 | [**Managed service identity**](search-howto-managed-identities-data-sources.md) | Indexers, security| Register a search service with Azure Active Directory to make it a trusted service, and then use RBAC permissions on Azure data sources to allow read-only access by an indexer. | Access this capability when using the portal or [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
