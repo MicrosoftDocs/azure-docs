@@ -3,12 +3,9 @@ title: Support
 description: Explains support options for users of Azure Dev Tools for Teaching.
 author: v-dihans
 ms.author: rymend
-ms.topic: overview
+ms.topic: include
 ms.date: 06/30/2020
 ms.prod: azure
 ---
 
-# Support
-
-If you need help with sign in, set up or using Azure Dev Tools for Teaching, go to [Subscriptions Support](https://azureforeducation.microsoft.com/institutions/Contact) and locating your region.
-
+If you need help with sign in, set up or using Azure Dev Tools for Teaching, go to [Subscriptions Support](https://azureforeducation.microsoft.com/institutions/Contact) and locate your region.
