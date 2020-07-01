@@ -220,12 +220,12 @@ The following JSON is an example of the Text Analytics for Health API request's 
     {
       "language": "en",
       "id": "1",
-      "text": "Patient suffers from high blood pressure and irregular heartbeat."
+      "text": "Patient reported itchy sores after swimming in the lake."
     },
     {
       "language": "en",
       "id": "2",
-      "text": "Prescribed 100mg ibuprofen, taken twice daily."
+      "text": "Prescribed 50mg benadryl, taken twice daily."
     }
   ]
 }
@@ -237,27 +237,18 @@ The following JSON is an example of the Text Analytics for Health API response b
 
 ```json
 {
-  "documents": [
+    "documents": [
         {
             "id": "1",
             "entities": [
                 {
                     "id": "0",
-                    "offset": 21,
-                    "length": 19,
-                    "text": "high blood pressure",
+                    "offset": 17,
+                    "length": 11,
+                    "text": "itchy sores",
                     "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9998,
-                    "umlsId": "C0020538"
-                },
-                {
-                    "id": "1",
-                    "offset": 45,
-                    "length": 19,
-                    "text": "irregular heartbeat",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9997,
-                    "umlsId": "C0003811"
+                    "score": 0.97,
+                    "isNegated": false
                 }
             ]
         },
@@ -267,27 +258,67 @@ The following JSON is an example of the Text Analytics for Health API response b
                 {
                     "id": "0",
                     "offset": 11,
-                    "length": 5,
-                    "text": "100mg",
+                    "length": 4,
+                    "text": "50mg",
                     "type": "DOSAGE",
-                    "score": 0.9997
+                    "score": 1.0,
+                    "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 17,
-                    "length": 9,
-                    "text": "ibuprofen",
+                    "offset": 16,
+                    "length": 8,
+                    "text": "benadryl",
                     "type": "MEDICATION_NAME",
-                    "score": 0.9999,
-                    "umlsId": "C0020740"
+                    "score": 0.99,
+                    "isNegated": false,
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C0700899"
+                        },
+                        {
+                            "dataSource": "CHV",
+                            "id": "0000044903"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "899"
+                        },
+                        {
+                            "dataSource": "MSH",
+                            "id": "D004155"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C300"
+                        },
+                        {
+                            "dataSource": "NCI_DTP",
+                            "id": "NSC0033299"
+                        },
+                        {
+                            "dataSource": "PDQ",
+                            "id": "CDR0000039163"
+                        },
+                        {
+                            "dataSource": "PSY",
+                            "id": "05760"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "203457"
+                        }
+                    ]
                 },
                 {
                     "id": "2",
-                    "offset": 34,
+                    "offset": 32,
                     "length": 11,
                     "text": "twice daily",
                     "type": "FREQUENCY",
-                    "score": 0.9998
+                    "score": 1.0,
+                    "isNegated": false
                 }
             ],
             "relations": [
@@ -304,12 +335,26 @@ The following JSON is an example of the Text Analytics for Health API response b
                             "role": "ENTITY"
                         }
                     ]
+                },
+                {
+                    "relationType": "FREQUENCY_OF_MEDICATION",
+                    "score": 1.0,
+                    "entities": [
+                        {
+                            "id": "1",
+                            "role": "ENTITY"
+                        },
+                        {
+                            "id": "2",
+                            "role": "ATTRIBUTE"
+                        }
+                    ]
                 }
             ]
         }
-  ],
-  "errors": [],
-  "modelVersion": "2020-01-01"
+    ],
+    "errors": [],
+    "modelVersion": "2020-05-08"
 }
 ```
 
