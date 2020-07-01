@@ -25,3 +25,4 @@ Your main landing page in the Education Hub is the Overview page. This page cont
 ## Next steps
 
 > [Set up a course, allocate credit, and invite students](create-assignment-allocate-credit.md)
+> [Support options](../includes/educator-service-desk.md)

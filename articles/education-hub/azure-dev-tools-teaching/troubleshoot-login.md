@@ -43,3 +43,4 @@ The next time you sign in, you can use your university email address to access y
 
 ## Next steps
 > [FAQ](program-faq.md)
+> [Support options](includes/educator-service-desk.md)

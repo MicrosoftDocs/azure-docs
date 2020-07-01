@@ -20,3 +20,4 @@ After your first login, by default you will be taken to the Overview page.
 ## Next steps
 
 > [Manage your Academic Grant using the Overview page](hub-overview-page.md)
+> [Support options](../includes/educator-service-desk.md)

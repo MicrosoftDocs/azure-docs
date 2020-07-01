@@ -18,3 +18,4 @@ You can currently manage access for students based on the domain they use to log
 
 ## Next steps	
 > [Learn how to troubleshoot issues with logging in](troubleshoot-login.md)
+> [Support options](includes/educator-service-desk.md)

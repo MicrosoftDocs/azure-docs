@@ -37,3 +37,4 @@ This Quickstart describes the process for enrolling in Azure Education and creat
 ## Next steps	
 
 > [Set up access for Azure Dev Tools](set-up-access.md)
+> [Support options](includes/educator-service-desk.md)
