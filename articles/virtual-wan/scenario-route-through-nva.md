@@ -43,12 +43,15 @@ To set up routing via NVA, here are the steps to consider:
    
    You do not need to connect VNET 5,6,7,8 to the virtual hubs directly.
 
-2. Add an aggregated static route entry for VNETs 2,5,6 to Hub 1’s default route table. Configure a static route for VNETs 5,6 in VNET 2’s virtual network connection. To set up routing configuration for a virtual network connection, see [virtual hub routing](how-to-virtual-hub-routing.md#routing-configuration).
+2. Add an aggregated static route entry for VNETs 2,5,6 to Hub 1’s default route table. 
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Example":::
 
-3. Add an aggregated static route entry for VNETs 4,7,8 to Hub 1’s default route table.
-4. Repeat steps 2 and 3 for Hub 2’s default route table.
+3. Configure a static route for VNETs 5,6 in VNET 2’s virtual network connection. To set up routing configuration for a virtual network connection, see [virtual hub routing](how-to-virtual-hub-routing.md#routing-configuration).
+
+4. Add an aggregated static route entry for VNETs 4,7,8 to Hub 1’s default route table.
+
+5. Repeat steps 2, 3 and 4 for Hub 2’s default route table.
 
 This will result in the routing configuration changes as seen the figure below
 
