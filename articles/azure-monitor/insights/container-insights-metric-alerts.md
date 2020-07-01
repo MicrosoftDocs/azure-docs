@@ -1,16 +1,22 @@
 ---
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
-description: This article reviews the pre-defined metric alerts available from Azure Monitor for containers in public preview.
+description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 
 ---
 
-# Pre-defined metric alerts (preview) from Azure Monitor for containers
+# Recommended metric alerts (preview) from Azure Monitor for containers
 
-To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview. 
+To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview.
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
+
+## Prerequisites
+
+Before you start, confirm the following:
+
+* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
 ## Alert rules overview
 
@@ -69,19 +75,19 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 |Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
 |Insights.container/pods |completedJobsCount |Completed jobs count older user configurable threshold (default is six hours) by controller, Kubernetes namespace. |
 |Insights.container/pods |restartingContainerCount |Count of container restarts by controller, Kubernetes namespace.|
-|Insights.container/pods | oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
+|Insights.container/pods |oomKilledContainerCount |Count of OOMkilled containers by controller, Kubernetes namespace.|
 |Insights.container/pods |podReadyPercentage |Percentage of pods in ready state by controller, Kubernetes namespace.|
 |Insights.container/containers |cpuExceededPercentage |CPU utilization percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.<br> Collected  |
 |Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 |Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 
-## Enable alert rules
+## Enable alert rules from Azure portal
 
-This section walks through enabling Azure Monitor for containers metric alert (preview).
+This section walks through enabling Azure Monitor for containers metric alert (preview) from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Access to the Azure Monitor for containers metrics alert (preview) feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
+2. Access to the Azure Monitor for containers metrics alert (preview) feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal.
 
 3. From the command bar, select **Recommended alerts**.
 
@@ -92,6 +98,40 @@ This section walks through enabling Azure Monitor for containers metric alert (p
     ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
 After selecting the **Enable/Disable** radio button to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
+
+## Enable alert rules with a Resource Manager template
+
+You can use an Azure Resource Manager template to create the included metric alerts in Azure Monitor.
+
+The basic steps are as follows:
+
+1. Use one of the templates below as a JSON file that describes how to create the alert.
+2. Edit and use the corresponding parameters file as a JSON to customize the alert.
+3. Deploy the template using any deployment method.
+
+You can create the metric alert using the template and parameters file using the Azure portal, PowerShell, or Azure CLI.
+
+### Deploy through Azure portal
+
+1. To deploy a customized template through the portal, select **Create a resource**, search for **template**, and then select **Template**. deployment.
+
+2. Select **Create**.
+
+3. You see several options for creating a template, select **Build your own template in editor**.
+
+4. On the **Edit template page**, select **Load file** and then select the template file.
+
+5. On the **Edit template** page, select **Save**.
+
+6. On the **Custom deployment** page, specify the following and then when complete select **Purchase** to deploy the template and create the alert rule.
+
+    * Resource group
+    * Location
+    * Alert Name
+    * Cluster Resource Id
+
+### Deploy with Azure PowerShell or CLI
+
 
 ## Edit alert rules
 
@@ -112,7 +152,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
-* *memoryWorkingSetExceededPercentage* 
+* *memoryWorkingSetExceededPercentage*
 
 1. Edit the ConfigMap yaml file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`.
 
