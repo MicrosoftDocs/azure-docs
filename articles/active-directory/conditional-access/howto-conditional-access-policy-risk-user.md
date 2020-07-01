@@ -1,6 +1,6 @@
 ---
-title: Sign-in risk-based Conditional Access - Azure Active Directory
-description: Create Conditional Access policies using Identity Protection sign-in risk
+title: User risk-based Conditional Access - Azure Active Directory
+description: Create Conditional Access policies using Identity Protection user risk
 
 services: active-directory
 ms.service: active-directory
@@ -15,13 +15,11 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Sign-in risk-based Conditional Access
+# Conditional Access: User risk-based Conditional Access
 
-Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are. 
+Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md#user-risk). 
 
-A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection sign-in risk detections](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
-
-There are two locations where this policy may be assigned. Organizations should choose one of the following options to enable a sign-in risk-based Conditional Access policy requiring a secure password change.
+There are two locations where this policy may be assigned. Organizations should choose one of the following options to enable a user risk-based Conditional Access policy requiring a secure password change.
 
 ## Enable with Conditional Access policy
 
@@ -34,9 +32,7 @@ There are two locations where this policy may be assigned. Organizations should 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
-   1. Select **High** and **Medium**.
-   1. Select **Done**.
+1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
@@ -45,14 +41,14 @@ There are two locations where this policy may be assigned. Organizations should 
 
 1. Sign in to the **Azure portal**.
 1. Click on **All services**, then browse to **Azure AD Identity Protection**.
-1. Click on **Sign-in risk policy**.
+1. Click on **User risk policy**.
 1. Under **Assignments**, select **Users**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Select excluded users**, choose your organization's emergency access or break-glass accounts, and select **Select**.
    1. Select **Done**.
-1. Under **Conditions**, select **Sign-in risk**, then choose **Medium and above**.
+1. Under **Conditions**, select **User risk**, then choose **High**.
    1. Click **Select** then **Done**.
-1. Under **Controls** > **Access**, choose **Allow access**, and then select **Require multi-factor authentication**.
+1. Under **Controls** > **Access**, choose **Allow access**, and then select **Require password change**.
    1. Click **Select**.
 1. Set **Enforce Policy** to **On**.
 1. Click **Save**.
@@ -61,7 +57,7 @@ There are two locations where this policy may be assigned. Organizations should 
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[User risk-based Conditional Access](howto-conditional-access-policy-risk-user.md)
+[Sign-in risk-based Conditional Access](howto-conditional-access-policy-risk.md)
 
 [Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 

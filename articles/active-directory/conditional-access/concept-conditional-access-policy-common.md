@@ -39,7 +39,8 @@ More information about emergency access accounts and why they are important can 
 
 ## Additional policies
 
-* [Risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Sign-on risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [User risk-based Conditional Access (Requires Azure AD Premium P2)]
 * [Require trusted location for MFA registration](howto-conditional-access-policy-registration.md)
 * [Block access by location](howto-conditional-access-policy-location.md)
 * [Require compliant device](howto-conditional-access-policy-compliant-device.md)
