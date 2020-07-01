@@ -1,6 +1,6 @@
 ---
 title: Transfer an Azure subscription to a different Azure AD directory (Preview)
-description: Learn how to transfer an Azure subscription and related resources to a different Azure Active Directory (Azure AD) directory.
+description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -25,7 +25,7 @@ This article describes the basic steps you can follow to transfer a subscription
 
 ## Overview
 
-Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage another Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
+Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage other Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
 
 > [!IMPORTANT]
 > Transferring a subscription does require downtime to complete the process.
@@ -75,7 +75,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Container Services for Kubernetes | Yes | Yes |  |  |
 | Azure Active Directory Domain Services | Yes | No |  |  |
 
-If you are using encryption at rest for a resource such as a storage account or a SQL database that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ To complete these steps, you will need:
 1. Use the [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
-    az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
+    az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
     ```
 
 1. Save each custom role that you will need in the target directory as a separate JSON file.
@@ -181,7 +181,7 @@ To complete these steps, you will need:
 
 Managed identities do not get updated when a subscription is transferred to another directory. As a result, any existing system-assigned or user-assigned managed identities will be broken. After the transfer, you can re-enable any system-assigned managed identities. For user-assigned managed identities, you will have to re-create and attach them in the target directory.
 
-1. Review the [list of Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) to note where you might using managed identities.
+1. Review the [list of Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) to note where you might be using managed identities.
 
 1. Use [az ad sp list](/azure/ad/sp#az-ad-sp-list) to list your system-assigned and user-assigned managed identities.
 
@@ -212,7 +212,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/keyvault-move-subscription.md).
 
 > [!WARNING]
-> If you are using encryption at rest for a resource such as a storage account or a SQL database that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 - If you have a key vault, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -222,7 +222,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List Azure SQL Databases with Azure AD authentication
 
-1. Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -277,7 +277,7 @@ In this step, you transfer the billing ownership of the subscription from the so
     az account list --output table
     ```
 
-1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) to set the active subscription you want to transfer.
+1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) to set the active subscription you want to use.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -351,7 +351,7 @@ This section describes the basic steps to update your key vaults. For more infor
 
 ### Rotate access keys
 
-If your intent is to remove access from users in the source directory in the target directory, you should consider rotating any access keys, which would continue to enable access after the transfer until the keys are regenerated.
+If your intent is to remove access from users in the source directory so that they don't have access in the target directory, you should consider rotating any access keys. Until the access keys are regenerated, users would continue to have access after the transfer.
 
 1. Rotate storage account access keys. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
