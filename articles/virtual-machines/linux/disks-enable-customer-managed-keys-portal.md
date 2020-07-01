@@ -10,7 +10,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Enable customer-managed keys - managed disks
+# Enable customer-managed keys - managed disks - portal
 
 Azure Disk Storage offers customer-managed keys for managed disks, so that you can manage your encryption keys yourself, if you choose. For conceptual information on customer-managed keys, as well as other encryption, see [Server-side encryption of Azure managed disks](disk-encryption.md)
 
