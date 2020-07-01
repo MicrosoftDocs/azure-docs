@@ -15,19 +15,19 @@ The [Business Applications ISV Connect Program](https://partner.microsoft.com/so
 
 To enroll and take advantage of all the technical, marketing, and sales enablement benefits of the Business Applications ISV Connect Program, complete the following sections in this article. 
 
-**Important:** It is necessary to complete all the steps in this article before publishing changes to a new or existing offer.
+[!IMPORTANT] It is necessary to complete all the steps in this article before publishing changes to a new or existing offer.
 
-## 1. Set up your Microsoft Partner Center account
+## Set up your Microsoft Partner Center account
 
 To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
 
-**Note:** This step requires an *Owner* or *Manager* role in Partner Center.
+[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center.
 
-## 2. Accept the Business Applications ISV Program Addendum
+## Accept the Business Applications ISV Program Addendum
 
 Participation in this program requires you to review and accept the [Business Applications Addendum](https://aka.ms/bizappsisvaddendum).
 
-**Note:** This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements. 
+[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements. 
 
 1.	Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 2.	Select **Settings** (gear icon) and select **Developer Settings**.
@@ -35,11 +35,11 @@ Participation in this program requires you to review and accept the [Business Ap
 4.	Select the version link and view the agreement.
 5.	To agree and accept the agreement, select **Accept Agreement**.
 
-## 3. Set up your billing information
+## Set up your billing information
 
 Set up billing information for the Business Applications ISV Connect Program.
 
-**Note:** This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
+[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
 
 1.	Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 2.	Select **Settings** (gear icon) and select **Developer Settings**.
@@ -48,26 +48,26 @@ Set up billing information for the Business Applications ISV Connect Program.
 5.	If applicable, provide Tax ID/VAT ID settings.
 6.	To save your changes, click **Save**.
 
-**Note:** You can update your billing profile at any time. However, *Company Name* and billing address *Country* cannot be changed later.
+[!NOTE] You can update your billing profile at any time. However, *Company Name* and billing address *Country* cannot be changed later.
 
-## 4. Publish and certify your application
+## Publish and certify your application
 
 After you have completed the steps above, your existing Dynamics 365 CE and/or Dynamics 365 Ops applications will be available for editing in the Partner Center. You will also have the option to create new applications.
 
 The final step for enrollment in the Business Applications ISV Connect program is to publish and certify your existing applications. To publish and certify your application to AppSource, follow the appropriate link: 
 
-•	[For Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-•	[For Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [For Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
+- [For Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-**Important:** You need to recertify your apps every 6 months to keep them live on AppSource. See marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+[!IMPORTANT] You need to recertify your apps every 6 months to keep them live on AppSource. See marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
 
-## Further info
+## Next steps
 
 Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) for assistance with your account. For general information on the Business Applications ISV Connect Program, see:
 
-•	**[Business Applications for ISVs (online article)](https://aka.ms/bizappsisvweb)**
+- **[Business Applications for ISVs (online article)](https://aka.ms/bizappsisvweb)**
 
-•	**[Overview of the New Program for Business Applications ISVs (PDF)](https://aka.ms/bizappsisvprogram)**
+- **[Overview of the New Program for Business Applications ISVs (PDF)](https://aka.ms/bizappsisvprogram)**
 
-•	**[ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies)**
+- **[ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies)**
 
