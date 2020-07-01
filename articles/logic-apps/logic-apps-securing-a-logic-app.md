@@ -945,15 +945,17 @@ If your organization doesn't permit connecting to specific resources by using th
 
 You can use Azure Logic Apps in [Azure Government](../azure-government/documentation-government-welcome.md) supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md#integration-services) and the [US Department of Defense Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). To meet these requirements, Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can reduce the performance impact by other Azure tenants on your logic apps and avoid sharing computing resources with other tenants.
 
-* To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements. For example, run your function app in an [App Service Environment (ASE)](../app-service/environment/intro.md) that uses the [**Isolated** App Service plan](../app-service/overview-hosting-plans.md). At this level, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provides network isolation on top of compute isolation for your apps and maximum scale-out capabilities.
+* To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements.
+
+  For example, create your function app with the [App Service plan](../azure-functions/functions-scale.md#app-service-plan) that uses the [**Isolated** pricing tier](../app-service/overview-hosting-plans.md) with an [App Service Environment (ASE)](../app-service/environment/intro.md) that also uses the **Isolated** pricing tier. In this environment, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provides network isolation on top of compute isolation for your apps and maximum scale-out capabilities.
 
   For more information, see these topics:<p>
 
-  * [Azure Functions scale and hosting - Dedicated (App Service) plan](../azure-functions/functions-scale.md#app-service-plan)
-  * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-  * [Security in Azure App Service](../app-service/overview-security.md)
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
-  * [Security recommendations for App Service](../app-service/security-recommendations.md)
+  * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
+  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/windows/dedicated-hosts.md)
+  * [Virtual machine isolation in Azure](../virtual-machines/windows/isolation.md)
+  * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
 * To create logic apps that run on dedicated resources and can access resources protected by an Azure virtual network, you can create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can run your logic apps.
 
@@ -961,7 +963,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   * For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
-For more information about isolation in Azure, see these topics:
+For more information, see these topics:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
