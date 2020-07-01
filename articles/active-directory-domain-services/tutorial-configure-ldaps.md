@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+Note: if the the name given to the AADDS instance is not owned by the organization, it will be not possible to create the external DNS record, for example if the domain name is the default .onmicroft.com, there is no way of creating the DNS record as it is owned by Microsoft.
 
 To complete this tutorial, you need the following resources and privileges:
 
