@@ -18,7 +18,7 @@ ms.custom: aaddev
 ---
 # Migrate applications to Microsoft Authentication Library (MSAL)
 
-Many developers have built and deployed applications using the Active Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
+Many developers have built and deployed applications using the Azure Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
 
 By using MSAL instead of ADAL:
 
@@ -53,7 +53,7 @@ A: Yes. Starting June 30th, 2020, we will no longer add new features to ADAL. We
 __Q: How do I know which of my apps are using ADAL?__  
 A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you don't have access to your application's source code, you can [open a support request](developer-support-help-options.md#open-a-support-request) to obtain a list of your registered applications and the library each application uses.
 
-__Q: Will my existing ADAL apps continue to work?__ 
+__Q: Will my existing ADAL apps continue to work?__  
 A: Your existing apps will continue to work without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating them to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
 
 __Q: Why should I invest in moving to MSAL?__  

@@ -1,12 +1,9 @@
 ---
 title: Set up a SolidWorks lab for engineering with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab for engineering courses using SolidWorks. 
-services: lab-services
 author: nicolela
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 06/26/2020
 ms.author: nicolela
 ---
 
@@ -73,8 +70,6 @@ The steps in this section show how to set up your template virtual machine by do
 
     > [!NOTE]
     > In the **Add Server** dialog box, you will be prompted for the **port number** used for your license server and the name or IP address of the license server.
-
-1. After you are done installing the client software, you also need to enable the GPU to be used over RDP connection. See the article on [how to enable GPU over RDP connection](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) for more information.
 
 ## Cost
 

@@ -30,8 +30,8 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
-  - name: API management for AVS VMs
-    href: concepts-api-management.md
+  - name: Role-based access control
+    href: concepts-rbac.md
 - name: How-to guides
   items:
   - name: Set up HCX
@@ -40,8 +40,6 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Get help with AVS deployment or provisioning failures
-    href: fix-deployment-provisioning-failures.md
   - name: Azure Backup Server for AVS
     items:
     - name: Set up Azure Backup Server for AVS
@@ -51,6 +49,10 @@
 - name: Reference
   items:
 - name: Resources
-  items: 
-    - name: FAQ
-      href: faq.md
+  items:
+  - name: Troubleshooting
+    items:
+    - name: Get help with AVS deployment or provisioning failures
+      href: fix-deployment-provisioning-failures.md  
+  - name: FAQ
+    href: faq.md

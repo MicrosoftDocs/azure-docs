@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
 ---
@@ -32,3 +32,4 @@ ms.custom: generated
 |[Audit Windows VMs that have the specified applications installed](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |This initiative deploys the policy requirements and audits Windows virtual machines that have the specified applications installed. For more information on Guest Configuration policies, please visit [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Audit Windows VMs with a pending reboot](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |This initiative deploys the policy requirements and audits Windows virtual machines with a pending reboot. For more information on Guest Configuration policies, please visit [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Audit Windows web servers that are not using secure communication protocols](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |This initiative deploys the policy requirements and audits Windows web servers that are not using secure communication protocols (TLS 1.1 or TLS 1.2). For more information on Guest Configuration policies, please visit [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
+|[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |This initiative adds a system-assigned managed identity and deploys the platform-appropriate Guest Configuration extension to virtual machines that are eligible to be monitored by Guest Configuration policies. This is a prerequisite for all Guest Configuration policies and must be assigned to the policy assignment scope before using any Guest Configuration policy. For more information on Guest Configuration, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |4 |1.0.0-preview |

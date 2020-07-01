@@ -5,7 +5,6 @@ ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
 ---
-
 # Azure Policy built-in definitions for Azure Event Hubs
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy

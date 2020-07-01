@@ -4,7 +4,7 @@ description: Summary of compliance offerings on Azure Storage
 services: storage
 author: fhryo-msft
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common

@@ -62,12 +62,13 @@ Widening the rollout to larger groups of users should be carried out by increasi
 | [Self-service password reset](../authentication/howto-sspr-deployment.md)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
 | [Passwordless](../authentication/howto-authentication-passwordless-deployment.md) | Implement passwordless authentication using the the Microsoft Authenticator app or FIDO2 Security keys in your organization |
 
-## Deploy application management
+## Deploy application and device management
 
 | Capability | Description|
 | -| - |
 | [Single sign-on](../manage-apps/plan-sso-deployment.md)| Single sign-on helps your users access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
 | [Access panel](../manage-apps/access-panel-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
+| [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
 
 ## Deploy hybrid scenarios

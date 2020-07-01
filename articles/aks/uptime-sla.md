@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
 ---
 
@@ -25,29 +25,38 @@ Uptime SLA is available in public regions where [AKS is supported](https://azure
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
+## Limitations
+
+* Private clusters aren't currently supported.
+
 ## SLA terms and conditions
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Before you begin
 
-* Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.7.0 or later
+* Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
 
-## Creating a cluster with Uptime SLA
+## Creating a new cluster with Uptime SLA
+
+> [!NOTE]
+> Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
 
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This operation takes several minutes to complete.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This operation takes several minutes to complete:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
 
 ```output
   },
@@ -57,15 +66,61 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   },
 ```
 
-## Limitations
+## Modify an existing cluster to use Uptime SLA
 
-* Currently, cannot convert as existing cluster to enable the Uptime SLA.
-* Currently, there is no way to remove Uptime SLA from an AKS cluster after creation with it enabled.  
-* Private clusters aren't currently supported.
+You can optionally update your existing clusters to use Uptime SLA.
+
+If you created an AKS cluster with the previous steps, delete the resource group:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Create a new resource group:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Create a new cluster, and don't use Uptime SLA:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Use the [`az aks update`][az-aks-nodepool-update] command to update the existing cluster:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## Clean up
+
+To avoid charges, clean up any resources you created. To delete the cluster, use the [`az group delete`][az-group-delete] command to delete the AKS resource group:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## Next steps
 
 Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
+
 Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -81,3 +136,5 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete
