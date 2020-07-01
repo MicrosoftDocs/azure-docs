@@ -25,7 +25,7 @@ To learn more about interaction rules, go to the [references](./custom-commands-
 
 You must have finished the steps in the following articles:
 > [!div class="checklist"]
-> * [How to: Create an application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [How to: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 > * [How to: Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## Add confirmations to a command
