@@ -3,12 +3,12 @@ title: 'Gen 2 use cases - Azure Time Series Insights | Microsoft Docs'
 description: Learn about Azure Time Series Insights Gen 2 use cases.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
