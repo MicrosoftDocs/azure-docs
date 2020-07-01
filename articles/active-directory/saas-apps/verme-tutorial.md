@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate Verme with Azure Active Directory (Azure AD). When you integrate Verme with Azure AD, you can:
 
 * Control in Azure AD who has access to Verme.
-* Enable your users to be automatically signed-in to Verme with their Azure AD accounts.
+* Enable your users to be automatically signed in to Verme with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
