@@ -19,9 +19,9 @@ ms.reviewer: jroth
 # Configure VNN with Azure Load Balancer (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by clustered resource in Azure. 
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
 
-This article teaches you to configure an Azure load balancer to route traffic to your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [availability group (AG) listener](availability-group-overview.md) or [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
 
 
@@ -29,18 +29,18 @@ This article teaches you to configure an Azure load balancer to route traffic to
 
 Before you complete the steps in this article, you should already have:
 
-- Decided the Azure Load Balance is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
+- Decided that Azure Load Balancer is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md). 
-- The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Installed the latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-## Create load balancer
+## Create the load balancer
 
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. In the Azure portal, go to the resource group that contains the virtual machines.
 
-1. Select **Add**. Search the Azure Marketplace for **Load Balancer**. Select **Load Balancer**.
+1. Select **Add**. Search Azure Marketplace for **Load Balancer**. Select **Load Balancer**.
 
 1. Select **Create**.
 
@@ -61,7 +61,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    ![Set up the load balancer](./media/failover-cluster-instance-premium-file-share-manually-configure/30-load-balancer-create.png)
    
 
-## Configure backend pool
+## Configure the backend pool
 
 1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
 
@@ -73,34 +73,34 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK** to create the backend pool.
 
-## Configure health probe
+## Configure the health probe
 
-1. On the load balancer blade, select **Health probes**.
+1. On the load balancer pane, select **Health probes**.
 
 1. Select **Add**.
 
-1. On the **Add health probe** blade, <span id="probe"> </span> set the following health probe parameters.
+1. On the **Add health probe** pane, <span id="probe"> </span> set the following health probe parameters:
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
-   - **Port**: The port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
-   - **Interval**: 5 Seconds.
+   - **Port**: The port that you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
+   - **Interval**: 5 seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 
 1. Select **OK**.
 
 ## Set load-balancing rules
 
-1. On the load balancer blade, select **Load-balancing rules**.
+1. On the load balancer pane, select **Load-balancing rules**.
 
 1. Select **Add**.
 
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
-   - **Frontend IP address**: The IP address for the SQL Server FCI or AG listener clustered network resource.
+   - **Frontend IP address**: The IP address for the SQL Server FCI's or the AG listener's clustered network resource.
    - **Port**: The SQL Server TCP port. The default instance port is 1433.
-   - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
+   - **Backend port**: The same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: The backend pool name that you configured earlier.
    - **Health probe**: The health probe that you configured earlier.
    - **Session persistence**: None.
@@ -109,7 +109,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK**.
 
-## Configure cluster probe
+## Configure the cluster probe
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -132,10 +132,10 @@ The following table describes the values that you need to update:
 |**Value**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|The SQL Server FCI/AG listener IP Address Resource Name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
-|`ILBIP`|The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.|
-|`nnnnn`|The probe port you configured in the load balancer health probe. Any unused TCP port is valid.|
-|"SubnetMask"| The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.| 
+|`SQL Server FCI/AG listener IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`ILBIP`|The IP address of the internal load balancer (ILB). This address is configured in the Azure portal as the ILB's frontend address. This is also the SQL Server FCI's IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.|
+|`nnnnn`|The probe port that you configured in the load balancer's health probe. Any unused TCP port is valid.|
+|"SubnetMask"| The subnet mask for the cluster parameter. It must be the TCP IP broadcast address: `255.255.255.255`.| 
 
 
 After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
@@ -167,11 +167,11 @@ Take the following steps:
 
 Take the following steps:
 
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) and connect to your availability group listener. 
+1. Open [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) and connect to your availability group listener. 
 
-1. Expand **Always On Availability Group** in the **Object Explorer**. 
-1. Right-click the availability group and choose **Failover**. 
-1. Follow the Wizard prompts to fail the availability group over to a secondary replica. 
+1. Expand **Always On Availability Group** in **Object Explorer**. 
+1. Right-click the availability group and select **Failover**. 
+1. Follow the wizard prompts to fail over the availability group to a secondary replica. 
 
 Failover succeeds when the replicas switch roles and are both synchronized. 
 
@@ -188,7 +188,7 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 ## Next steps
 
-To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
 
 
