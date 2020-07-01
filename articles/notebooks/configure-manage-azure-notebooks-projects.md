@@ -6,7 +6,7 @@ ms.date: 02/28/2020
 ms.custom: tracking-python
 ---
 
-# Manage and configure projects in Azure Notebooks Preview
+# <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
