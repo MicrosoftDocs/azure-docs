@@ -139,4 +139,4 @@ If you haven't already done so,
 To register in Partner Center, start creating a new offer or working on an existing one:
 
 * [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-* See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.
+* See [create a SaaS application offer](./create-new-saas-offer.md) for more information.
