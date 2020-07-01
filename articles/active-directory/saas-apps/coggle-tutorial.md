@@ -87,9 +87,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://coggle.it/<TENANT_NAME>/login`
 
-    In the **Reply URL** text box, type the URL:
-    `https://coggle.it/auth/saml/callback`
-
     > [!NOTE]
 	> The value is not real. Update the value with the actual Sign-on URL. Contact [Coggle Client support team](mailto:hello@Coggle.it) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
