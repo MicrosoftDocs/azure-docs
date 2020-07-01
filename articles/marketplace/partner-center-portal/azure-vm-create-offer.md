@@ -449,7 +449,7 @@ For **Support Accelerated Networking**, select whether your VM supports [Acceler
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
 
 - **Disc version**: The version of the image you are providing.
-- **SAS URI**: The location in your Azure storage account where you've stored the operating system VHD.
+- **SAS URI**: The location in your Azure storage account where you've stored the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri).
 - Data disk images are also VHD shared access signature URIs that are stored in their Azure storage accounts.
 - Add only one image per submission in a plan.
 
