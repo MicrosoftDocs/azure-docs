@@ -13,7 +13,7 @@ ms.subservice: disks
 
 Now you can leverage [Private Links](../../../articles/private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure VNET. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network. 
 
-You can create an instance of the new resource called DiskAccess and link it to your VNET in the same subscription by creating a private endpoint. You must associate a disk or a snapshot with an instance of DiskAccess for exporting and importing the data via Private Links. Also, you must set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. 
+To use Private Links to export/import managed disks, first you create an DiskAccess resource and link it to a VNET in the same subscription by creating a private endpoint. Then, associate a disk or a snapshot with an instance of DiskAccess. Finally, set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. This will limit access to your VNET. 
 
 You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from generating the SAS URI for a disk or a snapshot. The default value for the NetworkAccessPolicy property is AllowAll.
 
