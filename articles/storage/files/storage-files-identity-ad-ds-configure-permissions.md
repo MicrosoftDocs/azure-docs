@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs permissions for on-premises AD 
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ---

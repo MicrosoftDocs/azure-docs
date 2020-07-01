@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/26/2020
+ms.date: 6/29/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,9 +82,9 @@ Memory for serverless databases is reclaimed more frequently than for provisione
 
 #### Cache reclamation
 
-Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low.
+Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.  Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.
 
-- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+- Active cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
 - When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
 - The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.

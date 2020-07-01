@@ -971,6 +971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-keys.md",
+      "redirect_url": "/azure/cognitive-services/luis/luis-how-to-azure-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
       "redirect_url": "/azure/cognitive-services/luis/luis-migration-authoring",
       "redirect_document_id": false
@@ -13092,6 +13097,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/global-peering-vnet.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table-portal.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-settings",
       "redirect_document_id": false
@@ -16977,6 +16997,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-azure-cli.md",
       "redirect_url": "/cli/azure/mysql",
       "redirect_document_id": false
@@ -18507,6 +18542,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-family/index.md",
+      "redirect_url": "/azure/databox/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storsimple/storsimple-battery-replacement.md",
       "redirect_url": "/azure/storsimple/storsimple-8000-battery-replacement",
       "redirect_document_id": false
@@ -18929,6 +18969,11 @@
     {
       "source_path": "articles/storsimple/storsimple-ova-pp-release-notes.md",
       "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/storsimple-safety.md",
+      "redirect_url": "/azure/storsimple/storsimple-8000-safety",
       "redirect_document_id": false
     },
     {
@@ -20164,6 +20209,41 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-overview#migration-from-cloud-partner-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
+      "redirect_url": "/azure/marketplace/azure-resource-manager-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
       "redirect_document_id": false
     },
     {
@@ -49154,7 +49234,7 @@
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-powershell",
       "redirect_document_id": true
-    },                    
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-storage-explorer.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer",
@@ -49179,7 +49259,7 @@
       "source_path": "articles/lab-services/devtest-lab-vm-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vm-powershell",
       "redirect_document_id": true
-    },                       
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-vmcli.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vmcli",
@@ -49309,12 +49389,12 @@
       "source_path": "articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
-    },                                                        
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/index.yml",
       "redirect_url": "/azure/lab-services/",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/account-setup-guide.md",
       "redirect_url": "/azure/lab-services/account-setup-guide",
@@ -55752,6 +55832,11 @@
     {
       "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
       "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/kubernetes/index.yml",
+      "redirect_url": "/azure/azure-arc/kubernetes/overview",
       "redirect_document_id": false
     }
   ]
