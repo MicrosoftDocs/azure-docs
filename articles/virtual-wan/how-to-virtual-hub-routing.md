@@ -75,7 +75,8 @@ In the Azure portal, locate the route table of your virtual hub. Click **"…"**
 1. Select the virtual network from the dropdown.
 1. Set up the routing configuration to associate to a route table. For **Associate Route Table**, select the route table from the dropdown.
 1. Set up the routing configuration to propagate to one or many route tables. For **Propagate to Route Table**, select from the dropdown.
-1. For **Static routes**, configure static routes for Network Virtual Appliance (if applicable).
+1. For **Static routes**, configure static routes for Network Virtual Appliance (if applicable). Virtual WAN supports a single next hop IP for static route in a virtual network connection. For example, if you have a separate virtual appliance for ingress and egress traffic flows, it would be best to have the virtual appliances in separate VNETs and attach the VNETs to the virtual hub.
+
 
 :::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Set up routing configuration" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
