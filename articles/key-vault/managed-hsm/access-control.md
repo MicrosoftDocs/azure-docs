@@ -25,16 +25,16 @@ To access a Managed HSM pool in either plane, all callers must have proper authe
 
 Both planes use Azure Active Directory for authentication. For authorization they use different systems as follows
 - The management plane uses Azure role-based access control -- Azure RBAC -- an authorization system built on Azure Azure Resource Manager 
-- The data plane uses a HSM pool level RBAC (local RBAC) -- an authorization system implemented and enforced at the HSM pool level. 
+- The data plane uses a HSM pool level RBAC (Managed HSM local RBAC) -- an authorization system implemented and enforced at the HSM pool level. 
 
-When an HSM pool resource is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the HSM pool  data plane to perform key operations and manage data plane role assignments (local RBAC).
+When an HSM pool resource is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the HSM pool  data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
 Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by ARM while data plane RBAC is enforced by HSM pool itself.
 
 > [!IMPORTANT] 
-> Granting a security principal management plane access to an HSM pool resource does not grant them any access to data plane to access keys or data plane role assignments (local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
+> Granting a security principal management plane access to an HSM pool resource does not grant them any access to data plane to access keys or data plane role assignments Managed HSM local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
 
-For example, a subscription administrator (since they have "Contributor" permission to all resources in the subscription) can delete an HSM pool in their subscription, but if they don't have data plane access specifically granted through local RBAC, they cannot gain access to keys or manage role assignment in the HSM pool to grant themselves or others access to data plane.
+For example, a subscription administrator (since they have "Contributor" permission to all resources in the subscription) can delete an HSM pool in their subscription, but if they don't have data plane access specifically granted through Managed HSM local RBAC, they cannot gain access to keys or manage role assignment in the HSM pool to grant themselves or others access to data plane.
 
 
 ## Azure Active Directory authentication
@@ -51,14 +51,14 @@ The use of a single authentication mechanism for both planes has several benefit
 
 ## Resource endpoints
 
-Security principals access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in an HSM pool, you grant data plane access by using HSM pool level local RBAC. To grant a user access to Managed HSM resource to create, read, delete, move the HSM pools and edit other properties and tags you use Azure RBAC.
+Security principals access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in an HSM pool, you grant data plane access by using Managed HSM local RBAC. To grant a user access to Managed HSM resource to create, read, delete, move the HSM pools and edit other properties and tags you use Azure RBAC.
 
 The following table shows the endpoints for the management and data planes.
 
 | Access&nbsp;plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br> management.azure.com:443<br> | Create, read, update, delete, and move HSM pools<br>Set HSM pool tags | Azure RBAC |
-| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles | Local RBAC |
+| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles | Managed HSM local RBAC |
 
 ## Management plane and Azure RBAC
 
@@ -73,9 +73,9 @@ You create a key vault in a resource group and manage access by using Azure Acti
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
-## Data plane and Local RBAC
+## Data plane and Managed HSM local RBAC
 
-You grant a security principal access to execute specific key operations by assigning a role. For each role assignment you need to specify a role and scope over which that assignment applies. For local RBAC two scopes are available.
+You grant a security principal access to execute specific key operations by assigning a role. For each role assignment you need to specify a role and scope over which that assignment applies. For Managed HSM local RBAC two scopes are available.
 
 - **"/" or "/keys"**: HSM level scope. Security principals assigned a role at this scope can perform the operations defined in the role for all objects (keys) in the HSM pool.
 - **"/keys/&lt;key-name&gt;"**: Key level scope. Security principals assigned a role at this scope can perform the operations defined in this role for all versions of the specified key only.
@@ -99,7 +99,7 @@ We need to authorize the following operations for our roles:
 - Turn on Managed HSM logging.
 - Generate or import keys
 - Create HSM pool backups for disaster recovery.
-- Set local RBAC to grant permissions to users and applications for specific operations.
+- Set Managed HSM local RBAC to grant permissions to users and applications for specific operations.
 - Roll the keys periodically.
 
 **Developers and operators**
