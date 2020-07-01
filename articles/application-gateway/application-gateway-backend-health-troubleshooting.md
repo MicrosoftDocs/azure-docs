@@ -350,9 +350,9 @@ For Windows:
 1.  Select Win+R or right-click the **Start** button and
     select **Run**.
 
-1.  Enter **certmgr.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
+1.  Enter **mmc** and select Enter. You can also search for Manage Computer Certificates on the **Start** menu. After opening the mmc console, click on File menu and then select Add/Remove Snap-in. In the opened Add or remove snap-ins windows, select Certificates from the available snap-ins list and Add it to selected snap-ins, select Local machine while adding the snap-in.  
 
-1.  Locate the certificate (typically in `\Certificates - Current User\\Personal\\Certificates`), and open the certificate.
+1.  Locate the certificate, typically in `\Certificates - Local Computer\\Personal\\Certificates\`, and open the certificate.
 
 1.  On the **Details** tab, check the certificate **Subject**.
 
