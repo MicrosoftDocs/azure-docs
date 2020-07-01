@@ -93,4 +93,4 @@ To use a custom logo:
 Now that you've configured the properties of the application you can continue on to set up single sign-on.
 
 - [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Remove an app](remove-application-portal.md)
+- [Delete an app](delete-application-portal.md)

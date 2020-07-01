@@ -81,4 +81,4 @@ In this quickstart, you learned how to view the applications in your Azure AD te
 - [Add an app](add-application-portal.md)
 - [Configure an app](add-application-portal-configure.md)
 - [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Remove an app](remove-application-portal.md)
+- [Delete an app](delete-application-portal.md)

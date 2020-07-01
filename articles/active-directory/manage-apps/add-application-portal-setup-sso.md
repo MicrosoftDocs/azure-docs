@@ -36,4 +36,4 @@ To set up SSO for an application you have added to your tenant, you need:
 
 ## Next steps
 
-- [Remove an app](remove-application-portal.md)
+- [Delete an app](delete-application-portal.md)
