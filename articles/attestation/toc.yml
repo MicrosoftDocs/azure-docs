@@ -23,8 +23,8 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
-    - name: Attestation policy claims
-      items:
+  - name: Attestation policy claims
+    items:
       - name: Claim Rule Grammar
         href: claimrulegrammar.md
       - name: Claim sets
