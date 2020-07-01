@@ -16,7 +16,7 @@ An App Service Environment can be created in **either** an Azure Resource Manage
 
 Always create an App Service Environment within a subnet. A subnet provides a network boundary that can be used to lock down inbound traffic behind upstream devices and services. This setup allows only specific upstream IP addresses to accept HTTP and HTTPS traffic.
 
-Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups]. To controlling inbound traffic, create network security rules in a network security group. Then assign the network security group the subnet containing the App Service Environment.
+Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups]. To control inbound traffic, create network security rules in a network security group. Then assign the network security group the subnet containing the App Service Environment.
 
 Once you assign a network security group to a subnet, inbound traffic to apps in the App Service Environment is allowed or blocked based on the allow and deny rules that are defined in the network security group.
 
@@ -52,7 +52,7 @@ For full details on how network security groups work see the following [informat
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, create the network security group in the same region as the App Service Environment.
 
-The following code demonstrates creating a network security group:
+The following command demonstrates creating a network security group:
 
 ```azurepowershell-interactive
 New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
@@ -75,7 +75,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityR
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-If FTP support is wanted, use the following rules as a template to grant access to the FTP control port and data channel ports.  Since FTP is a stateful protocol, you may be unable to route FTP traffic through a traditional HTTP/HTTPS firewall or proxy device.  In this case, you'll need to set the *SourceAddressPrefix* to a different value - for example the IP address range of developer or deployment machines on which FTP clients are running. 
+If FTP support is wanted, use the following rules as a template to grant access to the FTP control port and data channel ports.  Since FTP is a stateful protocol, you may be unable to route FTP traffic through a traditional HTTP/HTTPS firewall or proxy device.  In this case, you'll need to set the *SourceAddressPrefix* to a different value, such as the IP address range of developer or deployment machines on which FTP clients are running. 
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
@@ -119,9 +119,9 @@ To find the individual pair of ports that is used by each IP-SSL address, go to 
 When an app on an ASE is configured to use IP-SSL, external customers won't see or need to worry about the special port pair mapping.  Traffic to the apps will flow normally to the configured IP-SSL address.  The translation to the special port pair automatically happens internally, during the routing traffic's final leg into the subnet that contains the ASE. 
 
 ## Getting started
-To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
+To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment].
 
-For more information, see [Securely connecting to Backend resources from an App Service Environment][SecurelyConnecttoBackend]
+For more information, see [Securely connecting to Backend resources from an App Service Environment][SecurelyConnecttoBackend].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
