@@ -20,11 +20,11 @@ There are several ways to start the authoring experience in SQL script. You can 
 1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
 ![new sql script](media/author-sql-script/newsqlscript.png)
 
-2. From the Actions menu, choose **New SQL script** from the **Actions** menu under Develop SQL scripts.  ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
+2. From the **Actions** menu, choose **New SQL script** under Develop SQL scripts.  ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
 
 Alternatively, you can: 
 
-3. Choose **Import** from the **Actions** menu under Develop SQL scripts and select an existing SQL script from your local storage.
+3. Choose **Import** from the **Actions** menu under Develop SQL scripts. Select an existing SQL script from your local storage.
 ![new sql script 3 actions](media/author-sql-script/newsqlscript3actions.png)
 
 ## Create your SQL script
