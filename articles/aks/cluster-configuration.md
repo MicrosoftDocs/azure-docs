@@ -158,7 +158,7 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 * You can no longer access the docker engine, `/var/run/docker.sock` or use Docker-in-Docker (DinD).
   * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS does not support running any out of band commands on the agent nodes that could cause instability.
   * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is ill-advised. Kubernetes is not fully aware of those consumed resources, and those approaches present a lot of issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
-* Building images - The best and recommended option is using fit-for-purpose services for this that Azure provides such as [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). If you really want to do this within the cluster, you should look at more secure in-cluster options like [img](container-registry/container-registry-quickstart-task-cli)
+* Building images - The best and recommended option is using fit-for-purpose services for this that Azure provides such as [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). If you really want to do this within the cluster, you should look at more secure in-cluster options like [img](https://github.com/genuinetools/img)
 
 
 
