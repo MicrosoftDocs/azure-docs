@@ -110,5 +110,6 @@ After you provide your credentials, the sample application can proceed to issue 
 ## Next steps
 
 - For more information on running the [AccountManagement sample application](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement), see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
-- To learn more about Azure AD, see the [Azure Active Directory Documentation](/active-directory/index.yml). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+- To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml).
+- In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 - To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
