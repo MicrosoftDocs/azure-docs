@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/01/2020
 ms.author: v-erkel
 ---
 
@@ -52,6 +52,12 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 ### [Azure CLI](#tab/azure-cli)
 
+Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
+
+<!-- [!INCLUDE [cli-reminder.md](/includes/cli-reminder.md)] -->
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
 The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency. To skip flushing data, include the option ``--no-wait``.
@@ -59,6 +65,28 @@ The cache automatically flushes its contents to the storage targets before stopp
 When the action is complete, the cache status changes to **Stopped**.
 
 Reactivate a stopped cache with [az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+When you issue the start or stop command, the command line shows a "Running" status message until the operation completes.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+At completion, the message updates to "Finished" and shows return codes and other information.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
 
 ---
 
@@ -82,6 +110,8 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 ![screenshot of the top buttons with Flush highlighted and a pop-up message describing the flush action and asking 'do you want to continue?' with Yes (default) and No buttons](media/hpc-cache-flush.png)
 
 ### [Azure CLI](#tab/azure-cli)
+
+Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
 
 Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
@@ -107,11 +137,40 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 ### [Azure CLI](#tab/azure-cli)
 
-On the Azure CLI, new software information is included at the end of the cache status report. Look for the string "upgradeStatus" in the message.<!-- try hpc-cache show to see if it's always there -->
+Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
+
+On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
 Use [az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
 
 If no update is available, this operation has no effect.
+
+This example shows the cache status (no update is available) and the results of the upgrade-firmware command.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+v-erkell@OB-SURFACE:~ $
+```
 
 ---
 
@@ -131,6 +190,8 @@ The back-end storage volumes used as storage targets are unaffected when you del
 After stopping the cache, click the **Delete** button to permanently remove the cache.
 
 ### [Azure CLI](#tab/azure-cli)
+
+Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
 
 Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
 

@@ -112,7 +112,7 @@ When finished, click **OK** to update the storage target, or click **Cancel** to
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) to update a target's namepace path.
+Use [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) to update a target's namespace path.
 
 ```azurecli
 az hpc-cache blob-storage-target update --cache-name name --name target-name \

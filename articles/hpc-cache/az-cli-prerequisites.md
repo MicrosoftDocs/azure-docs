@@ -18,13 +18,19 @@ Follow these steps to prepare your environment before using Azure CLI to create 
 
 Azure HPC Cache requires version 2.7 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+```azurecli-interactive
+az --version
+```
+
+### Install the Azure HPC Cache extension
+
 Azure HPC Cache functions are not part of the main code base, so you also must install the extension reference. Follow the instructions below.
 
 1. Sign in
 
    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a locally installed version of the CLI.
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
@@ -41,7 +47,7 @@ Azure HPC Cache functions are not part of the main code base, so you also must i
 
    Install the extension for Azure HPC Cache by running the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az extension add --name hpc-cache
    ```
 
