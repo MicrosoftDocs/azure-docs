@@ -9,8 +9,6 @@
   items:
   - name: Create logic apps - Portal
     href: quickstart-create-first-logic-app-workflow.md
-  - name: Create and manage logic apps - Azure CLI
-    href: quickstart-logic-apps-azure-cli.md
   - name: Create logic apps - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
@@ -18,6 +16,8 @@
   - name: Create logic apps - ARM template
     displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
+  - name: Create and manage logic apps - Azure CLI
+    href: quickstart-logic-apps-azure-cli.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
