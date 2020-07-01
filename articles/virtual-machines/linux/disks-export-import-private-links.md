@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Securely exporting/importing data Azure managed disks using Private Links
 
-You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises. Now you can leverage [Private Links](../../../articles/private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure VNET. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network. 
+Now you can leverage [Private Links](../../../articles/private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure VNET. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network. 
 
 You can create an instance of the new resource called DiskAccess and link it to your VNET in the same subscription by creating a private endpoint. You must associate a disk or a snapshot with an instance of DiskAccess for exporting and importing the data via Private Links. Also, you must set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. 
 
