@@ -77,9 +77,9 @@ The new server created during a restore does not have the VNet service endpoints
 
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for MySQL**.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for MariaDB**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2_navigate-to-mariadb.png" alt-text="Navigate to Azure Database for MySQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/2_navigate-to-mariadb.png" alt-text="Navigate to Azure Database for MariaDB.":::
  
 2. Provide the subscription, resource group, and name of the new server. 
 
