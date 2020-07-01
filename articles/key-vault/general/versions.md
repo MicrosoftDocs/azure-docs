@@ -39,7 +39,7 @@ The following changes were made at this release:
 - Get information about a key - “use” field removed.
 - Import a key into a vault - “use” field removed.
 - Restore a key - “use” field removed.     
-- Changed “RSA_OAEP” to “RSA-OAEP” for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md).    
+- Changed “RSA_OAEP” to “RSA-OAEP” for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
  
 ## 2015-02-01-preview 
  
@@ -57,14 +57,14 @@ The following tasks were updated:
 - Create a secret - added tags as optional information.      
 - Update a key - added tags as optional information.      
 - Update a secret - added tags as optional information.      
-- Changed max size for secrets from 10 K to 25 K Bytes. See, [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md).    
+- Changed max size for secrets from 10 K to 25 K Bytes. See, [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
  
 ## 2014-12-08-preview  
  
 First preview version 2014-12-08-preview, announced on January 8, 2015.  
  
 ## See also  
-- [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- [About keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Keys](../keys/index.yml)
 - [Secrets](../secrets/index.yml)
 - [Certificates](../certificates/index.yml)
