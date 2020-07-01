@@ -93,9 +93,6 @@ Navigate to your new container registry in the Azure portal and select **Access 
 
 Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your registry before pushing images to it.
 
-> [!TIP]
-> The following steps use Docker commands to build and push an image to your registry. These steps can also be performed using [ACR Tasks](container-registry-tasks-overview.md). ACR Tasks is a suite of features within Azure Container Registry to help you build, manage, and modify container images across the container lifecycle.
-
 Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
 
 ```azurecli
