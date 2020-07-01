@@ -57,9 +57,9 @@ You can find this new workbook template by choosing **Workbooks** from the Azure
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Security incidents workbook gallery":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-all.png" alt-text="Security incidents workbook complete":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Security incidents workbook complete":::
 
-
+You can use the template to create your own custom workbooks tailored to your specific needs.
 
 ## Next steps
 
