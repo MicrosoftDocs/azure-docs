@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/22/2020
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -285,7 +285,7 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
 > [!NOTE]
 > To deploy templates with comments by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.
@@ -407,4 +407,4 @@ To deploy templates with multi-line strings by using Azure CLI with version 2.3.
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](template-functions.md).
 * To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* For recommendations on creating Resource Manager templates that you can use across all Azure environments and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).

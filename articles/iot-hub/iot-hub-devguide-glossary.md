@@ -215,7 +215,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 
 ## IoT Hub query language
 
-The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [](#job) and device twins.
+The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [Job](#job) and device twins.
 
 ## IoT Hub Resource REST API
 
@@ -336,7 +336,7 @@ You can use a token service to implement an authentication mechanism for your de
 
 ## Twin queries
 
-[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about [](#job) running in your IoT hub.
+[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about a [Job](#job) running in your IoT hub.
 
 ## Twin synchronization
 

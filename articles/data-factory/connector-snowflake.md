@@ -139,7 +139,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The type property of the Copy Activity source must be set to **SnowflakeSource**. | Yes      |
-| query          | Specifies the SQL query to read data from Snowflake. | No       |
+| query          | Specifies the SQL query to read data from Snowflake.<br>Executing stored procedure is not supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by COPY into command that ADF will pass through when invoke the statement. | No       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |

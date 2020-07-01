@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 06/15/2020
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -257,7 +257,7 @@ To append a tag to the existing tags on a resource group, use:
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Currently, Azure CLI doesn't support applying tags to subscriptions.
+Currently, Azure CLI doesn't have a command for applying tags to subscriptions. However, you can use CLI to deploy an ARM template that applies the tags to a subscription. See [Apply tags to resource groups or subscriptions](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### List tags
 
@@ -517,6 +517,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+For more information about subscription deployments, see [Create resource groups and resources at the subscription level](../templates/deploy-to-subscription.md).
+
 The following template adds the tags from an object to either a resource group or subscription.
 
 ```json
@@ -577,10 +579,8 @@ For REST API operations, see [Azure Billing REST API Reference](/rest/api/billin
 The following limitations apply to tags:
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* Management groups currently don't support tags.
 * Each resource, resource group, and subscription can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
-* Generalized VMs don't support tags.
 * Tags can't be applied to classic resources such as Cloud Services.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 

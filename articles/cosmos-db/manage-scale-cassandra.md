@@ -14,7 +14,7 @@ There are a variety of options to explore the elastic nature of the Azure Cosmos
 
 For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
-![Database operations consume Request Units](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
 ## Handling rate limiting (429 errors)
 

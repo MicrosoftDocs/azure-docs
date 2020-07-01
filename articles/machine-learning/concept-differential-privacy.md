@@ -18,6 +18,9 @@ Learn what differential privacy is and how the WhiteNoise package can help you i
 
 As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
 
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+
 ## How differential privacy works
 
 Differential privacy is a set of systems and practices that help keep the data of individuals safe and private.

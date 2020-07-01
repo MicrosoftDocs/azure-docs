@@ -99,25 +99,23 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 The following code shows how to set preferred locations by using the Python SDK:
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
 
 ```
 
-## Java V4 SDK
+## <a id="java4-preferred-locations"></a> Java V4 SDK
 
 The following code shows how to set preferred locations by using the Java SDK:
 
-### <a id="java4-preferred-locations"></a>
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
@@ -126,14 +124,13 @@ The following code shows how to set preferred locations by using the Java SDK:
 --- 
 
 ## REST
-Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
-
-    https://{databaseaccount}.documents.azure.com/
+Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on this  URI `https://{databaseaccount}.documents.azure.com/`
 
 The service will return a list of regions and their corresponding Azure Cosmos DB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
 
 Example response
 
+```json
     {
         "_dbs": "//dbs/",
         "media": "//media/",
@@ -163,7 +160,7 @@ Example response
         "_ts": 0,
         "_etag": null
     }
-
+```
 
 * All PUT, POST and DELETE requests must go to the indicated write URI
 * All GETs and other read-only requests (for example queries) may go to any endpoint of the client's choice

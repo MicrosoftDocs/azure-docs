@@ -25,51 +25,51 @@ az login
 
 After running this command, you have to sign in via the instructions on the screen. All commands work in the context of your default subscription.
 
-To list the details of your current subscription, use the following command.
+List the details of your current subscription.
 
 ```azurecli
 az account show
 ```
 
-To change working context to a different subscription, use the following command.
+Change working context to a different subscription.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-To view a list of all supported Azure Monitor commands, perform the following command.
+View a list of all supported Azure Monitor commands.
 
 ```azurecli
 az monitor -h
 ```
 
-## View activity log for a subscription
+## View activity log
 
-To view a list of activity log events, perform the following command.
+View a list of activity log events.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Try the following to view all available options.
+View all available options.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Here is an example to list logs by a resourceGroup
+List logs by a resourceGroup.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Example to list logs by caller
+List logs by caller.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Example to list logs by caller on a resource type, within a date range
+List logs by caller on a resource type, within a date range.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

@@ -13,7 +13,10 @@ ms.custom: mimckitt
 ---
 
 
-# Orchestration mode (preview)
+# Orchestration modes (preview)
+
+> [!CAUTION]
+> Thank you to everyone who participated in this public preview. We were able to gather valuable feedback from our community. This preview is now **closed** for any new participants, in order to integrate feedback. We will update this space with any new information.
 
 Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model.
 
