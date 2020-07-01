@@ -1414,6 +1414,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendSafely
+        href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
       - name: Sequr
