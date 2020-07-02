@@ -91,7 +91,7 @@ The following table shows a list of supported operating systems on Azure images:
 |Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4, 9.0 and later|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 and later|
 |Suse|SLES|12 SP3 and later|
 
 Custom virtual machine images are supported by Guest Configuration policies as long as they're one
