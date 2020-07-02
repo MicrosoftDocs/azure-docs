@@ -62,7 +62,7 @@ More SQL Server on Azure VM templates can be found in the [quickstart template g
     * **Admin Username**: The username for the administrator of the virtual machine. 
     * **Admin Password**: The password used by the VM administrator account. 
     * **Storage Workload Type**:  The type of storage for the workload that best matches your business. 
-    * **Sql Data Disks Count**:  The number of disks SQL Serer uses for data files.  
+    * **Sql Data Disks Count**:  The number of disks SQL Server uses for data files.  
     * **Data Path**:  The path for the SQL Server data files. 
     * **Sql Log Disks Count**:  The number of disks SQL Server uses for log files. 
     * **Log Path**:  The path for the SQL Server log files. 
