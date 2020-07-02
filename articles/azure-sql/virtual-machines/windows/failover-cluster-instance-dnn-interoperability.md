@@ -1,5 +1,5 @@
 ---
-title: Distributed network name interoperability with SQL Server FCI
+title: Feature interoperability with SQL Server FCI & DNN
 description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) resource with a failover cluster instance on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
@@ -15,7 +15,7 @@ ms.author: mathoma
 
 ---
 
-# Distributed network name interoperability with SQL Server FCI
+# Feature interoperability with SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) resource with your failover cluster instance and SQL Server on Azure VMs, there are some additional considerations. 
