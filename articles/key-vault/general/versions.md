@@ -49,7 +49,7 @@ New features released this year:
 - Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
 - Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 
-# 2015
+## 2015
 
 New features released this year:
 - Certificate management. Added as a feature to the GA version 2015-06-01 on September 26, 2016.
