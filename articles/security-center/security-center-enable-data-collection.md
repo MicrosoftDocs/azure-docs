@@ -197,7 +197,7 @@ If the configured workspace is a user workspace (not Security Center's default w
 <br>
 For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 <br>
-For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
+For existing machines on subscriptions onboarded to Security Center before 17th March 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
 
   
 - System Center Operations Manager agent is installed on the machine<br>
@@ -242,7 +242,7 @@ You can manually install the Log Analytics agent, so Security Center can collect
 
 1. Set the workspace on which you're installing the Log Analytics agent to the standard pricing tier:
 
-    1. From teh Security Center menu, select **Pricing & settings**.
+    1. From Security Center's menu, select **Pricing & settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
