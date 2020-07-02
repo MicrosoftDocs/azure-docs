@@ -55,9 +55,11 @@ For a hybrid environment with on-premises Active Directory synchronized with Azu
 
 As an admin in the Active Directory, connect to your on-premises network, open PowerShell, and take the following actions:
 
-1.Disable the user in Active Directory. Refer to [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Disable the user in Active Directory. Refer to [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
+    ```PowerShell
     Disable-ADAccount -Identity johndoe  
+    ```
 
 1. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
@@ -66,8 +68,10 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
     Don't use the example passwords in the following cmdlets. Be sure to change the passwords to a random string.
 
+    ```PowerShell
     Set-ADAccountPassword -Identity johndoe -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "p@ssw0rd1" -Force)
     Set-ADAccountPassword -Identity johndoe -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "p@ssw0rd2" -Force)
+    ```
 
 ### Azure Active Directory environment
 
@@ -75,15 +79,20 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 
 1. Disable the user in Azure AD. Refer to [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
+    ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
-
+    ```
 1. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
+    ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
+    ```
 
 1. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
+    ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
+    ```
 
 ## Optional steps
 
