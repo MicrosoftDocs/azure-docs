@@ -1,45 +1,45 @@
 ---
-title: Quickstart - View tenant applications using Azure Active Directory
+title: 'Quickstart: View applications using your Azure Active Directory (Azure AD) tenant for identity management'
 description: In this Quickstart, use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
+
 ---
 
-# Quickstart: View your Azure Active Directory tenant applications
+# Quickstart: View applications using your Azure Active Directory (Azure AD) tenant for identity management
 
-This quickstart uses the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use Azure AD tenant as their identity provider.
 
-## Before you begin
+## Prerequisites
 
-To see results, you need to have at least one application in your Azure AD tenant. To add an application, see the [Add an application](add-application-portal.md) quickstart.
+To view applications that have been registered in your Azure AD tenant, you need:
 
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Find the list of tenant applications
+>[!IMPORTANT]
+>We recommend using a non-production environment to test the steps in this quickstart.
 
-Your Azure AD tenant applications are viewable in the **Enterprise apps** section of the Azure portal.
+## Find the list of applications in your tenant
 
-To find your tenant applications:
+The applications that are registered with your Azure AD tenant are viewable in the **Enterprise apps** section of the Azure portal.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
+To view the applications registered in your tenant:
+
+1. Sign in to your [Azure portal](https://portal.azure.com).
+1. On the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
-1. To view more applications, select **Load more** at the bottom of the list. Depending on the number of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
+1. To view more applications, select **Load more** at the bottom of the list. If there are numerous applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list. Searching for a particular application is covered later in this quickstart.
 
 ## Select viewing options
 
@@ -56,7 +56,7 @@ Select options according to what you're looking for.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
 1. After choosing the options you want, select **Apply**.
 
-## Search for a tenant application
+## Search for an application
 
 To search for a particular application:
 
@@ -73,7 +73,7 @@ To search for a particular application:
 
 In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
 
-Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on.
-
-> [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-non-gallery-applications.md)
+- [Add an app](add-application-portal.md)
+- [Configure an app](add-application-portal-configure.md)
+- [Set up single sign-on](add-application-portal-setup-sso.md)
+- [Delete an app](delete-application-portal.md)

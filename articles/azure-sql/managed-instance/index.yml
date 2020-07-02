@@ -7,8 +7,8 @@ metadata:
   title: Azure SQL Managed Instance documentation
   description: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server.
   services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  ms.service: sql-managed-instance
+  ms.subservice: operations
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma

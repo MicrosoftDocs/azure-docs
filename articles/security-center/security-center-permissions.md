@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/12/2020
 ms.author: memildin
 
 ---
@@ -41,7 +41,7 @@ The following table displays roles and allowed actions in Security Center.
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edit security policy|-|✔|-|-|✔|
 |Change subscription pricing tier|-|✔|-|-|✔|
-|Enable / disable auto-provisioning|-|✔|-|-|✔|
+|Enable / disable auto-provisioning|-|✔|✔|-|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Dismiss alerts|-|✔|-|✔|✔|
 |View alerts and recommendations|✔|✔|✔|✔|✔|

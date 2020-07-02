@@ -23,6 +23,8 @@
       href: b2b-tutorial-require-mfa.md
   - name: Samples
     items:
+    - name: Samples for self-service sign-up
+      href: code-samples-self-service-sign-up.md
     - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
@@ -52,6 +54,8 @@
       href: identity-providers.md
     - name: Self-service sign-up user flows (Preview)
       href: self-service-sign-up-overview.md
+    - name: Self-service sign-up API connectors (Preview)
+      href: api-connectors-overview.md
     - name: Azure AD entitlement management
       href: self-service-portal.md
     - name: Current limitations
@@ -95,6 +99,10 @@
         href: user-flow-add-custom-attributes.md
       - name: Customize the user flow language
         href: user-flow-customize-language.md
+      - name: Add an API connector
+        href: self-service-sign-up-add-api-connector.md
+      - name: Add a custom approval system
+        href: self-service-sign-up-add-approvals.md
     - name: Manage guest accounts
       items:
       - name: Add a B2B user to a role
@@ -125,8 +133,8 @@
     items:
     - name: FAQ
       href: faq.md
-    - name: Getting support for B2B
-      href: get-support.md
+    - name: Getting support
+      href: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
     - name: Azure feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
     - name: Azure Roadmap

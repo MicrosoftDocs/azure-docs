@@ -2,7 +2,7 @@
 title: Enabling service-aided subnet configuration for Azure SQL Managed Instance
 description: Enabling service-aided subnet configuration for Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 

@@ -110,8 +110,12 @@ When using the `psql` command line client, the access token needs to be passed t
 
 Windows Example:
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Linux/macOS Example:

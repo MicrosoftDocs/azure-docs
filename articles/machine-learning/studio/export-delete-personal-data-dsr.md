@@ -5,7 +5,7 @@ description: In-product data stored by Azure Machine Learning Studio (classic) i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

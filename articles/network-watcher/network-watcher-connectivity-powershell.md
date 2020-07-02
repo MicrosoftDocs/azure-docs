@@ -5,10 +5,10 @@ description: Learn how to use the connection troubleshoot capability of Azure Ne
 services: network-watcher
 documentationcenter: na
 author: damendo
-manager: twooley
+
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017

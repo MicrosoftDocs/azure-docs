@@ -7,11 +7,11 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/02/2020
 ms.author: allensu
 ---
 
@@ -136,7 +136,8 @@ The example creates the following four rule objects:
 * An inbound NAT rule for the Remote Desktop Protocol (RDP): Redirects all incoming traffic on port 3441 to port 3389.
 * A second inbound NAT rule for RDP: Redirects all incoming traffic on port 3442 to port 3389.
 * A health probe rule: Checks the health status of the HealthProbe.aspx path.
-* A load balancer rule: Load-balances all incoming traffic on public port 80 to local port 80 in the back-end address pool.
+* A load balancer rule: Load-balances all incoming traffic on public port 80 to local port 80 in the backend address pool.
+* An [HA ports load balancer rule](load-balancer-ha-ports-overview.md) to load balance all incoming traffic to all ports to simplify for HA scenarios for your Standard ILB.
 
 ```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -146,6 +147,8 @@ $inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendI
 $healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+
+$haportslbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### Step 2: Create the load balancer
@@ -153,8 +156,10 @@ $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $fr
 Create the load balancer and combine the rule objects (inbound NAT for RDP, load balancer, and health probe):
 
 ```azurepowershell-interactive
-$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -SKU Standard -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
+
+Use `-SKU Basic` to create a Basic Load Balancer. Microsoft recommends using Standard for production workloads.
 
 ## Create the network interfaces
 
@@ -186,10 +191,12 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 Review the configuration:
 
-    $backendnic1
+```azurepowershell
+$backendnic1
+```
 
 The settings should be as follows:
-
+```azurepowershell
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
     Location             : westus
@@ -231,8 +238,7 @@ The settings should be as follows:
     AppliedDnsSettings   :
     NetworkSecurityGroup : null
     Primary              : False
-
-
+```
 
 ### Step 3: Assign the NIC to a VM
 

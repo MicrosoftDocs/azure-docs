@@ -73,10 +73,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 Registration is an asynchronous process. Registration may take approximately 10 minutes. You can monitor the registration process with the following commands:
@@ -204,7 +202,7 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 * `deployment.apps/metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
 * `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count and Arc agent version
 * `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
-* `deployment.apps/clusteridentityoperator`: maintains the managed service identity (MSI) certificate used by other agents for communication with Azure
+* `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
 * `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
 
 ## Delete a connected cluster

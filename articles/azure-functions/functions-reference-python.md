@@ -258,7 +258,7 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ## HTTP Trigger and bindings
 
-The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.
 In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
 
 From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
@@ -634,7 +634,7 @@ There are a few libraries come with the Python Functions runtime.
 
 ### Python Standard Library
 
-The Python Standard Library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like File I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
+The Python Standard Library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
 
 To view the full details of the list of these libraries, please visit the links below:
 
@@ -648,11 +648,11 @@ The Functions Python worker requires a specific set of libraries. You can also u
 
 ### Azure Functions Python library
 
-Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness.
+Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backwards-compatible. A list of releases of this library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-The reason of making this decision is for the ease of continuous update in Azure Functions Python apps. The update of Python Library should not be customer aware since each update is backward compatible. A list of release of the library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
+The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness. 
 
-You can track the actual version of Python Functions library in your runtime with following line:
+Use the following code to track the actual version of the Python Functions library in your runtime:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -661,6 +661,7 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 ### Runtime system libraries
 
 For a list of preinstalled system libraries in Python worker Docker images, please follow the links below:
+
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
 | Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
