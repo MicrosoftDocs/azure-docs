@@ -28,6 +28,10 @@
     items:
     - name: What is Azure Dev Tools for Teaching?
       href: azure-dev-tools-teaching/about-program.md
+    - name: Azure for Students
+      href: azure-dev-tools-teaching/azure-students-program.md
+    - name: Azure for Students Starter
+      href: azure-dev-tools-teaching/azure-students-starter-program.md
   - name: Quickstarts
     items: 
     - name: Enroll or renew a subscription
