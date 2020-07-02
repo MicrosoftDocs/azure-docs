@@ -1,5 +1,5 @@
 ---
-title: Distributed network name interoperability with SQL Server FCI
+title: Feature interoperability with SQL Server FCI & DNN
 description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) resource with a failover cluster instance on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
@@ -15,7 +15,7 @@ ms.author: mathoma
 
 ---
 
-# Distributed network name interoperability with SQL Server FCI
+# Feature interoperability with SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) resource with your failover cluster instance and SQL Server on Azure VMs, there are some additional considerations. 
@@ -142,6 +142,31 @@ GO
 ```
 
 Then, create a network alias to map `vnnname\insta1` to `dnnlsnr\insta1`. 
+
+
+
+## Frequently asked questions
+
+
+- Which SQL Server version brings DNN support? 
+
+   SQL Server 2019 CU2 and later.
+
+- What is the expected failover time when DNN is used?
+
+   For DNN, the failover time will be just the FCI failover time, without any time added (like probe time when you're using Azure Load Balancer).
+
+- Is there any version requirement for SQL clients to support DNN with OLEDB and ODBC?
+
+   We recommend `MultiSubnetFailover=True` connection string support for DNN. It's available starting with SQL Server 2012 (11.x).
+
+- Are any SQL Server configuration changes required for me to use DNN? 
+
+   SQL Server does not require any configuration change to use DNN, but some SQL Server features might require more consideration. 
+
+- Does DNN support multiple-subnet clusters?
+
+   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
 
 
 

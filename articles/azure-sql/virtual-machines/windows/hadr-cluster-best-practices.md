@@ -45,21 +45,21 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 |---------|---------|---------|---------|
 |Supported OS| All |Windows Server 2016+| Windows Server 2012+|
 |Supported SQL Server version|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
-|Supported FCI storage|Azure shared disks|All|All|
+
 
 
 ### Disk witness
 
 A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. 
 
-Using a disk witness with a failover cluster instance and SQL Server on Azure VMs requires Azure Shared Disks.
+Configure an Azure shared disk as the disk witness. 
 
 To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Supported OS**: All    
 **Supported SQL version**: SQL Server 2019   
-**Supported FCI storage**: Azure shared disks
+
 
 ### Cloud witness
 
@@ -70,7 +70,7 @@ To get started, see [Configure a cloud witness](/windows-server/failover-cluster
 
 **Supported OS**: Windows Server 2016 and later   
 **Supported SQL version**: SQL Server 2016 and later     
-**Supported FCI storage**: All   
+
 
 ### File share witness
 
@@ -83,16 +83,25 @@ To get started, see [Configure a file share witness](/windows-server/failover-cl
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2016 and later   
-**Supported FCI storage**: All   
+
 
 
 ## Connectivity
 
 In a traditional on-premises network environment, a SQL Server failover cluster instance appears to be a single instance of SQL Server running on a single computer. Because the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application that's connecting to SQL Server, and this minimizes the downtime that the client or application experiences during a failure. 
 
-Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs. The DNN feature is currently available only for SQL Server 2019 CU2 and later on a Windows Server 2019 virtual machine. 
+Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs. The DNN feature is currently available only for SQL Server 2019 CU2 and later on a Windows Server 2016 (or later) virtual machine. 
 
-### Virtual network name with Azure Load Balancer
+The following table compares HADR connection supportability: 
+
+| |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
+|---------|---------|---------|
+|Minimum OS version| Windows Server 2012 | Windows Server 2016|
+|Minimum SQL Server version |SQL Server 2012 |SQL Server 2019 CU2|
+|Supported HADR solution | Failover cluster instance <br/> Availability group | Failover cluster instance|
+
+
+### Virtual Network Name (VNN)
 
 Because the virtual IP access point works differently in Azure, you need to configure [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the FCI nodes. In Azure virtual machines, a load balancer holds the IP address for the VNN that the clustered SQL Server resources rely on. The load balancer distributes inbound flows that arrive at the front end, and then routes that traffic to the instances defined by the back-end pool. You configure traffic flow by using load-balancing rules and health probes. With SQL Server FCI, the back-end pool instances are the Azure virtual machines running SQL Server. 
 
@@ -100,52 +109,29 @@ There is a slight failover delay when you're using the load balancer, because th
 
 To get started, learn how to [configure Azure Load Balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
 
-**Supported OS**: All   
-**Supported SQL version**: All   
-**Supported FCI storage**: All storage options    
+**Supported OS**: Windows Server 2012 and later   
+**Supported SQL version**: SQL Server 2012 and later   
+**Supported HADR solution**: Failover cluster instance, and availability group 
 
-### Distributed network name
 
-Distributed network name is a new feature for Windows Server 2019. It's supported for SQL Server FCI 2019 CU2 and later on Azure VMs. The DNN provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance without using a load balancer. 
+### Distributed Network Name (DNN)
+
+Distributed network name is a new Azure feature for SQL Server 2019 CU2. The DNN provides an alternative way for SQL Server clients to connect to the SQL Server failover cluster instance without using a load balancer. 
 
 When a DNN resource is created, the cluster binds the DNS name with the IP addresses of all the nodes in the cluster. The SQL client will try to connect to each IP address in this list to find the node where the failover cluster instance is currently running. You can accelerate this process by specifying `MultiSubnetFailover=True` in the connection string. This setting tells the provider to try all IP addresses in parallel, so the client can connect to the FCI instantly. 
 
-We recommend using a distributed network name rather than a load balancer because: 
+A distributed network name is recommended over a load balancer when possible because: 
 - The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
 - Eliminating the load balancer probes minimizes failover duration. 
 - The DNN simplifies provisioning and management of the failover cluster instance with SQL Server on Azure VMs. 
 
 Most SQL Server features work transparently with FCI. In those cases, you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN value with the existing VNN DNS name. However, some server-side components require a network alias that maps the VNN name to the DNN name. Specific cases might require the explicit use of the DNN DNS name, such as when you're defining certain URLs in a server-side configuration. 
 
-To get started, learn how to [configure a DNN resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
+To get started, learn how to [configure a DNN resource for an FCI](hadr-distributed-network-name-dnn-configure.md). 
 
-**Supported OS**: Windows Server 2019   
-**Supported SQL version**: SQL Server 2019 CU2   
-**Supported FCI storage**:  All
-
-
-### Frequently asked DNN questions
-
-
-- Which SQL Server version brings DNN support? 
-
-   SQL Server 2019 CU2 and later.
-
-- What is the expected failover time when DNN is used?
-
-   For DNN, the failover time will be just the FCI failover time, without any time added (like probe time when you're using Azure Load Balancer).
-
-- Is there any version requirement for SQL clients to support DNN with OLEDB and ODBC?
-
-   We recommend `MultiSubnetFailover=True` connection string support for DNN. It's available starting with SQL Server 2012 (11.x).
-
-- Are any SQL Server configuration changes required for me to use DNN? 
-
-   SQL Server does not require any configuration change to use DNN, but some SQL Server features might require more consideration. 
-
-- Does DNN support multiple-subnet clusters?
-
-   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
+**Supported OS**: Windows Server 2016 and later   
+**Supported SQL version**: SQL Server 2019 and later   
+**Supported HADR solution**: Failover cluster instance only
 
 
 ## Limitations
