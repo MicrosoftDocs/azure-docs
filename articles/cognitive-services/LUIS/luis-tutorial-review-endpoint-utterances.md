@@ -28,7 +28,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 > * Train and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-[!INCLUDE [LUIS Free account](../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Download JSON file for app
 
