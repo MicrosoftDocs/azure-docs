@@ -25,7 +25,7 @@ When configuring a Backend Pool by NIC, it is important to keep in mind that the
 When configuring the Backend Pool for a NIC-based configuraiton, you will create the Backend Pool via the [PUT Backend Pool] (https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/loadbalancerbackendaddresspools/createorupdate) command and then add resources to the Backend Pool via the PUT Network Interface (https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/createorupdate) command. 
 
 ```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}?api-version=2020-05-01
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
 [NOTE!] It is important to note that Backend Pools configured via Network Interface cannot be updated as part of an operation on the Backend Pool. Any addition or deletion of backend resources must occur on the Network Interface of the resource.
@@ -33,7 +33,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 Create a Network Interface and add it to the Backend Pool you have created via the IP Configurations property.
 
 ```
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=2020-05-01
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
 
 ```
@@ -44,14 +44,12 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
       {
         "name": "ipconfig1",
         "properties": {
-          "publicIPAddress": {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip"
-          },
+          "privateIPAddress": "10.0.0.4",
           "subnet": {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default"
+            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
           },
           "loadBalancerBackendAddressPools": {
-                                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb"
+                                    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
           }
         }
       }
@@ -61,57 +59,61 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 }
 ```
 
-Create a VM and add the NIC refrencing the Backend Pool.
+Retrieve the Backend Pool information for the Load Balancer to confirm that this Network Interface is added to the Backend Pool.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
+GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
+```
+
+Create a VM and attach the NIC referencing the Backend Pool.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
 ```
 JSON Request Body:
 ```
 {
-  "location": "eastus",
+  "location": "westus",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_D1_v2"
     },
     "storageProfile": {
+      "imageReference": {
+        "sku": "2016-Datacenter",
+        "publisher": "MicrosoftWindowsServer",
+        "version": "latest",
+        "offer": "WindowsServer"
+      },
       "osDisk": {
-        "name": "myVMosdisk",
-        "image": {
-          "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd"
-        },
-        "osType": "Windows",
-        "createOption": "FromImage",
         "caching": "ReadWrite",
-        "vhd": {
-          "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd"
-        }
+        "managedDisk": {
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "myVMosdisk",
+        "createOption": "FromImage"
       }
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "myVM",
-      "adminPassword": "{your-password}"
     },
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
+    },
+    "osProfile": {
+      "adminUsername": "{your-username}",
+      "computerName": "myVM",
+      "adminPassword": "{your-password}"
     }
   }
 }
 ```
 
-Retrieve the Backend Pool information for the Load Balancer to confirm that this Network Interace is added to the Backend Pool.
 
-```
-GET https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb?api-version=2020-05-01
-```
 
 ### PowerShell
 
@@ -146,7 +148,7 @@ JSON Request Body:
         "name": "address1",
         "properties": {
           "virtualNetwork": {
-            "id": "/subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.Network/virtualNetworks/{VNET ID}"
+            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
           },
           "ipAddress": "10.0.0.4"
         }
@@ -155,7 +157,7 @@ JSON Request Body:
         "name": "address2",
         "properties": {
           "virtualNetwork": {
-            "id": "/subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.Network/virtualNetworks/{VNET ID}"
+            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
           },
           "ipAddress": "10.0.0.5"
         }
@@ -164,9 +166,86 @@ JSON Request Body:
   }
 }
 ```
-Retrieve the Backend Pool information for the Load Balancer to confirm that this Network Interace is added to the Backend Pool.
+Retrieve the Backend Pool information for the Load Balancer to confirm that this Backend Address is added to the Backend Pool:
 ```
-GET https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb?api-version=2020-05-01
+GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
+```
+
+Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Address.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
+```
+
+```
+{
+  "properties": {
+    "enableAcceleratedNetworking": true,
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "properties": {
+          "privateIPAddress": "10.0.0.4",
+          "subnet": {
+            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
+          },
+          "loadBalancerBackendAddressPools": {
+                                    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
+          }
+        }
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+Create a VM and attach the NIC referencing the Backend Pool.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
+```
+JSON Request Body:
+```
+{
+  "location": "westus",
+  "properties": {
+    "hardwareProfile": {
+      "vmSize": "Standard_D1_v2"
+    },
+    "storageProfile": {
+      "imageReference": {
+        "sku": "2016-Datacenter",
+        "publisher": "MicrosoftWindowsServer",
+        "version": "latest",
+        "offer": "WindowsServer"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "managedDisk": {
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "myVMosdisk",
+        "createOption": "FromImage"
+      }
+    },
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
+          "properties": {
+            "primary": true
+          }
+        }
+      ]
+    },
+    "osProfile": {
+      "adminUsername": "{your-username}",
+      "computerName": "myVM",
+      "adminPassword": "{your-password}"
+    }
+  }
+}
 ```
 
 ### PowerShell
@@ -190,6 +269,8 @@ Retrieve the Backend Pool to confirm the IP address have been correctly added:
 ```
 Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
 ```
+
+
 ### CLI
 Using CLI you can either populate the Backend Pool via command line parameters or through a JSON configuration file. 
 
