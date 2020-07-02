@@ -50,7 +50,7 @@ To verify that the VM extensions are properly activated, do the following:
 
       ![Screenshot showing that provisioning has succeeded](./media/vm-certification-issues-solutions-2.png)
 
-      If the VM extension test case fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
+1. If the VM extension test case fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
 
 ## VM provisioning issue
 
