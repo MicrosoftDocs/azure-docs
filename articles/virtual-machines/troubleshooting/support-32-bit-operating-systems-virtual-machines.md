@@ -18,7 +18,7 @@ ms.author: v-miegge
 
 # Support for 32-bit operating systems in Azure virtual machines
 
-Microsoft Azure now allows users to bring in their 32-bit Windows Operating systems over to Azure. As some of these operating systems have already reached their end of life supportability agreement, Microsoft might not offer additional support for them. Support is also not offered for Linux-based, or Berkeley Software Distribution (BSD)-based operating systems that run on a Microsoft Azure virtual machine (VM).
+Microsoft Azure now allows users to bring in their 32-bit Windows Operating systems over to Azure. Only Specialized VHDs are supported and Generalized images won't work in Azure. As some of these operating systems have already reached their end of life supportability agreement, Microsoft might not offer additional support for them. Support is also not offered for Linux-based, or Berkeley Software Distribution (BSD)-based operating systems that run on a Microsoft Azure virtual machine (VM).
 
 ## More information
 
