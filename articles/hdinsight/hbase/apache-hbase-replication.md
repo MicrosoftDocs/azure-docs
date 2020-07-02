@@ -333,19 +333,19 @@ The following list shows you some general usage cases and their parameter settin
 
 - **Enable replication on all tables between the two clusters**. This scenario does not require copying or migrating existing data in the tables, and it does not use Phoenix tables. Use the following parameters:
 
-`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
 - **Enable replication on specific tables**. To enable replication on table1, table2, and table3, use the following parameters:
 
-`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
 - **Enable replication on specific tables, and copy the existing data**. To enable replication on table1, table2, and table3, use the following parameters:
 
-`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
 - **Enable replication on all tables, and replicate Phoenix metadata from source to destination**. Phoenix metadata replication is not perfect. Use it with caution. Use the following parameters:
 
-`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
+  `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
 ## Copy and migrate data
 
@@ -365,15 +365,15 @@ The `print_usage()` section of the [script](https://github.com/Azure/hbase-utils
 
 - **Copy specific tables (test1, test2, and test3) for all rows edited until now (current time stamp)**:
 
-`-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
   Or:
 
-`-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
+  `-m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
 - **Copy specific tables with a specified time range**:
 
-`-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
+  `-m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"`
 
 ## Disable replication
 
@@ -387,15 +387,15 @@ The `print_usage()` section of the [script](https://raw.githubusercontent.com/Az
 
 - **Disable replication on all tables**:
 
-`-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
+  `-m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all`
 
   or
 
-`--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
+  `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
 - **Disable replication on specified tables (table1, table2, and table3)**:
 
-`-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
+  `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 
 > [!NOTE]
 > If you intend to delete the destination cluster, make sure you remove it from the peer list of the source cluster. This can be done by running the command remove_peer '1' at the hbase shell on the source cluster. Failing this the source cluster may not function properly.

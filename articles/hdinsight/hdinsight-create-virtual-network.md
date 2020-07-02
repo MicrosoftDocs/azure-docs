@@ -45,7 +45,7 @@ Use the following PowerShell script to create a virtual network that restricts i
 > [!IMPORTANT]  
 > Change the IP addresses for `hdirule1` and `hdirule2` in this example to match the Azure region you are using. You can find this information [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -148,7 +148,7 @@ $vnet | Set-AzVirtualNetwork
 
 This example demonstrates how to add rules to allow inbound traffic on the required IP addresses. It doesn't contain a rule to restrict inbound access from other sources. The following code demonstrates how to enable SSH access from the Internet:
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -225,7 +225,7 @@ On the custom DNS server in the virtual network:
 
     Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -307,7 +307,7 @@ This example makes the following assumptions:
 
     Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```

@@ -37,7 +37,7 @@ Internally, each node in the cluster has a name that is assigned during cluster 
 
 ```console
 curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
-``
+```
 
 Replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the admin account. This command returns a JSON document that contains a list of the hosts in the cluster. [jq](https://stedolan.github.io/jq/) is used to extract the `host_name` element value for each host.
 

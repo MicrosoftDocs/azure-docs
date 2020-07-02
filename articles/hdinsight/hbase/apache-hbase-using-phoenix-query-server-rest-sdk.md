@@ -491,7 +491,7 @@ finally
 
 The output of the `select` statements should be the following result:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

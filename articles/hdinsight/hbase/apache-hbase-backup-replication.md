@@ -35,11 +35,11 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
 
 * In an Azure Storage account the `hbase` folder resides at the root of the blob container:
 
-`wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
+  `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
 * In Azure Data Lake Storage, the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
 
-`/clusters/<clusterName>/hbase`
+  `/clusters/<clusterName>/hbase`
 
 In either case, the `hbase` folder contains all the data that HBase has flushed to disk, but it may not contain the in-memory data. Before you can rely on this folder as an accurate representation of the HBase data, you must shut down the cluster.
 
