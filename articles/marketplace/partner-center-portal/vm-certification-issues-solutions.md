@@ -9,9 +9,9 @@ ms.topic: troubleshooting
 ms.date: 06/16/2020
 ---
 
-# Issues and solutions for virtual machine certification 
+# Issues and solutions during virtual machine certification 
 
-When you publish your virtual machine (VM) images to Azure Marketplace, the Azure team validates them to ensure their bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
+When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
@@ -24,7 +24,7 @@ When you submit a request to republish your image with updates, the part-number 
 
 This failure occurs when you use a base image that belongs to another publisher and you've updated the image. In this situation, you won't be allowed to publish your image.
 
-To fix this issue, retrieve your latest image from Azure Marketplace and make changes to that image. For more information, see the following articles:
+To fix this issue, retrieve the image from Azure Marketplace and make changes to it. For more information, see the following articles:
 
 - [Linux images](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows images](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
@@ -42,7 +42,7 @@ To enable VM extensions, do the following:
 
    ![Enable guest-level monitoring](./media/vm-certification-issues-solutions-1.png)
 
-To see whether the VM extensions are properly activated, do the following:
+To verify that the VM extensions are properly activated, do the following:
 
 1. In the VM, select the **VM extensions** tab, and then verify the status of the **Linux Diagnostics Extension**.
     * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
@@ -50,7 +50,7 @@ To see whether the VM extensions are properly activated, do the following:
 
       ![Screenshot showing that provisioning has succeeded](./media/vm-certification-issues-solutions-2.png)
 
-      If the VM extension test case fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable the extension.
+      If the VM extension test case fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
 
 ## VM provisioning issue
 
@@ -65,9 +65,9 @@ Provisioning issues can include the following failure scenarios:
 |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
 
 > [!NOTE]
-> For documentation related to VM generalization, see:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> For more information about VM generalization, see:
+> - [Linux documentation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
+> - [Windows documentation](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ## Software compliance for Windows
 
@@ -81,13 +81,13 @@ For more information about selecting an approved base, see [Create your Azure vi
 
 ## Tool kit test case execution failed
 
-The Microsoft Certification toolkit can help you execute test cases and verify that your VHD or image is compatible with the Azure environment.
+The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
 Download the [Microsoft Certification toolkit](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 
 ## Linux test cases
 
-The following table lists the Linux test cases that the toolkit will execute. Test validation is stated in the description.
+The following table lists the Linux test cases that the toolkit will run. Test validation is stated in the description.
 
 |Scenario|Test case|Description|
 |---|---|---|
@@ -109,13 +109,13 @@ The following table lists common errors that are found while executing previous 
 |Scenario|Test case|Error|Solution|
 |---|---|---|---|
 |1|Linux Agent version test case|The minimum Linux agent version is 2.241 or later. This requirement has been mandatory since May 1, 2020.|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
-|2|Bash history test case|You'll see an error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes (for example, delete the *.bash* history files) you want to reduce the size to less than or equal to 1 KB.|
-|3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0** and resubmit the request.|
+|2|Bash history test case|You'll see an error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes you want (for example, delete the *.bash* history files) to reduce the size to less than or equal to 1 KB.|
+|3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0**, and resubmit the request.|
 |4|ClientAlive interval test case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, and then resubmit the request.|
 
 ### Windows test cases
 
-The following table lists the Windows test cases that the toolkit will run. Test validation is stated in the description.
+The following table lists the Windows test cases that the toolkit will run, along with a description of the test validation:
 
 |Scenario |Test cases|Description|
 |---|---|---|---|
@@ -141,7 +141,7 @@ If you come across any failures with the preceding test cases, refer to the **De
 
 ## Data disk size verification
 
-If the size of any request that's submitted with the data disk is greater than 1023 gigabytes (GB), that request won't be approved. This rule applies to both Linux and Windows.
+If the size of any request that's submitted with the data disk is greater than 1023 gigabytes (GB), the request won't be approved. This rule applies to both Linux and Windows.
 
 Resubmit the request with a size less than or equal to 1023 GB.
 
@@ -162,32 +162,32 @@ As VMs allow access to the underlying operating system, ensure that the VHD size
 |250-500 TiB|>200 gibibytes (GiB) difference from blob size|Contact the Support team for an exception approval.|
 
 > [!NOTE]
-> Larger disk sizes incur higher costs and will incur a delay during provisioning and replication steps. Because of this delay and cost, the Support team might seek justification for the exception approval.
+> Larger disk sizes incur higher costs and will incur a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
 
 ## WannaCry patch verification test for Windows
 
 To prevent a potential attack related to the WannaCry virus, ensure that all Windows image requests are updated with the latest patch.
 
-To check the Windows Server patched version, refer to the following table for the OS detail and the minimum version it will support. 
+To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table: 
 
 The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
 > [!NOTE]
-> WindowsServer2019 doesn't have any mandatory version requirements.
+> Windows Server 2019 doesn't have any mandatory version requirements.
 
 |OS|Version|
 |---|---|
-|WindowsServer2008R2|6.1.7601.23689|
-|WindowsServer2012|6.2.9200.22099|
-|WindowsServer2012R2|6.3.9600.18604|
-|WindowsServer2016|10.0.14393.953|
-|WindowsServer2019|NA|
+|Windows Serve 2008 R2|6.1.7601.23689|
+|Windows Server 2012|6.2.9200.22099|
+|Windows Server 2012 R2|6.3.9600.18604|
+|Windows Server 2016|10.0.14393.953|
+|Windows Server 2019|NA|
 
 ## SACK vulnerability patch verification
 
 When you submit a Linux image, your request might be rejected because of kernel version issues.
 
-Update the kernel with an approved version and resubmit the request. You can find the approved kernel version in the following table. The version number should be equal to or greater than the one listed below.
+Update the kernel with an approved version, and resubmit the request. You can find the approved kernel version in the following table. The version number should be equal to or greater than the number listed here.
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
@@ -248,13 +248,13 @@ Follow guidelines when you're converting from a raw disk to VHD, and ensure that
 
 ## VM access denied
 
-If you come across access denied issues while executing the test cases on VM, it might be because of insufficient privileges to execute the test cases.
+If you come across access denied issues while you're running the test cases on the VM, it might be because of insufficient privileges to run the test cases.
 
-Check whether proper access is enabled for the account on which the self-test cases are executing. if they are not, enable access to execute the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
+Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
 ## Download failure
     
-Refer to the following table for any issues when you download the VM image by using a shared access signature (SAS) URL.
+Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
@@ -262,8 +262,8 @@ Refer to the following table for any issues when you download the VM image by us
 |2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
-|6|HTTP conditional header|Invalid SAS URL.|Get the correct SAS URL.|
-|7|Invalid VHD name|Check to see whether any special characters, such as the percentage sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing special characters.|
+|6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
+|7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
 ## First 1-MB partition
 
@@ -275,13 +275,13 @@ Always ensure that default credentials aren't sent with the submitted VHD. Addin
   
 ## DataDisk mapped incorrectly
 
-When a request is submitted with multiple data disks, but their order isn't in sequence, this is considered a mapping issue. For example, if there are three data disks, the numbering order must be *0, 1, 2*. Any other order will be treated as a mapping issue.
+When a request is submitted with multiple data disks, but their order isn't in sequence, this is considered a mapping issue. For example, if there are three data disks, the numbering order must be *0, 1, 2*. Any other order is treated as a mapping issue.
 
 Resubmit the request with proper sequencing of data disks.
 
 ## Incorrect OS mapping
 
-When an image is created, it might be mapped or assigned to the wrong OS label. For example, when you select **Windows** as a part of the OS name while you're creating the image, the OS disk should be installed only with Windows. The same requirement applies to Linux.
+When an image is created, it might be mapped to or assigned the wrong OS label. For example, when you select **Windows** as a part of the OS name while you're creating the image, the OS disk should be installed only with Windows. The same requirement applies to Linux.
 
 ## VM not generalized
 
@@ -297,7 +297,7 @@ For more information about this tool, see [System preparation (Sysprep) overview
 
 ## DataDisk errors
 
-For solutions to errors related to the data disk, use the following table:
+For solutions to errors that are related to the data disk, use the following table:
 
 |Error|Reason|Solution|
 |---|---|---|
