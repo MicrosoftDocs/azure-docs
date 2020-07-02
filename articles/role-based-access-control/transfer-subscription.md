@@ -74,6 +74,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Managed Disks | Yes | N/A |  |  |
 | Azure Container Services for Kubernetes | Yes | Yes |  |  |
 | Azure Active Directory Domain Services | Yes | No |  |  |
+| App registrations | Yes | Yes |  |  |
 
 If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
@@ -349,14 +350,23 @@ This section describes the basic steps to update your key vaults. For more infor
 
 1. If you are using Azure Files, assign the appropriate ACLs.
 
-### Rotate access keys
+### Review other security methods
 
-If your intent is to remove access from users in the source directory so that they don't have access in the target directory, you should consider rotating any access keys. Until the access keys are regenerated, users would continue to have access after the transfer.
+Even though role assignments are removed during the transfer, users in the original owner account might continue to have access to the subscription through other security methods, including:
+
+- Access keys for services like Storage.
+- [Management certificates](../cloud-services/cloud-services-certs-create.md) that grant the user administrator access to subscription resources.
+- Remote Access credentials for services like Azure Virtual Machines.
+
+If your intent is to remove access from users in the source directory so that they don't have access in the target directory, you should consider rotating any credentials. Until the credentials are updated, users will continue to have access after the transfer.
 
 1. Rotate storage account access keys. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
 1. If you are using access keys for other services such as Azure SQL Databases or Azure Service Bus Messaging, rotate access keys.
 
+1. For resources that use secrets, open the settings for the resource and update the secret.
+
+1. For resources that use certificates, update the certificate.
 
 ## Next steps
 
