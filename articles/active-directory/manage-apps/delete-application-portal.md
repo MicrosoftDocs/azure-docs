@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart - Delete an app to your Azure Active Directory tenant'
+title: 'Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant'
 description: This quickstart uses the Azure portal to delete an application from your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith

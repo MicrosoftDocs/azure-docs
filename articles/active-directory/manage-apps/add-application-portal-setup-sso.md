@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart - Set up Single Sign-On (SSO) for an application in your Azure AD tenant'
+title: 'Quickstart: Set up Single Sign-On (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
 description: This quickstart walks through the process of setting up Single Sign-On (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Set up Single Sign-On (SSO) for an application in your Azure AD tenant
+# Quickstart: Set up Single Sign-On (SSO) for an application in your Azure Active Directory (Azure AD) tenant
 
 Get started with simplified user logins by setting up SSO for an application you have added to your Azure AD tenant. After setting up SSO, your users will be able to sign into an application using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 
