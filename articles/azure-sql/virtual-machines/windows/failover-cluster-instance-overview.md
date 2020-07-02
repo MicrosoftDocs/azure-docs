@@ -38,7 +38,9 @@ To learn more, see [Quorum best practices with SQL Server VMs in Azure](hadr-clu
 
 ## Storage
 
-In traditional on-premises clustered environments, a Windows failover cluster uses a storage area network (SAN) that's accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage, and only the active node can access the files at one time. SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
+In traditional on-premises clustered environments, a Windows failover cluster uses a storage area network (SAN) that's accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage, and only the active node can access the files at one time. 
+
+SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
 ||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
@@ -135,9 +137,9 @@ For shared storage and data replication solutions from Microsoft partners, conta
 ## Connectivity
 
 Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) or 
-a [virtual network name (VNN) with Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
+a [virtual network name (VNN) with Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using certain features and the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
-For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
 
 ## Limitations
 

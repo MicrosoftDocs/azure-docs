@@ -41,7 +41,7 @@ For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicit
 
 ## Tools
 
-Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN DNS name as the server name in the connection string. 
+Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN DNS name as the server name in the connection string. 
 
 ## Availability groups and FCI
 

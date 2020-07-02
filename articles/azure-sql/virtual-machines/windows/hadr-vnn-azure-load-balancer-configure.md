@@ -83,7 +83,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.
-   - **Port**: The port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
+   - **Port**: The port you created in the firewall for the health probe [when preparing the VM](failover-cluster-instance-prepare-vm.md#uninstall-sql-server-1). In this article, the example uses TCP port `59999`.
    - **Interval**: 5 Seconds.
    - **Unhealthy threshold**: 2 consecutive failures.
 

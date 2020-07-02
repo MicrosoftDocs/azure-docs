@@ -30,7 +30,7 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more West Central US-prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and a [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md), with the availability set that's created with Fault Domain and Update Domain set to **1**. 
+- [Two or more West Central US-prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and a [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), with the availability set that's created with Fault Domain and Update Domain set to **1**. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
@@ -160,7 +160,7 @@ To validate the cluster by using the UI, do the following on one of the virtual 
 
 Test the failover of your cluster. In **Failover Cluster Manager**, right-click your cluster, select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
 
-:::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
 ## Create SQL Server FCI
 

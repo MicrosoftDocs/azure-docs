@@ -76,14 +76,13 @@ To get started, see [Configure a cloud witness](/windows-server/failover-cluster
 
 A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure file share](../../../storage/files/storage-how-to-create-file-share.md) to use as the file share witness, or you can use a file share on a separate virtual machine.
 
-If you're going to use another Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-the-premium-file-share). 
+If you're going to use another Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 To get started, see [Configure a file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2016 and later   
-
 
 
 ## Connectivity
@@ -107,7 +106,7 @@ Because the virtual IP access point works differently in Azure, you need to conf
 
 There is a slight failover delay when you're using the load balancer, because the health probe conducts alive checks every 10 seconds by default. 
 
-To get started, learn how to [configure Azure Load Balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
+To get started, learn how to [configure Azure Load Balancer for an FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2012 and later   
@@ -149,5 +148,5 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 ## Next steps
 
-After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). You can also create your availability group by using the [Azure CLI](availability-group-az-cli-configure), or [Azure quickstart templates](availability-group-quickstart-template-configure.md). 
+After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). You can also create your availability group by using the [Azure CLI](availability-group-az-cli-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md). 
 
