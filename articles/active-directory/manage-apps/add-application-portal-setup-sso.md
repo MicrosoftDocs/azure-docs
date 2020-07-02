@@ -42,16 +42,16 @@ To set up single sign-on for an application:
 1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to set up for single sign-on.
 1. In the Manage section, select **Single sign-on** to open the properties pane for editing.
 
-    ![Shows the single sign-on](media/add-application-portal-setup-sso/configure-sso.png)
+:::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Shows the single sign-on config page in Azure AD portal.":::
 
 1. Select SAML to open the SSO configuration page. In this example, the application we are configuring for SSO is GitHub. After GitHub is set up, your users will be able to sign into GitHub using their credentials from our Azure AD tenant.
 
-    ![Shows the single sign-on](media/add-application-portal-setup-sso/github-sso.png)
+:::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Shows the single sign-on config page on GitHub.":::
 
 1. The process to configure an application to use Azure AD for SAML-based SSO varies depending on the application. Notice there is a link to the guidance for GitHub. You can find guides for other apps at: https://docs.microsoft.com/azure/active-directory/saas-apps/
 1. Follow the guide to set up SSO for the application. Many applications have specific subscription requirements for SSO functionality. For example, GitHub requires an Enterprise subscription.
 
-    ![Shows the single sign-on](media/add-application-portal-setup-sso/github-pricing.png)
+:::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Shows the single sign-on option in the Enterprise subscription of the GitHub pricing page.":::
 
 
 ## Next steps
