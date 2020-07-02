@@ -28,7 +28,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 > * Train and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Download JSON file for app
 
@@ -46,7 +46,7 @@ Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-ser
 
 1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
 
-    ![Change from the Versions page to the Intents page.](../media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png)
+    ![Change from the Versions page to the Intents page.](media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png)
 
 ## Train the app to apply the entity changes to the app
 
