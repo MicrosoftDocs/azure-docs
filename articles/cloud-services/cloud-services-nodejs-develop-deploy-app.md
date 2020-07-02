@@ -46,11 +46,11 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
    New-AzureServiceProject helloworld
    ```
 
-  ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
+   ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
 
-  The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
+   The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
 
-  The cmdlet creates the following files:
+   The cmdlet creates the following files:
 
    * **ServiceConfiguration.Cloud.cscfg**,
      **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**:
@@ -62,9 +62,9 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 4. Enter the following command to add a new web role:
 
-```powershell
-Add-AzureNodeWebRole
-```
+   ```powershell
+   Add-AzureNodeWebRole
+   ```
 
    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
 
