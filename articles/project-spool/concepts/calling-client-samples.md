@@ -52,10 +52,9 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
     callClientInstance = callClient;
 }));
 
-```
-For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task containing a tuple of (AdHocCallClient, DeviceManager).
-    
+```    
 #### [.NET](#tab/dotnet)
+For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task containing a tuple of (AdHocCallClient, DeviceManager).
 ```.NET
 var tokenTask = tokenProvider.GetToken();
 Task.WhenAll(tokenTask).Wait();
@@ -117,6 +116,9 @@ Call groupCall = callClient.call(participants, callOptions);
 let placeCallOptions = ACSPlaceCallOptions();
 let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId', '+1234567890'], options: placeCallOptions);
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 ---
 
 ##### Making 1:1 call with with video camera
@@ -145,6 +147,9 @@ let cameras = callClient.deviceManager.getCameraList();
 videoOptions.camera = (cameras.first ?? nil)!;
 placeCallOptions.videoOptions = videoOptions
 let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 ---
 
@@ -180,7 +185,6 @@ call.handlePushNotificationWithCompletionHandler(jsonPayload,
 ```
 #### [.NET](#tab/dotnet)
 ```.NET
-// NA
 ```
 ---
 
@@ -253,6 +257,9 @@ call.startVideo(device: ACSVideoDeviceInfo(),
     }   
 });
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 Once you start sending video 'LocalVideoStream' instance is added to localVideoStreams collection on a call instance
@@ -268,6 +275,9 @@ call.getLocalVideoStreams().get(0) == localVideoStream;
 #### [iOS (Swift)](#tab/swift)
 ```swift
 call.localVideoStreams[0]
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 
@@ -294,6 +304,9 @@ call.stopVideo(completionHandler: ((error: Error?) -> Void) {
         print("Video failed to stop.");
     }   
 });
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 ## Remote participants management
@@ -450,6 +463,9 @@ removeParticipantTask.get();
 call.removeParticipant(participant: remoteParticipant,
                        completionHandler: ((error: Error?) -> Void))
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 ## Render remote participant video streams
@@ -473,6 +489,9 @@ RemoteVideoStream remoteScreenShareStream = remoteParticipant.getScreenSharingSt
 ```swift
 var remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
 var remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 A `RemoteVideoStream` has following properties:
@@ -505,6 +524,9 @@ var isAvailable = remoteParticipantStream.isAvailable;
 // RemoteVideoRenderer[] collection of active renderers rendering given stream
 var activeRenders = remoteParticipantStream.activeRenderers;
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 You can subscribe to 'availabilityChanged' and 'activeRenderersChanged' events 
@@ -528,6 +550,9 @@ RenderTarget renderingSurface = remoteVideoRenderTask.get();
 let renderer: ASARemoteVideoRenderer = remoteVideoStream.render(ScalingMode.Stretch);
 let targetSurface: UIView = renderer.target;
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 Where:
 * [HTMLNode] target - an HTML node that should be used as a placeholder for stream to render in
@@ -546,6 +571,9 @@ remoteParticipantStream.activeRenderers.get(0) == remoteVideoRenderer;
 #### [iOS (Swift)](#tab/swift)
 ```swift
 remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 
@@ -579,6 +607,9 @@ remoteVideoRenderer.scalingMode
 // [UIView] target an HTML node that should be used as a placeholder for stream to render in
 remoteVideoRenderer.target
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 RemoteVideoRenderer instance has following methods
@@ -606,6 +637,9 @@ remoteVideoRenderer.scalingMode
 await remoteVideoRenderer.pauseWithCompletionHandler(completionHandler: nil); // pause rendering
 await remoteVideoRenderer.resumeWithCompletionHandler(completionHandler: nil); // resume rendering
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 ## DeviceManager
@@ -624,6 +658,9 @@ DeviceManager deviceManager = callClient.getDeviceManager();
 #### [iOS (Swift)](#tab/swift)
 ```swift
 var deviceManager = callClient.deviceManager;
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 
@@ -656,6 +693,9 @@ var localCameras = deviceManager.getCameraList(); // [ACSVideoDeviceInfo, ACSVid
 var localMicrophones = deviceManager.getMicrophoneList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 // enumerate local cameras
 var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 #### Set default microphone/speaker
@@ -700,6 +740,9 @@ var defaultSpeaker = deviceManager.getSpeaker();
 // [Synchronous] set default speaker
 deviceManager.setDefaultSpeakers(AudioDeviceInfo);
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 ---
 
 #### Local camera preview
@@ -722,6 +765,9 @@ RenderTarget renderingSurface = renderTask.get();
 ```swift
 var previewRenderer = deviceManager.renderPreviewVideoWithCameraDevice(defaultCamera, target, remoteVideoRenderer.scalingMode);
 previewRenderer.start();
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 Preview renderer has set of properties and methods that allows you to control it:
@@ -783,6 +829,9 @@ previewRenderer.switchDevice(ACSVideoDeviceInfo);
 // setScalingMode
 previewRenderer.setScalingMode(ACSScalingMode);
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 #### Request permission to camera/microphone (JavaScript only)
@@ -802,6 +851,9 @@ const result = await deviceManager.askDevicePermission(audio: true, video: true)
 ```swift
 // NA
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 
 You can check what's the current permission state for a given type by calling
@@ -820,6 +872,9 @@ console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
 #### [iOS (Swift)](#tab/swift)
 ```swift
 // NA
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 
@@ -870,6 +925,9 @@ self.adHocCallClient.delegate = self
  self.adHocCallClient.delegate = nil
 
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+```
 --- 
 #### Collections
 To subscribe to collection updated event:
@@ -915,6 +973,9 @@ self.adHocCallClient.delegate = self
     }
      // to unsubscribe
  self.adHocCallClient.delegate = nil
+```
+#### [.NET](#tab/dotnet)
+```.NET
 ```
 --- 
 
