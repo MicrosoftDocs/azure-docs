@@ -144,9 +144,7 @@ The basic steps are as follows:
 
 1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
 
-2. You can set the values for the parameters either on the command line or through a parameter file.
-
-3. You can create the metric alert using the template and parameters file using PowerShell or Azure CLI.
+2. You can create the metric alert using the template and parameters file using PowerShell or Azure CLI.
 
     Using Azure PowerShell
 
