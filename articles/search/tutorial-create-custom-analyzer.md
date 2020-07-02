@@ -1,5 +1,5 @@
 ---
-title: 'REST API tutorial create a custom analyzer'
+title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
 manager: liamca
@@ -236,14 +236,14 @@ An analyzer is a component of the [full text search engine](search-lucene-query-
 Analyzers consist of three components:
 
 + [**Character filters**](#CharFilters) that remove or replace individual characters from the input text.
-+ A [**Tokenizer**](#Tokenizers) that breaks the input text into tokens which become keys in the search index.
++ A [**Tokenizer**](#Tokenizers) that breaks the input text into tokens, which become keys in the search index.
 + [**Token filters**](#TokenFilters) that manipulate the tokens produced by the tokenizer.
 
-In the diagram below, you can see how these three components work together to tokenize a simple sentence:
+In the diagram below, you can see how these three components work together to tokenize a sentence:
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
-These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see a simple example in the diagram below:
+These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see an example in the diagram below:
 
   ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
 
@@ -377,7 +377,6 @@ Tokenizers split text into tokens and discard some characters, such as punctuati
 For this scenario, we'll use a keyword tokenizer, `keyword_v2`, because we want to capture the phone number as a single term. Note that this isn't the only way to solve this problem. See the [alternate approaches](#Alternate) section below.
 
 Keyword tokenizers always output the same text it was given as a single term.
-
 
 |Input|Output|  
 |-|-|  
@@ -529,7 +528,7 @@ With this change, you're all set. Recreate the index, index the data, and test t
 
 ## Alternate Approaches
 
-The analyzer above was designed to maximize the flexibility for search. However, it does so at the cost of storing a lot of potentially unimportant terms in the index.
+The analyzer above was designed to maximize the flexibility for search. However, it does so at the cost of storing many potentially unimportant terms in the index.
 
 The example below shows a different analyzer that can also be used for this task. The analyzer works well except for input data such as `14255552311` that makes it difficult to logically chunk the phone number.
 
