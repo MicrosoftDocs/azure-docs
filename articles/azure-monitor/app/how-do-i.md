@@ -133,9 +133,9 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 ### ASP.NET Classic applications
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### Other applications

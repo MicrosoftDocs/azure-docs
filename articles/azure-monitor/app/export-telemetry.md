@@ -116,9 +116,9 @@ Where
 ## <a name="format"></a> Data format
 * Each blob is a text file that contains multiple '\n'-separated rows. It contains the telemetry processed over a time period of roughly half a minute.
 * Each row represents a telemetry data point such as a request or page view.
-* Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
+* Each row is an unformatted JSON document. If you want to view the rows, open the blob in Visual Studio and choose **Edit** > **Advanced** > **Format File**:
 
-![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
+   ![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
 
 Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 

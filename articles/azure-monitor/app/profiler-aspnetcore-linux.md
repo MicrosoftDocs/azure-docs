@@ -31,7 +31,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create an ASP.NET Core MVC web application:
 
-   ```bash
+   ```console
    dotnet new mvc -n LinuxProfilerTest
    ```
 
@@ -39,7 +39,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Add the NuGet package to collect the Profiler traces:
 
-   ```bash
+   ```console
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
@@ -51,7 +51,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
             .UseApplicationInsights() // Add this line of code to Enable Application Insights
             .UseStartup<Startup>();
     ```
-    
+
 1. Enable Profiler in Startup.cs:
 
     ```csharp
@@ -79,7 +79,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Save and commit your changes to the local repository:
 
-    ```bash
+    ```console
     git init
     git add .
     git commit -m "first commit"
@@ -108,7 +108,7 @@ For more deployment options, see [this article](https://docs.microsoft.com/azure
 
 1. In your Command Prompt window, browse to the root folder for your project. Add a Git remote repository to point to the repository on App Service:
 
-    ```bash
+    ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
@@ -117,7 +117,7 @@ For more deployment options, see [this article](https://docs.microsoft.com/azure
 
 2. Deploy the project by pushing the changes to Azure:
 
-    ```bash
+    ```console
     git push azure master
     ```
 
@@ -140,8 +140,7 @@ For more deployment options, see [this article](https://docs.microsoft.com/azure
     remote: .
     remote:   Installing Newtonsoft.Json 10.0.3.
     remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-    …
-
+    ...
     ```
 
 ## Add Application Insights to monitor your web apps

@@ -65,7 +65,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
         main()
     ```
 
-2.  The code will continuously ask for a value to be entered. A log entry is emitted for every entered value.
+2. The code will continuously ask for a value to be entered. A log entry is emitted for every entered value.
 
     ```console
     Enter a value: 24
@@ -83,22 +83,22 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     ```python
     import logging
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    
+
     def valuePrompt():
         line = input("Enter a value: ")
         logger.warning(line)
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     if __name__ == "__main__":
         main()
     ```
@@ -117,9 +117,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 
     ```python
     import logging
-    
+
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
@@ -137,32 +137,32 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. See [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/) for how to configure Django settings and [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/) for more information on configuring logging.
 
 ```python
- LOGGING = {
-     "handlers": {
-         "azure": {
-             "level": "DEBUG",
-          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-             "instrumentation_key": "<your-ikey-here>",
-          },
-         "console": {
-             "level": "DEBUG",
-             "class": "logging.StreamHandler",
-             "stream": sys.stdout,
-          },
-       },
-     "loggers": {
-         "logger_name": {"handlers": ["azure", "console"]},
-     },
- }
+LOGGING = {
+    "handlers": {
+        "azure": {
+            "level": "DEBUG",
+        "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+            "instrumentation_key": "<your-ikey-here>",
+         },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+         },
+      },
+    "loggers": {
+        "logger_name": {"handlers": ["azure", "console"]},
+    },
+}
 ```
 
 Be sure you are using the logger with the same name as the one specified in your configuration.
 
 ```python
- import logging
-        
- logger = logging.getLogger("logger_name")
- logger.warning("this will be tracked")
+import logging
+
+logger = logging.getLogger("logger_name")
+logger.warning("this will be tracked")
 ```
 
 #### Sending exceptions
@@ -188,6 +188,7 @@ try:
 except Exception:
     logger.exception('Captured an exception.', extra=properties)
 ```
+
 Since you must log exceptions explicitly, it is up to the user in how they want to log unhandled exceptions. OpenCensus does not place restrictions in how a user wants to do this, as long as they explicitly log an exception telemetry.
 
 #### Sending Events
@@ -233,7 +234,7 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -260,6 +261,7 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     if __name__ == "__main__":
         main()
     ```
+
 2. Running the code will repeatedly prompt you to press Enter. A metric is created to track the number of times Enter is pressed. With each entry, the value will be incremented and the metric information will be displayed in the console. The information includes the current value and the current time stamp when the metric was updated.
 
     ```console
@@ -285,7 +287,7 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -376,7 +378,7 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     ```
 
 2. Running the code will repeatedly prompt you to enter a value. With each entry, the value will be printed to the shell, and the OpenCensus Python Module will generate a corresponding piece of `SpanData`. The OpenCensus project defines a [trace as a tree of spans](https://opencensus.io/core-concepts/tracing/).
-    
+
     ```console
     Enter a value: 4
     4
@@ -395,7 +397,7 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     from opencensus.ext.azure.trace_exporter import AzureExporter
     from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     tracer = Tracer(
         exporter=AzureExporter(
