@@ -27,7 +27,7 @@ When planning to configure a multi-region Azure Cosmos account with analytical s
 In the preview release, when Synapse Link is enabled for a multi-region account, the analytical store is created in all regions. The underlying data is optimized for throughput and transactional consistency in the transactional store.
 
 ### Is backup and restore supported for Synapse Link enabled accounts?
-In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. Hence it is recommended to not enable Synapse Link on database accounts with production workloads which might require backup and restore functionality. Support for backup & restore functionality on Synapse Link enabled database accounts will be available in H2 of CY20.
+In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. If you have production workloads that require backup and restore functionality, we recommended not to enable Synapse Link on those database accounts. 
 
 ### Can I disable the Synapse Link feature for my Azure Cosmos account?
 Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have to delete and re-create a new Azure Cosmos account.
