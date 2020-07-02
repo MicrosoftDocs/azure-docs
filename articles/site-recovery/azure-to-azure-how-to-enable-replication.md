@@ -116,7 +116,7 @@ You can modify the default target settings used by Site Recovery.
 >[!NOTE]
 >
 > - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
-> - If a recovery point has not been generated in 60 minutes, the replication health if the virtual machine will become critical.
+> - If a recovery point has not been generated in last 60 minutes, the replication health of the virtual machine will become critical.
 
 ## Next steps
 
