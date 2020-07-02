@@ -12,6 +12,8 @@ To alert on system resource issues when they are experiencing peak demand and ru
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about metric alerts, see [Log alerts in Azure Monitor](../platform/alerts-metric-overview.md).
+
 ## Prerequisites
 
 Before you start, confirm the following:
@@ -46,7 +48,7 @@ There are common properties across all of these alert rules:
 
 * Alerts rules do not have an action group assigned to them by default. You can add an [action group](../platform/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
 
-* You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying the threshold.
+* You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying its threshold.
 
 The following alert-based metrics have unique behavior characteristics compared to the other metrics:
 
@@ -81,7 +83,11 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 |Insights.container/containers |memoryRssExceededPercentage |Memory RSS percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 |Insights.container/containers |memoryWorkingSetExceededPercentage |Memory Working Set percentage for containers exceeding user configurable threshold (default is 95.0) by container name, controller name, Kubernetes namespace, pod name.|
 
-## Enable alert rules from Azure portal
+## Enable alert rules
+
+Follow these steps to enable the metric alerts in Azure Monitor from the Azure portal. To enable using an ARM template, see [Enable with a Resource Manager template](#enable-with-a-resource-manager-template).
+
+### From the Azure portal
 
 This section walks through enabling Azure Monitor for containers metric alert (preview) from the Azure portal.
 
@@ -99,7 +105,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
 After selecting the **Enable/Disable** radio button to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
-## Enable alert rules with a Resource Manager template
+## Enable with a Resource Manager template
 
 You can use an Azure Resource Manager template and parameters file to create the included metric alerts in Azure Monitor.
 
