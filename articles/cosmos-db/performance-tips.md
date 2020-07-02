@@ -23,7 +23,9 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 So, if you're trying to improve your database performance, consider these options:
 
 ## Upgrade to the .NET V3 SDK
+
 The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you use the .NET v3 SDK, see the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md) for the following information:
+
 - Defaults to Direct TCP mode
 - Stream API support
 - Support custom serializer to allow System.Text.JSON usage
@@ -58,22 +60,21 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
 
-## Networking
-<a id="direct-connection"></a>
+## <a id="direct-connection"></a> Networking
 
 **Connection policy: Use direct connection mode**
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. There are two key configuration settings available for configuring client connection policy: the connection *mode* and the connection *protocol*.  The two available modes are:
 
-   * Gateway mode (Default)
+  * Gateway mode (Default)
       
-     Gateway mode is supported on all SDK platforms and is the configured default for the [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
+    Gateway mode is supported on all SDK platforms and is the configured default for the [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
-     When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
+    When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
 
-   * Direct mode
+  * Direct mode
 
-     Direct mode supports connectivity through TCP protocol.
+    Direct mode supports connectivity through TCP protocol.
 
 In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
      
@@ -121,13 +122,11 @@ By default, the first request has higher latency because it needs to fetch the a
 > [!NOTE]
 > `OpenAsync` will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but whose application accesses a subset of them, `OpenAsync` would generate an unnecessary amount of traffic, which would make the initialization slow. So using `OpenAsync` might not be useful in this scenario because it slows down application startup.
 
-   <a id="same-region"></a>
 **For performance, collocate clients in same Azure region**
 
 When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
 :::image type="content" source="./media/performance-tips/same-region.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
-   <a id="increase-threads"></a>
 
 **Increase the number of threads/tasks**
 
@@ -135,9 +134,10 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 **Enable accelerated networking**
  
- To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## SDK usage
+
 **Install the most recent SDK**
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
@@ -145,8 +145,6 @@ The Azure Cosmos DB SDKs are constantly being improved to provide the best perfo
 **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each `DocumentClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
-
-   <a id="max-connection"></a>
 
 **Increase System.Net MaxConnections per host when using gateway mode**
 
@@ -192,7 +190,6 @@ readDocument.RequestDiagnosticsString
 
 Cache document URIs whenever possible for the best read performance. You need to define logic to cache the resource ID when you create a resource. Lookups based on resource IDs are faster than name-based lookups, so caching these values improves performance.
 
-   <a id="tune-page-size"></a>
 **Tune the page size for queries/read feeds for better performance**
 
 When you do a bulk read of documents by using read feed functionality (for example, `ReadDocumentFeedAsync`) or when you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
@@ -229,8 +226,7 @@ collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabas
 
 For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
-## Throughput
-<a id="measure-rus"></a>
+## <a id="measure-rus"></a> Throughput
 
 **Measure and tune for lower Request Units/second usage**
 
@@ -279,6 +275,7 @@ The automated retry behavior helps improve resiliency and usability for most app
 The request charge (that is, the request-processing cost) of a given operation correlates directly to the size of the document. Operations on large documents cost more than operations on small documents.
 
 ## Next steps
+
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 
 To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).

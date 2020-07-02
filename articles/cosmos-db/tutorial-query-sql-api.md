@@ -51,6 +51,7 @@ The SQL queries in this article use the following sample document.
   "isRegistered": false
 }
 ```
+
 ## Where can I run SQL queries?
 
 You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](sql-api-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
@@ -68,9 +69,11 @@ Given the sample family document above, following SQL query returns the document
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Results**
 
@@ -109,10 +112,12 @@ The next query returns all the given names of children in the family whose id ma
 
 **Query**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Results**
 

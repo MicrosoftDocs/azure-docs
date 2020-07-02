@@ -230,19 +230,18 @@ This example reflects [multi-master pricing](https://azure.microsoft.com/pricing
 
 Let's consider another example, where you want to proactively estimate your bill before the month's end. You can estimate your bill as follows:
 
-|**Storage Cost** | |
-|----|----|
-|Avg Record Size (KB) |1 |
-|Number of Records  |100,000,000  |
-|Total Storage (GB)  |100 |
-|Monthly cost per GB  |$0.25  |
-|Expected Monthly Cost for Storage   |$25.00  |
+**Storage cost**
 
-<br>
+Avg Record Size (KB) =  1 
+Number of Records = 100,000,000 
+Total Storage (GB) = 100 
+Monthly cost per GB = $0.25 
+Expected Monthly Cost for Storage =  $25.00 
 
-|**Throughput Cost** | | | |
+**Throughput Cost**
+
+|Operation type| Requests/sec| Avg. RU/request| RUs needed|
 |----|----|----|----|
-|Operation Type| Requests/sec| Avg. RU/request| RUs needed|
 |Write| 100 | 5 | 500|
 |Read| 400| 1| 400|
 
