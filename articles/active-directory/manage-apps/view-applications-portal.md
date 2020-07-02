@@ -61,12 +61,9 @@ Select options according to what you're looking for.
 To search for a particular application:
 
 1. In the **Application Type** menu, select **All applications**, and choose **Apply**.
-1. Enter the name of the application you want to find. If the application has been added to your Azure AD tenant, it appears in the search results. This example shows that GitHub hasn't been added to the tenant applications.
-
+2. Enter the name of the application you want to find. If the application has been added to your Azure AD tenant, it appears in the search results. This example shows that GitHub hasn't been added to the tenant applications.
     ![Example shows an app hasn't been added to the tenant](media/view-applications-portal/search-for-tenant-application.png)
-
-1. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
-
+3. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
     ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
 ## Next steps
