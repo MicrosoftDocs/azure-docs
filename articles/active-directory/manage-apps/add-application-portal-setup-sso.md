@@ -23,7 +23,7 @@ To set up SSO for an application you have added to your Azure AD tenant, you nee
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- An application that supports single sign-on and that has already been pre-configured and added to the Azure AD gallery. Note that almost any app can use Azure AD for single sign-on. The apps in the Azure AD gallery have been pre-configured but if your app is not listed, or is a custom developed app, then check out the tutorials to learn about the steps required. This quickstart focuses on apps that have been pre-configured for SSO and added to the Azure AD gallery by the app developers.
+- An application that supports single sign-on and that has already been pre-configured and added to the Azure AD gallery. Note that almost any app can use Azure AD for single sign-on. The apps in the Azure AD gallery have been pre-configured but if your app is not listed, or is a custom developed app, you can still use it with Azure AD. Check out the tutorials and other documentation in the table of contents. This quickstart focuses on apps that have been pre-configured for SSO and added to the Azure AD gallery by the app developers.
 - (Optional: Completion of [View your apps](view-applications-portal.md)).
 - (Optional: Completion of [Add an app](add-application-portal.md)).
 - (Optional: Completion of [Configure an app](add-application-portal-configure.md)).
@@ -44,7 +44,7 @@ To set up single sign-on for an application:
 
     ![Shows the single sign-on](media/add-application-portal-setup-sso/configure-sso.png)
 
-1. Select SAML to open the SSO configuration page. In this example the application we are configure for SSO using our Azure AD tenant is GitHub.
+1. Select SAML to open the SSO configuration page. In this example the application we are configuring for SSO is GitHub. After GitHub is set up our users will be able to sign into gitHub using their credentials from our Azure AD tenant.
 
     ![Shows the single sign-on](media/add-application-portal-setup-sso/github-sso.png)
 
