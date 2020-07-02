@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/15/2019
+ms.topic: how-to
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -71,6 +71,9 @@ Only global administrators can install an Authentication Agent (by using Azure A
 - The Authentication Agent application itself. This application runs with [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) privileges.
 - The Updater application that's used to auto-update the Authentication Agent. This application runs with [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
 
+>[!IMPORTANT]
+>From a security standpoint, administrators should treat the server running the PTA agent as if it were a domain controller.  The PTA agent servers should be hardened along the same lines as outlined in [Securing Domain Controllers Against Attack](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+
 ### Authentication Agent registration
 
 After you install the Authentication Agent, it needs to register itself with Azure AD. Azure AD assigns each Authentication Agent a unique, digital-identity certificate that it can use for secure communication with Azure AD.
@@ -98,7 +101,7 @@ The Authentication Agents use the following steps to register themselves with Az
     - The CA is used only by the Pass-through Authentication feature. The CA is used only to sign CSRs during the Authentication Agent registration.
     -  None of the other Azure AD services use this CA.
     - The certificate’s subject (Distinguished Name or DN) is set to your tenant ID. This DN is a GUID that uniquely identifies your tenant. This DN scopes the certificate for use only with your tenant.
-6. Azure AD stores the public key of the Authentication Agent in an Azure SQL database, which only Azure AD has access to.
+6. Azure AD stores the public key of the Authentication Agent in a database in Azure SQL Database, which only Azure AD has access to.
 7. The certificate (issued in step 5) is stored on the on-premises server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) location). It is used by both the Authentication Agent and the Updater applications.
 
 ### Authentication Agent initialization
@@ -131,7 +134,7 @@ Pass-through Authentication handles a user sign-in request as follows:
 4. The user enters their username into the **User sign-in** page, and then selects the **Next** button.
 5. The user enters their password into the **User sign-in** page, and then selects the **Sign-in** button.
 6. The username and password are submitted to Azure AD STS in an HTTPS POST request.
-7. Azure AD STS retrieves public keys for all the Authentication Agents registered on your tenant from the Azure SQL database and encrypts the password by using them.
+7. Azure AD STS retrieves public keys for all the Authentication Agents registered on your tenant from Azure SQL Database and encrypts the password by using them.
     - It produces "N" encrypted password values for "N" Authentication Agents registered on your tenant.
 8. Azure AD STS places the password validation request, which consists of the username and the encrypted password values, onto the Service Bus queue specific to your tenant.
 9. Because the initialized Authentication Agents are persistently connected to the Service Bus queue, one of the available Authentication Agents retrieves the password validation request.
@@ -170,7 +173,7 @@ To renew an Authentication Agent's trust with Azure AD:
 6. If the existing certificate has expired, Azure AD deletes the Authentication Agent from your tenant’s list of registered Authentication Agents. Then a global administrator needs to manually install and register a new Authentication Agent.
     - Use the Azure AD root CA to sign the certificate.
     - Set the certificate’s subject (Distinguished Name or DN) to your tenant ID, a GUID that uniquely identifies your tenant. The DN scopes the certificate to your tenant only.
-6. Azure AD stores the new public key of the Authentication Agent in an Azure SQL database that only it has access to. It also invalidates the old public key associated with the Authentication Agent.
+6. Azure AD stores the new public key of the Authentication Agent in a database in Azure SQL Database that only it has access to. It also invalidates the old public key associated with the Authentication Agent.
 7. The new certificate (issued in step 5) is then stored on the server in the Windows certificate store (specifically in the [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) location).
     - Because the trust renewal procedure happens non-interactively (without the presence of the global administrator), the Authentication Agent no longer has access to update the existing certificate in the CERT_SYSTEM_STORE_LOCAL_MACHINE location. 
     

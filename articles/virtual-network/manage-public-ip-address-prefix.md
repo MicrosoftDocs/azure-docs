@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a public IP address prefix.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
-ms.author: anavin
+ms.author: allensu
 ---
 
 # Create, change, or delete a public IP address prefix
@@ -36,7 +37,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 ## Create a public IP address prefix
 
 1. At the top, left corner of the portal, select **+ Create a resource**.
-2. Enter *public ip address prefix* in the *Search the Marketplace* box. When **Public IP address prefix** appears in the search results, select it.
+2. Enter *public ip prefix* in the *Search the Marketplace* box. When **Public IP address prefix** appears in the search results, select it.
 3. Under **Public IP address prefix**, select **Create**.
 4. Enter, or select values for the following settings, under **Create public IP address prefix**, then select **Create**:
 

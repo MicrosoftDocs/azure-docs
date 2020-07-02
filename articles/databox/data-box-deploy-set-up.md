@@ -22,7 +22,7 @@ ms.localizationpriority: high
 
 ::: zone target="chromeless"
 
-# Cable and connect to your device
+## Cable and connect to your device
 
 ::: zone-end
 

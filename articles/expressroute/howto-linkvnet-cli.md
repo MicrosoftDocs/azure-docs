@@ -5,7 +5,7 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
 
@@ -81,7 +81,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 The response contains the authorization key and status:
 
-```azurecli
+```output
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
@@ -119,7 +119,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
-```azurecli
+```powershell
 Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 

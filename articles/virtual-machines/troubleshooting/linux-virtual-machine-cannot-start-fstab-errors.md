@@ -33,7 +33,7 @@ The following are examples of possible errors.
 [[1;33mDEPEND[0m] Dependency failed for /data.
 [[1;33mDEPEND[0m] Dependency failed for Local File Systems.
 …
-Welcome to emergency mode! After logging in, type “journalctl -xb” to viewsystem logs, “systemctl reboot” to reboot, “systemctl default” to try again to boot into default mode.
+Welcome to emergency mode! After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" to try again to boot into default mode.
 Give root password for maintenance
 (or type Control-D to continue)
 ```
@@ -44,9 +44,9 @@ Give root password for maintenance
 Checking file systems…
 fsck from util-linux 2.19.1
 Checking all file systems.
-/dev/sdc1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sdd1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sde1: nonexistent device (“nofail” fstab option may be used to skip this device)
+/dev/sdc1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sdd1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sde1: nonexistent device ("nofail" fstab option may be used to skip this device)
 
 [/sbin/fsck.ext3 (1) — /CODE] sck.ext3 -a /dev/sdc1
 fsck.ext3: No such file or directory while trying to open /dev/sdc1
@@ -87,7 +87,7 @@ fsck.ext4: Unable to resolve UUID="<UUID>"
 *** when you leave the shell.
 *** Warning — SELinux is active
 *** Disabling security enforcement for system recovery.
-*** Run ‘setenforce 1’ to reenable.
+*** Run 'setenforce 1' to reenable.
 type=1404 audit(1428047455.949:4): enforcing=0 old_enforcing=1 auid=<AUID> ses=4294967295
 Give root password for maintenance
 (or type Control-D to continue)
@@ -100,6 +100,42 @@ This problem may occur if the file systems table (fstab) syntax is incorrect or 
 To resolve this problem, start the VM in emergency mode by using the serial console for Azure Virtual Machines. Then use the tool to repair the file system. If the serial console isn't enabled on your VM, go to the [Repair the VM offline](#repair-the-vm-offline) section.
 
 ## Use the serial console
+
+### Using Single User Mode
+
+1. Connect to [the serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+2. Use serial console to take single user mode [single user mode](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+3. Once the vm has booted into single user mode. Use your favorite text editor to open the fstab file. 
+
+   ```
+   # nano /etc/fstab
+   ```
+
+4. Review the listed file systems. Each line in the fstab file indicates a file system that is mounted when the VM starts. For more information about the syntax of the fstab file, run the man fstab command. To troubleshoot a start failure, review each line to make sure that it's correct in both structure and content.
+
+   > [!Note]
+   > * Fields on each line are separated by tabs or spaces. Blank lines are ignored. Lines that have a number sign (#) as the first character are comments. Commented lines can remain in the fstab file, but they won't be processed. We recommend that you comment fstab lines that you're unsure about instead of removing the lines.
+   > * For the VM to recover and start, the file system partitions should be the only required partitions. The VM may experience application errors about additional commented partitions. However, the VM should start without the additional partitions. You can later uncomment any commented lines.
+   > * We recommend that you mount data disks on Azure VMs by using the UUID of the file system partition. For example, run the following command: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * To determine the UUID of the file system, run the blkid command. For more information about the syntax, run the man blkid command.
+   > * The nofail option helps make sure that the VM starts even if the file system is corrupted or the file system doesn't exist at startup. We recommend that you use the nofail option in the fstab file to enable startup to continue after errors occur in partitions that are not required for the VM to start.
+
+5. Change or comment out any incorrect or unnecessary lines in the fstab file to enable the VM to start correctly.
+
+6. Save the changes to the fstab file.
+
+7. Reboot the vm using the below command.
+   
+   ```
+   # reboot -f
+   ```
+> [!Note]
+   > You can also use "ctrl+x" command which would also reboot the vm.
+
+
+8. If the entries comment or fix was successful, the system should reach a bash prompt in the portal. Check whether you can connect to the VM.
+
+### Using Root Password
 
 1. Connect to [the serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 2. Sign-in to the system by using a local user and password.
@@ -153,7 +189,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 2. After you mount the system disk as a data disk on the recovery VM, back up the fstab file before you make changes, and then follow the next steps to correct the fstab file.
 
-3.	Look for the error that indicates the disk wasn't mounted. In the following example, the system was trying to attach a disk that was no longer present:
+3.    Look for the error that indicates the disk wasn't mounted. In the following example, the system was trying to attach a disk that was no longer present:
 
     ```
     [DEPEND] Dependency failed for /datadisk1.
@@ -203,4 +239,3 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
-

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 09/28/2019
+  ms.date: 03/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,7 +28,10 @@ landingContent:
           - text: Web Application Firewall on Application Gateway
             url: ./ag/ag-overview.md
           - text: Web Application Firewall on Front Door
-            url: ./afds/afds-overview.md            
+            url: ./afds/afds-overview.md
+          - text: Web Application Firewall on Azure CDN
+            url: ./cdn/cdn-overview.md
+
 
   # Card
   - title: Get started
@@ -39,6 +42,8 @@ landingContent:
             url: ./ag/application-gateway-web-application-firewall-portal.md
           - text: Web Application Firewall on Front Door
             url: ./afds/waf-front-door-create-portal.md
+          - text: WAF policy on Azure CDN
+            url: ./cdn/waf-cdn-create-portal.md
 
   # Card
   - title: Manage WAF rules on Application Gateway

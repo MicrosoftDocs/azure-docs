@@ -104,7 +104,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Open-source SQL query engine on big data    |
-| Supported DSVM versions      | Windows 2019 (Preview), Linux  |
+| Supported DSVM versions      | Windows 2019, Linux  |
 | How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
 | Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |

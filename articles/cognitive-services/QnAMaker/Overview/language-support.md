@@ -27,7 +27,7 @@ The following list contains the languages supported for a QnA Maker resource.
 |--|
 |Arabic|
 |Armenian|
-|Bengali|
+|Bangla|
 |Basque|
 |Bulgarian|
 |Catalan|

@@ -4,7 +4,7 @@ description: Learn how to upload source maps to your own storage account Blob co
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
+ms.date: 06/23/2020
 
 ---
 
@@ -27,7 +27,9 @@ If you already have an existing storage account or blob container, you can skip 
 
 ## Push your source maps to your Blob container
 
-You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured Blob container. You should not upload your source maps to a subfolder in the Blob container; currently the source map will only be fetched from the root folder.
+You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured Blob container.
+
+Source maps can be uploaded to your Blob Storage Container with the same folder structure they were compiled & deployed with. A common use case is to prefix a deployment folder with its version, e.g. `1.2.3/static/js/main.js`. When unminifying via an Azure Blob container called `sourcemaps`, it will try to fetch a source map located at `sourcemaps/1.2.3/static/js/main.js.map`.
 
 ### Upload source maps via Azure Pipelines (recommended)
 
@@ -83,6 +85,6 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 [create storage account]: https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
 [create blob container]: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal
 [storage blob data reader]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader
-[ApplicationInsights-JS]: "https://github.com/microsoft/applicationinsights-js"
-[ApplicationInsights-Node.js]: "https://github.com/microsoft/applicationinsights-node.js"
-[azure file copy]: "https://aka.ms/azurefilecopyreadme"
+[ApplicationInsights-JS]: https://github.com/microsoft/applicationinsights-js
+[ApplicationInsights-Node.js]: https://github.com/microsoft/applicationinsights-node.js
+[azure file copy]: https://aka.ms/azurefilecopyreadme

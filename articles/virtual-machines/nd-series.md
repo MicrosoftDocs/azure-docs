@@ -1,12 +1,12 @@
 ---
- title: ND-series - Azure Virtual Machines
- description: Specifications for the ND-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: ND-series - Azure Virtual Machines
+description: Specifications for the ND-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # ND-series
@@ -34,6 +34,7 @@ Memory Preserving Updates: Not Supported
 1 GPU = one P40 card.
 
 *RDMA capable
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Supported operating systems and drivers

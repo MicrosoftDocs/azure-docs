@@ -70,7 +70,7 @@ Under the actions list, select the action you want.
    | **User Name** | Yes | Your username for your SMTP account | 
    | **Password** | Yes | Your password for your SMTP account | 
    | **SMTP Server Port** | No | A specific port on your SMTP server you want to use | 
-   | **Enable SSL?** | No | Turn on or turn off SSL encryption. | 
+   | **Enable SSL?** | No | Turn on or turn off TLS/SSL encryption. | 
    |||| 
 
 1. Provide the necessary details for your selected action. 

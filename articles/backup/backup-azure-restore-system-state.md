@@ -118,7 +118,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 2. After the reboot, open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
 
-    The desktop app appears in the search results.
+    The desktop app appears in the search results. If it doesn't appear, or you encounter errors when opening the application, you must install the **Windows Server Backup Features**, and dependent components below it, that are available in the **Add Features Wizard** in **Server Manager**.
 
 3. In the snap-in, select **Local Backup**.
 

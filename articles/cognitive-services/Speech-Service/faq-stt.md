@@ -117,6 +117,13 @@ or
   - from the displayed services pick the Speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
+  
+**Q: Does increasing my concurrency limit increase my cost?**
+
+**A**: No, cost is based on usage. Increasing concurrency does not lead to higher costs. See our [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details on cost. 
+  
+>[!NOTE]
+>[Containers](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) do not require increases to concurrency limits, as containers are constrained only by the CPUs of the hardware they are hosted on.
 
 ## Importing data
 

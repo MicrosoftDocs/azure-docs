@@ -199,7 +199,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 - [Encoding error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services concepts](concepts-overview.md)
-- [Quotas and Limitations](limits-quotas-constraints.md)
+- [Quotas and limits](limits-quotas-constraints.md)
 
 ## Next steps
 

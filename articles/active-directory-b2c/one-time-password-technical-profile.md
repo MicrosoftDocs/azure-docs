@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -26,13 +26,13 @@ The one-time password technical profile can also return an error message during 
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly that is used by Azure AD B2C:
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 The following example shows a one-time password technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -76,15 +76,11 @@ The following settings can be used to configure code generation mode:
 | Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
 | ReuseSameCode | No | Whether a duplicate code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`. |
 
-### Returning error message
-
-There is no error message returned for code generation mode.
-
 ### Example
 
 The following example `TechnicalProfile` is used for generating a code:
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -135,22 +131,23 @@ The following settings can be used to code verification mode:
 | Operation | Yes | The operation to be performed. Possible value: `VerifyCode`. |
 
 
-### Error messages
+### UI elements
 
-The following settings can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#one-time-password-error-messages).
+The following metadata can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+| UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
 |UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### Example
 
 The following example `TechnicalProfile` is used for verifying a code:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -168,5 +165,5 @@ The following example `TechnicalProfile` is used for verifying a code:
 
 See the following article for example of using one-time password technical profile with custom email verification:
 
-- [Custom email verification in Azure Active Directory B2C](custom-email.md)
+- Custom email verification in Azure Active Directory B2C ([Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 

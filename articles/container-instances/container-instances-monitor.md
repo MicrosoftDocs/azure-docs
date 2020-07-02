@@ -19,13 +19,13 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 ## Available metrics
 
-Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers.
+Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers. By default, the metrics are aggregated as averages.
 
-* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% usage of a CPU core. Aggregated as **average usage** across all cores.
+* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores represents usage of 0.5 CPU core.
 
-* **Memory Usage** -  aggregated as **average bytes**.
+* **Memory Usage** - in bytes.
 
-* **Network Bytes Received Per Second** and **Network Bytes Transmitted Per Second** - aggregated as **average bytes per second**. 
+* **Network Bytes Received Per Second** and **Network Bytes Transmitted Per Second**. 
 
 ## Get metrics - Azure portal
 

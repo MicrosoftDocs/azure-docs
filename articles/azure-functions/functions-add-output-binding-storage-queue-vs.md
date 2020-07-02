@@ -19,7 +19,7 @@ Most bindings require a stored connection string that Functions uses to access t
 
 Before you start this article, you must: 
 
- - Complete [part 1 of the Visual Studio quickstart](./functions-create-first-function-vs-code.md). 
+ - Complete [part 1 of the Visual Studio quickstart](./functions-create-your-first-function-visual-studio.md). 
 
 - Sign in to your Azure subscription from Visual Studio.
 

@@ -1,12 +1,12 @@
 ---
 title: Cluster node runs out of disk space in Azure HDInsight
 description: Troubleshooting Apache Hadoop cluster node disk space issues in Azure HDInsight.
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/30/2020
 ---
 
 # Scenario: Cluster node runs out of disk space in Azure HDInsight
@@ -31,7 +31,18 @@ Apache Yarn application cache may have consumed all available disk space. Your S
 
 1. To mitigate the issue, kill the application, which will release disk space used by that application.
 
-1. To ultimately resolve the issue, optimize your application.
+1. If the issue happens frequently on the worker nodes, you can tune the YARN local cache settings on the cluster.
+
+    Open the Ambari UI
+    Navigate to YARN --> Configs --> Advanced.  
+    Add the following 2 properties to the custom yarn-site.xml section and save:
+
+    ```
+    yarn.nodemanager.localizer.cache.target-size-mb=2048
+    yarn.nodemanager.localizer.cache.cleanup.interval-ms=300000
+    ```
+
+1. If the above does not permanently fix the issue, optimize your application.
 
 ## Next steps
 

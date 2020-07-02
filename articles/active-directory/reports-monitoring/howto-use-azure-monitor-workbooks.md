@@ -8,7 +8,7 @@ manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
@@ -43,13 +43,13 @@ including device platform, device state, client app, sign-in risk, location, and
 reports how many users were granted or denied access, as well as how many users bypassed 
 Conditional Access policies when accessing resources.
 
-- To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
 This article:
 
-- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
 
 - Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
@@ -59,7 +59,7 @@ This article:
 
 To use Monitor workbooks, you need:
 
-- An Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -304,4 +304,4 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
 
 ## Next steps
 
-[Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

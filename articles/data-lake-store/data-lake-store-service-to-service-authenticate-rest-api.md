@@ -1,10 +1,10 @@
 ---
-title: Service-to-service authentication - Data Lake Storage Gen1 - REST API
+title: REST - Service-to-service authentication - Data Lake Storage Gen1 - Azure
 description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 and Azure Active Directory using the REST API.
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

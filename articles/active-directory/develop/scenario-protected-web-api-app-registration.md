@@ -3,20 +3,16 @@ title: Protected web API app registration | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and the information you need to register the app.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -83,9 +79,9 @@ Scopes also appear on the consent window that's presented to users of your app. 
     - Select **Scope name** and enter **access_as_user**.
     - Select **Who can consent** and make sure **Admins and users** is selected.
     - Select **Admin consent display name** and enter **Access TodoListService as a user**.
-    - Select **Admin consent description** and enter **Accesses the TodoListService Web API as a user**.
+    - Select **Admin consent description** and enter **Accesses the TodoListService web API as a user**.
     - Select **User consent display name** and enter **Access TodoListService as a user**.
-    - Select **User consent description** and enter **Accesses the TodoListService Web API as a user**.
+    - Select **User consent description** and enter **Accesses the TodoListService web API as a user**.
     - Keep the **State** value set to **Enabled**.
  1. Select **Add scope**.
 
@@ -109,7 +105,7 @@ To expose application permissions, you need to edit the manifest.
 
 The following sample shows the contents of `appRoles`, where the value of `id` can be any unique GUID.
 
-```JSon
+```json
 "appRoles": [
 	{
 	"allowedMemberTypes": [ "Application" ],

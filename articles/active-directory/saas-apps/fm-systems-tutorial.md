@@ -11,7 +11,6 @@ ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
@@ -52,19 +51,19 @@ To configure the integration of FM:Systems into Azure AD, you need to add FM:Sys
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **FM:Systems**, select **FM:Systems** from result panel then click **Add** button to add the application.
 
-	 ![FM:Systems in the results list](common/search-new-app.png)
+     ![FM:Systems in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,31 +95,31 @@ To configure Azure AD single sign-on with FM:Systems, perform the following step
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![FM:Systems Domain and URLs single sign-on information](common/both-replyurl.png)
 
-	In the **Reply URL** text box, type a URL using the following pattern:
+    In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
-	
-	> [!NOTE]
-	> This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems Client support team](https://fmsystems.com/support-services/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    
+    > [!NOTE]
+    > This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems Client support team](https://fmsystems.com/support-services/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up FM:Systems** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure AD Identifier
+    b. Azure AD Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure FM:Systems Single Sign-On
 
@@ -156,11 +155,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **FM:Systems**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **FM:Systems**.
 
-	![The FM:Systems link in the Applications list](common/all-applications.png)
+    ![The FM:Systems link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

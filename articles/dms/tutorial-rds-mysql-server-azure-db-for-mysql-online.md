@@ -3,15 +3,15 @@ title: "Tutorial: Migrate RDS MySQL online to Azure Database for MySQL"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS MySQL to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 06/09/2020
 ---
 
 # Tutorial: Migrate RDS MySQL to Azure Database for MySQL online using DMS
@@ -62,6 +62,7 @@ To complete this tutorial, you need to:
 
 1. To create a new parameter group, follow the instructions provided by AWS in the article [MySQL Database Log Files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html), in the **Binary Logging Format** section.
 2. Create a new parameter group with the following configuration:
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Save the new parameter group.

@@ -14,6 +14,8 @@ ms.author: aahi
 
 # What is the Anomaly Detector API?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
@@ -22,7 +24,7 @@ Using the Anomaly Detector doesn't require any prior experience in machine learn
 
 ## Features
 
-With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time. 
+With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
 
 |Feature  |Description  |
 |---------|---------|
@@ -47,7 +49,7 @@ To run the Notebook, complete the following steps:
 1. Un-check the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
 1. Click **Run on free compute**
 1. Select one of the notebooks.
-1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable. 
+1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
 1. Change the `endpoint` variable to your endpoint. For example: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. On the top menu bar, click **Cell**, then **Run All**.
 

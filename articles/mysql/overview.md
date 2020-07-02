@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # What is Azure Database for MySQL?

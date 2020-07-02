@@ -91,8 +91,8 @@ If you want to try the flow with your own certificates and test both HTTP and HT
 4. Create a web app in ASE after creation. 
 5. Create a VM if you don't have one in that VNET (Not in the same subnet as the ASE or things break).
 6. Set DNS for your subdomain. You can use a wildcard with your subdomain in your DNS or if you want to do some simple tests, edit the hosts file on your VM to set web app name to VIP IP address. If your ASE had the subdomain name .ilbase.com and you made the web app mytestapp so that it would be addressed at mytestapp.ilbase.com, set that in your hosts file. (On Windows, the hosts file is at C:\Windows\System32\drivers\etc\)
-7. Use a browser on that VM and go to https://mytestapp.ilbase.com (or whatever your web app name is with your subdomain).
-8. Use a browser on that VM and go to https://mytestapp.ilbase.com. You must accept the lack of security if using a self-signed certificate. 
+7. Use a browser on that VM and go to `https://mytestapp.ilbase.com` (or whatever your web app name is with your subdomain).
+8. Use a browser on that VM and go to `https://mytestapp.ilbase.com`. You must accept the lack of security if using a self-signed certificate. 
 
 The IP address for your ILB is listed in your Properties as the Virtual IP Address.
 
@@ -116,11 +116,10 @@ The additional management items are certificate management and DNS management. Y
 #### DNS Configuration
 When using an External VIP, the DNS is managed by Azure. Any app created in your ASE is automatically added to Azure DNS, which is a public DNS. In an ILB ASE, you must manage your own DNS. For a given subdomain, such as contoso.corp.net, you must create DNS A records that point to your ILB address for:
 
-    * 
-    *.scm 
-    ftp 
-    publish 
-
+- \*
+- *.scm
+- ftp
+- publish
 
 ## Getting started
 To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]

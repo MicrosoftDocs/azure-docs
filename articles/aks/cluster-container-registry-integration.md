@@ -10,16 +10,16 @@ ms.date: 02/25/2020
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
 
-When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article provides examples for configuring authentication between these two Azure services.
+When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This operation is implemented as part of the CLI and Portal experience by granting the required permissions to your ACR. This article provides examples for configuring authentication between these two Azure services. 
 
-You can set up the AKS to ACR integration in a few simple commands with the Azure CLI.
+You can set up the AKS to ACR integration in a few simple commands with the Azure CLI. This integration assigns the AcrPull role to the service principal associated to the AKS Cluster.
 
 ## Before you begin
 
 These examples require:
 
 * **Owner** or **Azure account administrator** role on the **Azure subscription**
-* Azure CLI version 2.0.73 or later
+* Azure CLI version 2.7.0 or later
 
 To avoid needing an **Owner** or **Azure account administrator** role, you can configure a service principal manually or use an existing service principal to authenticate ACR from AKS. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
 
@@ -37,6 +37,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 # Create an AKS cluster with ACR integration
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 ```
+
 Alternatively, you can specify the ACR name using an ACR resource ID, which has the following format:
 
 `/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
@@ -54,17 +55,22 @@ Integrate an existing ACR with existing AKS clusters by supplying valid values f
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 ```
+
 or,
-```
+
+```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 You can also remove the integration between an ACR and an AKS cluster with the following
+
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
 ```
+
 or
-```
+
+```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
@@ -89,7 +95,7 @@ az aks get-credentials -g myResourceGroup -n myAKSCluster
 
 Create a file called **acr-nginx.yaml** that contains the following:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -114,20 +120,28 @@ spec:
 ```
 
 Next, run this deployment in your AKS cluster:
-```
+
+```console
 kubectl apply -f acr-nginx.yaml
 ```
 
 You can monitor the deployment by running:
-```
+
+```console
 kubectl get pods
 ```
+
 You should have two running pods.
-```
+
+```output
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### Troubleshooting
+* Learn more about [ACR Diagnostics](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
