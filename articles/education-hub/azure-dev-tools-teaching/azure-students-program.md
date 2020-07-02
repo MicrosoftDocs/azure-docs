@@ -1,7 +1,7 @@
 ---
 title: About the Azure for Students program (Azure Education Hub)
 description: Learn about the Azure for Students program.
-author: v-dihans
+author: tfosmark
 ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
