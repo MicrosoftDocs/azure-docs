@@ -5,11 +5,10 @@ description: This quickstart shows how to create a searchable art database using
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: sample
-ms.date: 6/10/2020
+ms.topic: how-to
+ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: tracking-python
 ---

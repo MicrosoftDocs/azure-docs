@@ -4,25 +4,23 @@ description: Set up your MMLSpark pipeline with Cognitive Services in Azure Data
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
-
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 6/10/2020
+ms.date: 07/06/2020
 ms.author: marhamil
 ---
 
-
 # Getting started 
 
-Setting up your environment is the first step to building a pipeline for your data. 
-After your environment is ready, running a sample is quick and easy. 
+Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy. 
 
-We'll walk through the following steps to get started:
-1. Create a Cognitive Services resource
-1. Create an Apache Spark Cluster
-1. Try a sample
+In this article, we'll perform these steps to get you started:
 
-## Step 1: Create a Cognitive Services resource
+1. [Create a Cognitive Services resource](#create-a-cognitive-services-resource)
+1. [Create an Apache Spark Cluster](#create-an-apache-spark-cluster)
+1. [Try a sample](#try-a-sample)
+
+## Create a Cognitive Services resource
 
 To use the Big Data Cognitive Services, we must first create a Cognitive Service for our workflow. 
 There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users.
@@ -56,9 +54,9 @@ consider deploying containerized Cognitive Services on your application.
 Follow [this guide](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) 
 to create a containerized Cognitive Service.
 
-## Step 2: Create an Apache Spark cluster
+## Create an Apache Spark cluster
 
-[Apache Spark™](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. 
+[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. 
 Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics,
  HDInsight, and Azure Kubernetes Services. 
  To use the Big Data Cognitive Services, we must first create a cluster. 
@@ -117,7 +115,7 @@ To get started on Azure Kubernetes Service:
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 1. [Install a cognitive service container using Helm](https://docs.microsoft.com/azure/cognitive-services/computer-vision/deploy-computer-vision-on-premises)
 
-## Step 3: Try a sample
+## Try a sample
 
 Once you set up your Spark cluster and environment, we can run a short sample. This section demonstrates how to use the Big Data Cognitive Services in Azure Databricks.
 

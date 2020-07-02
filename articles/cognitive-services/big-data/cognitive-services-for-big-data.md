@@ -4,10 +4,9 @@ description: Overview page for the Cognitive Services for Big Data
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
-
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 6/10/2020
+ms.date: 07/06/2020
 ms.author: marhamil
 ---
 

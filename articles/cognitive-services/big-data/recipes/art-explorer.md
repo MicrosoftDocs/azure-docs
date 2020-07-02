@@ -5,11 +5,10 @@ description: This recipe shows how to create a searchable art database using Azu
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: sample
-ms.date: 6/10/2020
+ms.topic: how-to
+ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: tracking-python
 ---

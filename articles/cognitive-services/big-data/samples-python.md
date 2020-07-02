@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 6/10/2020
+ms.date: 07/06/2020
 ms.author: marhamil
 ---
 
