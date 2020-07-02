@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Data Lake Analytics
-description: Azure security baseline for Data Lake Analytics
+title: Data Lake Analytics security baseline for Azure Security Benchmark
+description: The Data Lake Analytics security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,30 +12,30 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Data Lake Analytics
+# Data Lake Analytics security baseline for Azure Security Benchmark
 
 The Azure Security Baseline for Data Lake Analytics contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3537).
 
-**Guidance**: Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services.  Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
+**Guidance**: Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services. Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
 
-Firewall Rules:  https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
-Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
+Firewall Rules: https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
+Manage Azure Data Lake Analytics using Azure PowerShell: https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
 
 
 **Azure Security Center monitoring**: Yes
@@ -47,10 +47,10 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3538).
 
-**Guidance**: Not applicable; Azure Data Lake Analytics does not support virtual networks.
+**Guidance**: Not applicable; Azure Data Lake Analytics does not run in a virtual network and when using federated queries the outgoing calls can not be configured to route through a customer virtual network.
 
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -59,10 +59,10 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3539).
 
-**Guidance**: Not applicable, Benchmark is intended for web applications running on Azure App Service or IaaS instances.
+**Guidance**: Not applicable; This control is intended for web applications running on Azure App Service or IaaS instances.
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -74,12 +74,12 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 **Guidance**: 
 Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services.  Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
 
-Firewall Rules:  https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
+Firewall Rules: https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
 
-Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
+Manage Azure Data Lake Analytics using Azure PowerShell: https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
 
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -88,10 +88,10 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3541).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use network security groups (NSGs). 
+**Guidance**: Not applicable; Data Lake Analytics does not run inside customer virtual networks and cannot use network security groups (NSGs) to record network flow logs. 
 
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -100,10 +100,10 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3542).
 
-**Guidance**: Not applicable; recommendation is intended for compute resources.
+**Guidance**: Not applicable; Data Lake Analytics is a PaaS offering which does not deploy into customer networks.
 
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -112,9 +112,9 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3543).
 
-**Guidance**: Not applicable; recommendation is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: Not applicable; This recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -123,11 +123,11 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3544).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
+**Guidance**: Not applicable; Data Lake Analytics does not run inside customer virtual networks and cannot use network security groups (NSGs).
 
 
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -136,9 +136,9 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3545).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
+**Guidance**: Not applicable; Data Lake Analytics does not run inside customer virtual networks and cannot use network security groups (NSGs).
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -147,11 +147,11 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3546).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
+**Guidance**: Not applicable; Data Lake Analytics does not run inside customer virtual networks and cannot use network security groups (NSGs).
 
 
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -160,15 +160,16 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3547).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
+**Guidance**: Not applicable; Data Lake Analytics does not run inside customer virtual networks and cannot use network security groups (NSGs).
 
-**Azure Security Center monitoring**: N/A
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -177,7 +178,7 @@ Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft
 
 **Guidance**: Not applicable; Microsoft maintains the time source for Data Lake Analytics.
 
-**Azure Security Center monitoring**: NA
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -220,7 +221,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 **Guidance**:  Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -281,7 +282,7 @@ Accessing diagnostic logs for Azure Data Lake Analytics: https://docs.microsoft.
 
 **Guidance**: Not applicable; Data Lake Analytics does not process or produce anti-malware related logs.
 
-**Azure Security Center monitoring**: No
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -306,13 +307,13 @@ Gather insights about your DNS infrastructure with the DNS Analytics Preview sol
 
 **Guidance**: Not applicable; benchmark is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -499,13 +500,13 @@ Supported services and scenarios in general availability:
 
 https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -617,7 +618,7 @@ Manage Role-Based Access Control:  https://docs.microsoft.com/azure/data-lake-an
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -647,7 +648,7 @@ Encryption of data in Azure Data Lake Storage Gen1: https://docs.microsoft.com/a
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -667,7 +668,7 @@ Encryption of data in Azure Data Lake Storage Gen1: https://docs.microsoft.com/a
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -678,7 +679,7 @@ Encryption of data in Azure Data Lake Storage Gen1: https://docs.microsoft.com/a
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -689,7 +690,7 @@ Encryption of data in Azure Data Lake Storage Gen1: https://docs.microsoft.com/a
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -709,7 +710,7 @@ Understand Azure Security Center Secure Score: https://docs.microsoft.com/azure/
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -781,9 +782,9 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 6.5: Monitor for unapproved Azure resources
 
@@ -817,7 +818,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -828,7 +829,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -839,7 +840,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -861,7 +862,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -887,7 +888,7 @@ How to configure Conditional Access to block access to ARM:  https://docs.micros
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -898,13 +899,13 @@ How to configure Conditional Access to block access to ARM:  https://docs.micros
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -934,7 +935,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -956,7 +957,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -982,7 +983,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1004,7 +1005,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1026,7 +1027,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1067,7 +1068,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1076,7 +1077,7 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1098,13 +1099,13 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1169,7 +1170,7 @@ Authorizing access to data in Azure Storage:  https://docs.microsoft.com/azure/s
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1266,7 +1267,7 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1284,5 +1285,5 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
