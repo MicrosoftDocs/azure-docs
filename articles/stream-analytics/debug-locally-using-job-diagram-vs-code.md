@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ---
 
-# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
+# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio Code
 
-Streaming jobs that output no result or unexpected results often need troubleshooting. The Visual Studio Code extension for Azure Stream Analytics integrates job diagrams, metrics, diagnostic logs, and intermediate results to help you quickly isolate the source of a problem. You can use the job diagram while testing your query locally to examine the intermediate result set and metrics for each step. 
+Streaming jobs that output no result or unexpected results often need troubleshooting. The Visual Studio Code extension for Azure Stream Analytics integrates job diagrams, metrics, diagnostic logs, and intermediate results to help you quickly isolate the source of a problem. You can use the job diagram while testing your query locally to examine the intermediate result set and metrics for each step.
 
 ## Debug a query using job diagram
 
@@ -54,7 +54,7 @@ In this section, you explore the metrics available for each part of the diagram.
 3. Select the name of the input data source from the dropdown to see input metrics. The input source in the screenshot below is called *quotes*. For more information about input metrics, see [Understand Stream Analytics job monitoring and how to monitor queries](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
+   > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Select a query step from the job diagram or select the step name from the dropdown to see step level metrics. Watermark delay is the only available step metric.
 

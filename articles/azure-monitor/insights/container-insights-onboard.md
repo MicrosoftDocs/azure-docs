@@ -3,7 +3,7 @@
 title: Enable Azure Monitor for containers | Microsoft Docs
 description: This article describes how to enable and configure Azure Monitor for containers so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/30/2020
 
 ---
 
@@ -51,6 +51,8 @@ Before you start, make sure that you've met the following requirements:
 - You are a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on the AKS cluster resource.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+- To view the monitoring data, you need to have [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
 
 - Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 

@@ -70,10 +70,10 @@ To add an Azure Cosmos DB connection, create a **TableService** object and speci
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+```
 
 ## Create a table
-The following code creates a **TableService** object and uses it to create a new table. 
+The following code creates a **TableService** object and uses it to create a new table.
 
 ```javascript
 var tableSvc = azure.createTableService();
@@ -359,7 +359,7 @@ dc.table.queryEntities(tableName,
 
 If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
 
-You can also use `top` along with `continuationToken` to set the page size. 
+You can also use `top` along with `continuationToken` to set the page size.
 
 ## Work with shared access signatures
 Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
@@ -388,7 +388,7 @@ var host = tableSvc.host;
 
 Note that you must also provide the host information, as it is required when the SAS holder attempts to access the table.
 
-The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query. See [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) article for the format of tableSAS. 
+The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query. See [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) article for the format of tableSAS.
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -453,6 +453,6 @@ For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Azure for Node.js Developers](https://docs.microsoft.com/azure/javascript/)
+* [Azure for Node.js Developers](https://docs.microsoft.com/azure/developer/javascript/)
 * [Create a Node.js web app in Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)

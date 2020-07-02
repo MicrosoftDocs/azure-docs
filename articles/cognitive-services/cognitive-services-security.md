@@ -3,12 +3,12 @@ title: Security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
 ---
 
