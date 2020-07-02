@@ -1,6 +1,6 @@
 ---
 title:  Tutorial - Provision an Azure Spring Cloud instance with terraform
-description: Provision an Azure Spring Cloud instance with terraform.
+description: Provision an Azure Spring Cloud instance with Terraform.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 06/26/2020
 ---
 
-# Tutorial: Provision an Azure Spring Cloud instance with terraform
+# Tutorial: Provision an Azure Spring Cloud instance with Terraform
 
 This tutorial creates an Azure Spring Cloud instance using Terraform. The procedures walk you through creation of the following resources:
 
@@ -47,12 +47,12 @@ This tutorial creates an Azure Spring Cloud instance using Terraform. The proced
     }
 
     resource "azurerm_resource_group" "example" {
-      name     = "yuchensp"
+      name     = "username"
       location = "eastus"
     }
 
     resource "azurerm_spring_cloud_service" "example" {
-      name                = "yuchensp"
+      name                = "usernamesp"
       resource_group_name = azurerm_resource_group.example.name
       location            = azurerm_resource_group.example.location
 
@@ -104,7 +104,7 @@ This section shows how to update the configuration to enable log and metrics for
 
     ```hcl
     resource "azurerm_storage_account" "example" {
-      name                     = "yuchenst"
+      name                     = "usernamest"
       resource_group_name      = azurerm_resource_group.example.name
       location                 = azurerm_resource_group.example.location
       account_tier             = "Standard"
