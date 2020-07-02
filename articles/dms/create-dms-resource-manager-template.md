@@ -45,14 +45,14 @@ More Azure Database Migration Services templates can be found in the [quickstart
 
 2. Select or enter the following values.
 
-    * **Subscription**: select an Azure subscription.
-    * **Resource group**: Enter an existing resource group for your Azure Database Migration Service, or choose to create a new resource group by selecting **Create new**. 
-    * **Region**: select a region.  For example, **Central US**.
-    * **Virtual Machine Name**: enter a name for SQL Server virtual machine. 
-    * **Virtual Machine Size**: Choose the appropriate size for your virtual machine from the drop-down.
-    * **Existing Virtual Network Name**: The primary replica region for the Azure Cosmos account.
-    * **Existing Vnet Resource Group**: The secondary replica region for the Azure Cosmos account.
-    * **Existing Subnet Name**: The default consistency level for the Azure Cosmos account.
+    * **Subscription**: Select an Azure subscription.
+    * **Resource group**: Select an existing resource group from the drop down, or select **Create new** to create a new resource group. 
+    * **Region**: Location where the resources will be deployed.
+    * **Service Name**: Name of the new migration service.
+    * **Location**: The location of the resource group, leave as the default of `[resourceGroup().location]`.
+    * **Vnet Name**: Name of the new virtual network.
+    * **Subnet Name**: Name of the new subnet associated with the virtual network.
+
 
 
 3. Select **Review + create**. After the instance of Azure Database Migration Service has been deployed successfully, you get a notification. 
