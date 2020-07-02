@@ -11,6 +11,8 @@ ms.service: dms
 
 # Create instance of Azure Database Migration Service (Azure Resource Manager template)
 
+Use this Azure Resource Manager template to deploy an instance of the Azure Database Migration Service. 
+
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
@@ -22,7 +24,7 @@ The Azure Database Migration Service ARM template requires the following:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
 :::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
 
@@ -39,7 +41,7 @@ More Azure Database Migration Services templates can be found in the [quickstart
 
 1. Select the following image to sign in to Azure and open a template. The template creates an instance of the Azure Database Migration Service. 
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -53,14 +55,14 @@ More Azure Database Migration Services templates can be found in the [quickstart
     * **Existing Subnet Name**: The default consistency level for the Azure Cosmos account.
 
 
-3. Select **Review + create **. After the instance of Azure Database Migration Service has been deployed successfully, you get a notification. 
+3. Select **Review + create**. After the instance of Azure Database Migration Service has been deployed successfully, you get a notification. 
 
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
-You can either use the Azure CLI to check deployed resources. 
+You can use the Azure CLI to check deployed resources. 
 
 
 ```azurecli-interactive

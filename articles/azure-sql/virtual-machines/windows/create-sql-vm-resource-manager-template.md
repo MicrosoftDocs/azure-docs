@@ -11,6 +11,8 @@ ms.service: virtual-machines-sql
 
 # Create SQL Server VM (Azure Resource Manager template)
 
+Use this Azure Resource Manager template to deploy a SQL Server on Azure Virtual Machine (VM). 
+
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
