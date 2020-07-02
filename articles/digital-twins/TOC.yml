@@ -74,8 +74,12 @@
       href: how-to-integrate-maps.md
   - name: Troubleshoot
     items:
+    - name: EXAMPLE TROUBLESHOOT
+      href: troubleshoot-example.md
     - name: Known issues
       items:
+      - name: EXAMPLE ISSUE
+        href: troubleshoot-issue-example.md
 - name: Reference
   items:
   - name: Digital Twins service limits
