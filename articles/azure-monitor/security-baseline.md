@@ -2,7 +2,7 @@
 title: Azure Monitor security baseline for Azure Security Benchmark
 description: The Azure Monitor security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: monitor
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
