@@ -170,7 +170,7 @@ The `mimeTypes` object, listed at the same level as the `routes` array, allows y
 {
     "routes": [],
     "mimeTypes": {
-        "js": "application/javascript"
+        "custom": "text/html"
     }
 }
 ```
@@ -203,10 +203,10 @@ In the above example, a new `content-security-policy` header is added, the `cach
 
 The following considerations are important as you work with headers:
 
-- Keys cannot be null or empty
-- Null or empty values remove a header from processing
-- Keys or values cannot exceed 8,000 characters
-- Defined headers are served with all requests
+- Keys cannot be null or empty.
+- Null or empty values remove a header from processing.
+- Keys or values cannot exceed 8,000 characters.
+- Defined headers are served with all requests.
 - Headers defined in _routes.json_ only apply to static content. You can customize response headers of a API endpoint in the function's code.
 
 ## Example route file
