@@ -136,7 +136,7 @@ For more real-time alerting and more control on where to land the logs, consider
 
 If Data Lake Storage Gen1 log shipping is not turned on, Azure HDInsight also provides a way to turn on [client-side logging for Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) via log4j. You must set the following property in **Ambari** > **YARN** > **Config** > **Advanced yarn-log4j configurations**:
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
 Once the property is set and the nodes are restarted, Data Lake Storage Gen1 diagnostics is written to the YARN logs on the nodes (/tmp/\<user\>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Azure Monitor logs or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Storage Gen1 account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Storage Gen1 for operational visibility and easier debugging.
 
