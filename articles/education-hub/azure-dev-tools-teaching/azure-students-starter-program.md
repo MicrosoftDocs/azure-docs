@@ -1,7 +1,7 @@
 ---
 title: About the Azure for Students Starter program (Azure Education Hub)
 description: Learn about the Azure for Students Starter program.
-author: v-tamif
+author: tfosmark
 ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
