@@ -57,10 +57,11 @@ You can complete the renewal process as early as 90 days before the expiration d
 
 1. Select **Renew an existing subscripton** on the Azure Dev Tools for Teaching banner.
 
-:::image type="content" source="media/enroll-renew-subscription/enroll-renew.png" alt-text="Sign in error message." border="false":::
-
 1. Search for your institution name and find the subscription ID you want to renew.
 
+1. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription.
+
+1. Confirm all purchase information and click **Place Order**. Confirmation emails will be sent to your inbox with updates on payment status and any possible next steps.
 
 
 ## Next steps	
