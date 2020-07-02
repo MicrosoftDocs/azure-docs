@@ -105,7 +105,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
 After selecting the **Enable/Disable** radio button to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
-## Enable with a Resource Manager template
+### Enable with a Resource Manager template
 
 You can use an Azure Resource Manager template and parameters file to create the included metric alerts in Azure Monitor.
 
@@ -117,7 +117,7 @@ The basic steps are as follows:
 
 3. Deploy the template from the Azure portal, PowerShell, or Azure CLI.
 
-### Deploy through Azure portal
+#### Deploy through Azure portal
 
 1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
 
@@ -140,7 +140,7 @@ The basic steps are as follows:
     * Alert Name
     * Cluster Resource Id
 
-### Deploy with Azure PowerShell or CLI
+#### Deploy with Azure PowerShell or CLI
 
 1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
 
@@ -154,7 +154,6 @@ The basic steps are as follows:
     Connect-AzAccount
 
     Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
     New-AzResourceGroupDeployment -Name CIMetricAlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
     -TemplateFile templateFilename.json -TemplateParameterFile templateParameterFilename.parameters.json
     ```
