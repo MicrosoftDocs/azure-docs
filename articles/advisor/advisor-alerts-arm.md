@@ -12,7 +12,7 @@ This article shows you how to set up an alert for new recommendations from Azure
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
+Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
 
 You can also determine the types of recommendations by using these properties:
 
@@ -160,7 +160,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ---
 
-## Verify the deployment
+## Validate the deployment
 
 Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** with the value you used above.
 
