@@ -14,7 +14,7 @@ ms.custom: lyhughes
 
 # Upcoming changes to the JSON flattening and escaping rules for new environments
 
-These changes will be applied to *new* Azure Time Series Insights pay-as-you-go (PAYG) environments only. If you have a Standard (S) SKU TSI environment, you may disregard these changes.
+These changes will be applied to *new* Azure Time Series Insights pay-as-you-go (PAYG) environments only. These changes do not apply to Standard (S) SKU environments.
 
 Your Azure Time Series Insights environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
 
