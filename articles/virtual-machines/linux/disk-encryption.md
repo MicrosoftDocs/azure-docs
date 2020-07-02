@@ -23,9 +23,9 @@ Encryption does not impact the performance of managed disks and there is no addi
 
 ## Encryption at rest
 
-With server-side encryption, you have the option to enable double encryption at rest for disks, snapshots, and images.
+With server-side encryption, you have the option to enable double encryption at rest for disks, snapshots, and images. If necessary for auditing or compliance needs, you can query an `Encryption.Type` property of your managed disk to find the current encryption status. You are not billed for double encryption at rest with every disk transaction.
 
-Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption. Customers can query Encryption.Type property of managed disks, snapshots and images to find the encryption status required for auditing to meet compliance needs. Customers are not billed for double encryption at rest for every disk transaction.
+Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
 
 ## Encryption in transit
 
