@@ -32,6 +32,9 @@ In this tutorial, you will:
 
 If you don’t have an Azure Media Services subscription, create an Azure [free trial account](https://azure.microsoft.com/free/) then create a Media Services account.
 
+### Duration
+The tutorial should take about two hours to complete after you have the prerequisite technology ready to go.
+
 ## Prerequisites
 
 The following latest technology versions and concepts are used. It's recommended that you become familiar with them before beginning this tutorial.
