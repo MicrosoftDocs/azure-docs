@@ -95,7 +95,7 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine:
+When Guest Configuration audits a machine the sequence of events is different than in Windows PowerShell DSC.
 
 1. The agent first runs `Test-TargetResource` to determine if the configuration is
 in the correct state.
@@ -103,6 +103,9 @@ in the correct state.
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
 why a machine isn't compliant and to confirm that the current state is compliant.
+
+Parameters in Azure Policy that pass values to Guest Configuration assignments must be string type.
+It is not possible to pass arrays through parameters, even if the DSC resource supports arrays.
 
 ### Get-TargetResource requirements
 
