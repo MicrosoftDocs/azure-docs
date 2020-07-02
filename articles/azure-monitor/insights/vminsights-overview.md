@@ -11,9 +11,16 @@ ms.date: 06/25/2020
 
 # What is Azure Monitor for VMs?
 
-Azure Monitor for VMs monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources and external processes. It supports Windows and Linux VMs in Azure, hosted on-premises, or in another cloud provider, including Azure Arc machines.
+Azure Monitor for VMs monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
-Azure Monitor for VMs can deliver predictable performance and availability of vital applications. It identifies performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.  
+Azure Monitor for VMs supports Windows and Linux operating systems on the following:
+
+- Azure virtual machines
+- Azure virtual machine scale sets
+- Hybrid virtual machines connected with Azure Arc
+- On-premises virtual machines
+- Virtual machines hosted in another cloud environment
+  
 
 
 >[!NOTE]
@@ -35,7 +42,7 @@ There is no direct cost for Azure Monitor for VMs, but you are charged for its a
 
 The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional connection data that's sent to Azure Monitor.​
 
-### Azure Arc machines
+## Supported Azure Arc machines
 Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. Users must be running version 0.9 or above of the Arc Agent to enable Azure Monitor for VMs on their Arc enabled servers.
 
 ## Supported operating systems

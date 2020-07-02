@@ -5,22 +5,23 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 07/01/2020
 
 ---
 
 # Enable Azure Monitor for VMs for a hybrid environment
+This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
+## Overview
+Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Since you can't use the VM extension to install the agents though, you must manually install them in the guest operating system or deploy them through some other method. See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. 
 
-Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
+
+## Prerequisites
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
->[!NOTE]
->The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+
 
 The steps to complete this task are summarized as follows:
 
@@ -28,12 +29,15 @@ The steps to complete this task are summarized as follows:
 
 2. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 
-3. Enable the collection of performance counters.
 
-4. Deploy Azure Monitor for VMs.
 
 >[!NOTE]
 >The information described in this article for deploying the Dependency agent is also applicable to the [Service Map solution](service-map.md).  
+
+
+
+>[!NOTE]
+>The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 ## Install the Dependency agent on Windows
 
@@ -138,86 +142,7 @@ configuration VMInsights {
 }
 ```
 
-## Enable performance counters
 
-If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
-* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
-
-## Deploy Azure Monitor for VMs
-
-This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
-
-If you don't know how to deploy resources by using a template, see:
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
-
-To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### Create and execute a template
-
-1. Copy and paste the following JSON syntax into your file:
-
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "WorkspaceName": {
-                "type": "string"
-            },
-            "WorkspaceLocation": {
-                "type": "string"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2017-03-15-preview",
-                "type": "Microsoft.OperationalInsights/workspaces",
-                "name": "[parameters('WorkspaceName')]",
-                "location": "[parameters('WorkspaceLocation')]",
-                "resources": [
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-
-                        "plan": {
-                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
-                            "promotionCode": ""
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-    ```
-
-1. Save this file as *installsolutionsforvminsights.json* to a local folder.
-
-1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
-
-1. You're ready to deploy this template by using the following PowerShell command:
-
-    ```powershell
-    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-    ```
-
-    The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
-
-    ```powershell
-    provisioningState       : Succeeded
-    ```
-   After you've enabled monitoring, it might take about 10 minutes before you can view the health state and metrics for the hybrid computer.
 
 ## Troubleshooting
 
