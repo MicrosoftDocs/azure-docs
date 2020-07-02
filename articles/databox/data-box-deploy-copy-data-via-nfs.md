@@ -135,7 +135,19 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 > [!IMPORTANT]
 > The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
-Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+During the copy process, if there are any errors, you will see a notification.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Select **Download issue list**.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+
+For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
 
