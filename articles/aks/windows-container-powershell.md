@@ -74,7 +74,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 The following example output shows the resource group created successfully:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -155,7 +155,7 @@ kubectl get nodes
 The following example output shows all the nodes in the cluster. Make sure that the status of all
 nodes is **Ready**:
 
-```Output
+```plaintext
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
@@ -234,7 +234,7 @@ kubectl apply -f sample.yaml
 
 The following example output shows the Deployment and Service created successfully:
 
-```Output
+```plaintext
 deployment.apps/sample created
 service/sample created
 ```
@@ -253,7 +253,7 @@ kubectl get service sample --watch
 
 Initially the **EXTERNAL-IP** for the **sample** service is shown as **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
@@ -262,7 +262,7 @@ When the **EXTERNAL-IP** address changes from **pending** to an actual public IP
 to stop the `kubectl` watch process. The following example output shows a valid public IP address
 assigned to the service:
 
-```Output
+```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

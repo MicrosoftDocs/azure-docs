@@ -4,7 +4,7 @@ description: Azure Monitor seamlessly integrates with your application running o
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/20/2020
+ms.date: 06/26/2020
 
 ---
 
@@ -16,11 +16,11 @@ Application Insights collects log, performance, and error data, and automaticall
 
 The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## Distributed tracing for Java applications (public preview)
-
+## Distributed tracing for Java applications on Windows (public preview)
 
 > [!IMPORTANT]
-> This feature is currently in public preview for Java Azure Functions. For Consumption plan it has a cold start implication of 8-9 seconds.
+> This feature is currently in public preview for Java Azure Functions on Windows, distributed tracing for Java Azure Functions on Linux is not supported. 
+> For Consumption plan it has a cold start of 8-9 seconds.
 
 If your applications are written in Java you can view richer data from your functions applications, including, requests, dependencies, logs, and metrics. The additional data also lets you see and diagnose end-to-end transactions and see the application map, which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are.
 

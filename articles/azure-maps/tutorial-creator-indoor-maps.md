@@ -69,7 +69,6 @@ The Data Upload API is a long running transaction that implements the pattern de
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }

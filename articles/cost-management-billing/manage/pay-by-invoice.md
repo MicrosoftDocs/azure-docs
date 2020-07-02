@@ -6,7 +6,7 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
 ---
 
@@ -108,10 +108,19 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
+## Frequently asked questions
+
+*Why have I received a request for a legal document?*
+
+Occasionally Microsoft needs legal documentation if the information you provided is incomplete or not verifiable. Examples might include:
+
+* Name difference between Account name and Company name
+* Change in name
+
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
-- If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).
+* If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).

@@ -20,7 +20,8 @@ The **Document Extraction** skill extracts content from a file within the enrich
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in indexing. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+
 ## @odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 

@@ -5,7 +5,7 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun

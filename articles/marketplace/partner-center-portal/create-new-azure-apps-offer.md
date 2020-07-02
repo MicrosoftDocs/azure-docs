@@ -34,7 +34,7 @@ Review the following resources as you prepare your Azure application offer for t
 * Quickstarts:
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
-    * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
+    * [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
@@ -163,18 +163,18 @@ This page is where you manage the copy and images for your commercial marketplac
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Azure Marketplace:
+Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
 #### Call-out descriptions
 
 1. Logo
-2. Offer name
-3. Categories
-4. Support address (link)
-5. Terms of use
-6. Privacy policy address (link)
+2. Categories
+3. Support address (link)
+4. Terms of use
+5. Privacy policy address (link)
+6. Offer name
 7. Summary
 8. Description
 9. Screenshots/videos
@@ -421,10 +421,14 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
+>[!Note]
+>A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
+
 If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
->A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
+>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
 
 ### Technical configuration 
 

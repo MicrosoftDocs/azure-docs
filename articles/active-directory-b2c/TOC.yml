@@ -191,8 +191,12 @@
         displayName: ux, input, cors, html, css
       - name: Customize language
         href: custom-policy-localization.md
-      - name: Custom email
-        href: custom-email.md
+      - name: Custom email verification
+        items:
+        - name: Mailjet
+          href: custom-email-mailjet.md
+        - name: SendGrid
+          href: custom-email-sendgrid.md
         displayName: verification
       - name: Disable email verification
         href: custom-policy-disable-email-verification.md
@@ -325,6 +329,8 @@
           - name: Azure Multi-Factor Authentication
             href: multi-factor-auth-technical-profile.md
             displayName: mfa
+          - name: Azure AD SSPR
+            href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
           - name: JWT token issuer
@@ -371,6 +377,8 @@
       href: partner-trusona.md
     - name: Twilio
       href: partner-twilio.md
+    - name: TypingDNA
+      href: partner-typingdna.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

@@ -75,7 +75,7 @@ Azure Migrate: Server Assessment runs a lightweight appliance.
     - Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
     - Execute the PowerShell script to launch the appliance web application.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
-- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 250 servers can be discovered per appliance.
+- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 1000 servers can be discovered per appliance.
 
 ### Download the installer script
 

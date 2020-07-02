@@ -5,7 +5,7 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun

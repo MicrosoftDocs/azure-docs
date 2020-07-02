@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/24/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -38,10 +38,7 @@ You can have a master server in any [Azure Database for PostgreSQL region](https
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
-
-*West US 2 is temporarily unavailable as a cross region replica location.
-
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -50,7 +47,7 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 
 There are limitations to consider: 
 
-* Regional availability: Azure Database for PostgreSQL is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
+* Regional availability: Azure Database for PostgreSQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.

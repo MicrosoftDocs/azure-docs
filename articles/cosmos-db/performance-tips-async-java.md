@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos database
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 
@@ -18,7 +18,7 @@ ms.author: anfeldma
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
 > * [.NET SDK v2](performance-tips.md)
-> 
+
 
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
@@ -44,7 +44,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
 
-    ### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```java
         public ConnectionPolicy getConnectionPolicy() {
@@ -63,9 +63,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-    ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
 
 ## SDK Usage
+
 * **Install the most recent SDK**
 
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
@@ -84,7 +85,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     * ***Overview of Direct mode***
 
-        ![Illustration of the Direct mode architecture](./media/performance-tips-async-java/rntbdtransportclient.png)
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
 
         The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
 
@@ -312,9 +313,11 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
-        HTTP Status 429,
-        Status Line: RequestRateTooLarge
-        x-ms-retry-after-ms :100
+```xml
+HTTP Status 429,
+Status Line: RequestRateTooLarge
+x-ms-retry-after-ms :100
+```
 
     The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 

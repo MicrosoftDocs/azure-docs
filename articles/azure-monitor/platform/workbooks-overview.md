@@ -27,9 +27,9 @@ Workbooks are currently compatible with the following data sources:
 * [Metrics](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alerts (Preview)](workbooks-data-sources.md#alerts-preview)
-* [Workload Health (Preview)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (Preview)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer (Preview)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Workload Health](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## Visualizations
 
