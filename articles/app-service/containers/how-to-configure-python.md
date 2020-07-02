@@ -170,7 +170,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Open SSH session in browser
 

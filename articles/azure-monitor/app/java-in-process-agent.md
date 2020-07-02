@@ -20,11 +20,11 @@ You can still send custom telemetry from your application. The 3.0 agent will tr
 
 **1. Download the agent**
 
-Download [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Download [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -40,7 +40,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, with the following content:
+Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.5.jar`, with the following content:
 
 ```json
 {

@@ -3,7 +3,7 @@ title: Power BI tutorial for Azure Cosmos DB connector
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB and Power BI connector.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
 ---
@@ -46,22 +46,24 @@ To share your reports in PowerBI.com, you must have an account in PowerBI.com.  
 ## Let's get started
 In this tutorial, let's imagine that you are a geologist studying volcanoes around the world. The volcano data is stored in an Azure Cosmos DB account and the JSON document format is as follows:
 
-    {
-        "Volcano Name": "Rainier",
-           "Country": "United States",
-          "Region": "US-Washington",
-          "Location": {
-            "type": "Point",
-            "coordinates": [
-              -121.758,
-              46.87
-            ]
-          },
-          "Elevation": 4392,
-          "Type": "Stratovolcano",
-          "Status": "Dendrochronology",
-          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-    }
+```json
+{
+    "Volcano Name": "Rainier",
+        "Country": "United States",
+        "Region": "US-Washington",
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            -121.758,
+            46.87
+          ]
+        },
+        "Elevation": 4392,
+        "Type": "Stratovolcano",
+        "Status": "Dendrochronology",
+        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+}
+```
 
 You will retrieve the volcano data from the Azure Cosmos DB account and visualize data in an interactive Power BI report.
 
@@ -127,7 +129,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
     
     If you receive an Error in the new column, make sure that the applied steps under Query Settings match the following figure:
     
-    ![Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/powerbi-visualize/power-bi-applied-steps.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom":::
     
     If your steps are different, delete the extra steps and try adding the custom column again. 
 
@@ -174,11 +176,11 @@ Now that you have a report, lets share it on PowerBI.com
 
 When you publish your report from Power BI Desktop to PowerBI.com, it generates a **Report** and a **Dataset** in your PowerBI.com tenant. For example, after you published a report called **PowerBITutorial** to PowerBI.com, you will see PowerBITutorial in both the **Reports** and **Datasets** sections on PowerBI.com.
 
-   ![Screenshot of the new Report and Dataset in PowerBI.com](./media/powerbi-visualize/powerbi-reports-datasets.png)
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Screenshot of the new Report and Dataset in PowerBI.com":::
 
 To create a sharable dashboard, click the **Pin Live Page** button on your PowerBI.com report.
 
-   ![Screenshot of the new Report and Dataset in PowerBI.com](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Screenshot of the new Report and Dataset in PowerBI.com":::
 
 Then follow the instructions in [Pin a tile from a report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) to create a new dashboard. 
 
@@ -189,13 +191,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

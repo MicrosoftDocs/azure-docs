@@ -444,9 +444,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box family
-    tocHref: /azure/databox-family/
-    topicHref: /azure/databox-family/
+  - name: Storage
+    tocHref: /azure/storage/
+    topicHref: /azure/storage/
     items:
     - name: Data Box offline transfer
       tocHref: /azure/databox/
@@ -469,9 +469,9 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Lab
-    tocHref: /azure/devtest-lab/
-    topicHref: /azure/devtest-lab/
+  - name: Devtest Labs
+    tocHref: /azure/devtest-labs/
+    topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
     tocHref: /azure/fxt-edge-filer/
     topicHref: /azure/fxt-edge-filer/

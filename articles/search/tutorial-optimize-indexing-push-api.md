@@ -17,7 +17,7 @@ Azure Cognitive Search supports [two basic approaches](search-what-is-data-impor
 
 This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an index

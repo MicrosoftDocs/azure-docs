@@ -154,7 +154,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-   ![View the connection string information in the Connection String pane](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="View the connection string information in the Connection String pane":::
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right.
 
