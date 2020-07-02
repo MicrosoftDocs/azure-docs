@@ -67,8 +67,6 @@
     href: ddos-best-practices.md
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
-  - name: DDoS Protection security baseline
-    href: ddos-protection-security-baseline.md
   - name: Secure hybrid network architecture
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 
