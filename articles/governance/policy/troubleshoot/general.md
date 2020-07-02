@@ -194,7 +194,7 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 channels for more support:
 
 - Get answers from experts through
-  [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+  [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure
   account for improving customer experience by connecting the Azure community to the right
   resources: answers, support, and experts.
