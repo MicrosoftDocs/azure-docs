@@ -182,7 +182,7 @@ The UDF preview currently has the following limitations:
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
 
-* Supporting files included in the project will be copied to the User Custom Code zip file that is used when publishing the job to cloud. All files in subfolders will be copied directly to the root of the User Custom Code folder in cloud when unzipped, that means the zip will be "flattened" when decompressed.
+* Supporting files included in the project are copied to the User Custom Code zip file that is used when you publish the job to the cloud. All files in subfolders are copied directly to the root of the User Custom Code folder in the cloud when unzipped. The zip is "flattened" when decompressed.
 
 * User Custom Code does not support empty folders, make sure to not add empty folders to the supporting files in the project.
 
