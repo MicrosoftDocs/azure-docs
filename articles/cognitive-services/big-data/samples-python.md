@@ -1,35 +1,30 @@
 ---
-title: "Cognitive Services for Big Data Python Samples"
+title: "Cognitive Services for Big Data - Python Samples"
 description: Try Cognitive Services samples in Python for Azure Databricks to run your MMLSpark pipeline for big data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
-
 ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
 ---
 
+# Python Samples for Cognitive Services for Big Data
 
-# Quick Examples
+The following snippets are ready to run and will help get you started with using Cognitive Services on Spark with Python. 
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark.
- The samples below are in Python.
-
-The samples use these Cognitive Services:
+The samples in this article use these Cognitive Services:
 
 - Text Analytics - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
 - Bing Image Search - search the web for images related to a natural language query.
 - Speech-to-text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
-- Arbitrary Web APIs - collect information about countries with the World Bank API.
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. 
-This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
+1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial shows you how to install MMLSpark and how to create your Spark cluster in Databricks.
 1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
@@ -37,7 +32,8 @@ This tutorial will include how to install MMLSpark and how to create your Spark 
 1. View results in a table below the cell.
 
 ## Shared code
-To get started, first we need to import the 
+
+To get started, we'll need to add this code to the project:
 
 ```python
 from mmlspark.cognitive import *
@@ -53,13 +49,9 @@ anomaly_key = "ADD_YOUR_SUBSCRIPION_KEY"
 assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 ```    
 
-## Text Analytics
-The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 
-service provides several algorithms for extracting intelligent insights from text. 
-For example, we can find the sentiment of given input text. 
-The service will return a score between 0.0 and 1.0 where low scores
- indicate negative sentiment and high score indicates positive sentiment. 
- The sample below uses three simple sentences and returns the sentiment for each.
+## Text Analytics sample
+
+The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment.  This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -92,10 +84,9 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("scor
 | I am frustrated by this rush hour traffic | 0.023795604705810547                                  |
 | The cognitive services on spark aint bad  | 0.8888956308364868                                    |
 
-## Computer Vision
+## Computer Vision sample
 
-[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
- In this sample, we "tag" a list of images. "Tags" are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```python
 
@@ -128,12 +119,9 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group'] 
 
 
-## Bing Image Search
+## Bing Image Search sample
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) 
-searches the web to retrieve images related to a user's natural language query. 
-In this sample, we use a text query that looks for images with quotes. 
-It returns a list of image URLs that contain photos related to our query.
+[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -177,9 +165,8 @@ display(pipeline.transform(bingParameters))
 | https://tsal-eszuskq0bptlfh8awbb.stackpathdns.com/wp-content/uploads/2018/01/MartinLutherKingQuotes.jpg  |
 
 
-## Speech-to-Text
-The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. 
-In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+## Speech-to-Text sample
+The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```python
 
@@ -211,10 +198,9 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 | https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | I like the reassurance for radio that I can hear it as well. |
 
 
-## Anomaly Detector
-[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) 
-is great for detecting irregularities in your time series data. 
-In this sample, we use the service to find anomalies in the entire time series.
+## Anomaly Detector sample
+
+[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```python
 from pyspark.sql.functions import lit
@@ -273,9 +259,8 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 | 1973-03-01T00:00:00Z |    9000 | True        |
 
 ## Arbitrary Web APIs
-With HTTP on Spark, any web service can be used in your big data pipeline. 
-In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) 
-to get information about various countries around the world.
+
+With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
 
 ```python
 from requests import Request
@@ -310,3 +295,8 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 |:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | br | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"BRA","iso2Code":"BR","name":"Brazil","region":{"id":"LCN","iso2code":"ZJ","value":"Latin America & Caribbean "},"adminregion":{"id":"LAC","iso2code":"XJ","value":"Latin America & Caribbean (excluding high income)"},"incomeLevel":{"id":"UMC","iso2code":"XT","value":"Upper middle income"},"lendingType":{"id":"IBD","iso2code":"XF","value":"IBRD"},"capitalCity":"Brasilia","longitude":"-47.9292","latitude":"-15.7801"}]] |
 | usa  | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"USA","iso2Code":"US","name":"United States","region":{"id":"NAC","iso2code":"XU","value":"North America"},"adminregion":{"id":"","iso2code":"","value":""},"incomeLevel":{"id":"HIC","iso2code":"XD","value":"High income"},"lendingType":{"id":"LNX","iso2code":"XX","value":"Not classified"},"capitalCity":"Washington D.C.","longitude":"-77.032","latitude":"38.8895"}]] |
+
+## See also
+
+* [Recipe: Anomaly Detection](./recipe/anomaly-detector.md)
+* [Recipe: Art Explorer](./recipe/art-explorer.md)
