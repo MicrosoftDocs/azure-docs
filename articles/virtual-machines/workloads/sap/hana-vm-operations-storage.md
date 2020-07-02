@@ -40,11 +40,11 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 The minimum SAP HANA certified conditions for the different storage types are: 
 
-- Azure premium storage - **/hana/log** is required to be cached with Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). The **/hana/data** volume could be placed on premium storage without Azure Write Accelerator or on Ultra disk
+- Azure premium storage - **/hana/log** is required to be supported by Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). The **/hana/data** volume could be placed on premium storage without Azure Write Accelerator or on Ultra disk
 - Azure Ultra disk at least for the **/hana/log** volume. The **/hana/data** volume can be placed on either premium storage without Azure Write Accelerator or in order to get faster restart times Ultra disk
-- **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol. The NFS v4.1 protocol is mandatory for **/hana/data** and **/hana/log** volumes.
+- **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol
 
-Some of the storage types can be combined. For example, it is possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for **/hana/data**, you are required to use another NFS v4.1 volume based on ANF for **/hana/log**. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
+Some of the storage types can be combined. For example, it is possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you us a volume based on ANF for **/hana/data**,  **/hana/log** volume needs to be based on NFS on top of ANF as well. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that SAP is recommending, are:
 
@@ -194,7 +194,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 
 Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
-For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) family and the [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series) you can use Azure Ultra disk storage instead of Azure premium storage for the **/hana/log** volume. As a result, the configurations for the **/hana/data** volume would look like :
+For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) family and the [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series) you need to ANF for the **/hana/data** and **/hana/log** volume. Or you need to leverage Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume. As a result, the configurations for the **/hana/data** volume on Azure premium storage could look like :
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -204,7 +204,7 @@ For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/
 | E64ds_v4 | 504 GiB | 1,200 MBps | 3 x P15 |  510 MBps | 3,300 | 10,500 | 
 | E64s_v3 | 432 GiB | 1,200 MB/s | 3 x P15 |  510 MBps | 3,300 | 10,500 | 
 
-For the other volumes the configuration would look like:
+For the other volumes, including **/hana/log** on Ultra disk, the configuration could look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
