@@ -214,7 +214,7 @@ You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connecte
 
 - Specify the following ACLs on the folder structure:
 
-| Folder | / | synapse | workspaces  | /<workspacename> | sparkpools | /<sparkpoolname>  | sparkpoolinstances  |
+| Folder | / | synapse | workspaces  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
 | Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
 | Default Permissions | ---| ---| ---| ---| ---| ---| ---|
