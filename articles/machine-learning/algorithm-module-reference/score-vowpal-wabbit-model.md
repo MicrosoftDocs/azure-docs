@@ -49,7 +49,7 @@ This module provides the latest version of the Vowpal Wabbit framework, version 
 
 After training is complete:
 
-+ To visualize the results, right-click the output of the [Score Vowpal Wabbit Model](score-vowpal-wabbit-version-model.md) module. The output indicates a prediction score normalized from 0 to 1. 
++ To visualize the results, right-click the output of the [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) module. The output indicates a prediction score normalized from 0 to 1. 
 
 + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
 
