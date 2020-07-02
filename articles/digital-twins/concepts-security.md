@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Secure Azure Digital Twins with role-based access control
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
@@ -52,6 +49,9 @@ With managed identities, the Azure platform manages this runtime identity. You d
 Azure provides the below built-in RBAC roles for authorizing access to an Azure Digital Twins resource:
 * Azure Digital Twins Owner (Preview) – Use this role to give full access over Azure Digital Twins resources.
 * Azure Digital Twins Reader (Preview) – Use this role to give read-only access to Azure Digital Twins resources.
+
+> [!TIP]
+> The Azure Digital Twins Reader (Preview) role now also supports browsing relationships.
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 

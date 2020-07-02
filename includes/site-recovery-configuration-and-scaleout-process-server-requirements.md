@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
 
@@ -48,14 +48,12 @@ NIC type | VMXNET3 (if the configuration server is a VMware VM)
  |
 **Internet access**  (the server needs access to the following URLs, directly or via proxy):|
 \*.backup.windowsazure.com | Used for replicated data transfer and coordination
-\*.store.core.windows.net | Used for replicated data transfer and coordination
-\*.blob.core.windows.net | Used to access storage account that stores replicated data
+\*.blob.core.windows.net | Used to access storage account that stores replicated data. You can provide the specific URL of your cache storage account.
 \*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https:\//management.azure.com | Used for replication management operations and coordination 
-*.services.visualstudio.com | Used for telemetry purposes (optional)
+https:\//login.microsoftonline.com | Used for replication management operations and coordination 
 time.nist.gov | Used to check time synchronization between system and global time
 time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also whitelisted, if necessary.
 |
 

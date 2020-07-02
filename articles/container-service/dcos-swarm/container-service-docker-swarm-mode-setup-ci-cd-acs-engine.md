@@ -184,7 +184,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
 ## Step 3: Create the release pipeline
 
-Azure DevOps allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create an environment that represents your Azure Container Service Docker Swarm Mode cluster.
+Azure DevOps allows you to [manage releases across environments](https://azure.microsoft.com/services/devops/pipelines/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create an environment that represents your Azure Container Service Docker Swarm Mode cluster.
 
 ![Azure DevOps - Release to ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
