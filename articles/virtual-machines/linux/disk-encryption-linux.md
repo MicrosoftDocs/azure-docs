@@ -400,7 +400,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 
 - Encrypting basic tier VM or VMs created through the classic VM creation method.
 - Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-- Encrypting OS drive for Linux virtual machine scale sets.
+- Encrypting the OS drive for Linux virtual machine scale sets.
 - Encrypting custom images on Linux VMs.
 - Integration with an on-premises key management system.
 - Azure Files (shared file system).
@@ -408,12 +408,15 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Dynamic volumes.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VM to another subscription.
+- Moving an encrypted VM to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
+- A VM with a data drive mounted on top of an OS folder.
+- M-series VMs with Write Accelerator disks.
 
 ## Next steps
 
