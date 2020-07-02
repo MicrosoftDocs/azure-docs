@@ -59,7 +59,7 @@ Build succeeded.
 
 ## Step 1: Authorize the API call
 
-Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter or specified in the request header. When you use a client library, the subscription key is passed in through the constructor of the FaceClient class. Add the following code to the **main** method of the *Program.cs* file.
+Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter or specified in the request header. When you use a client library, the subscription key is passed in through the constructor of the **FaceClient** class. Add the following code to the **Main** method of the *Program.cs* file.
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
@@ -69,7 +69,7 @@ private readonly IFaceClient faceClient = new FaceClient(
 
 ## Step 2: Create the PersonGroup
 
-In this step, a PersonGroup named "MyFriends" contains Anna, Bill, and Clare. Each person has several faces registered. The faces must be detected from the images. After all of these steps, you have a PersonGroup like the following image:
+In this step, a **PersonGroup** named "MyFriends" contains Anna, Bill, and Clare. Each person has several faces registered. The faces must be detected from the images. After all of these steps, you have a **PersonGroup** like the following image:
 
 ![MyFriends](../Images/group.image.1.jpg)
 
@@ -121,13 +121,13 @@ If the image contains more than one face, only the largest face is added. You ca
 
 ## Step 3: Train the PersonGroup
 
-The PersonGroup must be trained before an identification can be performed by using it. The PersonGroup must be retrained after you add or remove any person or if you edit a person's registered face. The training is done by the [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. When you use the client library, it's a call to the TrainPersonGroupAsync method:
+The **PersonGroup** must be trained before an identification can be performed by using it. The **PersonGroup** must be retrained after you add or remove any person or if you edit a person's registered face. The training is done by the [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. When you use the client library, it's a call to the **TrainPersonGroupAsync** method:
  
 ```csharp 
 await faceClient.PersonGroup.TrainAsync(personGroupId);
 ```
  
-Training is an asynchronous process. It might not be finished even after the TrainPersonGroupAsync method returns. You might need to query the training status. Use the [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API or GetPersonGroupTrainingStatusAsync method of the client library. The following code demonstrates a simple logic of waiting for PersonGroup training to finish:
+Training is an asynchronous process. It might not be finished even after the **TrainPersonGroupAsync** method returns. You might need to query the training status. Use the [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API or **GetPersonGroupTrainingStatusAsync** method of the client library. The following code demonstrates a simple logic of waiting for **PersonGroup** training to finish:
  
 ```csharp 
 TrainingStatus trainingStatus = null;
@@ -148,7 +148,7 @@ while(true)
 
 When the Face service performs identifications, it computes the similarity of a test face among all the faces within a group. It returns the most comparable persons for the testing face. This process is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
 
-The testing face must be detected by using the previous steps. Then the face ID is passed to the identification API as a second argument. Multiple face IDs can be identified at once. The result contains all the identified results. By default, the identification process returns only one person that matches the test face best. If you prefer, specify the optional parameter maxNumOfCandidatesReturned to let the identification process return more candidates.
+The testing face must be detected by using the previous steps. Then the face ID is passed to the identification API as a second argument. Multiple face IDs can be identified at once. The result contains all the identified results. By default, the identification process returns only one person that matches the test face best. If you prefer, specify the optional parameter _maxNumOfCandidatesReturned_ to let the identification process return more candidates.
 
 The following code demonstrates the identification process:
 
@@ -185,11 +185,11 @@ After you finish the steps, try to identify different faces. See if the faces of
 
 ## Step 5: Request for large scale
 
-A PersonGroup can hold up to 10,000 persons based on the previous design limitation. For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
+A **PersonGroup** can hold up to 10,000 persons based on the previous design limitation. For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
 
 ## Summary
 
-In this guide, you learned the process of creating a PersonGroup and identifying a person. The following features were explained and demonstrated:
+In this guide, you learned the process of creating a **PersonGroup** and identifying a person. The following features were explained and demonstrated:
 
 - Detect faces by using the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d) API.
 - Create PersonGroups by using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API.
