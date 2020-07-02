@@ -52,9 +52,7 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 
 A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. 
 
-A disk witness is a unique capability of Azure shared disks and might be preferable because it's a familiar part of the on-premises infrastructure. A disk witness on Azure requires Azure shared disks.
-
-Because the disk witness is common in on-premises clusters, it's easier to adapt to the Azure environment. It also provides the most protection for the cluster. 
+Using a disk witness with a failover cluster instance and SQL Server on Azure VMs requires Azure Shared Disks.
 
 To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 

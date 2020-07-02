@@ -18,7 +18,7 @@ ms.author: mathoma
 # Prepare virtual machines for an FCI (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to prepare two Azure virtual machines (VMs) to use them with a SQL Server failover cluster instance (FCI). Configuration settings vary depending on the FCI storage solution, so validate that you're choosing the correct configuration to suit your environment and business. 
+This article describes how to prepare Azure virtual machines (VMs) to use them with a SQL Server failover cluster instance (FCI). Configuration settings vary depending on the FCI storage solution, so validate that you're choosing the correct configuration to suit your environment and business. 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
@@ -43,7 +43,7 @@ The failover cluster feature requires virtual machines to be placed in an [avail
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
- - **Shared managed disks**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with the fault domain and update domain set to 1 and placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+ - **Azure Shared Disks**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with the fault domain and update domain set to 1 and placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
  - **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Premium file shares are the only shared storage option if you choose availability zones as the availability configuration for your VMs. 
  - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
