@@ -24,15 +24,19 @@ When configuring a Backend Pool by NIC, it is important to keep in mind that the
 ### REST API
 When configuring the Backend Pool for a NIC-based configuraiton, you will create the Backend Pool via the [PUT Backend Pool] (https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/loadbalancerbackendaddresspools/createorupdate) command and then add resources to the Backend Pool via the PUT Network Interface (https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/createorupdate) command. 
 
-
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}?api-version=2020-05-01
+```
 
 [NOTE!] It is important to note that Backend Pools configured via Network Interface cannot be updated as part of an operation on the Backend Pool. Any addition or deletion of backend resources must occur on the Network Interface of the resource.
 
 Create a Network Interface and add it to the Backend Pool you have created via the IP Configurations property.
 
+```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=2020-05-01
+```
 
+```
 {
   "properties": {
     "enableAcceleratedNetworking": true,
@@ -55,12 +59,15 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
   },
   "location": "eastus"
 }
+```
 
 Create a VM and add the NIC refrencing the Backend Pool.
 
+```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
-
+```
 JSON Request Body:
+```
 {
   "location": "eastus",
   "properties": {
@@ -98,11 +105,13 @@ JSON Request Body:
     }
   }
 }
+```
 
 Retrieve the Backend Pool information for the Load Balancer to confirm that this Network Interace is added to the Backend Pool.
 
+```
 GET https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb?api-version=2020-05-01
-
+```
 
 ### PowerShell
 
@@ -123,10 +132,12 @@ If you are Load Balancing to container resources or pre-populating a Backend Poo
 ### REST API
 Create the Backend Pool and define the Backend Addresses you would like to add via Address Name, IP Address, and Virtual Network ID in the JSON body of the PUT request.
 
+```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
+```
 
 JSON Request Body:
-
+```
 {
   "properties": {
     "loadBalancerBackendAddresses": [
@@ -151,16 +162,20 @@ JSON Request Body:
     ]
   }
 }
-
+```
 Retrieve the Backend Pool information for the Load Balancer to confirm that this Network Interace is added to the Backend Pool.
-
+```
 GET https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb?api-version=2020-05-01
+```
 
 ### PowerShell
 Create new backend pool: 
+```
 $backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup	-LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+```
 
 Update that backend pool with a new IP from existing VNET:  
+```
 $virtualNetwork = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
 $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
@@ -169,28 +184,31 @@ $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
 Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName 	$loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool 
 	$backendPool  
-
+```
 
 ### CLI
 Using CLI you can either populate the Backend Pool via command line parameters or through a JSON configuration file. 
 
 Create and populate the Backend Pool via the command line parameters:
-
+```
 az network lb address-pool create \ 
 --lb-name myLB \
 --name myBackendPool \
 --vnet {VNET resource ID} \
 --backend-address name=addr1 ip-address=10.0.0.4 \ 
 --backend-address name=addr2 ip-address=10.0.0.5
-
+```
 Create and populate the Backend Pool via JSON configuration file:
+```
 az network lb address-pool create \ 
 --lb-name myLB \
 --name myBackendPool \
 --vnet {VNET resource ID} \
 --backend-address-config-file @config_file.json
+```
 
 JSON Configuration file:
+```
         [
           {
             "name": "address1",
@@ -205,5 +223,5 @@ JSON Configuration file:
             "ipAddress": "10.0.0.5"
           }
         ]
-
+```
 ### ARM Template
