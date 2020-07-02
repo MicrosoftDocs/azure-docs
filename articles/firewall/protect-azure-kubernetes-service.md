@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 07/02/2020
 ms.author: victorh
 ---
 
