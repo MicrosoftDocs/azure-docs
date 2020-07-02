@@ -152,5 +152,5 @@ These steps should be performed at regular intervals and for key changes:
 - [Add users using Azure AD](../fundamentals/add-users-azure-active-directory.md) and [assign the new user to the Global Administrator role](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
-- [Configure additional protections for Global Administrators in Office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), if you are using Office 365
+- [Configure additional protections for Global Administrators in Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
 - [Start an access review of Global Administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing Global Administrators to more specific administrator roles](directory-assign-admin-roles.md)

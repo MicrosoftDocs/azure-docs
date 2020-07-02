@@ -3,7 +3,7 @@ title: Create a Windows VM with Azure Image Builder using PowerShell
 description: Create a Windows VM with the Azure Image Builder PowerShell module.
 author: cynthn
 ms.author: cynthn
-ms.date: 06/12/2020
+ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
@@ -133,7 +133,7 @@ following example. Without this permission, the image build process won't comple
 Create variables for the role definition and identity names. These values must be unique.
 
 ```azurepowershell-interactive
-$timeInt = $(Get-Date -UFormat '%s')
+[int]$timeInt = $(Get-Date -UFormat '%s')
 $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
 $identityName = "myIdentity$timeInt"
 ```
@@ -249,6 +249,18 @@ $disObjParams = @{
 $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 ```
 
+Create an Azure image builder customization object.
+
+```azurepowershell-interactive
+$ImgCustomParams = @{
+  PowerShellCustomizer = $true
+  CustomizerName = 'settingUpMgmtAgtPath'
+  RunElevated = $false
+  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+}
+$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+```
+
 Create an Azure image builder template.
 
 ```azurepowershell-interactive
@@ -257,6 +269,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
+  Customize = $Customizer
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -316,6 +329,22 @@ Create the VM using the image you created.
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
 
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
+```
+
+## Verify the customization
+
+Create a Remote Desktop connection to the VM using the username and password you set when you
+created the VM. Inside the VM, open PowerShell and run `Get-Content` as shown in the following example:
+
+```azurepowershell-interactive
+Get-Content -Path C:\buildActions\buildActionsOutput.txt
+```
+
+You should see output based on the contents of the file created during the image customization
+process.
+
+```Output
+Azure-Image-Builder-Was-Here
 ```
 
 ## Clean up resources

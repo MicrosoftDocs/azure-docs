@@ -144,7 +144,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 ## SSISDBPricingTier
 
-**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database (SSISDB) on an Azure SQL database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
+**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database (SSISDB) on in Azure SQL Database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
 
 -   If you don't care about the speed to queue package execution and to load the execution log, you can choose the lowest database pricing tier. Azure SQL Database with Basic pricing supports 8 workers in an integration runtime instance.
 

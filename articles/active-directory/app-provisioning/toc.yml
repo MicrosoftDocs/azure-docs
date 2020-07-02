@@ -45,6 +45,8 @@
         href: define-conditional-rules-for-provisioning-user-accounts.md
       - name: Skip deletion for out-of-scope users
         href: skip-out-of-scope-deletions.md
+    - name: Provision on-demand
+      href: provision-on-demand.md
     - name: Monitor and report on provisioning
       items:
       - name: Monitor provisioning status and performance

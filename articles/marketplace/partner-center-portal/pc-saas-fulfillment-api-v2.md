@@ -165,7 +165,7 @@ TLS version 1.2 version will be enforced soon as the minimal version for HTTPS c
 
 #### Resolve a purchased subscription
 
-The resolve endpoint enables the publisher to exchange the marketplace purchase identification token (referred [here](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2?branch=pr-en-us-107193#purchased-but-not-yet-activated-pendingfulfillmentstart) as *token*) to a persistent purchased SaaS subscription ID and its details.
+The resolve endpoint enables the publisher to exchange the marketplace purchase identification token (referred to as *token* in [Purchased but not yet activated](#purchased-but-not-yet-activated-pendingfulfillmentstart)) to a persistent purchased SaaS subscription ID and its details.
 
 When a customer is redirected to the partner's Landing Page URL, the customer identification token is passed as *token* parameter in this URL call. The partner is expected to use this token and make a request to resolve it. The resolve API response contains the SaaS subscription ID and other details to uniquely identify the purchase. The *token* provided with the Landing page URL call is usually valid for 24 hours. If the *token* that you receive has already expired, we recommend that you provide the following guidance to the end customer:
 
@@ -189,7 +189,7 @@ Calling Resolve API will return subscription details and status for SaaS subscri
 |  `x-ms-requestid`    |  A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers. |
 |  `x-ms-correlationid` |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  `authorization`     |  A unique access token that identifies the publisher making this API call. The format is `"Bearer <accessaccess_token>"` when the token value is retrieved by the publisher as explained in [Get a token based on the Azure AD app](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | The marketplace purchase identification *token* parameter to resolve.  The token is passed in the Landing Page URL call when the customer is redirected to the SaaS partner's website (for example: https://contoso.com/signup?token=<token><authorization_token>). <br> <br>  *Note:* The *token* value being encoded is part of the landing page url, and so it needs to be decoded before being used as a parameter in this API call.  <br> <br> Example of an encoded string in the url looks like: `contoso.com/signup?token=ab%2Bcd%2Fef`, where token is `ab%2Bcd%2Fef`.  The same token decoded will be: `Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | The marketplace purchase identification *token* parameter to resolve.  The token is passed in the Landing Page URL call when the customer is redirected to the SaaS partner's website (for example: `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  *Note:* The *token* value being encoded is part of the landing page url, and so it needs to be decoded before being used as a parameter in this API call.  <br> <br> Example of an encoded string in the url looks like: `contoso.com/signup?token=ab%2Bcd%2Fef`, where token is `ab%2Bcd%2Fef`.  The same token decoded will be: `Ab+cd/ef` |
 | | |
 
 *Response codes:*
@@ -1002,10 +1002,6 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 To start the development process, we recommend creating dummy API responses on the publisher side.  These responses can be based on sample responses provided in this document.
 
 When the publisher is ready for the end to end testing: 
-
-* Publish a SaaS offer to a limited preview audience and keep it in preview stage.
-* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  
-* Ensure all flows are invoked end to end, just like a customer would purchase the offer.
 
 * Publish a SaaS offer to a limited preview audience and keep it in preview stage.
 * This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours. 

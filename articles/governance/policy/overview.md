@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -85,7 +85,7 @@ on Channel 9.
 ### Azure Policy and RBAC
 
 There are a few key differences between Azure Policy and role-based access control (RBAC). Azure
-Policy evaluates state by examining properties on resources which are represented in Resource
+Policy evaluates state by examining properties on resources that are represented in Resource
 Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions (also
 called _operations_). Azure Policy ensures that resource state is compliant to your business rules
 without concern for who made the change or who has permission to make a change.

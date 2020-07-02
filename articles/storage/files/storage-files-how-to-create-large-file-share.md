@@ -3,7 +3,7 @@ title: Enable and create large file shares - Azure Files
 description: In this article, you learn how to enable and create large file shares.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files

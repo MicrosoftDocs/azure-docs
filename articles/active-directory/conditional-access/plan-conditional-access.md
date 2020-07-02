@@ -5,7 +5,7 @@ description: Learn how to design Conditional Access policies and effectively dep
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/09/2020
 
 ms.author: baselden
@@ -213,7 +213,7 @@ Access tokens are by default issued if a CA Policy condition does not trigger an
 
 ### Minimize the number of CA policies
 
-Creating a policy for each app isn't efficient and leads to difficult administration. Conditional Access will only apply the first 195 policies per user. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. For example, if all Office 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of the apps to which it applies. 
+Creating a policy for each app isn't efficient and leads to difficult administration. Conditional Access will only apply the first 195 policies per user. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of the apps to which it applies. 
 
 ### Set up emergency access accounts
 
