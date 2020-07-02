@@ -120,13 +120,13 @@ For example, in the example contact table you could create a secondary index on 
 However, if you typically want to look up the firstName and lastName given the socialSecurityNum, you could create a covered index that includes the firstName and lastName as actual data in the index table:
 
 ```sql
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
 ```
 
 This covered index enables the following query to acquire all data just by reading from the table containing the secondary index:
 
 ```sql
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
 ```
 
 ### Use functional indexes
@@ -136,7 +136,7 @@ Functional indexes allow you to create an index on an arbitrary expression that 
 For example, you could create an index to allow you to do case-insensitive searches on the combined first name and last name of a person:
 
 ```sql
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
 ```
 
 ## Query design

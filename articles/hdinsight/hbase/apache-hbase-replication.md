@@ -333,7 +333,7 @@ The following list shows you some general usage cases and their parameter settin
 
 - **Enable replication on all tables between the two clusters**. This scenario does not require copying or migrating existing data in the tables, and it does not use Phoenix tables. Use the following parameters:
 
-`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari pssword>`
+`-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
 - **Enable replication on specific tables**. To enable replication on table1, table2, and table3, use the following parameters:
 

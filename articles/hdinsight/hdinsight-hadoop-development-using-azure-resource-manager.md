@@ -145,7 +145,7 @@ For additional usage information, see [Customize Linux-based HDInsight clusters 
 
 Old command (ASM): 
 
-```azurecli
+```azurepowershell
 New-AzureHDInsightCluster `
     -Name $clusterName `
     -Location $location `
@@ -162,7 +162,7 @@ New-AzureHDInsightCluster `
 
 New command:
 
-```azurecli
+```azurepowershell
 New-AzHDInsightCluster `
     -ClusterName $clusterName `
     -ResourceGroupName $resourceGroupName `
@@ -182,13 +182,13 @@ New-AzHDInsightCluster `
 
 Old command (ASM):
 
-```azurecli
+```azurepowershell
 Remove-AzureHDInsightCluster -name $clusterName 
 ```
 
 New command:
 
-```azurecli
+```azurepowershell
 Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 ```
 
@@ -196,13 +196,13 @@ Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $cl
 
 Old command (ASM):
 
-```azurecli
+```azurepowershell
 Get-AzureHDInsightCluster
 ```
 
 New command:
 
-```azurecli
+```azurepowershell
 Get-AzHDInsightCluster
 ```
 
@@ -210,13 +210,13 @@ Get-AzHDInsightCluster
 
 Old command (ASM):
 
-```azurecli
+```azurepowershell
 Get-AzureHDInsightCluster -Name $clusterName
 ```
 
 New command:
 
-```azurecli
+```azurepowershell
 Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
 ```
 
