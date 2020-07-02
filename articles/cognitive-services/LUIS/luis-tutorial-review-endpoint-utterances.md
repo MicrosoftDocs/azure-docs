@@ -32,7 +32,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 ## Download JSON file for app
 
-Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/tutorial-fix-unsure-predictions.json?raw=true).
+Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## Import JSON file for app
 
@@ -46,7 +46,7 @@ Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-ser
 
 1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
 
-    ![Change from the Versions page to the Intents page.](media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png)
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Change from the Versions page to the Intents page.":::
 
 ## Train the app to apply the entity changes to the app
 
@@ -84,8 +84,7 @@ Review the endpoint utterances for correctly aligned intent. While there is a si
 
 1. From the **Build** section of the portal, select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot of Review endpoint utterances button in left navigation.":::
 
     This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent, _GetJobInformation_. It has been mispredicted as _ApplyForJob_ because of the similarity of job names and verbs in the two intents.
 
