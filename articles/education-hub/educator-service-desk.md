@@ -10,4 +10,4 @@ ms.prod: azure
 
 # Support for the Azure Education Hub
 
-[!INCLUDE [Educator Services Desk for Education Hub](../../../includes/edu-hub-service-desk.md)]
+[!INCLUDE [Educator Services Desk for Education Hub](../../includes/edu-hub-service-desk.md)]
