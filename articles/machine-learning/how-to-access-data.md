@@ -89,8 +89,9 @@ After datastore creation, this validation is only performed for methods that req
 ### Python SDK
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
+
 > [!IMPORTANT]
-> If you plan to create a datastore for storage accounts that are in a virtual network, see the Access data in a virtual network section.
+> If you plan to create a datastore for storage accounts that are in a virtual network, see the [Access data in a virtual network](#access-data-in-a-virtual-network) section.
 
 You can find the information that you need to populate the `register_azure_*()` method on the [Azure portal](https://portal.azure.com).
 
@@ -182,7 +183,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Create a new datastore in a few steps in Azure Machine Learning studio:
 
 > [!IMPORTANT]
-> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy] (how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied. 
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied. 
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.

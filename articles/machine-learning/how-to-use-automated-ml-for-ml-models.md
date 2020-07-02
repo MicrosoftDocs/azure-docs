@@ -47,18 +47,22 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
 1. Select **+ New automated ML run** and populate the form.
 
-1. Select a dataset from your storage container, or create a new dataset. Datasets can be created from local files, web urls, datastores, or Azure open datasets. 
+1. Select a dataset from your storage container, or create a new dataset. Datasets can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [dataset creation](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Requirements for training data:
     >* Data must be in tabular form.
     >* The value you want to predict (target column) must be present in the data.
 
-    1. To create a new dataset from a file on your local computer, select **Browse** and then select the file. 
+    1. To create a new dataset from a file on your local computer, select **+Create dataset** and then select **From local file**. 
 
-    1. Give your dataset a unique name and provide an optional description. 
+    1. In the **Basic info** form, give your dataset a unique name and provide an optional description. 
 
     1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
+    
+        1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. Learn more about [network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Select **Browse** to upload the data file for your dataset. 
 
     1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
@@ -92,8 +96,11 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Field|Description
     ---|---
     Compute name| Enter a unique name that identifies your compute context.
+    Virtual machine priority| Low priority virtual machines are cheaper but don't guarantee the compute nodes. 
+    Virtual machine type| Select CPU or GPU for virtual machine type.
     Virtual machine size| Select the virtual machine size for your compute.
-    Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Min / Max nodes| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Advanced settings | These settings allow you to configure a user account and existing virtual network for your experiment. 
     
     Select **Create**. Creation of a new compute can take a few minutes.
 
@@ -106,7 +113,10 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     1. For classification, you can also enable deep learning which is used for text featurizations.
 
-    1. For forecasting:
+    1. For forecasting you can, 
+    
+        1. Enable deep learning
+    
         1. Select time column: This column contains the time data to be used.
 
         1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
