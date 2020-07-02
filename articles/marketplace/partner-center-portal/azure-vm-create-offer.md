@@ -28,7 +28,7 @@ When you publish your offers on Azure Marketplace, you can:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](marketplace-virtual-machines.md) and this Azure Virtual Machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](../marketplace-virtual-machines.md) and this Azure Virtual Machine material:
 
 - Quickstart guides
   - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
@@ -81,14 +81,14 @@ Select **Create** to generate the offer and continue.
 
 ### Test Drive
 
-A *Test Drive* is a great way to showcase your offer to potential customers. It gives them the option to "try before you buy," which can help increase your conversions and generate highly qualified leads. For more information, see [What is a Test Drive?](cloud-partner-portal/test-drive/what-is-test-drive.md).
+A *Test Drive* is a great way to showcase your offer to potential customers. It gives them the option to "try before you buy," which can help increase your conversions and generate highly qualified leads. For more information, see [What is a Test Drive?](../what-is-test-drive.md).
 
 To enable a Test Drive for a fixed period of time, select the **Enable a test drive** check box. To remove the Test Drive from your offer, clear the check box.
 
 Additional Test Drive resources:
 
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](cloud-partner-portal/test-drive/marketing-and-best-practices.md)
+- [Marketing best practices](../what-is-test-drive.md)
 - [Download the Test Drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off).
 
 ### Customer leads
@@ -471,7 +471,7 @@ To enable a Test Drive, select the **Enable a test drive** check box on the **Of
 
 Additional Test Drive resources:
 
-- [Marketing best practices](cloud-partner-portal/test-drive/marketing-and-best-practices.md)
+- [Marketing best practices](../what-is-test-drive.md)
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Test Drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off)
 
