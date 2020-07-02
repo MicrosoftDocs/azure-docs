@@ -21,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
+    - name: Create a replica set (preview)
+      href: tutorial-create-replica-set.md
     - name: Create an advanced managed domain
       href: tutorial-create-instance-advanced.md
     - name: Create a forest trust (preview)
