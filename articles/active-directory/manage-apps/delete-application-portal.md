@@ -35,7 +35,7 @@ To delete an application from your Azure AD tenant, you need:
 
 To delete an application from your Azure AD tenant:
 
-1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to delete. In this case we are deleted the GitHub_test application we added in the previous quickstart.
+1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to delete. In this case, we are deleted the GitHub_test application we added in the previous quickstart.
 1. In the Manage section of the navigation, select **Properties**.
 1. Select Delete and then select Yes to confirm you want to delete the app from your Azure AD tenant.
 

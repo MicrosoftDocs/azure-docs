@@ -21,7 +21,7 @@ After an application is added to your Azure AD tenant, you can:
 
 - Configure properties for the app.
 - Manage user access to the app with a Conditional Access policy.
-- Configure single sign-on so users can login to the app with their Azure AD credentials.
+- Configure single sign-on so users can sign in to the app with their Azure AD credentials.
 
 ## Prerequisites
 
@@ -48,11 +48,11 @@ To add a gallery application to your Azure AD tenant:
 
 1. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
 
-1. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
+1. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
 
     ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
 
-1. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
+1. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example, we've changed the name to **GitHub-test**.
 
     ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
 

@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Set up Single Sign-On (SSO) for an application in your Azure AD tenant
 
-Get started with simplified user logins by setting up SSO for an application you have added to your Azure AD tenant. After setting up SSO your users will be able to sign into an application using their Azure AD credentials. SSO is included in the free edition of Azure AD.
+Get started with simplified user logins by setting up SSO for an application you have added to your Azure AD tenant. After setting up SSO, your users will be able to sign into an application using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ To set up SSO for an application you have added to your Azure AD tenant, you nee
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- An application that supports single sign-on and that has already been pre-configured and added to the Azure AD gallery. Note that almost any app can use Azure AD for single sign-on. The apps in the Azure AD gallery have been pre-configured but if your app is not listed, or is a custom developed app, you can still use it with Azure AD. Check out the tutorials and other documentation in the table of contents. This quickstart focuses on apps that have been pre-configured for SSO and added to the Azure AD gallery by the app developers.
+- An application that supports single sign-on and that has already been pre-configured and added to the Azure AD gallery. Most apps can use Azure AD for single sign-on. The apps in the Azure AD gallery have been pre-configured. If your app is not listed, or is a custom developed app, you can still use it with Azure AD. Check out the tutorials and other documentation in the table of contents. This quickstart focuses on apps that have been pre-configured for SSO and added to the Azure AD gallery by the app developers.
 - (Optional: Completion of [View your apps](view-applications-portal.md)).
 - (Optional: Completion of [Add an app](add-application-portal.md)).
 - (Optional: Completion of [Configure an app](add-application-portal-configure.md)).
@@ -39,17 +39,17 @@ When you finish adding an application to your Azure AD tenant, you are immediate
 
 To set up single sign-on for an application:
 
-1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to setup for single sign-on.
+1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to set up for single sign-on.
 1. In the Manage section, select **Single sign-on** to open the properties pane for editing.
 
     ![Shows the single sign-on](media/add-application-portal-setup-sso/configure-sso.png)
 
-1. Select SAML to open the SSO configuration page. In this example the application we are configuring for SSO is GitHub. After GitHub is set up our users will be able to sign into gitHub using their credentials from our Azure AD tenant.
+1. Select SAML to open the SSO configuration page. In this example, the application we are configuring for SSO is GitHub. After GitHub is set up, your users will be able to sign into GitHub using their credentials from our Azure AD tenant.
 
     ![Shows the single sign-on](media/add-application-portal-setup-sso/github-sso.png)
 
 1. The process to configure an application to use Azure AD for SAML-based SSO varies depending on the application. Notice there is a link to the guidance for GitHub. You can find guides for other apps at: https://docs.microsoft.com/azure/active-directory/saas-apps/
-1. Follow the guide to set up SSO for the application. Note that many applications have specific subscription requirements for SSO functionality. For example, GitHub requires an Enterprise subscription.
+1. Follow the guide to set up SSO for the application. Many applications have specific subscription requirements for SSO functionality. For example, GitHub requires an Enterprise subscription.
 
     ![Shows the single sign-on](media/add-application-portal-setup-sso/github-pricing.png)
 
