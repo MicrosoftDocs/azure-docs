@@ -36,6 +36,7 @@ Administrators can choose to enforce one or more controls when granting access. 
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access.md)
+- [Require password change](#require-password-change)
 
 When administrators choose to combine these options, they can choose the following methods:
 

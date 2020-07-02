@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: User risk-based Conditional Access
 
-Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md#user-risk). 
+Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md#user-risk). 
 
 There are two locations where this policy may be assigned. Organizations should choose one of the following options to enable a user risk-based Conditional Access policy requiring a secure password change.
 

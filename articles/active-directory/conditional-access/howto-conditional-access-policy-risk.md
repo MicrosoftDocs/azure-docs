@@ -37,7 +37,7 @@ There are two locations where this policy may be assigned. Organizations should 
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
    1. Select **High** and **Medium**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
