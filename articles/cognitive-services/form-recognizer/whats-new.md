@@ -23,7 +23,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## July 2020
 
 ### New features
-* **v2.0 exits preview** View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer), and [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **v2.0 reference available** View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer), and [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
 * **Table enhancements and Extraction enhancements** includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in custom train without labels. 
 * **Currency support** Detection and extraction of global currency symbols.
 * **Azure Gov** Form Recognizer is now also available in Azure Gov.
