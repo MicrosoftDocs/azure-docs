@@ -73,6 +73,7 @@ Inserted 180169 docs @ 10527 writes/s, 110324 RU/s (286B max monthly 1KB reads)
 Inserted 192469 docs @ 10616 writes/s, 111256 RU/s (288B max monthly 1KB reads)
 Inserted 199107 docs @ 10406 writes/s, 109054 RU/s (283B max monthly 1KB reads)
 Inserted 200000 docs @ 9930 writes/s, 104065 RU/s (270B max monthly 1KB reads)
+
 Summary:
 ---------------------------------------------------------------------
 Inserted 200000 docs @ 9928 writes/s, 104063 RU/s (270B max monthly 1KB reads)

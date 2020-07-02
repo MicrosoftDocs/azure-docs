@@ -25,11 +25,11 @@ The keys you provide must be generated in [Azure Key Vault](https://docs.microso
 
 In the [Azure portal](https://portal.azure.com/), when you create Batch accounts, pick **System assigned** in the identity type under the **Advanced** tab.
 
-![](./media/batch-customer-managed-key/create-batch-account.png)
+![New Batch account with system assigned identity type](./media/batch-customer-managed-key/create-batch-account.png)
 
 After the account is created, you can find a unique GUID in the **Identity principal id** field under the **Property** section. The **Identity Type** will show `SystemAssigned`.
 
-![](./media/batch-customer-managed-key/linked-batch-principal.png)
+![Unique GUID in Identity principal id field](./media/batch-customer-managed-key/linked-batch-principal.png)
  
 ### Azure CLI
 
@@ -61,23 +61,23 @@ az batch account show \
 
 When creating an Azure Key Vault instance with customer-managed keys for Azure Batch, make sure that **Soft Delete** and **Purge Protection** are both enabled.
 
-![](./media/batch-customer-managed-key/create-key-vault.png)
+![Key Vault creation screen](./media/batch-customer-managed-key/create-key-vault.png)
 
 ### Add an access policy to your Azure Key Vault instance
 
 In the Azure portal, after the Key Vault is created, In the **Access Policy** under **Setting**, add the Batch account access using managed identity. Under **Key Permissions**, select **Get**, **Wrap Key** and **Unwrap Key**. 
 
-![](./media/batch-customer-managed-key/key-permissions.png)
- 
+![Add access policy](./media/batch-customer-managed-key/key-permissions.png)
+
 In the **Select** field under **Principal**, fill in the `principalId` that you previously retrieved, or the name of the batch account.
 
-![](./media/batch-customer-managed-key/principal-id.png)
- 
+![Enter principalId](./media/batch-customer-managed-key/principal-id.png)
+
 ### Generate a key in Azure Key Vault
 
 In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **Key Size** to be `2048`.
 
-![](./media/batch-customer-managed-key/create-key.png)
+![Create a key](./media/batch-customer-managed-key/create-key.png)
 
 After the key is created, click on the newly created key and the current version, copy the **Key Identifier** under **properties** section.  Be sure sure that under **Permitted Operations**, **Wrap Key** and **Unwrap Key** are both checked.
 
@@ -85,9 +85,9 @@ After the key is created, click on the newly created key and the current version
 
 ### Azure portal
 
-In the [Azure portal](https://portal.azure.com/), go to the Batch account page. Under the **Encryption** section, enable **Customer-managed keys**. You can directly use the Key Identifier, or you can select the key vault and then click **Select a key vault and key**.
+In the [Azure portal](https://portal.azure.com/), go to the Batch account page. Under the **Encryption** section, enable **Customer-managed key**. You can directly use the Key Identifier, or you can select the key vault and then click **Select a key vault and key**.
 
-![](./media/batch-customer-managed-key/encryption-page.png)
+![Under Encryption, enable Customer-managed key](./media/batch-customer-managed-key/encryption-page.png)
 
 ### Azure CLI
 

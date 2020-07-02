@@ -126,17 +126,6 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 | V| Outbound NAT for internal Standard Load Balancer scenarios| When using an internal Standard Load Balancer, outbound NAT is not available until outbound connectivity has been explicitly declared. You can define outbound connectivity using an outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer with these steps: 1. Create a public Standard Load Balancer. 2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer in addition to the internal Load Balancer. 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.|
 | VI | Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer | When using a public Standard Load Balancer, the automatic outbound NAT programming provided matches the transport protocol of the load balancing rule. 1. Disable outbound SNAT on the load balancing rule. 2. Configure an outbound rule on the same Load Balancer. 3. Reuse the backend pool already used by your VMs. 4. Specify "protocol": "All" as part of the outbound rule. When only inbound NAT rules are used, no outbound NAT is provided. 1. Place VMs in a backend pool. 2. Define one or more frontend IP configurations with public IP address(es) or public IP prefix 3. Configure an outbound rule on the same Load Balancer. 4. Specify "protocol": "All" as part of the outbound rule |
 
-## <a name="discoveroutbound"></a>Discovering the public IP that a VM uses
-
-There are many ways to determine the public source IP address of an outbound connection. OpenDNS provides a service that can show you the public IP address of your VM.
-
-By using the nslookup command, you can send a DNS query for the name myip.opendns.com to the OpenDNS resolver. The service returns the source IP address that was used to send the query. When you run the following query from your VM, the response is the public IP used for that VM:
-
-    nslookup myip.opendns.com resolver1.opendns.com
-
-## Connections to Azure Storage in the same region
-
-Having outbound connectivity via the scenarios above is not necessary to connect to Storage in the same region as the VM. If you do not want this, use network security groups (NSGs) as explained above. For connectivity to Storage in other regions, outbound connectivity is required. Please note that when connecting to Storage from a VM in the same region, the source IP address in the Storage diagnostic logs will be an internal provider address, and not the public IP address of your VM. If you wish to restrict access to your Storage account to VMs in one or more Virtual Network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and not your public IP address when configuring your storage account firewall. Once service endpoints are configured, you will see your Virtual Network private IP address in your Storage diagnostic logs and not the internal provider address.
 
 ## Limitations
 
@@ -149,6 +138,7 @@ Having outbound connectivity via the scenarios above is not necessary to connect
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.md).
 - Learn more about [outbound rules](load-balancer-outbound-rules-overview.md) for Standard public Load Balancer.
 - Learn more about [Load Balancer](load-balancer-overview.md).
 - Learn more about [network security groups](../virtual-network/security-overview.md).
