@@ -137,7 +137,9 @@ You can still connect to each availability replica separately by connecting dire
 
 Here's an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
 
-    Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+```console
+Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+```
 
 For more information on client connectivity, see:
 
