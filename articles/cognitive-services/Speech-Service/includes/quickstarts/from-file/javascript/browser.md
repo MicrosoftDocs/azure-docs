@@ -3,7 +3,7 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -163,7 +163,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 Now, you need to create an `AudioConfig` object that points to your audio file. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method, right below your Speech configuration.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
 ## Initialize a SpeechRecognizer
