@@ -1,7 +1,7 @@
 ---
-title: Read text from images and documents - Computer Vision
+title: Optical Character Recognition (OCR) - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to optical character recognition (OCR) and text from images and documents for print and handwritten text using the Computer Vision API.
+description: Concepts related to optical character recognition (OCR) from images and documents with printed and handwritten text by using the Computer Vision API.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -14,7 +14,7 @@ ms.author: t-bebon
 ms.custom: seodec18
 ---
 
-# Read text from images and documents
+# Optical Character Recognition (OCR)
 
 Computer Vision includes new deep-learning-based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. Computer Vision extracts text from both analog documents (images, scanned documents) and digitized documents. You can extract text from images in the wild, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more. This OCR functionality is available as part of the managed service in the cloud or on premises (containers). Also, it supports virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs.
 
