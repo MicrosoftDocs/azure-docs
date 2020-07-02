@@ -22,7 +22,7 @@ and worker nodes in your Hyperscale (Citus) server group. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
  
-|                       | Worker node           | Coordinator node      |
+| Resource              | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
 | Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memory per vCore, GiB | 8                     | 4                     |
