@@ -6,7 +6,7 @@ services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 12/12/2019
+ms.date: 07/02/2020
 ms.topic: article
 ms.custom: bfmigrate
 ---
@@ -50,6 +50,15 @@ For more information:
 
 - Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
 - Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
+
+## Event Hubs
+
+To migrate an Azure Event Hub, you export the Event Hub resource template from Azure Germany then deploy the template to global Azure.
+
+1. [Export Event Hub template](../azure-resource-manager/templates/export-template-portal) from your Azure Germany subscription.
+1. [Deploy Event Hub template as a custom template](../azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) to your global Azure subscription. Load and deploy the template you exported from your Azure Germany subscription.
+
+For more information on Azure Event Hubs, see the [Event Hubs overview](../event-hubs/event-hubs-about)
 
 ## Next steps
 
