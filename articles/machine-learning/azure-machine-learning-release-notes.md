@@ -143,7 +143,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
     + Changed AutoML run behavior to raise UserErrorException if service throws user error
     + Fixes a bug that caused azureml_automl.log to not get generated or be missing logs when performing an AutoML experiment on a remote compute target.
-    + For Classification data sets with imbalanced classes, we will apply weight balancing, if the feature sweeper find it to be better than the baseline
+    + For Classification data sets with imbalanced classes, we will apply Weight Balancing, if the feature sweeper determines that for sub-sampled data, Weight Balancing improves the performance of the classification task by a certain threshold.
     + AutoML runs are now marked as child run of Parallel Run Step.
   + **azureml-train-automl-runtime**
     + Changed AutoML run behavior to raise UserErrorException if service throws user error
