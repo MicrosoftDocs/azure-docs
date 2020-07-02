@@ -59,7 +59,7 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
 
 8. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module. Authenticate against AWS by replacing `Get-AutomationPSCredential` in your ISE environment with `AWScred = Get-Credential`. This statement prompts for your credentials and you can provide your access key ID for the user name and your secret access key for the password. 
 
-        ```powershell
+      ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -73,7 +73,7 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-        ```
+      ```
         
     The following output is returned:<br><br>
    ![Get AWS images](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  
