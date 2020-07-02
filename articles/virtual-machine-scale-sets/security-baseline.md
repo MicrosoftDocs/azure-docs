@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Virtual Machine Scale Sets
-description: Azure security baseline for Virtual Machine Scale Sets
+title: Virtual Machine Scale Sets security baseline for Azure Security Benchmark
+description: The Virtual Machine Scale Sets security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,17 +12,17 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Virtual Machine Scale Sets
+# Virtual Machine Scale Sets security baseline for Azure Security Benchmark
 
 The Azure Security Baseline for Virtual Machine Scale Sets contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -190,7 +190,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -348,7 +348,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -508,7 +508,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -618,7 +618,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -670,7 +670,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated Asset Discovery solution
 
@@ -838,7 +838,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1002,7 +1002,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1040,7 +1040,7 @@ You will need a third party tool for anti-malware protection in Azure Linux Virt
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1104,7 +1104,7 @@ If you are using Azure disk encryption, you can restore your virtual machine sca
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1178,7 +1178,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1194,5 +1194,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
