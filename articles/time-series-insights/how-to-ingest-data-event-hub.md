@@ -1,35 +1,35 @@
 ---
 title: 'Add an Event Hubs event source - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to add an Azure Event Hubs event source to your Time Series Insights environment.
+description: Learn how to add an Azure Event Hubs event source to your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Add an event hub event source to your Time Series Insights environment
+# Add an event hub event source to your Azure Time Series Insights environment
 
 This article describes how to use the Azure portal to add an event source that reads data from Azure Event Hubs to your Azure Time Series Insights environment.
 
 > [!NOTE]
-> The steps that are described in this article apply both to the Time Series Insights GA and Time Series Insights Preview environments.
+> The steps that are described in this article apply both to the Azure Time Series Insights Gen 1 and Azure Time Series Insights Gen 2 environments.
 
 ## Prerequisites
 
-- Create a Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./time-series-insights-update-create-environment.md).
+- Create a Azure Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./time-series-insights-update-create-environment.md).
 - Create an event hub. Read [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 - The event hub must have active message events sent to it. Learn how to [Send events to Azure Event Hubs by using the .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Create a dedicated consumer group in the event hub that the Time Series Insights environment can consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. There's a limit of 20 consumer groups per event hub. For details, read the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).
+- Create a dedicated consumer group in the event hub that the Azure Time Series Insights environment can consume from. Each Azure Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. There's a limit of 20 consumer groups per event hub. For details, read the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).
 
 ### Add a consumer group to your event hub
 
-Applications use consumer groups to pull data from Azure Event Hubs. To reliably read data from your event hub, provide a dedicated consumer group that's used only by this Time Series Insights environment.
+Applications use consumer groups to pull data from Azure Event Hubs. To reliably read data from your event hub, provide a dedicated consumer group that's used only by this Azure Time Series Insights environment.
 
 To add a new consumer group in your event hub:
 
@@ -43,7 +43,7 @@ To add a new consumer group in your event hub:
 
    Otherwise, select an existing consumer group and skip to the next section.
 
-1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Time Series Insights environment.
+1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Azure Time Series Insights environment.
 
 1. Select **Create**.
 
@@ -51,13 +51,13 @@ To add a new consumer group in your event hub:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Time Series Insights environment. In the left menu, select **All resources**, and then select your Time Series Insights environment.
+1. Locate your existing Azure Time Series Insights environment. In the left menu, select **All resources**, and then select your Azure Time Series Insights environment.
 
 1. Select **Event Sources**, and then select **Add**.
 
    [![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Enter a value for **Event source name** that is unique to this Time Series Insights environment, such as `Contoso-TSI-GA-Event-Hub-ES`.
+1. Enter a value for **Event source name** that is unique to this Azure Time Series Insights environment, such as `Contoso-TSI-Gen 1-Event-Hub-ES`.
 
 1. For **Source**, select **Event Hub**.
 
@@ -100,11 +100,11 @@ To add a new consumer group in your event hub:
        | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
        | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
-1. Add the dedicated Time Series Insights consumer group name that you added to your event hub.
+1. Add the dedicated Azure Time Series Insights consumer group name that you added to your event hub.
 
 1. Select **Create**.
 
-   After the event source is created, Time Series Insights automatically begins streaming data to your environment.
+   After the event source is created, Azure Time Series Insights automatically begins streaming data to your environment.
 
 ## Next steps
 
@@ -112,4 +112,4 @@ To add a new consumer group in your event hub:
 
 * [Send events](time-series-insights-send-events.md) to the event source.
 
-* Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
+* Access your environment in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).

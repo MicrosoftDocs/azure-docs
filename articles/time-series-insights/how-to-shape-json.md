@@ -1,24 +1,24 @@
 ---
 title: 'Shape events - Azure Time Series Insights | Microsoft Docs'
-description: Learn about best practices and how to shape events for querying in Azure Time Insights Preview.
+description: Learn about best practices and how to shape events for querying in Azure Time Insights Gen 2.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Shape events with Azure Time Series Insights Preview
+# Shape events with Azure Time Series Insights Gen 2
 
-This article defines best practices to shape your JSON payloads for ingestion in Azure Time Series Insights and to maximize the efficiency of your Preview queries.
+This article defines best practices to shape your JSON payloads for ingestion in Azure Time Series Insights and to maximize the efficiency of your Gen 2 queries.
 
 ## Best practices
 
-It's best to carefully consider how you send events to your Time Series Insights Preview environment. 
+It's best to carefully consider how you send events to your Azure Time Series Insights Gen 2 environment. 
 
 General best practices include:
 
@@ -27,10 +27,10 @@ General best practices include:
 
 For the best query performance, adhere to the following rules of thumb:
 
-* Don't send unnecessary properties. Time Series Insights Preview bills by usage. It's best to store and process only the data that you'll query.
-* Use instance fields for static data. This practice helps to avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, read [Time Series Model](./time-series-insights-update-tsm.md).
+* Don't send unnecessary properties. Azure Time Series Insights Gen 2 bills by usage. It's best to store and process only the data that you'll query.
+* Use instance fields for static data. This practice helps to avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Azure Time Series Insights service that's generally available. To learn more about instance fields, read [Time Series Model](./time-series-insights-update-tsm.md).
 * Share dimension properties among two or more events. This practice helps you send data over the network more efficiently.
-* Don't use deep array nesting. Time Series Insights Preview supports up to two levels of nested arrays that contain objects. Time Series Insights Preview flattens arrays in messages into multiple events with property value pairs.
+* Don't use deep array nesting. Azure Time Series Insights Gen 2 supports up to two levels of nested arrays that contain objects. Azure Time Series Insights Gen 2 flattens arrays in messages into multiple events with property value pairs.
 * If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed.
 
 ## Column flattening
@@ -48,8 +48,8 @@ During ingestion, payloads that contain nested objects will be flattened so that
    Becomes: `data_flow` when flattened.
 
 > [!IMPORTANT]
-> * Azure Time Series Insights Preview uses underscores (`_`) for column delineation.
-> * Note the difference from General Availability which uses periods (`.`) instead.
+> * Azure Time Series Insights Gen 2 uses underscores (`_`) for column delineation.
+> * Note the difference from Gen 1 which uses periods (`.`) instead.
 
 More complex scenarios are illustrated below.
 
@@ -139,7 +139,7 @@ Let's take a closer look at how to use [Time Series Instance](./time-series-insi
 ]
 ```
 
-Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**.
+Azure Time Series Insights Gen 2 joins a table (after flattening) during query time. The table includes additional columns, such as **Type**.
 
 | deviceId    | Type | L1 | L2 | timestamp | series_Flow Rate ft3/s |    series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -148,13 +148,13 @@ Time Series Insights Preview joins a table (after flattening) during query time.
 | `FYYY` | LINE_DATA    COMMON | SIMULATOR |    Battery System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
 > [!NOTE]
->  The preceding table represents the query view in the [Time Series Preview Explorer](./time-series-insights-update-explorer.md).
+>  The preceding table represents the query view in the [Time Series Gen 2 Explorer](./time-series-insights-update-explorer.md).
 
 **Takeaways:**
 
-* In the preceding example, static properties are stored in Time Series Insights Preview to optimize data sent over the network.
-* Time Series Insights Preview data is joined at query time through the Time Series ID that's defined in the instance.
-* Two layers of nesting are used. This number is the most that Time Series Insights Preview supports. It's critical to avoid deeply nested arrays.
+* In the preceding example, static properties are stored in Azure Time Series Insights Gen 2 to optimize data sent over the network.
+* Azure Time Series Insights Gen 2 data is joined at query time through the Time Series ID that's defined in the instance.
+* Two layers of nesting are used. This number is the most that Azure Time Series Insights Gen 2 supports. It's critical to avoid deeply nested arrays.
 * Because there are few measures, they're sent as separate properties within the same object. In the example, **series_Flow Rate psi**, **series_Engine Oil Pressure psi**, and **series_Flow Rate ft3/s** are unique columns.
 
 >[!IMPORTANT]
@@ -180,7 +180,7 @@ In the example above, the flattened `data["flow"]` property would present a nami
 In this case, the *latest* property value would overwrite the earlier one. 
 
 > [!TIP]
-> Contact the Time Series Insights team for more assistance!
+> Contact the Azure Time Series Insights team for more assistance!
 
 > [!WARNING] 
 > * In cases where duplicate properties are present in the same (singular) event payload due to flattening or another mechanism, the latest > property value is stored, over-writing any previous values.
@@ -188,6 +188,7 @@ In this case, the *latest* property value would overwrite the earlier one.
 
 ## Next steps
 
-* To put these guidelines into practice, read [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights [Preview REST API](https://docs.microsoft.com/rest/api/time-series-insights/preview) for data access.
+* To put these guidelines into practice, read [Azure Time Series Insights Gen 2 query syntax](./time-series-insights-query-data-csharp.md). 
+* Learn more about the [Azure Time Series Insights Gen 2 REST API](https://docs.microsoft.com/rest/api/time-series-insights/preview) for data access.
 
 * Combine JSON best practices with [How to Time Series Model](./time-series-insights-update-how-to-tsm.md).
