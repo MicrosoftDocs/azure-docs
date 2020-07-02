@@ -20,7 +20,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### Text Analytics for Health Container Public gated preview
 
-The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. While in public "gated" preview, you will not be billed for Text Analytics for Health container usage. 
+The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for Health container usage. 
 
 The container offers the following features:
 
