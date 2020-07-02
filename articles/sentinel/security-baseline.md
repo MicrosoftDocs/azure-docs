@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Azure Sentinel
-description: Azure security baseline for Azure Sentinel
+title: Azure Sentinel security baseline for Azure Security Benchmark
+description: The Azure Sentinel security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: sentinel
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,130 +12,30 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Azure Sentinel
+# Azure Sentinel security baseline for Azure Security Benchmark
 
-The Azure Security Baseline for Azure Sentinel contains recommendations that will help you improve the security posture of your deployment.
-
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
-
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Sentinel. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Sentinel. **Controls** not applicable to Azure Sentinel have been excluded. To see how Azure Sentinel completely maps to the Azure Security Benchmark, see the [full Azure Sentinel security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18695).
 
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
+**Guidance**: While you cannot associate a virtual network, subnet, or network security group with Azure Sentinel, Azure Sentinel is built on top of a Log Analytics workspace. You can use Private Link, which will enable you to access your Log Analytics workspace over a private endpoint in your virtual network.
+
+Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview 
+
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
-
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18696).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.3: Protect critical web applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18697).
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.4: Deny communications with known malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18698).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.5: Record network packets
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18699).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18700).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.7: Manage traffic to web applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18701).
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.8: Minimize complexity and administrative overhead of network security rules
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18702).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.9: Maintain standard security configurations for network devices
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18703).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.10: Document traffic configuration rules
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18704).
-
-**Guidance**: Not applicable; you cannot associate a virtual network, subnet, or network security group with Azure Sentinel or the associated Log Analytics workspace.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -156,18 +56,7 @@ How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
-
-### 2.1: Use approved time synchronization sources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18706).
-
-**Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Sentinel, for timestamps in the logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.2: Configure central security log management
 
@@ -194,17 +83,6 @@ How to enable auditing in Azure Sentinel: https://docs.microsoft.com/azure/senti
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
-
-### 2.4: Collect security logs from operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18709).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -245,42 +123,9 @@ How to enable auditing in Azure Sentinel: https://docs.microsoft.com/azure/senti
 
 **Responsibility**: Customer
 
-### 2.8: Centralize anti-malware logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18713).
-
-**Guidance**: Not applicable; Azure Sentinel does not process or produce anti-malware related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.9: Enable DNS query logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18714).
-
-**Guidance**: Not applicable; Azure Sentinel does not process or produce DNS-related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.10: Enable command-line audit logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18715).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -487,7 +332,7 @@ List of Customer Lockbox-supported services: https://docs.microsoft.com/azure/se
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -516,19 +361,6 @@ How to create Management Groups: https://docs.microsoft.com/azure/governance/man
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 4.3: Monitor and block unauthorized transfer of sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18731).
-
-**Guidance**: Microsoft manages the underlying infrastructure for Azure Sentinel and Log Analytics workspaces and has implemented strict controls to prevent the loss or exposure of customer data.
-
-Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -563,9 +395,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18734).
 
-**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. 
+**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. 
 
-Azure Sentinel uses Role-Based Access Control(RBAC), to provide built-in roles that can be assigned to users, groups, and services in Azure. Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to. There are three specific built-in Azure Sentinel roles:
+Azure Sentinel uses RBAC to provide built-in roles that can be assigned to users, groups, and services in Azure. Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to. There are three specific built-in Azure Sentinel roles:
 
 - Azure Sentinel reader
 - Azure Sentinel responder
@@ -579,9 +411,12 @@ Log Analytics roles include Log Analytics contributor and Log Analytics reader. 
 
 Additionally, each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
 
+How to configure RBAC in Azure: 
+https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+
 Understand custom roles: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Understand RBAC in Azure Sentinel: https://docs.microsoft.com/azure/sentinel/roles
+Understand roles in Sentinel and Log Analytics: https://docs.microsoft.com/azure/sentinel/roles
 
 How to configure RBAC for workbooks: https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility
 
@@ -589,25 +424,12 @@ How to configure RBAC for workbooks: https://docs.microsoft.com/azure/sentinel/q
 
 **Responsibility**: Customer
 
-### 4.7: Use host-based data loss prevention to enforce access control
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18735).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Sentinel and has implemented strict controls to prevent the loss or exposure of customer data.
-
-Azure customer data protection: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18736).
 
-**Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
+**Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created and owned by you. The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
 Understand customer-managed keys in Azure Sentinel: https://docs.microsoft.com/azure/sentinel/customer-managed-keys
 
@@ -628,68 +450,9 @@ How to enable auditing in Azure Sentinel: https://docs.microsoft.com/azure/senti
 
 **Responsibility**: Customer
 
-## Vulnerability management
-
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
-
-### 5.1: Run automated vulnerability scanning tools
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18738).
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18739).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.3: Deploy automated patch management solution for third-party software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18740).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18741).
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18742).
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Sentinel.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated Asset Discovery solution
 
@@ -745,17 +508,6 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18746).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
@@ -772,39 +524,6 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 6.6: Monitor for unapproved software applications within compute resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18748).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.7: Remove unapproved Azure resources and software applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18749).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.8: Use only approved applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18750).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
 
@@ -824,17 +543,6 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Customer
 
-### 6.10: Maintain an inventory of approved software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18752).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
@@ -848,31 +556,9 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Responsibility**: Customer
 
-### 6.12: Limit users' ability to execute scripts within compute resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18754).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.13: Physically or logically segregate high risk applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18755).
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -889,17 +575,6 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Responsibility**: Customer
 
-### 7.2: Establish secure operating system configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18757).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -914,17 +589,6 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.4: Maintain secure operating system configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18759).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -941,17 +605,6 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 
 **Responsibility**: Customer
 
-### 7.6: Securely store custom operating system images
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18761).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
@@ -964,17 +617,6 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.8: Deploy configuration management tools for operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18763).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
@@ -989,17 +631,6 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Responsibility**: Customer
 
-### 7.10: Implement automated configuration monitoring for operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18765).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
@@ -1012,19 +643,6 @@ Understand customer-managed keys in Azure Sentinel: https://docs.microsoft.com/a
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
-
-### 7.12: Manage identities securely and automatically
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18767).
-
-**Guidance**: Not applicable; Azure Sentinel and Log Analytics workspace do not make use of managed identities.
-
-Azure services that support managed identities: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -1041,18 +659,7 @@ How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcreds
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
-
-### 8.1: Use centrally managed anti-malware software
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18769).
-
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -1067,20 +674,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Customer
 
-### 8.3: Ensure anti-malware software and signatures are updated
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18771).
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1140,7 +736,7 @@ Understand customer-managed keys in Azure Sentinel: https://docs.microsoft.com/a
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1248,7 +844,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1269,5 +865,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
