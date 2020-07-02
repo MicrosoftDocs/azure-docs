@@ -184,7 +184,7 @@ Choose an Azure AD tenant to use for our end-to-end sample. You have two options
 1. Find and add the following value pairs to the `replyUrlsWithType` attribute:
 
    ```json
-   replyUrlsWithType: [
+   "replyUrlsWithType": [
         {
             "url": "https://npmwebapp.azurewebsites.net/",
             "type": "SPA"
@@ -193,7 +193,7 @@ Choose an Azure AD tenant to use for our end-to-end sample. You have two options
             "url": "http://localhost:3000/",
             "type": "SPA"
         }
-    ]
+    ],
    ```
 
     > [!NOTE]
@@ -278,6 +278,7 @@ class AMS_CONST {
 To test locally:
 
 1. In Visual Studio Code (VSC), select **View** from the main menu then **Terminal**.
+1. If you haven't already installed npm, at the command prompt enter `npm install`.
 1. Enter `npm start` at the command prompt. (If npm doesn't start, try changing the directory to `npmweb` by entering `cd npmweb` at the command prompt.)
 1. Use a browser to browse to `http://localhost:3000`.
 
