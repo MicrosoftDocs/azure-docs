@@ -307,13 +307,13 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-```dotnetcli
+```console
         dotnet build
 ```
 
 1. After the build successfully completes, run the following command to run the web app locally:
 
-```dotnetcli
+```console
         dotnet run
 ```
 

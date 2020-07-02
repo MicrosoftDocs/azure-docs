@@ -84,13 +84,13 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
 2. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-    ```dotnetcli
+    ```console
      dotnet build
     ```
 
 3. After the build successfully completes, run the following command to run the web app locally:
 
-    ```dotnetcli
+    ```console
      dotnet run
     ```
 
