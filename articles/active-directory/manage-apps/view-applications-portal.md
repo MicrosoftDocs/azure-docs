@@ -36,25 +36,23 @@ The applications that are registered with your Azure AD tenant are viewable in t
 To view the applications registered in your tenant:
 
 1. Sign in to your [Azure portal](https://portal.azure.com).
-1. On the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
-1. To view more applications, select **Load more** at the bottom of the list. If there are numerous applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list. Searching for a particular application is covered later in this quickstart.
+2. On the left navigation panel, select **Azure Active Directory**.
+3. In the **Azure Active Directory** pane, select **Enterprise applications**.
+4. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
+5. To view more applications, select **Load more** at the bottom of the list. If there are numerous applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list. Searching for a particular application is covered later in this quickstart.
 
 ## Select viewing options
 
 Select options according to what you're looking for.
 
 1. You can view the applications by **Application Type**, **Application Status**, and **Application visibility**.
-1. Under **Application Type**, choose one of these options:
-
+2. Under **Application Type**, choose one of these options:
     - **Enterprise Applications** shows non-Microsoft applications.
     - **Microsoft Applications** shows Microsoft applications.
     - **All Applications** shows both non-Microsoft and Microsoft applications.
-
-1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
-1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
-1. After choosing the options you want, select **Apply**.
+3. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
+4. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
+5. After choosing the options you want, select **Apply**.
 
 ## Search for an application
 
