@@ -22,7 +22,9 @@ For more information, see [Apache Calcite Avatica Protocol Buffers Reference](ht
 
 Microsoft .NET driver for Apache Phoenix Query Server is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## Instantiate new PhoenixClient object
 

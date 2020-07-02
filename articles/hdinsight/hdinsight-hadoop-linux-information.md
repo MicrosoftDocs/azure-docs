@@ -102,7 +102,9 @@ For more information, see [Understanding blobs](https://docs.microsoft.com/rest/
 
 When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake Storage) are decoupled from compute resources. You can create HDInsight clusters to do computation as you need, and later delete the cluster when the work is finished. Meanwhile keeping your data files persisted safely in cloud storage as long as you need.
 
