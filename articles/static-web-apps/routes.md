@@ -269,7 +269,7 @@ The following example shows how to build route rules for static content and APIs
     "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
   },
   "mimeTypes": {
-      "js": "application/javascript"
+      "custom": "text/html"
   }
 }
 ```
