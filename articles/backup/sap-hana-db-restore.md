@@ -126,7 +126,7 @@ To restore, you need the following permissions:
 To restore the backup data as files instead of a database, choose **Restore as Files**. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
 1. In the **Restore Configuration** menu, under **Where and how to Restore**, select **Restore as files**.
-1. Select the host / HANA Server name to which you want to restore the backup files.
+1. Select the **host** / HANA Server name to which you want to restore the backup files.
 1. In the **Destination path on the server**, enter the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files.
 
     The files that are dumped are:
@@ -147,7 +147,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
     ![Select restore point](media/sap-hana-db-restore/select-restore-point.png)
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
-1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full and differential backups, and the other folder named *Log* contains the log backups.
+1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full and differential backups, and the other folder named `Log` contains the log backups.
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
@@ -169,7 +169,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         ```
 
         In the above command:
-`
+
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
         * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed
@@ -188,7 +188,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         * `<DatabaseName>` - Name of the new database or existing database that you want to restore
         * `<Timestamp>` - Exact timestamp of the Point in time restore
-        * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the Host / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need be specified for restores done on the same HANA server from where the backup is taken.
+        * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need be specified for restores done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step C**
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
@@ -204,7 +204,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
         * `<DatabaseName>` - the name of the new database or existing database that you want to restore
         * `<Timestamp>` - the exact timestamp of the Point in time restore
-        * `<DatabaseName@HostName>` - the name of the database whose backup is used for restore and the Host / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>`  option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it need not be specified for restores done on the same HANA server from where the backup is taken.
+        * `<DatabaseName@HostName>` - the name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>`  option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it need not be specified for restores done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>` - the path to the catalog file generated in **Step C**
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
