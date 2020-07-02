@@ -137,8 +137,8 @@ Do the following steps to install the Scala plugin:
     import org.apache.spark.SparkContext
 
     /**
-        * Test IO to wasb
-        */
+      * Test IO to wasb
+      */
     object WasbIOTest {
         def main (arg: Array[String]): Unit = {
         val conf = new SparkConf().setAppName("WASBIOTest")
