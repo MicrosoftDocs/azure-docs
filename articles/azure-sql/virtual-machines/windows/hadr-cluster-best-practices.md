@@ -52,7 +52,7 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 
 A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. 
 
-Configure an Azure Shared Disk as the disk witness. 
+Configure an Azure shared disk as the disk witness. 
 
 To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
@@ -92,12 +92,13 @@ In a traditional on-premises network environment, a SQL Server failover cluster 
 
 Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs. The DNN feature is currently available only for SQL Server 2019 CU2 and later on a Windows Server 2016 (or later) virtual machine. 
 
+The following table compares HADR connection supportability: 
 
 | |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
 |---------|---------|---------|
 |Minimum OS version| Windows Server 2012 | Windows Server 2016|
 |Minimum SQL Server version |SQL Server 2012 |SQL Server 2019 CU2|
-|Supported HADR solution | Failover cluster instance <br/> availability group | Failover cluster instance|
+|Supported HADR solution | Failover cluster instance <br/> Availability group | Failover cluster instance|
 
 
 ### Virtual Network Name (VNN)
@@ -119,14 +120,14 @@ Distributed network name is a new Azure feature for SQL Server 2019 CU2. The DNN
 
 When a DNN resource is created, the cluster binds the DNS name with the IP addresses of all the nodes in the cluster. The SQL client will try to connect to each IP address in this list to find the node where the failover cluster instance is currently running. You can accelerate this process by specifying `MultiSubnetFailover=True` in the connection string. This setting tells the provider to try all IP addresses in parallel, so the client can connect to the FCI instantly. 
 
-We recommend using a distributed network name rather than a load balancer because: 
+A distributed network name is recommended over a load balancer when possible because: 
 - The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
 - Eliminating the load balancer probes minimizes failover duration. 
 - The DNN simplifies provisioning and management of the failover cluster instance with SQL Server on Azure VMs. 
 
 Most SQL Server features work transparently with FCI. In those cases, you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN value with the existing VNN DNS name. However, some server-side components require a network alias that maps the VNN name to the DNN name. Specific cases might require the explicit use of the DNN DNS name, such as when you're defining certain URLs in a server-side configuration. 
 
-To get started, learn how to [configure a DNN resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
+To get started, learn how to [configure a DNN resource for an FCI](hadr-distributed-network-name-dnn-configure.md). 
 
 **Supported OS**: Windows Server 2016 and later   
 **Supported SQL version**: SQL Server 2019 and later   

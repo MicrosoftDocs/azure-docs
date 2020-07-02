@@ -42,7 +42,7 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 ||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|Minimum OS version| Windows Server 2019|Windows Server 2012|Windows Server 2016|
+|Minimum OS version| Windows Server 2016|Windows Server 2012|Windows Server 2016|
 |Minimum SQL Server version|SQL Server 2019|SQL Server 2012|SQL Server 2016|
 |Supported VM availability |Availability sets with proximity placement groups |Availability sets and availability zones|Availability sets |
 |Supports FileStream|No|No|Yes |

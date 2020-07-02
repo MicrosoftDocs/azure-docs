@@ -1,6 +1,6 @@
 ---
-title: Create an FCI with Azure Shared Disks (Preview)
-description: "Use Azure Shared Disks to create a failover cluster instance (FCI) with SQL Server on Azure Virtual Machines."
+title: Create an FCI with Azure shared disks (Preview)
+description: "Use Azure shared disks to create a failover cluster instance (FCI) with SQL Server on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -17,10 +17,10 @@ ms.date: 06/26/2020
 ms.author: mathoma
 ---
 
-# Create an FCI with Azure Shared Disks (SQL Server on Azure VMs)
+# Create an FCI with Azure shared disks (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a failover cluster instance (FCI) by using Azure Shared Disks with SQL Server on Azure Virtual Machines (VMs). 
+This article explains how to create a failover cluster instance (FCI) by using Azure shared disks with SQL Server on Azure Virtual Machines (VMs). 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
@@ -35,10 +35,10 @@ Before you complete the instructions in this article, you should already have:
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-## Add Azure Shared Disk
+## Add Azure shared disk
 Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **2** to make the disk shareable across both FCI nodes. 
 
-Add an Azure Shared Disk by doing the following: 
+Add an Azure shared disk by doing the following: 
 
 
 1. Save the following script as *SharedDiskConfig.json*: 
@@ -223,7 +223,7 @@ To route traffic appropriately to the current primary node, configure the connec
 
 If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
 
-If Azure Shared Disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
+If Azure shared disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md).
 
