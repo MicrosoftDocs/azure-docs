@@ -184,7 +184,7 @@ The following considerations are important as you work with MIME types:
 
 ## Default headers
 
-The `defaultHeaders` object, listed at the same level as the `routes` array, allows you to add, modify, or remove [content headers](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy).
+The `defaultHeaders` object, listed at the same level as the `routes` array, allows you to add, modify, or remove [response headers](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
 Providing a value for a header either adds or modifies the header. Providing an empty value, removes the header from being served to the client.
 
@@ -207,6 +207,7 @@ The following considerations are important as you work with headers:
 - Null or empty values remove a header from processing
 - Keys or values cannot exceed 8,000 characters
 - Defined headers are served with all requests
+- Headers defined in _routes.json_ only apply to static content. You can customize response headers of a API endpoint in the function's code.
 
 ## Example route file
 
@@ -287,7 +288,7 @@ The following examples describe what happens when a request matches a rule.
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_. |
 | _/unknown-folder_ | The _/custom-404.html_ file is served. |
-| Files with the `.js` extension | Are served with the `application/javascript` MIME type |
+| Files with the `.custom` extension | Are served with the `text/html` MIME type |
 
 - All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
