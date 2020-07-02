@@ -7,7 +7,7 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 
@@ -40,6 +40,7 @@ Azure Private Link provides the following benefits:
 |Supported services  |Available regions | Status  |
 |:-------------------|:-----------------|:--------|
 |Private Link services behind standard Azure Load Balancer | All public regions  | GA <br/> [Learn more](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Automation  | All public regions | Preview | |
 | Azure Storage        |  All public regions       | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  All public regions      | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |

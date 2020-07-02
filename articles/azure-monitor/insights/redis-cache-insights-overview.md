@@ -176,6 +176,10 @@ After you save a custom workbook, go to the workbook gallery to open it.
 
 ![A command bar with Gallery highlighted](./media/cosmosdb-insights-overview/gallery.png)
 
+## Troubleshooting
+
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+
 ## Next steps
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerts that aid in detecting problems.

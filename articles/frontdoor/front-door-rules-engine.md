@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door
+description: This article provides an overview of the Azure Front Door Rules Engine feature. 
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -19,16 +19,12 @@ ms.author: mebeatty
 
 Rules Engine allows you to customize how HTTP requests are handled at the edge and provides more control of the behavior of your web application. Rules Engine for Azure Front Door comprises several key features, including:
 
-- Header-based routing – route requests based on the patterns in the contents of request headers, cookies, and query strings.
-- Parameter-based routing – take advantage of a series of match conditions including post args, query strings, cookies, and request methods, to route requests based on HTTP request parameters. 
-- Route configurations overrides: 
-    - Use redirect capabilities to return 301/302/307/308 redirects to the client to redirect to new hostnames, paths, and protocols. 
-    - Use forwarding capabilities to rewrite the request URL path without doing a traditional redirect and forward the request to the appropriate backend in your configured backend pool. 
-    - Customize your caching configuration and dynamically change a route from forwarding to caching based on match conditions. 
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
+- Enforce HTTPS, ensure all your end-users interact with your content over a secure connection.
+- Implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, as well as Access-Control-Allow-Origin headers for Cross-Origin Resource Sharing (CORS) scenarios. Security-based attributes can also be defined with cookies.
+- Route requests to mobile or desktop versions of your application based on the patterns in the contents of request headers, cookies, or query strings.
+- Use redirect capabilities to return 301, 302, 307, and 308 redirects to the client to redirect to new hostnames, paths, or protocols.
+- Dynamically modify the caching configuration of your route based on the incoming requests.
+- Rewrite the request URL path and forward the request to the appropriate backend in your configured backend pool.
 
 ## Architecture 
 
@@ -48,7 +44,7 @@ In both of these examples, when none of the match conditions are met, the specif
 
 With AFD Rules Engine, you can create a series of Rules Engine configurations, each composed of a set of rules. The following outlines some helpful terminology you will come across when configuring your Rules Engine. 
 
-- *Rules Engine Configuration*: A set of rules that are applied to single Route Rule. Each configuration is limited to 5 rules. You can create up to 10 configurations. 
+- *Rules Engine Configuration*: A set of rules that are applied to single Route Rule. Each configuration is limited to 25 rules. You can create up to 10 configurations. 
 - *Rules Engine Rule*: A rule composed of up to 10 match conditions and 5 actions.
 - *Match Condition*: There are numerous match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. A full list of match conditions can  be found [here](front-door-rules-engine-match-conditions.md). 
 - *Action*: Actions dictate what happens to your incoming requests - request/ response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to 5 actions; however, a rule may only contain 1 route configuration override.  A full list of actions can be found [here](front-door-rules-engine-actions.md).
