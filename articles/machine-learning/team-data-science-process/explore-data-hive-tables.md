@@ -40,30 +40,32 @@ This article assumes that you have:
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extract records from joining two tables
    
-        SELECT
-            a.<common_columnname1> as <new_name1>,
-            a.<common_columnname2> as <new_name2>,
-            a.<a_column_name1> as <new_name3>,
-            a.<a_column_name2> as <new_name4>,
-            b.<b_column_name1> as <new_name5>,
-            b.<b_column_name2> as <new_name6>
-        FROM
-            (
-            SELECT <common_columnname1>,
-                <common_columnname2>,
-                <a_column_name1>,
-                <a_column_name2>,
-            FROM <databasename>.<tablename1>
-            ) a
-            join
-            (
-            SELECT <common_columnname1>,
-                <common_columnname2>,
-                <b_column_name1>,
-                <b_column_name2>,
-            FROM <databasename>.<tablename2>
-            ) b
-            ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+    ```hiveql
+    SELECT
+        a.<common_columnname1> as <new_name1>,
+        a.<common_columnname2> as <new_name2>,
+        a.<a_column_name1> as <new_name3>,
+        a.<a_column_name2> as <new_name4>,
+        b.<b_column_name1> as <new_name5>,
+        b.<b_column_name2> as <new_name6>
+    FROM
+        (
+        SELECT <common_columnname1>,
+            <common_columnname2>,
+            <a_column_name1>,
+            <a_column_name2>,
+        FROM <databasename>.<tablename1>
+        ) a
+        join
+        (
+        SELECT <common_columnname1>,
+            <common_columnname2>,
+            <b_column_name1>,
+            <b_column_name2>,
+        FROM <databasename>.<tablename2>
+        ) b
+        ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+    ```
 
 ## Additional query scripts for taxi trip data scenarios
 Examples of queries that are specific to [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
