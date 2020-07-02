@@ -29,7 +29,7 @@ Some examples of intrinsically parallel workloads you can bring to Batch:
 * Data ingestion, processing, and ETL operations
 * Software test execution
 
-You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/linux/sizes-hpc.md) and [GPU-optimized](../virtual-machines/linux/sizes-gpu.md) VM sizes.
+You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/linux/sizes-hpc.md) and [GPU-optimized](../virtual-machines/linux/sizes-gpu.md) VM sizes.
 
 Some examples of tightly coupled workloads:
 * Finite element analysis
