@@ -31,7 +31,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
     *	**Bring your own key**  Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 ), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
     *	**Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
-* **Sample Labeling Tool Updates** Including better support for on-premise users of the (sample labeling tool)[https://github.com/microsoft/OCR-Form-Tools] and for API versions. 
+
 
 ## June 2020
 
