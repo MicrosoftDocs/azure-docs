@@ -19,7 +19,7 @@ ms.reviewer: jroth
 # Configure a distributed network name for an FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource and provides an easier way to connect to the SQL Server failover cluster (FCI) than the virtual network name (VNN), without the need of an Azure load balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and above and Windows Server 2019. 
+On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource and provides an easier way to connect to the SQL Server failover cluster (FCI) than the virtual network name (VNN), without the need of an Azure load balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and later and Windows Server 2016 and later. 
 
 This article teaches you to configure a distributed network name (DNN) to route traffic to your [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 

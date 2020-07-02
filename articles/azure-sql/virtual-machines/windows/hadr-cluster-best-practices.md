@@ -90,7 +90,7 @@ To get started, see [Configure a file share witness](/windows-server/failover-cl
 
 In a traditional on-premises network environment, a SQL Server failover cluster instance appears to be a single instance of SQL Server running on a single computer. Because the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application that's connecting to SQL Server, and this minimizes the downtime that the client or application experiences during a failure. 
 
-Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs. The DNN feature is currently available only for SQL Server 2019 CU2 and later on a Windows Server 2019 virtual machine. 
+Use a VNN with Azure Load Balancer or a distributed network name (DNN) to route traffic to the VNN of the failover cluster instance with SQL Server on Azure VMs. The DNN feature is currently available only for SQL Server 2019 CU2 and later on a Windows Server 2016 (or later) virtual machine. 
 
 
 | |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
