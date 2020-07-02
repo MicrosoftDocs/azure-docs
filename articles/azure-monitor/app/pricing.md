@@ -245,9 +245,11 @@ To set ingestion sampling, go to the  **Pricing** pane:
 
 To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](analytics.md). The query looks like this:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h)
-    | render areachart
+```kusto
+requests | where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h)
+| render areachart
+```
 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records.
 

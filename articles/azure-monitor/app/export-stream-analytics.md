@@ -89,7 +89,9 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 
 The Path Prefix Pattern specifies where Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```output
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 In this example:
 
