@@ -119,19 +119,6 @@ Use the Failover Cluster Manager to restart the SQL Server instance.  Follow the
 1. Right-click the SQL Server resource, and take it offline. 
 1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
 
-## Create network alias (FCI)
-
-If you're using the distributed network name with a SQL Server failover cluster instance (FCI), there may be some SQL Server features that require you to map a network alias. Skip this section if you are not using a failover cluster instance, or if you are not using any of the server-side components that may require a network alias. See [FCI DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
-
-Some server-side components rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. 
-Follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) to create an alias that maps the VNN to the DNN DNS name. 
-
-For a default instance, you can map the VNN to the DNN DNS name directly, such that VNN = DNN DNS name.
-For example, if VNN name is `FCI1`, instance name is `MSSQLSERVER`, and the DNN is `FCI1DNN` (clients previously connected to `FCI`, and now they connect to `FCI1DNN`) then map the VNN `FCI1` to the DNN `FCI1DNN`. 
-
-For a named instance the network alias mapping should be done for the full instance, such that `VNN\Instance` = `DNN\Instance`. 
-For example, if VNN name is `FCI1`, instance name is `instA`, and the DNN is `FCI1DNN` (clients previously connected to `FCI1\instA`, and now they connect to `FCI1DNN\instaA`) then map the VNN `FCI1\instaA` to the DNN `FCI1DNN\instaA`. 
-
 ## Update connection string
 
 To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is lower than 4.6.1. 
@@ -159,9 +146,9 @@ If you need to, you can [download SQL Server Management Studio](/sql/ssms/downlo
 
 ## Limitations
 
-- Currently, a distributed network name (DNN) is only supported for a SQL Server 2019 CU2 and above failover cluster instance on Windows Server 2019. 
-- Currently, DNN is only supported for SQL Server FCI on Azure IaaS, it is not supported for Always ON AG Listeners. For AG Listeners, the only connectivity option for automated failover is through Azure Load Balancers.
-- There are additional limitations when working with other SQL Server features and an FCI with DNN. See [FCI with DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
+- Currently, a distributed network name (DNN) is only supported for a SQL Server 2019 CU2 and above on Windows Server 2019. 
+- Currently, DNN is only supported for failover cluster instances with SQL Server on Azure VMs. Use the virtual network name with an Azure load balancer for availability group listeners. 
+- There may be additional considerations when working with other SQL Server features and an FCI with DNN. See [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md) for more information. 
 
 ## Next steps
 
