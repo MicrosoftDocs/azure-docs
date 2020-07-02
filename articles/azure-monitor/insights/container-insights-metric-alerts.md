@@ -85,7 +85,7 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 
 ## Enable alert rules
 
-Follow these steps to enable the metric alerts in Azure Monitor from the Azure portal. To enable using an ARM template, see [Enable with a Resource Manager template](#enable-with-a-resource-manager-template).
+Follow these steps to enable the metric alerts in Azure Monitor from the Azure portal. To enable using a Resource Manager template, see [Enable with a Resource Manager template](#enable-with-a-resource-manager-template).
 
 ### From the Azure portal
 
