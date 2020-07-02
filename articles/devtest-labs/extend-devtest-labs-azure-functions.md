@@ -1,19 +1,10 @@
 ---
 title: Extend Azure DevTest Labs using Azure Functions | Microsoft Docs
 description: Learn how to extend Azure DevTest Labs using Azure Functions. 
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Use Azure Functions to extend DevTest Labs
 You can use Azure Functions to support additional scenarios beyond the ones that are already supported by DevTest Labs. Azure Functions can be used to extend the built-in functionality of the service to meet your business-specific needs. The following list provides some of the possible scenarios. This article shows you how to implement one of these sample scenarios.
 

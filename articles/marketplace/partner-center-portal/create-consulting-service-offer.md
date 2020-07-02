@@ -105,7 +105,7 @@ Here you'll define the offer details that are displayed in the marketplace. This
 > [!NOTE]
 > Offer details aren't required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the Offer listing details.
 
-Here's an example of how offer information appears in Azure Marketplace:
+Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-consulting-service-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
@@ -117,10 +117,10 @@ Here's an example of how offer information appears in Azure Marketplace:
 4. Industries
 5. Offer name
 6. Summary
-7. Screenshots/videos
-8. Description
+7. Description
+8. Screenshots/videos
 
-<br>Here's an example of how offer information appears in Microsoft AppSource:
+<br>Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 

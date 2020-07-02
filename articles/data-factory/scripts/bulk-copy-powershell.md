@@ -14,7 +14,7 @@ ms.date: 10/31/2017
 
 # PowerShell script - copy multiple tables in bulk by using Azure Data Factory
 
-This sample PowerShell script copies data from multiple tables in an Azure SQL database to an Azure SQL data warehouse.
+This sample PowerShell script copies data from multiple tables in Azure SQL Database to an Azure SQL data warehouse.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -54,9 +54,9 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
 
-## Find subscription keys in the Azure portal
+## Find authoring keys in the Azure portal
 
-You can view and reset your subscription keys from the Azure portal, where you created the QnA Maker resource.
+You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys. 
 
 1. Go to the QnA Maker resource in the Azure portal and select the resource that has the _Cognitive Services_ type:
 
@@ -66,7 +66,7 @@ You can view and reset your subscription keys from the Azure portal, where you c
 
     ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## Find endpoint keys in the QnA Maker portal
+## Find query endpoint keys in the QnA Maker portal
 
 The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
 

@@ -52,7 +52,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
 
-Information on how you can configure these options can be found in the [Azure Functions Premium plan document](functions-premium-plan.md).
+To learn how you can create a function app in a Premium plan, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
@@ -62,9 +62,7 @@ Consider the Azure Functions Premium plan in the following situations:
 * You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
-* You require features that are only available on a Premium plan, such as virtual network connectivity.
-
-When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see the [Choose single-core Premium plans](functions-reference-node.md#considerations-for-javascript-functions).  
+* You require features that are only available on a Premium plan, such as virtual network connectivity. 
 
 ## <a name="app-service-plan"></a>Dedicated (App Service) plan
 

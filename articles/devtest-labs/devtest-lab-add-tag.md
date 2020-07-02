@@ -1,22 +1,10 @@
 ---
 title: Add tags to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a tag to a lab in Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager:
-editor: ''
-
-ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add tags to a lab in Azure DevTest Labs
 
 You can create custom tags and apply them to your DevTest Labs resources to logically categorize your resources. Later, you can quickly and easily see all the resources in your subscription that have that tag. Tags are helpful when you need to organize resources for billing or management.

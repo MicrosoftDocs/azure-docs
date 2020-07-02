@@ -5,8 +5,7 @@ description: Learn how to use the location condition to control access to your c
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
+ms.topic: conceptual
 ms.date: 06/15/2020
 
 ms.author: joflore

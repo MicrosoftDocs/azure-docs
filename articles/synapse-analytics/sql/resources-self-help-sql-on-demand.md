@@ -1,11 +1,11 @@
 ---
-title: SQL on-demand Preview) self-help
+title: SQL on-demand (preview) self-help
 description: This section contains information that can help you troubleshoot problems with SQL on-demand (preview).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
