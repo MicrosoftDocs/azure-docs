@@ -120,7 +120,32 @@ As an example, the following table lists two versions and the corresponding comm
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
     |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Keep this Spark shell instance open and continue to the next step.
+2. Keep this Spark shell instance open and continue to the next section "Define a Catalog and Query". If you do not find the jars corresponding to your versions in the SHC Core respository, continue reading. 
+
+
+You can also build the jars directly from [spark-hbase-connector](https://github.com/hortonworks-spark/shc) github branch. For example, if you are running with Spark 2.3 and HBase 1.1:
+
+1. Clone the repo:
+
+    ```bash
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Build from branch-2.3, this will create a jar for you:
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Run the following command (make sure to change the jar name corresponding to the jar file you have built):
+
+    ```bash
+    spark-shell --jars /home/sshuser/shc/core/target/sh1.1.2-2.3-s_2.11-SNAPSHOT.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Keep this Spark shell instance open and continue to the next section. 
+
+
 
 ## Define a Catalog and Query
 
