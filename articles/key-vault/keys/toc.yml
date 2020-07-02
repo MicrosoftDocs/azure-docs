@@ -30,6 +30,8 @@
 
 - name: Samples
   items:
+  - name: Key Vault Code Samples
+    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json

@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Strategies for testing your code in Azure Functions
 
-This article demonstrates how to create automated tests for Azure Functions. 
+This article demonstrates how to create automated tests for Azure Functions.
 
 Testing all code is recommended, however you may get the best results by wrapping up a Function's logic and creating tests outside the Function. Abstracting logic away limits a Function's lines of code and allows the Function to be solely responsible for calling other classes or modules. This article, however, demonstrates how to create automated tests against an HTTP and timer-triggered functions.
 
@@ -31,22 +31,22 @@ The following example describes how to create a C# Function app in Visual Studio
 
 To set up your environment, create a Function and test app. The following steps help you create the apps and functions required to support the tests:
 
-1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it *Functions*
-2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it *MyHttpTrigger*.
-3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it *MyTimerTrigger*.
-4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio by clicking **File > New > Project > Visual C# > .NET Core > xUnit Test Project** and  name it *Functions.Test*. 
+1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it **Functions**
+2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it **MyHttpTrigger**.
+3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
+4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in the solution and name it **Functions.Tests**.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Test* app.
+6. [Reference the *Functions* app](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Tests* app.
 
 ### Create test classes
 
-Now that the applications are created, you can create the classes used to run the automated tests.
+Now that the projects are created, you can create the classes used to run the automated tests.
 
 Each function takes an instance of [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-The `ListLogger` class implements the `ILogger` interface and holds an internal list of messages for evaluation during a test.
+You'll create a new class named `ListLogger` which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
-**Right-click** on the *Functions.Test* application and select **Add > Class**, name it **NullScope.cs** and enter the following code:
+Create a new class in *Functions.Tests* project named **NullScope.cs** and enter the following code:
 
 ```csharp
 using System;
@@ -64,7 +64,7 @@ namespace Functions.Tests
 }
 ```
 
-Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **ListLogger.cs** and enter the following code:
+Next, create a new class in *Functions.Tests* project named **ListLogger.cs** and enter the following code:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -110,7 +110,7 @@ The `ListLogger` class implements the following members as contracted by the `IL
 
 The `Logs` collection is an instance of `List<string>` and is initialized in the constructor.
 
-Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **LoggerTypes.cs** and enter the following code:
+Next, create a new file in *Functions.Tests* project named **LoggerTypes.cs** and enter the following code:
 
 ```csharp
 namespace Functions.Tests
@@ -123,9 +123,9 @@ namespace Functions.Tests
 }
 ```
 
-This enumeration specifies the type of logger used by the tests. 
+This enumeration specifies the type of logger used by the tests.
 
-Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **TestFactory.cs** and enter the following code:
+Now create a new class in *Functions.Tests* project named **TestFactory.cs** and enter the following code:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -159,12 +159,11 @@ namespace Functions.Tests
             return qs;
         }
 
-        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
         {
-            var request = new DefaultHttpRequest(new DefaultHttpContext())
-            {
-                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
-            };
+            var context = new DefaultHttpContext();
+            var request = context.Request;
+            request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
             return request;
         }
 
@@ -197,7 +196,7 @@ The `TestFactory` class implements the following members:
 
 - **CreateLogger**: Based on the logger type, this method returns a logger class used for testing. The `ListLogger` keeps track of logged messages available for evaluation in tests.
 
-Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **FunctionsTests.cs** and enter the following code:
+Finally, create a new class in *Functions.Tests* project named **FunctionsTests.cs** and enter the following code:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -311,7 +310,7 @@ module.exports = {
 
 This module implements the `IsPastDue` property to stand is as a fake timer instance. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
 
-Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
+Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/developer/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 
 ```javascript
 const httpFunction = require('./index');

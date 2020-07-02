@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB .NET 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 06/26/2020
 ms.author: sngun
 
 ---
@@ -116,11 +116,9 @@ In scenarios where you have sparse access and if you notice a higher connection 
 
 **Call OpenAsync to avoid startup latency on first request**
 
-By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V2](sql-api-sdk-dotnet.md), call `OpenAsync()` once during initialization to avoid this startup latency on the first request:
+By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V2](sql-api-sdk-dotnet.md), call `OpenAsync()` once during initialization to avoid this startup latency on the first request. The call looks like: `await client.OpenAsync();`
 
-    await client.OpenAsync();
-
-> [!NOTE] 
+> [!NOTE]
 > `OpenAsync` will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but whose application accesses a subset of them, `OpenAsync` would generate an unnecessary amount of traffic, which would make the initialization slow. So using `OpenAsync` might not be useful in this scenario because it slows down application startup.
 
    <a id="same-region"></a>
@@ -199,7 +197,7 @@ Cache document URIs whenever possible for the best read performance. You need to
 
 When you do a bulk read of documents by using read feed functionality (for example, `ReadDocumentFeedAsync`) or when you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) to request as many as 1,000 headers. When you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by using [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) to request as many as 1,000 headers. When you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
 > [!NOTE] 
 > The `maxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
@@ -226,7 +224,7 @@ The Azure Cosmos DB indexing policy also allows you to specify which document pa
 var collection = new DocumentCollection { Id = "excludedPathCollection" };
 collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);
 ```
 
 For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
@@ -242,7 +240,7 @@ Throughput is provisioned based on the number of [Request Units](request-units.m
 
 The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDFs, and the size of the source dataset all influence the cost of query operations.
 
-To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
+To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
 
 ```csharp
 // Measure the performance (Request Units) of writes
@@ -262,11 +260,13 @@ The request charge returned in this header is a fraction of your provisioned thr
 
 **Handle rate limiting/request rate too large**
 
-When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
+When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
 
-    HTTP Status 429,
-    Status Line: RequestRateTooLarge
-    x-ms-retry-after-ms :100
+```http
+HTTP Status 429,
+Status Line: RequestRateTooLarge
+x-ms-retry-after-ms :100
+```
 
 The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
