@@ -87,7 +87,7 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-If you are defining your own environment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's ne 
+If you are defining your own environment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
 ### Use Conda, pip, and Docker files
 
@@ -438,7 +438,7 @@ az ml environment download -n myenv -d downloaddir
 
 The following sections provide guidance on how to resolve common user issues. 
 
-#### Environment name can not start with the prefix AzureML
+#### Environment name cannot start with the prefix AzureML
 
 This message typically arises when a user tries to register or submit a run with an environment that begins with this prefix but can appear in other circumstances:
 
