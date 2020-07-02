@@ -101,31 +101,33 @@ After selecting the **Enable/Disable** radio button to enable the alert, an aler
 
 ## Enable alert rules with a Resource Manager template
 
-You can use an Azure Resource Manager template to create the included metric alerts in Azure Monitor.
+You can use an Azure Resource Manager template and parameters file to create the included metric alerts in Azure Monitor.
 
 The basic steps are as follows:
 
-1. Use one of the templates below as a JSON file that describes how to create the alert.
-2. Edit and use the corresponding parameters file as a JSON to customize the alert.
-3. Deploy the template using any deployment method.
+1. Download one or all of the available templates that describes how to create the alert.
 
-You can create the metric alert using the template and parameters file using the Azure portal, PowerShell, or Azure CLI.
+2. Create and use a [parameters file](../../azure-resource-manager/templates/parameter-files.md) as a JSON to set the values required to create the alert rule.
+
+3. Deploy the template from the Azure portal, PowerShell, or Azure CLI.
 
 ### Deploy through Azure portal
 
 1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
 
-2. To deploy a customized template through the portal, select **Create a resource**, search for **template**, and then select **Template**. deployment.
+2. To deploy a customized template through the portal, select **Create a resource** from the [Azure portal](https://portal.azure.com).
 
-3. Select **Create**.
+3. Search for **template**, and then select **Template**. deployment.
 
-4. You see several options for creating a template, select **Build your own template in editor**.
+4. Select **Create**.
 
-5. On the **Edit template page**, select **Load file** and then select the template file.
+5. You see several options for creating a template, select **Build your own template in editor**.
 
-6. On the **Edit template** page, select **Save**.
+6. On the **Edit template page**, select **Load file** and then select the template file.
 
-7. On the **Custom deployment** page, specify the following and then when complete select **Purchase** to deploy the template and create the alert rule.
+7. On the **Edit template** page, select **Save**.
+
+8. On the **Custom deployment** page, specify the following and then when complete select **Purchase** to deploy the template and create the alert rule.
 
     * Resource group
     * Location
