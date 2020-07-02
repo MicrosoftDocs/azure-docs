@@ -1,7 +1,7 @@
 ---
 title: What is Azure Dev Tools for Teaching?
 description: Explains the benefits to educators and STEM students for the Azure Dev Tools for Teaching program.
-author: v-denrea
+author: denrea
 ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
