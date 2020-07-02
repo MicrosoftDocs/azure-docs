@@ -18,14 +18,17 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## July 2020
 
-### Text Analytics for Health Container Public Preview
+### Text Analytics for Health Container Public gated preview
 
-Announcing the public preview of the Text Analytics for Health container. The Text Analytics for Health container uses the following natural language processing techniques to extract information from unstructured English-language text in clinical documents such as patient intake forms, doctor's notes, research papers and discharge summaries:
+The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. While in public "gated" preview, you will not be billed for Text Analytics for Health container usage. 
+
+The container offers the following features:
 
 * Named Entity Recognition
 * Relation extraction
 * Entity linking
 * Negation
+
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-healthcare.md)

@@ -28,20 +28,23 @@ The Text Analytics for Health container currently performs Named Entity Recognit
 
 Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
 
-![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
+> [!div class="mx-imgBorder"]
+> ![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
 
 #### [Relation Extraction](#tab/relation-extraction)
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time. 
 
-![Health RE](../media/ta-for-health/health-relation-extraction.png)
+> [!div class="mx-imgBorder"]
+> ![Health RE](../media/ta-for-health/health-relation-extraction.png)
 
 
 #### [Entity Linking](#tab/entity-linking)
 
 Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts. For example, the Unified Medical Language System (UMLS).
 
-![Health EL](../media/ta-for-health/health-entity-linking.png)
+> [!div class="mx-imgBorder"]
+> ![Health EL](../media/ta-for-health/health-entity-linking.png)
 
 Text Analytics for Health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
@@ -49,7 +52,8 @@ Text Analytics for Health supports linking to the health and biomedical vocabula
 
 The meaning of medical content is highly affected by modifiers such as negation, which can have critical implication if misdiagnosed. Text Analytics for Health supports negation detection for the different entities mentioned in the text. 
 
-![Health NEG](../media/ta-for-health/health-negation.png)
+> [!div class="mx-imgBorder"]
+> ![Health NEG](../media/ta-for-health/health-negation.png)
 
 ---
 
