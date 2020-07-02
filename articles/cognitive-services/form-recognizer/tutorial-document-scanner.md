@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 06/24/2020
+ms.date: 07/01/2020
 ms.author: pafarley
 ---
 
@@ -24,9 +24,9 @@ ms.author: pafarley
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Create a form processing AI model
+> * Train your model
+> * Publish your model to Azure PowerApps or Flow
 
 If you don't have a Form Recognizer subscription, create a free trial account...
 
