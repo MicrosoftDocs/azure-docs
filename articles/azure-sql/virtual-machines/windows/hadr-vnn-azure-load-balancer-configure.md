@@ -34,7 +34,7 @@ Before you complete the steps in this article, you should already have:
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-## Create the load balancer
+## Create load balancer
 
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
@@ -61,7 +61,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    ![Set up the load balancer](./media/failover-cluster-instance-premium-file-share-manually-configure/30-load-balancer-create.png)
    
 
-## Configure the backend pool
+## Configure backend pool
 
 1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
 
@@ -73,7 +73,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK** to create the backend pool.
 
-## Configure the health probe
+## Configure health probe
 
 1. On the load balancer pane, select **Health probes**.
 
@@ -109,7 +109,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK**.
 
-## Configure the cluster probe
+## Configure cluster probe
 
 Set the cluster probe port parameter in PowerShell.
 
