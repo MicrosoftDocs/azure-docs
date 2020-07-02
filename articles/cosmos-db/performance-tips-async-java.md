@@ -18,7 +18,7 @@ ms.author: anfeldma
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
 > * [.NET SDK v2](performance-tips.md)
-> 
+
 
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
@@ -44,7 +44,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
 
-    ### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```java
         public ConnectionPolicy getConnectionPolicy() {
@@ -66,6 +66,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
 
 ## SDK Usage
+
 * **Install the most recent SDK**
 
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
@@ -312,7 +313,7 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
-    ```http
+    ```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
