@@ -59,10 +59,6 @@ See the [entity categories](../named-entity-types.md?tabs=health) returned by Te
 
 Text Analytics for Health only supports English language documents.
 
-## HIPAA compliance
-
-Azure Text Analytics is a HIPAA and HiTRUST eligible service. For more information on Azure Text Analytics' certifications, please see sections 49, 50 and Appendix A of the [Microsoft Azure Compliance Offering](https://aka.ms/azurecompliance) document.  For an Azure Blueprint sample of using Azure Policy to assist towards HIPAA HITRUST attestation, please see the [Azure HIPAA Blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust/) page.
-
 ## Request access to the container registry
 
 Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
@@ -215,21 +211,31 @@ For more information, see NGINX's documentation on [NGINX SSL Termination](https
 
 
 ## Example API request
+The container provides REST-based query prediction endpoint APIs.
 
-The following JSON is an example of the Text Analytics for Health API request's POST body:
+Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
+
+```bash
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+
+```
+
+The following JSON is an example of a JSON file attached to the Text Analytics for Health API request's POST body:
 
 ```json
+example.json
+
 {
   "documents": [
     {
       "language": "en",
       "id": "1",
-      "text": "Patient suffers from high blood pressure and irregular heartbeat."
+      "text": "Patient reported itchy sores after swimming in the lake."
     },
     {
       "language": "en",
       "id": "2",
-      "text": "Prescribed 100mg ibuprofen, taken twice daily."
+      "text": "Prescribed 50mg benadryl, taken twice daily."
     }
   ]
 }
@@ -241,27 +247,18 @@ The following JSON is an example of the Text Analytics for Health API response b
 
 ```json
 {
-  "documents": [
+    "documents": [
         {
             "id": "1",
             "entities": [
                 {
                     "id": "0",
-                    "offset": 21,
-                    "length": 19,
-                    "text": "high blood pressure",
+                    "offset": 17,
+                    "length": 11,
+                    "text": "itchy sores",
                     "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9998,
-                    "umlsId": "C0020538"
-                },
-                {
-                    "id": "1",
-                    "offset": 45,
-                    "length": 19,
-                    "text": "irregular heartbeat",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9997,
-                    "umlsId": "C0003811"
+                    "score": 0.97,
+                    "isNegated": false
                 }
             ]
         },
@@ -271,27 +268,67 @@ The following JSON is an example of the Text Analytics for Health API response b
                 {
                     "id": "0",
                     "offset": 11,
-                    "length": 5,
-                    "text": "100mg",
+                    "length": 4,
+                    "text": "50mg",
                     "type": "DOSAGE",
-                    "score": 0.9997
+                    "score": 1.0,
+                    "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 17,
-                    "length": 9,
-                    "text": "ibuprofen",
+                    "offset": 16,
+                    "length": 8,
+                    "text": "benadryl",
                     "type": "MEDICATION_NAME",
-                    "score": 0.9999,
-                    "umlsId": "C0020740"
+                    "score": 0.99,
+                    "isNegated": false,
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C0700899"
+                        },
+                        {
+                            "dataSource": "CHV",
+                            "id": "0000044903"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "899"
+                        },
+                        {
+                            "dataSource": "MSH",
+                            "id": "D004155"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C300"
+                        },
+                        {
+                            "dataSource": "NCI_DTP",
+                            "id": "NSC0033299"
+                        },
+                        {
+                            "dataSource": "PDQ",
+                            "id": "CDR0000039163"
+                        },
+                        {
+                            "dataSource": "PSY",
+                            "id": "05760"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "203457"
+                        }
+                    ]
                 },
                 {
                     "id": "2",
-                    "offset": 34,
+                    "offset": 32,
                     "length": 11,
                     "text": "twice daily",
                     "type": "FREQUENCY",
-                    "score": 0.9998
+                    "score": 1.0,
+                    "isNegated": false
                 }
             ],
             "relations": [
@@ -308,12 +345,26 @@ The following JSON is an example of the Text Analytics for Health API response b
                             "role": "ENTITY"
                         }
                     ]
+                },
+                {
+                    "relationType": "FREQUENCY_OF_MEDICATION",
+                    "score": 1.0,
+                    "entities": [
+                        {
+                            "id": "1",
+                            "role": "ENTITY"
+                        },
+                        {
+                            "id": "2",
+                            "role": "ATTRIBUTE"
+                        }
+                    ]
                 }
             ]
         }
-  ],
-  "errors": [],
-  "modelVersion": "2020-01-01"
+    ],
+    "errors": [],
+    "modelVersion": "2020-05-08"
 }
 ```
 
