@@ -268,9 +268,9 @@ You can manually install the Log Analytics agent, so Security Center can collect
 
 1. To use PowerShell to deploy the extension, use the instructions from the virtual machines documentation:
 
-    - [For Windows machines](../virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
+    - [For Windows machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-    - [For Linux machines](../virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [For Linux machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
 
 
 
