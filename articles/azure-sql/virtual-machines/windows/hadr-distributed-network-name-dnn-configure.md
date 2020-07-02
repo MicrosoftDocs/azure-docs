@@ -76,7 +76,7 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 
 Clients will now enter `FCIDNN` into their connection string when connecting to the SQL Server FCI. 
 
-### Rename VNN 
+### Rename the VNN 
 
 If you have an existing virtual network name and you want clients to continue using this value to connect to the SQL Server FCI, you must rename the current VNN to a placeholder value. After the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. 
 
