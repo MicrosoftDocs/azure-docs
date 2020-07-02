@@ -21,7 +21,7 @@
 - name: Support
   items:
   - name: Service desk
-    href: includes/educator-service-desk.md
+    href: educator-service-desk.md
 - name: Azure Dev Tools for Teaching
   items:
   - name: Overview    
@@ -49,4 +49,4 @@
   - name: FAQ
     href: azure-dev-tools-teaching/program-faq.md
   - name: Support
-    href: includes/program-support.md
+    href: azure-dev-tools-teaching/program-support.md
