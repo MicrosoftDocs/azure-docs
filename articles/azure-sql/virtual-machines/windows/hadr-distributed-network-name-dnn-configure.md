@@ -107,6 +107,7 @@ To update possible owners, follow these steps:
 
 1. Go to your DNN resource in Failover Cluster Manager. 
 1. Right-click the DNN resource and select **Properties**. 
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Clear check next to the nodes that do not participate in the FCI for possible owners of the DNN resource":::
 1. Clear the checkbox for any nodes that do not participate in the failover cluster instance. The possible owner list for the DNN resource should match the possible owner list for the SQL Server instance resource. For example, assuming Data3 does not participate in the FCI, the following image is an example of removing Data3 from the possible owner list of the DNN resource: 
 
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Clear check next to the nodes that do not participate in the FCI for possible owners of the DNN resource":::
@@ -149,7 +150,7 @@ If you need to, you can [download SQL Server Management Studio](/sql/ssms/downlo
 
 ## Limitations
 
-- Currently, a distributed network name (DNN) is only supported for a SQL Server 2019 CU2 and above on Windows Server 2019. 
+- Currently, a distributed network name (DNN) is only supported for a SQL Server 2019 CU2 and above on Windows Server 2016. 
 - Currently, DNN is only supported for failover cluster instances with SQL Server on Azure VMs. Use the virtual network name with an Azure load balancer for availability group listeners. 
 - There may be additional considerations when working with other SQL Server features and an FCI with DNN. See [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md) for more information. 
 

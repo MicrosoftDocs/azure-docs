@@ -145,6 +145,31 @@ Then, create a network alias to map `vnnname\insta1` to `dnnlsnr\insta1`.
 
 
 
+## Frequently asked questions
+
+
+- Which SQL Server version brings DNN support? 
+
+   SQL Server 2019 CU2 and later.
+
+- What is the expected failover time when DNN is used?
+
+   For DNN, the failover time will be just the FCI failover time, without any time added (like probe time when you're using Azure Load Balancer).
+
+- Is there any version requirement for SQL clients to support DNN with OLEDB and ODBC?
+
+   We recommend `MultiSubnetFailover=True` connection string support for DNN. It's available starting with SQL Server 2012 (11.x).
+
+- Are any SQL Server configuration changes required for me to use DNN? 
+
+   SQL Server does not require any configuration change to use DNN, but some SQL Server features might require more consideration. 
+
+- Does DNN support multiple-subnet clusters?
+
+   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
+
+
+
 ## Next steps
 
 For more information, see: 

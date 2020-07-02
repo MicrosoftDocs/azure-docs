@@ -1050,14 +1050,16 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium File Share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: Distributed Network Name (DNN)
+            items: 
+            - name: Create DNN for FCI
+              href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+            - name: DNN with FCI interoperability 
+              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: Configure connectivity
           items:
-          - name: Distributed Network Name (DNN)
-            href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
           - name: Virtual Network Name (VNN)
             href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
-          - name: DNN with FCI interoperability
-            href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
 
     - name: Reference
       items:
