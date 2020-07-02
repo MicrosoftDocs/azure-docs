@@ -56176,12 +56176,12 @@
     },
     {
       "source_path": "articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md",
-      "redirect_url": "/articles/load-balancer/tutorial-load-balancer-standard-internal-portal",
+      "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/load-balancer/load-balancer-configure-ha-ports.md",
-      "redirect_url": "/articles/load-balancer/tutorial-load-balancer-standard-internal-portal",
+      "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
     }
   ]
