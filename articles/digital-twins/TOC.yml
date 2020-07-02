@@ -116,7 +116,7 @@
     items: 
     - name: Digital Twins CLI reference
       href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
-    - name: Azure IoT CLI extension source
+    - name: CLI package
       href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: DTDL
     items: 
