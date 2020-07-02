@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.subservice: 
-ms.date: 10/23/2019
+ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 

@@ -56,11 +56,11 @@ To create a Bing Custom Search instance:
 
 To include results from specific websites or URLs, add them to the **Active** tab.
 
-1.       On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
+1. On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
 
     ![Screenshot of the Definition Editor active tab](../media/customSrchEditor.png)
 
-2.       To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
+2. To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
 
 ## Add blocked entries
 
