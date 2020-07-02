@@ -28,8 +28,6 @@ Get started using Azure AD as your Identity and Authorization Management (IAM) s
 To view applications that have been registered in your Azure AD tenant, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-
 
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.

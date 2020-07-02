@@ -23,6 +23,14 @@ After an application is added to your Azure AD tenant, you can:
 - Manage user access to the app with a Conditional Access policy.
 - Configure single sign-on so users can login to the app with their Azure AD credentials.
 
+## Prerequisites
+
+To add an application to your Azure AD tenant, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- (Optional: Completion of [View your apps](view-applications-portal.md)).
+
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
 

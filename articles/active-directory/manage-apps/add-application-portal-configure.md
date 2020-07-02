@@ -17,12 +17,17 @@ ms.collection: M365-identity-device-management
 
 In the previous quickstart, you added an application to your Azure AD tenant. When you add an application, you are letting your Azure AD tenant know it is the identity provider for the app. Now you'll configure some of the properties for the app.
  
+## Prerequisites
+
+To configure the properties of an application in your Azure AD tenant, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- (Optional: Completion of [View your apps](view-applications-portal.md)).
+- (Optional: Completion of [Add an app](add-application-portal.md)).
+
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
-
-## Before you begin
-
-To configure the properties of an application in your tenant, you need to have already added the app. The previous quickstart walks you through finding an application that has already been added to your tenant.
 
 ## Configure app properties
 
