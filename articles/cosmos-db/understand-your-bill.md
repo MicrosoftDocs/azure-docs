@@ -232,11 +232,11 @@ Let's consider another example, where you want to proactively estimate your bill
 
 **Storage cost**
 
-Avg Record Size (KB) =  1 
-Number of Records = 100,000,000 
-Total Storage (GB) = 100 
-Monthly cost per GB = $0.25 
-Expected Monthly Cost for Storage =  $25.00 
+* Avg Record Size (KB) =  1 
+* Number of Records = 100,000,000 
+* Total Storage (GB) = 100 
+* Monthly cost per GB = $0.25 
+* Expected Monthly Cost for Storage =  $25.00 
 
 **Throughput Cost**
 

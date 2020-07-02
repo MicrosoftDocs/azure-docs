@@ -61,11 +61,11 @@ For more information about SQL queries, see:
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-cosmosdb-resources-portal.md).
+This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those resources? Complete the [5-minute quickstart](create-cosmosdb-resources-portal.md).
 
 ## Example query 1
 
-Given the sample family document above, following SQL query returns the documents where the id field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
+Given the sample family document above, following SQL query returns the documents where the ID field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
 **Query**
 
@@ -108,7 +108,7 @@ Given the sample family document above, following SQL query returns the document
 
 ## Example query 2
 
-The next query returns all the given names of children in the family whose id matches `WakefieldFamily` ordered by their grade.
+The next query returns all the given names of children in the family whose ID matches `WakefieldFamily` ordered by their grade.
 
 **Query**
 
@@ -135,7 +135,7 @@ The next query returns all the given names of children in the family whose id ma
 
 ## Next steps
 
-In this tutorial, you've done the following:
+In this tutorial, you've done the following tasks:
 
 > [!div class="checklist"]
 > * Learned how to query using SQL  

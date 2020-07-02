@@ -112,7 +112,7 @@ When running on the TCP protocol, the client optimizes for latency by using the 
 
 In scenarios where you have sparse access and if you notice a higher connection count when compared to the gateway mode access, you can:
 
-* Configure the [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
+* Configure the [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .NET core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
 * Configure the [ConnectionPolicy.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) property must be greater than or equal to 10 minutes. The recommended values are between 20 minutes and 24 hours.
 
 **Call OpenAsync to avoid startup latency on first request**
@@ -161,7 +161,7 @@ SQL .NET SDK 1.9.0 and later support parallel queries, which enable you to query
 
 Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
-Note that parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
+Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
 
 ***Tuning MaxBufferedItemCount***
     
