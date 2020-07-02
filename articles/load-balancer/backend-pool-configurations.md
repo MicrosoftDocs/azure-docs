@@ -130,8 +130,9 @@ If you are Load Balancing to container resources or pre-populating a Backend Poo
   * This feature is not currently support in the Portal UX
   
 ### REST API
-Create the Backend Pool and define the Backend Addresses you would like to add via Address Name, IP Address, and Virtual Network ID in the JSON body of the PUT request.
+Create the Backend Pool and define the Backend Addresses via a PUT Backend Pool request. Configure the Backend Addresses you would like to add via Address Name, IP Address, and Virtual Network ID in the JSON body of the PUT request.
 
+PUT request:
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
 ```
@@ -182,10 +183,13 @@ $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name 
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName 	$loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool 
-	$backendPool  
+Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
 ```
 
+Retrieve the Backend Pool to confirm the IP address have been correctly added:
+```
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+```
 ### CLI
 Using CLI you can either populate the Backend Pool via command line parameters or through a JSON configuration file. 
 
