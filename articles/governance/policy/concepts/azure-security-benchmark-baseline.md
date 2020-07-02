@@ -132,5 +132,5 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 ## Next steps
 
-- See the [Azure security benchmark](../../../security/benchmarks/overview)
-- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview.md)
