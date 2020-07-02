@@ -4,7 +4,7 @@ description: Use the Import/Export service to copy data from Azure Blob storage 
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 
@@ -27,17 +27,16 @@ Before you begin, you must have the following:
 
 Before using the Import/Export service, break the data file to be transferred **into copies that are less than 200 GB** in size. The import tool does not work with files greater than 200 GB. In this article, we split the file into chunks of 100 GB each. You can do this by using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux commands. In this case, use the following command:
 
-    split -b 100m 319GB.tsv
+```console
+split -b 100m 319GB.tsv
+```
 
 The split operation creates files with the following names.
 
-    319GB.tsv-part-aa
-
-    319GB.tsv-part-ab
-
-    319GB.tsv-part-ac
-
-    319GB.tsv-part-ad
+* *319GB.tsv-part-aa*
+* *319GB.tsv-part-ab*
+* *319GB.tsv-part-ac*
+* *319GB.tsv-part-ad*
 
 ## Get disks ready with data
 

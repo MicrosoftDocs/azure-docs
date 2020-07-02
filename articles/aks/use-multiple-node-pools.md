@@ -809,6 +809,8 @@ In this article, you learned how to create and manage multiple node pools in an 
 
 To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
+Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
+
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -846,3 +848,4 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md

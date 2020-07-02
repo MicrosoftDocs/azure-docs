@@ -14,7 +14,7 @@ With a secure shell (SSH) key pair, you can create a Linux virtual machine on Az
 
 This article provides detailed background and steps to create and manage an SSH RSA public-private key file pair for SSH client connections. If you want quick commands, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
-For additional ways to generate and use SSH keys on a Windows computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md).
+To generate SSH keys and use them to connect to a from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 

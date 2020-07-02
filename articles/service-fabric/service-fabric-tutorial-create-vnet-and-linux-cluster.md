@@ -49,8 +49,8 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deploye
 * OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable in the template parameters)
 * certificate secured (configurable in the template parameters)
 * [DNS service](service-fabric-dnsservice.md) is enabled
-* [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
+* [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
+* [Reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 * client connection endpoint: 19000 (configurable in the template parameters)
 * HTTP gateway endpoint: 19080 (configurable in the template parameters)
 

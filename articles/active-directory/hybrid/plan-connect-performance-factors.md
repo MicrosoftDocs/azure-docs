@@ -137,7 +137,7 @@ Organizations can prevent certain attributes to flow to Azure AD, but it won't i
 
 ## Azure AD Connect dependency factors
 
-The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database the provisioning engine uses also impacts the overall performance of the sync cycle.
+The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database that the provisioning engine uses also impacts the overall performance of the sync cycle.
 
 ### Active Directory factors
 
@@ -166,7 +166,7 @@ The size of your source Active Directory topology will influence your SQL databa
 
 - Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
 - Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
-- Don’t do a full sync pre-emptively; it causes unnecessary churn and slower response times.
+- Don’t do a full sync preemptively; it causes unnecessary churn and slower response times.
 
 ## Conclusion
 

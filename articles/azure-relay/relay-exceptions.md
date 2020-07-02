@@ -1,21 +1,8 @@
 ---
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
 description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2017
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 # Azure Relay exceptions
 

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -34,19 +34,20 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Blob storage Azure CLI commands|Generally available|Preview|[Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)|
 |Blob storage APIs|Generally available|Preview|[Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Manage blobs with Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Manage blobs with Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
 |Diagnostic logs|Generally available|Preview <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Archive Access Tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Logging in Azure Monitor|Preview |Not yet supported|[Monitoring Azure Storage](../common/monitor-storage.md)|
-|Archive Access Tier|Preview|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
+|Snapshots|Preview|Not yet supported|[Blob snapshots](snapshots-overview.md)|
+|Static websites|Preview|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
+|Immutable storage|Preview|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Lifecycle management policies|Preview|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
+|Blobfuse|Preview|Not yet supported|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not yet supported|Not yet supported|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
-|Immutable storage|Not yet supported|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
-|Snapshots|Not yet supported|Not yet supported|[Create and manage a blob snapshot in .NET](storage-blob-snapshots.md)|
 |Soft Delete|Not yet supported|Not yet supported|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)|
-|Static websites|Not yet supported|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 
-<div id="diagnostic-logging"><sup>1</sup>For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
 
 ## See also
 

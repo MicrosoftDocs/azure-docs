@@ -46,7 +46,7 @@ Synonym maps must be in the Apache Solr format which is explained below. If you 
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+	POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -59,7 +59,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
     {
@@ -85,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+	GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 #### Get a synonym map under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
 ### Configure a searchable field to use the synonym map in the index definition.
 
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+	POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
