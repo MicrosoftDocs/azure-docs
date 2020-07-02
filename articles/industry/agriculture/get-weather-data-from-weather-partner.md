@@ -136,10 +136,7 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 
 ## Query ingested weather data
 
-After the weather jobs are complete, you can query ingested weather data to build models or actionable insights. There are two ways to access and query weather data from FarmBeats:
-
-- API and
-- Time Series Insights (TSI).
+After the weather jobs are complete, you can query ingested weather data to build models or actionable insights using FarmBeats Datahub REST APIs.
 
 ### Query using REST API
 
@@ -204,20 +201,6 @@ To query weather data using FarmBeats REST API, follow the steps below:
    ```
 
 In the preceding example, the response has data for two timestamps along with the measure name ("Temperature") and values of the reported weather data in the two timestamps. You will need to refer to the associated Weather Data Model (as described in step 2 above) to interpret the type and unit of the reported values.
-
-### Query using Azure Time Series Insights (TSI)
-
-FarmBeats uses [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
-
-Weather data is received on an EventHub and then pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Follow the steps to visualize data on TSI:
-
-1. Go to **Azure portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
-
-2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You can now visualize the ingested weather data.
-
-Apart from storing, querying and visualization of weather data, TSI also enables integration to a Power BI dashboard. For more information, see [Visualize data from Time Series Insights in Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 
 ## Appendix
 
