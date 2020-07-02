@@ -1,6 +1,6 @@
 ---
-title: Failover cluster instances 
-description: "Learn about failover cluster instances (FCIs) with SQL Server on Azure Virtual Machines." 
+title: Distributed network name interoperability with SQL Server FCI
+description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) resource with a failover cluster instance on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,31 +15,25 @@ ms.author: mathoma
 
 ---
 
-# Distributed network name interoperability with FCI
+# Distributed network name interoperability with SQL Server FCI
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article introduces feature differences when you're working with failover cluster instances (FCI) for SQL Server on Azure Virtual Machines (VMs). 
+There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) resource with your failover cluster instance and SQL Server on Azure VMs, there are some additional considerations. 
 
-## Overview
+This article details which SQL Server features may require additional consideration, such as specifying the VNN name explicitly or creating a network alias mapping from the VNN, to the DNN. 
 
-SQL Server on Azure VMs uses Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be an instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
 
-The rest of the article focuses on the differences for failover cluster instances when they're used with SQL Server on Azure VMs. To learn more about the failover clustering technology, see: 
 
-- [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server failover cluster instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+## Client access too
 
-## DNN feature interoperability
-
-Consider feature interoperability when you're using the DNN resource with FCI and the following SQL Server features. 
-
-## Client access   
 For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicitly specify the DNN DNS name as the server name in the connection string. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it. 
 
-## Tools   
+## Tools
+
 Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN DNS name as the server name in the connection string. 
 
-## Availability groups and FCI   
+## Availability groups and FCI
+
 You can configure an Always On availability group by using a failover cluster instance as one of the replicas. In this configuration, the mirroring endpoint URL for the FCI replica needs to use the FCI DNN. Likewise, if the FCI is used as a read-only replica, the read-only routing to the FCI replica needs to use the FCI DNN. 
 
 The format for the mirroring endpoint is: `ENDPOINT_URL = 'TCP://<DNN DNS name>:<mirroring endpoint port>'`. 
@@ -60,7 +54,8 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 You can omit the port in the URL if it is the default 1433 port. For a named instance, configure a static port for the named instance and specify it in the read-only routing URL.  
 
-## Replication   
+## Replication
+
 Replication has three components: Publisher, Distributor, Subscriber. Any of these components can be a failover cluster instance. Because the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN might be necessary for replication to work. 
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations *before you configure replication*:
@@ -74,13 +69,14 @@ Keep using the VNN name as the FCI instance name within replication, but create 
 
 For example, assume you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote. In that case, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN: 
 
-:::image type="content" source="media/failover-cluster-instance-overview/alias-in-configuration-manager.png" alt-text="Configure the DNN DNS name as the network alias using SQL Server Configuration Manager." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-in-configuration-manager.png" alt-text="Configure the DNN DNS name as the network alias using SQL Server Configuration Manager." :::
 
 Use the full instance name for a named instance, like the following image example: 
 
-:::image type="content" source="media/failover-cluster-instance-overview/alias-named-instance-configuration-manager.png" alt-text="Use the full instance name when configuring a network alias for a named instance." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Use the full instance name when configuring a network alias for a named instance." :::
 
-## Database mirroring   
+## Database mirroring
+
 You can configure database mirroring with an FCI as either database mirroring partner. Configure it by using [Transact-SQL (T-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) rather than the SQL Server Management Studio GUI. Using T-SQL will ensure that the database mirroring endpoint is created using the DNN instead of the VNN. 
 
 For example, if your DNN DNS name is `dnnlsnr`, and the database mirroring endpoint is 7022, the following T-SQL code snippet configures the database mirroring partner: 
@@ -94,13 +90,16 @@ GO
 
 For client access, the **Failover Partner** property can handle database mirroring failover, but not FCI failover. 
 
-## MSDTC   
+## MSDTC
+
 The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Though both clustered MSDTC and local MSDTC are supported with FCI DNN, in Azure, a load balancer is still necessary for clustered MSDTC. The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC in Azure. 
 
-## FileStream   
+## FileStream
+
 Though FileStream is supported for a database in an FCI, accessing FileStream or FileTable by using File System APIs with DNN is not supported. 
 
-## Linked servers   
+## Linked servers
+
 Using a linked server with an FCI DNN is supported. Either use the DNN directly to configure a linked server, or use a network alias to map the VNN to the DNN. 
 
 
@@ -134,10 +133,7 @@ GO
 Then, create a network alias to map `vnnname\insta1` to `dnnlsnr\insta1`. 
 
 
-
 ## Create network alias (FCI)
-
-If you're using the distributed network name with a SQL Server failover cluster instance (FCI), there may be some SQL Server features that require you to map a network alias. Skip this section if you are not using a failover cluster instance, or if you are not using any of the server-side components that may require a network alias. See [FCI DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
 
 Some server-side components rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. 
 Follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) to create an alias that maps the VNN to the DNN DNS name. 
@@ -150,8 +146,6 @@ For example, if VNN name is `FCI1`, instance name is `instA`, and the DNN is `FC
 
 
 ## Next steps
-
-Review [cluster configurations best practices](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For more information, see: 
 

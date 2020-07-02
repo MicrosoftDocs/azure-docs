@@ -1056,6 +1056,8 @@
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
           - name: Virtual Network Name (VNN)
             href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+          - name: DNN with FCI interoperability
+            href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
 
     - name: Reference
       items:

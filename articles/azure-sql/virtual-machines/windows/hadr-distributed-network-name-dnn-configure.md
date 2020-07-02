@@ -107,7 +107,10 @@ To update possible owners, follow these steps:
 
 1. Go to your DNN resource in Failover Cluster Manager. 
 1. Right-click the DNN resource and select **Properties**. 
-1. Clear the checkbox for any nodes that do not participate in the failover cluster instance. The possible owner list for the DNN resource should match the possible owner list for the SQL Server instance resource. 
+1. Clear the checkbox for any nodes that do not participate in the failover cluster instance. The possible owner list for the DNN resource should match the possible owner list for the SQL Server instance resource. For example, assuming Data3 does not participate in the FCI, the following image is an example of removing Data3 from the possible owner list of the DNN resource: 
+
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Clear check next to the nodes that do not participate in the FCI for possible owners of the DNN resource":::
+
 1. Select **OK** to save your settings. 
 
 
@@ -153,4 +156,6 @@ If you need to, you can [download SQL Server Management Studio](/sql/ssms/downlo
 ## Next steps
 
 To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+
+There may be additional configuration requirements for some specific SQL Server features when used with the DNN and FCI. See [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 

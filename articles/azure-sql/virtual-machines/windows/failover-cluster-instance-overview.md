@@ -132,18 +132,12 @@ For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRou
 
 For shared storage and data replication solutions from Microsoft partners, contact the vendor for any issues related to accessing data on failover.
 
-
-
 ## Connectivity
 
 Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) or 
-a [virtual network name (VNN) with Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md)  to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. 
+a [virtual network name (VNN) with Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
-There are additional considerations 
-
-To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
-
-
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
 
 ## Limitations
 
