@@ -326,6 +326,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Configure IP filtering
           href: iot-hub-ip-filtering.md
+        - name: Manage public network access
+          href: iot-hub-public-network-access.md
         - name: Automatic device management at scale
           items:
             - name: Use Azure portal
