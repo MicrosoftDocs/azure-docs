@@ -165,7 +165,7 @@ Create your image using either the Azure portal or Azure PowerShell.
 
     :::image type="content" source="media/avm-custom-deployment.png" alt-text="Illustrates the Custom deployment page.":::
 
-3. Paste this [JSON template](cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md) into the editor and select **Save**.
+3. Paste this [JSON template](../partner-center-portal/azure-vm-image-certification.md) into the editor and select **Save**.
 4. Provide the parameter values for the displayed **Custom deployment** property pages.
 
     | Parameter | Description |
@@ -273,7 +273,7 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 ## Next steps
 
-If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md).
+If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](common-issues-during-vhd-creation.md).
 
 Otherwise:
 

@@ -32,7 +32,7 @@ ms.author: dsindona
 
     ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    For more information about storage accounts, select [Quickstart tutorial](../../storage/.md).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+    For more information about storage accounts, see this [Quickstart](../../storage/blobs/storage-quickstart-blobs-portal.md).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Wait until your storage account is provisioned, a process that typically takes a few minutes.  Then access your storage account from the **Home** page of the Azure portal by selecting **See all your resources** or by selecting **All resources** from the left navigation menubar of the Azure portal.
 

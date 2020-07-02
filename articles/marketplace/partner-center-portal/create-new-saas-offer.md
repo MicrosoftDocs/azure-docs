@@ -104,11 +104,11 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid address (beginning with *http* or *https*) where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/saas-app`.
+List your offer to customers for free by providing a valid address (beginning with *http* or *https*) where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/saas-app`.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid address (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial by providing a valid address (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
@@ -152,7 +152,7 @@ Here's an example of how offer information appears in Microsoft AppSource:
 
 ## Enable a test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](cloud-partner-portal/test-drive/what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](../what-is-test-drive.md).
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
@@ -160,7 +160,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 
 ### Test drive resources
 
-- [Marketing best practices](cloud-partner-portal/test-drive/marketing-and-best-practices.md)
+- [What is a test drive?](what-is-test-drive.md)
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
@@ -170,7 +170,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 
 #### Additional lead management resources
 - [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Select **Save draft** before continuing.
@@ -247,7 +247,7 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 
 - **Name** (required) – The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required) – Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
-- **Description** (required) – Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. Up to 3,000 characters of text can be entered in this field, including markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Description** (required) – Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. Up to 3,000 characters of text can be entered in this field, including markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 - **Search keywords** – Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required) – Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field.
 
@@ -262,7 +262,7 @@ This field is required.
 #### Links
 
 - **Privacy Policy** (required) – Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
-- **CSP Program Marketing Materials** (optional) – Provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](cloud-solution-providers.md) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **CSP Program Marketing Materials** (optional) – Provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](../cloud-solution-providers.md) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 - **Useful Links** (optional) – Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### Contact information
@@ -322,11 +322,11 @@ Diagrams and detailed explanations describing the usage of the collected fields 
 
 - **Landing page URL** (required) – Define the SaaS site URL (for example: `https://contoso.com/signup`) that end customers will land on after acquiring your offer from the marketplace and triggering the configuration process from the newly created SaaS subscription.  This URL will be called with the marketplace purchase identification token parameter which uniquely identifies the specific end customer's SaaS purchase.  You must exchange this token for the corresponding SaaS subscription details using the [resolve](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) API.  Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete end customer registration and activate their purchase.  On this page the user should sign up through one-click authentication by using Azure Active Directory (Azure AD). <br> <br> This URL with marketplace purchase identification token parameter will also be called when end customer launches Managed SaaS experience from Azure portal or M365 Admin Center. You should handle both flows, when the token is provided first time after purchase for new customers and when it's provided for existing customer managing his SaaS. <br> <br> The Landing page you configure here should be up and running 24/7. This is the only way you will be notified about new purchases of your SaaS offers made in the marketplace, or configuration requests of an active subscription of an offer.
 
-- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event. <br> <br> The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions purchased via the marketplace.  If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, `https://prod-1westus.logic.azure.com:443/work`). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event. <br> <br> The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions purchased via the marketplace.  If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, `https://prod-1westus.logic.azure.com:443/work`). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](../../logic-apps/logic-apps-http-endpoint.md).
 
-- **Azure AD tenant ID** (required) – Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required) – Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](../../active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required) – You also need your [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)). To get its value, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure AD app ID** (required) – You also need your [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To get its value, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
 >[!Note]
 >The Azure AD app ID is associated to your publisher ID in your Partner Center account.  Make sure that the same application ID is used in all your offers.

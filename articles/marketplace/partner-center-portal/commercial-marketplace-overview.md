@@ -29,7 +29,7 @@ Existing publishers who previously used the Cloud Partner Portal will find a fam
 
 ### Improvements on publishing and offer management user experience
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience.  For details, see [Frequently asked questions for migrating from Cloud Partner Portal to Partner Center](cloud-partner-portal-migration-faq.md).
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience.  For details, see [Frequently asked questions for migrating from Cloud Partner Portal to Partner Center](../cloud-partner-portal-migration-faq.md).
 
 ### Account and user management updates
 
@@ -45,7 +45,7 @@ Partner Center analytics provides a view into the performance of your offers and
 
 ## View the roadmap and join the conversation
 
-Learn more about recent and future releases by visiting the [Microsoft commercial marketplace roadmap](marketplace-roadmap.md), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
+Learn more about recent and future releases by visiting the [Microsoft commercial marketplace roadmap](../marketplace-roadmap.md), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
 
 ## Next steps
 

@@ -256,7 +256,7 @@ For detailed information on how to build your package and update its structure, 
 
 ### CRM package availability
 
-In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../../germany/.md), [US Government Cloud](../../azure-government/documentation-government-welcome.md), and TIP.
+In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../../germany/index.yml), [US Government Cloud](../../azure-government/documentation-government-welcome.md), and TIP.
 
 By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions. 
 

@@ -67,7 +67,7 @@ After your app is created and tested in Power BI, save the application installat
 
 The business requirements include procedural, contractual, and legal obligations. You must:
 
-- Be a registered commercial marketplace publisher. If you're not registered, follow the steps in [Become a Commercial Marketplace Publisher](become-publisher.md).
+- Be a registered commercial marketplace publisher. If you're not registered, follow the steps in [Create a commercial marketplace account in Partner Center](create-account.md).
 - Provide content that meets the criteria for your offering to be listed on AppSource. For more information, see [Have an app to list on AppSource? Here's how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Agree to and follow the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 

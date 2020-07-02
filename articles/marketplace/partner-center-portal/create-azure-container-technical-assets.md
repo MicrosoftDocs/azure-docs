@@ -15,7 +15,7 @@ This article gives technical resources and recommendations to help you create a 
 
 ## Before you begin
 
-For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](../../container-instances.md).
+For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](../../container-instances/index.yml).
 
 ## Fundamental technical knowledge
 

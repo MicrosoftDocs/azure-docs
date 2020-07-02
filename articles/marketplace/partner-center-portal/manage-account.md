@@ -123,7 +123,7 @@ If you deploy a product by using a template and it is available on both the Azur
 
 Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
 
-For more information, see the [Tracking Azure customer usage with GUIDs FAQ](azure-partner-customer-usage-attribution.md#faq)).
+For more information, see the [Tracking Azure customer usage with GUIDs FAQ](../azure-partner-customer-usage-attribution.md#faq)).
 
 ## Create a billing profile
 
