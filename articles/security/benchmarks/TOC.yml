@@ -41,6 +41,8 @@
     href: ../../automation/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Azure Policy security baseline
+    href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Backup security baseline
     href: ../../backup/security-baseline.md
   - name: Batch security baseline
@@ -87,3 +89,5 @@
     href: ../../stream-analytics/security-baseline.md
   - name: Storage security baseline
     href: ../../storage/common/security-baseline.md
+  - name: Synapse Analytics security baseline
+    href: ../../synapse-analytics/security-baseline.md
