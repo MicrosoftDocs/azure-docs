@@ -14,10 +14,7 @@ ms.service: azure-project-spool
 # Quickstart: Send an SMS message with .NET (C#)
 Azure Communication Services lets you easily send and receive SMS messages. In this quick start, learn how to use Communication Services to send SMS messages using the .NET SDK in C#.
 
-You can receive SMS messages in two ways explored in seperate pages:
-
-1. Using the `GetSMSMessages()` API, this is striaghtforward but requires your application to poll ACS.
-2. Using ACS' EventGrid integration to subscribe to webhooks, and have ACS call your service when an SMS message is received. See the [EventGrid concept for more information.](../concepts/acs-event-grid.md)
+You can receive SMS messages by using ACS' EventGrid integration to subscribe to webhooks, and have ACS call your service when an SMS message is received. See the [EventGrid concept for more information.](../concepts/acs-event-grid.md)
 
 ## Prerequisites
 
