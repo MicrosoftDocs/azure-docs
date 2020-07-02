@@ -15,41 +15,6 @@ ms.date: 09/25/2017
 ms.author: allensu
 ---
 
-
-
-### Configure a High Availability Ports load-balancing rule via the Resource Manager template
-
-You can configure High Availability Ports by using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the load balancer configuration for High Availability Ports via the REST API:
-
-```json
-    {
-        "apiVersion": "2017-08-01",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        "sku":
-        {
-            "name": "Standard"
-        },
-        ...
-        "properties": {
-            "frontendIpConfigurations": [...],
-            "backendAddressPools": [...],
-            "probes": [...],
-            "loadBalancingRules": [
-             {
-                "properties": {
-                    ...
-                    "protocol": "All",
-                    "frontendPort": 0,
-                    "backendPort": 0
-                }
-             }
-            ],
-       ...
-       }
-    }
-```
-
 # Create an internal load balancer using a template
 
 > [!div class="op_single_selector"]
@@ -92,9 +57,10 @@ To deploy the template by using the Azure CLI, follow the steps below.
     azure config mode arm
     ```
 
-    Here is the expected output for the command above:
-
+Here is the expected output for the command above:
+     ```console
         info:    New mode is arm
+    ```
 
 3. Open the parameter file, select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 4. Run the **azure group deployment create** command to deploy the new internal load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.

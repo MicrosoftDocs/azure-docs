@@ -1,18 +1,17 @@
 ---
-title: Configure High Availability Ports for Azure Load Balancer
+title: Create an Internal Load Balancer - Azure portal
 titleSuffix: Azure Load Balancer
-description: Learn how to use High Availability Ports for load balancing internal traffic on all ports 
+description: Learn how to create an internal load balancer using the Azure portal
 services: load-balancer
 documentationcenter: na
-author: rdhillon
-manager: narayan
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 09/25/2017
 ms.author: allensu
 ---
 
