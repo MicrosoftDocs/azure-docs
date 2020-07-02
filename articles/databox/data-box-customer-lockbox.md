@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/02/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
 
 # Use Customer Lockbox for Azure Data Box (Preview)
 
-Azure Data Box is used to transfer customer data to and from Azure. There are instances where Microsoft Support may need to access customer data during a Support request. Use Customer Lockbox as an interface to review and approve or reject these data access requests. 
+Azure Data Box is used to transfer customer data to and from Azure. There are instances where Microsoft Support may need to access customer data during a Support request. You can use Customer Lockbox as an interface to review and approve or reject these data access requests. 
 
 This article covers how Customer Lockbox requests are initiated and tracked for Data Box import as well as export orders. The article applies to both Azure Data Box devices and Azure Data Box Heavy devices. 
 
@@ -32,7 +32,7 @@ Before you begin, make sure:
 4. A service request or a  Support ticket is already opened for this issue. For information on support ticket, see [File a service request for Data Box](data-box-disk-contact-microsoft-support.md).
 
 
-## Data access scenario
+## Access customer data
 
 The customer data is typically not accessed. For Data Box, the following are the most common cases where there is a need to access customer data: 
 
@@ -45,39 +45,38 @@ In these cases, Microsoft will try to access your data in the Azure datacenter a
 
 ## Initiate request via Lockbox
 
- To create a request to access customer data, follow these steps:
+ To create a request to access customer data, these steps are followed:
 
-1. Typically a customer initiates a service request via Lockbox. However, for Data Box, if Microsoft detects that there is an issue with uploading or downloading the data at Azure datacenter, for example, the Data Box order was halted during the Data Copy stage. The Support team reaches out to the customer. 
+1. Typically a customer initiates a service request via Lockbox. However, for Data Box, if Microsoft detects that there is an issue during the upload or download of the data at Azure datacenter, Microsoft Support reaches out to the customer. For example, if the Data Box order was halted during the **Data Copy** stage, Data Box Support will initiate a Customer Lockbox request. 
  
-2. If the support engineer can’t troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service.
+2. The support engineer first tries to troubleshoot the issue by using standard tools and telemetry. If the support engineer accessed the Data Box through support session and the disks are locked and shares are not accessible, then the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. 
+
+    Usually the notification goes to the admin of the subscription but you can also configure a group for notifications. This request is for **Unlock Data Box operation** and the resource type is **ACIS**.
+
+    ![Create JIT request to unlock Data Box](./media/data-box-customer-lockbox/1-lockbox-jit-request.png)
+
+    The request takes time to approve. Select **Submit**.
+
+    ![JIT approval wait time notification](./media/data-box-customer-lockbox/2-lockbox-jit-approval-wait.png)
+
+4. The lockbox request shows up in the portal. 
+
+    ![Request in Azure portal](./media/data-box-customer-lockbox/3-lockbox-request-azure-portal.png)
+
+    To approve the lockbox request from portal, the admin of the subscription can select **Approve**.
+
+    ![Approve request](./media/data-box-customer-lockbox/4-lockbox-request-details-azure-portal.png)
 
 
-3. When the request requires direct access to customer data, a Customer Lockbox request is initiated.Accessed pod through support session and validated that the disks are locked and shares are not accessible. Raised JIT request for Unlock Databox ACIS operation. Notification goes to the admin of the subscription. Also you can configure to add a group to the customer's lockbox.
+5. Once the request is approved, the support engineer selects **Get access** to get permissions to access the device.
 
-    <!--![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)-->
+    ![Create new key in Azure Key Vault](./media/data-box-customer-lockbox/5-lockbox-jit-execution.png)
 
-4. Approved the lockbox request from portal
+6. The support engineer then validates that the device disks are unlocked and shares can be accessed in the support session.
 
-    <!--![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)-->
+7. The support engineer resolves the upload issue and then disables the support session.
 
-
-    <!--![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)-->
-
-5. Executed the action after approval.
-
-    <!--![Create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)-->
-
-6. Validated the unlocked disk and share access in support session.
-
-    <!--![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)-->
-
-7. Disabled support session.
-
-    <!--![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)-->
-
-8. Resumed the job to completion
-
-    <!--![Create new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)-->
+After the issue is resolved, the data copy job will progress to completion.
 
 
 ## Next steps
