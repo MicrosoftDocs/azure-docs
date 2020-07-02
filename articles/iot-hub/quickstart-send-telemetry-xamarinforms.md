@@ -1,6 +1,6 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
-description: In this quickstart, you run a sample Xamarin Forms application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
+description: In this quickstart, you run a sample Xamarin.Forms application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -8,17 +8,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: [mvc, mqtt]
-ms.date: 05/20/2020
+ms.date: 07/01/2020
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub (Xamarin Forms)
+# Quickstart: Send telemetry from a device to an IoT hub (Xamarin.Forms)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this article, you send telemetry from a simulated device application to IoT Hub. Then you can view the data from a back-end application.
 
-This article uses a pre-written Xamarin Forms application to send the telemetry and a CLI utility to read the telemetry from IoT Hub.
+This article uses a pre-written Xamarin.Forms application to send the telemetry and a CLI utility to read the telemetry from IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-xamarin/archive/master.zip)
 
-- The latest version of [Visual Studio 2019](https://visualstudio.microsoft.com/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/) with Xamarin Forms tooling installed. This quickstart was tested with Visual Studio 16.6.0.
+- The latest version of [Visual Studio 2019](https://visualstudio.microsoft.com/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/) with Xamarin.Forms tooling installed. This quickstart was tested with Visual Studio 16.6.0.
 
 - Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -112,7 +112,7 @@ The following screenshot shows the type of telemetry that you see in your local 
 
 ## Next steps
 
-In this quickstart, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from a Xamarin Forms application, and read the telemetry from the hub. 
+In this quickstart, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from a Xamarin.Forms application, and read the telemetry from the hub. 
 
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 

@@ -30,7 +30,7 @@ Use Tags to assist in tracking Azure resources that store or process sensitive i
 |--|--|--|
 | 4.2 | 13.2, 2.10 | Customer |
 
-Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control. 
+Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC). 
 
 - [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 

@@ -123,8 +123,7 @@ ssh azureadmin@40.55.55.555
 
 You can find the Public IP address of your VM in the Azure portal, under the Overview section of your virtual machine.
 
-[!div class="mx-imgBorder"]
-![IP address in Azure portal](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="IP address in Azure portal":::
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
