@@ -200,7 +200,7 @@ Target fileshare | `targetfileshare`
 azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
 ```
 
-For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files#copy-files-between-storage-accounts).
+For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
 
 ## Next steps
 
