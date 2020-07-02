@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/02/2020
 ms.author: v-erkel
 ---
 
@@ -125,7 +125,7 @@ nets/<cache_subnet_name>"``
   [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs.
 
   > [!NOTE]
-  > Azure CLI currently does not have a method to show available cache sizes. The options range from 3 TB to 48 TB, but only some values are supported. See the chart below for more information.
+  > Azure CLI currently does not have a method to list available cache size options. The options range from 3 TB to 48 TB, but only some values are supported. See the chart below for more information.
 
   Some options for cache size are incompatible with some SKUs. This chart shows which combinations are valid, based on the options available when this document was prepared (July 2020).
 
@@ -137,9 +137,9 @@ nets/<cache_subnet_name>"``
   | 24576 GB   | no          | yes         | yes         |
   | 49152 GB   | no          | no          | yes         |
 
-  Read the <!--[Set cache capacity](#set-cache-capacity)--> **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
+  Read the **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
 
-Example:
+Cache creation example:
 
 ```azurecli
 az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
@@ -148,7 +148,7 @@ az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
     --sku-name "Standard_2G"
 ```
 
-Cache creation takes several minutes. On success, the create command returns output like this:<!-- need to test this, not sure about formatting -->
+Cache creation takes several minutes. On success, the create command returns output like this:
 
 ```azurecli
 {
@@ -168,7 +168,7 @@ Cache creation takes several minutes. On success, the create command returns out
   "provisioningState": "Succeeded",
   "resourceGroup": "doc-demo-rg",
   "sku": {
-  "name": "Standard_2G"
+    "name": "Standard_2G"
   },
   "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
   "tags": null,
@@ -182,6 +182,11 @@ Cache creation takes several minutes. On success, the create command returns out
   }
 }
 ```
+
+The message includes some useful information, including these items:
+
+* Client mount addresses - Use these IP addresses when you are ready to connect clients to the cache. Read [Mount the Azure HPC Cache](hpc-cache-mount.md) to learn more.
+* Upgrade status - When a software update is released, this message will change. You can [upgrade cache software](hpc-cache-manage.md#upgrade-cache-software) manually at a convenient time, or it will be applied automatically after several days.
 
 ---
 

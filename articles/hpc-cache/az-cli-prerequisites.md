@@ -4,7 +4,7 @@ description: Setup steps before you can use Azure CLI to create or modify an Azu
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/01/2020
 ms.author: v-erkel
 ---
 

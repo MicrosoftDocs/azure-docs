@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/02/2020
 ms.author: v-erkel
 ---
 
@@ -40,7 +40,7 @@ Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/st
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
+Use [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.) <!-- to do: add sample output of st show command -->
 
 ---
 
@@ -139,9 +139,9 @@ In addition to the standard resource group and cache name parameters, you must p
 
 * ``--container-name`` - Specify the name of the container to use for this storage target.
 
-* ``--virtual-namespace-path`` - Set the client-facing file path for this storage target. Enclose paths in quotation marks. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
+* ``--virtual-namespace-path`` - Set the client-facing file path for this storage target. Enclose paths in quotation marks. Read [Plan the aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-Example:
+Example command:
 
 ```azurecli
 az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
@@ -252,16 +252,38 @@ Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/h
 
   Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-Example:
+Example command and output:
 
 ```azurecli
-az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-name "cache1" \
-    --name nfs1 --nfs3-target 10.0.0.4 --nfs3-usage-model WRITE_WORKLOAD_15 \
-    --junction namespace-path="/nfs1/newdata" nfs-export="/datadisk1" target-path="/newdata" \
-    --junction namespace-path="/nfs1/data2" nfs-export="/datadisk2" target-path=""
-```
 
-<!-- I am not at all sure that's a valid example - need to test -->
+az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-name "doc-cache0629" \
+    --name nfsd1 --nfs3-target 10.0.0.4 --nfs3-usage-model WRITE_WORKLOAD_15 \
+    --junction namespace-path="/nfs1/data1" nfs-export="/datadisk1" target-path=""
+
+{- Finished ..
+  "clfs": null,
+  "id": "/subscriptions/<subscriptionID>/resourceGroups/hpc-cache-group/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "hpc-cache-group",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+
+```
 
 ---
 

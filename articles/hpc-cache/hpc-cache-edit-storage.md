@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/02/2020
 ms.author: v-erkel
 ---
 
@@ -90,7 +90,7 @@ Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-t
 
 The cache name, storage target name, and resource group are required in all update commands.
 
-Example:
+Command example: <!-- need to test this and also maybe get output -->
 
 ```azurecli
 az hpc-cache nfs-storage-target update --cache-name mycache \
@@ -120,6 +120,7 @@ When finished, click **OK** to update the storage target, or click **Cancel** to
 
 Use [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) to update a target's namespace path.
 
+<!-- test /new/path -->
 ```azurecli
 az hpc-cache blob-storage-target update --cache-name name --name target-name \
    --resource-group rg --virtual-namespace-path "/new/path"

@@ -111,6 +111,8 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
+<!-- test/get output? -->
+
 ---
 
 ## Upgrade cache software
