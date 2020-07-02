@@ -42,14 +42,14 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
 |RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | yes | yes - support from package version: *18.5-6.el7*|
 |RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | yes | yes - support from package version: *18.5-6.el7*|
 |RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | yes | yes - support from package version: *18.5-6.el7*|
 |RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | yes | yes - support from package version: *18.5-6.el7*|
 |RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | yes  | yes - support from package version: *18.5-6.el7*|
-|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020 |
+|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | yes (note: this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020|
+|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | yes (note: this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020 |
 
 * All RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 
@@ -57,7 +57,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
 |OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
@@ -73,7 +73,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note: this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
 
 ### SUSE SLES
 These SLES images have been updated to provision using cloud-init, the Gen2 image variants have also been updated.
