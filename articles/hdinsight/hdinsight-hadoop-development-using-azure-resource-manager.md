@@ -89,7 +89,9 @@ Before you can use the HDInsight cmdlets, you must connect to your Azure account
 ### Renamed cmdlets
 To list the HDInsight ASM cmdlets in Windows PowerShell console:
 
-    help *azurehdinsight*
+```powershell
+help *azurehdinsight*
+```
 
 The following table lists the ASM cmdlets and their names in Resource Manager mode:
 
