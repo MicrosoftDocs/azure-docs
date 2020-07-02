@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
 ---
 # Create an internal load balancer to load balance VMs using Azure CLI
@@ -82,6 +82,8 @@ A health probe checks all virtual machine instances to make sure they can receiv
     --port 80   
 ```
 
+
+
 ### Create the load balancer rule
 
 A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
@@ -97,6 +99,12 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+You can also create an [HA ports](load-balancer-ha-ports-overview.md) load balancer rule using configuration below.
+
+```azurecli
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## Create servers for the backend address pool

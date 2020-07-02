@@ -15,6 +15,41 @@ ms.date: 09/25/2017
 ms.author: allensu
 ---
 
+
+
+### Configure a High Availability Ports load-balancing rule via the Resource Manager template
+
+You can configure High Availability Ports by using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the load balancer configuration for High Availability Ports via the REST API:
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
+
 # Create an internal load balancer using a template
 
 > [!div class="op_single_selector"]
@@ -22,8 +57,6 @@ ms.author: allensu
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
