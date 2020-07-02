@@ -16,12 +16,12 @@ ms.custom: tracking-python
 
 ---
 
-# Reuse environments for training and deployment by using Azure Machine Learning
+# How to use environments in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Use the environments to track and reproduce your projects' software dependencies as they evolve.
 
-Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environment` class accounts for local development solutions such as pip and Conda, and it provides a solution for both local and distributed cloud development.
+Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environment` class accounts for local development solutions such as pip and Conda and distributed cloud development through Docker capabilities.
 
 The examples in this article show how to:
 
@@ -43,13 +43,11 @@ The following sections explore the multiple ways that you can create an environm
 
 ### Use a curated environment
 
-You can select one of the curated environments to start with: 
+Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. You can select one of these popular curated environments to start with: 
 
 * The _AzureML-Minimal_ environment contains a minimal set of packages to enable run tracking and asset uploading. You can use it as a starting point for your own environment.
 
 * The _AzureML-Tutorial_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
-
-Curated environments are backed by cached Docker images. This backing reduces the run preparation cost.
 
 Use the `Environment.get` method to select one of the curated environments:
 
@@ -60,6 +58,11 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
+To modify a curated environment, it must be copied:
+
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
+```
 You can list the curated environments and their packages by using the following code:
 
 ```python
@@ -74,6 +77,7 @@ for env in envs:
 > [!WARNING]
 >  Don't start your own environment name with the _AzureML_ prefix. This prefix is reserved for curated environments.
 
+
 ### Instantiate an environment object
 
 To manually create an environment, import the `Environment` class from the SDK. Then use the following code to instantiate an environment object.
@@ -83,9 +87,11 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-### Use Conda and pip specification files
+If you are defining your own environment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's ne 
 
-You can also create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want.
+### Use Conda, pip, and Docker files
+
+You can create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want. You can also create an environment from a Docker file with the [`load_from_directory()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) method. In the method argument, include the path to the source directory containing the Docker file. 
 
 ```python
 # From a Conda specification file
@@ -95,9 +101,12 @@ myenv = Environment.from_conda_specification(name = "myenv",
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
                                           file_path = "path-to-pip-requirements-file")
+                                          
+# From a Docker file
+myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
 ```
 
-### Use existing Conda environments
+### Use existing environments
 
 If you have an existing Conda environment on your local computer, then you can use the service to create an environment object. By using this strategy, you can reuse your local interactive environment on remote runs.
 
@@ -106,6 +115,14 @@ The following code creates an environment object from the existing Conda environ
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
                                                     conda_environment_name = "mycondaenv")
+```
+
+An environment definition can be saved to a directory in an easily editable format with the [`save_to_directory()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#save-to-directory-path--overwrite-false-) method. Once modified, a new environment can be instantiated by loading files from the directory.
+
+```python
+myenv = Environment.save_to_directory(path = "path-to-destination-directory", overwrite = False)
+# modify the environment definition
+newenv = Environment.load_from_directory(path = "path-to-source-directory")
 ```
 
 ### Create environments automatically
@@ -218,7 +235,7 @@ Run.get_environment()
 
 ### Update an existing environment
 
-Say you change an existing environment, for example, by adding a Python package. A new version of the environment is then created when you submit a run, deploy a model, or manually register the environment. The versioning allows you to view the environment's changes over time.
+Say you change an existing environment, for example, by adding a Python package. This will take time to build as a new version of the environment is then created when you submit a run, deploy a model, or manually register the environment. The versioning allows you to view the environment's changes over time. 
 
 To update a Python package version in an existing environment, specify the version number for that package. If you don't use the exact version number, then Azure Machine Learning will reuse the existing environment with its original package versions.
 
@@ -231,6 +248,8 @@ from azureml.core import Image
 build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
+
+It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
 
 ## Enable Docker
 
@@ -245,7 +264,7 @@ myenv.docker.enabled = True
 
 By default, the newly built Docker image appears in the container registry that's associated with the workspace.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuid*) part of the name corresponds to a hash that's computed from the environment configuration. This correspondence allows the service to determine whether an image for the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use.
+Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -253,7 +272,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies.
+You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -271,9 +290,9 @@ myenv.docker.base_dockerfile = dockerfile
 
 In some situations, your custom base image may already contain a Python environment with packages that you want to use.
 
-By default, Azure Machine Learning service will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image. 
+By default, Azure Machine Learning service will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image. Since the Conda environment is isolated from the custom base image, packages installed elsewhere will not be included.
 
-To use your own installed packages, set the parameter `Environment.python.user_managed_dependencies = True`. Ensure that the base image contains a Python interpreter, and has the packages your training script needs.
+To use your own installed packages and disable Conda, set the parameter `Environment.python.user_managed_dependencies = True`. Ensure that the base image contains a Python interpreter, and has the packages your training script needs.
 
 For example, to run in a base Miniconda environment that has NumPy package installed, first specify a Dockerfile with a step to install the package. Then set the user-managed dependencies to `True`. 
 
@@ -414,6 +433,34 @@ Download a registered environment by using the following command.
 ```azurecli-interactive
 az ml environment download -n myenv -d downloaddir
 ```
+
+## Troubleshooting
+
+The following sections provide guidance on how to resolve common user issues. 
+
+#### Environment name can not start with the prefix AzureML
+
+This message typically arises when a user tries to register or submit a run with an environment that begins with this prefix but can appear in other circumstances:
+
+* Executing notebook cells in an incorrect order
+* Using a curated environment to instantiate an Estimator (the environment should be renamed)
+* InferenceConfig relies on environment name at instantiation and may disregard any future changes to the environment 
+
+#### ResolvePackageNotFound
+
+If this error arises, first reproduce it locally by using the [`build_local()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. Then follow these steps:
+* Check conda channels in your environment. Recent conda refactoring deleted many packages from default channels and moved them to the anaconda channel.
+* Ensure the package of your specified version exists in one of the conda [channels](https://repo.anaconda.com/pkgs) ([linux-64](https://repo.anaconda.com/pkgs/main/linux-64/))
+* If it is a pip dependency, check if the package and its version exist on [PyPi](https://pypi.org/project/)
+
+#### FileNotFoundError
+
+This error indicates that specified dependencies in the user environment cannot be located which causes Conda to fail. Please follow the same steps detailed in ResolvePackageNotFound.
+
+#### build_local() failure
+
+Please add conda to the $Path.
+
 
 ## Next steps
 
