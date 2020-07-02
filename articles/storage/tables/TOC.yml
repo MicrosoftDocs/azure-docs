@@ -1,4 +1,4 @@
-- name: Azure Table storage Documentation
+- name: Azure Table storage documentation
   href: /azure/storage/tables/
 - name: Overview
   expanded: true
