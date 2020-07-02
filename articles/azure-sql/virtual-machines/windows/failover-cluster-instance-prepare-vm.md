@@ -104,7 +104,7 @@ This table details the ports that you might need to open, depending on your FCI 
    | Purpose | Port | Notes
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. </br> </br> **Used by**: All FCI configurations. |
-   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](hadr-vnn-azure-load-balancer-configure.md#open-the-firewall) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer. |
+   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer. |
    | File share | UDP 445 | Port that the file share service uses. </br> </br> **Used by**: FCI with Premium file share. |
 
 ## Join the domain

@@ -43,8 +43,8 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|Supported OS| All |Windows Server 2016+| Windows Server 2012+|
-|Supported SQL Server version|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+|**Supported OS**| All |Windows Server 2016+| Windows Server 2012+|
+|**Supported SQL Server version**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
 
 
 
@@ -95,9 +95,9 @@ The following table compares HADR connection supportability:
 
 | |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
 |---------|---------|---------|
-|Minimum OS version| Windows Server 2012 | Windows Server 2016|
-|Minimum SQL Server version |SQL Server 2012 |SQL Server 2019 CU2|
-|Supported HADR solution | Failover cluster instance <br/> Availability group | Failover cluster instance|
+|**Minimum OS version**| Windows Server 2012 | Windows Server 2016|
+|**Minimum SQL Server version** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Supported HADR solution** | Failover cluster instance <br/> Availability group | Failover cluster instance|
 
 
 ### Virtual Network Name (VNN)
