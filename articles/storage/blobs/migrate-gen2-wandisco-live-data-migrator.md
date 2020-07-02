@@ -1,9 +1,10 @@
 ---
 title: 'Data Lake Storage and WANdisco LiveData Migrator for Azure'
 description: Migrate on-premises Hadoop data to Azure Data Lake Storage by using WANdisco LiveData Migrator for Azure.
-author: fusionpm
+author: normesta
 ms.topic: how-to
-ms.author: b-pauls
+ms.author: normesta
+ms.reviewer: b-pauls
 ms.date: 06/08/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
