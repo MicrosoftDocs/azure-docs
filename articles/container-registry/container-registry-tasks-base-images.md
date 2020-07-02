@@ -36,10 +36,10 @@ If the base image specified in the `FROM` statement resides in one of these loca
 
 ## Base image notifications
 
-The time from when a base image is updated to when the dependent task is triggered depends on the base image location:
+The time between when a base image is updated and when the dependent task is triggered depends on the base image location:
 
-* **Base images from a public repo in Docker Hub or MCR** - For base images in public repositories, ACR task checks for images updates at a random interval between 10 and 60 minutes and will run dependent tasks accordingly.
-* **Base images from an Azure container registry** - For base images in Azure container registries, ACR task immediately triggers a run when its base image is updated. This base image may be in the same ACR where the task runs or a different ACR in any region.
+* **Base images from a public repo in Docker Hub or MCR**: For base images in public repositories, an ACR task checks for image updates at a random interval of between 10 and 60 minutes. Dependent tasks are run accordingly.
+* **Base images from an Azure container registry**: For base images in Azure container registries, an ACR task immediately triggers a run when its base image is updated. The base image may be in the same ACR where the task runs or in a different ACR in any region.
 
 ## Additional considerations
 
