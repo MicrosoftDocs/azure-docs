@@ -2,9 +2,9 @@
 title: Azure Policy security baseline for Azure Security Benchmark
 description: The Azure Policy security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: azure-policy
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,18 +18,12 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 For a mapping of the Azure Security Benchmark controls to built-in policy definitions via the built-in initiative, see [Regulatory Compliance: Azure Security Benchmark](../samples/azure-security-benchmark.md).
 
-&gt; [!NOTE]
-
-&gt; Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](./definition-structure.md#type)
-
-&gt; and
-
-&gt; [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](./definition-structure.md#type) and [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](../../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.3: Enable audit logging for Azure resources
 
@@ -46,7 +40,7 @@ For a mapping of the Azure Security Benchmark controls to built-in policy defini
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.3: Use dedicated administrative accounts
 
@@ -74,7 +68,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](../../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.6: Use Role-based access control to control access to resources
 
@@ -102,7 +96,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.2: Maintain asset metadata
 
@@ -138,5 +132,5 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../../../security/benchmarks/overview)
+- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview)
