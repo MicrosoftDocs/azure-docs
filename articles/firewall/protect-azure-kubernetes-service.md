@@ -52,11 +52,10 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
     - Allow https access from your host pool subnet to `*. ods.opinsights.azure.com`, and `*.oms. opinsights.azure.com`. These wildcard FQDNs enable the required access but are less restrictive.
     - Use the following log analytics query to list the exact required FQDNs, and then allow them explicitly in your firewall application rules:
    ```
-   Copy 
    AzureDiagnostics 
    | where Category == "AzureFirewallApplicationRule" 
    | search "Allow" 
-   | search "*. ods.opinsights.azure.com" or “*.oms. opinsights.azure.com 
+   | search "*. ods.opinsights.azure.com" or "*.oms. opinsights.azure.com"
    | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" * 
    | project TimeGenerated,Protocol,FQDN 
    ```
