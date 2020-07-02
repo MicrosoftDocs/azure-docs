@@ -73,6 +73,7 @@ For now, customer-managed keys have the following restrictions:
 
 [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
 [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)
+[Enable end to end encryption](../disks-enable-end-to-end-encryption.md)
 
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
