@@ -55,7 +55,7 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 ```    
 #### [.NET](#tab/dotnet)
 For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task containing a tuple of (AdHocCallClient, DeviceManager).
-```.NET
+```cs
 var tokenTask = tokenProvider.GetToken();
 Task.WhenAll(tokenTask).Wait();
 string token = tokenTask.Result;
@@ -92,7 +92,7 @@ let placeCallOptions = ACSPlaceCallOptions();
 let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 var options = new CallOptions();
 call = callClient.Call(new[] { callee }, options);
 ```
@@ -117,7 +117,7 @@ let placeCallOptions = ACSPlaceCallOptions();
 let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId', '+1234567890'], options: placeCallOptions);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 ---
 
@@ -149,7 +149,7 @@ placeCallOptions.videoOptions = videoOptions
 let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 ---
 
@@ -184,7 +184,7 @@ call.handlePushNotificationWithCompletionHandler(jsonPayload,
 });
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 ---
 
@@ -220,7 +220,7 @@ call.mute(completionHandler: nil);
 call.unmute(completionHandler: nil);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 //mute local device
 call.Mute();
 
@@ -258,7 +258,7 @@ call.startVideo(device: ACSVideoDeviceInfo(),
 });
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -277,7 +277,7 @@ call.getLocalVideoStreams().get(0) == localVideoStream;
 call.localVideoStreams[0]
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -306,7 +306,7 @@ call.stopVideo(completionHandler: ((error: Error?) -> Void) {
 });
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 ## Remote participants management
@@ -328,7 +328,7 @@ RemoteParticipant[] remoteParticipants = call.getRemoteParticipants();
 call.remoteParticipants
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 IReadOnlyList<RemoteParticipant> remoteParticipants = call.RemoteParticipants;
 ```
 --- 
@@ -401,7 +401,7 @@ var videoStreams = remoteParticipant.videoStreams; // [ACSRemoteVideoStream, ACS
 var screenSharingStreams = remoteParticipant.screenSharingStreams; // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 
 /// Private Preview Only: Identity of the remote participant
 public string Identity { get; }
@@ -438,7 +438,7 @@ RemoteParticipant remoteParticipant = call.addParticipant("userId");
 ACSRemoteParticipant* remoteParticipant = self.call.addParticipant("userId");
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 var remoteParticipant = call.AddParticipant("userId");
 ```
 --- 
@@ -464,7 +464,7 @@ call.removeParticipant(participant: remoteParticipant,
                        completionHandler: ((error: Error?) -> Void))
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -491,7 +491,7 @@ var remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
 var remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 A `RemoteVideoStream` has following properties:
@@ -525,7 +525,7 @@ var isAvailable = remoteParticipantStream.isAvailable;
 var activeRenders = remoteParticipantStream.activeRenderers;
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -551,7 +551,7 @@ let renderer: ASARemoteVideoRenderer = remoteVideoStream.render(ScalingMode.Stre
 let targetSurface: UIView = renderer.target;
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 Where:
@@ -573,7 +573,7 @@ remoteParticipantStream.activeRenderers.get(0) == remoteVideoRenderer;
 remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -608,7 +608,7 @@ remoteVideoRenderer.scalingMode
 remoteVideoRenderer.target
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -638,7 +638,7 @@ await remoteVideoRenderer.pauseWithCompletionHandler(completionHandler: nil); //
 await remoteVideoRenderer.resumeWithCompletionHandler(completionHandler: nil); // resume rendering
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -660,7 +660,7 @@ DeviceManager deviceManager = callClient.getDeviceManager();
 var deviceManager = callClient.deviceManager;
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -695,7 +695,7 @@ var localMicrophones = deviceManager.getMicrophoneList(); // [ACSAudioDeviceInfo
 var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 #### Set default microphone/speaker
@@ -741,7 +741,7 @@ var defaultSpeaker = deviceManager.getSpeaker();
 deviceManager.setDefaultSpeakers(AudioDeviceInfo);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 ---
 
@@ -767,7 +767,7 @@ var previewRenderer = deviceManager.renderPreviewVideoWithCameraDevice(defaultCa
 previewRenderer.start();
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 Preview renderer has set of properties and methods that allows you to control it:
@@ -830,7 +830,7 @@ previewRenderer.switchDevice(ACSVideoDeviceInfo);
 previewRenderer.setScalingMode(ACSScalingMode);
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -852,7 +852,7 @@ const result = await deviceManager.askDevicePermission(audio: true, video: true)
 // NA
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -874,7 +874,7 @@ console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
 // NA
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
@@ -926,7 +926,7 @@ self.adHocCallClient.delegate = self
 
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 #### Collections
@@ -975,7 +975,7 @@ self.adHocCallClient.delegate = self
  self.adHocCallClient.delegate = nil
 ```
 #### [.NET](#tab/dotnet)
-```.NET
+```cs
 ```
 --- 
 
