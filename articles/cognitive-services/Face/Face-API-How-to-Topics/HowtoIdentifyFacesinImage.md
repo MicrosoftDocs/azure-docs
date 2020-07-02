@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 04/10/2019
+ms.date: 07/02/2020
 ms.author: sbowles
 ---
 
@@ -17,40 +17,55 @@ ms.author: sbowles
 
 This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance. The samples are written in C# by using the Azure Cognitive Services Face client library.
 
-## Preparation
-
 This sample demonstrates:
 
 - How to create a PersonGroup. This PersonGroup contains a list of known people.
 - How to assign faces to each person. These faces are used as a baseline to identify people. We recommend that you use clear frontal views of faces. An example is a photo ID. A good set of photos includes faces of the same person in different poses, clothing colors, or hairstyles.
 
-To carry out the demonstration of this sample, prepare:
+## Prerequisites
+* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource** and copy your key.
+* A few photos with the faces of identified people. [Download sample photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) for Anna, Bill, and Clare.
+* A series of test photos. The photos might or might not contain the faces of the identified persons. Use some images from the sample photos link.
 
-- A few photos with the person's face. [Download sample photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) for Anna, Bill, and Clare.
-- A series of test photos. The photos might or might not contain the faces of Anna, Bill, or Clare. They're used to test identification. Also select some sample images from the preceding link.
+## Setting up
+
+### Create a new C# application
+
+Create a new .NET Core application in your preferred editor or IDE. 
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `face-identify`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*. 
+
+```dotnetcli
+dotnet new console -n face-quickstart
+```
+
+Change your directory to the newly created app folder. You can build the application with:
+
+```dotnetcli
+dotnet build
+```
+
+The build output should contain no warnings or errors. 
+
+```output
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
 
 ## Step 1: Authorize the API call
 
-Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter or specified in the request header. To pass the subscription key through a query string, see the request URL for the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as an example:
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription key>
-```
-
-As an alternative, specify the subscription key in the HTTP request header **ocp-apim-subscription-key: &lt;Subscription Key&gt;**.
-When you use a client library, the subscription key is passed in through the constructor of the FaceClient class. For example:
+Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter or specified in the request header. When you use a client library, the subscription key is passed in through the constructor of the FaceClient class. Add the following code to the **main** method of the *Program.cs* file.
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
+    new ApiKeyServiceClientCredentials("<subscription key>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
- 
-Follow these instructions to get a key.
-
-1. Create an [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you already have one, you can skip to the next step.
-2. Create a [Face resource ](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key. Make sure to select the free tier (F0) during setup. 
-3. After the resources are deployed, click **Go to resource** to collect your key. 
 
 ## Step 2: Create the PersonGroup
 
@@ -59,11 +74,11 @@ In this step, a PersonGroup named "MyFriends" contains Anna, Bill, and Clare. Ea
 ![MyFriends](../Images/group.image.1.jpg)
 
 ### Step 2.1: Define people for the PersonGroup
-A person is a basic unit of identify. A person can have one or more known faces registered. A PersonGroup is a collection of people. Each person is defined within a particular PersonGroup. Identification is done against a PersonGroup. The task is to create a PersonGroup, and then create the people in it, such as Anna, Bill, and Clare.
+A person is a basic unit of identify. A person can have one or more known faces registered. A **PersonGroup** is a collection of people. Each person is defined within a particular **PersonGroup**. Identification is done against a **PersonGroup**. The task is to create a **PersonGroup**, and then create the people in it, such as Anna, Bill, and Clare.
 
-First, create a new PersonGroup by using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. The corresponding client library API is the CreatePersonGroupAsync method for the FaceClient class. The group ID that's specified to create the group is unique for each subscription. You also can get, update, or delete PersonGroups by using other PersonGroup APIs. 
+First, create a new **PersonGroup** by using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. The corresponding client library API is the **CreatePersonGroupAsync** method for the **FaceClient** class. The group ID that's specified to create the group is unique for each subscription. You also can get, update, or delete **PersonGroup**s by using other **PersonGroup** APIs. 
 
-After a group is defined, you can define people within it by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. The client library method is CreatePersonAsync. You can add a face to each person after they're created.
+After a group is defined, you can define people within it by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. The client library method is **CreatePersonAsync**. You can add a face to each person after they're created.
 
 ```csharp 
 // Create an empty PersonGroup
@@ -170,8 +185,7 @@ After you finish the steps, try to identify different faces. See if the faces of
 
 ## Step 5: Request for large scale
 
-A PersonGroup can hold up to 10,000 persons based on the previous design limitation.
-For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
+A PersonGroup can hold up to 10,000 persons based on the previous design limitation. For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
 
 ## Summary
 
