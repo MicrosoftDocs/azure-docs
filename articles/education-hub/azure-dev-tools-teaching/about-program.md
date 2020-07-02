@@ -65,4 +65,4 @@ No, this will not impact how you access Imagine Academy.
 ## Next steps
 
 - [Enroll or renew a subscription](enroll-renew-subscription.md)
-- [Support options](../includes/educator-service-desk.md)
+- [Support options](includes/educator-service-desk.md)

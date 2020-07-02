@@ -10,17 +10,16 @@ ms.prod: azure
 
 # Quickstart: Set up a course and create a classroom
 
-This quickstart explains how to set up a course and classroom in the Microsoft Azure Education Hub.
+This quickstart explains how to set up a course and classroom in the Microsoft Azure Education Hub, including subscription details.
 
 ## Prerequisites
 
-- An Academic Grant with an approved credit amount
+- An academic grant with an approved credit amount
 - A subscription within the classroom that will access your Azure credit
 
 ### Subscriptions
 
-A student will be given a subscription tied to a monetary cap of credit the professor
-gives to them. The term *monetary cap* describes the US$ amount of an Academic Sponsorship. For example, a $1,000 monetary cap provides the recipient with a US$1,000 Azure credit using [published webdirect rates](https://azure.microsoft.com/pricing/calculator/).
+Each student is given a subscription tied to a monetary cap of credit allocated by the professor. The term *monetary cap* describes the US$ amount of an academic sponsorship. For example, a $1,000 monetary cap provides the recipient with a USD$1,000 Azure credit using [published WebDirect rates](https://azure.microsoft.com/pricing/calculator/).
 
 The educator can choose to allocate a cap to the subscriptions to prevent
 unintended use, and then set an expiration date. Some examples:
@@ -28,7 +27,7 @@ unintended use, and then set an expiration date. Some examples:
 - **Flat amount per class**: Each student gets $*x* to manage for the entire quarter or
 semester.
 
-- **Flat amount per project group**: A project team receives $*x* to fund a group project
+- **Flat amount per project group**: A project team receives $*x* to fund a group project.
 
 At the subscription level, you can increase or decrease the cap and changes will take effect with
 minimal latency. When the class or project ends, you can reallocate unused cap to other subscriptions prior to the expiration date.
@@ -37,7 +36,7 @@ minimal latency. When the class or project ends, you can reallocate unused cap t
 
 Follow these steps to create a course and classroom by using one of two different methods:
 
-1. Select the **Courses** page in the Education Hub to open the tool you use to create and manage courses. A table opens showing all your existing courses.
+1. Select the **Courses** page in the Azure Education Hub to open the tool you use to create and manage courses. A table opens showing all your existing courses.
 
     :::image type="content" source="media/set-up-course-classroom.md/education-hub-courses.png" alt-text="Azure Education Hub Courses page" border="false":::
 
@@ -46,13 +45,13 @@ workflow.
 
     :::image type="content" source="media/set-up-course-classroom.md/courses-add.png" alt-text="Add a course to Azure Education Hub" border="false":::
 
-1. You can create a course roster by using two methods: by uploading a roster, or by using invitation code.
-    - **Roster**: If you already have the names and logins of all students, you can populate and upload a roster file. To download a sample file of the .csv needed to upload the roster, select the **Download sample file** link in the upper right-hand corner.
-    - **Invitation code**: If you choose to use an invitation code, decide how many codes can be redeemed and when they will expire. You will send your students the following link to redeem the code: https://aka.ms/joinedu.
+1. You can create a course roster by using two methods: by uploading a roster, or by using an invitation code.
+    - **Roster**: If you already have the names and logins of all students, you can populate and upload a roster file. To download a sample file of the .csv file needed to upload the roster, select the **Download sample file** link in the upper-right corner.
+    - **Invitation code**: If you choose to use an invitation code, decide how many codes can be redeemed and when they will expire. You'll send your students the following link to redeem the code: https://aka.ms/joinedu.
 
       :::image type="content" source="media/set-up-course-classroom.md/enter-invitation-code.png" alt-text="Enter your invitation code in Azure Education Hub" border="false":::
 
-1. Select **Create Classroom** in the lower-right corner. This might take a few
+1. Select **Create Classroom** in the bottom-right corner. This might take a few
 moments to complete.
 
    :::image type="content" source="media/set-up-course-classroom.md/create-classroom.png" alt-text="Create a classroom in Azure Education Hub" border="false":::
