@@ -155,6 +155,7 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 
 
 ### `Containerd` limitations/differences
+
 * To use `containerd` as the container runtime you must use AKS Ubuntu 18.04 as your base OS image.
 * While the docker toolset is still present on the nodes, Kubernetes uses `containerd` as the container runtime. Therefore, since Moby/Docker doesn't manage the Kubernetes-created containers on the nodes, you can't view or interact with your containers using Docker commands (like `docker ps`) or the Docker API.
 * For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`). 
@@ -164,9 +165,7 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 * You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
   * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS doesn't  support running any out of band commands on the agent nodes that could cause instability.
   * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
-* Building images - The recommended approach for building images is to use [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). An alternative approach is to use more secure in-cluster options like [img](https://github.com/genuinetools/img).
-
-
+* Building images - The recommended approach for building images is to use [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). An alternative approach is to use more secure in-cluster options like [docker buildx](https://github.com/docker/buildx).
 
 ## Generation 2 virtual machines (Preview)
 
