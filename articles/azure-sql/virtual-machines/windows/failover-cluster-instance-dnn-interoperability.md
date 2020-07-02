@@ -24,7 +24,7 @@ This article details which SQL Server features may require additional considerat
 
 
 
-## Client access too
+## Client drivers
 
 For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicitly specify the DNN DNS name as the server name in the connection string. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it. 
 
@@ -58,7 +58,7 @@ You can omit the port in the URL if it is the default 1433 port. For a named ins
 
 Replication has three components: Publisher, Distributor, Subscriber. Any of these components can be a failover cluster instance. Because the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN might be necessary for replication to work. 
 
-Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations *before you configure replication*:
+Keep using the VNN name as the FCI name within replication, but create a network alias in the following remote situations *before you configure replication*:
 
 | **Replication component (FCI with DNN)** | **Remote component** | **Network alias map** | **Server with network map**| 
 |---------|---------|---------|-------- | 
@@ -67,7 +67,7 @@ Keep using the VNN name as the FCI instance name within replication, but create 
 |Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
 |Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
 
-For example, assume you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote. In that case, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN: 
+For example, assume you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote. In this case, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN: 
 
 :::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-in-configuration-manager.png" alt-text="Configure the DNN DNS name as the network alias using SQL Server Configuration Manager." :::
 
