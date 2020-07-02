@@ -13,9 +13,11 @@ ms.custom: include file
 ## Prerequisites
 
 ### Azure subscription
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ### Azure roles
+
 To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, go to the [Azure portal](https://portal.azure.com), select your username in the upper-right corner, select "**...**" icon for more options, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
 
 To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
@@ -31,9 +33,11 @@ For more info, see the following articles:
 - [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### Azure Storage account
+
 You need an Azure Storage account (specifically Blob storage) as both *source* and *destination* data stores. If you don't have an Azure Storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md) to create one.
 
 #### Get the storage account name
+
 You need the name of your Azure Storage account. The following procedure provides steps to get the name of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
@@ -41,6 +45,7 @@ You need the name of your Azure Storage account. The following procedure provide
 3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
 
 #### Create a blob container
+
 In this section, you create a blob container. Remember that the name of your blob must be unique across Azure. For this quickstart, we use the name **adftutorial** in Azure Blob storage.
 
 1. From the storage account page, select **Overview** > **Containers**.
@@ -48,6 +53,7 @@ In this section, you create a blob container. Remember that the name of your blo
 3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. The *\<Account name>* - **Containers** page is updated to include **adftutorial** in the list of containers.
 
 #### Add an input folder and file for the blob container
+
 In this section, you create a folder named **input** in the container you created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
 
 ```emp.txt

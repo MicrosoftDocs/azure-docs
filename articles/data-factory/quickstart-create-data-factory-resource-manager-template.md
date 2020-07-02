@@ -241,7 +241,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     "contentVersion":"1.0.0.0",
     "parameters":{  
         "dataFactoryName":{  
-            "value":"<datafactoryname>"
+            "value":"GEN-UNIQUE"
         },
         "dataFactoryLocation":{  
             "value":"East US"
