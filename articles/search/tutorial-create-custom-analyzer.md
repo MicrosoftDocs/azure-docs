@@ -67,7 +67,7 @@ Alternatively, you can set up each HTTP request from scratch. If you are unfamil
 
 ## 3 - Create an initial index
 
-In this step, we'll create an initial index, load documents into the index, and then query the documents to see how our initial queries perform.
+In this step, we'll create an initial index, load documents into the index, and then query the documents to see how our initial searches perform.
 
 ### Create index
 
@@ -77,8 +77,8 @@ To create the index, we send the following request:
 
 ```http
 PUT https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index?api-version=2019-05-06
-  Content-Type: application/json   
-  api-key: <YOUR-ADMIN-API-KEY> 
+  Content-Type: application/json
+  api-key: <YOUR-ADMIN-API-KEY>
 
   {
     "fields": [
@@ -116,12 +116,12 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
   {
     "value": [
-      {          
+      {
         "@search.action": "upload",  
         "id": "1",
         "phone_number": "425-555-2311"
       },
-      {          
+      {
         "@search.action": "upload",  
         "id": "2",
         "phone_number": "(321) 555-5784"
@@ -130,28 +130,28 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
         "@search.action": "upload",  
         "id": "3",
         "phone_number": "+1 425-555-2311"
-      }, 
+      },
       {  
         "@search.action": "upload",  
         "id": "4",  
         "phone_number": "+1 (321) 555-5784"
       },
-      {          
+      {
         "@search.action": "upload",  
         "id": "5",
         "phone_number": "4255552311"
       },
-      {          
+      {
         "@search.action": "upload",  
         "id": "6",
         "phone_number": "13215555784"
       },
-      {          
+      {
         "@search.action": "upload",  
         "id": "7",
         "phone_number": "425 555 2311"
       },
-      {          
+      {
         "@search.action": "upload",  
         "id": "8",
         "phone_number": "321.555.5784"
@@ -207,7 +207,7 @@ Next, let's search a number without any formatting `425555311`
 
 ```http
 GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=425555311
-  api-key: <YOUR-ADMIN-API-KEY> 
+  api-key: <YOUR-ADMIN-API-KEY>
 ```
 
 This query does even worse, only returning **one of four correct matches**.
@@ -227,32 +227,38 @@ If you find these results confusing, you're not alone. In the next section, we'l
 
 ## 4 - Debug search results
 
-To understand these search results, it's important to first understand how analyzers work. From there, we can test the default analyzer using the [analyze text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) and then create an analyzer that meets our needs.
+To understand these search results, it's important to first understand how analyzers work. From there, we can test the default analyzer using the [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) and then create an analyzer that meets our needs.
 
 ### How analyzers work
 
-An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. For this scenario, we need to build an analyzer tailored to phone numbers.
+An analyzer is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. For this scenario, we need to build an analyzer tailored to phone numbers.
 
-Analyzers consist of three components: [**character filters**](#CharFilters), [**tokenizers**](#Tokenizers), and [**token filters**](#TokenFilters). These three components work together to convert text into a collection of tokens that are then stored in the search index.
+Analyzers consist of three components:
+
++ [**Character filters**](#CharFilters) that remove or replace individual characters from the input text.
++ A [**Tokenizer**](#Tokenizers) that breaks the input text into tokens which become keys in the search index.
++ [**Token filters**](#TokenFilters) that manipulate the tokens produced by the tokenizer.
+
+In the diagram below, you can see how these three components work together to tokenize a simple sentence:
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
-These tokens are then stored in an inverted index, which allows for fast, full-text searches.
+These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see a simple example in the diagram below:
 
   ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
 
-All of search comes down to searching for these tokens. When a user issues a query:
+All of search comes down to searching for the terms stored in the inverted index. When a user issues a query:
 
 1. The query is analyzed and broken into tokens
-1. The inverted index is then scanned for documents with matching tokens
-1. Finally, the results are ranked by feeding the matching tokens into a [similarity algorithm](index-ranking-similarity.md) to score the results.
+1. The inverted index is then scanned for documents with matching terms
+1. Finally, the results are ranked by feeding the matching terms into a [similarity algorithm](index-ranking-similarity.md) to score the results.
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
-If the tokens from your query don't match the tokens in your inverted index, results won't be returned.
+If the tokens from your query don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 
 > [!Note]
-> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical anlysis process so the text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching tokens don't exist in the index.
+> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical anlysis process so the query text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching tokens don't exist in the index.
 
 ### Test analyzer using the Analyze Text API
 
@@ -298,7 +304,7 @@ The API then returns a list of the tokens extracted from the text. You can see t
 }
 ```
 
-Alternatively, the phone number `4255552311` formatted without any punctuation is tokenized into a single token.
+Conversely, the phone number `4255552311` formatted without any punctuation is tokenized into a single token.
 
 ```json
 {
@@ -322,19 +328,19 @@ Alternatively, the phone number `4255552311` formatted without any punctuation i
 
 Keep in mind that both searches and the data in the index are tokenized. Thinking back to the search results from the previous step, we can start to see why those results were returned.
 
-In the first query, the incorrect phone numbers were returned because one of their tokens (555) matched one of the tokens we searched. In the second query, only the one number was returned because it was the only one that had a token matching `4255552311`.
+In the first query, the incorrect phone numbers were returned because one of their tokens, `555`, matched one of the tokens we searched. In the second query, only the one number was returned because it was the only record that had a token matching `4255552311`.
 
 ## 5 - Build a custom analyzer
 
 Now that we understand the results we're seeing, let's build a custom analyzer to improve the tokenization logic.
 
-The goal is to provide intuitive search against phone numbers no matter what format the query or indexed string is in. To achieve this result, we'll specify a [character filter](#CharFilters), a [tokenizer](#Tokenizers), and several [token filters](#TokenFilters).
+The goal is to provide intuitive search against phone numbers no matter what format the query or indexed string is in. To achieve this result, we'll specify a [character filter](#CharFilters), a [tokenizer](#Tokenizers), and a [token filter](#TokenFilters).
 
 <a name="CharFilters"></a>
 
 ### Character filters
 
-Character filters are used to process text before it's fed into the tokenizer. Common uses of character filters include filtering out HTML elements, removing special characters, or stripping whitespace from a string.
+Character filters are used to process text before it's fed into the tokenizer. Common uses of character filters include filtering out HTML elements or replacing special characters.
 
 For phone numbers, we want to remove whitespace and special characters because not all phone number formats contain the same special characters and whitespace.
 
@@ -355,9 +361,7 @@ For phone numbers, we want to remove whitespace and special characters because n
   ]
 ```
 
-The filter above will remove `-` `(` `)` `+` `.` and whitespace from the input.
-
-#### Examples
+The filter above will remove `-` `(` `)` `+` `.` and spaces from the input.
 
 |Input|Output|  
 |-|-|  
@@ -370,39 +374,26 @@ The filter above will remove `-` `(` `)` `+` `.` and whitespace from the input.
 
 Tokenizers split text into tokens and discard some characters, such as punctuation, along the way. In many cases, the goal of tokenization is to split a sentence into individual words.
 
-For this scenario, we'll just use the standard tokenizer. The `maxTokenLength` needs to be at least as long as the longest phone number. We set `maxTokenLength` to `20` to be safe in case any phone numbers have extensions.
+For this scenario, we'll use a keyword tokenizer, `keyword_v2`, because we want to capture the phone number as a single term. Note that this isn't the only way to solve this problem. See the [alternate approaches](#Alternate) section below.
 
-```json
-"tokenizers": [
-  {
-    "@odata.type": "#Microsoft.Azure.Search.StandardTokenizerV2",
-    "name": "custom_tokenizer_phone",
-    "maxTokenLength": 20
-  }
-]
-```
+Keyword tokenizers always output the same text it was given as a single term.
+
 
 |Input|Output|  
 |-|-|  
-|`The dog swims.`|`[The, dog, swims]`|  
-|`(321) 555-5784`|`[321, 555, 5784]`|
+|`The dog swims.`|`[The dog swims.]`|  
 |`3215555784`|`[3215555784]`|
 
 <a name="TokenFilters"></a>
 
 ### Token filters
 
-Token filters will filter out or modify the tokens generated by the tokenizer. One common use of a token filter is to lowercase all characters using a lowercase token filter. Another common use is using an n-gram filter that splits tokens into n-grams.
+Token filters will filter out or modify the tokens generated by the tokenizer. One common use of a token filter is to lowercase all characters using a lowercase token filter. Another common use is filtering out stopwords such as `the`, `and`, or `is`.
 
-We'll use both of those filters for our phone analyzer as well as an ASCII folding token filter. The lowercase token filter doesn't need to be customized so we only need to specify it in the analyzer section in the next step.
+While we don't need to use either of those filters for this scenario, we'll use an nGram token filter to allow for partial searches of phone numbers.
 
 ```json
 "tokenFilters": [
-  {
-    "@odata.type": "#Microsoft.Azure.Search.AsciiFoldingTokenFilter",
-    "name": "custom_ascii_folding_filter",
-    "preserveOriginal": true
-  },
   {
     "@odata.type": "#Microsoft.Azure.Search.NGramTokenFilterV2",
     "name": "custom_ngram_filter",
@@ -412,38 +403,18 @@ We'll use both of those filters for our phone analyzer as well as an ASCII foldi
 ]
 ```
 
-#### AsciiFoldingTokenFilter
-
-The [ASCII folding token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html) converts non-ASCII characters to their ASCII equivalent. The `preserveOriginal` setting determines if the original token is kept.
-
-For phone numbers, ASCII folding shouldn't be necessary but we include it as a best practice.
-
-|Input|Output|  
-|-|-|  
-|`[Château, de, Versailles]`|`[Chateau, Château, de, Versailles]`|
-
 #### NGramTokenFilterV2
 
 The [nGram_v2 token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html) splits tokens into n-grams of a given size based on the `minGram` and `maxGram` parameters.
 
 For the phone analyzer, we set `minGram` to `3` because that is the shortest substring we expect users to search. `maxGram` is set to `20` to ensure that all phone numbers, even with extensions, will fit into a single n-gram.
 
-An n-gram token filter is included because it allows for partial searches of phone numbers. The unfortunate side effect of n-grams is that some false positives will be returned. We'll fix this in step 7 by building out a separate analyzer for searches that doesn't include the n-gram token filter.
+ The unfortunate side effect of n-grams is that some false positives will be returned. We'll fix this in step 7 by building out a separate analyzer for searches that doesn't include the n-gram token filter.
 
 |Input|Output|  
 |-|-|  
 |`[12345]`|`[123, 1234, 12345, 234, 2345, 345]`|  
 |`[3215555784]`|`[321, 3215, 32155, 321555, 3215555, 32155557, 321555578, 3215555784, 215, 2155, 21555, 215555, ... ]`|
-
-#### Lowercase
-
-The [lowercase token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html) normalizes token text to lower case.
-
-For phone numbers, a lowercase token filter shouldn't be necessary but we include it as a best practice.
-
-|Input|Output|  
-|-|-|  
-|`[Bill, Gates]`|`[bill, gates]`|
 
 ### Analyzer
 
@@ -456,8 +427,6 @@ With our character filters, tokenizer, and token filters in place, we're ready t
     "name": "custom_phone_analyzer",
     "tokenizer": "custom_tokenizer_phone",
     "tokenFilters": [
-      "lowercase",
-      "custom_ascii_folding_filter",
       "custom_ngram_filter"
     ],
     "charFilters": [
@@ -525,17 +494,14 @@ You will then be able to see the collection of tokens resulting from the phone n
 
 After making some sample searches against the index with the custom analyzer, you'll find that recall has improved and all matching phone numbers are now returned. However, the n-gram token filter causes some false positives to be returned as well. This is a common side effect of an n-gram token filter.
 
-To prevent false positives, we create a separate analyzer for searching. This analyzer will be the same as the analyzer we created but without `custom_ngram_filter`.
+To prevent false positives, we create a separate analyzer for searching. This analyzer will be the same as the analyzer we created but **without** the `custom_ngram_filter`.
 
 ```json
     {
       "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
       "name": "custom_phone_analyzer_search",
       "tokenizer": "custom_tokenizer_phone",
-      "tokenFilters": [
-        "lowercase",
-        "custom_ascii_folding_filter"
-      ],
+      "tokenFilters": [],
       "charFilters": [
         "phone_char_mapping"
       ]
@@ -559,6 +525,51 @@ In the index definition, we then specify both an `indexAnalyzer` and a `searchAn
 
 With this change, you're all set. Recreate the index, index the data, and test the queries again to verify the search works as expected. If you're using the Postman collection, it will create a third index named `tutorial-second-analyzer`.
 
+<a name="Alternate"></a>
+
+## Alternate Approaches
+
+The analyzer above was designed to maximize the flexibility for search. However, it does so at the cost of storing a lot of potentially unimportant terms in the index.
+
+The example below shows a different analyzer that can also be used for this task. The analyzer works well except for input data such as `14255552311` that makes it difficult to logically chunk the phone number.
+
+```json
+"analyzers": [
+  {
+    "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+    "name": "custom_phone_shingles",
+    "tokenizer": "custom_tokenizer_phone",
+    "tokenFilters": [
+      "custom_shingle_filter"
+    ]
+  }
+],
+"tokenizers": [
+  {
+    "@odata.type": "#Microsoft.Azure.Search.StandardTokenizerV2",
+    "name": "custom_tokenizer_phone",
+    "maxTokenLength": 4
+  }
+],
+"tokenFilters": [
+  {
+    "@odata.type": "#Microsoft.Azure.Search.ShingleTokenFilter",
+    "name": "custom_shingle_filter",
+    "minShingleSize": 2,
+    "maxShingleSize": 6,
+    "tokenSeparator": ""
+  }
+]
+```
+
+You can see in the example below that the phone number is split into the chunks you would normally expect a user to be searching for.
+
+|Input|Output|  
+|-|-|  
+|`(321) 555-5784`|`[321, 555, 5784, 321555, 5555784, 3215555784]`|
+
+Depending on your requirements, this may be a more efficient approach to the problem.
+
 ## Reset and rerun
 
 For simplicity, this tutorial had you create three new indexes. However, it's common to delete and recreate indexes during the early stages of development. You can delete an index in the Azure portal or using the following API call:
@@ -572,11 +583,11 @@ DELETE https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-ba
 
 This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the analyze text API to see the lexical analysis process in action.
 
-While the analyzer defined in this tutorial offers an easy solution for searching against phone numbers, this same process can be used to build a custom phone analyzer for any scenario.
+While the analyzer defined in this tutorial offers an easy solution for searching against phone numbers, this same process can be used to build a custom phone analyzer for any scenario you may have.
 
 ## Clean up resources
 
-When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+When you're working in your own subscription, it's a good idea to remove the resources that you no longer need at the end of a project. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
 You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
@@ -585,4 +596,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with how to create a custom analyzer, let's take a look at all of the different filters, tokenizers, and analyzers available to you to build a rich search experience.
 
 > [!div class="nextstepaction"]
-> [How full text search works in Azure Cognitive Search](index-add-custom-analyzers.md)
+> [Custom Analyzers in Azure Cognitive Search](index-add-custom-analyzers.md)
