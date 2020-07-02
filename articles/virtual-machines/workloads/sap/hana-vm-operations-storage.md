@@ -52,15 +52,15 @@ In the on-premises world, you rarely had to care about the I/O subsystems and it
 - Read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
 - Write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to leverage Azure premium storage, Ultra disk or ANF for **/hana/data** and **/hana/log** volumes. 
+Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to leverage Azure premium storage, Ultra disk, or ANF for **/hana/data** and **/hana/log** volumes. 
 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) and [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
-- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be very aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
-- If you are using Azure premium storage the least expensive configuration is to use logical volume managers to build stripe sets to build the **/hana/data** and **/hana/log** volumes
+- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
+- If you are using Azure premium storage, the least expensive configuration is to use logical volume managers to build stripe sets to build the **/hana/data** and **/hana/log** volumes
 
 > [!IMPORTANT]
 > The suggestions for the storage configurations are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you are not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
@@ -156,7 +156,7 @@ Configuration for SAP **/hana/data** volume:
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 2,000 MBps (provisioned) | 25,000 | no burst |
 
 
-For the **/hana/log** volume the configuration would look like:
+For the **/hana/log** volume. the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | **/hana/log** volume | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
@@ -173,7 +173,7 @@ For the **/hana/log** volume the configuration would look like:
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 | 
 
 
-For the other volumes the configuration would look like:
+For the other volumes, the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
@@ -194,7 +194,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 
 Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
-For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) family and the [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series) you need to ANF for the **/hana/data** and **/hana/log** volume. Or you need to leverage Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume. As a result, the configurations for the **/hana/data** volume on Azure premium storage could look like :
+For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) family and the [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), you need to ANF for the **/hana/data** and **/hana/log** volume. Or you need to leverage Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume. As a result, the configurations for the **/hana/data** volume on Azure premium storage could look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -224,7 +224,7 @@ Another Azure storage type is called [Azure Ultra disk](https://docs.microsoft.c
 
 Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure premium storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and premium storage. As a result, you can limit the usage of Ultra disk to the performance critical **/hana/data** and **/hana/log** volumes and cover the other volumes with Azure premium storage
 
-Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since premium storage disks for **/hana/data** are usually not Write Accelerator cached, the write latency to **/hana/data** on premium storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
+Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. 
 
 > [!NOTE]
 > Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
