@@ -15113,7 +15113,7 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+      "redirect_url": "/azure/cosmos-db/query-cheat-sheet",
       "redirect_document_id": true
     },
     {
@@ -15203,7 +15203,7 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-sql-query-cheat-sheet.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
+      "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false
     },
     {
@@ -15543,8 +15543,8 @@
     },
     {
       "source_path": "articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sql-query-cheat-sheet",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/query-cheat-sheet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
@@ -15598,7 +15598,7 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
+      "redirect_url": "/azure/cosmos-db/local-emulator-export-ssl-certificates",
       "redirect_document_id": true
     },
     {

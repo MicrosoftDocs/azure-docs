@@ -37,6 +37,13 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## July 2020
+| Service improvements | Details |
+| --- | --- |
+|**Column-Level Encryption (Public Preview)**|Protect sensitive information in your Synapse SQL data warehouse by applying symmetric encryption to a column of data using Transact-SQL. Column-level encryption has built-in functions you can use to encrypt data using symmetric keys that are further protected with a certificate, password, symmetric key, or asymmetric key. For more information, please visit [Encrypt a Column of Data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Compatibility Level support (GA)**|With this release, users can now set a database's compatibility level to get the Transact-SQL language and query processing behaviors of a specific version of the Synapse SQL engine. For more information, see [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) and [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Row Level Security**|This release includes an improvement for update and delete operations on rows with RLS enforced on them. With this release, update and delete operations with intrinsic functions like ‘is_rolemember’ will succeed if the intrinsic does not reference any column in the DML target table. Before this improvement, these operations failed due to limitation in the underlying DML operations.|
+
 ## May 2020
 
 | Service improvements | Details |
