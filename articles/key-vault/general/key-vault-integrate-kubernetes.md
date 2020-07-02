@@ -296,8 +296,7 @@ spec:
         driver: secrets-store.csi.k8s.io
         readOnly: true
         volumeAttributes:
-            secretProviderClass: azure-kvname
-
+          secretProviderClass: azure-kvname
 ```
 
 Run the following command to deploy your pod:
