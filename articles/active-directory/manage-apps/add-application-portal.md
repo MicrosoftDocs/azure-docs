@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Add an application to your Azure Active Directory tenant
 
-Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant. This quickstart focuses on adding an app that is already part of the gallery. Apps that are not included in the gallery can also be integrated with Azure AD but that is not covered in this quickstart. 
+Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure AD tenant. This quickstart focuses on adding an app that is already part of the gallery. Apps that are not included in the gallery can also be integrated with Azure AD but that is not covered in this quickstart. 
 
 After an application is added to your Azure AD tenant, you can:
 
@@ -50,7 +50,7 @@ To add a gallery application to your Azure AD tenant:
 
 1. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
 
-You've finished adding your application. The next quickstart shows you how to change the logo and edit other properties for your application.
+You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
 ## Next steps
 

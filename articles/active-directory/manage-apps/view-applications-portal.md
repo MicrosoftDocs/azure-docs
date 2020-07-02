@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: View the applications registered in your Azure Active Directory (Azure AD) tenant
 
-Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already registered in your Azure AD tenant. 
+Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already setup to use Azure AD tenant as their identity provider.
 
 ## Prerequisites
 

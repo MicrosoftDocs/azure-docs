@@ -22,7 +22,7 @@ In the previous quickstart, you added an application to your Azure AD tenant. Wh
 
 ## Before you begin
 
-To configure the properties of an application in your tenant, you need to have already added the app. The previous quickstart walks you through adding an app to your tenant.
+To configure the properties of an application in your tenant, you need to have already added the app. The previous quickstart walks you through finding an application that has already been added to your tenant.
 
 ## Configure app properties
 
@@ -90,7 +90,7 @@ To use a custom logo:
 
 ## Next steps
 
-Now that you've configured the properties of the application you can continue on to set up single sign-on.
+Now that you've configured the properties of an application you can continue on to set up single sign-on.
 
 - [Set up single sign-on](add-application-portal-setup-sso.md)
 - [Delete an app](delete-application-portal.md)
