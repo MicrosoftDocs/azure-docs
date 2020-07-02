@@ -21,7 +21,7 @@ After you [create an Azure support request](how-to-create-azure-support-request.
 
 View the details and status of support requests by going to **Help + support** >  **All support requests**.
 
-:::image type="content" source="media/how-to-manage-azure-support-request/allrequestslower.png" alt-text="All support requests":::
+:::image type="content" source="media/how-to-manage-azure-support-request/all-requests-lower.png" alt-text="All support requests":::
 
 On this page, you can search, filter, and sort support requests. Select a support request to view details, including its severity and any messages associated with the request.
 
