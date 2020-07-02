@@ -106,7 +106,7 @@ This section describes support for Vowpal Wabbit command line parameters in Azur
 
 Generally, all but a limited set of arguments are supported. For a complete list of arguments, use the [Vowpal Wabbit wiki page](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).    
 
-The following parameters are not suppported:
+The following parameters are not supported:
 
 -   The input/output options specified in [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
