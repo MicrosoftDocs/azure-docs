@@ -304,7 +304,7 @@ You can enable SNI in Cloud Services by using one of the following methods:
 The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a Cloud Service role instance as below:
 
 ```powershell
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
 As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:

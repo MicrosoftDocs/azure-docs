@@ -161,10 +161,10 @@ PS C:\MyProject> Start-AzureEmulator
 You will see output similar to this:
 
 ```output
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+Creating local package...
+Starting Emulator...
+Role is running at http://127.0.0.1:81
+Started
 ```
 
 You can see your application running in the emulator by opening a web browser and browsing to the local address shown in the output (`http://127.0.0.1:81` in the example output above).

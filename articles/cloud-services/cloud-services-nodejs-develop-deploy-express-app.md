@@ -34,14 +34,14 @@ Perform the following steps to create a new cloud service project named 'express
     ![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **expressapp** and a web role named **WebRole1**:
 
-```powershell
-PS C:\node> New-AzureServiceProject expressapp
-PS C:\Node\expressapp> Add-AzureNodeWebRole
-PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
-```
+   ```powershell
+   PS C:\node> New-AzureServiceProject expressapp
+   PS C:\Node\expressapp> Add-AzureNodeWebRole
+   PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
+   ```
 
-> [!NOTE]
-> By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
+   > [!NOTE]
+   > By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
 >
 >
 
