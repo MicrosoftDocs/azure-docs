@@ -2,7 +2,7 @@
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 07/02/2020
 ms.custom: mvc
 ---
 
@@ -98,7 +98,7 @@ The following YAML template defines a container group with one container created
 As in the CLI example, the `dnsNameLabel` value must be unique within the Azure region where you create the container instance. Update the value in the YAML file if needed.
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: file-share-demo
 properties:
@@ -163,7 +163,7 @@ As in the previous examples, the `dnsNameLabel` value must be unique within the 
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
