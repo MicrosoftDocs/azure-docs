@@ -46,7 +46,7 @@ You must enable the feature for your subscription before you use the **Encryptio
 
 ## Create an Azure Key Vault and DiskEncryptionSet
 
-include here
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 ## Enable end to end encryption for disks attached to a VM with customer managed keys
 
