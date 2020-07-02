@@ -184,7 +184,7 @@ The UDF preview currently has the following limitations:
 
 * Supporting files included in the project are copied to the User Custom Code zip file that is used when you publish the job to the cloud. All files in subfolders are copied directly to the root of the User Custom Code folder in the cloud when unzipped. The zip is "flattened" when decompressed.
 
-* User Custom Code does not support empty folders, make sure to not add empty folders to the supporting files in the project.
+* User Custom Code doesn't support empty folders. Don't add empty folders to the supporting files in the project.
 
 ## Next steps
 
