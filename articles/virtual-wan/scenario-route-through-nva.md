@@ -41,7 +41,7 @@ To set up routing via NVA, here are the steps to consider:
    * From VNET 5 and 6 to VNET 2 NVA IP
    * From VNET 7 and 8 to VNET 4 NVA IP 
    
-   You do not need to connect VNET 5,6,7,8 to the virtual hubs directly.
+   You do not need to connect VNET 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNETs 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNETs connected to theire remote VNETs. For example, VNET 5,6 must ensure NSGs allow traffic for on-premise address prefixes and VNETs 7,8 that are connected to the remote hub 2. 
 
 2. Add an aggregated static route entry for VNETs 2,5,6 to Hub 1’s default route table. 
 
