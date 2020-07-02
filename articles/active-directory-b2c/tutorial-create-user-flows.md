@@ -50,7 +50,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
-1. Under **Version**, select **Recommended**. ([Learn more](user-flow-versions.md) about user flow versions.)
+1. Under **Version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
     ![Create user flow page in Azure portal with properties highlighted](./media/tutorial-create-user-flows/select-version.png)
 
@@ -81,7 +81,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
-1. Under **Version**, select **Recommended**.
+1. Under **Version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
 2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
@@ -100,7 +100,7 @@ To enable users of your application to reset their password, you use a password 
 
 1. In the Azure AD B2C tenant overview menu, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Password reset** user flow. 
-1. Under **Version**, select **Recommended**.
+1. Under **Version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.
 2. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
