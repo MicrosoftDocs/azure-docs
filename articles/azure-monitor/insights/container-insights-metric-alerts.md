@@ -20,7 +20,11 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, a new containerized agent, version **microsoft/oms:ciprod05262020**, is included in the release. To verify your cluster is running the newer version of the agent, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`. In the status returned, note the value for *omi* and *omsagent*. They should match the latest version. For further details related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  To verify the metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up the alerts.
+* To support metric alerts and the introduction of additional metrics, a new containerized agent, version **microsoft/oms:ciprod05262020**, is included in the release.
+
+    To verify your cluster is running the newer version of the agent, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`. In the status returned, note the value for *omi* and *omsagent*. They should match the latest version. 
+
+    For further details related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify the metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up the alerts.
 
 ## Alert rules overview
 
