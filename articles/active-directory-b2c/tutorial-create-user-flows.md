@@ -46,15 +46,16 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. On the **Recommended** tab, select the **Sign up and sign in** user flow.
+1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
-    ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
+
+1. Under **Version**, select **Recommended**. ([Learn more](user-flow-versions.md) about user flow versions.)
+
+    ![Create user flow page in Azure portal with properties highlighted](./media/tutorial-create-user-flows/select-version.png)
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-
-    ![Create user flow page in Azure portal with properties highlighted](./media/tutorial-create-user-flows/signup-signin-properties.png)
-
 1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
@@ -79,11 +80,12 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 If you want to enable users to edit their profile in your application, you use a profile editing user flow.
 
 1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
-1. Select the **Profile editing** user flow on the **Recommended** tab.
+1. On the **Create a user flow** page, select the **Profile editing** user flow. 
+1. Under **Version**, select **Recommended**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
-1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
+3. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
 
@@ -97,12 +99,13 @@ If you want to enable users to edit their profile in your application, you use a
 To enable users of your application to reset their password, you use a password reset user flow.
 
 1. In the Azure AD B2C tenant overview menu, select **User flows**, and then select **New user flow**.
-1. Select the **Password reset** user flow on the **Recommended** tab.
+1. On the **Create a user flow** page, select the **Password reset** user flow. 
+1. Under **Version**, select **Recommended**.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.
-1. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
-1. Click **OK**.
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+2. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
+3. Click **OK**.
+4. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
 
