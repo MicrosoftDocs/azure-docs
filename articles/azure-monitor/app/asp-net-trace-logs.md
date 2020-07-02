@@ -69,11 +69,15 @@ For examples of using the Application Insights ILogger implementation with conso
 ## Insert diagnostic log calls
 If you use System.Diagnostics.Trace, a typical call would be:
 
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```csharp
+System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```
 
 If you prefer log4net or NLog, use:
 
+```csharp
     logger.Warn("Slow response - database01");
+```
 
 ## Use EventSource events
 You can configure [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
@@ -129,17 +133,21 @@ You can call the Application Insights trace API directly. The logging adapters u
 
 For example:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow response - database01");
+```
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 You can also add a severity level to your message. And, like other telemetry, you can add property values to help filter or search for different sets of traces. For example:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+  ```csharp
+  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+  telemetry.TrackTrace("Slow database response",
+                 SeverityLevel.Warning,
+                 new Dictionary<string,string> { {"database", db.ID} });
+  ```
 
 This would enable you to easily filter out in [Search][diagnostic] all the messages of a particular severity level that relate to a particular database.
 
