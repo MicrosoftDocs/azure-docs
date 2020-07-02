@@ -77,4 +77,3 @@ New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
   -vmSize "Standard_DS3_V2" `
   -region "CentralUSEUAP"
 ```
-
