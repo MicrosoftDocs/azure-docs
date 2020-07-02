@@ -60,27 +60,27 @@ When the [Log Analytics agent is installed on a Linux client](../../azure-monito
 #### rsyslog
 The configuration file for rsyslog is located at **/etc/rsyslog.d/95-omsagent.conf**. Its default contents are shown below. This collects syslog messages sent from the local agent for all facilities with a level of warning or higher.
 
-kern.warning       @127.0.0.1:25224
-user.warning       @127.0.0.1:25224
-daemon.warning     @127.0.0.1:25224
-auth.warning       @127.0.0.1:25224
-syslog.warning     @127.0.0.1:25224
-uucp.warning       @127.0.0.1:25224
-authpriv.warning   @127.0.0.1:25224
-ftp.warning        @127.0.0.1:25224
-cron.warning       @127.0.0.1:25224
-local0.warning     @127.0.0.1:25224
-local1.warning     @127.0.0.1:25224
-local2.warning     @127.0.0.1:25224
-local3.warning     @127.0.0.1:25224
-local4.warning     @127.0.0.1:25224
-local5.warning     @127.0.0.1:25224
-local6.warning     @127.0.0.1:25224
-local7.warning     @127.0.0.1:25224
+    kern.warning       @127.0.0.1:25224
+    user.warning       @127.0.0.1:25224
+    daemon.warning     @127.0.0.1:25224
+    auth.warning       @127.0.0.1:25224
+    syslog.warning     @127.0.0.1:25224
+    uucp.warning       @127.0.0.1:25224
+    authpriv.warning   @127.0.0.1:25224
+    ftp.warning        @127.0.0.1:25224
+    cron.warning       @127.0.0.1:25224
+    local0.warning     @127.0.0.1:25224
+    local1.warning     @127.0.0.1:25224
+    local2.warning     @127.0.0.1:25224
+    local3.warning     @127.0.0.1:25224
+    local4.warning     @127.0.0.1:25224
+    local5.warning     @127.0.0.1:25224
+    local6.warning     @127.0.0.1:25224
+    local7.warning     @127.0.0.1:25224
 
 You can remove a facility by removing its section of the configuration file. You can limit the severities that are collected for a particular facility by modifying that facility's entry. For example, to limit the user facility to messages with a severity of error or higher you would modify that line of the configuration file to the following:
 
-user.error    @127.0.0.1:25224
+    user.error    @127.0.0.1:25224
 
 
 #### syslog-ng
