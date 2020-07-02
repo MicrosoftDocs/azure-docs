@@ -19,7 +19,7 @@ Data in Azure managed disks is encrypted transparently using 256-bit [AES encryp
 Encryption does not impact the performance of managed disks and there is no additional cost for encryption. 
 
 > [!NOTE]
-> Temporary disks are not managed disks and are not encrypted by SSE; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
+> Temporary disks are not managed disks and are not encrypted by SSE unless you enable end-to-end encryption; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
 
 ## Encryption at rest
 
