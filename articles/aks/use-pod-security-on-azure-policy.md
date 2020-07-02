@@ -77,12 +77,9 @@ The ability to define additional custom namespaces to be excluded is not support
 
 ## Enable Azure policies for pod security
 
-After installing the Azure Policy Add-on, no policies are applied by default. You can select from built-in policies to be audited or enforced against a given AKS cluster. 
+After installing the Azure Policy Add-on, no policies are applied by default. You can select from built-in policies to be audited or enforced against a given AKS cluster.
 
-For each policy the behavior can be customized with an effect. Policies on AKS support the following effects:
-
-1. Audit: allow deployments against policy to continue, but flag clusters which are running pods against policy.
-1. Deny: disallow deployments from being created which go against policy.
+For each policy the behavior can be customized with an effect. A [full list of AKS policies and their supported effects are listed here](policy-samples#microsoftcontainerservice).
 
 Read more about [Azure Policy effects](../governance/policy/concepts/effects).
 
@@ -95,13 +92,13 @@ Azure Policy for Kubernetes offers two built-in initiatives which focus on pod s
 #### Baseline initiative
 
 The baseline initiative includes the following policies.
-* host-namespaces - Defaults are built-in to the template (hostPID and hostIPC set as false)
-* privileged-containers - Defaults are built-in to the template (privileged set as false)
+* host-namespaces - Defaults are set to hostPID and hostIPC as false
+* privileged-containers - Defaults are set to privileged as false
 * capabilities
-  * Default should be allowedCapabilities set as an empty array (nothing additional is allowed)
+  * Default to allowedCapabilities set as nothing allowed
   * Default [capabilities for Moby](https://github.com/moby/moby/blob/master/oci/caps/defaults.go)
 * host-network-ports
-  * Defaults should be hostNetwork set as false and both min/max set as 0
+  * Defaults to hostNetwork as false and both min/max set as 0
 * host-filesystem
   * Used to forbid any hostpath volumes
   * An empty constraint will deny everything. Anything added in the constraint will allow those hostpaths.
@@ -120,7 +117,7 @@ This initiative includes all policies from baseline/default. In addition to poli
     1. 'downwardAPI'
     1. 'persistentVolumeClaim'
 * allow-privilege-escalation
-  * Defaults are built-in to the template (allowPrivilegeEscalation set as false)
+  * Defaults are set to allowPrivilegeEscalation as false.
 
 #### Custom initiative
 
