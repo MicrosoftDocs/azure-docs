@@ -117,6 +117,8 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Currently, the analytical store can only be enabled for new containers (both in new and existing Azure Cosmos DB accounts).
 
+* In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. Hence it is recommended to not enable Synapse Link on database accounts with production workloads which might require backup and restore functionality. Support for backup & restore functionality on Synapse Link enabled database accounts will be available in H2 of CY20.
+
 * Accessing the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 * Accessing the Azure Cosmos DB analytics store with Synapse SQL provisioned is currently not available.
