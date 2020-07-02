@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: How to query with SQL in Azure Cosmos DB?'
-description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB using thw query playground'
+description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB using the query playground'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -68,9 +68,11 @@ Given the sample family document above, following SQL query returns the document
 
 **Query**
 
-    SELECT * 
-    FROM Families f 
-    WHERE f.id = "WakefieldFamily"
+```
+SELECT * 
+FROM Families f 
+WHERE f.id = "WakefieldFamily"
+```
 
 **Results**
 
@@ -109,13 +111,16 @@ The next query returns all the given names of children in the family whose id ma
 
 **Query**
 
-    SELECT c.givenName 
-    FROM Families f 
-    JOIN c IN f.children 
-    WHERE f.id = 'WakefieldFamily'
+```
+SELECT c.givenName 
+FROM Families f 
+JOIN c IN f.children 
+WHERE f.id = 'WakefieldFamily'
+```
 
 **Results**
 
+```
 [
     {
         "givenName": "Jesse"
@@ -124,6 +129,7 @@ The next query returns all the given names of children in the family whose id ma
         "givenName": "Lisa"
     }
 ]
+```
 
 
 ## Next steps
