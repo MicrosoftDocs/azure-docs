@@ -60,7 +60,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
 
-## <a id="direct-connection"></a> Networking
+## <a id="networking"></a> Networking
 
 **Connection policy: Use direct connection mode**
 
@@ -129,6 +129,7 @@ When possible, place any applications that call Azure Cosmos DB in the same regi
 :::image type="content" source="./media/performance-tips/same-region.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
 
 **Increase the number of threads/tasks**
+<a id="#increase-threads"></a>
 
 Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of parallelism of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.
 
@@ -209,7 +210,7 @@ When a query is executed, the resulting data is sent within a TCP packet. If you
 
 **Increase the number of threads/tasks**
 
-See [Increase the number of threads/tasks](#increase-threads) in the Networking section of this article.
+See [Increase the number of threads/tasks](#increase-threads) in the networking section of this article.
 
 ## Indexing policy
  

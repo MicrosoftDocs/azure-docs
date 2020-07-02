@@ -164,9 +164,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
   For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
-### <a id="asyncjava2-noscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+  **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
-    ```java
+  ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
       collectionLink, document, null, true);
 
@@ -178,13 +178,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
         // DON'T do this on eventloop IO netty thread.
         veryCpuIntensiveWork();
       });
-    ```
+  ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
+  After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
 
-    ### <a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+  **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
-    ```java
+  ```java
     import rx.schedulers;
 
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -199,12 +199,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
         //   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
         veryCpuIntensiveWork();
       });
-    ```
+  ```
 
-    Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
-    [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
+  Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
+  [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
+  For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
 
 * **Disable netty's logging**
 
