@@ -87,7 +87,7 @@ After these settings, start debugging with **F5** and breakpoints. You can also 
 
 After debugging, if the project completes successfully the output window shows the following message:
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
