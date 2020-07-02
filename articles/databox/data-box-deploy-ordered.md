@@ -119,74 +119,68 @@ You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted inter
 
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article.
 
-<!-- To start Azure Cloud Shell:
+# [Azure Powershell](#tab/azure-ps)
 
-| Option | Example/Link |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-To run the code in this article in Azure Cloud Shell:
+### Use Windows PowerShell locally
 
-1. Start Cloud Shell.
+#### Install or upgrade Windows PowerShell
 
-2. Select the **Copy** button on a code block to copy the code.
+You will need to have Windows PowerShell version 6.2.4 or higher installed. To find out what version of PowerShell you have installed, run: `$PSVersionTable`.
 
-3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+You will see the following output:
 
-4. Select **Enter** to run the code.
+```azurepowershell
+    PS C:\users\gusp> $PSVersionTable
+    
+    Name                           Value
+    ----                           -----
+    PSVersion                      6.2.3
+    PSEdition                      Core
+    GitCommitId                    6.2.3
+    OS                             Microsoft Windows 10.0.18363
+    Platform                       Win32NT
+    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+    PSRemotingProtocolVersion      2.3
+    SerializationVersion           1.1.0.1
+    WSManStackVersion              3.0
+```
+If your version is lower than 6.2.4, you will need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, go [here](https://github.com/PowerShell/PowerShell/releases). For detailed instructions about the latest Windows PowerShell release, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+#### Install Azure PowerShell Az module
 
-<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
-<!-- ## Change the output format type
+Install the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
+### Use Azure Cloud Shell
 
-<!-- ```azurecli
+You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted interactive shell environment, through your browser to run Windows PowerShell commands. Azure Cloud Shell supports Bash and Windows PowerShell with Azure services. Azure PowerShell is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
-az databox job <command> --output <output-format>
+![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article.
+
+### Sign in to Azure
+
+Open up a Windows PowerShell command window and sign in to Azure with the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) command:
+
+```azurecli
+PS C:\Windows> Connect-AzAccount
 ```
 
-Azure Data Box CLI commands support the following output formats:
+Here is the output from a successful sign-in:
 
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
+```output
+WARNING: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FSBFZMBKC to authenticate.
 
-You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+Account              SubscriptionName                          TenantId                             Environment
+-------              ----------------                          --------                             -----------
+gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa AzureCloud
 
-<!-- To set the output format to yaml: -->
+PS C:\Windows\System32>
+```
 
-<!-- ```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
-
-``` -->
-<!-- 
-To set the out format to tabular form (easier to read):
-
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
-
-``` -->
-
-<!-- Here's the example output of `az databox job show` after changing the output format to table:
-
-```azurecli
-PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
-Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
-
-DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
---------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
-NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-
-``` -->
+For detailed information on how to sign in to Azure using Windows PowerShell, see [Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -365,6 +359,12 @@ Do the following steps using Azure CLI to order a device:
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
 
     ```
+
+# [Azure Powershell](#tab/azure-ps)
+
+Do the following steps using Azure CLI to order a device:
+
+1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the parameter settings used for `az databox job create`:
 
 ---
 
