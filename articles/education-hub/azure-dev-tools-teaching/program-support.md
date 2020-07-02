@@ -10,4 +10,4 @@ ms.prod: azure
 
 # Support
 
-[!INCLUDE [help using Azure Dev Tools for Teaching](../../edu-dev-tools-program-support.md)]
+[!INCLUDE [help using Azure Dev Tools for Teaching](../../../includes/edu-dev-tools-program-support.md)]
