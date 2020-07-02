@@ -113,17 +113,19 @@ You can create the metric alert using the template and parameters file using the
 
 ### Deploy through Azure portal
 
-1. To deploy a customized template through the portal, select **Create a resource**, search for **template**, and then select **Template**. deployment.
+1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
 
-2. Select **Create**.
+2. To deploy a customized template through the portal, select **Create a resource**, search for **template**, and then select **Template**. deployment.
 
-3. You see several options for creating a template, select **Build your own template in editor**.
+3. Select **Create**.
 
-4. On the **Edit template page**, select **Load file** and then select the template file.
+4. You see several options for creating a template, select **Build your own template in editor**.
 
-5. On the **Edit template** page, select **Save**.
+5. On the **Edit template page**, select **Load file** and then select the template file.
 
-6. On the **Custom deployment** page, specify the following and then when complete select **Purchase** to deploy the template and create the alert rule.
+6. On the **Edit template** page, select **Save**.
+
+7. On the **Custom deployment** page, specify the following and then when complete select **Purchase** to deploy the template and create the alert rule.
 
     * Resource group
     * Location
@@ -132,6 +134,37 @@ You can create the metric alert using the template and parameters file using the
 
 ### Deploy with Azure PowerShell or CLI
 
+1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create the alert rule using the following commands:
+
+2. You can set the values for the parameters either on the command line or through a parameter file.
+
+3. You can create the metric alert using the template and parameters file using PowerShell or Azure CLI.
+
+    Using Azure PowerShell
+
+    ```powershell
+    Connect-AzAccount
+
+    Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+    New-AzResourceGroupDeployment -Name CIMetricAlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+    -TemplateFile templateFilename.json -TemplateParameterFile templateParameterFilename.parameters.json
+    ```
+
+    Using Azure CLI
+
+    ```azurecli
+    az login
+
+    az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file templateFileName.json \
+    --parameters @templateParameterFilename.parameters.json
+    ```
+
+    >[!NOTE]
+    >While the metric alert could be created in a different resource group to the target resource, we recommend using the same resource group as your target resource.
 
 ## Edit alert rules
 
