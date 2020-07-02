@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 06/30/2020
 ---
 
 # Configure network virtual appliance in Azure HDInsight
@@ -16,13 +16,14 @@ ms.date: 05/06/2020
 
 Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. Using another network virtual appliance will require you to configure a number of additional features. Keep the following factors in mind as you configure your network virtual appliance:
 
-* Service Endpoint capable services should be configured with service endpoints.
+* Service Endpoint capable services can be configured with service endpoints which results in bypassing the NVA, usually for cost or performance considerations.
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
-* FQDN HTTP/HTTPS endpoints can be placed in your NVA device.
-* Wildcard HTTP/HTTPS endpoints are dependencies that can vary based on a number of qualifiers.
+* FQDN HTTP/HTTPS endpoints can be whitelisted in your NVA device.
 * Assign the route table that you create to your HDInsight subnet.
 
 ## Service endpoint capable dependencies
+
+You can optionally enable one or more of the following service endpoints which will result in bypassing the NVA. This option can be useful for large amounts of data transfers to save on cost and also for performance optimizations. 
 
 | **Endpoint** |
 |---|
@@ -34,33 +35,19 @@ Azure Firewall is automatically configured to allow traffic for many of the comm
 
 | **Endpoint** | **Details** |
 |---|---|
-| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are HDInsight service |
-| AAD-DS private IPs for ESP clusters |
-| \*:16800 for KMS Windows Activation |
-| \*12000 for Log Analytics |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are for HDInsight control place and should be included in the UDR to avoid asymmetric routing |
+| AAD-DS private IPs | Only needed for ESP clusters|
+
 
 ### FQDN HTTP/HTTPS dependencies
 
 > [!Important]
-> The list below only gives a few of the most important FQDNs. You can get additional FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> The list below only gives a few of the most important FQDNs. You can get entire list of FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). These dependencies are used by HDInsight control plane operations to create a cluster successfully.
 
 | **Endpoint**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 

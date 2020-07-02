@@ -21,6 +21,12 @@ This article gives answers to frequently asked questions about Azure Media Servi
 
 ## General
 
+### What are the Azure portal limitations for Media Services v3?
+
+You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
+If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.  
+
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
 See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).

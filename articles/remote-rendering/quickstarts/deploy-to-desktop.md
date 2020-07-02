@@ -33,7 +33,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **Player** on the left.
 1. Select the **Universal Windows Platform settings** tab.
 1. Expand the **XR Settings**.
-1. Disable **Virtual Reality Supported**.
+1. Disable **Virtual Reality Supported**.\
     ![player settings](./media/unity-disable-xr.png)
 1. Above *XR Settings*, expand **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
@@ -44,13 +44,13 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here, see [platform limitations](../reference/limits.md#platform-limitations)).
 1. Set *Target Device* to **PC**.
 1. Set *Architecture* to **x86**.
-1. Set *Build Type* to **D3D Project**.
+1. Set *Build Type* to **D3D Project**.\
   ![Build settings](./media/unity-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you will be asked to select some folder where the solution should be stored.
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
-1. Switch the debugger mode to **Local Machine**.
+1. Switch the debugger mode to **Local Machine**.\
   ![Solution configuration](./media/unity-deploy-config-pc.png)
 1. Build the solution (F7).
 

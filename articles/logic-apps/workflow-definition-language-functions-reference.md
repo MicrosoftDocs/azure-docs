@@ -3,9 +3,9 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 07/01/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -503,6 +503,9 @@ but you can optionally specify a property whose value that you want.
 For shorthand versions, see [actionBody()](#actionBody),
 [actionOutputs()](#actionOutputs), and [body()](#body).
 For the current action, see [action()](#action).
+
+> [!TIP]
+> The `actions()` function returns output as a string. If you need to work with a returned value as a JSON object, you first need to convert the string value. You can transform the string value into a JSON object using the [Parse JSON action](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > Previously, you could use the `actions()` function or
@@ -2117,7 +2120,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Example 2"
@@ -2125,7 +2128,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Example 3*

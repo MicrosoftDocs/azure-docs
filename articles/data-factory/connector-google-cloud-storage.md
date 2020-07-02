@@ -227,7 +227,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Legacy models
 
-If you were using an Amazon S3 connector to copy data from Google Cloud Storage, it's still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier, until the Data Factory authoring UI has switched to generating the new model.
+If you were using an Amazon S3 connector to copy data from Google Cloud Storage, it's still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The Data Factory authoring UI has switched to generating the new model.
 
 ## Next steps
 For a list of data stores that the Copy activity in Azure Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
