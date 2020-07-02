@@ -33,7 +33,7 @@ The following key requirements, identified in the publications from the ACSC, ar
 |**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, segmentation and segregation apply from the data link layer up to and including the application layer; however, in sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. Using a firewall or security appliance as the only security measure is not sufficient. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn't need to communicate with another host, service, or network, it shouldn't be allowed to. If a host, service, or network only needs to talk to another host, service, or network using specific ports or protocols, then any other ports or protocols should be disabled. Adopting these principles across a network will complement the minimization of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Separate hosts and networks based on their sensitivity or criticality to business operations**. Separation can be achieved by using different hardware or platforms depending on different security classifications, security domains, or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Identify, authenticate, and authorize access by all entities to all other entities**. All users, hosts, and services should have their access restricted to only the other users, hosts, and services required to do their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorisation services should be disabled and their use should be closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Identify, authenticate, and authorize access by all entities to all other entities**. All users, hosts, and services should have their access restricted to only the other users, hosts, and services required to do their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorization services should be disabled and their use should be closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Implement allow listing of network traffic instead of deny listing**. Only permit access for known good network traffic (that is, that which is identified, authenticated, and authorized), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Whitelisting results in a superior security policy to blacklisting, and significantly improves an organization's capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |
 
@@ -101,7 +101,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 
 * Limit the number of entry points to virtual networks
 * Limit the number of Public IP addresses
-* Consider utilizing a Hub and Spoke Network Design for Virtual Networks as discussed in the Microsoft Virtual Data Centre (VDC) documentation
+* Consider utilizing a Hub and Spoke Network Design for Virtual Networks as discussed in the Microsoft Virtual Data Center (VDC) documentation
 * Utilize products with inbuilt security capabilities for inbound connections from the Internet (for example, Application Gateway, API Gateway, Network Virtual Appliances)
 * Restrict communication flows to PaaS capabilities to only those necessary for system functionality
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
@@ -117,7 +117,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 |Resource | Link|
 |---|---|
 |Australian Regulatory and Policy Compliance Documents including Consumer Guidance|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
-|Azure Virtual Data Centre|[https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)|
+|Azure Virtual Data Center|[https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)|
 |ACSC Network Segmentation|[https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)|
 |ACSC Cloud Security for Tenants| [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)|
 |ACSC Information Security Manual|[https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)|
@@ -255,7 +255,7 @@ ExpressRoute Gateways provide an ingress point from the on-premises environment 
 
 ### VPN Gateway
 
-Azure VPN Gateway provides an ingress network point from an external network for secure site-to-site or point-to-site connections. VPN Gateways provide a defined network bandwidth and incur usage costs after deployment. Commonwealth entities utilising VPN Gateway should ensure that it is configured in accordance with the ACSC consumer guidance. Virtual Networks can have only one VPN Gateway, but this can be configured with multiple tunnels and can be leveraged by multiple Virtual Networks through VNet Peering, allowing multiple Virtual Networks to share bandwidth and connectivity. VPN Gateways can be established over the Internet or over ExpressRoute through Microsoft Peering.
+Azure VPN Gateway provides an ingress network point from an external network for secure site-to-site or point-to-site connections. VPN Gateways provide a defined network bandwidth and incur usage costs after deployment. Commonwealth entities utilizing VPN Gateway should ensure that it is configured in accordance with the ACSC consumer guidance. Virtual Networks can have only one VPN Gateway, but this can be configured with multiple tunnels and can be leveraged by multiple Virtual Networks through VNet Peering, allowing multiple Virtual Networks to share bandwidth and connectivity. VPN Gateways can be established over the Internet or over ExpressRoute through Microsoft Peering.
 
 |Resource | Link|
 |---|---|
