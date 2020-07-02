@@ -12,7 +12,7 @@ ms.author: errobin
 
 # Backend Pool Management
 
-The Backend Pool of the Load Balancer is a fundamental component which defines the group of compute resource that will serve traffic for a given Load Balancing rule. By configuring a Backend Pool correctly you will have defined an eligble machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
+The Backend Pool of the Load Balancer is a fundamental component which defines the group of compute resource that will serve traffic for a given Load Balancing rule. By configuring a Backend Pool correctly you will have defined a group of eligble machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
 
 In most scenarios involving VMs and VMSSes it is recommended to configuring your Backend Pool by NIC as this builds the most direct link between your resource and the Backend Pool. For scenarios involving containers and Kubernetes Pods which do not have a NIC or for preallocation of a range of IP addresses for Backend resources, you can configure your Backend Pool by IP Address and VNET ID combination.
 
