@@ -129,7 +129,7 @@ When possible, place any applications that call Azure Cosmos DB in the same regi
 :::image type="content" source="./media/performance-tips/same-region.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
 
 **Increase the number of threads/tasks**
-<a id="#increase-threads"></a>
+<a id="increase-threads"></a>
 
 Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of parallelism of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.
 
