@@ -45,15 +45,13 @@ When a user is assigned to an app group, the service does a simple Azure role-ba
 
 You can create virtual machines (VMs) in a different Azure AD as long as you sync the Active Directory with the user's Azure AD in the same virtual network (VNET).
 
+Azure Lighthouse doesn't fully support managing the Windows Virtual Desktop environment. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
+
 ## What are location restrictions?
 
 All service resources have a location associated with them. A host pool’s location determines which geography the service metadata for the host pool is stored in. An app group can't exist without a host pool. If you add apps to a RemoteApp app group, you'll also need a session host to determine the start menu apps. For any app group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the app group's location should be the same as the host pool's.
 
 Workspaces also must be in the same location as their app groups. Whenever the workspace updates, the related app group updates along with it. Like with app groups, the service requires that all workspaces are associated with app groups created in the same location.
-
-## Can RDP traffic be routed through ExpressRoute?
-
-Windows Virtual Desktop doesn't fully separate RDP traffic from public IPs. Windows Virtual does have the RDP ShortPath feature, which routes all RDP traffic over private addresses using ExpressRoute. This rerouting improves remote connection performance by using managed networks instead of public networks. However, signaling and telemetry data will still flow over public IPs.
 
 ## How do you expand an object's properties in PowerShell?
 
@@ -91,6 +89,35 @@ CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redir
 
 Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
 
+You can't use your own licenses for the benefit of a third party. Also, Windows Virtual Desktop doesn't currently support Microsoft Account (MSA).
+
 ## Why don't I see the client IP address in the WVDConnections table?
 
-We don't currently have a way to collect the web client's IP address for the table, so that value isn't included.
+We don't currently have a reliable way to collect the web client's IP addresses, so we don't include that value in the table.
+
+## How does Windows Virtual Desktop handle backups?
+
+There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
+
+## Does Windows Virtual Desktop support third-party collaboration apps?
+
+Windows Virtual Desktop is currently optimized for Teams. Microsoft currently doesn't support third-party collaboration apps like Zoom. Third-party organizations are responsible for giving their customers guidelines for compatibility. Windows Virtual Desktop also doesn't support Skype for Business.
+
+## Can I change from pooled to personal host pool?
+
+Once you create a host pool, you can't change its type. However, you can move any VMs you register to a host pool to a different type of host pool.
+
+## What's the largest profile size FSLogix can handle?
+
+In general, FSLogix doesn't limit profile size, although there is a limit based on the VHD/VHDx spec.
+
+The size limit depends on the underlying storage fabric you use to store your FSLogix profiles. The following table lists how much space FSLogix needs per user.
+
+| Spec type |IOPS needed|
+|---|---|
+| Steady IOPS | 10 |
+| Boot IOPS | 50 |
+| Steady throughput (MBPS) | 1.5 |
+| Boot throughput (MBPS) | 7.5 |
+
+For example, if you want to support 100 users , you'll need 1000 IOPS for steady us, 5000 IOPS for logon storm, and so on.
