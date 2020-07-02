@@ -8,7 +8,7 @@ ms.date: 06/30/2020
 
 # Recommended metric alerts (preview) from Azure Monitor for containers
 
-To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview.
+To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS cluster, which is in public preview.
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
@@ -33,7 +33,7 @@ To alert on what matters, Azure Monitor for containers includes the following me
 |Failed Pod Counts |Calculates if any pod in failed state.|When a number of pods in failed state are greater than 0. |
 |Node NotReady status |Calculates if any node is in NotReady state.|When a number of nodes in NotReady state are greater than 0. |
 |OOM Killed Containers |Calculates number of OOM killed containers. |When a number of OOM killed containers is greater than 0. |
-|Pods ready % |Calculates the average ready state of pods. |When ready state of pods are less than 80%.|
+|Pods ready % |Calculates the average ready state of pods. |When ready state of pods is less than 80%.|
 |Completed job count |Calculates number of jobs completed more than six hours ago. |When number of stale jobs older than six hours is greater than 0.|
 
 There are common properties across all of these alert rules:
@@ -105,7 +105,7 @@ You can use an Azure Resource Manager template and parameters file to create the
 
 The basic steps are as follows:
 
-1. Download one or all of the available templates that describes how to create the alert.
+1. Download one or all of the available templates that describe how to create the alert.
 
 2. Create and use a [parameters file](../../azure-resource-manager/templates/parameter-files.md) as a JSON to set the values required to create the alert rule.
 
@@ -170,7 +170,7 @@ The basic steps are as follows:
 
 ## Edit alert rules
 
-You can view and manage Azure Monitor for containers alert rules, to edit its threshold or configure an [action group](../platform/action-groups.md) for your AKS cluster. While you can perform this through Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Azure Monitor for containers.
+You can view and manage Azure Monitor for containers alert rules, to edit its threshold or configure an [action group](../platform/action-groups.md) for your AKS cluster. While you can perform this action through the Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Azure Monitor for containers.
 
 1. From the command bar, select **Recommended alerts**.
 
