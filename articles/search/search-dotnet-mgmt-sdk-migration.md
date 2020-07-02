@@ -22,9 +22,9 @@ Management SDKs target a specific version of the Management REST API. For more i
 
 | SDK version | Corresponding REST API version | Feature addition or behavior change |
 |-------------|--------------------------------|-------------------------------------|
-| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Adds endpoint protections           |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements
-| [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | First version                       |
+| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Adds endpoint security (IP firewalls and integration with [Azure Private Link](../private-link/private-endpoint-overview.md)) |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements |
+| [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | First version |
 
 ## How to upgrade
 
@@ -32,19 +32,27 @@ Management SDKs target a specific version of the Management REST API. For more i
 
 1. Once NuGet has downloaded the new packages and their dependencies, rebuild your project. Depending on how your code is structured, it may rebuild successfully, in which case you are done.
 
-1. If your build fails, it could be because you've implemented some of the SDK interfaces (for example, for the purposes of unit testing), which have changed. To resolve this, you'll need to implement the new methods such as `BeginCreateOrUpdateWithHttpMessagesAsync`.
+1. If your build fails, it could be because you've implemented some of the SDK interfaces (for example, for the purposes of unit testing), which have changed. To resolve this, you'll need to implement newer methods such as `BeginCreateOrUpdateWithHttpMessagesAsync`.
 
 1. After fixing any build errors, you can make changes to your application to take advantage of new functionality. 
 
 ## Upgrade to 3.0
 
-Version 3.0 adds private endpoint protection by restricting access to IP ranges, and by optionally integrating with Azure Private Link for search services that should not be accessible to the public internet.
+Version 3.0 adds private endpoint protection by restricting access to IP ranges, and by optionally integrating with Azure Private Link for search services that should not be visible on the public internet.
 
-There are no breaking changes or behavior changes from the previous release, but upgrading is recommended if you want to use the new features:
+### New APIs
 
-* [Configure IP firewall](service-configure-firewall.md)
+| API | Category| Details |
+|-----|--------|------------------|
+| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP firewall | Restrict access to a service endpoint to a list of allowed IP addresses. See [Configure IP firewall](service-configure-firewall.md) for concepts and portal instructions. |
+| [Shared Private Link Resource](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Create a shared private link resource to be used by a search service.  |
+| [Private Endpoint Connections](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Establish and manage connections to a search service through private endpoint. See [Create a private endpoint](service-create-private-endpoint.md) for concepts and portal instructions.|
+| [Private Link Resources](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | For a search service that has a private endpoint connection, get a list of all services used in the same virtual network. If your search solution includes indexers that pull from Azure data sources (Azure Storage, Cosmos DB, Azure SQL), or uses Cognitive Services or Key Vault, then all of those resources should have endpoints in the virtual network, and this API should return a list. |
+| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | This is a property on Create or Update Service requests. When disabled, private link is the only access modality. |
 
-* [Create a private endpoint](service-create-private-endpoint.md)
+### Breaking changes
+
+You can no longer [Get Admin Keys](https://docs.microsoft.com/est/api/searchmanagement/adminkeys/get) with a GET request. It  must be a POST. [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) has been been a POST call for the last several releases, so it should not be a breaking change in this release, but for any script or code that retrieves keys, be sure to check that only POST is used.
 
 ## Upgrade to 2.0
 
