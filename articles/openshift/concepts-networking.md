@@ -13,56 +13,15 @@ ms.date: 06/22/2020
 
 This guide covers an overview of networking in Azure Red Hat on OpenShift 4 clusters, along with a diagram and a list of important endpoints.
 
-For more details on core OpenShift networking concepts, please see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+For more details on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
-## Networking Concepts in Azure Red Hat OpenShift
-
-### Networking Basics in OpenShift
-
-OpenShift Software Defined Networking (SDN) is used to configure an overlay network using Open vSwitch (OVS), an OpenFlow implementation based on Container Network Interface (CNI) specification. The SDN supports different plugins, and the plugin being used in Azure Red Hat on OpenShift 4 is Network Policy. All network communication is managed by the SDN, so no extra routes are needed on your virtual networks to achieve pod to pod communication.
-
-### Azure Red Hat OpenShift Networking Specifics
-
-The following features are specific to Azure Red Hat OpenShift:
-* Bring your own virtual network is supported.
-* Pod and Service Network CIDRs are configurable.
-* Nodes and Masters are in different subnets.
-* Nodes and Masters virtual network subnets should be minimum /27.
-* Pod CIDR should be minimum /18 in size (The pod network is non-routable IPs, and is only used inside the OpenShift SDN).
-* Each node is allocated /23 subnet (512 IPs) for its pods (you can not change this value).
-* You can not attach a pod to multiple networks.
-* You can not configure Egress static IP. (This is an OpenShift feature. See the documentation on [configuring egress IPs](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html) for more details).
-
-### Network Modes
-
-The following network modes are available in Azure Red Hat OpenShift 4x:
-
-* **API Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
-    * "Public" - API Server is accessible by external networks.
-    * "Private" - API Server assigned a private IP from the masters subnet, only accessible using connected networks (peered virtual networks, other subnets in the cluster). A private DNS Zone will be created on the customer's behalf.
-* **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
-    * "Public" routes will default to public Azure Standard Load Balancer (this can be changed).
-    * "Private" routes will default to internal load balancer (this can be changed).
-
-### Network Security Groups
-Network security groups will be created in the nodes Resource Group which is locked. The network security groups are assigned directly to the subnets not on the node's NICs. The network security groups are immutable, which means you do not have the permissions to change them. 
-
-Some things that are not supported:
-You can not create network security groups and assign them to the node's NICs.
-With a publicly visible API server, you can not create network security groups and assign them to the NICs.
-
-### DNS
-Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured (see the documentation on [using DNS forwarding](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator) for more details.
-
-Currently you ca not bring your own DNS to your virtual networks.
-
-## Azure Red Hat on OpenShift 4 networking diagram
+## Networking concepts in Azure Red Hat OpenShift
 
 ![Azure Red Hat OpenShift 4 networking diagram](./media/concepts-networking/aro4-networking-diagram.png)
 
 When you deploy Azure Red Hat on OpenShift 4, your entire cluster is contained within a virtual network. Within this virtual network, your master nodes and workers nodes each live in their own subnet. Each subnet uses a public and internal load balancer.
 
-### Explanation of endpoints
+## Explanation of endpoints
 
 The following list covers important endpoints in an Azure Red Hat OpenShift cluster.
 
@@ -111,4 +70,42 @@ The following list covers important endpoints in an Azure Red Hat OpenShift clus
     * Allows network connectivity from the management plane into a cluster for cluster management.
     * Microsoft and Red Hat site reliability engineers to help manage your cluster.
 
-For more information on outbound traffic and what Azure Red Hat OpenShift supports for egress, please see the [support policies](support-policies-v4.md) documentation.
+## Networking basics in OpenShift
+
+OpenShift Software Defined Networking (SDN) is used to configure an overlay network using Open vSwitch (OVS), an OpenFlow implementation based on Container Network Interface (CNI) specification. The SDN supports different plugins, and Network Policy is the plugin used in Azure Red Hat on OpenShift 4. All network communication is managed by the SDN, so no extra routes are needed on your virtual networks to achieve pod to pod communication.
+
+## Azure Red Hat OpenShift networking specifics
+
+The following features are specific to Azure Red Hat OpenShift:
+* Bring your own virtual network is supported.
+* Pod and Service Network CIDRs are configurable.
+* Nodes and masters are in different subnets.
+* Nodes and masters virtual network subnets should be minimum /27.
+* Pod CIDR should be minimum /18 in size (The pod network is non-routable IPs, and is only used inside the OpenShift SDN).
+* Each node is allocated /23 subnet (512 IPs) for its pods. This value cannot be changed.
+* You cannot attach a pod to multiple networks.
+* You cannot configure Egress static IP. (This is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)).
+
+## Network settings
+
+The following network settings are available in Azure Red Hat OpenShift 4:
+
+* **API Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
+    * "Public" - API Server is accessible by external networks.
+    * "Private" - API Server assigned a private IP from the masters subnet, only accessible using connected networks (peered virtual networks, other subnets in the cluster). A private DNS Zone will be created on the customer's behalf.
+* **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
+    * "Public" routes will default to public Azure Standard Load Balancer (this can be changed).
+    * "Private" routes will default to internal load balancer (this can be changed).
+
+## Network security groups
+Network security groups will be created in the nodes' resource group, which is locked. The network security groups are assigned directly to the subnets not on the node's NICs. The network security groups are immutable, which means you do not have the permissions to change them. 
+
+However, with a publicly visible API server, you cannot create network security groups and assign them to the NICs.
+
+## Domain forwarding
+Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured (see the documentation on [using DNS forwarding](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator) for more details).
+
+Currently, you cannot bring your own DNS to your virtual networks.
+
+
+For more information on outbound traffic and what Azure Red Hat OpenShift supports for egress, see the [support policies](support-policies-v4.md) documentation.
