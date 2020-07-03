@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Coggle Configuration](./media/Coggle-tutorial/configure3.png)
 
-5. On the **SAML Integration** dailog page, perform the following steps:
+5. On the **SAML Integration** dialog page, perform the following steps:
 
     ![Coggle Configuration](./media/Coggle-tutorial/configure4.png)
 
