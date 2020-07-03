@@ -226,11 +226,10 @@ public static string generateSasToken(string resourceUri, string key, string pol
 For Java:
 ```java
     public static String generateSasToken(String resourceUri, String key) throws Exception {
-        String stringToSign, token;
         // Token will expire in one hour
         var expiry = Instant.now().getEpochSecond() + 3600;
 
-        stringToSign = URLEncoder.encode(resourceUri, StandardCharsets.UTF_8) + "\n" + expiry;
+        String stringToSign = URLEncoder.encode(resourceUri, StandardCharsets.UTF_8) + "\n" + expiry;
         byte[] decodedKey = Base64.getDecoder().decode(key);
 
         Mac sha256HMAC = Mac.getInstance("HmacSHA256");
@@ -241,7 +240,7 @@ For Java:
         String signature = new String(encoder.encode(
             sha256HMAC.doFinal(stringToSign.getBytes(StandardCharsets.UTF_8))), StandardCharsets.UTF_8);
 
-        token = "SharedAccessSignature sr=" + URLEncoder.encode(resourceUri, StandardCharsets.UTF_8)
+        String token = "SharedAccessSignature sr=" + URLEncoder.encode(resourceUri, StandardCharsets.UTF_8)
                 + "&sig=" + URLEncoder.encode(signature, StandardCharsets.UTF_8.name()) + "&se=" + expiry;
             
         return token;
