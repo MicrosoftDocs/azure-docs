@@ -17,22 +17,6 @@ ms.date: 11/01/2018
 ms.author: delhan
 
 ---
-this is new test
-da
-|Column1  |Column2  |
-|---------|---------|
-|Row1     |         |
-|Row2     |         |
-|Row3     |         |
-> [!CAUTION]
-> Negative potential consequences of an action
-
-
-****
-
-dada``
-
-dadad
 # Troubleshoot Azure VM RDP connection issues by Event ID 
 
 This article explains how to use event IDs to troubleshoot issues that prevent a Remote Desktop protocol (RDP) connection to an Azure Virtual Machine (VM).
