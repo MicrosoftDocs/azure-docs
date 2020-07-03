@@ -96,9 +96,9 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 | External Data Source        | Location prefix | Location path                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
-| Azure Blob Storage          | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
-| Azure Data Lake Store Gen 1 | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
-| Azure Data Lake Store Gen 2 | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+| Azure Blob Storage          | `http[s]`       | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
+| Azure Data Lake Store Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
+| Azure Data Lake Store Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
 `https:` prefix enables you to use subfolder in the path.
 
