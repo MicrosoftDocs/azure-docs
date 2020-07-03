@@ -102,7 +102,7 @@ The example creates a flow that automatically sends an email notification when a
 
    After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
-   * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when "marketplaceleads" table is selected for this example.
+   * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when `marketplaceleads` table is selected for this example.
 
      ![Get entities window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

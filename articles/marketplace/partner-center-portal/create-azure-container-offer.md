@@ -104,7 +104,7 @@ We offer a Standard Contract template to help facilitate transactions in the com
 
 To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
-To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplac](../standard-contract.md)
+To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace](../standard-contract.md)
 
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.

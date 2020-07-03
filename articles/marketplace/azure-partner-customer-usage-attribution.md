@@ -69,7 +69,7 @@ After you add a GUID to your template or in the user agent, and register the GUI
 
 1. On the **Account settings page**, select **Add Tracking GUID.**
 
-1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
+1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the `pid-` prefix. In the **Description** box, enter your offer name or description.
 
 1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
 
@@ -93,7 +93,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the **pid-** prefix (e.g., pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the `pid-` prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Check the template for any errors.
 
@@ -132,12 +132,12 @@ If you're using a Resource Manager template, you should tag your solution by fol
 
 ### Tag a deployment with the Resource Manager APIs
 
-To enable customer usage attribution, when you design your API calls, include a GUID in the user agent header in the request. Add the GUID for each offer or SKU. Format the string with the **pid-** prefix and include the partner-generated GUID. Here's an example of the GUID format for insertion into the user agent:
+To enable customer usage attribution, when you design your API calls, include a GUID in the user agent header in the request. Add the GUID for each offer or SKU. Format the string with the `pid-` prefix and include the partner-generated GUID. Here's an example of the GUID format for insertion into the user agent:
 
 ![Example GUID format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> The format of the string is important. If the **pid-** prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK.
+> The format of the string is important. If the `pid-` prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK.
 
 #### Example: The Python SDK
 
