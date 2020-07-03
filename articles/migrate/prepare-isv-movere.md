@@ -31,7 +31,7 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 1. In the Azure portal, open **Subscriptions**.
 2. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
 3. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
-4. In **Role assignments** > **View**, check the permissions. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role.
+4. In **Role assignments** > **View**, check the permissions. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role.
 
 ## Allow access to URLs
 

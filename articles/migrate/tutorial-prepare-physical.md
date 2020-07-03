@@ -70,11 +70,11 @@ The tenant/global admin can grant permissions as follows:
     ![Azure AD permissions](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### Assign Application Developer role
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## Prepare Azure for physical server migration

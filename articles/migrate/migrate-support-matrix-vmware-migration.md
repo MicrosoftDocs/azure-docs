@@ -46,7 +46,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 
 **Support** | **Details**
 --- | ---
-**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure.
+**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration. 
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.

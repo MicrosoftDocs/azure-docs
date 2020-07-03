@@ -43,7 +43,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
+3. For the latest appliance version, the generated hash should match these [settings](./tutorial-assess-vmware.md#verify-security).
 
 
 
@@ -112,7 +112,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the access privileges needed.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](./migrate-support-matrix-vmware.md) about the access privileges needed.
 
 > [!NOTE]
 > This input is optional and is needed to enable application discovery and agentless dependency visualization.
