@@ -61,7 +61,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ### December 2019
 
-+ [Create app (preview)](search-create-app-portal.md) is a new wizard in the portal that generates a downloadable HTML file. The file comes with embedded script that renders an operational "localhost"-style web app, bound to an index on your search service. Pages are configurable in the wizard and can contain a search bar, results area, sidebar navigation, and typeahead query support. You can modify the HTML offline to extend or customize the workflow or appearance.
++ [Create Demo App (preview)](search-create-app-portal.md) is a new wizard in the portal that generates a downloadable HTML file with query (read-only) access to an index. The file comes with embedded script that renders an operational "localhost"-style web app, bound to an index on your search service. Pages are configurable in the wizard and can contain a search bar, results area, sidebar navigation, and typeahead query support. You can modify the HTML offline to extend or customize the workflow or appearance. A demo app is not easily extended to include security and hosting layers that are typically needed in production scenarios. You should consider it as a validation and testing tool rather than a short cut to a full client app.
 
 + [Create a private endpoint for secure connections (preview)](service-create-private-endpoint.md) explains how to set up a Private Link for secure connections to your search service. This preview feature is available upon request and uses [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution.
 

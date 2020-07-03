@@ -246,6 +246,8 @@
         href: sql/data-loading-best-practices.md
       - name: Columnstore compression
         href: sql/data-load-columnstore-compression.md
+      - name: Data loading overview
+        href: sql/load-data-overview.md        
     - name: Development
       items:
       - name: Overview
