@@ -39,7 +39,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
         and public [user-agent-based  clients](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
         The same application can also expose both a client and resource/API.
 
-        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) section of the [Azure AD Developers Guide](../../active-directory/develop/.md).
+        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) section of the [Azure AD Developers Guide](../../active-directory/develop/index.yml).
 
 5. When finished, click **Register**.  Azure AD assigns a unique *Application ID* to your new application. We recommend registering one app that accesses the API only, and as single tenant.
 

@@ -63,7 +63,7 @@ The ways that customers can use your commercial marketplace offer depend on how 
 
 After you sign up and accept the Publisher Agreement, you'll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
 
-For more information, see [Welcome to the commercial marketplace](index.yml/) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### How do I get support assistance for the commercial marketplace?
 
@@ -321,7 +321,7 @@ We recommend these resources:
 ### Where can I learn more about Partner Center?
 
 - [Partner Center documentation](https://docs.microsoft.com/partner-center/)
-- [Welcome to the commercial marketplace](index.yml/)
+- [Welcome to the commercial marketplace](index.yml)
 
 ### Where can I learn more about the Microsoft Admin Center?
 
@@ -329,7 +329,7 @@ For information about the Microsoft Admin Center, see [Manage third-party app su
 
 ### Where can I learn more about Azure billing?
 
-- [Azure Cost Management + Billing documentation](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Azure Cost Management + Billing documentation](../cost-management-billing/index.yml)
 - [Understand Azure Marketplace charges on your Azure bill](https://docs.microsoft.com/azure/cost-management-billing/understand/understand-azure-marketplace-charges)
 - [Convert Azure subscription to invoice payment](https://docs.microsoft.com/azure/cost-management-billing/manage/pay-by-invoice)
 
@@ -337,6 +337,6 @@ For information about the Microsoft Admin Center, see [Manage third-party app su
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
-- [Azure Government documentation](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Government marketplace](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace)
-- [Azure Government compliance](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance)
+- [Azure Government documentation](../azure-government/index.yml)
+- [Azure Government marketplace](../azure-government/documentation-government-manage-marketplace.md)
+- [Azure Government compliance](../azure-government/documentation-government-plan-compliance.md)
