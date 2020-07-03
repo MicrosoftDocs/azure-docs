@@ -210,5 +210,5 @@ module.exports = function (context, req) {
 ## Next steps
 
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* We encourage you to test, comment on, and [contribute](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) to CloudEvents.
+* We encourage you to test, comment on, and [contribute](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) to CloudEvents.
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
