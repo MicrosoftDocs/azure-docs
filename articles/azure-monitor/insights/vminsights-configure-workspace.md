@@ -10,84 +10,90 @@ ms.date: 06/22/2020
 ---
 
 # Configure Log Analytics workspace for Azure Monitor for VMs
-Azure Monitor for VMs requires a Log Analytics workspace to store the data it collects. Before you onboard any agents, you must configure this workspace by installing the **VMInsights** solution. This article describes different methods for preparing a Log Analytics workspace for Azure Monitor for VMs.
+Azure Monitor for VMs collects its data from one or more Log Analytics workspaces in Azure Monitor. A single subscription can use any number of workspaces depending on your requirements The only requirement of the workspace is that it be located in a supported location and be configured with the *VMInsights* solution. To enable monitoring for a VM or VMSS, you use any of the available options to install the required agents and specify a workspace for them to send their data. Azure Monitor for VMs will collect data from any configured workspace in its subscription.
 
-## Azure portal with VM install
-When you enable monitoring for a single VM, VMSS, or Azure Arc machine in the Azure portal, you must select a Log Analytics workspace. If that workspace 
+> [!NOTE]
+> When you enabled Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
-## Azure portal
-Go to the **Azure Monitor** page in the Azure portal and then select **Virtual machines**. 
 
-To configure multiple workspaces, select **Workspace configuration** from the **Get Started** page. Set the criteria at the top of the page to filter the list of workspaces. Select one or more workspaces and then select **Configure selected**.
+## Create Log Analytics workspace
 
-[Configure multiple workspaces]()
+>[!NOTE]
+>The information described in this section is also applicable to the [Service Map solution](service-map.md). 
 
-To configure a single workspace, select **Other onboarding options** from the **Get Started** page. Select a subscription and workspace and then click **Configure**.
+Azure Monitor for VMs requires a Log Analytics workspace to store the data it collects.You can use an existing workspace or create a new one before onboarding VMs. You also have the opportunity to create a new workspace when you onboard a single VM or VMSS using the Azure portal. You can continue to use that workspace for other agents. See [Designing your Azure Monitor Logs deployment](../platform/design-logs-deployment.md) for guidance on determining the number of workspaces you should use and how to design their access strategy.
+
+You can create a Log Analytics workspace using any of the following methods:
+
+* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+
+Azure Monitor for VMs supports Log Analytics workspaces in the following regions, although you can monitor VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+
+- West Central US
+- West US
+- West US 2
+- South Central US
+- East US
+- East US2
+- Central US
+- North Central US
+- US Gov Az
+- US Gov Va
+- Canada Central
+- UK South
+- North Europe
+- West Europe
+- East Asia
+- Southeast Asia
+- Central India
+- Japan East
+- Australia East
+- Australia Southeast
+
+
+## Add VMInsights solution to workspace
+Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must have the *VMInsights* solution installed. You can configure a workspace using any of the following methods.
+
+### Enable a single VM using the Azure portal
+When you enable Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
+
+### Azure portal
+There are two options for configuring a workspace from the Azure portal.
+
+Select the **Workspace configuration** tab in the **Virtual Machines** menu in the **Monitor** menu in the Azure portal. Set the filter values to display a list of existing workspaces. Select the box next to each workspace to enable and then click **Configure selected** .
+
+![Workspace configuration](media/vminsights-enable-at-scale-policy/workspace-configuration.png)
+
+To configure a single workspace, select the **Other onboarding options** and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
 
 ![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)
 
+This same option is available by choosing **Enable using policy** and then selecting the **Configure workspace** toolbar button.  
 
-## Resource Manager template
-This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
+![Enable using policy](media/vminsights-enable-at-scale-policy/enable-using-policy.png)
 
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "WorkspaceName": {
-                "type": "string"
-            },
-            "WorkspaceLocation": {
-                "type": "string"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2017-03-15-preview",
-                "type": "Microsoft.OperationalInsights/workspaces",
-                "name": "[parameters('WorkspaceName')]",
-                "location": "[parameters('WorkspaceLocation')]",
-                "resources": [
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
+### Resource Manager template
+The Azure Resource Manager templates for Azure Monitor for VMs are provided in an archive file (.zip) that you can [download from our GitHub repo](https://aka.ms/VmInsightsARMTemplates). This includes a template called **ConfigureWorkspace** that configures a Log Analytics workspace for Azure Monitor for VMs. You deploy this template using any of the standard methods including the sample PowerShell and CLI commands below: 
 
-                        "plan": {
-                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
-                            "promotionCode": ""
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-    ```
-
-Use the following PowerShell commands in the folder that contains the template:
-
-```powershell
-New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-```
-
-To run the following command by using the Azure CLI:
+# [CLI](#tab/CLI)
 
 ```azurecli
-az login
-az account set --subscription "Subscription Name"
-az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+az deployment group create --name ConfigureWorkspace --resource-group my-resource-group --template-file CreateWorkspace.json  --parameters workspaceResourceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace' workspaceLocation='eastus'
+
 ```
+
+# [PowerShell](#tab/PowerShell)
+
+```powershell
+New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-resource-group -TemplateFile ConfigureWorkspace.json -workspaceResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace -location eastus
+```
+
+---
+
 
 
 ## Next steps
