@@ -26,9 +26,8 @@ Microsoft AppSource and Azure Marketplace customers use in-product experiences t
 
 The various commercial marketplace [listing options and offer types](determine-your-listing-type.md) have different requirements for Azure AD implementation. See the following table for details.
 
-| **Offer type**    | **Azure AD SSO required?**  |  |   |  |
+| Offer type    | Azure AD SSO required for Contact Me?  | Azure AD SSO required for Trial? | Azure AD SSO required for Test Drive?  | Azure AD SSO required for Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Contact Me | Trial | Test Drive | Transact |
 | Virtual Machine | N/A | No | No | No |
 | Azure Apps (solution template)  | N/A | N/A | N/A | N/A |
 | Managed Apps  | N/A | N/A | N/A | No |
