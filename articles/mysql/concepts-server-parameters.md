@@ -29,6 +29,8 @@ MySQL traditionally assigns a thread for every client connection. As the number 
 
 Thread pools maximize performance by introducing a dynamic thread pool that can be used to limit the number of connections actively running on the server. This helps with ensuring that the burst of connections will not cause the server to run out of resources or crash with an out of memory error. Thread pools are most efficient for short queries and CPU intensive OLTP workloads.
 
+To learn more about thread pools, refer to [Introducing thread pools in Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+
 ### Configuring the thread pool
 To enable the thread pool, update the `thread_handling` server parameter to "pool-of-threads". By default, this parameter is set to `one-thread-per-connection`, which means MySQL will create a new thread for each new connections. Please note that this parameter is a static parameter and requires a server restart to apply.
 
@@ -41,6 +43,8 @@ To improve performance issues of short queries on the thread pool, Azure Databas
 -  `thread_pool_batch_wait_timeout`: this value determines the time a thread waits for another query to process
 - `thread_pool_batch_max_time`: this value determines the max time a thread will repeat the cycle of query execution and waiting for the next query
 
+> [!NOTE]
+> Please test thread pool before turning it ON in production. 
 
 ### innodb_buffer_pool_size
 
