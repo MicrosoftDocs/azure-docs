@@ -133,7 +133,7 @@ The billing address is pre-populated from your legal entity, and you can update 
 
 ## Multi-user account management
 
-Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
+Partner Center leverages [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
 
 ## Manage users
 
@@ -163,7 +163,7 @@ To add users to your Partner Center account that already exist in your company's
 
 ### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
+To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions. 
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
@@ -177,7 +177,7 @@ Creating a new user in Partner Center will also create an account for that user 
 
 ### Invite new users by email
 
-To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions.
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
 2. Enter one or more email addresses (up to ten), separated by commas or semicolons.
@@ -197,7 +197,7 @@ To remove a user from your work account (Azure AD tenant), go to **Users** (unde
 
 ### Change a user password
 
-If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. Note that this will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
+If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions. Note that this will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
 
 1. From the **Users** page (under **Account settings**), select the name of the user account that you want to edit.
 2. Select the **Reset password** button at the bottom of the page.
@@ -323,7 +323,7 @@ To create a brand new Azure AD tenant with your Partner Center account:
 3. Select **Create** to confirm the new domain and account info.
 4. Sign in with your new Azure AD global administrator username and password to begin [adding and managing users](#manage-users).
 
-For more information about creating new tenants inside your Azure portal, rather than via the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+For more information about creating new tenants inside your Azure portal, rather than via the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### Remove a tenant
 

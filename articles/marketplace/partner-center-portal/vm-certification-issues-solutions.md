@@ -26,7 +26,7 @@ This failure will occur when you used a base image that belongs to another publi
 
 To fix this issue, retrieve your latest image from Azure Marketplace and make changes to that image. See the following to view approved base images where you can search for your image:
 
-- [Linux-Images](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
+- [Linux-Images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows-Images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
 
 ## VM extension failure
@@ -50,7 +50,7 @@ Check whether VM Extensions are properly activated:
 
    ![Provisioning succeeded](./media/vm-certification-issues-solutions-2.png)
 
-   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
+   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
 
 ## Virtual machine provisioning issue
 
@@ -244,7 +244,7 @@ If your image in not installed with one of the following kernel versions, update
 
 All VHDs on Azure must have a virtual size aligned to multiple of 1 MB. If your VHD doesn't adhere to the recommended virtual size, your request might get rejected.
 
-follow guidelines, when you're converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+follow guidelines, when you're converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](../../virtual-machines/linux/create-upload-generic.md)
 
 ## VM access denied
 

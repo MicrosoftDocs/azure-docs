@@ -21,7 +21,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
-    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 

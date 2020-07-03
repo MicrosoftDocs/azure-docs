@@ -77,8 +77,8 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 Here are some additional lead management resources:
 
 - [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.

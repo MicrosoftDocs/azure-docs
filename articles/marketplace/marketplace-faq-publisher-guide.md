@@ -63,7 +63,7 @@ The ways that customers can use your commercial marketplace offer depend on how 
 
 After you sign up and accept the Publisher Agreement, you'll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
 
-For more information, see [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+For more information, see [Welcome to the commercial marketplace](index.yml/) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### How do I get support assistance for the commercial marketplace?
 
@@ -309,7 +309,7 @@ Here are some resources to get you started:
 
 - [Introduction to the Microsoft commercial marketplace](/azure/marketplace/marketplace-publishers-guide)
 - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/)
+- [Welcome to the commercial marketplace](index.yml)
 
 ### How can I engage with Microsoft and other partners?
 
@@ -321,7 +321,7 @@ We recommend these resources:
 ### Where can I learn more about Partner Center?
 
 - [Partner Center documentation](https://docs.microsoft.com/partner-center/)
-- [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/)
+- [Welcome to the commercial marketplace](index.yml/)
 
 ### Where can I learn more about the Microsoft Admin Center?
 

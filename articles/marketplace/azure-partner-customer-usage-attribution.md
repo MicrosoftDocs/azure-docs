@@ -80,7 +80,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
-> * [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -163,7 +163,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## Use Terraform
 
@@ -327,7 +327,7 @@ Azure Storage's GUID Generator form is guaranteed to generate a GUID of the requ
 
 **Can I use a private, custom VHD for a solution template offer in the Azure Marketplace?**
 
-No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](marketplace-virtual-machines.md).
+No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [Publishing guide for virtual machine offers on Azure Marketplace](marketplace-virtual-machines.md).
 
 You can create a VM offer in marketplace using your custom VHD and mark it as Private so that no one can see it. Then reference to this VM in your solution template.
 
