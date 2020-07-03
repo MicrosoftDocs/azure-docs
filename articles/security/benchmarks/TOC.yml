@@ -55,7 +55,7 @@
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
     href: ../fundamentals/customer-lockbox-security-baseline.md  
-  - name: Databox security baseline
+  - name: Data Box security baseline
     href: ../../databox/security-baseline.md
   - name: Data Explorer security baseline
     href: /azure/data-explorer/security-baseline
