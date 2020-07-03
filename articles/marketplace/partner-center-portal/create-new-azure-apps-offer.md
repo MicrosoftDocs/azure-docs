@@ -91,7 +91,7 @@ All Azure applications include at least two files in the root folder of a `.zip`
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
-All new Azure application offers must include an [Azure partner customer usage attribution GUID](azure-partner-customer-usage-attribution.md). 
+All new Azure application offers must include an [Azure partner customer usage attribution GUID](../azure-partner-customer-usage-attribution.md). 
 
 To learn about publishing requirements for each application plan, see [Solution template offer publishing requirements](../marketplace-solution-templates.md) and [Managed application offer publishing requirements](../marketplace-managed-apps.md).
 
@@ -127,14 +127,14 @@ The **Offer setup** page is where you can configure a test drive and lead manage
 
 ### Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](cloud-partner-portal/test-drive/what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](../what-is-test-drive.md).
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box. Configure the test drive environment in the [Test drive technical configuration](#test-drive-technical-configuration) section later in this topic.
 
 For additional information, see [Test drive your offer in the commercial marketplace](test-drive.md). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
 
 >[!Note]
->Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md).
+>Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](../azure-resource-manager-test-drive.md).
 
 ### Customer leads
 
@@ -287,14 +287,14 @@ Select **Save draft** before continuing.
 
 The technical configuration defines the details (tenant ID, and app ID) used to identity your service, which will emit metering events for a managed application using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md).  Enter the identity that your service will use when emitting metering events.
 
-* **Azure AD tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure AD app ID** (required): You also need your [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+* **Azure AD tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in#get-tenant-and-app-id-values-for-signing-in)), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure AD app ID** (required): You also need your [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in#get-tenant-and-app-id-values-for-signing-in)) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
 >[!Note]
 >The Azure application ID will be associated to your publisher ID, and can only be re-used within this publisher account.
 
 >[!Note]
->This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#batch-usage-event)).  In case you want to submit [usage event](marketplace-metering-service-apis.md#usage-event)), you can also use the [instance metadata service](../../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](pc-saas-registration.md#get-a-token-based-on-the-azure-ad-app)).
+>This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#metered-billing-batch-usage-event)).  In case you want to submit [usage event](marketplace-metering-service-apis.md#metered-billing-single-usage-event)), you can also use the [instance metadata service](../../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
 ## Plan overview
 
@@ -455,7 +455,7 @@ Maximum file sizes supported are:
 * Up to 1 Gb in total compressed `.zip` archive size
 * Up to 1 Gb for any individual uncompressed file within the `.zip` archive  
 
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
+All new Azure application offers must also include an [Azure partner customer usage attribution](../azure-partner-customer-usage-attribution.md) GUID.
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -531,17 +531,17 @@ To enable a test drive, select the **Enable a test drive** check box on the [Off
 
 ### Test drive technical configuration
 
-- **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### Deployment subscription details
 
 To allow the Test Drive to be deployed on your behalf, create and provide a separate, unique Azure Subscription (not required for Power BI test drives).
 
 * **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](../../billing/billing-create-subscription.md) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (such as "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+* **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Azure AD tenant name** (required for Dynamic 365) – Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
-* **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-nav menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
+* **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-nav menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
 
 Select **Save draft** before continuing.
 
