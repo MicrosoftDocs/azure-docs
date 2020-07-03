@@ -64,13 +64,13 @@
       - name: Azure App Service
         href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Automation
-        href: https://docs.microsoft.com/azure/automation/automation-managing-data#geo-replication-in-azure-automation?toc=/azure/azure-resource-manager/toc.json
+        href: ../../automation/automation-managing-data.md#geo-replication-in-azure-automation?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Batch
-        href: https://docs.microsoft.com/azure/batch/best-practices#moving-batch-accounts-across-regions?toc=/azure/azure-resource-manager/toc.json
+        href: ../../batch/best-practices.md#moving-batch-accounts-across-regions?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Cognitive Search
         href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure Dev Spaces
-        href: https://docs.microsoft.com/azure/dev-spaces/faq#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region?toc=/azure/azure-resource-manager/toc.json  
+        href: ../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region?toc=/azure/azure-resource-manager/toc.json  
       - name: Azure Event Hubs
         href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/toc.json
       - name: Azure IoT Hub
