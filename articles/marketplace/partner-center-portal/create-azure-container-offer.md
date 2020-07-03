@@ -98,7 +98,7 @@ You must provide terms and conditions for the offer. There are two options:
 - Use the Standard Contract for the Microsoft commercial marketplace.
 - Provide your own terms and conditions.
 
-##### Standard contract for the Microsoft commercial marketplace
+#### Standard contract for the Microsoft commercial marketplace
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to create custom terms and conditions.
 
@@ -177,7 +177,7 @@ In the **CSP Program contact** section, provide the link ( **CSP Program Marketi
 
 To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md)
 
-### Marketplace images](../gtm-offer-listing-best-practices.md)
+### Marketplace images
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
