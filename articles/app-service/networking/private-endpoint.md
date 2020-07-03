@@ -107,8 +107,6 @@ For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> These two records are automatically populated if you have a private DNS zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
 
 
 ## Pricing
