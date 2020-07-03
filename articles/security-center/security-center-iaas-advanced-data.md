@@ -87,14 +87,14 @@ The vulnerability assessment dashboard provides an overview of your assessment r
 
 You can view the vulnerability assessment results directly from Security Center.
 
-1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL database servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
+1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
 
-    [![**Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![**Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     The detailed view for this recommendation appears.
 
-    [![Detailed view for the **Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Detailed view for the **Vulnerabilities on your SQL servers on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. For more details, drill down:
 

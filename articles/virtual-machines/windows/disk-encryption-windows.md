@@ -222,22 +222,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Disable encryption
-You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn't work as expected. Disable encryption on all disks instead.
-
-- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Disable encryption with a Resource Manager template:** 
-
-    1. Click **Deploy to Azure** from the [Disable disk encryption on running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) template.
-    2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
-    3.  Click **Purchase** to disable disk encryption on a running Windows VM. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## Unsupported scenarios
 
@@ -253,9 +238,11 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VMs to another subscription.
+- Moving an encrypted VMs to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
+- M-series VMs with Write Accelerator disks.
 
 ## Next steps
 
