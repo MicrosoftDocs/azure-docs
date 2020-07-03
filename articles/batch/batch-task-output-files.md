@@ -28,7 +28,7 @@ If your scenario differs from those listed above, you may need to consider a dif
 
 ## Create a container in Azure Storage
 
-To persist task output to Azure Storage, you'll need to create a container that serves as the destination for your output files. Create the container before you run your task, preferably before you submit your job. To create the container, use the appropriate Azure Storage client library or SDK. For more information about Azure Storage APIs, see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/).
+To persist task output to Azure Storage, you'll need to create a container that serves as the destination for your output files. Create the container before you run your task, preferably before you submit your job. To create the container, use the appropriate Azure Storage client library or SDK. For more information about Azure Storage APIs, see the [Azure Storage documentation](../storage/index.yml).
 
 For example, if you are writing your application in C#, use the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). The following example shows how to create a container:
 
