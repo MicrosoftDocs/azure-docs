@@ -73,7 +73,9 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. For the process to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the storage type. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
+When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
+
+If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the storage type. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You also have to specify the categories of operations for which you want to collect logs. The categories for Azure Storage are listed in this table.
 
@@ -338,6 +340,8 @@ Data is stored in these tables.
 |StorageFileLogs | Logs that describe activity in file shares. |
 |StorageQueueLogs | Logs that describe activity in queues.|
 |StorageTableLogs| Logs that describe activity in tables.|
+
+Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable on a Blob storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLogs table. 
 
 ### Azure Storage Log Analytics queries in Azure Monitor
 
