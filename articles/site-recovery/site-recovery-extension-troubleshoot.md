@@ -64,7 +64,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 1. Verify that the Windows Azure Guest Agent service appears in services.
 1. Restart the protection job.
 
-Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. You need .NET 4.5 for the VM agent to communicate with the service.
+Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. You need .NET 4.5 for the VM agent to communicate with the service.
 
 ### The agent installed in the VM is out of date (for Linux VMs)
 

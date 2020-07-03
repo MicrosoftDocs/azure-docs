@@ -30,8 +30,8 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 * [Replicating Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md)
 * [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.md)
-* If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/library/mt126277.aspx).
-* If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+* If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11)).
+* If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
 No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](site-recovery-vmware-to-azure.md) or a [secondary datacenter](site-recovery-vmware-to-vmware.md).
@@ -66,7 +66,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a vault in a region, we ensure that all metadata used by Site Recovery remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+Yes, both encryption-in-transit and [encryption in Azure](../storage/common/storage-service-encryption.md) are supported.
 
 
 ## Deployment

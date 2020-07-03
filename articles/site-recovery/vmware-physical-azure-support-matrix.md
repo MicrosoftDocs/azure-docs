@@ -45,8 +45,8 @@ Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop 
 Operating system locale | English (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Not needed for configuration server version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) or later.
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
-Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
+Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
@@ -62,7 +62,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](https://aka.ms/asr_workload).
-Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
+Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
 
 ### For Windows
 
@@ -219,7 +219,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported. [Learn more.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## Replication channels
 
@@ -275,7 +275,7 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 ## Resource group limits
 
-To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## Churn limits
 

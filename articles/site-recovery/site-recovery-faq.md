@@ -46,7 +46,7 @@ No, Data is replicated to Azure storage in your subscription. When you perform a
 Yes.
 
 ### What platforms do you currently support?
-We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](https://technet.microsoft.com/library/dn850370.aspx) about Azure Pack and Site Recovery integration.
+We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) about Azure Pack and Site Recovery integration.
 
 ### Do you support single Azure Pack and single VMM server deployments?
 Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
@@ -95,7 +95,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
 
 ### Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
 Yes, TLS 1.2 protocol is enforced by default for Azure-to-Azure Site Recovery scenario. 

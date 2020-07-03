@@ -169,4 +169,4 @@ To resolve the issue:
 - Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

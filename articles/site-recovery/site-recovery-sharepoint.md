@@ -42,7 +42,7 @@ Before you start, make sure you understand the following:
 
 ## SharePoint architecture
 
-SharePoint can be deployed on one or more servers using tiered topologies and server roles to implement a farm design that meets specific goals and objectives. A typical large, high-demand SharePoint server farm that supports a high number of concurrent users and a large number of content items use service grouping as part of their scalability strategy. This approach involves running services on dedicated servers, grouping these services together, and then scaling out the servers as a group. The following topology illustrates the service and server grouping for a three tier SharePoint server farm. Please refer to SharePoint documentation and product line architectures for detailed guidance on different SharePoint topologies. You can find more details about SharePoint 2013 deployment in [this document](https://technet.microsoft.com/library/cc303422.aspx).
+SharePoint can be deployed on one or more servers using tiered topologies and server roles to implement a farm design that meets specific goals and objectives. A typical large, high-demand SharePoint server farm that supports a high number of concurrent users and a large number of content items use service grouping as part of their scalability strategy. This approach involves running services on dedicated servers, grouping these services together, and then scaling out the servers as a group. The following topology illustrates the service and server grouping for a three tier SharePoint server farm. Please refer to SharePoint documentation and product line architectures for detailed guidance on different SharePoint topologies. You can find more details about SharePoint 2013 deployment in [this document](/SharePoint/sharepoint-server).
 
 
 
@@ -158,7 +158,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 	* This method assumes that a backup of the Search Service Application was performed before the catastrophic event and that the backup is available at the DR site.
 	* This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
 	* Now that the SharePoint farm is running, navigate the Central Administration, 'Backup and Restore' and select Restore. The restore interrogates the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
-	* Search is restored. Keep in mind that the restore expects to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information, see ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
+	* Search is restored. Keep in mind that the restore expects to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information, see ['Restore Search service application in SharePoint 2013'](/SharePoint/administration/restore-a-search-service-application) document.
 
 
 6. For starting with a new Search service application, follow below steps.

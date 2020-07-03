@@ -65,7 +65,7 @@ This table summarizes support for the cache storage account used by Site Recover
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is not recommended because transaction costs for V2 are substantially higher than V1 storage accounts.
 Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
-Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.
+Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.
 
 
 ## Replicated machine operating systems
@@ -224,7 +224,7 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported

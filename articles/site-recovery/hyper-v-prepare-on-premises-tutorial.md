@@ -56,8 +56,8 @@ If you're using VMM, [network mapping](site-recovery-network-mapping.md) maps be
 
 Prepare VMM for network mapping as follows:
 
-1. Make sure you have a [VMM logical network](https://docs.microsoft.com/system-center/vmm/network-logical) that's associated with the cloud in which the Hyper-V hosts are located.
-2. Ensure you have a [VM network](https://docs.microsoft.com/system-center/vmm/network-virtual) linked to the logical network.
+1. Make sure you have a [VMM logical network](/system-center/vmm/network-logical) that's associated with the cloud in which the Hyper-V hosts are located.
+2. Ensure you have a [VM network](/system-center/vmm/network-virtual) linked to the logical network.
 3. In VMM, connect the VMs to the VM network.
 
 ## Verify internet access
