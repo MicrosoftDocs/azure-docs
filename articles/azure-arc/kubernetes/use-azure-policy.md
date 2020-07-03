@@ -31,7 +31,7 @@ If you are using multiple Git repos as the sources of truth for each cluster (fo
 8. Set parameter values that will be used during the creation of the `sourceControlConfiguration`.
 9. Select **Next**.
 10. Enable **Create a remediation task**.
-11. Assure that **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. See [this doc](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) and [the comment in this doc](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) for more information on the permissions you need.
+11. Assure that **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. See [this doc](../../governance/policy/assign-policy-portal.md) and [the comment in this doc](../../governance/policy/how-to/remediate-resources.md) for more information on the permissions you need.
 12. Select **Review + create**.
 
 After the policy assignment is created, for any new `connectedCluster` resource (or `managedCluster` resource with the GitOps agents installed) that is located within the scope of the assignment, the `sourceControlConfiguration` will be applied. For existing clusters, you will need to manually run a remediation task. It typically takes from 10-20 minutes for the policy assignment to take effect.
