@@ -37,7 +37,7 @@ The tutorial assumes you have a basic understanding of SQL Server Always On Avai
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
-|  |Requirement |Description |
+| Requirement |Description |
 |----- |----- |----- |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png)  **Two SQL Server instances** | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
 |![Square](./media/availability-group-manually-configure-tutorial/square.png) **Windows Server** | File share for cluster witness |  
