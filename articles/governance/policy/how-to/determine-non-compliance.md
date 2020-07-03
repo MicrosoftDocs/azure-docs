@@ -221,7 +221,7 @@ As part of a new **public preview**, the last 14 days of change history are avai
 resources that support [complete mode
 deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history
 provides details about when a change was detected and a _visual diff_ for each change. A change
-detection is triggered when the Resource Manager properties are added, removed, or altered.
+detection is triggered when the Azure Resource Manager properties are added, removed, or altered.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.
