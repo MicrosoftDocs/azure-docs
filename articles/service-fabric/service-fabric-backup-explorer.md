@@ -1,16 +1,8 @@
 ---
-title: Read and Update Reliable Collections Backup Locally 
-description: This article describes how to read and update Reliable collectios backup locally
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 2/01/2019
-ms.author: atsenthi
+title: Read and Update Reliable Collections Backup Locally
+description
+ms.topic: conceptual
+ms.date: 07/01/2020 
 
 ---
 
@@ -41,10 +33,3 @@ For more details, visit the repository on Github which contains source/release i
 The Nuget for Backup Explorer (Microsoft.ServiceFabric.ReliableCollectionBackup.Parser) will be available on [nuget.org](https://www.nuget.org/). 
 
 Users can also build the repository locally and work on the Backups.
-
-## Pre-Requisites
-
-- .NET Framework version is 4.7 Developers Pack.
-- Python 3 
-- pip
-- Nuget.exe
