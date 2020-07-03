@@ -28,12 +28,12 @@ Both SQL Database and SQL Managed Instance use SQL Server technology to create [
 
 When you restore a database, the service determines which full, differential, and transaction log backups need to be restored.
 
-### Backup redundancy
+### Backup storage redundancy
 
 > [!IMPORTANT]
-> Configuring storage redundancy for backups is only allowed during single database and managed instance create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
+> Configuring storage redundancy for backups is only allowed during managed instance create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
 
-Backup storage redundancy option provides flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanism stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) for protection against outages impacting backup storage in the primary region and give ability to restore your server in a different region in the event of a disaster. From the other hand, LRS and ZRS storage blobs are ensuring that your data stays within the same region where your single database or managed instance is deployed. Zone-redundant storage (ZRS) is available only in certain regions (for more details visit [Azure storage redundancy page](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+Configurable backup storage redundancy option provides flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanism stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) for protection against outages impacting backup storage in the primary region and give ability to restore your server in a different region in the event of a disaster. From the other hand, LRS and ZRS storage blobs are ensuring that your data stays within the same region where your single database or managed instance is deployed. Zone-redundant storage (ZRS) is available only in certain regions (for more details visit [Azure storage redundancy page](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 > [!IMPORTANT]
 > In SQL Managed instance, configured backup redundancy is applied for both, short-term retention backups (used for point-in-time restore - PITR) and long-term retention backups (used for restore from long-term backups - LTR).
@@ -104,7 +104,7 @@ Backup storage consumption up to the maximum data size for a database is not cha
 - For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) and following related [best practices](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance), and/or reduce the number of non-clustered indexes.
 - In the General Purpose service tier, the provisioned data storage is less expensive than the price of the backup storage. If you have continually high excess backup storage costs, you might consider increasing data storage to save on the backup storage.
 - Use TempDB instead of permanent tables in your application logic for storing temporary results and/or transient data.
-- Use locally-redundant backup storage whenever possible
+- Use locally-redundant backup storage whenever possible (for example dev/test environments)
 
 ## Backup retention
 
@@ -163,7 +163,7 @@ You can monitor total backup storage consumption for each backup type (full, dif
 
 Backup storage redundancy affects backup costs in a following way
 - LRS price = x
-- ZRS price = 1.5x
+- ZRS price = 1.25x
 - RA-GRS price = 2x
 
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
@@ -309,6 +309,100 @@ Status code: 200
 ```
 
 For more information, see [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+## Configure backup storage redundancy
+
+> [!NOTE]
+> Configuring backup storage redundancy is available for managed instance only.
+
+A backup storage redundancy of a managed instance can be set during instance creation only. The default value is geo-redundant storage (RA-GRS). For differences in pricing between locally-redundant (LRS), zone-redundant (ZRS) and geo-redundant (RA-GRS) backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> Once the resource is provisioned, you cannot change the backup storage redundancy option.
+
+### Configure backup storage redundancy by using the Azure portal
+
+In Azure portal option for changing backup storage redundancy is located on Compute + storage blade. On the basics tab of create screen click on "Configure Managed Instance"
+![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+On Compute + storage blade under the backup section you can find option for selecting backups storage redundancy.
+Screenshot to be added
+
+### Configure backup storage redundancy by using the REST API
+
+#### Sample request
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance?api-version=2018-06-01-preview
+```
+
+#### Request body
+
+```json
+{
+  "tags": {
+    "tagKey1": "TagValue1"
+  },
+  "location": "Japan East",
+  "sku": {
+    "name": "GP_Gen5",
+    "tier": "GeneralPurpose"
+  },
+  "properties": {
+    "administratorLogin": "dummylogin",
+    "administratorLoginPassword": "Un53cuRE!",
+    "subnetId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "vCores": 8,
+    "storageSizeInGB": 1024,
+    "licenseType": "LicenseIncluded",
+    "collation": "SQL_Latin1_General_CP1_CI_AS",
+    "dnsZonePartner": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+    "publicDataEndpointEnabled": false,
+    "proxyOverride": "Redirect",
+    "timezoneId": "UTC",
+    "storageAccountType": "LRS"
+  }
+}
+```
+
+#### Sample response
+
+Status code: 201
+
+```json
+{
+  "sku": {
+    "name": "GP_Gen5",
+    "tier": "GeneralPurpose",
+    "capacity": 8,
+    "family": "Gen5"
+  },
+  "properties": {
+    "fullyQualifiedDomainName": "testinstance.1b4e2caff2530.database.windows.net",
+    "administratorLogin": "dummylogin",
+    "subnetId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "state": "Ready",
+    "vCores": 8,
+    "storageSizeInGB": 1024,
+    "licenseType": "LicenseIncluded",
+    "collation": "SQL_Latin1_General_CP1_CI_AS",
+    "publicDataEndpointEnabled": false,
+    "proxyOverride": "Redirect",
+    "dnsZone": "1b4e2caff2530",
+    "timezoneId": "UTC",
+    "storageAccountType": "LRS"
+  },
+  "location": "japaneast",
+  "tags": {
+    "tagKey1": "TagValue1"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+  "name": "testinstance",
+  "type": "Microsoft.Sql/managedInstances"
+}
+```
+
+For more information, see [Managed Instances - Create REST API](https://review.docs.microsoft.com/rest/api/sql/managedinstances/createorupdate).
 
 ## Next steps
 
