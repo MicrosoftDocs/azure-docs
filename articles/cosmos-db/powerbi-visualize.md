@@ -71,13 +71,13 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
 
 2. You can **Get Data**, see **Recent Sources**, or **Open Other Reports** directly from the welcome screen. Select the "X" at the top right corner to close the screen. The **Report** view of Power BI Desktop is displayed.
    
-   ![Power BI Desktop Report View - Power BI connector](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Power BI Desktop Report View - Power BI connector":::
 
 3. Select the **Home** ribbon, then click on **Get Data**.  The **Get Data** window should appear.
 
 4. Click on **Azure**, select **Azure Cosmos DB (Beta)**, and then click **Connect**. 
 
-    ![Power BI Desktop Get Data - Power BI connector](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop Get Data - Power BI connector":::
 
 5. On the **Preview Connector** page, click **Continue**. The **Azure Cosmos DB** window appears.
 

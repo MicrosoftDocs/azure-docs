@@ -222,7 +222,7 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. In the **From ODBC** window, select the data source name you created, and then click **OK**. You can leave the **Advanced Options** entries blank.
 
-    ![Choose Data source name (DSN) in Power BI Get Data](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Choose Data source name (DSN) in Power BI Get Data":::
 
 1. In the **Access a data source using an ODBC driver** window, select **Default or Custom** and then click **Connect**. You do not need to include the **Credential connection string properties**.
 
