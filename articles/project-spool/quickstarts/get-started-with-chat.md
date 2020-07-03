@@ -15,29 +15,27 @@ ms.service: azure-project-spool
 
 # Get Started With Chat
 
-This quickstart will teach you how to use Azure Communication Services to send chat messages back and forth between two web application clients with Javascript SDK.
+This quickstart will teach you how to use Azure Communication Services to send chat messages back and forth between two web application clients with the Javascript SDK.
 
 ## Prerequisites
+Before you get started, make sure to:
 
-1. Install [Node.js](https://nodejs.org)
-2. An Azure Communication Resource, learn how to create one from [Create an Azure Communication Resource](https://review.docs.microsoft.com/en-us/azure/project-spool/quickstarts/create-a-communication-resource?branch=pr-en-us-104477)
+> [!div class="checklist"]
+> * [Create an Azure Communication Resource](https://review.docs.microsoft.com/en-us/azure/project-spool/quickstarts/create-a-communication-resource?branch=pr-en-us-104477)
+> * Install [Node.js](https://nodejs.org)
+
 
 ## Install the package
-
 Install the Azure Communication Service Javascript SDK
 
 ```bash
 npm install @ic3/communicationservices-chat
 ```
 
-## Issue User Token
 
-TODO: Add steps to obtain user token from the user access token SDK
+## User Access Tokens
+User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. You generate these tokens on your server, pass them back to a client device, and then use them to initialize the Communication Services SDKs. Lear how to generate user access tokens from [User Access Tokens](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/user-access-tokens?branch=pr-en-us-104477).
 
-```Javascript
-//TODO: add code to obtain user token
-var userAccessToken =
-```
 
 ## Create the chat client
 
@@ -47,6 +45,7 @@ import { ChatClient } from "@ic3/communicationservices-chat";
 let endpointUrl = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 let chatClient = new ChatClient(endpointUrl, userAccessToken);
 ```
+For the generation of  the userAccessToken, refer to  [User Access Tokens](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/user-access-tokens?branch=pr-en-us-104477).
 
 ## Create a thread with two users
 
@@ -108,21 +107,6 @@ Currently you can retrieve chat messages using `getMessages` method, and it will
 let messages = await chatClient.getMessages(threadId);
 ```
 
-## Run the sample app
-
-TODO: add some sort of simple sample app to allow users to play with
-
-If you wanna play around with chat functionality, you can use the [sample app](https://skype.visualstudio.com/SCC/_git/client_crossplatform_spool-sdk?path=%2Fsrc%2FSDK%2Fweb%2Fchat-demo&version=GBmaster) which has all the code specified above and more.
-
-1. Open a terminal window, navigate to the folder where you downloaded the sample to. Run `npm install` again just to make sure we have everything.
-2. Next run `npm start`. This will run the `start` script inside package.json.
-
-   ```ps
-   npm run auth
-   npm install
-   npm start
-   ```
-
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -132,4 +116,15 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-TODO: Advanced chat stuff: broadcast to the thread, sending messages using API key( form server side) etc,
+In this quick start you learned how to:
+
+> [!div class="checklist"]
+> * Create a chat client
+> * Create a thread with 2 users
+> * Send a message to the thread
+> * Receive messages from a thread
+
+
+If you want to play around with chat functionality, you can use the [sample app](https://skype.visualstudio.com/SCC/_git/client_crossplatform_spool-sdk?path=%2Fsrc%2FSDK%2Fweb%2Fchat-demo&version=GBmaster) which has all the code specified above and more.
+
+
