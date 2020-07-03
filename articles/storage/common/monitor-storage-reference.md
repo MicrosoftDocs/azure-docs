@@ -62,7 +62,7 @@ This table shows [Queue storage metrics](https://docs.microsoft.com/azure/azure-
 | ------------------- | ----------------- |
 | QueueCapacity | The amount of Queue storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | QueueCount   | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| QueueMessageCount | The approximate number of queue messages in the storage account's Queue service. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### File storage
 
