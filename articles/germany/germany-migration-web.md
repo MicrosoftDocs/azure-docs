@@ -49,23 +49,23 @@ Migrating apps that you created by using the Web Apps feature of Azure App Servi
     ```powershell
     az deployment group create --name "<web app name>" \
         --resource-group "<resource group name>" \
-        --template-file "<path of your local template file>"
+        --template-file "<path of your template.json file>"
     ```
 
 ### Migrate Web App content
 
 1. In the Azure Germany portal, select your Web App.
 1. Select **Development Tools > Advanced Tools**.
-1. From the top menu, select **Debug console** then choos **PowerShell**.
+1. From the top menu, select **Debug console** then choose **PowerShell**.
 1. Select **site**.
-1. Select the ****download icon** for the **wwwroot** folder. The downloaded zip file contains source code of your web app.
+1. Select the **download icon** beside the **wwwroot** folder. The downloaded zip file contains source code of your web app.
 1. Deploy the web root to the migrated Azure global web app. For example, you can use the following PowerShell script.
 
     ``` powershell
     az webapp deployment source config-zip \
         --resource-group "<resource group name>" \
-        --name "<Web App name>" \
-        --src "path to local webroot zip folder"
+        --name "<web App name>" \
+        --src "path to webroot folder zip file"
     ```
 
 For more information:
