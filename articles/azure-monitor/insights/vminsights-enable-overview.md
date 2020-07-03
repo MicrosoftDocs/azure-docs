@@ -9,8 +9,8 @@ ms.date: 06/25/2020
 
 ---
 
-# Enable Azure Monitor for VMs
-To use Azure Monitor for VMs, you must first enable it and then onboard your virtual machines and virtual machine scale sets. This article provides the details for enabling Azure Monitor for VMs in your Azure subscription and gives an overview of the different options available for enabling different kinds of agents.
+# Configure Azure Monitor for VMs
+To use Azure Monitor for VMs, you must first configure it and then onboard your virtual machines and virtual machine scale sets. This article provides the details for enabling Azure Monitor for VMs in your Azure subscription and gives an overview of the different options available for enabling different kinds of agents.
 
 ## Overview
 Azure Monitor for VMs collects its data from one or more Log Analytics workspaces in Azure Monitor. A single subscription can use any number of workspaces depending on your requirements The only requirement of the workspace is that it be located in a supported location and be configured with the *VMInsights* solution. To enable monitoring for a VM or VMSS, you use any of the available options to install the required agents and specify a workspace for them to send their data. Azure Monitor for VMs will collect data from any configured workspace in its subscription.
@@ -100,7 +100,11 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 
 ## Agents
-Azure Monitor for VMs requires two agents to be installed on each VM or VMSS to be monitored. Once these two agents are installed and attached to the appropriate workspace, they will be enabled for Azure Monitor for VMs. 
+Azure Monitor for VMs requires two agents to be installed on each VM or VMSS to be monitored. There are multiple methods for deploying these agents. For VM and VMSS in Azure, you can deploy the VM extension for each of these agents which makes it easier to install and configure the agent.
+
+
+
+### Log Analytics agent
 
 
 
