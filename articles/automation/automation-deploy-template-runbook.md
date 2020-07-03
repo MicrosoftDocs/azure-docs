@@ -23,7 +23,7 @@ In this article, we create a PowerShell runbook that uses a Resource Manager tem
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
-* Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0) for information about how to get Azure PowerShell.
+* Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-az-ps?view=azps-3.5.0) for information about how to get Azure PowerShell.
 
 ## Create the Resource Manager template
 
@@ -196,8 +196,7 @@ Publish-AzAutomationRunbook @publishParams
 ## Start the runbook
 
 Now we start the runbook by calling the 
-[Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
-)
+[Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0)
 cmdlet. For information about how to start a runbook in the Azure portal, see
 [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 
@@ -239,4 +238,4 @@ Get-AzStorageAccount
 * To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see [Use runbooks and modules in Azure Automation](automation-runbook-gallery.md).
 * To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

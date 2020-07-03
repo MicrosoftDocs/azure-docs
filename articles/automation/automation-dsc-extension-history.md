@@ -115,7 +115,7 @@ environments it supports, and comments and remarks on new features or changes.
 - **New features:**
   - Bug fixes & improvements that simplifies using DSC Azure Automation through the portal UI as
     well as Resource Manager template. For more information, see
-    [Default Configuration Script](/azure/virtual-machines/extensions/dsc-overview) in the DSC
+    [Default Configuration Script](../virtual-machines/extensions/dsc-overview.md) in the DSC
     Extension documentation.
 
 ### Version 2.26
@@ -348,6 +348,6 @@ environments it supports, and comments and remarks on new features or changes.
 ## Next steps
 
 - For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
-- Examine the [Resource Manager template for the DSC extension](/azure/virtual-machines/extensions/dsc-template).
+- Examine the [Resource Manager template for the DSC extension](../virtual-machines/extensions/dsc-template.md).
 - For more functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](/azure/virtual-machines/extensions/dsc-credentials).
+- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](../virtual-machines/extensions/dsc-credentials.md).

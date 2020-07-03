@@ -74,7 +74,7 @@ Use the following steps to configure file tracking on Linux computers:
 
 ## Track file contents
 
-File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) after each change occurs. Here are some rules to follow for tracking file contents:
+File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](../storage/common/storage-account-overview.md) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. 
 * Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-create-storage-account.md).

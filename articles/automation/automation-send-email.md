@@ -14,7 +14,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [A SendGrid account](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
+* [A SendGrid account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account).
 * [Automation account](automation-offering-get-started.md) with **Az** modules.
 * [Run As account](automation-create-runas-account.md) to store and execute the runbook.
 
@@ -23,7 +23,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 You can create an Azure Key Vault using the following PowerShell script. Replace the variable values with values specific to your environment. Use the embedded Azure Cloud Shell via the **Try It** button, located in the top right corner of the code block. You can also copy and run the code locally if you have the [Az modules](/powershell/azure/install-az-ps) installed on your local machine.
 
 > [!NOTE]
-> To retrieve your API key, use the steps in [Find your SendGrid API key](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
+> To retrieve your API key, use the steps in [Find your SendGrid API key](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -56,7 +56,7 @@ $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-For other ways to create an Azure Key Vault and store a secret, see [Key Vault quickstarts](/azure/key-vault/).
+For other ways to create an Azure Key Vault and store a secret, see [Key Vault quickstarts](../key-vault/index.yml).
 
 ## Import required modules into your Automation account
 
@@ -138,7 +138,7 @@ If you don't initially see your test email, check your **Junk** and **Spam** fol
 
 1. When the runbook is no longer needed, select it in the runbook list and click **Delete**.
 
-2. Delete the Key Vault by using the [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet.
+2. Delete the Key Vault by using the [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet.
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"

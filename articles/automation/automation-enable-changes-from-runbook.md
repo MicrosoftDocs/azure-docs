@@ -45,7 +45,7 @@ With Change Tracking and Inventory enabled, you can add an Azure VM for manageme
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Change Tracking and Inventory for your VM.
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Change Tracking and Inventory for your VM.
 
 1. In your Automation account, select **Modules** under **Shared Resources**. 
 2. Select **Update Azure Modules** to update the Azure modules to the latest version. 

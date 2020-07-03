@@ -27,7 +27,7 @@ The output stream is used for the output of objects created by a script or workf
 
 Your runbook uses the output stream to communicate general information to the client only if it is never called by another runbook. As a best practice, however, you runbooks should typically use the [verbose stream](#monitor-verbose-stream) to communicate general information to the user.
 
-Have your runbook write data to the output stream using [Write-Output](https://technet.microsoft.com/library/hh849921.aspx). Alternatively, you can put the object on its own line in the script.
+Have your runbook write data to the output stream using [Write-Output](/powershell/module/microsoft.powershell.utility/write-output). Alternatively, you can put the object on its own line in the script.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -127,7 +127,7 @@ The warning and error streams log problems that occur in a runbook. Azure Automa
 
 By default, a runbook continues to execute after a warning or error. You can specify that your runbook should suspend on a warning or error by having the runbook set a [preference variable](#work-with-preference-variables) before creating the message. For example, to cause the runbook to suspend on an error as it does on an exception, set the `ErrorActionPreference` variable to Stop.
 
-Create a warning or error message using the [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) or [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activities can also write to the warning and error streams.
+Create a warning or error message using the [Write-Warning](/powershell/module/microsoft.powershell.utility/write-warning) or [Write-Error](/powershell/module/microsoft.powershell.utility/write-error) cmdlet. Activities can also write to the warning and error streams.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -149,7 +149,7 @@ By default, the job history does not store verbose messages from published runbo
 
 When [testing a runbook](automation-testing-runbook.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](automation-testing-runbook.md), you must set the `VerbosePreference` variable to Continue. With that variable set, verbose messages are displayed in the Test output pane of the Azure portal.
 
-The following code creates a verbose message using the [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
+The following code creates a verbose message using the [Write-Verbose](/powershell/module/microsoft.powershell.utility/write-verbose) cmdlet.
 
 ```powershell
 #The following line creates a verbose message.
@@ -164,11 +164,11 @@ You can use the **Configure** tab of the Azure portal to configure a runbook to 
 If you enable progress record logging, your runbook writes a record to job history before and after each activity runs. Testing a runbook does not display progress messages even if the runbook is configured to log progress records.
 
 >[!NOTE]
->The [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
+>The [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
 
 ## Work with preference variables
 
-You can set certain Windows PowerShell [preference variables](https://technet.microsoft.com/library/hh847796.aspx) in your runbooks to control the response to data sent to different output streams. The following table lists the preference variables that can be used in runbooks, with their default and valid values. Additional values are available for the preference variables when used in Windows PowerShell outside of Azure Automation.
+You can set certain Windows PowerShell [preference variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables) in your runbooks to control the response to data sent to different output streams. The following table lists the preference variables that can be used in runbooks, with their default and valid values. Additional values are available for the preference variables when used in Windows PowerShell outside of Azure Automation.
 
 | Variable | Default Value | Valid Values |
 |:--- |:--- |:--- |
@@ -192,7 +192,7 @@ You can view the details of a runbook job in the Azure portal using the **Jobs**
 
 ### Retrieve runbook output and messages in Windows PowerShell
 
-In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) cmdlet. This cmdlet requires the ID of the job and has a parameter called `Stream` in which to specify the stream to retrieve. You can specify a value of Any for this parameter to retrieve all streams for the job.
+In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) cmdlet. This cmdlet requires the ID of the job and has a parameter called `Stream` in which to specify the stream to retrieve. You can specify a value of Any for this parameter to retrieve all streams for the job.
 
 The following example starts a sample runbook and then waits for it to complete. Once the runbook completes execution, the script collects the runbook output stream from the job.
 
@@ -254,6 +254,5 @@ For more information on configuring integration with Azure Monitor logs to colle
 ## Next steps
 
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
+* * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

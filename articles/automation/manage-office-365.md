@@ -8,16 +8,16 @@ ms.topic: conceptual
 
 # Manage Office 365 services
 
-You can use Azure Automation for management of Office 365 subscription services, for products such as Microsoft Word and Microsoft Outlook. Interactions with Office 365 are enabled by [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). See [Use Azure AD in Azure Automation to authenticate to Azure](automation-use-azure-ad.md).
+You can use Azure Automation for management of Office 365 subscription services, for products such as Microsoft Word and Microsoft Outlook. Interactions with Office 365 are enabled by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). See [Use Azure AD in Azure Automation to authenticate to Azure](automation-use-azure-ad.md).
 
 ## Prerequisites
 
 You need the following to manage Office 365 subscription services in Azure Automation.
 
-* An Azure subscription. See [Subscription decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
-* An Automation object in Azure to hold the user account credentials and runbooks. See [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
+* An Azure subscription. See [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+* An Automation object in Azure to hold the user account credentials and runbooks. See [An introduction to Azure Automation](./automation-intro.md).
 * Azure AD. See [Use Azure AD in Azure Automation to authenticate to Azure](automation-use-azure-ad.md).
-* An Office 365 tenant, with an account. See [Set up your Office 365 tenant](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant).
+* An Office 365 tenant, with an account. See [Set up your Office 365 tenant](/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
 ## Install the MSOnline and MSOnlineExt modules
 
@@ -47,7 +47,7 @@ It's optional to create a credential asset for the Office 365 administrative use
 
 ## Create an Office 365 service account
 
-To run Office 365 subscription services, you need an Office 365 service account with permissions to do what you want. You can use one global administrator account, one account per service, or have one function or script to execute. In any case, the service account requires a complex and secure password. See [Set up Office 365 for business](https://docs.microsoft.com/microsoft-365/admin/setup/setup?view=o365-worldwide). 
+To run Office 365 subscription services, you need an Office 365 service account with permissions to do what you want. You can use one global administrator account, one account per service, or have one function or script to execute. In any case, the service account requires a complex and secure password. See [Set up Office 365 for business](/microsoft-365/admin/setup/setup?view=o365-worldwide). 
 
 ## Connect to the Azure AD online service
 
@@ -56,7 +56,7 @@ To run Office 365 subscription services, you need an Office 365 service account 
 
 You can use the MSOnline module to connect to Azure AD from the Office 365 subscription. The connection uses an Office 365 user name and password or uses multi-factor authentication (MFA). You can connect using the Azure portal or a Windows PowerShell command prompt (does not have to be elevated).
 
-A PowerShell example is shown below. The [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet prompts for credentials and stores them in the `Msolcred` variable. Then the [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet uses the credentials to connect to the Azure directory online service. If you want to connect to a specific Azure environment, use the `AzureEnvironment` parameter.
+A PowerShell example is shown below. The [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet prompts for credentials and stores them in the `Msolcred` variable. Then the [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet uses the credentials to connect to the Azure directory online service. If you want to connect to a specific Azure environment, use the `AzureEnvironment` parameter.
 
 ```powershell
 $Msolcred = Get-Credential
@@ -66,7 +66,7 @@ Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 If you don't receive any errors, you've connected successfully. A quick test is to run an Office 365 cmdlet, for example, `Get-MsolUser`, and see the results. If you receive errors, note that a common problem is an incorrect password.
 
 >[!NOTE]
->You can also use the AzureRM module or the Az module to connect to Azure AD from the Office 365 subscription. The main connection cmdlet is [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0). This cmdlet supports the `AzureEnvironmentName` parameter for specific Office 365 environments.
+>You can also use the AzureRM module or the Az module to connect to Azure AD from the Office 365 subscription. The main connection cmdlet is [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0). This cmdlet supports the `AzureEnvironmentName` parameter for specific Office 365 environments.
 
 ## Create a PowerShell runbook from an existing script
 
@@ -91,22 +91,22 @@ $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 
 You can use your script in an Azure Automation runbook. For example purposes, we'll use the PowerShell runbook type.
 
-1. Create a new PowerShell runbook. Refer to [Create an Azure Automation runbook](https://docs.microsoft.com/azure/automation/automation-quickstart-create-runbook).
+1. Create a new PowerShell runbook. Refer to [Create an Azure Automation runbook](./automation-quickstart-create-runbook.md).
 2. From your Automation account, select **Runbooks** under **Process Automation**.
 3. Select the new runbook and click **Edit**.
 4. Copy your script and paste it into the textual editor for the runbook.
 5. Select **ASSETS**, then expand **Credentials** and verify that the Office 365 credential is there.
 6. Click **Save**.
-7. Select **Test pane**, then click **Start** to begin testing your runbook. See [Manage runbooks in Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+7. Select **Test pane**, then click **Start** to begin testing your runbook. See [Manage runbooks in Azure Automation](./manage-runbooks.md).
 8. When testing is complete, exit from the Test pane.
 
 ## Publish and schedule the runbook
 
-To publish and then schedule your runbook, see [Manage runbooks in Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
+To publish and then schedule your runbook, see [Manage runbooks in Azure Automation](./manage-runbooks.md).
 
 ## Next steps
 
 * For details of credential use, see [Manage credentials in Azure Automation](shared-resources/credentials.md).
 * For information about modules, see [Manage modules in Azure Automation](shared-resources/modules.md).
 * If you need to start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).
-* For PowerShell details, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* For PowerShell details, see [PowerShell Docs](/powershell/scripting/overview).

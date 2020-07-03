@@ -158,7 +158,7 @@ To do this, the script has to authenticate using the credentials from your Autom
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+[Azure Compute client for Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the compute client to start the VM. Add the following code to the runbook:
 
