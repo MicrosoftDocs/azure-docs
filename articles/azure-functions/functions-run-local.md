@@ -72,7 +72,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
    It may take a few minutes for npm to download and install the Core Tools package.
 
-3. If you don't plan to use [extension bundles](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://www.microsoft.com/net/download/windows).
+3. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK](https://dotnet.microsoft.com/download).
 
 # [macOS](#tab/macos)
 
