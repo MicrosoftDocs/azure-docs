@@ -98,7 +98,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
     brew install azure-functions-core-tools@2
     ```
     
-1. If you don't plan to use [extension bundles](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles), install the [.NET Core 3.x SDK for MacOS](https://www.microsoft.com/net/download/macos).
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for MacOS](https://dotnet.microsoft.com/download).
 
 # [Linux](#tab/linux)
 
@@ -157,7 +157,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo apt-get install azure-functions-core-tools-2
     ```
 
-1. If you don't plan to use [extension bundles](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles), install [.NET Core 3.x SDK for Linux](https://www.microsoft.com/net/download/linux).
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
 
 ---
 
