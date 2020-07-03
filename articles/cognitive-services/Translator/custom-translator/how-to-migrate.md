@@ -137,7 +137,7 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 
 ## New languages
 
-If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
+If you are a community or organization working on creating a new language system for Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
 
 ## Next steps
 
