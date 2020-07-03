@@ -47,6 +47,8 @@
     href: ../../backup/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
+  - name: Cognitive Services security baseline
+    href: ../../cognitive-services/security-baseline.md
   - name: Container Instances security baseline
     href: ../../container-instances/security-baseline.md
   - name: Container Registry security baseline
