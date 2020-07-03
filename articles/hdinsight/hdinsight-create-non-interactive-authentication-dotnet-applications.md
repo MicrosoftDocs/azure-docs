@@ -42,9 +42,9 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 1. Create a C# console application.
 2. Add the following [NuGet](https://www.nuget.org/) packages:
 
-        Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
+    * `Install-Package Microsoft.Azure.Common.Authentication -Pre`
+    * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
+    * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
 3. Run the following code:
 
