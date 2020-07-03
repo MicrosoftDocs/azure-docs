@@ -56,7 +56,7 @@ To configure the integration of Lenses.io into Azure AD, you need to add Lenses.
 1. Select **Lenses.io** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for Lenses.io
+## Configure and test Azure AD SSO for Lenses.io
 
 Configure and test Azure AD SSO with Lenses.io using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Lenses.io.
 
