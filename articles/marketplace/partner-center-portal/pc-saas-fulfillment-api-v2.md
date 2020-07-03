@@ -323,7 +323,7 @@ This API returns paginated results. Page size is 100.
 
 *Query parameters:*
 
-|             |                   |
+|  Parameter         | Value             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Use 2018-08-31.  |
 | `continuationToken`  | Optional parameter. To retrieve the first page of results, leave empty.  Use the value returned in `@nextLink` parameter to retrieve the next page. |
@@ -771,7 +771,7 @@ Currently only **Reinstate operations** are returned as response for this API ca
 
 *Query parameters:*
 
-|             |        |
+|  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Use 2018-08-31.         |
 |    `subscriptionId` | A unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the marketplace authorization token by using the Resolve API.  |
