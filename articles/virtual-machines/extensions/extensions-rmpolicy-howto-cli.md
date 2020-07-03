@@ -84,7 +84,6 @@ Copy and paste the following .json into the file.
 		"type": "Array",
 		"metadata": {
 			"description": "The list of extensions that will be denied. Example: CustomScriptForLinux, VMAccessForLinux etc.",
-			"strongType": "type",
 			"displayName": "Denied extension"
 		}
 	}
