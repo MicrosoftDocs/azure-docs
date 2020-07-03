@@ -65,13 +65,13 @@ The ability to define additional custom namespaces to be excluded is not support
 
 After installing the Azure Policy Add-on, no policies are applied by default.
 
-The following sixteen (16) built-in Azure policies can be enabled in an AKS cluster to specifically secure pods. These policies map to Kubernetes pod security policies, learn  about [how to migrate and how the features compare and contrast](##migrate-from-kubernetes-pod-security-policy-to-the-azure-policy).
+The following sixteen (16) built-in Azure policies can be enabled in an AKS cluster to specifically secure pods. These policies map to Kubernetes pod security policies, learn  about [how to migrate and how the features compare and contrast](#migrate-from-kubernetes-pod-security-policy-to-the-azure-policy).
 
-For each policy the behavior can be customized with an effect. A [full list of AKS policies and their supported effects are listed here](policy-samples#microsoftcontainerservice). Read more about [Azure Policy effects](../governance/policy/concepts/effects).
+For each policy the behavior can be customized with an effect. A [full list of AKS policies and their supported effects are listed here](policy-samples.md#microsoftcontainerservice). Read more about [Azure Policy effects](../governance/policy/concepts/effects.md).
 
 ### Use built-in initiatives
 
-An initiative in Azure Policy is a collection of policy definitions that are tailored towards achieving a singular overarching goal. The use of initiatives can simplify the management and assignment of policies across AKS clusters. An initiative exists as a single object, read more about [Azure Policy initiatives](../governance/policy/overview#initiative-definition).
+An initiative in Azure Policy is a collection of policy definitions that are tailored towards achieving a singular overarching goal. The use of initiatives can simplify the management and assignment of policies across AKS clusters. An initiative exists as a single object, read more about [Azure Policy initiatives](../governance/policy/overview.md#initiative-definition).
 
 Azure Policy for Kubernetes offers two built-in initiatives which focus on pod security, baseline and restricted. These initiatives have been built out of the [definitions used in pod security policy from Kubernetes](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml).
 
