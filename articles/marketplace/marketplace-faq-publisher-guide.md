@@ -330,8 +330,8 @@ For information about the Microsoft Admin Center, see [Manage third-party app su
 ### Where can I learn more about Azure billing?
 
 - [Azure Cost Management + Billing documentation](../cost-management-billing/index.yml)
-- [Understand Azure Marketplace charges on your Azure bill](https://docs.microsoft.com/azure/cost-management-billing/understand/understand-azure-marketplace-charges)
-- [Convert Azure subscription to invoice payment](https://docs.microsoft.com/azure/cost-management-billing/manage/pay-by-invoice)
+- [Understand Azure Marketplace charges on your Azure bill](../cost-management-billing/understand/understand-azure-marketplace-charges.md)
+- [Convert Azure subscription to invoice payment](../cost-management-billing/manage/pay-by-invoice.md)
 
 ### Where can I learn about Azure Government and the Azure Government Marketplace?
 

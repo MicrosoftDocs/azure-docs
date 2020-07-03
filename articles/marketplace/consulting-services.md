@@ -21,7 +21,7 @@ The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplac
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
-Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Consulting services in Azure Marketplace should focus on offers for a technical audience and emphasize Azure technical solutions and services.

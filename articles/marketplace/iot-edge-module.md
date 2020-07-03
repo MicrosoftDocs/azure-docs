@@ -25,7 +25,7 @@ With [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.micros
 
 ## What is an IoT Edge module?
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](../iot-edge/iot-edge-modules.md).
 
 **What is the difference between a Container offer type and an IoT Edge module offer type?**
 
