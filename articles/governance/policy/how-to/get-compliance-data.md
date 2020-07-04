@@ -215,6 +215,13 @@ with the status:
 }
 ```
 
+#### On-demand evaluation scan - Visual Studio Code
+
+The Azure Policy extension for Visual Studio code is capable of running an evaluation scan for a
+specific resource. This scan is a synchronous process, unlike the Azure PowerShell and REST methods.
+For details and steps, see
+[On-demand evaluation with the VS Code extension](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## How compliance works
 
 In an assignment, a resource is **Non-compliant** if it doesn't follow policy or initiative rules
