@@ -349,7 +349,7 @@ To load the visualization dashboard, use the following code.
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, x_test)
+ExplanationDashboard(global_explanation, model)
 ```
 
 ### Visualization in Azure Machine Learning studio
