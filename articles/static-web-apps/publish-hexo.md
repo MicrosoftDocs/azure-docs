@@ -84,7 +84,7 @@ The following steps show you how to create a new static site app and deploy it t
 1. Click **Static Web Apps (Preview)**
 1. Click **Create**
 
-   :::image type="content" source="./media/publish-hexo/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
+   :::image type="content" source="./media/publish-hexo/create-in-portal.PNG" alt-text="Create a Static Web Apps (Preview) in the portal":::
    
 1. For _Subscription_, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -96,7 +96,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For _SKU_, select **Free**.
 
-   :::image type="content" source="./media/publish-hexo/basic-app-details.png" alt-text="Details filled out":::
+   :::image type="content" source="./media/publish-hexo/basic-app-details.PNG" alt-text="Details filled out":::
 
 1. Click the **Sign in with GitHub** button.
 
@@ -106,7 +106,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For the _Branch_ select **master**.
 
-   :::image type="content" source="./media/publish-hexo/completed-github-info.png" alt-text="Completed GitHub information":::
+   :::image type="content" source="./media/publish-hexo/completed-github-info.PNG" alt-text="Completed GitHub information":::
    
 ### Build
 
@@ -120,7 +120,7 @@ Next, add configuration settings that the build process uses to build your app.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
-   :::image type="content" source="./media/publish-hexo/build-details.png" alt-text="Build Settings":::
+   :::image type="content" source="./media/publish-hexo/build-details.PNG" alt-text="Build Settings":::
    
 ### Review and create
 
@@ -132,7 +132,7 @@ Next, add configuration settings that the build process uses to build your app.
 
 1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
-   :::image type="content" source="./media/publish-hexo/deployed-app.png" alt-text="Deployed application":::
+   :::image type="content" source="./media/publish-hexo/deployed-app.PNG" alt-text="Deployed application":::
 
 ## Clean up resources
 
