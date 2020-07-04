@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -14,22 +14,21 @@ resources you're looking for.
 
 We'll walk through the following starter queries:
 
-> [!div class="checklist"]
-> - [Count Azure resources](#count-resources)
-> - [Count key vault resources](#count-keyvaults)
-> - [List resources sorted by name](#list-resources)
-> - [Show all virtual machines ordered by name in descending order](#show-vms)
-> - [Show first five virtual machines by name and their OS type](#show-sorted)
-> - [Count virtual machines by OS type](#count-os)
-> - [Show resources that contain storage](#show-storage)
-> - [List all public IP addresses](#list-publicip)
-> - [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
-> - [List resources with a specific tag value](#list-tag)
-> - [List all storage accounts with specific tag value](#list-specific-tag)
-> - [Show aliases for a virtual machine resource](#show-aliases)
-> - [Show distinct values for a specific alias](#distinct-alias-values)
-> - [Show unassociated network security groups](#unassociated-nsgs)
-> - [Get cost savings summary from Azure Advisor](#advisor-savings)
+- [Count Azure resources](#count-resources)
+- [Count key vault resources](#count-keyvaults)
+- [List resources sorted by name](#list-resources)
+- [Show all virtual machines ordered by name in descending order](#show-vms)
+- [Show first five virtual machines by name and their OS type](#show-sorted)
+- [Count virtual machines by OS type](#count-os)
+- [Show resources that contain storage](#show-storage)
+- [List all public IP addresses](#list-publicip)
+- [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
+- [List resources with a specific tag value](#list-tag)
+- [List all storage accounts with specific tag value](#list-specific-tag)
+- [Show aliases for a virtual machine resource](#show-aliases)
+- [Show distinct values for a specific alias](#distinct-alias-values)
+- [Show unassociated network security groups](#unassociated-nsgs)
+- [Get cost savings summary from Azure Advisor](#advisor-savings)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
