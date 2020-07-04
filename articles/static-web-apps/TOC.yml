@@ -47,6 +47,8 @@
           href: publish-vuepress.md
         - name: Jekyll
           href: publish-jekyll.md
+        - name: Hexo
+          href: publish-hexo.md
     - name: Deploy from a framework
       items:
         - name: Next.js
