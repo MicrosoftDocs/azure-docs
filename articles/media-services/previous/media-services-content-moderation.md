@@ -135,8 +135,8 @@ static void RunContentModeratorJob(IAsset asset)
             Thread.Sleep(10000);
         }
         while (jobQuery.State != JobState.Finished &&
-        jobQuery.State != JobState.Error &&
-        jobQuery.State != JobState.Canceled);
+               jobQuery.State != JobState.Error &&
+               jobQuery.State != JobState.Canceled);
     });
     progressPrintTask.Start();
 
