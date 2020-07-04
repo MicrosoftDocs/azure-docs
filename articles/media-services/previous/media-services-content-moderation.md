@@ -141,7 +141,7 @@ static void RunContentModeratorJob(IAsset asset)
     progressPrintTask.Start();
 
     Task progressJobTask = job.GetExecutionProgressTask(
-    CancellationToken.None);
+                           CancellationToken.None);
     progressJobTask.Wait();
 
     // If job state is Error, the event handling 
