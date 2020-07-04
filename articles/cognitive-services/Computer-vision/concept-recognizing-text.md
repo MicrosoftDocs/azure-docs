@@ -16,11 +16,11 @@ ms.custom: seodec18
 
 # Optical Character Recognition (OCR)
 
-Computer Vision includes new deep-learning-based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. Computer Vision extracts text from both analog documents (images, scanned documents) and digitized documents. You can extract text from images in the wild, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more. This OCR functionality is available as part of the managed service in the cloud or on premises (containers). Also, it supports virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs.
+Microsoft's Computer Vision API includes Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. The OCR APIs extract text from both analog documents (images, scanned documents) and digitized documents. You can extract text from images in the wild, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more. The new Read OCR API is available as part of the managed service in the cloud or on premises (containers). Also, it supports virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs.
 
 ## Read API 
 
-Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Microsoft’s latest OCR technology that extracts printed text (seven languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from in-the-wild text-heavy images and multi-page PDF documents with mixed languages. It supports detecting printed and handwritten text (English only) in the same image or document. The full list of supported languages can be found on the [Language support for Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) page.
+Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Microsoft’s latest OCR technology that extracts printed text (seven languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from in-the-wild text-heavy images and multi-page PDF documents with mixed languages. It supports detecting printed and handwritten text (English only) in the same image or document. Refer to the full list of [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) page.
 
 ### How it works
 
@@ -41,7 +41,6 @@ The Read API takes the following inputs:
 * For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
-
 
 ### Text from images
 
@@ -64,7 +63,7 @@ Right now, the Read operation supports extracting handwritten text exclusively i
 
 ### Printed text in supported languages
 
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition)
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
@@ -85,7 +84,7 @@ Read is also available as a Docker container (preview) to enable you to deploy t
 
 ## OCR API
 
-The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. It supports [more languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than Read API.
+The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) than Read API.
 
 ## Next steps
 
