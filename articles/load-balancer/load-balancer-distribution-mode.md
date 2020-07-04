@@ -89,7 +89,7 @@ Set the value of the `LoadBalancerDistribution` element for the amount of load b
 
 Retrieve an endpoint load balancer distribution mode configuration by using these settings:
 
-```console
+```azurepowershell
 PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
