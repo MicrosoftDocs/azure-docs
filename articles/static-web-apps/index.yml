@@ -55,6 +55,8 @@ landingContent:
             url:  publish-vuepress.md
           - text: Publish from Jekyll
             url:  publish-jekyll.md
+          - text: Publish from Hexo
+            url:  publish-hexo.md
           - text: Deploy from Next.js
             url:  deploy-nextjs.md
           - text: Deploy from Nuxt.js
