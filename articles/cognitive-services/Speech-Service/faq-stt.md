@@ -1,4 +1,4 @@
-﻿---
+---
 title: Speech to Text frequently asked questions
 titleSuffix: Azure Cognitive Services
 description: Get answers to frequently asked questions about the Speech to Text service.
@@ -66,7 +66,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **Q: Are my requests logged?**
 
-**A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage.
+**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](how-to-custom-speech-deploy-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
 
 **Q: Are my requests throttled?**
 
@@ -113,6 +113,10 @@ or
   - from the displayed services pick the Speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
+  
+**Q: Does increasing my concurrency limit increase my cost?**
+
+**A**: No, cost is based on usage. Increasing concurrency does not lead to higher costs. See our [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details on cost. 
   
 >[!NOTE]
 >[Containers](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) do not require increases to concurrency limits, as containers are constrained only by the CPUs of the hardware they are hosted on.
