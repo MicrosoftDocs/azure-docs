@@ -55660,6 +55660,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/index.md",
+      "redirect_url": "/azure/marketplace/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/active-directory-interactive-connect-azure-sql-db.md",
       "redirect_url": "/azure/azure-sql/database/active-directory-interactive-connect-azure-sql-db",
       "redirect_document_id": true
@@ -56172,6 +56177,16 @@
     {
       "source_path": "articles/azure-arc/kubernetes/index.yml",
       "redirect_url": "/azure/azure-arc/kubernetes/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md",
+      "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-configure-ha-ports.md",
+      "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
     }
   ]

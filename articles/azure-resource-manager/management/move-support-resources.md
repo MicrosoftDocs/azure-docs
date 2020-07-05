@@ -2916,7 +2916,7 @@ Jump to a resource provider namespace:
 > | virtualclusters | Yes | Yes |
 
 > [!IMPORTANT]
-> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
+> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure Synapse Analytics databases.
 
 ## Microsoft.SqlVirtualMachine
 
