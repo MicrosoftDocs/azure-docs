@@ -235,14 +235,17 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 >[!NOTE]
 > Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
-> 1. In the **Security Center** blade, select **Security policy**. For the subscription you want to change, select **Edit settings**.
-> 2. Select **Threat detection**.
-> 3. Under **Enable integrations**, clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
+> 1. From Security Center's menu, select **Pricing & settings**.
+> 1. Select the subscription you want to change.
+> 1. Select **Threat detection**.
+> 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
+1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
+1. Set the standard pricing tier, and select **Save**.
 
 
 
