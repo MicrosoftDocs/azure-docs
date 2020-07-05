@@ -37,15 +37,11 @@ To edit the application properties:
 
 1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to configure.
 2. In the Manage section, select **Properties** to open the properties pane for editing.
-
     ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
-
 3. Take a moment to understand the options available to configure.
-
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
     - **Visible to users?** determines whether users assigned to an app can see it in the access panel (https://myapps.microsoft.com) and O365 app launcher (the waffle menu in the top left of an Office 365 or Microsoft 365 website).
-
 4. Use the following tables to help you choose the best options for your needs.
 
    - Behavior for **assigned** users:
@@ -83,11 +79,10 @@ To edit the application properties:
 To use a custom logo:
 
 1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
-1. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to configure.
-2. In the Manage section, select **Properties** to open the properties pane for editing. 
-1. Select the icon to upload the logo.
-1. When you're finished, select **Save**. 
-
+2. In the Azure AD portal, select **Enterprise applications** and then find and select the application you want to configure.
+3. In the Manage section, select **Properties** to open the properties pane for editing. 
+4. Select the icon to upload the logo.
+5. When you're finished, select **Save**. 
     ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
 
    > [!NOTE]

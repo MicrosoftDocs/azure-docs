@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -11,9 +11,8 @@ understand which portion of the rule the resource isn't compliant with. It's als
 understand what change altered a previously compliant resource to make it non-compliant. There are
 two ways to find this information:
 
-> [!div class="checklist"]
-> - [Compliance details](#compliance-details)
-> - [Change history (Preview)](#change-history)
+- [Compliance details](#compliance-details)
+- [Change history (Preview)](#change-history)
 
 ## Compliance details
 
