@@ -33,7 +33,7 @@ The Microsoft Authentication Library (MSAL) supports several authentication flow
 
 ## How each flow emits tokens and codes
 
-Depending on how your client is built, it can use one or more of the authentication flows supported by the Microsoft identity platform. These flows can produce several types of tokens as well as authorization codes, and require different tokens to make them work.
+Depending on how your client application is built, it can use one or more of the authentication flows supported by the Microsoft identity platform. These flows can produce several types of tokens as well as authorization codes, and require different tokens to make them work.
 
 | Flow                                                                               | Requires            | id_token | access token | refresh token | authorization code |
 |------------------------------------------------------------------------------------|:-------------------:|:--------:|:------------:|:-------------:|:------------------:|
@@ -45,6 +45,15 @@ Depending on how your client is built, it can use one or more of the authenticat
 | [Username/password](v2-oauth-ropc.md) (ROPC)                                       | username & password | x        | x            | x             |                    |
 | [Hybrid OIDC flow](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition) |                     | x        |              |               | x                  |
 | [Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token)   | refresh token       | x        | x            | x             |                    |
+
+### Interactive and non-interactive authentication
+
+MSAL supports both interactive and non-interactive token acquisition for several of these flows.
+
+  - **Interactive** means that the user is prompted for input, such as with a login page.
+  - **Non-interactive**, or *silent*, authentication attempts to acquire a token without prompting the user for input, such as from the token cache or through the use of a refresh token.
+
+Your MSAL-based application should first attempt to acquire a token **silently**, and then interactively only if the non-interactive method fails. For more information about this pattern, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
 
 ## Authorization code
 
@@ -193,7 +202,7 @@ IWA is for .NET Framework, .NET Core, and Universal Windows Platform application
 
 IWA doesn't bypass multi-factor authentication. If multi-factor authentication is configured, IWA might fail if a multi-factor authentication challenge is required. Multi-factor authentication requires user interaction.
 
-You don't control when the identity provider requests two-factor authentication to be performed. The tenant admin does. Typically, two-factor authentication is required when you sign in from a different country/region, when you're not connected via VPN to a corporate network, and sometimes even when you are connected via VPN. Azure AD uses AI to continuously learn if two-factor authentication is required. If IWA fails, you should fall back to an [interactive user prompt](#interactive).
+You don't control when the identity provider requests two-factor authentication to be performed. The tenant admin does. Typically, two-factor authentication is required when you sign in from a different country/region, when you're not connected via VPN to a corporate network, and sometimes even when you are connected via VPN. Azure AD uses AI to continuously learn if two-factor authentication is required. If IWA fails, you should fall back to an [interactive user prompt](#interactive-and-non-interactive-authentication).
 
 The authority passed in when constructing the public client application must be one of:
 
