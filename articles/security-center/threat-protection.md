@@ -243,12 +243,9 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
+1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
-
-
-    1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
-
-    1. Set the standard pricing tier, and select **Save**.
+1. Set the standard pricing tier, and select **Save**.
 
 
 
