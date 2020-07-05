@@ -35,7 +35,7 @@ With Azure AD-integrated clusters in AKS, you create *Roles* or *ClusterRoles* t
 
 1. Developer authenticates with Azure AD.
 1. The Azure AD token issuance endpoint issues the access token.
-1. The developer performs an action using the Azure AD token, such as `kubectl create pod`
+1. The developer does an action using the Azure AD token, such as `kubectl create pod`
 1. Kubernetes validates the token with Azure Active Directory and fetches the developer's group memberships.
 1. Kubernetes role-based access control (RBAC) and cluster policies are applied.
 1. Developer's request is successful or not based on previous validation of Azure AD group membership and Kubernetes RBAC and policies.
@@ -46,7 +46,7 @@ To create an AKS cluster that uses Azure AD, see [Integrate Azure Active Directo
 
 **Best practice guidance** - Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least amount of permissions required. Integrate with Azure AD so any change in user status or group membership is automatically updated and access to cluster resources is current.
 
-In Kubernetes, you can provide granular control of access to resources in the cluster. Permissions can be defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are then applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
+In Kubernetes, you may provide granular control of access to resources in the cluster. Permissions are defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are then applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 As an example, you can create a Role that grants full access to resources in the namespace named *finance-app*, as shown in the following example YAML manifest:
 
@@ -87,21 +87,21 @@ To see how to use Azure AD groups to control access to Kubernetes resources usin
 ## Use Azure RBAC 
 **Best practice guidance** - Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions.
 
-There are 2 levels of access needed to fully operate an AKS cluster: 
-1. Access the AKS resource on your Azure subscription. This allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization
+There are two levels of access needed to fully operate an AKS cluster: 
+1. Access the AKS resource on your Azure subscription. This access level allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
+2. Access to the Kubernetes API. This access level is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization
 
-To see how to control access to the AKS resource and the kubeconfig see [Limit access to cluster configuration file](control-kubeconfig-access.md).
+To see how to control access to the AKS resource and the kubeconfig, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
 
 To see how to granularly give permissions to the Kubernetes API using Azure RBAC see [Use Azure RBAC for Kubernetes authorization](manage-azure-rbac.md).
 
 ## Use pod identities
 
-**Best practice guidance** - Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use pod identities to automatically request access using a central Azure AD identity solution. Pod identities is intended for use with Linux pods and container images only.
+**Best practice guidance** - Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use pod identities to automatically request access using a central Azure AD identity solution. Pod identities are intended for use with Linux pods and container images only.
 
 When pods need access to other Azure services, such as Cosmos DB, Key Vault, or Blob Storage, the pod needs access credentials. These access credentials could be defined with the container image or injected as a Kubernetes secret, but need to be manually created and assigned. Often, the credentials are reused across pods, and aren't regularly rotated.
 
-Managed identities for Azure resources (currently implemented as an associated AKS open source project) let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
+Managed identities for Azure resources (currently implemented as an associated AKS open-source project) let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
 
 * **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster. The NMI server listens for pod requests to Azure services.
 * **The Managed Identity Controller (MIC)** is a central pod with permissions to query the Kubernetes API server and checks for an Azure identity mapping that corresponds to a pod.

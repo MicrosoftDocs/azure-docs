@@ -11,7 +11,7 @@ ms.author: jpalma
 
 # Access and identity options for Azure Kubernetes Service (AKS)
 
-There are different ways to authenticate, control access/authorize and secure Kubernetes clusters. Using Kubernetes role-based access controls (RBAC), you can grant users, groups and service accounts access to only the resources they need. With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure by using Azure Active Directory and Azure RBAC. These approaches help you secure your cluster access and provide only the minimum required permissions to developers and operators.
+There are different ways to authenticate, control access/authorize and secure Kubernetes clusters. Using Kubernetes role-based access controls (RBAC), you can grant users, groups, and service accounts access to only the resources they need. With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure by using Azure Active Directory and Azure RBAC. These approaches help you secure your cluster access and provide only the minimum required permissions to developers and operators.
 
 This article introduces the core concepts that help you authenticate and assign permissions in AKS:
 
@@ -27,14 +27,14 @@ This article introduces the core concepts that help you authenticate and assign 
 
 ## Kubernetes Role-based access controls (RBAC)
 
-To provide granular filtering of the actions that users can perform, Kubernetes uses role-based access controls (RBAC). This control mechanism lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire AKS cluster. With Kubernetes RBAC, you create *roles* to define permissions, and then assign those roles to users with *role bindings*.
+To provide granular filtering of the actions that users can do, Kubernetes uses role-based access controls (RBAC). This control mechanism lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire AKS cluster. With Kubernetes RBAC, you create *roles* to define permissions, and then assign those roles to users with *role bindings*.
 
 For more information, see [Using RBAC authorization][kubernetes-rbac].
 
 
 ### Roles and ClusterRoles
 
-Before you assign permissions to users with Kubernetes RBAC, you first define those permissions as a *Role*. Kubernetes roles *grant* permissions. There is no concept of a *deny* permission.
+Before you assign permissions to users with Kubernetes RBAC, you first define those permissions as a *Role*. Kubernetes roles *grant* permissions. There's no concept of a *deny* permission.
 
 Roles are used to grant permissions within a namespace. If you need to grant permissions across the entire cluster, or to cluster resources outside a given namespace, you can instead use *ClusterRoles*.
 
@@ -56,7 +56,7 @@ A ClusterRoleBinding works in the same way to bind roles to users, but can be ap
 
 One of the primary user types in Kubernetes is a *service account*. A service account exists in, and is managed by, the Kubernetes API. The credentials for service accounts are stored as Kubernetes secrets, which allows them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
 
-Normal user accounts allow more traditional access for human administrators or developers, not just services and processes. Kubernetes itself doesn't provide an identity management solution where regular user accounts and passwords are stored. Instead, external identity solutions can be integrated into Kubernetes. For AKS clusters, this integrated identity solution is Azure Active Directory.
+Normal user accounts allow more traditional access for human administrators or developers, not just services, and processes. Kubernetes itself doesn't provide an identity management solution where regular user accounts and passwords are stored. Instead, external identity solutions can be integrated into Kubernetes. For AKS clusters, this integrated identity solution is Azure Active Directory.
 
 For more information on the identity options in Kubernetes, see [Kubernetes authentication][kubernetes-authentication].
 
@@ -66,7 +66,7 @@ The security of AKS clusters can be enhanced with the integration of Azure Activ
 
 ![Azure Active Directory integration with AKS clusters](media/concepts-identity/aad-integration.png)
 
-With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they are prompted to sign in with their Azure AD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
+With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they're prompted to sign in with their Azure AD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
 
 Azure AD authentication in AKS clusters uses OpenID Connect, an identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use access tokens to access protected resources, and OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. For more information on OpenID Connect, see the [Open ID Connect documentation][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
 
@@ -76,7 +76,7 @@ Azure AD authentication in AKS clusters uses OpenID Connect, an identity layer b
 
 As shown in the graphic above, the API server calls the AKS webhook server and performs the following steps:
 
-1. The Azure AD client application is used by kubectl to log in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. The Azure AD client application is used by kubectl to sign in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
 2. Azure AD provides an access_token, id_token, and a refresh_token.
 3. The user makes a request to kubectl with an access_token from kubeconfig.
 4. Kubectl sends the access_token to APIServer.
@@ -100,13 +100,13 @@ With Azure RBAC, you create a *role definition* that outlines the permissions to
 
 For more information, see [What is Azure RBAC?][azure-rbac]
 
-There are 2 levels of access needed to fully operate an AKS cluster: 
-1. [Access the AKS resource on your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (traditionally) or by [integrating Azure RBAC with AKS for kubernetes authorization](#azure-rbac-for-kubernetes-authorization)
+There are two levels of access needed to fully operate an AKS cluster: 
+1. [Access the AKS resource on your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
+2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (traditionally) or by [integrating Azure RBAC with AKS for kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### Azure RBAC to authorize access to the AKS resource
 
-With Azure RBAC you can provide your users (or identities) with granular access to AKS resources across one or more subscriptions. For example, you could have the [Azure Kubernetes Service Contributor role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) that allows you to do actions like scale and upgrade your cluster. While another user could have the [Azure Kubernetes Service Cluster Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) that only gives permission to pull the Admin kubeconfig.
+With Azure RBAC, you can provide your users (or identities) with granular access to AKS resources across one or more subscriptions. For example, you could have the [Azure Kubernetes Service Contributor role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) that allows you to do actions like scale and upgrade your cluster. While another user could have the [Azure Kubernetes Service Cluster Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) that only gives permission to pull the Admin kubeconfig.
 
 Alternatively you could give your user the general [Contributor](../role-based-access-control/built-in-roles.md#contributor) role, which would encompass the above permissions and every action possible on the AKS resource with the exception of managing permissions itself.
 
@@ -114,28 +114,28 @@ See more how to use Azure RBAC to secure the access to the kubeconfig file that 
 
 ### Azure RBAC for Kubernetes Authorization (Preview)
 
-With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to enable you to manage permissions and assignments of AAD integrated K8s cluster resources using Azure RBAC role definition and role assignments.
+With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to enable you to manage permissions and assignments of Azure AD-integrated K8s cluster resources using Azure RBAC role definition and role assignments.
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the the [Azure Active integration section](#azure-active-directory-integration). 
+As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active integration section](#azure-active-directory-integration). 
 
-But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity does not exist in AAD, for example a Kubernetes storage account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
+But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity doesn't exist in AAD, for example a Kubernetes storage account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
 
-In this scenario you could give users one of the 4 built-in roles, or create custom roles as you would do with Kubernetes roles but in this case using the Azure RBAC mechanisms and APIs. 
+In this scenario you could give users one of the four built-in roles, or create custom roles as you would do with Kubernetes roles but in this case using the Azure RBAC mechanisms and APIs. 
 
-This will allow you to, for example, not only give users permissions to the AKS resource across subscriptions but actually set up and give them the role and permissions that they will have inside each of those clusters that controls the access to the Kubernetes API. For example you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope and its recipient will be able to list and get all Kubernetes objects from all clusters, but not modify them.
+This feature will allow you to, for example, not only give users permissions to the AKS resource across subscriptions but set up and give them the role and permissions that they will have inside each of those clusters that controls the access to the Kubernetes API. For example, you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope and its recipient will be able to list and get all Kubernetes objects from all clusters, but not modify them.
 
 
 #### Built-in roles
 
-AKS provides the following 4 built in roles based on the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles):
+AKS provides the following four built-in roles based on the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles):
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
-| Azure  Kubernetes Service RBAC Viewer  | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)  |
-| Azure Kubernetes Service RBAC  Writer | Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. |
-| Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role does not allow write access to resource quota or to the namespace itself. |
+| Azure  Kubernetes Service RBAC Viewer  | Allows read-only access to see most objects in a namespace. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing `Secrets`, since reading the contents of Secrets enables access to `ServiceAccount` credentials in the namespace, which would allow API access as any `ServiceAccount` in the namespace (a form of privilege escalation)  |
+| Azure Kubernetes Service RBAC  Writer | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing `Secrets` and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. |
+| Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
 **See how to leverage Azure RBAC for Kubernetes authorization [here](manage-azure-rbac.md).**
@@ -144,10 +144,10 @@ AKS provides the following 4 built in roles based on the [Kubernetes built-in ro
 
 - To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
 - For associated best practices, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
-- To get started with Azure RBAC for Kubernetes Authorization see [Use Azure RBAC to authorize access within the Azure Kubernetes Service (AKS) Cluster](manage-azure-rbac.md).
-- To get started securing your kubeconfig file see [Limit access to cluster configuration file](control-kubeconfig-access.md)
+- To get started with Azure RBAC for Kubernetes Authorization, see [Use Azure RBAC to authorize access within the Azure Kubernetes Service (AKS) Cluster](manage-azure-rbac.md).
+- To get started securing your kubeconfig file, see [Limit access to cluster configuration file](control-kubeconfig-access.md)
 
-For additional information on core Kubernetes and AKS concepts, see the following articles:
+For more information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS security][aks-concepts-security]

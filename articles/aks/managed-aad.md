@@ -9,12 +9,12 @@ ms.date: 06/25/2020
 ms.author: mlearned
 ---
 
-# Integrate AKS-managed Azure AD (Preview)
+# AKS-managed Azure Active Directory integration (Preview)
 
 > [!NOTE]
 > Existing AKS (Azure Kubernetes Service) clusters with Azure Active Directory (Azure AD) integration are not affected by the new AKS-managed Azure AD experience.
 
-Azure AD integration with AKS-managed Azure AD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+AKS-managed Azure AD integration is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
@@ -101,7 +101,7 @@ You can use an existing Azure AD group, or create a new one. You need the object
 az ad group list
 ```
 
-To reate a new Azure AD group for your cluster administrators, use the following command:
+To create a new Azure AD group for your cluster administrators, use the following command:
 
 ```azurecli-interactive
 # Create an Azure AD group
@@ -131,7 +131,7 @@ The cluster is created within a few minutes.
 
 ## Access an Azure AD enabled cluster
 
-You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the following steps.
+You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to do the following steps.
 
 Get the user credentials to access the cluster:
  
@@ -157,23 +157,23 @@ Configure [Role Based Access Control (RBAC)](https://review.docs.microsoft.com/a
 > [!Important]
 > The steps described below are bypassing the normal Azure AD group authentication. Use them only in an emergency.
 
-If you are permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
+If you're permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
 
-To perform these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
+To do these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
 
-## Non-interactive login with kubelogin
+## Non-interactive sign in with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the the cluster with non-interactive service principal login.
+There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
 ## Next steps
 
 * Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
 * Learn about [Azure AD integration with Kubernetes RBAC][azure-ad-rbac].
-* Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that are not available in kubectl.
+* Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that aren't available in kubectl.
 * Learn more about [AKS and Kubernetes identity concepts][aks-concepts-identity].
 * Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create AKS-managed Azure AD enabled clusters.
 

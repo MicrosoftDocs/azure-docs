@@ -1,7 +1,7 @@
 ---
 title: Manage RBAC in Kubernetes From Azure
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use a Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
+description: Learn how to use Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 07/07/2020
@@ -13,10 +13,10 @@ author: palma21
 
 # Use Azure RBAC for Kubernetes Authorization (Preview)
 
-Today you can already leverage [integrated authentication between Azure Active Directory (AAD) and AKS](managed-aad.md). When enabled, this integration allows customers to use AAD users, groups or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
-This frees you from having to separately manage user identities and credentials for Kubernetes, however you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on Authentication, Authorization and RBAC on AKS see [here](concepts-identity.md).
+Today you can already leverage [integrated authentication between Azure Active Directory (AAD) and AKS](managed-aad.md). When enabled, this integration allows customers to use AAD users, groups, or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
+This feature frees you from having to separately manage user identities and credentials for Kubernetes, however you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on Authentication, Authorization and RBAC on AKS see [here](concepts-identity.md).
 
-This document covers a new approach that allows for the unified management and access control across Azure Resources, AKS and Kubernetes resources.
+This document covers a new approach that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 ## Before you begin
 
@@ -29,7 +29,7 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 > - [Azure Support FAQ](faq.md)
 
 ### Pre-requisites 
-- Sign up for the private preview <https://aka.ms/aad-rbac-sign-up-form>.
+- Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
 - Ensure you have the `AAD-V2` feature flag enabled.
 - Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
@@ -37,7 +37,7 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 
 #### Register `EnableAzureRBACPreview` and `AAD-V2` preview features
 
-To create an AKS cluster that uses a Azure RBAC, you must enable the `EnableAzureRBACPreview` feature flag on your subscription.
+To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` and `AAD-V2` feature flags on your subscription.
 
 Register the `EnableAzureRBACPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -77,9 +77,9 @@ az extension update --name aks-preview
 
 - Requires [Managed AAD integration](managed-aad.md).
 - You can't integrate Azure RBAC for Kubernetes authorization into existing clusters during preview, but you will be able to at General Availability (GA).
-- You need to use [kubectl v1.18+][az-aks-install-cli].
-- During preview you can only add *Namespace level* permissions via the Azure CLI.
-- If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. We are working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
+- Use [kubectl v1.18+][az-aks-install-cli].
+- During preview, you can only add *Namespace level* permissions via the Azure CLI.
+- If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. AKS is working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
 
 ## Create a new cluster using Azure RBAC and managed AAD integration
 
@@ -115,18 +115,18 @@ A successful creation of a cluster with AAD integration and Azure RBAC for Kuber
 
 ## Create role assignments for users to access cluster
 
-AKS provides the following 4 built in roles:
+AKS provides the following four built-in roles:
 
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
-| Azure  Kubernetes Service RBAC Viewer  | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)  |
-| Azure Kubernetes Service RBAC  Writer | Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. |
-| Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role does not allow write access to resource quota or to the namespace itself. |
+| Azure  Kubernetes Service RBAC Viewer  | Allows read-only access to see most objects in a namespace. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing `Secrets`, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)  |
+| Azure Kubernetes Service RBAC  Writer | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing `Secrets` and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. |
+| Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
 
-Roles assignments scoped to the **whole AKS cluster** can be performed either on the IAM blade of the cluster resource on Azure portal or by using Azure CLI commands as shown below:
+Roles assignments scoped to the **whole AKS cluster** can be done either on the IAM blade of the cluster resource on Azure portal or by using Azure CLI commands as shown below:
 
 ```bash
 # Get your AKS Resource ID
@@ -173,7 +173,7 @@ Copy the below json into a file called `deploy-view.json`.
 }
 ```
 
-Replace `<YOUR SUBSCRIPTION ID>` by the ID from your subscription which you can get by running:
+Replace `<YOUR SUBSCRIPTION ID>` by the ID from your subscription, which you can get by running:
 
 ```azurecli-interactive
 az account show --query id -o tsv
@@ -202,9 +202,9 @@ az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-
 > ```
 > You might need to run it with `sudo` privileges. 
 
-Now that you have assigned your desired role and permissions. You can start calling the Kubernetes API for example from `kubectl`.
+Now that you have assigned your desired role and permissions. You can start calling the Kubernetes API, for example,  from `kubectl`.
 
-For this first let's get the cluster's kubeconfig using the below command:
+For this purpose, let's first get the cluster's kubeconfig using the below command:
 
 ```azurecli-interactive
 az aks get-credentials -g MyResourceGroup -n MyManagedCluster
@@ -213,7 +213,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 > [!IMPORTANT]
 > You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the step above.
 
-Now, you can use kubectl to for example list the nodes in the cluster. The first time you run it you'll need to login, and subsequent commands will use the respective access token.
+Now, you can use kubectl to, for example,  list the nodes in the cluster. The first time you run it you'll need to sign in, and subsequent commands will use the respective access token.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -228,7 +228,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 
 ## Use Azure RBAC for Kubernetes Authorization with `kubelogin`
 
-To unblock additional scenarios like non-interactive logins, and leveraging SSO across multiple clusters without the need to login to new cluster, granted that your token is still valid, AKS created an exec plugin called [kubelogin](https://github.com/Azure/kubelogin).
+To unblock additional scenarios like non-interactive logins, and leveraging SSO across multiple clusters without the need to sign in to new cluster, granted that your token is still valid, AKS created an exec plugin called [`kubelogin`](https://github.com/Azure/kubelogin).
 
 You can use it by running:
 
@@ -237,7 +237,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 ``` 
 
-For the first time you'll have to login like with regular kubectl, but afterwards you'll no longer be required, even for new aad clusters (as long as your token is still valid).
+For the first time you'll have to sign in like with regular kubectl, but afterwards you'll no longer be required, even for new aad clusters (as long as your token is still valid).
 
 ```bash
 kubectl get nodes
@@ -257,7 +257,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```azurecli-interactive
 az role assignment list --scope $AKS_ID --query [].id -o tsv
 ```
-Copy the ID or IDs from all the assignments you performed and then.
+Copy the ID or IDs from all the assignments you did and then.
 
 ```azurecli-interactive
 az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
@@ -277,7 +277,7 @@ az group delete -n MyResourceGroup
 
 ## Next steps
 
-- Read more about AKS Authentication, Authorization and RBAC [here](concepts-identity.md).
+- Read more about AKS Authentication, Authorization, and RBAC [here](concepts-identity.md).
 - Read more about Azure RBAC [here](../role-based-access-control/overview.md).
 - Read more about the all the actions you can use to granularly define custom Azure RBAC roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
