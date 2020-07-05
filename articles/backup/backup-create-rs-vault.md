@@ -90,7 +90,7 @@ Before deciding to move from GRS to locally redundant storage (LRS), review the 
 - [Don’t need to preserve previous backed-up data](#dont-need-to-preserve-previous-backed-up-data)
 - [Must preserve previous backed-up data](#must-preserve-previous-backed-up-data)
 
-### Don’t need to preserve previous backed-up data
+#### Don’t need to preserve previous backed-up data
 
 To protect workloads in a new LRS vault, the current protection and data will need to be deleted in the GRS vault and backups configured again.
 
@@ -107,7 +107,7 @@ Stop and delete current protection on the GRS vault:
 
 1. Once they're removed from the GRS vault, continue to configure the backups for your workload in the new LRS vault.
 
-### Must preserve previous backed-up data
+#### Must preserve previous backed-up data
 
 If you need to keep the current protected data in the GRS vault and continue the protection in a new LRS vault, there are limited options for some of the workloads:
 
