@@ -1,31 +1,40 @@
 ---
-title: Server-side encryption of Azure Managed Disks - PowerShell
+title: Azure PowerShell - Enable customer-managed keys with SSE - managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-ms.date: 04/21/2020
+ms.date: 07/05/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ---
 
-# Enable customer-managed keys for your managed disk - PowerShell
+# PowerShell - Enable customer-managed keys with server-side encryption - managed disks
 
-#### Setting up your Azure Key Vault and DiskEncryptionSet
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the [Customer-managed keys](disk-encryption.md#customer-managed-keys) section of our disk encryption article.
+
+## Set up your Azure Key Vault and DiskEncryptionSet
+
+To use customer-managed keys with SSE, you must set up an Azure Key Vault and a DiskEncryptionSet resource.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
+## Examples
 
-#### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+Now that you've created and configured these resources, you can use them to secure your managed disks. The following are example scripts each with a respective scenario that you can use to secure your managed disks.
+
+### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+
+Copy the script, replace all of the example values with your own parameters, and then run it.
 
 ```powershell
 $VMLocalAdminUser = "yourVMLocalAdminUserName"
 $VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
-$LocationName = "westcentralus"
+$LocationName = "yourRegion"
 $ResourceGroupName = "yourResourceGroupName"
 $ComputerName = "yourComputerName"
 $VMName = "yourVMName"
-$VMSize = "Standard_DS3_v2"
+$VMSize = "yourVMSize"
 $diskEncryptionSetName="yourdiskEncryptionSetName"
     
 $NetworkName = "yourNetworkName"
@@ -54,7 +63,9 @@ $VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDis
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
 ```
 
-#### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
+### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
+
+Copy the script, replace all of the example values with your own parameters, and then run it.
 
 ```PowerShell
 $vmName = "yourVMName"
@@ -77,7 +88,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### Encrypt existing managed disks 
+### Encrypt existing managed disks 
 
 Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
 
@@ -91,7 +102,9 @@ $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $d
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
-#### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+
+Copy the script, replace all of the example values with your own parameters, and then run it.
 
 ```PowerShell
 $VMLocalAdminUser = "yourLocalAdminUser"
@@ -135,7 +148,9 @@ $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdmi
 New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMScaleSetName
 ```
 
-#### Change the key of a DiskEncryptionSet to rotate the key for all the resources referencing the DiskEncryptionSet
+### Change the key of a DiskEncryptionSet to rotate the key for all the resources referencing the DiskEncryptionSet
+
+Copy the script, replace all of the example values with your own parameters, and then run it.
 
 ```PowerShell
 $ResourceGroupName="yourResourceGroupName"
@@ -150,12 +165,12 @@ $keyVaultKey = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
 Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -SourceVaultId $keyVault.ResourceId -KeyUrl $keyVaultKey.Id
 ```
 
-#### Find the status of server-side encryption of a disk
+### Find the status of server-side encryption of a disk
 
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
 
 > [!IMPORTANT]
-> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 ## Next steps
 

@@ -9,11 +9,9 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-### Portal
-
 Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and set up an Azure Key Vault.
 
-#### Setting up your Azure Key Vault
+## Set up your Azure Key Vault
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Key Vaults**.
@@ -41,7 +39,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
     ![Screenshot of the create a key blade that appears once generate/import button is selected](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
-#### Setting up your disk encryption set
+## Set up your disk encryption set
 
 1. Search for **Disk Encryption Sets** and select it.
 1. On the **Disk Encryption Sets** blade select **+Add**.
@@ -64,7 +62,7 @@ Two notifications should pop up and succeed. Doing this will allow you to use th
 
 ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 
-#### Deploy a VM
+## Deploy a VM
 
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
@@ -81,7 +79,7 @@ The VM deployment process is similar to the standard deployment process, the onl
 
     ![Screenshot of the VM creation experience, the disks blade. With the disk encryption set drop-down highlighted.](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
 
-#### Enable on an existing disk
+## Enable on an existing disk
 
 > [!CAUTION]
 > Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
