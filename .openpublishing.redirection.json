@@ -55660,6 +55660,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/index.md",
+      "redirect_url": "/azure/marketplace/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/active-directory-interactive-connect-azure-sql-db.md",
       "redirect_url": "/azure/azure-sql/database/active-directory-interactive-connect-azure-sql-db",
       "redirect_document_id": true
