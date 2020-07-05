@@ -16,14 +16,14 @@ Azure managed disks automatically encrypt your data by default when persisting i
 
 Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Encryption does not impact the performance of managed disks and there is no additional cost for encryption. 
+Server-side encryption does not impact the performance of managed disks and there is no additional cost. 
 
 > [!NOTE]
 > Temporary disks are not managed disks and are not encrypted by SSE unless you enable end-to-end encryption; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
 
 ## Encryption at rest
 
-With server-side encryption, you have the option to enable double encryption at rest for disks, snapshots, and images. If necessary for auditing or compliance needs, you can query an `Encryption.Type` property of your managed disk to find the current encryption status. You are not billed for double encryption at rest with every disk transaction.
+With server-side encryption, you have the option to enable double encryption at rest for disks, snapshots, and images. If necessary for auditing or compliance needs, you can query the `Encryption.Type` property of your managed disk to find the current encryption status. You are not billed for double encryption at rest with every disk transaction.
 
 Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
 
@@ -35,7 +35,7 @@ Customers can enable the second layer of encryption for data-in-transit for OS a
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
-### End to end encryption
+### End-to-end encryption
 
 When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the disk cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
 

@@ -1,5 +1,5 @@
 ---
-title: Enable end to end encryption for managed disks
+title: Enable end-to-end encryption for Azure managed disks
 description: How to enable end-to-end encryption on Azure managed disks.
 author: roygara
 ms.service: virtual-machines
@@ -9,13 +9,13 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Enable end to end encryption
+# Enable end-to-end encryption
 
 Azure Disk Storage offers end-to-end encryption for managed disks, allowing you to have double encryption at rest and in transit, if you choose. For conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](linux/disk-encryption.md#end-to-end-encryption)
 
 ## Restrictions
 
-1.	End to end encryption is currently available only in the USCentralEUAP region.
+1.	End-to-end encryption is currently available only in the USCentralEUAP region.
 1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/VMSSes.
 1.	You have to deallocate your existing VMs to enable the encryption.
 1.	You can enable the encryption for existing VMSS. However, only new VMs created after enabling the encryption are automatically encrypted.
