@@ -33,7 +33,7 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
 - Ensure you have the `AAD-V2` feature flag enabled.
 - Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
-- Ensure you have installed [kubectl v1.18+][az-aks-install-cli].
+- Ensure you have installed [kubectl v1.18.3+][az-aks-install-cli].
 
 #### Register `EnableAzureRBACPreview` and `AAD-V2` preview features
 
@@ -77,7 +77,7 @@ az extension update --name aks-preview
 
 - Requires [Managed AAD integration](managed-aad.md).
 - You can't integrate Azure RBAC for Kubernetes authorization into existing clusters during preview, but you will be able to at General Availability (GA).
-- Use [kubectl v1.18+][az-aks-install-cli].
+- Use [kubectl v1.18.3+][az-aks-install-cli].
 - During preview, you can only add *Namespace level* permissions via the Azure CLI.
 - If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. AKS is working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
 
