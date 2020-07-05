@@ -11,7 +11,7 @@ ms.author: mlearned
 
 # Integrate AKS-managed Azure AD (Preview)
 
-> [!Note]
+> [!NOTE]
 > Existing AKS (Azure Kubernetes Service) clusters with Azure Active Directory (Azure AD) integration are not affected by the new AKS-managed Azure AD experience.
 
 Azure AD integration with AKS-managed Azure AD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
@@ -81,24 +81,7 @@ Cluster administrators can configure Kubernetes role-based access control (RBAC)
 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
-## Webhook and API server
-
-:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="Webhook and API server authentication flow":::
-
-As shown in the graphic above, the API server calls the AKS webhook server and performs the following steps:
-
-1. The Azure AD client application is used by kubectl to log in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
-2. Azure AD provides an access_token, id_token, and a refresh_token.
-3. The user makes a request to kubectl with an access_token from kubeconfig.
-4. Kubectl sends the access_token to APIServer.
-5. The API Server is configured with the Auth WebHook Server to perform validation.
-6. The authentication webhook server confirms the JSON Web Token signature is valid by checking the Azure AD public signing key.
-7. The server application uses user-provided credentials to query group memberships of the logged-in user from the MS Graph API.
-8. A response is sent to the APIServer with user information such as the user principal name (UPN) claim of the access token, and the group membership of the user based on the object ID.
-9. The API performs an authorization decision based on the Kubernetes Role/RoleBinding.
-10. Once authorized, the API server returns a response to kubectl.
-11. Kubectl provides feedback to the user.
-
+Learn more about the AAD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
 
 ## Create an AKS cluster with Azure AD enabled
 
@@ -188,8 +171,10 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 
 ## Next steps
 
-* Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
+* Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
+* Learn about [Azure AD integration with Kubernetes RBAC][azure-ad-rbac].
 * Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that are not available in kubectl.
+* Learn more about [AKS and Kubernetes identity concepts][aks-concepts-identity].
 * Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create AKS-managed Azure AD enabled clusters.
 
 <!-- LINKS - external -->
@@ -198,6 +183,8 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 [aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[azure-rbac-integration]: manage-azure-rbac.md
+[aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
