@@ -54,7 +54,7 @@ After gathering above information from DigiCert CertCentral account, you can now
  ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.	On the **Create a certificate Authority** screen choose the following values:
     - 	**Name**: Add an identifiable Issuer name. Example DigicertCA
-    - 	**Provide**: Select DigiCert from the menu.
+    - 	**Provider**: Select DigiCert from the menu.
     - 	**Account ID**: Enter your DigiCert CertCentral Account ID
     - 	**Account Password**: Enter the API key you generated in your DigiCert CertCentral Account
     - 	**Organization ID**: Enter OrgID gathered from DigiCert CertCentral Account 
