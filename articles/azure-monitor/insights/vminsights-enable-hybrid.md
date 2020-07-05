@@ -9,37 +9,24 @@ ms.date: 07/01/2020
 
 ---
 
-# Enable Azure Monitor for VMs for a hybrid environment
-This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. 
-
-
-## Overview
-Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Since you can't use the VM extension to install the agents though, you must manually install them in the guest operating system or deploy them through some other method. See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. 
-
+# Enable Azure Monitor for VMs for a hybrid virtual machine
+This article describes how to enable Azure Monitor for VMs for a virtual machine ourside Azure, including on-premises and other cloud environments.
 
 ## Prerequisites
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). Alternatively, you can create a new workspace as part of this workspace.
+- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
+
+
+## Overview
+Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Since you can't use VM extensions to install the agents though, you must manually install them in the guest operating system or have them installed through some other method. See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. 
+
+## Firewall requirements
+The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 
-The steps to complete this task are summarized as follows:
-
-1. Install Log Analytics agent for Windows or Linux. Before you install the agent, review the [Log Analytics agent overview](../platform/log-analytics-agent.md) article to understand system prerequisites and deployment methods.
-
-2. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
-
-
-
->[!NOTE]
->The information described in this article for deploying the Dependency agent is also applicable to the [Service Map solution](service-map.md).  
-
-
-
->[!NOTE]
->The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
-
-### Dependency agent
+## Dependency agent
 
 >[!NOTE]
 >The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
@@ -54,10 +41,7 @@ You can download the Dependency agent from these locations:
 
 ## Install the Dependency agent on Windows
 
-You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively.
-
->[!NOTE]
->*Administrator* privileges are required to install or uninstall the agent.
+You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively. You require *Administrator* privileges on the guest OS to install or uninstall the agent.
 
 The following table highlights the parameters that are supported by setup for the agent from the command line.
 

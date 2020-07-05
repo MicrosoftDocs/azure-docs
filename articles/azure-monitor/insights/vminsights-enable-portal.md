@@ -10,15 +10,16 @@ ms.date: 06/25/2020
 ---
 
 # Enable Azure Monitor for single VM or VMSS in the Azure portal
-This article describes how to enable Azure Monitor for VMs for a single  virtual machine or virtual machine scale set using the Azure portal. This procedure can be used for the following:
+This article describes how to enable Azure Monitor for VMs for a virtual machine or virtual machine scale set using the Azure portal. This procedure can be used for the following:
 
 - Azure virtual machine
 - Azure virtual machine scale set
-- Azure Arc machine
+- Hybrid virtual machine connected with Azure Arc
 
-## Supported 
+## Prerequisites
 
-## Prerequisites 
+- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). Alternatively, you can create a new workspace as part of this workspace.
+- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 ## Enable Azure Monitor for VMs
 

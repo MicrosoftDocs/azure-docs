@@ -896,7 +896,7 @@
       href: faq.md#azure-monitor-for-vms
     - name: Configure workspace
       href: insights/vminsights-configure-workspace.md
-    - name: Onboard agents
+    - name: Install agents
       items:
       - name: Overview
         href: insights/vminsights-enable-overview.md

@@ -43,6 +43,13 @@ There is no direct cost for Azure Monitor for VMs, but you are charged for its a
 The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional connection data that's sent to Azure Monitor.​
 
 
+## Configuring Azure Monitor for VMs
+The steps to configure Azure Monitor for VMs are as follows. Follow each link for detailed guidance on each step:
+
+- [Create Log Analytics workspace.](vminsights-configure-workspace.md#create-log-analytics-workspace)
+- [Add VMInsights solution to workspace.](vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
+- [Install agents on VM and VMSS to be monitored.](vminsights-enable-overview)
+
 ## Role-based access control
 
 To enable and access the features in Azure Monitor for VMs, you must have the *Log Analytics contributor* role. To view performance, health, and map data, you must have the *monitoring reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.

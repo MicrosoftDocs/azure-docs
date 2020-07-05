@@ -98,15 +98,14 @@ Azure Monitor for VMs requires the following two agents to be installed on each 
 - [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the VM or VMSS and delivers it to Azure Monitor. 
 - [Dependency agent](). Collects discovered data about processes running on the virtual machine and external process dependencies, which is used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. 
 
-There are multiple methods for deploying these agents. For VM and VMSS in Azure, you can deploy the VM extension for each of these agents which makes it easier to install and configure the agent.
-
 > [!NOTE]
-> Operations Manager management group not supported.
+> The Log Analytics agent is the same agent used by System Center Operations Manager. Azure Monitor for VMs can monitor agents that are also monitored by Operations Manager if they are directly connected, and you install the Dependency agent on them. Agents connected to Azure Monitor through a [management group connection](../tform/../platform/om-agents.md) cannot be monitored by Azure Monitor for VMs.
 
+There are multiple methods for deploying these agents. For VM and VMSS in Azure, you can deploy the VM extension for each of these agents which makes it easier to install and configure the agent.
 
 | Method | Description |
 |:---|:---|
-| [Azure portal](vminsights-enable-single-vm.md) | Install both agents on a single virtual machine, virtual machine scalre site, or hybrid virtual machines connected with Azure Arc. |
+| [Azure portal](vminsights-enable-single-vm.md) | Install both agents on a single virtual machine, virtual machine scale site, or hybrid virtual machines connected with Azure Arc. |
 | [Resource Manager templates](vminsights-enable-at-scale-powershell.md) | Install both agents using any of the supported methods to deploy a Resource Manager template including CLI and PowerShell. |
 | [Azure Policy](vminsights-enable-at-scale-policy.md) | Use Azure Policy to automatically enable when a VM or VMSS is created. |
 | [Manual install](vminsights-enable-hybrid-cloud.md) | Install the agents in the guest operating system on computers hosted outside of Azure including in your datacenter or other cloud environments. |
