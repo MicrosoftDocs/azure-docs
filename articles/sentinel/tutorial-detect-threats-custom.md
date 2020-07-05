@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: yelevin
 
 ---
 # Tutorial: Create custom analytic rules to detect suspicious threats
 
-After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom rules that can search for specific criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.
+Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom rules that can search for specific criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.
 
 This tutorial helps you detect threats with Azure Sentinel.
 > [!div class="checklist"]
@@ -68,7 +68,18 @@ You can create custom analytic rules to help you search for the types of threats
        > These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
 
     1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query generates more than 1000 results each time it runs. As this is a required field, if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
-
+    
+    1. Under **Event grouping**, choose how you want the grouping of **events** into **alerts** to be handled. With the default setting, **Group all events into a single alert**, the query returns a single alert every time it runs. The alert includes a count of the number of events represented. The other setting, **Trigger an alert for each event**, tells Azure Sentinel to represent each event in its own unique alert. This is useful if you want to separate the display of events according to a particular criterion - by user, hostname, or others. You can use the query to create the grouping.
+    
+       > [!NOTE]
+       > What is the difference between **Events** and **Alerts**?
+       >
+       > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event.
+       >
+       > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
+       > 
+       > Azure Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
+    
     1. In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
 1. In the **Incident Settings** tab, you can choose whether and how Azure Sentinel turns alerts into actionable incidents. If this tab is left alone, Azure Sentinel will create a single, separate incident from each and every alert. You can choose to have no incidents created, or to group several alerts into a single incident, by changing the settings in this tab.
