@@ -1,22 +1,22 @@
 ---
 title: Enable end to end encryption for managed disks
-description: How to find unattached Azure managed and unmanaged (VHDs/page blobs) disks by using the Azure portal.
+description: How to enable end-to-end encryption on Azure managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 07/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Enable end to end encryption
 
-Azure Disk Storage offers end-to-end encryption for managed disks, allowing you to have double encryption at rest and in transit, if you choose. For conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](disk-encryption.md)
+Azure Disk Storage offers end-to-end encryption for managed disks, allowing you to have double encryption at rest and in transit, if you choose. For conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](linux/disk-encryption.md#end-to-end-encryption)
 
 ## Restrictions
 
 1.	End to end encryption is currently available only in the USCentralEUAP region.
-1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) for your VMs/VMSSes.
+1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/VMSSes.
 1.	You have to deallocate your existing VMs to enable the encryption.
 1.	You can enable the encryption for existing VMSS. However, only new VMs created after enabling the encryption are automatically encrypted.
 1.	Legacy VM Sizes are not supported.
@@ -37,18 +37,22 @@ Only the following VM sizes currently support end-to-end encryption:
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the **EncryptionAtHost** property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you use the **EncryptionAtHost** property for your VM/VMSS. The following steps will enable the feature for your subscription:
 
 1.	Use the following command to register the feature for your subscription:
  `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"` 
 1.	Registering can take a few minutes, so you can check the registration state using the following command:
  `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  `
 
-## Create an Azure Key Vault and DiskEncryptionSet
+### Create an Azure Key Vault and DiskEncryptionSet
+
+Now that the feature is enabled, you can begin to 
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## Enable end to end encryption for disks attached to a VM with customer managed keys
+## Enable end to end encryption
+
+### Disks encrypted with customer managed keys with server-side encryption
 
 1.	Follow the instructions here for creating a Key Vault for storing your keys and a DiskEncryptionSet pointing to a key in the Key Vault
 1.	Create a VM with managed disks that are encrypted with end-to-end encryption by passing the resource URI of the DiskEncryptionSet created in the step #1 to the sample template [CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json](https://github.com/ramankumarlive/manageddisksendtoendencryptionpreview/blob/master/CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json)
@@ -64,7 +68,7 @@ New-AzResourceGroupDeployment -ResourceGroupName yourResourceGroupName `
   -region "CentralUSEUAP"
 ```
 
-## PMK
+### Disks encrypted with platform-managed keys with server-side encryption
 
 1.	Create a VM with managed disks using the sample template [CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json](https://github.com/ramankumarlive/manageddisksendtoendencryptionpreview/blob/master/CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json)
 
