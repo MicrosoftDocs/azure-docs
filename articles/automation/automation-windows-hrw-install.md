@@ -26,15 +26,15 @@ If you have a workspace, but it is not linked to your Automation account, enabli
 
    To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
+```
 
    To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
+```
 
 ### Log Analytics agent
 

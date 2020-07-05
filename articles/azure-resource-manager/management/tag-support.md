@@ -2104,7 +2104,7 @@ Jump to a resource provider namespace:
 <a id="sqlnote"></a>
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
 ## Microsoft.SqlVirtualMachine
 

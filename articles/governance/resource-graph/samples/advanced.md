@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 06/18/2020
+ms.date: 07/06/2020
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -13,20 +13,19 @@ to understand how to compose requests for the resources you're looking for.
 
 We'll walk through the following advanced queries:
 
-> [!div class="checklist"]
-> - [Show API version for each resource type](#apiversion)
-> - [Get virtual machine scale set capacity and size](#vmss-capacity)
-> - [Remove columns from results](#remove-column)
-> - [List all tag names](#list-all-tags)
-> - [Virtual machines matched by regex](#vm-regex)
-> - [List Cosmos DB with specific write locations](#mvexpand-cosmosdb)
-> - [Key vaults with subscription name](#join)
-> - [List SQL Databases and their elastic pools](#join-sql)
-> - [List virtual machines with their network interface and public IP](#join-vmpip)
-> - [List all extensions installed on a virtual machine](#join-vmextension)
-> - [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
-> - [Combine results from two queries into a single result](#unionresults)
-> - [Include the tenant and subscription names with DisplayNames](#displaynames)
+- [Show API version for each resource type](#apiversion)
+- [Get virtual machine scale set capacity and size](#vmss-capacity)
+- [Remove columns from results](#remove-column)
+- [List all tag names](#list-all-tags)
+- [Virtual machines matched by regex](#vm-regex)
+- [List Cosmos DB with specific write locations](#mvexpand-cosmosdb)
+- [Key vaults with subscription name](#join)
+- [List SQL Databases and their elastic pools](#join-sql)
+- [List virtual machines with their network interface and public IP](#join-vmpip)
+- [List all extensions installed on a virtual machine](#join-vmextension)
+- [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
+- [Combine results from two queries into a single result](#unionresults)
+- [Include the tenant and subscription names with DisplayNames](#displaynames)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.

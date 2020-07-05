@@ -10,9 +10,9 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-# Accessing external storage in Synapse SQL
+# Accessing external storage in Synapse SQL (on-demand)
 
-This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
+This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -59,9 +59,9 @@ OPENROWSET enables user to query the files placed on some external data source:
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
@@ -136,8 +136,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Caller must have the following permissions to read data:
-- SELECT permission ON external table
-- REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
+- `SELECT` permission ON external table
+- `REFERENCES DATABASE SCOPED CREDENTIAL` permission if `DATA SOURCE` has `CREDENTIAL`
 
 ## Permissions
 
@@ -145,13 +145,13 @@ The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
-| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
-| OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
-| OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
-| CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
-| CREATE EXTERNAL TABLE | CREATE TABLE, ALTER ANY SCHEMA, ALTER ANY EXTERNAL FILE FORMAT, ALTER ANY EXTERNAL DATA SOURCE |
-| SELECT FROM EXTERNAL TABLE | SELECT TABLE |
-| CETAS | To create table - CREATE TABLE ALTER ANY SCHEMA ALTER ANY DATA SOURCE+ALTER ANY EXTERNAL FILE FORMAT. To read data: ADMIN BULK OPERATIONS+REFERENCES CREDENTIAL or SELECT TABLE per each table/view/function in query + R/W permission on storage |
+| OPENROWSET(BULK) without datasource | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN`, or SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
+| OPENROWSET(BULK) with datasource without credential | `ADMINISTER BULK ADMIN` or `ADMINISTER DATABASE BULK ADMIN`, |
+| OPENROWSET(BULK) with datasource with credential | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN`, or `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT`, and `ALTER ANY EXTERNAL DATA SOURCE` |
+| SELECT FROM EXTERNAL TABLE | `SELECT TABLE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | To create table - `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE`, and `ALTER ANY EXTERNAL FILE FORMAT`. To read data: `ADMIN BULK OPERATIONS` or `REFERENCES CREDENTIAL` or `SELECT TABLE` per each table/view/function in query + R/W permission on storage |
 
 ## Next steps
 
