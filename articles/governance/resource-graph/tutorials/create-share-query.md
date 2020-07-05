@@ -97,8 +97,8 @@ To create a new Shared query, follow these steps:
    [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**.
-   
-   ![Save the new query using the save button](../media/create-share-query/save-shared-query-buttons.png)
+
+   :::image type="content" source="../media/create-share-query/save-shared-query-buttons.png" alt-text="Save the new query using the save button" border="false":::
 
 1. In the **Save query** pane, enter **Count VMs by OS** for the name.
 
@@ -112,7 +112,7 @@ To create a new Shared query, follow these steps:
    to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the
    save takes longer than expected as the resource group gets created.
    
-   ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Save the new query as a Shared query" border="false":::
 
    > [!NOTE] 
    > You can clear the **Publish to resource-graph-queries resource group** check box if you
@@ -130,7 +130,7 @@ To create a new Shared query, follow these steps:
    load it into a new tab with that query's name. As a Shared query, it displays an icon in the tab
    next to the title, denoting it as shared.
 
-   ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Show the Shared Query with icon" border="false":::
 
    > [!NOTE] 
    > When a saved query is open and the tab shows its name, the **Save** button updates it
