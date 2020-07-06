@@ -32,7 +32,7 @@ For a full list of packages and integrations, see [OpenCensus packages](https://
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
 
 ## Telemetry type mappings
 
@@ -40,9 +40,9 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 
 | Pillar of observability | Telemetry type in Azure Monitor    | Explanation                                         |
 |-------------------------|------------------------------------|-----------------------------------------------------|
-| Logs                    | traces  exceptions  customEvents   | Log Telemetry  Exception Telemetry  Event Telemetry |
-| Metrics                 | customMetrics  performanceCounters | Custom Metrics  Performance Counters                |
-| Tracing                 | requests  dependencies             | Incoming Requests  Outgoing Requests                |
+| Logs                    | Traces,  exceptions,  customEvents   | Log telemetry,  exception telemetry,  event telemetry |
+| Metrics                 | customMetrics,  performanceCounters | Custom metrics  performance counters                |
+| Tracing                 | Requests  dependencies             | Incoming requests,  outgoing requests                |
 
 ### Logs
 
@@ -106,7 +106,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 1. The exporter sends log data to Azure Monitor. You can find the data under `traces`. 
 
     > [!NOTE]
-    > `traces` in this context isn't the same as `Tracing`. `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
     > [!NOTE]
     > The root logger is configured with the level of WARNING. That means any logs that you send that have less of a severity are ignored, and in turn, won't be sent to Azure Monitor. For more information, see [documentation](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
@@ -167,7 +167,7 @@ Be sure you use the logger with the same name as the one specified in your confi
 
 #### Send exceptions
 
-OpenCensus Python doesn't automatically track and send `exception` telemetry. They're sent through the `AzureLogHandler` by using exceptions through the Python logging library. You can add custom properties just like with normal logging.
+OpenCensus Python doesn't automatically track and send `exception` telemetry. They're sent through `AzureLogHandler` by using exceptions through the Python logging library. You can add custom properties just like with normal logging.
 
 ```python
 import logging
@@ -346,12 +346,12 @@ You should be able to see these metrics in `performanceCounters`. For more infor
 
 #### Modify telemetry
 
-For details on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+For information on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
 ### Tracing
 
 > [!NOTE]
-> `Tracing` in OpenCensus refers to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). The `AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
+> In OpenCensus, `tracing` refers to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). The `AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
 
 1. First, let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code:
 
@@ -441,9 +441,9 @@ Each exporter accepts the same arguments for configuration, passed through the c
 - `export_interval`: Used to specify the frequency in seconds of exporting.
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
-- `max_batch_size`: Specifies maximum size of telemetry that's exported at once.
+- `max_batch_size`: Specifies the maximum size of telemetry that's exported at once.
 - `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
-- `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, default path is the os temp directory + `opencensus-python` + `your-ikey`. For pre v1.0.3, default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
+- `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, the default path is the OS temp directory + `opencensus-python` + `your-ikey`. Prior to v1.0.3, the default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
 
 ## View your data with queries
 

@@ -17,7 +17,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md)
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
 
 <a name="filtering"></a>
 
@@ -25,7 +25,7 @@ Before you start:
 
 This technique gives you direct control over what's included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use filtering in conjunction with sampling, or separately.
 
-To filter telemetry, you write a telemetry processor and register it with `TelemetryConfiguration`. All telemetry goes through your processor. You can choose to drop it from the stream or give it to the next processor in the chain. Telemetry from the standard modules, such as the HTTP request collector and the dependency collector, and telemetry you have tracked yourself is included. For example, you can filter out telemetry about requests from robots or successful dependency calls.
+To filter telemetry, you write a telemetry processor and register it with `TelemetryConfiguration`. All telemetry goes through your processor. You can choose to drop it from the stream or give it to the next processor in the chain. Telemetry from the standard modules, such as the HTTP request collector and the dependency collector, and telemetry you tracked yourself is included. For example, you can filter out telemetry about requests from robots or successful dependency calls.
 
 > [!WARNING]
 > Filtering the telemetry sent from the SDK by using processors can skew the statistics that you see in the portal and make it difficult to follow related items.
@@ -196,7 +196,7 @@ public void Process(ITelemetry item)
 
 **Filter by using ITelemetryInitializer**
 
-1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that's being processed. Returning `false` from this callback results in the telemetry item to be filtered out.  
+1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that's being processed. Returning `false` from this callback results in the telemetry item to be filtered out.
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -218,9 +218,9 @@ public void Process(ITelemetry item)
 
 Use telemetry initializers to enrich telemetry with additional information or to override telemetry properties set by the standard telemetry modules.
 
-For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
+For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >=400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
 
-If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that has already been set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
+If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
 
 **Define your initializer**
 
@@ -348,7 +348,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry ttem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
@@ -357,7 +357,7 @@ You can add as many initializers as you like. They're called in the order that t
 Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they're exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported, make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [on GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 > [!NOTE]
-> You can modify the `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+> You can modify `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
 
 ```python
 def callback_function(envelope):
@@ -524,12 +524,12 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 What's the difference between telemetry processors and telemetry initializers?
 
-* There are some overlaps in what you can do with them: Both can be used to add or modify properties of telemetry, although we recommend that you use initializers for that purpose.
-* TelemetryInitializers always run before TelemetryProcessors.
-* TelemetryInitializers may be called more than once. By convention, they don't set any property that has already been set.
-* TelemetryProcessors allow you to completely replace or discard a telemetry item.
-* All registered TelemetryInitializers are guaranteed to be called for every telemetry item. For Telemetry processors, SDK guarantees calling the very first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
-* Use TelemetryInitializers to enrich telemetry with additional properties or override an existing one. Use TelemetryProcessor to filter out telemetry.
+* There are some overlaps in what you can do with them. Both can be used to add or modify properties of telemetry, although we recommend that you use initializers for that purpose.
+* Telemetry initializers always run before telemetry processors.
+* Telemetry initializers may be called more than once. By convention, they don't set any property that was already set.
+* Telemetry processors allow you to completely replace or discard a telemetry item.
+* All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
+* Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
 ## Troubleshoot ApplicationInsights.config
 
