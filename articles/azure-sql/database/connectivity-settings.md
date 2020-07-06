@@ -1,6 +1,6 @@
 ---
 title: Connectivity settings for Azure SQL Database and Data Warehouse
-description: This document explains Transport Layer Security(TLS)  version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
+description: This document explains Transport Layer Security (TLS) version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
+ms.date: 07/06/2020
 ---
 
 # Azure SQL Connectivity Settings
@@ -32,7 +32,7 @@ When **Deny public network access** setting is set to **Yes**, only connections 
 
  ![Screenshot of connectivity with deny public network access][2]
 
-Any attempts to set **Deny public network access** setting is set to **Yes** without an existing private endpoints at the logical server  will fail with an error message similar to:  
+Any attempts to set **Deny public network access** setting to **Yes** without an existing private endpoints at the logical server will fail with an error message similar to:  
 
 ```output
 Error 42102
