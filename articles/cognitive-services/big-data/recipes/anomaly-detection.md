@@ -142,6 +142,8 @@ plt.show()
 
 If sucessfull, your output will look like this:
 
+![Anomaly Detector Plot](../media/anomaly_output.png)
+
 
 ## Next steps
 
