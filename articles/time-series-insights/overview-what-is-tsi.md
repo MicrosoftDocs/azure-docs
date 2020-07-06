@@ -71,9 +71,9 @@ The following diagram shows the high-level data flow.
 
 Azure Time Series Insights provides a scalable pay-as-you-go pricing model for data processing, storage (data and metadata), and query, enabling customers to tune their usage to suit their business demands. 
  
-With the introduction of these key industrial IoT capabilities, Azure Time Series Insights also provides the following key benefits.  
+With the introduction of these key industrial IoT capabilities, Azure Time Series Insights also provides the following key benefits:  
 
-| | |
+| Key Benefit | Description |
 | ---| ---|
 | Multilayered storage for IoT-scale time series data | With a shared data processing pipeline for ingesting data, you can ingest data into both warm and cold stores. Use warm store for interactive queries and cold store for storing large volumes of data. To learn more about how to take advantage of high-performing asset-based queries, see [queries](./time-series-insights-update-tsq.md). |
 | Time Series Model to contextualize raw telemetry and derive asset-based insights | You can use the time series model to create instances, hierarchies, types, and variables for your time series data. To learn more about Time Series Model, see [Time Series Model](./time-series-insights-update-tsm.md).  |
