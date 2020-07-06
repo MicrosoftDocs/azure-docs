@@ -13,17 +13,17 @@ This article helps you understand the two perspectives, and how Azure Monitor he
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
+Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
 
 The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are described [here](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) in the overview article.
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com). 
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Multi-cluster view from Azure Monitor
 
-To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
+To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
@@ -45,9 +45,9 @@ On the **Monitored clusters** tab, you learn the following:
 - How many nodes and user and system pods are deployed per cluster.
 - How much disk space is available and if there's a capacity issue.
 
-The health statuses included are: 
+The health statuses included are:
 
-* **Healthy**: No issues are detected for the VM, and it's functioning as required. 
+* **Healthy**: No issues are detected for the VM, and it's functioning as required.
 * **Critical**: One or more critical issues are detected that must be addressed to restore normal operational state as expected.
 * **Warning**: One or more issues are detected that must be addressed or the health condition could become critical.
 * **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an Unknown state.
@@ -57,18 +57,18 @@ The health statuses included are:
 * **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
 
-Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is Unknown, the overall cluster state shows **Unknown**. 
+Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is Unknown, the overall cluster state shows **Unknown**.
 
 The following table provides a breakdown of the calculation that controls the health states for a monitored cluster on the multi-cluster view.
 
-| |Status |Availability |  
-|-------|-------|-----------------|  
-|**User pod**| | |  
-| |Healthy |100% |  
-| |Warning |90 - 99% |  
-| |Critical |<90% |  
-| |Unknown |If not reported in last 30 minutes |  
-|**System pod**| | |  
+| |Status |Availability |
+|-------|-------|-----------------|
+|**User pod**| | |
+| |Healthy |100% |
+| |Warning |90 - 99% |
+| |Critical |<90% |
+| |Unknown |If not reported in last 30 minutes |
+|**System pod**| | |
 | |Healthy |100% |
 | |Warning |N/A |
 | |Critical |<100% |
@@ -86,41 +86,41 @@ From the list of clusters, you can drill down to the **Cluster** page by selecti
 Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** > **Cluster** from the left pane, or when you selected a cluster from the multi-cluster view. Information about your cluster is organized into four perspectives:
 
 - Cluster
-- Nodes 
-- Controllers 
+- Nodes
+- Controllers
 - Containers
 
 >[!NOTE]
->The experience described in the remainder of this article are also applicable for viewing performance and health status of your Kubernetes clusters hosted on Azure Stack or other environment when selected from the multi-cluster view. 
+>The experience described in the remainder of this article are also applicable for viewing performance and health status of your Kubernetes clusters hosted on Azure Stack or other environment when selected from the multi-cluster view.
 
-The default page opens and displays four line performance charts that show key performance metrics of your cluster. 
+The default page opens and displays four line performance charts that show key performance metrics of your cluster.
 
 ![Example performance charts on the Cluster tab](./media/container-insights-analyze/containers-cluster-perfview.png)
 
 The performance charts display four performance metrics:
 
-- **Node CPU utilization&nbsp;%**: An aggregated perspective of CPU utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined. 
-- **Node memory utilization&nbsp;%**: An aggregated perspective of memory utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined. 
-- **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are Total, Ready, and Not Ready. They can be filtered individually or combined in the selector above the chart. 
-- **Active pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are Total, Pending, Running, Unknown, Succeeded, or Failed. They can be filtered individually or combined in the selector above the chart. 
+- **Node CPU utilization&nbsp;%**: An aggregated perspective of CPU utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined.
+- **Node memory utilization&nbsp;%**: An aggregated perspective of memory utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined.
+- **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are Total, Ready, and Not Ready. They can be filtered individually or combined in the selector above the chart.
+- **Active pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are Total, Pending, Running, Unknown, Succeeded, or Failed. They can be filtered individually or combined in the selector above the chart.
 
 Use the Left and Right arrow keys to cycle through each data point on the chart. Use the Up and Down arrow keys to cycle through the percentile lines. Select the pin icon in the upper-right corner of any one of the charts to pin the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for containers and loads the correct scope and view.
 
-Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../platform/alerts-metric.md). 
+Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../platform/alerts-metric.md).
 
 ## View container metrics in metrics explorer
 
 In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
-|Namespace | Metric | Description | 
+|Namespace | Metric | Description |
 |----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores | Aggregated measurement of CPU utilization across the cluster. It is a CPU core split into 1000 units (milli = 1000). Used to determine the usage of cores in a container where many applications might be using one core.| 
+| | cpuUsageMillicores | Aggregated measurement of CPU utilization across the cluster. It is a CPU core split into 1000 units (milli = 1000). Used to determine the usage of cores in a container where many applications might be using one core.|
 | | cpuUsagePercentage | Aggregated average CPU utilization measured in percentage across the cluster.|
-| | memoryRssBytes | Container RSS memory used in bytes.| 
+| | memoryRssBytes | Container RSS memory used in bytes.|
 | | memoryRssPercentage | Container RSS memory used in percent.|
-| | memoryWorkingSetBytes | Container working set memory used.| 
-| | memoryWorkingSetPercentage | Container working set memory used in percent. | 
+| | memoryWorkingSetBytes | Container working set memory used.|
+| | memoryWorkingSetPercentage | Container working set memory used in percent. |
 | | nodesCount | A node count from Kubernetes.|
 | insights.container/pods | |
 | | PodCount | A pod count from Kubernetes.|
@@ -140,22 +140,22 @@ As you expand the objects in the hierarchy, the properties pane updates based on
 
 Use the **+ Add Filter** option at the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool**. After you select the filter scope, select one of the values shown in the **Select value(s)** field. After the filter is configured, it's applied globally while viewing any perspective of the AKS cluster. The formula only supports the equal sign. You can add additional filters on top of the first one to further narrow your results. For example, if you specify a filter by **Node**, you can only select **Service** or **Namespace** for the second filter.
 
-Specifying a filter in one tab continues to be applied when you select another. It's deleted after you select the **x** symbol next to the specified filter. 
+Specifying a filter in one tab continues to be applied when you select another. It's deleted after you select the **x** symbol next to the specified filter.
 
 Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, which starts with a node in your cluster. Expand the node to view one or more pods running on the node. If more than one container is grouped to a pod, they're displayed as the last row in the hierarchy. You also can view how many non-pod-related workloads are running on the host if the host has processor or memory pressure.
 
 ![Example of the Kubernetes Node hierarchy in the performance view](./media/container-insights-analyze/containers-nodes-view.png)
 
-Windows Server containers that run the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers that run on the node. After a node is selected, the properties pane shows version information. Agent information is excluded because Windows Server nodes don't have an agent installed. 
+Windows Server containers that run the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers that run on the node. After a node is selected, the properties pane shows version information.
 
-![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png) 
+![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png)
 
 Azure Container Instances virtual nodes that run the Linux OS are shown after the last AKS cluster node in the list. When you expand a Container Instances virtual node, you can view one or more Container Instances pods and containers that run on the node. Metrics aren't collected and reported for nodes, only for pods.
 
 ![Example Node hierarchy with Container Instances listed](./media/container-insights-analyze/nodes-view-aci.png)
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
- 
+
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
@@ -168,23 +168,23 @@ Select controllers or containers at the top of the page to review the status and
 
 - Virtual memory is reserved hard disk space (cache) used by the operating system to swap data from memory to disk when under memory pressure, and then fetch it back to memory when needed.
 
-By default, performance data is based on the last six hours, but you can change the window by using the **TimeRange** option at the upper left. You also can filter the results within the time range by selecting **Min**, **Avg**, **50th**, **90th**, **95th**, and **Max** in the percentile selector. 
+By default, performance data is based on the last six hours, but you can change the window by using the **TimeRange** option at the upper left. You also can filter the results within the time range by selecting **Min**, **Avg**, **50th**, **90th**, **95th**, and **Max** in the percentile selector.
 
 ![Percentile selection for data filtering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
 When you hover over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, use the Alt+Page up key or Alt+Page down key to cycle through each bar individually. You get the same details that you would if you hovered over the bar.
 
-![Trend bar chart hover-over example](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
+![Trend bar chart hover-over example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)
 
 In the next example, for the first node in the list, *aks-nodepool1-*, the value for **Containers** is 9. This value is a rollup of the total number of containers deployed.
 
 ![Rollup of containers-per-node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
-This information can help you quickly identify whether you have a proper balance of containers between nodes in your cluster. 
+This information can help you quickly identify whether you have a proper balance of containers between nodes in your cluster.
 
 The information that's presented when you view the **Nodes** tab is described in the following table.
 
-| Column | Description | 
+| Column | Description |
 |--------|-------------|
 | Name | The name of the host. |
 | Status | Kubernetes view of the node status. |
@@ -192,22 +192,22 @@ The information that's presented when you view the **Nodes** tab is described in
 | Min, Avg, 50th, 90th, 95th, Max | Average nodes' actual value based on percentile during the time duration selected. The average value is measured from the CPU/Memory limit set for a node. For pods and containers, it's the average value reported by the host. |
 | Containers | Number of containers. |
 | Uptime | Represents the time since a node started or was rebooted. |
-| Controller | Only for containers and pods. It shows which controller it resides in. Not all pods are in a controller, so some might display **N/A**. | 
+| Controller | Only for containers and pods. It shows which controller it resides in. Not all pods are in a controller, so some might display **N/A**. |
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric percentage of the controller. |
 
 You may notice a workload after expanding a node named **Other process**. It represents non-containerized processes that run on your node, and includes:
 
 * Self-managed or managed Kubernetes non-containerized processes
 
-* Container run-time processes  
+* Container run-time processes
 
-* Kubelet  
+* Kubelet
 
 * System processes running on your node
 
 * Other non-Kubernetes workloads running on node hardware or VM
 
-It is calculated by: *Total usage from CAdvisor* - *Usage from containerized process*.  
+It is calculated by: *Total usage from CAdvisor* - *Usage from containerized process*.
 
 In the selector, select **Controllers**.
 
@@ -227,7 +227,7 @@ Select the value under the **Node** column for the specific controller.
 
 The information that's displayed when you view controllers is described in the following table.
 
-| Column | Description | 
+| Column | Description |
 |--------|-------------|
 | Name | The name of the controller.|
 | Status | The rollup status of the containers after it's finished running with status such as *OK*, *Terminated*, *Failed*, *Stopped*, or *Paused*. If the container is running but the status either wasn't properly displayed or wasn't picked up by the agent and hasn't responded for more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the following table.|
@@ -236,12 +236,12 @@ The information that's displayed when you view controllers is described in the f
 | Containers | Total number of containers for the controller or pod. |
 | Restarts | Rollup of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
-| Node | Only for containers and pods. It shows which controller it resides in. | 
+| Node | Only for containers and pods. It shows which controller it resides in. |
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric of the controller. |
 
 The icons in the status field indicate the online status of the containers.
- 
-| Icon | Status | 
+
+| Icon | Status |
 |--------|-------------|
 | ![Ready running status icon](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
 | ![Waiting or Paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
@@ -254,7 +254,7 @@ In the selector, select **Containers**.
 
 ![Select Containers view](./media/container-insights-analyze/containers-containers-tab.png)
 
-Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers. 
+Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.
 
 ![\<Name> containers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
@@ -264,27 +264,27 @@ From a container, you can drill down to a pod or node to view performance data f
 
 The information that's displayed when you view containers is described in the following table.
 
-| Column | Description | 
+| Column | Description |
 |--------|-------------|
 | Name | The name of the controller.|
 | Status | Status of the containers, if any. Additional details of the status icon are provided in the next table.|
 | Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | The rollup of the average percentage of each entity for the selected metric and percentile. |
 | Min, Avg, 50th, 90th, 95th, Max | The rollup of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
-| Pod | Container where the pod resides.| 
-| Node |  Node where the container resides. | 
+| Pod | Container where the pod resides.|
+| Node |  Node where the container resides. |
 | Restarts | Represents the time since a container started. |
 | Uptime | Represents the time since a container was started or rebooted. |
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric percentage of the container. |
 
 The icons in the status field indicate the online statuses of pods, as described in the following table.
- 
-| Icon | Status |  
-|--------|-------------|  
-| ![Ready running status icon](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|  
-| ![Waiting or Paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|  
-| ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
-| ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
-| ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
+
+| Icon | Status |
+|--------|-------------|
+| ![Ready running status icon](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
+| ![Waiting or Paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
+| ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|
+| ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
+| ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
 
 ## Workbooks
 
@@ -296,7 +296,7 @@ Azure Monitor for containers includes four workbooks to get you started:
 
     - Disk percent usage for all disks.
     - Free disk space for all disks.
-    - A grid that shows each node's disk, its percentage of used space, trend of percentage of used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, the percentage of used space and free disk space (GiB) is shown underneath the row. 
+    - A grid that shows each node's disk, its percentage of used space, trend of percentage of used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, the percentage of used space and free disk space (GiB) is shown underneath the row.
 
 - **Disk IO**: Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
 

@@ -15,11 +15,19 @@ ms.date: 06/05/2020
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
 
+## CTP 2.1 
+### SQL Engine build number - 15.0.2000.1545
+### Fixes
+1. Fix the PREDICT with ONNX models to handle CPUID issue in ARM 
+2. Fix to improve the handling of failure path in startup of TSQL streaming 
+3. Fix the incorrect value of watermark delay in job metrics when there is no data. 
+4. Fix the issue with output adapter when adapter has variable schema between batches.  
+
 ## CTP 2.0 
 ### SQL Engine build number - 15.0.2000.1401
 ### What's new?
 1. 	Product name updated to 'Azure SQL Edge'
-2.  Date_bucket function
+1.  Date_bucket function
 
     i. 	Support for Date, Time, DateTime type
 3.	PREDICT with ONNX

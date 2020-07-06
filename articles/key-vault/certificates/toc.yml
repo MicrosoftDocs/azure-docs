@@ -23,6 +23,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Key Vault Code Samples
+    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
 
 - name: Tutorials 
   items:
@@ -38,7 +40,9 @@
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-
+  - name: Creating certificate signing request
+    href: create-certificate-signing-request.md
+    
 - name: How-to guides 
   items:
   - name: Integrating Key Vault with DigiCert CA
@@ -51,13 +55,13 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

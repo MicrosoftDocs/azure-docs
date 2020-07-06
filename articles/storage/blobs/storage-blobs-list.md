@@ -78,6 +78,8 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
 
+If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
+
 # [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::

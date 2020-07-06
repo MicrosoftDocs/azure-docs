@@ -23,11 +23,11 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Listing requirements for all offers
 
-|  | Listing element | Base requirement | Optimal requirement |
+| Number | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Lead destination | Has a lead destination configured.| The One Commercial Partner (OCP) Catalog has the lead destination CRM information that's also listed in the partner solution tab. | 
 | 2 | Offer title | Briefly describes the solution offering. Matches the online promotion of the solution on the partner's website. | Contains key search words. |
-| 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly and includes a "hero image," which is the large-format image in the Azure portal. |
+| 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly. |
 | 4 |  Offer description | <ul><li> Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Is free of spelling and grammar mistakes.</li><li>Is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form with short sentences that are easy to understand.</li></ul> | <ul><li> The target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read long paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
 | 5 | Categories and industries | <ul><li>Categories match the solution offering's capabilities.</li><li>Do not extend to categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | <ul><li>Max. 3 categories.</li><li>Max. 3 industries. |
 | 6 | Images | <ul><li>No image is required but, if provided, it must be displayed as a high-resolution image.</li><li>Image requirements are listed in the Cloud Partner Portal (CPP) and here.</li><li>Text included in the screenshot is legible, and the image is clear. | The solution offering is easily understood at a glance. |
@@ -42,7 +42,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Trial offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 |  | List status (call to action) | The link must lead to a customer-led *Trial* experience. | Other calls to action (for example, *Buy Now*) are also available. | 
 
@@ -50,7 +50,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## SaaS application requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<ul><li>Must consist only of lowercase letters, alphanumeric characters, dashes, or underscores. The title can't be modified after it's published.</li><li>Describes solution offering.</li><li>Matches online promotion of solution on partner's website. | Contains key search words. |
 | 2 | Technical information: Configuration |<ul><li>For software as a service (SaaS) apps, choose whether you want only to list your app or to enable customers to purchase your app through Azure.</li><li>Select the text that you want on your offer's acquisition button: *Free*, *Free Trial*, or *Contact Me*.</li><li>In the pop-up window, select only one applicable product if your app utilizes the technology: Cortana Intelligence, Power BI Solution Templates, or Power Apps. |  |
@@ -58,7 +58,7 @@ Additional requirements and checklists are provided for specific listing types, 
 | 4 | Storefront details: Offer summary | Appears on your app's search page, and has a maximum of 100 characters. | |
 | 5 | Storefront details: Industries | Industries (max. 2): Select the industries that your app is best aligned and applicable to. | |
 | 6 | Offer description | <ul><li>Simple HTML is allowed, including \<p>, \<em>, \<ul>, \<li>, \<ol>, and header tags. Max. 3000 characters.</li><li>Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Description is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form, with short sentences that are easy to understand. | <ul><li>Target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
-| 7 | Marketing artifacts | Logos are displayed correctly. | <ul><li>Logo includes a "hero image," which is the large-format image in the Azure portal.</li><li>Logos: Small (48 &#215; 48 pixels) and large (216 &#215; 216 pixels) are required.</li><li>[Hero image requirements](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).</li><li>Screenshot (max. 5): The CPP requires a PNG image with a resolution of 1280 &#215; 720 pixels. |
+| 7 | Marketing artifacts | Logos are displayed correctly. | <ul><li>Logos: Small (48 &#215; 48 pixels) and large (216 &#215; 216 pixels) are required.</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 &#215; 720 pixels. |
 | 8 | Categories and industries | <ul><li>Categories match solution offering capabilities.</li><li>Select at least one item in the pop-up window.</li><li>Do not extend to categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | Max. 3 categories selected, if applicable. |
 | 9 | Lead management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
@@ -68,18 +68,18 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Container offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 |1 |Offer settings | <ul><li>Offer ID: Max. 50 characters.</li><li>Publisher ID: Select it from the drop-down list.</li><li>Name: Max. 50 characters. | Mirrors the title style already available in the description. Avoid using long titles. | 
 | 2 | SKUs | The partner selects new SKUs.| The title mirrors the title style already available in the description. Avoid using long titles.  |
-| 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logo includes a "hero image," which is the large-format image in the Azure portal.</li><li>Logos: Small (48 &#215; 48 pixels) and large (216 &#215; 216 pixels) are required.</li><li>[Hero image requirements](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).</li><li>Screenshot (max. 5): The CPP requires a PNG image with a resolution of 1280 &#215; 720 pixels.|
+| 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 pixels) and large (216 &#215; 216 pixels) are required.</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
 | 4 | Lead management |<ul><li>Lead management: Select the system where your leads will be stored.</li><li>See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. | |
 
 ---
 
 ## Consulting offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement |
+| Number | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title  |  Must clearly list the service type and duration in the format *Name: Duration Type* (for example, "Offer Engagement: 1-Week Proof-of-Concept").  | <ul><li>Does not repeat publisher name.</li><li>The title mirrors the title style already available in the description. Avoid using long titles. | 
 | 2 | Offer description  |<ul><li>Ensure proper usage of [Microsoft product names](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offers marked as *Price: Estimated* must have a note at either the top or bottom to explain the variability (travel to client, number of servers being migrated, and so on).</li><li>Each offer type has description requirements, as follows: <ul><li>Briefings need at least four or five bullets, with information about topics to be covered.</li><li>All workshops need an agenda.</li><li>All agendas must be broken down by day or by week, depending on the duration of the workshop.</li><li>Assessment, POC, non-training workshops, and implementation offers need deliverables.</li><li>Training workshops don't need deliverables, but they need a more detailed agenda with topics that will be covered.</li></ul></ul> | <ul><li>Any offer has agenda and deliverables.</li><li>Offer includes a paragraph with context about the company providing the service in the top section.</li><li>Offer includes a paragraph about the value of the service itself as a top section. |
@@ -98,9 +98,9 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Next steps
 * Learn about the various offer types in Azure Marketplace:
-  * [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
+  * [SaaS apps](marketplace-saas-applications-technical-publishing-guide.md)
+  * [Containers](marketplace-containers.md)
+  * [Consulting services](consulting-services.md)
 
-* [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* [Determine your publishing option](determine-your-listing-type.md)
 

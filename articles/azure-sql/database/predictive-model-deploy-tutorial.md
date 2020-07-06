@@ -17,13 +17,14 @@ ROBOTS: NOINDEX
 ---
 
 # Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In part three of this three-part tutorial, you'll deploy a predictive model, developed in R, into a SQL database using Azure SQL Database Machine Learning Services (preview).
+In part three of this three-part tutorial, you'll deploy a predictive model, developed in R, into a database in Azure SQL Database using Azure SQL Database Machine Learning Services (preview).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-You'll create a stored procedure with an embedded R script that makes predictions using the model. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
+You'll create a stored procedure with an embedded R script that makes predictions using the model. Because your model executes in the database, it can easily be trained against data stored in the database.
 
 In this article, using the R scripts you developed in parts one and two, you'll learn how to:
 
@@ -195,7 +196,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-You have successfully created, trained, and deployed a model in an Azure SQL database. You then used that model in a stored procedure to predict values based on new data.
+You have successfully created, trained, and deployed a model in a database in Azure SQL Database. You then used that model in a stored procedure to predict values based on new data.
 
 ## Clean up resources
 

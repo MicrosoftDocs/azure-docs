@@ -13,7 +13,7 @@ ms.date: 06/17/2020
 
 This article describes how to create and publish a Power BI app offer to Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -50,10 +50,10 @@ This page shows a visual representation of the steps required to publish this of
 
 It includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven't completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
+- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing))
 
 ## Offer setup
 
@@ -63,12 +63,12 @@ When publishing your offer to the marketplace with Partner Center, you must conn
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -76,9 +76,9 @@ When publishing your offer to the marketplace with Partner Center, you must conn
 
 Here are some additional lead management resources:
 
-- [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead management overview](commercial-marketplace-get-customer-leads.md)
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.
@@ -123,7 +123,7 @@ Define marketplace details (such as offer name, description, and images) for eac
 > [!NOTE]
 > Offer details are not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the offer listing.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
@@ -218,7 +218,7 @@ Add up to five videos that demonstrate your offer. Enter the video's name, its w
 
 #### Additional marketplace listing resources
 
-To learn more about creating offer listings, see [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md).
 
 ## Technical configuration
 
@@ -248,4 +248,4 @@ On the review page you can:
 
 To submit the offer for publishing, select **Publish**.
 
-We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public, go to Partner Center and select **Go-live**.

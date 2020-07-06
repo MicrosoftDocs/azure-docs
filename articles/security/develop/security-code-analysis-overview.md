@@ -1,7 +1,7 @@
 ---
 title: Microsoft Security Code Analysis documentation overview
 description: This article is an overview of the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -65,10 +65,6 @@ BinSkim is a Portable Executable (PE) lightweight scanner that validates compile
 ### Credential Scanner
 
 Passwords and other secrets stored in source code are a significant problem. Credential Scanner is a proprietary static-analysis tool that helps solve this problem. The tool detects credentials, secrets, certificates, and other sensitive content in your source code and your build output.
-
-### Microsoft Security Risk Detection
-
-Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate subscription and activation. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### Roslyn Analyzers
 

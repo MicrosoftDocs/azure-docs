@@ -214,6 +214,13 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Digital Twins limits
+
+> [!NOTE]
+> Some areas of this service have adjustable limits, and others do not. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+
 ## Event Grid limits
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
@@ -322,9 +329,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for managed instances](../../azure-sql/managed-instance/resource-limits.md).
 
-## SQL Data Warehouse limits
+## Azure Synapse Analytics limits
 
-For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## Storage limits
 
