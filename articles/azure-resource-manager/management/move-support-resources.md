@@ -30,7 +30,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
-> - [MICROSOFT.AZURESTACKRESOURCEMONITOR](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -142,7 +141,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [MICROSOFT.ORBITAL](#microsoftorbital)
 > - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
@@ -190,7 +188,6 @@ Jump to a resource provider namespace:
 > - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMware](#microsoftvmware)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [MICROSOFT.VMWAREONAZURE](#microsoftvmwareonazure)
 > - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
@@ -454,13 +451,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | clusters | No | No |
 > | operations | No | No |
-
-## MICROSOFT.AZURESTACKRESOURCEMONITOR
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | storageaccountmonitor | No | No |
 
 ## Microsoft.Batch
 
@@ -2338,15 +2328,6 @@ Jump to a resource provider namespace:
 > | solutions | No | No |
 > | views | No | No |
 
-## MICROSOFT.ORBITAL
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | groundstations | No | No |
-> | missionprofiles | No | No |
-> | satellites | No | No |
-
 ## Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
@@ -3204,13 +3185,6 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | operations | No | No |
 > | virtualmachines | No | No |
-
-## MICROSOFT.VMWAREONAZURE
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | privateclouds | No | No |
 
 ## Microsoft.VnfManager
 
