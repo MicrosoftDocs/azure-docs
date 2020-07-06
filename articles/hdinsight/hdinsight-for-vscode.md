@@ -66,7 +66,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 ## Connect to an Azure account
 
-Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster. Use Apache Ambari username and password credentials or a domain-joined account. Follow these steps to connect to Azure:
+Before you can submit scripts to your clusters from Visual Studio Code, user can either sign in to Azure subscription, or [link a HDInsight cluster](#Link-a-cluster). Use the Ambari username/password or domain joined credential for ESP cluster to connect to your HDInsight cluster. Follow these steps to connect to Azure:
 
 1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Azure: Sign In**:
 
@@ -114,6 +114,20 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
     &emsp;b. Enter your Ambari password.
 
 5. Review **OUTPUT** view for verification.
+
+## Integrate with HDInsight Identity Broker (HIB)
+
+### Connect to your HDInsight ESP cluster with ID Broker (HIB)
+
+You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with ID Broker (HIB). After sign-in, you'll see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-an-azure-account).
+
+### Run a Hive/PySpark job on an HDInsight ESP cluster with ID Broker (HIB)
+
+For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
+
+For run a interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+
+For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
 
 ## List clusters
 
