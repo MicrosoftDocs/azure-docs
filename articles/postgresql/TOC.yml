@@ -307,7 +307,7 @@
         href: howto-data-encryption-validation.md
     - name: Infrastructure double encryption
       items:
-      - name: Azure portal configurations
+      - name: Azure configurations
         href: howto-double-encryption.md
     - name: Restart server
       items:
