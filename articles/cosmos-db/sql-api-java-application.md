@@ -85,7 +85,7 @@ To create the JSP application:
 
 1. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
 
-  ![Hello World – Java Application Tutorial](./media/sql-api-java-application/image12.png)
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java Application Tutorial":::
 
 ## <a id="InstallSDK"></a>Install the SQL Java SDK
 

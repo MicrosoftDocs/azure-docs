@@ -26,8 +26,8 @@ This failure will occur when you used a base image that belongs to another publi
 
 To fix this issue, retrieve your latest image from Azure Marketplace and make changes to that image. See the following to view approved base images where you can search for your image:
 
-- [Linux-Images](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows-Images](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
+- [Linux-Images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Windows-Images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
 
 ## VM extension failure
 
@@ -50,11 +50,11 @@ Check whether VM Extensions are properly activated:
 
    ![Provisioning succeeded](./media/vm-certification-issues-solutions-2.png)
 
-   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
+   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
 
 ## Virtual machine provisioning issue
 
-Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure Virtual Machine (VM) image certification](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
+Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure Virtual Machine (VM) image certification](azure-vm-image-certification.md).
 
 Provisioning issues can include the following failure scenarios:
 
@@ -66,8 +66,8 @@ Provisioning issues can include the following failure scenarios:
 
 > [!NOTE]
 > Follow these links for documentation related to VM generalization:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image))
+> - [Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
 
 ## Software compliance for Windows
 
@@ -77,13 +77,13 @@ Don't create your own windows image with SQL server installed in it. Instead, us
 
 If you're trying to install Visual studio or any office licensed product, then contact the support team for prior approval.
 
-For more information, visit [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) to select an approved base.
+For more information, visit [Create your Azure Virtual Machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)) to select an approved base.
 
 ## Tool kit test case execution failed
 
 The Microsoft Certification toolkit will help you to execute test cases verify that your VHD/Image is compatible with the Azure environment.
 
-Download the [Microsoft Certification toolkit](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Download the [Microsoft Certification toolkit](azure-vm-image-certification.md).
 
 ## Linux test cases
 
@@ -244,7 +244,7 @@ If your image in not installed with one of the following kernel versions, update
 
 All VHDs on Azure must have a virtual size aligned to multiple of 1 MB. If your VHD doesn't adhere to the recommended virtual size, your request might get rejected.
 
-follow guidelines, when you're converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+follow guidelines, when you're converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](../../virtual-machines/linux/create-upload-generic.md)
 
 ## VM access denied
 

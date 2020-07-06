@@ -109,7 +109,7 @@ If you can't sign in to your account, you can open a [support ticket](https://pa
 
 ## Where are instructions for using Partner Center?
 
-Go to the [commercial marketplace documentation](https://docs.microsoft.com/azure/marketplace/), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
+Go to the [commercial marketplace documentation](index.yml), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
 
 ## What are the publishing and offer management differences?
 

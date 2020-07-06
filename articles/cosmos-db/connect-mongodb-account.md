@@ -31,7 +31,7 @@ This tutorial provides two ways to retrieve connection string information:
 4. Choose your platform (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). If you don't see your driver or tool listed, don't worry--we continuously document more connection code snippets. Please comment below on what you'd like to see. To learn how to craft your own connection, read [Get the account's connection string information](#get-the-mongodb-connection-string-to-customize).
 5. Copy and paste the code snippet into your MongoDB app.
 
-    ![Quick start blade](./media/connect-mongodb-account/QuickStartBlade.png)
+    :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Quick start blade":::
 
 ## Get the MongoDB connection string to customize
 
