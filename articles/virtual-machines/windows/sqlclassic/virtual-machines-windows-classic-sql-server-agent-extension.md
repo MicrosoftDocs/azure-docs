@@ -56,20 +56,28 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
 
-    Add-AzureAccount
+```azurepowershell
+Add-AzureAccount
+```
 
 If you have multiple subscriptions, use **Select-AzureSubscription** to select the subscription that contains your target classic VM.
 
-    Select-AzureSubscription -SubscriptionName <subscriptionname>
+```azurepowershell
+Select-AzureSubscription -SubscriptionName <subscriptionname>
+```
 
 At this point, you can get a list of the classic virtual machines and their associated service names with the **Get-AzureVM** command.
 
-    Get-AzureVM
+```azurepowershell
+Get-AzureVM
+```
 
 ## Installation
 For classic VMs, you must use PowerShell to install the SQL Server IaaS Agent Extension and configure its associated services. Use the **Set-AzureVMSqlServerExtension** PowerShell cmdlet to install the extension. For example, the following command installs the extension on a Windows Server VM (classic) and names it "SQLIaaSExtension".
 
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```
 
 If you update to the latest version of the SQL IaaS Agent Extension, you must restart your virtual machine after updating the extension.
 
@@ -86,7 +94,9 @@ One way to verify that the extension is installed is to view the agent status in
 
 You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```
 
 ## Removal
 In the Azure Portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Uninstall**.
@@ -95,7 +105,9 @@ In the Azure Portal, you can uninstall the extension by clicking the ellipsis on
 
 You can also use the **Remove-AzureVMSqlServerExtension** Powershell cmdlet.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```
 
 ## Next Steps
 Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Supported services](#supported-services) section of this article.
