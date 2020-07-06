@@ -41,7 +41,7 @@ Compilation happens when the Stream Analytics project is compiled or executed. T
 
 Because there's no debugging support for JavaScript functions in Stream Analytics directly, you can debug by encapsulating the function in an HTML site and getting the output from there.
 
-The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/quick-create-vs-code).
+The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in [Visual Studio Code](quick-create-vs-code.md).
 
 ### Prerequisites
 
