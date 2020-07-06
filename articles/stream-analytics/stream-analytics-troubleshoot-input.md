@@ -136,7 +136,7 @@ For queries in which three or more inputs are connected to the same Event Hubs c
 
 ### Create separate inputs with different consumer groups
 
-You can create separate inputs with different consumer groups for the same Event Hub. The following UNION query is an example where *InputOne* and *InputTwo* refer to the same Event Hub source.
+You can create separate inputs with different consumer groups for the same Event Hub. The following UNION query is an example where *InputOne* and *InputTwo* refer to the same Event Hub source. Any query can have separate inputs with different consumer groups. The UNION query is only one example.
 
 ```sql
 WITH 
