@@ -235,7 +235,8 @@ You can select among several different types of visualizations (Table, Pie, Line
 
 Use a SQL query to sample data.
 
-#PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
+```sql
+# PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
 
 # HIVEQL QUERY AGAINST THE sqlContext
 %%sql -q -o sqlResults
@@ -248,6 +249,7 @@ AND fare_amount < 200
 AND payment_type in ('CSH', 'CRD') 
 AND tip_amount > 0 
 AND tip_amount < 25
+```
 
 This code cell uses the SQL query to create three plots the data.
 

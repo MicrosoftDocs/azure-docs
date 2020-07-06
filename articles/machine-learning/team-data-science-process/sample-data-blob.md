@@ -94,7 +94,7 @@ You can use the following sample code to down-sample the data and use it directl
 
     except:            
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
-```
+    ```
 
 3. Read the data from the Azure blob using Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
 
