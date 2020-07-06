@@ -85,7 +85,7 @@ The key components of the architecture are:
 - Azure Monitor for SAP Solutions resource – a landing place for customers to view monitoring telemetry 
 - Managed resource group – deployed automatically as part of the Azure Monitor for SAP Solutions resource deployment. The resources deployed within managed resource group help in collection of telemetry. Key resources deployed and their purpose are:  
    - Azure Virtual Machine: Also known as *collector VM*. This is a Standard_B2ms VM. The main purpose of this VM is to host the *Monitoring Payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the collected data to the monitoring framework. In the above diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.
-   - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts): This resource is deployed to securely hold SAP HANA database credentials and to store information about [providers].  
+   - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts): This resource is deployed to securely hold SAP HANA database credentials and to store information about [providers](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers).  
    - Log Analytics Workspace: the destination where the telemetry data resides.  
       - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Customers can customize visualization. Customers can also pin their Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh capability with lowest granularity of 30 minutes.  
       - Customers can use their existing workspace within the same subscription as SAP monitor resource by choosing this option at the time of deployment. 
@@ -111,5 +111,5 @@ Azure Monitor for SAP Solutions is a free product (no license fee). Customers ar
 ## Next steps
 
 Learn about providers and create your first Azure Monitor for SAP Solutions resource.
- - Learn more about Providers
- - Do you have questions about Azure Monitor for SAP Solutions? Check the FAQ section
+ - Learn more about [Providers](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers)
+ - Do you have questions about Azure Monitor for SAP Solutions? Check the [FAQ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq) section

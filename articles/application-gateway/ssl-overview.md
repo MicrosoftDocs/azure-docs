@@ -106,7 +106,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 
 - In addition to the root certificate match, Application Gateway v2 also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s TLS/SSL certificate. When trying to establish a TLS connection to the backend, Application Gateway v2 sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
 
-- If **pick hostname from backend address** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server TLS/SSL certificate must match its FQDN. Backend pool members with IPs aren't supported in this scenario.
+- If **pick hostname from backend target** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server TLS/SSL certificate must match its FQDN. Backend pool members with IPs aren't supported in this scenario.
 
 - The root certificate is a base64 encoded root certificate from the backend server certificates.
 
