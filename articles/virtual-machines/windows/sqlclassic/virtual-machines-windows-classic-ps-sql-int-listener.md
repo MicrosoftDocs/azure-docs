@@ -66,18 +66,26 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
 
 7. Run the following `Import-AzurePublishSettingsFile` command with the path of the publish settings file that you downloaded:
 
-        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```powershell
+    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```
 
     After the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
 
 8. For *ILB*, assign a static IP address. Examine the current virtual network configuration by running the following command:
 
-        (Get-AzureVNetConfig).XMLConfiguration
+    ```powershell
+    (Get-AzureVNetConfig).XMLConfiguration
+    ```
+
 9. Note the *Subnet* name for the subnet that contains the VMs that host the replicas. This name is used in the $SubnetName parameter in the script.
 
 10. Note the *VirtualNetworkSite* name and the starting *AddressPrefix* for the subnet that contains the VMs that host the replicas. Look for an available IP address by passing both values to the `Test-AzureStaticVNetIP` command and by examining the *AvailableAddresses*. For example, if the virtual network is named *MyVNet* and has a subnet address range that starts at *172.16.0.128*, the following command would list available addresses:
 
-        (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
+    ```powershell
+    (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
+    ```
+
 11. Select one of the available addresses, and use it in the $ILBStaticIP parameter of the script in the next step.
 
 12. Copy the following PowerShell script to a text editor, and set the variable values to suit your environment. Defaults have been provided for some parameters.  
@@ -86,21 +94,23 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
 
     Also, if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
 
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-        $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the virtual network
-        $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
-        $ILBName = "AGListenerLB" # customize the ILB name or use this default value
+    ```powershell
+    # Define variables
+    $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+    $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
+    $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the virtual network
+    $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
+    $ILBName = "AGListenerLB" # customize the ILB name or use this default value
 
-        # Create the ILB
-        Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
+    # Create the ILB
+    Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
 
-        # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
-        }
+    # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
+    ForEach ($node in $AGNodes)
+    {
+        Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
+    }
+    ```
 
 13. After you have set the variables, copy the script from the text editor to your PowerShell session to run it. If the prompt still shows **>>**, press Enter again to make sure the script starts running.
 
@@ -120,33 +130,39 @@ Create the availability group listener in two steps. First, create the client ac
 ### Configure the cluster resources in PowerShell
 1. For ILB, you must use the IP address of the ILB that was created earlier. To obtain this IP address in PowerShell, use the following script:
 
-        # Define variables
-        $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
-        (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
+    ```powershell
+    # Define variables
+    $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
+    (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
+    ```
 
 2. On one of the VMs, copy the PowerShell script for your operating system to a text editor, and then set the variables to the values you noted earlier.
 
     For Windows Server 2012 or later, use the following script:
 
-        # Define variables
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP address resource name
-        $ILBIP = "<X.X.X.X>" # the IP address of the ILB
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP address resource name
+    $ILBIP = "<X.X.X.X>" # the IP address of the ILB
 
-        Import-Module FailoverClusters
+    Import-Module FailoverClusters
 
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
 
     For Windows Server 2008 R2, use the following script:
 
-        # Define variables
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP address resource name
-        $ILBIP = "<X.X.X.X>" # the IP address of the ILB
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP address resource name
+    $ILBIP = "<X.X.X.X>" # the IP address of the ILB
 
-        Import-Module FailoverClusters
+    Import-Module FailoverClusters
 
-        cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+    cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+    ```
 
 3. After you have set the variables, open an elevated Windows PowerShell window, paste the script from the text editor into your PowerShell session to run it. If the prompt still shows **>>**, Press Enter again to make sure that the script starts running.
 

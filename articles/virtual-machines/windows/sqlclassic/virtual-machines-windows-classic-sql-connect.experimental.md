@@ -49,7 +49,9 @@ Multiple virtual machines can be created in the same cloud service. To understan
 
 In this scenario, you can connect using the VM **Name** (also shown as **Computer Name** or **hostname** in the portal). This is the name you provided for the VM during creation. For example, if you named your SQL VM **mysqlvm**, a client VM in the same cloud service could use the following connection string to connect:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 ### Connect to SQL Server over the Internet
 If you want to connect to your SQL Server database engine from the Internet, you must create a virtual machine endpoint for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
@@ -58,7 +60,9 @@ To connect over the internet, you must use the VM's DNS name and the VM endpoint
 
 For example, consider a classic virtual machine named **mysqlvm** with a DNS Name of **mysqlvm7777.cloudapp.net** and a VM endpoint of **57500**. Assuming properly configured connectivity, the following connection string could be used to access the virtual machine from anywhere on the internet:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 Although this connection string enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, don't use the well-known port 1433 for the public virtual machine endpoint. And if possible, consider adding an ACL on your endpoint to restrict traffic only to the clients you permit. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -74,7 +78,9 @@ Virtual networks also enable you to join your Azure VMs to a domain. Joining to 
 
 If you plan to configure a domain environment and Windows Authentication, you do not need to configure the public endpoint or the SQL Authentication and logins. In this scenario, you can connect to your SQL Server instance by specifying the SQL Server VM name in the connection string. The following example assumes that Windows Authentication was configured and that the user was granted access to the SQL Server instance.
 
-    "Server=mysqlvm;Integrated Security=true"
+```config
+"Server=mysqlvm;Integrated Security=true"
+```
 
 ## Steps for configuring SQL Server connectivity in an Azure VM
 The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.

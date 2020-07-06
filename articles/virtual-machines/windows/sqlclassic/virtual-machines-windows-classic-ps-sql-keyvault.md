@@ -59,18 +59,23 @@ The following table lists the parameters required to run the PowerShell script i
 The **New-AzureVMSqlServerKeyVaultCredentialConfig** cmdlet creates a configuration object for the Azure Key Vault Integration feature. The **Set-AzureVMSqlServerExtension** configures this integration with the **KeyVaultCredentialSettings** parameter. The following steps show how to use these commands.
 
 1. In Azure PowerShell, first configure the input parameters with your specific values as described in the previous sections of this topic. The following script is an example.
-   
-        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
-        $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
-        $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
-        $credName = "mycred1"
-        $vmName = "myvmname"
-        $serviceName = "mycloudservicename"
+
+    ```azurepowershell
+    $akvURL = "https:\//contosokeyvault.vault.azure.net/"
+    $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
+    $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
+    $credName = "mycred1"
+    $vmName = "myvmname"
+    $serviceName = "mycloudservicename"
+    ```
+
 2. Then use the following script to configure and enable AKV Integration.
-   
-        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+
+    ```azurepowershell
+    $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+    $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+    Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+    ```
 
 The SQL IaaS Agent Extension will update the SQL VM with this new configuration.
 
