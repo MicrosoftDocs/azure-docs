@@ -1,5 +1,5 @@
 ---
-title: 'Streaming Ingestion Event Sources - Azure Time Series Insights | Microsoft Docs'
+title: 'Streaming ingestion event sources - Azure Time Series Insights | Microsoft Docs'
 description: Learn about streaming data into Azure Time Series Insights.
 author: lyrana
 ms.author: lyhughes

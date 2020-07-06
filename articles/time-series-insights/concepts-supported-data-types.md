@@ -1,5 +1,5 @@
 ---
-title: 'Supported Data Types - Azure Time Series Insights | Microsoft Docs'
+title: 'Supported data types - Azure Time Series Insights | Microsoft Docs'
 description: Learn about the supported data types in Azure Time Series Insights Preview.
 author: lyrana
 ms.author: lyhughes

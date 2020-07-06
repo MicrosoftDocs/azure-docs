@@ -1,5 +1,5 @@
 ---
-title: 'Ingestion Overview - Azure Time Series Insights | Microsoft Docs'
+title: 'Ingestion overview - Azure Time Series Insights | Microsoft Docs'
 description: Learn about data ingestion into Azure Time Series Insights.
 author: lyrana
 ms.author: lyhughes

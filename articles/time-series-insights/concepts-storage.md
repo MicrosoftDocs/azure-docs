@@ -1,5 +1,5 @@
 ---
-title: 'Storage Overview - Azure Time Series Insights | Microsoft Docs'
+title: 'Storage overview - Azure Time Series Insights | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights.
 author: esung22
 ms.author: elsung

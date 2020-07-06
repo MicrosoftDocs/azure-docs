@@ -1,5 +1,5 @@
 ---
-title: 'Streaming Ingestion Throughput Limitations- Azure Time Series Insights | Microsoft Docs'
+title: 'Streaming ingestion throughput limitations- Azure Time Series Insights | Microsoft Docs'
 description: Learn about ingress throughput limits in Azure Time Series Insights.
 author: lyrana
 ms.author: lyhughes
