@@ -169,6 +169,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+   >When adding a group, users in the group will be updated to use managed authentication immediately. When editing a user in the group (add a user or remove), it can take up to 24 hours for the user to get updated from federated to managed or from managed to federated.
 
 ## Auditing
 
