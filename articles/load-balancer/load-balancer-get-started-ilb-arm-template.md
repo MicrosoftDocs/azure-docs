@@ -57,9 +57,10 @@ To deploy the template by using the Azure CLI, follow the steps below.
     azure config mode arm
     ```
 
-Here is the expected output for the command above:
-     ```console
-        info:    New mode is arm
+    Here is the expected output for the command above:
+
+    ```output
+    info:    New mode is arm
     ```
 
 3. Open the parameter file, select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.

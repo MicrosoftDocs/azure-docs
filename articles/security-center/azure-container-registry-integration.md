@@ -25,7 +25,7 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 ## Availability
 
 - Release state: **General availability**
-- Required roles: **Security reader**
+- Required roles: **Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 - Clouds: 
     - ✔ Commercial clouds
     - ✘ US Government cloud

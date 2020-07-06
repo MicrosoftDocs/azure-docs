@@ -404,9 +404,12 @@ The following code example uses Media Services .NET SDK to perform the following
 * Create an encoding job.
 * Get a reference to the Media Encoder Standard encoder.
 * Load the preset [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) that contain the encoding preset as well as information needed to generate thumbnails. You can save this  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use the following code to load the file.
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
+
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
 * Create an output asset that contains the encoded asset.
