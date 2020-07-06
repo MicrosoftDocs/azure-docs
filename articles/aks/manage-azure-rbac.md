@@ -126,7 +126,7 @@ AKS provides the following four built-in roles:
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
 
-Roles assignments scoped to the **whole AKS cluster** can be done either on the IAM blade of the cluster resource on Azure portal or by using Azure CLI commands as shown below:
+Roles assignments scoped to the **entire AKS cluster** can be done either on the Access Control (IAM) blade of the cluster resource on Azure portal or by using Azure CLI commands as shown below:
 
 ```bash
 # Get your AKS Resource ID
@@ -186,7 +186,7 @@ Now we can create the role definition by running the below command from the fold
 az role definition create --role-definition @deploy-view.json 
 ```
 
-No that you have your role definition, you can assign it to a user or other identity by running:
+Now that you have your role definition, you can assign it to a user or other identity by running:
 
 ```azurecli-interactive
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
@@ -237,7 +237,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 ``` 
 
-For the first time you'll have to sign in like with regular kubectl, but afterwards you'll no longer be required, even for new aad clusters (as long as your token is still valid).
+For the first time you'll have to sign in interactively like with regular kubectl, but afterwards you'll no longer be required, even for new aad clusters (as long as your token is still valid).
 
 ```bash
 kubectl get nodes
