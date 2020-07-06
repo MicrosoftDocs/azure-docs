@@ -101,10 +101,10 @@ The two intents find the manager or the manager's direct reports, based on the u
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.5373289
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.168523118
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
                     "score": 0.0299124215
@@ -182,7 +182,7 @@ The two intents find the manager or the manager's direct reports, based on the u
     }
     ```
 
-The correct top intent was predicted, `OrgChart-Manager`, but the score is not good enough at 53%. Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
+The correct top intent was predicted, `OrgChart-Manager`, but the score is not above 70% and isn't far enough above the next highest intent. Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
 
 Leave this second browser window open. You will use it again later in the tutorial.
 
@@ -258,10 +258,10 @@ Now that the patterns are added to the app, train, publish, and query the app at
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.9999991
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.110738E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
                     "score": 4.364242E-06
