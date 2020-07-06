@@ -28,13 +28,13 @@ As a Security Operations Center (SOC) manager, you need to have overall efficien
 
 ## Use the security incidents table
 
-The **SecurityIncident** table is built in to Azure Sentinel. You'll see it with the other tables in the **SecurityInsights** collection under **Logs**. You can query it like any other table in Log Analytics.
+The **SecurityIncident** table is built into Azure Sentinel. You'll find it with the other tables in the **SecurityInsights** collection under **Logs**. You can query it like any other table in Log Analytics.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incident-table.png" alt-text="Security incidents table":::
 
 Every time you create or update an incident, a new log entry will be added to the table. This allows you to track the changes made to incidents, and allows for even more powerful SOC metrics, but you need to be mindful of this when constructing queries for this table as you may need to remove duplicate entries for an incident (dependent on the exact query you are running). 
 
-For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the arg_max KQL operator: 
+For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [summarize operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) with the `arg_max()` [aggregation function](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 `SecurityIncident` <br>
 `| summarize arg_max(LastModifiedTime, *) by IncidentNumber`
