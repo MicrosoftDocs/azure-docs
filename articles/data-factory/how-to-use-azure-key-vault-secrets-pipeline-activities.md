@@ -17,6 +17,8 @@ ms.author: chlound
 
 # Use Azure Key Vault secrets in pipeline activities
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 You can store credentials or secret values in an Azure Key Vault and use them during pipeline execution to pass to your activities.
 
 ## Prerequisites
@@ -61,7 +63,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     > [!CAUTION]
     > Set the Secure Output option to true to prevent the secret value from being logged in plain text.  Any further activities that consume this value should have their Secure Input option set to true.
 
-5. To use the value in another activity, use the following code expression **@activity("web").output.value**.
+5. To use the value in another activity, use the following code expression **@activity('Web1').output.value**.
 
     ![Code expression](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

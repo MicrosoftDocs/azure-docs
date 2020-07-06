@@ -1,13 +1,13 @@
-- name: Scheduler Documentation
-  href: index.md
+- name: Azure Scheduler documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Scheduler?
     href: scheduler-intro.md
 - name: Get started
   items:
-  - name: Create and manage jobs - portal
-    href: scheduler-get-started-portal.md
+  - name: Create and manage schedules - Azure PowerShell
+    href: scheduler-powershell-reference.md
   - name: Migrate from Scheduler to Logic Apps
     href: migrate-from-scheduler-to-logic-apps.md
 - name: Concepts
@@ -48,8 +48,8 @@
     href: https://azure.microsoft.com/updates/?product=scheduler
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-scheduler.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-scheduler
   - name: Pricing

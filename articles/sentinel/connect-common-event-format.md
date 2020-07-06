@@ -1,9 +1,9 @@
 ---
 title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
-description: Learn how to connect CEF data to Azure Sentinel.
+description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel by using a Linux machine as a proxy.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect your external solution using Common Event Format

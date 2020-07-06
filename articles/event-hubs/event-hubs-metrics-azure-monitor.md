@@ -1,23 +1,10 @@
 ---
 title: Metrics in Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
-services: event-hubs
-documentationcenter: .NET
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 09/18/2019
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
+
 # Azure Event Hubs metrics in Azure Monitor
 
 Event Hubs metrics give you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
@@ -127,7 +114,11 @@ In the scenario where an SIEM tool consumes log data from an event hub, if you s
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+- Get started with an Event Hubs tutorial
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

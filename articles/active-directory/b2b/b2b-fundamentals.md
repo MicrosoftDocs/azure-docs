@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory B2B best practices
 This article contains recommendations and best practices for business-to-business (B2B) collaboration in Azure Active Directory (Azure AD).
 
+   > [!IMPORTANT]
+   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+
 ## B2B recommendations
 | Recommendation | Comments |
 | --- | --- |
@@ -30,7 +33,7 @@ This article contains recommendations and best practices for business-to-busines
 | Enforce Conditional Access policies for Multi-Factor Authentication (MFA) | We recommend enforcing MFA policies on the apps you want to share with partner B2B users. This way, MFA will be consistently enforced on the apps in your tenant regardless of whether the partner organization is using MFA. See [Conditional Access for B2B collaboration users](conditional-access.md). |
 | If you’re enforcing device-based Conditional Access policies, use exclusion lists to allow access to B2B users | If device-based Conditional Access policies are enabled in your organization, B2B guest user devices will be blocked because they’re not managed by your organization. You can create exclusion lists containing specific partner users to exclude them from the device-based Conditional Access policy. See [Conditional Access for B2B collaboration users](conditional-access.md). |
 | Use a tenant-specific URL when providing direct links to your B2B guest users | As an alternative to the invitation email, you can give a guest a direct link to your app or portal. This direct link must be tenant-specific, meaning it must include a tenant ID or verified domain so the guest can be authenticated in your tenant, where the shared app is located. See [Redemption experience for the guest user](redemption-experience.md). |
-| When developing an app, use UserType to determine guest user experience  | If you're developing an application and you want to provide different experiences for tenant users and guest users, use the UserType property. The UserType claim isn't currently included in the token. Applications should use the Graph API to query the directory for the user to get their UserType. |
+| When developing an app, use UserType to determine guest user experience  | If you're developing an application and you want to provide different experiences for tenant users and guest users, use the UserType property. The UserType claim isn't currently included in the token. Applications should use the Microsoft Graph API to query the directory for the user to get their UserType. |
 | Change the UserType property *only* if the user’s relationship to the organization changes | Although it’s possible to use PowerShell to convert the UserType property for a user from Member to Guest (and vice-versa), you should change this property only if the relationship of the user to your organization changes. See [Properties of a B2B guest user](user-properties.md).|
 
 ## Next steps

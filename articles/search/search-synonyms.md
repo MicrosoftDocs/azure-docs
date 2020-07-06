@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/28/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -40,13 +40,13 @@ You can create multiple synonym maps for your search application (for example, b
 
 #### Add or update a synonym map under your service, using POST or PUT.
 
-Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in all other SKUs. Each rule can have up to 20 expansions.
+Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in all other SKUs. Each rule can have up to 20 expansions.
 
 Synonym maps must be in the Apache Solr format which is explained below. If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+	POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -59,7 +59,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
     {
@@ -85,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+	GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 #### Get a synonym map under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
 ### Configure a searchable field to use the synonym map in the index definition.
 
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+	POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
 	api-key: [admin key]
 
 	{

@@ -7,7 +7,7 @@ author: yushwang
 manager: rossort
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: yushwang
 
@@ -74,7 +74,7 @@ Once the connection resource is created, follow the instructions below to downlo
 
 ## Download the configuration script using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 You can also download the configuration script using Azure PowerShell, as shown in the following example:
 

@@ -3,7 +3,7 @@ title: Roles, permissions, and security in Azure Monitor
 description: Learn how to use Azure Monitor's built-in roles and permissions to restrict access to monitoring resources.
 author: johnkemnetz
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
@@ -23,7 +23,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
 * View alert rules defined in [Azure Alerts](alerts-overview.md)
-* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](cli-samples.md).
+* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](../samples/cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](diagnostic-settings.md) for a resource.
 * View the [log profile](activity-log-export.md) for a subscription.

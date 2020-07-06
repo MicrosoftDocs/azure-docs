@@ -39,9 +39,12 @@ Key differences between persistent and ephemeral OS disks:
 
 ## Size requirements
 
-You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
+You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 
 Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](../articles/virtual-machines/linux/sizes.md) for details around which sizes support Premium storage.
+
+## Preview - Ephemeral OS Disks can now be stored on temp disks
+Ephemeral OS Disks can now be stored on VM temp/resource disk in addition to the VM cache. So, now you can use Ephemeral OS Disks with VM which don’t have a cache or has insufficient cache but has a temp/resource disk to store the Ephemeral OS disk such as Dav3, Dav4, Eav4 and Eav3. If a VM has sufficient cache and temp space, you will now also be able to specify where you want to store the ephemeral OS Disk by using a new property called [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). This feature is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. To get started, [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## PowerShell
 
@@ -194,7 +197,24 @@ A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS dis
 
 **Q: Will all VM sizes be supported for ephemeral OS disks?**
 
-A: No, all Premium Storage VM sizes are supported (DS, ES, FS, GS and M) except the B-series, N-series, and H-series sizes.  
+A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks, you can:
+
+Call the `Get-AzComputeResourceSku` PowerShell cmdlet
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
 

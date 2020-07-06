@@ -141,7 +141,7 @@ $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
+$Password = ConvertTo-SecureString "Passw0rd" -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -180,7 +180,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## Create a certificate for AD FS
-Now we will create an SSL certificate that will be used by AD FS.  This is will be a self-signed certificate and is only for testing purposes.  Microsoft does not recommend using a self-signed certificate in a production environment. Do the following:
+Now we will create a TLS/SSL certificate that will be used by AD FS.  This is will be a self-signed certificate and is only for testing purposes.  Microsoft does not recommend using a self-signed certificate in a production environment. Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.

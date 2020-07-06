@@ -56,6 +56,13 @@ The following table illustrates a typical image set and the category returned by
 | ![A person standing on a mountain rock at sunset](./Images/mountain_vista.png) | outdoor_mountain |
 | ![A pile of bread roles on a table](./Images/bread.png) | food_bread |
 
+## Use the API
+
+The categorization feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. Include `Categories` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"categories"` section.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+
 ## Next steps
 
-Learn concepts about [tagging images](concept-tagging-images.md) and [describing images](concept-describing-images.md).
+Learn the related concepts of [tagging images](concept-tagging-images.md) and [describing images](concept-describing-images.md).

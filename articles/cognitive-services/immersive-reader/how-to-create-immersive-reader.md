@@ -1,7 +1,7 @@
 ---
 title: "Create an Immersive Reader Resource"
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. 
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -25,7 +25,7 @@ The script is designed to be flexible. It will first look for existing Immersive
 
 ## Set up PowerShell environment
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that the cloud shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
+1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that Cloud Shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
 1. Copy and paste the following code snippet into the shell.
 
@@ -43,6 +43,11 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
     {
+        $unused = ''
+        if (-not [System.Uri]::TryCreate($AADAppIdentifierUri, [System.UriKind]::Absolute, [ref] $unused)) {
+            throw "Error: AADAppIdentifierUri must be a valid URI"
+        }
+
         Write-Host "Setting the active subscription to '$SubscriptionName'"
         $subscriptionExists = Get-AzSubscription -SubscriptionName $SubscriptionName
         if (-not $subscriptionExists) {
@@ -105,6 +110,10 @@ The script is designed to be flexible. It will first look for existing Immersive
             Write-Host "New service principal created successfully"
         }
 
+        # Sleep for 5 seconds to allow the new service principal to propagate
+        Write-Host "Sleeping for 5 seconds"
+        Start-Sleep -Seconds 5
+
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
         $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
         if (-not $accessResult) {
@@ -132,16 +141,16 @@ The script is designed to be flexible. It will first look for existing Immersive
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
-      -SubscriptionName <SUBSCRIPTION_NAME> `
-      -ResourceName <RESOURCE_NAME> `
-      -ResourceSubdomain <RESOURCE_SUBDOMAIN> `
-      -ResourceSKU <RESOURCE_SKU> `
-      -ResourceLocation <RESOURCE_LOCATION> `
-      -ResourceGroupName <RESOURCE_GROUP_NAME> `
-      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
-      -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
-      -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
-      -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
+      -SubscriptionName '<SUBSCRIPTION_NAME>' `
+      -ResourceName '<RESOURCE_NAME>' `
+      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
+      -ResourceSKU '<RESOURCE_SKU>' `
+      -ResourceLocation '<RESOURCE_LOCATION>' `
+      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
+      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
+      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
+      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
+      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
     ```
 
     | Parameter | Comments |
@@ -170,7 +179,7 @@ The script is designed to be flexible. It will first look for existing Immersive
 
 ## Next steps
 
-* View the [Node.js quickstart](./quickstart-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Node.js quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) to see what else you can do with the Immersive Reader SDK using Node.js
 * View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
 * View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

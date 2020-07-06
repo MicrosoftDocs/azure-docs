@@ -1,24 +1,22 @@
 ---
-title: Create a Linux VM with Azure Image Builder (preview)
-description: Create a Linux VM with the Azure Image Builder.
+title: Use Azure Image Builder with an image gallery for Linux VMs (preview)
+description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
-ms.topic: article
+ms.date: 05/05/2019
+ms.topic: how-to
 ms.service: virtual-machines-linux
-manager: gwallace
+ms.subservice: imaging
+ms.reviewer: danis
 ---
-# Preview: Create a Linux VM with Azure Image Builder
+# Preview: Create a Linux image and distribute it to a Shared Image Gallery 
 
-This article shows you how you can create a customized Linux image using the Azure Image Builder and the Azure CLI. The example in this article uses three different [customizers](image-builder-json.md#properties-customize) for customizing the image:
+This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
-- Shell (ScriptUri) - downloads and runs a [shell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
-- Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
-- File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
+To distribute the image to a Shared Image Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -42,7 +40,8 @@ Check your registration.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -50,147 +49,172 @@ If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
-## Setup example variables
+## Set variables and permissions 
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
+For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
-# Resource group name - we are using myImageBuilderRG in this example
-imageResourceGroup=myImageBuilerRGLinux
+# Resource group name - we are using ibLinuxGalleryRG in this example
+sigResourceGroup=ibLinuxGalleryRG
 # Datacenter location - we are using West US 2 in this example
-location=WestUS2
-# Name for the image - we are using myBuilderImage in this example
-imageName=myBuilderImage
-# Run output name
-runOutputName=aibLinux
+location=westus2
+# Additional region to replicate the image to - we are using East US in this example
+additionalregion=eastus
+# name of the shared image gallery - in this example we are using myGallery
+sigName=myIbGallery
+# name of the image definition to be created - in this example we are using myImageDef
+imageDefName=myIbImageDef
+# image distribution metadata reference name
+runOutputName=aibLinuxSIG
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=<Subscription ID>
 ```
 
-## Create the resource group.
-This is used to store the image configuration template artifact and the image.
+Create the resource group.
 
 ```azurecli-interactive
-az group create -n $imageResourceGroup -l $location
+az group create -n $sigResourceGroup -l $location
 ```
 
-## Set permissions on the resource group
-Give Image Builder 'contributor' permission to create the image in the resource group. Without the proper permissions, the image build will fail. 
+## Create a user-assigned identity and set permissions on the resource group
+Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
-The `--assignee` value is the app registration ID for the Image Builder service. 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $sigResourceGroup -n $identityName
 
-```azurecli-interactive
+# get identity id
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
+
+# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
-## Download the template example
 
-A parameterized sample image configuration template has been created for you to use. Download the sample .json file and configure it with the variables you set earlier.
+## Create an image definition and gallery
+
+To use Image Builder with a shared image gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+
+If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
-
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateLinux.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateLinux.json
-sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
-sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
+az sig create \
+    -g $sigResourceGroup \
+    --gallery-name $sigName
 ```
 
-You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using  a text editor like `vi`.
+Then, create an image definition.
 
 ```azurecli-interactive
-vi helloImageTemplateLinux.json
+az sig image-definition create \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --publisher myIbPublisher \
+   --offer myOffer \
+   --sku 18.04-LTS \
+   --os-type Linux
 ```
 
-> [!NOTE]
-> For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
->
-> If you add or change the resource group where the image is being distributed, you need to make sure the [permissions are set for the resource group](#set-permissions-on-the-resource-group).
 
+## Download and configure the .json
 
-## Submit the image configuration
-Submit the image configuration to the VM Image Builder service
+Download the .json template and configure it with your variables.
+
+```azurecli-interactive
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIG.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIG.json
+sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIG.json
+sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIG.json
+sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIG.json
+sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIG.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIG.json
+```
+
+## Create the image version
+
+This next part will create the image version in the gallery. 
+
+Submit the image configuration to the Azure Image Builder service.
 
 ```azurecli-interactive
 az resource create \
-    --resource-group $imageResourceGroup \
-    --properties @helloImageTemplateLinux.json \
+    --resource-group $sigResourceGroup \
+    --properties @helloImageTemplateforSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateforSIG01
 ```
-
-If it completes successfully, it will return a success message, and create an image builder configuration template artifact in the $imageResourceGroup. You can see the resource group in the portal if you enable 'Show hidden types'.
-
-Also, in the background, Image Builder creates a staging resource group in your subscription. Image Builder uses the staging resource group for the image build. The name of the resource group will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`.
-
-> [!IMPORTANT]
-> Do not delete the staging resource group directly. If you delete the image template artifact, it will automatically delete the staging resource group. For more information, see the [Clean up](#clean-up) section at the end of this article.
-
-If the service reports a failure during the image configuration template submission, see the [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. You will also need to delete the template before you retry submitting the build. To delete the template:
-
-```azurecli-interactive
-az resource delete \
-    --resource-group $imageResourceGroup \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
-```
-
-## Start the image build
 
 Start the image build.
 
-
 ```azurecli-interactive
 az resource invoke-action \
-     --resource-group $imageResourceGroup \
+     --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateLinux01 \
+     -n helloImageTemplateforSIG01 \
      --action Run 
 ```
 
-Wait until the build is complete, for this example, it can take 10-15 minutes.
-
-If you encounter any errors, please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steps.
+Creating the image and replicating it to both regions can take a while. Wait until this part is finished before moving on to creating a VM.
 
 
 ## Create the VM
 
-Create the VM using the image you built.
+Create a VM from the image version that was created by Azure Image Builder.
 
 ```azurecli-interactive
 az vm create \
-  --resource-group $imageResourceGroup \
-  --name myVM \
-  --admin-username azureuser \
-  --image $imageName \
+  --resource-group $sigResourceGroup \
+  --name myAibGalleryVM \
+  --admin-username aibuser \
   --location $location \
+  --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
   --generate-ssh-keys
 ```
 
-Get the IP address from the output of creating the VM and use it to SSH to the VM.
+SSH into the VM.
 
 ```azurecli-interactive
-ssh azureuser@<pubIp>
+ssh aibuser@<publicIpAddress>
 ```
 
-You should see the image was customized with a Message of the Day as soon as your SSH connection is established!
+You should see the image was customized with a *Message of the Day* as soon as your SSH connection is established!
 
 ```console
-
 *******************************************************
 **            This VM was built from the:            **
 **      !! AZURE VM IMAGE BUILDER Custom Image !!    **
@@ -198,38 +222,75 @@ You should see the image was customized with a Message of the Day as soon as you
 *******************************************************
 ```
 
-Type `exit` when you are done to close the SSH connection.
+## Clean up resources
 
-## Check the source
+If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
-In the Image Builder Template, in the 'Properties', you will see the source image, customization script it runs, and where it is distributed.
 
-```azurecli-interactive
-cat helloImageTemplateLinux.json
-```
+This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-For more detailed information about this .json file, see [Image builder template reference](image-builder-json.md)
-
-## Clean up
-
-When you are done, you can delete the resources.
+When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 
 ```azurecli-interactive
 az resource delete \
-    --resource-group $imageResourceGroup \
+    --resource-group $sigResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateforSIG01
 ```
 
-Delete the image resource group.
+Delete permissions assignments, roles and identity
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 
-```bash
-az group delete -n $imageResourceGroup
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
 ```
 
+Get the image version created by image builder, this always starts with `0.`, and then delete the image version
+
+```azurecli-interactive
+sigDefImgVersion=$(az sig image-version list \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID --query [].'name' -o json | grep 0. | tr -d '"')
+az sig image-version delete \
+   -g $sigResourceGroup \
+   --gallery-image-version $sigDefImgVersion \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID
+```   
+
+
+Delete the image definition.
+
+```azurecli-interactive
+az sig image-definition delete \
+   -g $sigResourceGroup \
+   --gallery-name $sigName \
+   --gallery-image-definition $imageDefName \
+   --subscription $subscriptionID
+```
+
+Delete the gallery.
+
+```azurecli-interactive
+az sig delete -r $sigName -g $sigResourceGroup
+```
+
+Delete the resource group.
+
+```azurecli-interactive
+az group delete -n $sigResourceGroup -y
+```
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image Builder template reference](image-builder-json.md).
+Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).

@@ -2,14 +2,14 @@
 title: PowerShell samples for Azure AD Application Proxy
 description: Use these PowerShell samples for Azure AD Application Proxy to get information about Application Proxy apps and connectors in your directory, assign users and groups to apps, and get certificate information.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,7 @@ The following table includes links to PowerShell script examples for Azure AD Ap
 
 For more information about the cmdlets used in these samples, see [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) and [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| | |
+| Link | Description |
 |---|---|
 |**Application Proxy apps**||
 | [List basic information for all Application Proxy apps](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lists basic information (AppId, DisplayName, ObjId) about all the Application Proxy apps in your directory . |
@@ -40,6 +40,6 @@ For more information about the cmdlets used in these samples, see [Application P
 | [Get all Application Proxy apps using wildcard publishing](scripts/powershell-get-all-wildcard-apps.md) | Lists all Application Proxy apps using wildcard publishing. |
 |**Custom Domain configuration**||
 | [Get all Application Proxy apps using custom domains and certificate information](scripts/powershell-get-all-custom-domains-and-certs.md) | Lists all Application Proxy apps that are using custom domains and the certificate information associated with the custom domains. |
-| [Get all Azure AD Proxy application apps published with no certificate uploaded](scripts/powershell-get-all-custom-domain-no-cert.md) | Lists all Application Proxy apps that are using custom domains but don't have a valid SSL certificate uploaded. |
+| [Get all Azure AD Proxy application apps published with no certificate uploaded](scripts/powershell-get-all-custom-domain-no-cert.md) | Lists all Application Proxy apps that are using custom domains but don't have a valid TLS/SSL certificate uploaded. |
 | [Get all Azure AD Proxy application apps published with the identical certificate](scripts/powershell-get-custom-domain-identical-cert.md) | Lists all the Azure AD Proxy application apps published with the identical certificate. |
 | [Get all Azure AD Proxy application apps published with the identical certificate and replace it](scripts/powershell-get-custom-domain-replace-cert.md) | For Azure AD Proxy application apps that are published with an identical certificate, allows you to replace the certificate in bulk. |

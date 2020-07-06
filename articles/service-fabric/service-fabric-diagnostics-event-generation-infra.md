@@ -74,7 +74,7 @@ If you need to contact Microsoft support for help with your Azure Service Fabric
 
 ## Measuring performance
 
-Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-up-down.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
+Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-in-out.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
 
 For a list of performance counters to collect when using Service Fabric, see [Performance Counters in Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

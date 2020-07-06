@@ -4,7 +4,7 @@ description: This article provides information on how to expose an AKS service o
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -159,22 +159,22 @@ Now the `guestbook` application will be available on both HTTP and HTTPS only on
 
 The following ingress will allow you to add additional paths into this ingress and redirect those paths to other services:
 
-    ```yaml
-    apiVersion: extensions/v1beta1
-    kind: Ingress
-    metadata:
-      name: guestbook
-      annotations:
-        kubernetes.io/ingress.class: azure/application-gateway
-    spec:
-      rules:
-      - http:
-          paths:
-          - path: </other/*>
-            backend:
-              serviceName: <other-service>
-              servicePort: 80
-          - backend:
-              serviceName: frontend
-              servicePort: 80
-    ```
+```yaml
+apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: guestbook
+    annotations:
+      kubernetes.io/ingress.class: azure/application-gateway
+  spec:
+    rules:
+    - http:
+        paths:
+        - path: </other/*>
+          backend:
+            serviceName: <other-service>
+            servicePort: 80
+        - backend:
+            serviceName: frontend
+            servicePort: 80
+```

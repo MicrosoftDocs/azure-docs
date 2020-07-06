@@ -7,7 +7,7 @@ author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
@@ -127,5 +127,3 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [Security group view](network-watcher-security-group-view-overview.md)
 * [NSG flow logging](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
-
-Once a Network Watcher instance is, you can enable packet capture within virtual machines. To learn how, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)

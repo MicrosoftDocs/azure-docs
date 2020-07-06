@@ -1,23 +1,22 @@
 ---
-title: Azure Event Grid Service Bus event schema
+title: Azure Service Bus as Event Grid source
 description: Describes the properties that are provided for Service Bus events with Azure Event Grid
 services: event-grid
-author: banisadr
-manager: darosa
+author: femila
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
-ms.author: babanisa
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: femila
 ---
 
-# Azure Event Grid event schema for Service Bus
+# Azure Service Bus as an Event Grid source
 
 This article provides the properties and schema for Service Bus events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-For a list of sample scripts and tutorials, see [Service Bus event source](event-sources.md#service-bus).
+## Event Grid event schema
 
-## Available event types
+### Available event types
 
 Service Bus emits the following event types:
 
@@ -26,7 +25,7 @@ Service Bus emits the following event types:
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Raised when there are active messages in a Queue or Subscription and no receivers listening. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Raised when there are active messages in a Dead Letter Queue and no active listeners. |
 
-## Example event
+### Example event
 
 The following example shows the schema of active messages with no listeners event:
 
@@ -72,7 +71,7 @@ The schema for a dead letter queue event is similar:
 }]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -97,6 +96,12 @@ The data object has the following properties:
 | queueName | string | The queue with active messages if subscribing to a queue. Value null if using topics / subscriptions. |
 | topicName | string | The topic the Service Bus subscription with active messages belongs to. Value null if using a queue. |
 | subscriptionName | string | The Service Bus subscription with active messages. Value null if using a queue. |
+
+## Tutorials and how-tos
+|Title  |Description  |
+|---------|---------|
+| [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
+| [Azure Service Bus to Event Grid integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overview of integrating Service Bus with Event Grid. |
 
 ## Next steps
 

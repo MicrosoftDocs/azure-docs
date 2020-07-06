@@ -884,7 +884,7 @@ At this point, the application is ready to be deployed to a local Service Fabric
     If you are using a Mac, you run the local cluster with the following command: Replace the command passed into the **-v** parameter with the path to your own workspace.
 
     ```bash
-    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
     ```
     See more detailed instructions in the [OS X setup guide.](service-fabric-get-started-mac.md)
 

@@ -8,10 +8,9 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Introduction to Azure App Service on Linux
 
 [Azure App Service](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks.
@@ -51,7 +50,7 @@ Check the [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 The Azure portal shows only features that currently work for Web App for Containers. As we enable more features, they will become visible on the portal.
 
-App Service on Linux is only supported with [Free, Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create a Linux Web App in an App Service plan already hosting non-Linux Web Apps.  
+App Service on Linux is only supported with [Free, Basic, Standard, Premium and Isolated](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create a Linux Web App in an App Service plan already hosting non-Linux Web Apps.  
 
 Based on a current limitation, for the same resource group you cannot mix Windows and Linux apps in the same region.
 
@@ -88,7 +87,7 @@ For more information on App Service on Linux, see:
 * [Set up staging environments in App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub continuous deployment](app-service-linux-ci-cd.md)
 
-You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+You can post questions and concerns on [our forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

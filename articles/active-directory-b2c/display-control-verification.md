@@ -3,14 +3,14 @@ title: Verify claims with display controls
 titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C display controls to verify the claims in the user journeys provided by your custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -49,7 +49,7 @@ In the example below, an **email** textbox is displayed on the page. When the us
 
 Then, the user enters the **verificationCode** and selects **VerifyCode** to trigger the **VerifyCode** action in the back end. If all validations pass, the **VerificationControl** is considered complete and the user can continue to the next step.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

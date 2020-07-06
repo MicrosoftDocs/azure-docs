@@ -6,8 +6,8 @@ description: Federate with Google to enable guest users to sign in to your Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 11/1/2019
+ms.topic: how-to
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -53,25 +53,24 @@ First, create a new project in the Google Developers Console to obtain a client 
    
    ![Screenshot showing a New project page for Google](media/google-federation/google-new-project.png)
 
-3. Make sure your new project is selected in the project menu. Then open the menu in the upper left and select **APIs & Services** > **Credentials**.
+3. Make sure your new project is selected in the project menu. Then under **APIs & Services**, select **OAuth consent screen**.
 
-   ![Screenshot showing the Google API credentials option](media/google-federation/google-api.png)
- 
-4. Choose the **OAuth consent screen** tab and enter an **Application name**. (Leave the other settings.)
+4. Select **External**, and then select **Create**. 
+5. On the **OAuth consent screen**, enter an **Application name**. (Leave the other settings.)
 
    ![Screenshot showing the Google OAuth consent screen option](media/google-federation/google-oauth-consent-screen.png)
 
-5. Scroll to the **Authorized domains** section and enter microsoftonline.com.
+6. Scroll to the **Authorized domains** section and enter microsoftonline.com.
 
    ![Screenshot showing the Authorized domains section](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Select **Save**.
+7. Select **Save**.
 
-7. Choose the **Credentials** tab. In the **Create credentials** menu, choose **OAuth client ID**.
+8. Choose **Credentials**. In the **Create credentials** menu, choose **OAuth client ID**.
 
    ![Screenshot showing the Google APIs create credentials option](media/google-federation/google-api-credentials.png)
 
-8. Under **Application type**, choose **Web application**, and then under **Authorized redirect URIs**, enter the following URIs:
+9. Under **Application type**, choose **Web application**, and then under **Authorized redirect URIs**, enter the following URIs:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
@@ -80,7 +79,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
    ![Screenshot showing the Authorized redirect URIs section](media/google-federation/google-create-oauth-client-id.png)
 
-9. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
+10. Select **Create**. Copy the client ID and client secret, which you'll use when you add the identity provider in the Azure AD portal.
 
    ![Screenshot showing the OAuth client ID and client secret](media/google-federation/google-auth-client-id-secret.png)
 
@@ -89,8 +88,8 @@ Now you'll set the Google client ID and client secret, either by entering it in 
 
 #### To configure Google federation in the Azure AD portal 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then click the **Google** button.
+2. Select **External Identities**.
+3. Select **All identity providers**, and then click the **Google** button.
 4. Enter a name. Then enter the client ID and client secret you obtained earlier. Select **Save**. 
 
    ![Screenshot showing the Add Google identity provider page](media/google-federation/google-identity-provider.png)
@@ -112,8 +111,8 @@ You can delete your Google federation setup. If you do so, Google guest users wh
  
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**.
+2. Select **External Identities**.
+3. Select **All identity providers**.
 4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
    ![Screenshot showing the Delete option for the social identity provider](media/google-federation/google-social-identity-providers.png)

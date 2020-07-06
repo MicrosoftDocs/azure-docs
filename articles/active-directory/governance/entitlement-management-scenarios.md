@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -143,6 +143,7 @@ There are several ways that you can configure entitlement management for your or
 
 1. Open an access package
 1. [View assignments](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+1. [Archive reports and logs](entitlement-management-logs-and-reporting.md)
 
 ### Administrator: View resources assigned to users
 

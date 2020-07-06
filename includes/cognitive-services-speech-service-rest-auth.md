@@ -17,7 +17,7 @@ Each request requires an authorization header. This table illustrates which head
 
 When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -27,9 +27,15 @@ When using the `Authorization: Bearer` header, you're required to make a request
 
 To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key.
 
-These regions and endpoints are supported:
+The `issueToken` endpoint has this format:
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```http
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
+
+Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
+
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 Use these samples to create your access token request.
 
@@ -51,7 +57,7 @@ The body of the response contains the access token in JSON Web Token (JWT) forma
 
 This example is a simple PowerShell script to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -70,7 +76,7 @@ $OAuthToken
 
 cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -82,7 +88,7 @@ curl -v -X POST
 
 This C# class illustrates how to get an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

@@ -2,12 +2,9 @@
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (RBAC), and roles and bindings.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: mlearned
+
 ---
 
 # Access and identity options for Azure Kubernetes Service (AKS)
@@ -67,6 +64,9 @@ Role bindings are used to assign roles for a given namespace. This approach lets
 
 A ClusterRoleBinding works in the same way to bind roles to users, but can be applied to resources across the entire cluster, not a specific namespace. This approach lets you grant administrators or support engineers access to all resources in the AKS cluster.
 
+> [!NOTE]
+> Any cluster actions taken by Microsoft support are made with user consent under a built-in Kubernetes ["edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) role of the name `aks-support-rolebinding`. With this role AKS support is enabled to edit cluster configuration and resources to troubleshoot and diagnose cluster issues, but the role can not modify permissions nor create roles or role bindings. Role access is only enabled under active support tickets with just-in-time (JIT) access. Read more about [AKS support policies](support-policies.md).
+
 ## Next steps
 
 To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
@@ -87,7 +87,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - Internal -->
-[openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
+[openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: azure-ad-integration-cli.md

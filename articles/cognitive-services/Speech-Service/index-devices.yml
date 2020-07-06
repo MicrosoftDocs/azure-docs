@@ -1,0 +1,49 @@
+### YamlMime:Landing
+
+title: Speech devices documentation
+summary: The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
+metadata:
+  title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/10/2020
+  ms.author: trbye
+
+landingContent:
+- title: About the Speech devices SDK
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Speech devices SDK?
+          url: speech-devices-sdk.md
+    - linkListType: quickstart
+      links:
+        - text: Use Speech devices SDK (Windows)
+          url: speech-devices-sdk-quickstart.md?pivots=platform-windows
+        - text: Use Speech devices SDK (Linux)
+          url: speech-devices-sdk-quickstart.md?pivots=platform-linux
+        - text: Use Speech devices SDK (Android)
+          url: speech-devices-sdk-quickstart.md?pivots=platform-android
+- title: Develop with Speech devices SDK
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Design a microphone array
+          url: speech-devices-sdk-microphone.md
+        - text: Setup the Roobo v1 Kit
+          url: speech-devices-sdk-roobo-v1.md
+- title: Reference
+  linkLists:
+    - linkListType: whats-new
+      links:
+        - text: Release notes
+          url: devices-sdk-release-notes.md
+    - linkListType: reference
+      links:
+        - text: Troubleshoot
+          url: speech-devices-sdk-troubleshooting.md
+

@@ -97,20 +97,31 @@ For each VM in the backend pool, run the following commands at a Windows Command
 
 To get the list of interface names you have on your VM, type this command:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 For the VM NIC (Azure managed), type this command:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (replace interfacename with the name of this interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(replace interfacename with the name of this interface)
 
 For each loopback interface you added, repeat these commands:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (replace interfacename with the name of this loopback interface)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (replace interfacename with the name of this loopback interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
 
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
@@ -141,7 +152,7 @@ The destination of the inbound flow is the frontend IP address on the loopback i
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 

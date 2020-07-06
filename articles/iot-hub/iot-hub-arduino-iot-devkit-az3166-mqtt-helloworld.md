@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
+ms.custom:  mqtt
 ---
 
 # Send messages to an MQTT server

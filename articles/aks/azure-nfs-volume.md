@@ -1,10 +1,9 @@
 ---
-title: Create an NFS (Network File System) Ubuntu Server for use by pods of Azure Kubernetes Service (AKS)
+title: Create NFS Ubuntu Linux Server volume
+titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create an NFS Ubuntu Linux Server volume for use with pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: ozboms
-
-ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms

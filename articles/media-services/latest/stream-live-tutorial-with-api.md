@@ -31,7 +31,7 @@ The tutorial shows you how to:
 > [!div class="checklist"]
 > * Download the sample app described in the topic.
 > * Examine the code that performs live streaming.
-> * Watch the event with [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) at https://ampdemo.azureedge.net.
+> * Watch the event with [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) at [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Clean up resources.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -44,7 +44,7 @@ The following items are required to complete the tutorial:
 - [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values you use for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You'll need to use them to access the API.
 - A camera or a device (like a laptop) that's used to broadcast an event.
-- An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
+- An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service, see [recommended on-premises live encoders](recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.
 
 > [!TIP]
 > Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 

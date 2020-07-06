@@ -16,10 +16,10 @@ When moving a Web App across subscriptions, the following guidance applies:
 - The destination resource group must not have any existing App Service resources. App Service resources include:
     - Web Apps
     - App Service plans
-    - Uploaded or imported SSL certificates
+    - Uploaded or imported TLS/SSL certificates
     - App Service Environments
 - All App Service resources in the resource group must be moved together. Note that App Service Environments cannot be moved to a new Resource Group nor to a new Subscription.
-- You can move a certificate bound to a web without deleting the SSL bindings, as long as the certificate is moved with all other resources in the resource group.
+- You can move a certificate bound to a web without deleting the TLS bindings, as long as the certificate is moved with all other resources in the resource group.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, move it back to its original resource group. Then, move the resource across subscriptions.
 
 If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.

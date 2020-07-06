@@ -4,7 +4,7 @@ description: Log and metrics reference for monitoring data from Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring 
@@ -37,6 +37,7 @@ The following table lists the properties for Azure Cosmos DB resource logs when 
 | **requestLength** | **requestLength_s** | The length of the request, in bytes. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
+| **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
 For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
@@ -76,6 +77,8 @@ For a list of all Azure Monitor support metrics (including CosmosDB), see [Azure
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+| Server Side Latency| MilliSeconds (Average) | Time taken by the server to process the request. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region |	All	| Used to monitor the request latency on the Azure Cosmos DB server. |
+
 
 
 #### Availability metrics

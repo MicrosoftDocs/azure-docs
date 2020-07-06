@@ -10,10 +10,19 @@ ms.custom: include file
 ---
 ## Run the web application
 
-1. There is a sample single page web application hosted in GitHub for your convenience. Open your browser to [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/).
+1. To simplify your client testing, open your browser to our sample single page web application [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/). 
 
     > [!NOTE]
-    > The source of the HTML file is located at [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
+    > The source of the HTML file is located at [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). And if you'd like to host the HTML yourself, please start a local HTTP server such as [http-server](https://www.npmjs.com/package/http-server) in the */docs/demo/chat-v2* directory. Ensure the origin is added to the `CORS` setting in *local.settings.json* similar to the sample.
+    > 
+    > ```javascript
+    > "Host": {
+    >  "LocalHttpPort": 7071,
+    >  "CORS": "http://localhost:8080,https://azure-samples.github.io",
+    >  "CORSCredentials": true
+    > }
+    >
+    > ```
 
 1. When prompted for the function app base URL, enter `http://localhost:7071`.
 
@@ -26,6 +35,3 @@ ms.custom: include file
     ![Run the application](../media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-run-application.png)
 
 1. Open another instance of the web application in a different browser window. You will see that any messages sent will appear in all instances of the application.
-
-> [!IMPORTANT]
-> Because the HTML page is served using HTTPS, but the local Azure Functions runtime is using HTTP by default, your browser (such as Firefox) may enforce a mixed-content policy that blocks the requests from the web page to your functions. To solve this, use a browser that does not have this restriction or start a local HTTP server such as [http-server](https://www.npmjs.com/package/http-server) in the */docs/demo/chat-v2* directory. Ensure the origin is added to the `CORS` setting in *local.settings.json*.

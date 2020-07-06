@@ -15,7 +15,7 @@ This article provides an overview of view definition artifact and its capabiliti
 
 ## View definition artifact
 
-The view definition artifact must be named **viewDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-managed-app-definition-quickstart.md)
+The view definition artifact must be named **viewDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-service-catalog-app.md)
 
 ## View definition schema
 

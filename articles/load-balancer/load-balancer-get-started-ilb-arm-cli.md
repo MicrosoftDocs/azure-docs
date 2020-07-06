@@ -1,5 +1,5 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI
+title: Create an internal Load Balancer - Azure CLI
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to create an internal load balancer using Azure CLI
 services: load-balancer
@@ -7,11 +7,11 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
 ---
 # Create an internal load balancer to load balance VMs using Azure CLI
@@ -33,6 +33,7 @@ The following example creates a resource group named *myResourceGroupILB* in the
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## Create a virtual network
 
 Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
@@ -44,7 +45,8 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --location eastus \
     --subnet-name mySubnet
 ```
-## Create Basic Load Balancer
+
+## Create Standard Load Balancer
 
 This section details how you can create and configure the following components of the load balancer:
   - a frontend IP configuration that receives the incoming network traffic on the load balancer.
@@ -54,18 +56,22 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7**. 
+
+Use `--sku basic` to create a Basic Load Balancer. Microsoft recommends Standard SKU for production workloads.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### Create the health probe
 
 A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
@@ -76,7 +82,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### Create the load balancer rule
@@ -94,6 +100,12 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+You can also create an [HA ports](load-balancer-ha-ports-overview.md) load balancer rule using configuration below with Standard Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## Create servers for the backend address pool
@@ -124,7 +136,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -174,11 +186,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -190,6 +202,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 It may take a few minutes for the VMs to get deployed.
 
 ### Create a VM for testing the load balancer
@@ -215,14 +228,15 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

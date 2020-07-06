@@ -1,16 +1,8 @@
 ---
 title: Azure Event Hubs - Visualize data anomalies in real-time events
-# event-hubs-tutorial-visualize-anomalies.md
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
+ms.date: 06/23/2020
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
@@ -381,6 +373,6 @@ In this tutorial, you learned how to:
 Advance to the next article to learn more about Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+> [Get started sending messages to Azure Event Hubs in .NET Standard](get-started-dotnet-standard-send-v2.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

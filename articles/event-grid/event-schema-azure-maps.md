@@ -1,19 +1,21 @@
 ---
-title: Azure Event Grid Azure Maps event schema
+title: Azure Maps as Event Grid source
 description: Describes the properties and schema provided for Azure Maps events with Azure Event Grid
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: v-musehg
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: femila
 ---
 
-# Azure Event Grid event schema for Azure Maps
+# Azure Maps as an Event Grid source
 
-This article provides the properties and schema for Azure Maps events. For an introduction to event schemas, see [Azure Event Grid event schema](https://docs.microsoft.com/azure/event-grid/event-schema).
+This article provides the properties and schema for Azure Maps events. For an introduction to event schemas, see [Azure Event Grid event schema](https://docs.microsoft.com/azure/event-grid/event-schema). It also gives you a list of quick starts and tutorials to use Azure Maps as an event source.
 
-## Available event types
+## Event Grid event schema
+
+### Available event types
 
 An Azure Maps account emits the following event types:
 
@@ -23,7 +25,7 @@ An Azure Maps account emits the following event types:
 | Microsoft.Maps.GeofenceExited | Raised when coordinates received have moved from within a given geofence to outside |
 | Microsoft.Maps.GeofenceResult | Raised every time a geofencing query returns a result, regardless of the state |
 
-## Event examples
+### Event examples
 
 The following example shows the schema of a **GeofenceEntered** event
 
@@ -93,7 +95,7 @@ The following example show schema for **GeofenceResult**
 }
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -157,6 +159,12 @@ The data object has the following properties:
 | geometries | geometries[] |Lists the fence geometries that contain the coordinate position or overlap the searchBuffer around the position. |
 | invalidPeriodGeofenceGeometryId | string[]  | Lists of the geometry ID of the geofence that is in invalid period relative to the user time in the request. |
 | isEventPublished | boolean | True if at least one event is published to the Azure Maps event subscriber, false if no event is published to the Azure Maps event subscriber. |
+
+## Tutorials and how-tos
+|Title  |Description  |
+|---------|---------|
+| [React to Azure Maps events by using Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure Maps with Event Grid. |
+| [Tutorial: Set up a geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | This tutorial walks you through the basics steps to set up geofence by using Azure Maps. You use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. |
 
 ## Next steps
 

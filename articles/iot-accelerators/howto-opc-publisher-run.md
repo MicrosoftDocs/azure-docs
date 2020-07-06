@@ -4,10 +4,11 @@ description: This article describes how to run and debug OPC Publisher. It also 
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom:  [amqp, mqtt]
 ---
 
 # Run OPC Publisher

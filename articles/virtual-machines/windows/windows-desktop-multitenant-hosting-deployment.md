@@ -1,17 +1,9 @@
 ---
 title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: xujing
-manager: gwallace
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing

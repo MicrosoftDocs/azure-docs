@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center and Azure Kubernetes Service | Microsoft Docs
+title: Azure Security Center and Azure Kubernetes Service
 description: "Learn about Azure Security Center's integration with Azure Kubernetes Services"
 services: security-center
 documentationcenter: na
@@ -10,41 +10,57 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: memildin
 
 ---
 
-# Azure Kubernetes Services integration with Security Center (Preview)
-Azure Kubernetes Service (AKS) is Microsoft’s managed service for developing, deploying, and managing containerized applications. 
+# Azure Kubernetes Services integration with Security Center
 
-Use AKS together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
+Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications. 
 
-Security Center brings security benefits to your AKS clusters using  data already gathered by the AKS master node. 
+If you're on Azure Security Center's standard tier, you can add the AKS bundle (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
 
-![Azure Security Center and Azure Kubernetes Service (AKS) high-level overview](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+Together, Security Center and AKS form the best cloud-native Kubernetes security offering.
 
-Together, these two tools form the best cloud-native Kubernetes security offering. 
+## What are the components of Security Center's Kubernetes protection?
 
-## Benefits of integration
+Security Center's protections for Kubernetes are provided by a combination of two elements:
+
+- **Azure Security Center's threat protection for virtual machines** - Using the same Log Analytics agent that Security Center uses on other VMs, Security Center can show you security issues occurring on your AKS nodes. The agent also monitors for container-specific analytics.
+
+- **Azure Security Center's optional Kubernetes bundle** - The Kubernetes bundle receives logs and information from the Kubernetes subsystem via the AKS service. These logs are already available in Azure through the AKS service. When you enable Security Center's Kubernetes bundle, you grant Security Center access to the logs. So Security Center brings security benefits to your AKS clusters using data already gathered by the AKS master node. Some of the data scanned by Azure Security Center from your Kubernetes environment may contain sensitive information.
+
+    ![Azure Security Center and Azure Kubernetes Service (AKS) high-level overview](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+
+## What protections are provided?
 
 Using the two services together provides:
 
-* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see [How to implement security recommendations](security-center-recommendations.md). 
+* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see the containers recommendations in the [reference list of recommendations](recommendations-reference.md#recs-containers). 
 
-    > [!NOTE]
-    > If the name of a Security Center recommendation ends with a "(Preview)" tag, it's referring to the preview nature of the recommendation; not the feature.
+* **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations. It then generates security recommendations that reflect industry standards.
 
-* **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters, and generates security recommendations that reflect industry standards.
+* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level. [Learn more about threat protection for containers](threat-protection.md#azure-containers).
 
-* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level (for more information, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
-    * Raw security events, such as network data and process creation
-    * The Kubernetes audit log
+
+     
 
 ![Azure Security Center and Azure Kubernetes Service (AKS) in more detail](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 
-> [!NOTE]
-> Some of the data scanned by Azure Security Center from your Kubernetes environment may contain sensitive information.
+
+
+## AKS with Security Center FAQ
+
+### Can I still get AKS protections without the Log Analytics agent?
+
+As mentioned above, the optional Kubernetes bundle provides protections at the cluster level, the Log Analytics agent of Azure Security Center standard tier protect your nodes. 
+
+We recommend deploying both, for the most complete protection possible.
+
+If you choose not to install the agent on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
+
+
 
 ## Next steps
 
@@ -54,6 +70,4 @@ To learn more about Security Center's container security features, see:
 
 * [Integration with Azure Container Registry](azure-container-registry-integration.md)
 
-* [Virtual Machine protection](security-center-virtual-machine-protection.md) - Describes Security Center's recommendations
-
-* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft’s data management, and the retention policies that affect your data
+* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Microsoft 365), details of Microsoft's data management, and the retention policies that affect your data

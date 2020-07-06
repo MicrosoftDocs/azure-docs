@@ -24,31 +24,25 @@ landingContent:
 # Start card title with a verb
 
   # GET STARTED CARD
-  - title: Get started with your DSVM
+  - title: Get started with your Data Science Virtual Machine
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the DSVM?
+          - text: What is the Data Science Virtual Machine?
             url: overview.md
-          - text: What is the Geo AI DSVM?
-            url: geo-ai-dsvm-overview.md
-          - text: Tools Included on the DSVM
+          - text: Tools Included on the Data Science Virtual Machine
             url: tools-included.md
           - text: Release Notes
             url: release-notes.md
       - linkListType: get-started
         links:
-          - text: Create a Windows DSVM
+          - text: Create a Windows Data Science Virtual Machine
             url: provision-vm.md
-          - text: Create an Ubuntu DSVM
+          - text: Create an Ubuntu Data Science Virtual Machine
             url: dsvm-ubuntu-intro.md
-          - text: Create a CentOS DSVM
-            url: linux-dsvm-intro.md
-          - text: Create a Geo AI DSVM
-            url: provision-geo-ai-dsvm.md                        
 
 # SECURITY
-  - title: Manage your DSVM
+  - title: Manage your Data Science Virtual Machine
     linkLists:
       - linkListType: architecture
         links:
@@ -56,7 +50,7 @@ landingContent:
             url: dsvm-enterprise-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Create auto-scaled DSVM pools
+          - text: Create auto-scaled Data Science Virtual Machine pools
             url: dsvm-pools.md
           - text: Integrate with Active Directory
             url: dsvm-common-identity.md

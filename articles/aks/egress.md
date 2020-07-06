@@ -1,13 +1,11 @@
 ---
-title: Static IP address for egress traffic in Azure Kubernetes Service (AKS)
+title: Use static IP for egress traffic
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static public IP address for egress traffic in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: mlearned
+
 
 #Customer intent: As an cluster operator, I want to define the egress IP address to control the flow of traffic from a known, defined address.
 ---

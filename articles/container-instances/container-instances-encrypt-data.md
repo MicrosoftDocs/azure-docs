@@ -36,6 +36,10 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 The first step is to ensure that your [Azure tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) has a service principal assigned for granting permissions to the Azure Container Instances service. 
 
+> [!IMPORTANT]
+> In order to run the following command and create a service principal successfully, confirm that you have permissions to create service principals in your tenant.
+>
+
 The following CLI command will set up the ACI SP in your Azure environment:
 
 ```azurecli-interactive
@@ -43,6 +47,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 The output from running this command should show you a service principal that has been set up with "displayName": "Azure Container Instance Service."
+
+In case you are unable to successfully create the service principal:
+* confirm that you have permissions to do so in your tenant
+* check to see if a service principal already exists in your tenant for deploying to ACI. You can do that by running `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` and use that service principal instead
 
 ### Create a Key Vault resource
 
@@ -85,7 +93,7 @@ The access policy should now show up in your key vault's access policies.
 > Encrypting deployment data with a customer-managed key is available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template. If you have any issues with this, please reach out to Azure Support.
 
 Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Under `resources`, set `apiVersion` to `2012-12-01`.
+* Under `resources`, set `apiVersion` to `2019-12-01`.
 * Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
   * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
   * `keyName`: the name of the key generated earlier

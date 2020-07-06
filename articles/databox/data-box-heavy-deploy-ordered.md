@@ -34,21 +34,13 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 Before you begin, make sure that:
 
-- The device fits through standard doorways and entryways. However, do make sure that the device can fit through all your entryways. Device dimensions are: width: 26” length: 48” height: 28”.
+- The device fits through standard doorways and entryways. However, do make sure that the device can fit through all your entryways. Device dimensions are: width: 26" length: 48" height: 28".
 - If installed on a floor other than the ground floor, you need access for the device via an elevator or a ramp. The device weighs approximately ~500 lbs.
 - Make sure that you have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
 
-
 ### For service
 
-Before you begin, make sure that:
-- You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Ensure that you have owner or contributor access to the subscription to create a Data Box Heavy order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
@@ -80,7 +72,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
-    |Source country     | Select the country/region where your data currently resides.         |
+    |Source country/region     | Select the country/region where your data currently resides.         |
     |Destination Azure region     | Select the Azure region where you want to transfer data.        |
 
     [![Select Data Box family availability](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
@@ -96,7 +88,7 @@ Perform the following steps in the Azure portal to order a device.
     |Name     | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     | Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. <br>Data Box Heavy can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br> Azure Data Lake Storage Gen 2 accounts are not supported. See the [storage accounts supported with your device](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box service as a trusted service](../storage/common/storage-network-security.md#exceptions).|
+    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. <br>Data Box Heavy can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>See the [storage accounts supported with your device](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box service as a trusted service](../storage/common/storage-network-security.md#exceptions).|
 
     If using storage account as the storage destination, you see the following screenshot:
 

@@ -37,15 +37,17 @@ Bursts of traffic combined with poor `ThreadPool` settings can result in delays 
 
 Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis like below to further investigate:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 In the preceding exception, there are several issues that are interesting:
 
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
 - You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
-You can [configure your `ThreadPool` Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
+You can [configure your `ThreadPool` Settings](cache-faq.md#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ## High client CPU usage
 

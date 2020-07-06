@@ -26,7 +26,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -36,14 +36,14 @@ az login
 #### If you have multiple Azure subscriptions...
 You can view your subscriptions by running: 
 
-```cmd
+```azurecli
 az account list --output table
 ```
 
 Locate the  subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -51,14 +51,14 @@ az account set --subscription <subscription ID>
 
 At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 Create a Kubernetes cluster with the following command:
 
-```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -67,7 +67,7 @@ It takes a few minutes to create the cluster.
 
 Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 
@@ -97,7 +97,7 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
@@ -105,7 +105,7 @@ The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with 
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  

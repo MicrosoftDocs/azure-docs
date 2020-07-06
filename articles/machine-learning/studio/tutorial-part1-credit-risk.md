@@ -124,7 +124,7 @@ Once the data has been converted to CSV format, you need to upload it into Machi
 
 8. For data type, select **Generic CSV File With no header (.nh.csv)**.
 
-9. Add a description if you’d like.
+9. Add a description if you'd like.
 
 10. Click the **OK** check mark.  
 

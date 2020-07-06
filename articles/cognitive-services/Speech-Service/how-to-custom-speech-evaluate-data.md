@@ -18,7 +18,8 @@ In this document, you'll learn how to quantitatively measure the quality of Micr
 
 ## What is Word Error Rate (WER)?
 
-The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, then divides by the total number of words provided in the human-labeled transcript. Finally, that number is multiplied by 100% to calculate the WER.
+The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, 
+then divides by the total number of words provided in the human-labeled transcript (shown below as N). Finally, that number is multiplied by 100% to calculate the WER.
 
 ![WER formula](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -47,7 +48,7 @@ If you'd like to test the quality of Microsoft's speech-to-text baseline model o
 To evaluate models side by side:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > Testing**.
+2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
 3. Click **Add Test**.
 4. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
 5. Select up to two models that you'd like to test.

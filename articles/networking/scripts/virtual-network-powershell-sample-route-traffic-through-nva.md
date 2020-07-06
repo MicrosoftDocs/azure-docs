@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell script sample - Route traffic through a network virtual appliance | Microsoft Docs
+title: Azure PowerShell script sample - Route traffic through a network virtual appliance
 description: Azure PowerShell script sample - Route traffic through a firewall network virtual appliance.
 services: virtual-network
 documentationcenter: virtual-network

@@ -51,9 +51,13 @@
   - name: Azure App Service and Functions
     href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Event Hubs
-    href: /azure/event-hubs/authenticate-managed-identity.md?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
   - name: Azure Container Instances
     href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+- name: Concepts
+  items:
+    - name: Managed identities and Azure VMs
+      href: how-managed-identities-work-vm.md
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs
@@ -88,7 +92,7 @@
     items:
     - name: Acquire an access token
       href: how-to-use-vm-token.md
-    - name: Sign to Powershell and CLI using Managed Identity
+    - name: Sign to PowerShell and CLI using Managed Identity
       href: how-to-use-vm-sign-in.md
     - name: Use with Azure SDKs
       href: how-to-use-vm-sdk.md
@@ -136,13 +140,13 @@
   - name: Java
     href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
   - name: Python
-    href: /python/api/azure.mgmt.msi
+    href: https://docs.microsoft.com/windows/python/
   - name: Ruby
     href: https://rubygems.org/gems/azure_mgmt_msi
   - name: Node.js
-    href: /javascript/api/ms-rest-azure
+    href: https://nodejs.org/en/docs/
   - name: Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
+    href: https://golang.org/doc/
 
 - name: Resources
   items:

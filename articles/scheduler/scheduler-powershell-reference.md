@@ -1,12 +1,11 @@
 ﻿---
-title: PowerShell cmdlets reference - Azure Scheduler
+title: PowerShell cmdlets reference
 description: Learn about PowerShell cmdlets for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ---
@@ -17,9 +16,11 @@ ms.date: 08/18/2016
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 To author scripts for creating and 
 managing Scheduler jobs and job collections, 
@@ -30,6 +31,8 @@ To install Azure PowerShell for your Azure subscription,
 see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 For more information about [Azure Resource Manager cmdlets](/powershell/azure/overview), 
 see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 | Cmdlet | Description |
 |--------|-------------|
@@ -54,15 +57,14 @@ see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-res
 
 For more details, you can run any of these cmdlets: 
 
-```
+```text
 Get-Help <cmdlet name> -Detailed
 Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
-* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-* [Create and schedule your first job - Azure portal](scheduler-get-started-portal.md)
-* [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+* [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.custom: hdinsightactive, tracking-python
+ms.date: 03/04/2020
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -33,7 +33,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
   4. Configure forwarding between the DNS server in each network.
   5. Create a Kafka on HDInsight cluster in the virtual network.
 
-     For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section. 
+     For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section.
 
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 

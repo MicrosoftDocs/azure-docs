@@ -54,10 +54,10 @@ You can launch your IoT Central application by going to the URL that you or your
 
 ## Navigate your application
 
-Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the navigation bar by selecting the three-lined icon on top of the navigation bar:
+Once you're inside your IoT application, use the left pane to access the different areas. You can expand or collapse the left pane by selecting the three-lined icon on top of the pane:
 
 > [!NOTE]
-> The items you see on the navigation bar will depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
+> The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md). 
 
 :::row:::
   :::column span="":::
@@ -98,7 +98,7 @@ The top menu appears on every page:
 * To search for device templates and devices, enter a **Search** value.
 * To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md)
 * To sign out of the application, choose the **Account** icon.
-* To get help and support, choose the **Help** drop-down for a list of resources. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
+* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](./howto-get-app-info.md) from the **About your app** link. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 

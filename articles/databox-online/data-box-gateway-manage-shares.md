@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ---
@@ -32,7 +32,7 @@ In this article, you learn how to:
 Do the following steps in the Azure portal to create a share.
 
 1. In the Azure portal, go to your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add share** on the command bar.
-2. In **Add Share**, specify the share settings. Provide a unique name for your share.
+2. In **Add Share**, specify the share settings. Provide a unique name for your share. 
 
     ![Click add share](media/data-box-gateway-manage-shares/add-share-1.png)
 
@@ -40,9 +40,12 @@ Do the following steps in the Azure portal to create a share.
 
 3. Select a **Type** for the share. The type can be **SMB** or **NFS**, with SMB being the default. SMB is the standard for Windows clients, and NFS is used for Linux clients. Depending upon whether you choose SMB or NFS shares, options presented are slightly different.
 
-4. Provide a **Storage account** where the share lives. A container is created in the storage account with the share name if the container already does not exist. If the container already exists, then the existing container is used.
+4. Provide a **Storage account** where the share lives. A container is created in the storage account with the share name if the container already does not exist. If the container already exists, then the existing container is used.  
 
 5. Choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as blob blocks in Azure, hence we select **Block Blob**. If choosing**Page Blob**, you must ensure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
+
+   > [!IMPORTANT]
+   > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. This step depends on whether you are creating an SMB or an NFS share.
     - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
@@ -84,21 +87,21 @@ The refresh feature allows you to refresh the contents of an on-premises share. 
 
 Do the following steps in the Azure portal to refresh a share.
 
-1.	In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
+1.   In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
     ![Select share](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.	Click **Refresh**. 
+2.   Click **Refresh**. 
 
     ![Click refresh](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.	When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share. 
+3.   When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share. 
 
     ![Confirm refresh](media/data-box-gateway-manage-shares/refresh-3.png)
  
-4.	While the refresh is in progress, the refresh option is grayed out in the context menu. Click the job notification to view the refresh job status.
+4.   While the refresh is in progress, the refresh option is grayed out in the context menu. Click the job notification to view the refresh job status.
 
-5.	The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated. 
+5.   The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated. 
 
     ![Updated timestamp](media/data-box-gateway-manage-shares/refresh-4.png)
  

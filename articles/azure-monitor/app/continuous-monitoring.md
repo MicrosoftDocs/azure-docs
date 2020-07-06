@@ -1,12 +1,8 @@
 ---
 title: Continuous monitoring of your DevOps release pipeline with Azure Pipelines and Azure Application Insights  | Microsoft Docs
 description: Provides instructions to quickly set up continuous monitoring with Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 07/16/2019
+ms.date: 05/01/2020
 
 ---
 
@@ -51,17 +47,19 @@ Out of box, the **Azure App Service deployment with continuous monitoring** temp
 
 To modify alert rule settings:
 
-1. In the left pane of the release pipeline page, select **Configure Application Insights Alerts**.
+In the left pane of the release pipeline page, select **Configure Application Insights Alerts**.
 
-1. In the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
-   
-1. In the **Alert rules** dialog, select the drop-down symbol next to an alert rule, such as **Availability**. 
-   
-1. Modify the **Threshold** and other settings to meet your requirements.
-   
-   ![Modify alert](media/continuous-monitoring/003.png)
-   
-1. Select **OK**, and then select **Save** at upper right in the Azure DevOps window. Enter a descriptive comment, and then select **OK**.
+The four default alert rules are created via an Inline script:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+You can modify the script and add additional alert rules, modify the alert conditions, or remove alert rules that don't make sense for your deployment purposes.
 
 ## Add deployment conditions
 

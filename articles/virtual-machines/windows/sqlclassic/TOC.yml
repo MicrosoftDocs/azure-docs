@@ -68,8 +68,8 @@
     href: /rest/api/
 - name: Resources
   items:
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SQL Server Data Tools (SSDT)

@@ -29,7 +29,7 @@ The following Windows components play a key role in requesting and using a PRT:
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 * **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
-* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## What does the PRT contain?
 
@@ -44,7 +44,7 @@ A PRT is an opaque blob sent from Azure AD whose contents are not known to any c
 
 ## How is a PRT issued?
 
-Device registration is a prerequisite for device based authentication in Azure AD. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
+Device registration is a prerequisite for device based authentication in Azure AD. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
 
 * Device key (dkpub/dkpriv)
 * Transport key (tkpub/tkpriv)
@@ -72,7 +72,7 @@ Once issued, a PRT is valid for 14 days and is continuously renewed as long as t
 A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
-* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the Windows 10 Accounts or Office Online extension).
+* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions).
 
 ## How is a PRT renewed?
 
@@ -113,6 +113,7 @@ A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. W
    * As Windows Hello for Business is considered multi-factor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with WIndows Hello for Business
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
+   * When a previous existing PRT and RT are used for access to an app, the PRT and RT will be regarded as the first proof of authentication. A new AT will be required with a second proof and an imprinted MFA claim. This will also issue a new PRT and RT.
 * **MFA during device registration**: If an admin has configured their device settings in Azure AD to [require MFA to register devices](device-management-azure-portal.md#configure-device-settings), the user needs to do MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This capability only applies to the user who did the join operation, not to other users who sign in to that device.
    * Similar to the WAM interactive sign in, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
 

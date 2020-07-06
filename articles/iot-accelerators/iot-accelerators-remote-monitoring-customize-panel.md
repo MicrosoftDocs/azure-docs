@@ -87,7 +87,7 @@ If the web UI is not already running locally, run the following command in the r
 npm start
 ```
 
-The previous command runs the UI locally at [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Navigate to the **Dashboard** page to view the new panel.
+The previous command runs the UI locally at `http://localhost:3000/dashboard`. Navigate to the **Dashboard** page to view the new panel.
 
 ## Next steps
 

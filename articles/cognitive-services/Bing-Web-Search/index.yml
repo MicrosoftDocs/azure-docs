@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     - title: Compare the Bing Search APIs 
-      itemType: learn
+      itemType: overview
       url: bing-api-comparison.md
     - title: Page through search results
       itemType: how-to-guide
@@ -40,16 +40,16 @@ conceptualContent:
   items:
     - title: Bing Web Search
       links:      
-        - url: web-search-sdk-quickstart.md
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
           itemType: quickstart
           text: Use C#
-        - url: web-sdk-java-quickstart.md
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
           itemType: quickstart
           text: Use Java
-        - text: Use Node.js
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
           itemType: quickstart
-          url: web-search-sdk-node-quickstart.md
-        - url: web-sdk-python-quickstart.md
+          text: Use JavaScript
+        - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
           itemType: quickstart
           text: Use Python
         - url: tutorial-bing-web-search-single-page-app.md
@@ -66,13 +66,13 @@ conceptualContent:
           url: ../bing-custom-search/quick-start.md
         - text: Use C#
           itemType: quickstart
-          url: ../bing-custom-search/sdk-csharp-quick-start.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-custom-search/sdk-java-quickstart.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-java
         - text: Use Python
           itemType: quickstart
-          url: ../bing-custom-search/sdk-python-quickstart.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-custom-search/tutorials/custom-search-web-page.md
@@ -82,18 +82,18 @@ conceptualContent:
 
     - title: Bing Image Search
       links:      
-        - url: ../bing-image-search/image-search-sdk-quickstart.md
+        - text: Use C#
           itemType: quickstart
-          text: Use C#
-        - url: ../bing-image-search/image-sdk-java-quickstart.md
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Java
           itemType: quickstart
-          text: Use Java
-        - text: Use Node.js
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-image-search/image-search-sdk-node-quickstart.md
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-image-search/image-sdk-python-quickstart.md
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
@@ -106,16 +106,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../bing-entities-search/quickstarts/entity-sdk-csharp-quickstart.md
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-entities-search/quickstarts/entity-sdk-java-quickstart.md
-        - text: Use Node.js
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-entities-search/quickstarts/entity-sdk-node-quickstart.md
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-entities-search/quickstarts/entity-sdk-python-quickstart.md
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
@@ -127,16 +127,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../bing-news-search/news-search-sdk-quickstart.md
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-news-search/news-sdk-java-quickstart.md
-        - text: Use Node.js
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-news-search/news-search-sdk-node-quickstart.md
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-news-search/news-sdk-python-quickstart.md
+          url: ../bing-news-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
@@ -148,16 +148,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../Bing-Video-Search/quickstarts/sdk-csharp-quickstart.md
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../Bing-Video-Search/quickstarts/sdk-java-quickstart.md
-        - text: Use Node.js
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../Bing-Video-Search/quickstarts/sdk-node-quickstart.md
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../Bing-Video-Search/quickstarts/sdk-python-quickstart.md
+          url: ../bing-video-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
@@ -169,16 +169,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-c-sharp.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-java.md
-        - text: Use Node.js
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-node.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-python.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Crop and search an area of an image
           itemType: tutorial
           url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
@@ -190,7 +190,10 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/csharp.md
+          url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Go
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
         - text: Use Java
           itemType: quickstart
           url: ../Bing-Autosuggest/quickstarts/java.md

@@ -33,7 +33,8 @@ App setting binding expressions are identified differently from other binding ex
 
 When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> [!NOTE]
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
 The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
@@ -175,7 +176,7 @@ These metadata values are accessible in *function.json* file properties. For exa
   ]
 ```
 
-Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
 ## JSON payloads
 

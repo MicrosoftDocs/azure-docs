@@ -1,5 +1,5 @@
 ---
-title: Manage your StorSimple volume containers on the StorSimple 8000 series device| Microsoft Docs
+title: Manage volume containers for StorSimple 8000 series devices
 description: Explains how you can use the StorSimple Device Manager service volume containers page to add, modify, or delete a volume container.
 services: storsimple
 documentationcenter: NA
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
