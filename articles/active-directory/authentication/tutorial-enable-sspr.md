@@ -78,6 +78,7 @@ When users need to unlock their account or reset their password, they're prompte
     * *Email*
     * *Mobile phone*
     * *Office phone*
+    * *Security questions*
 
 1. To apply the authentication methods, select **Save**.
 
