@@ -169,7 +169,7 @@ This document answers commonly asked questions relating to account subscription 
 
 ### How many Azure account owners can you have per subscription?
 
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page on [portal.azure.com]](https://portal.azure.com).
+Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
 
 ### Can an Azure account owner be listed under more than one department?
 
