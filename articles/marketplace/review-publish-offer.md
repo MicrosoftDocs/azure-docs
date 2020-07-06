@@ -134,7 +134,7 @@ The following screenshot shows the **Offer overview** page for a SaaS offer. The
    > [!NOTE]
    > There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
-1. If you want to make changes after previewing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer).
+1. If you want to make changes after previewing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
 
 1. After you approve your preview, to publish your offer live to the commercial marketplace, select **Go live**.
    > [!TIP]
