@@ -117,7 +117,7 @@ This template builds a Windows Server 2016 VM, installs IIS, then generalizes th
 
 
 ## Build Packer image
-If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
+If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://learn.hashicorp.com/packer/getting-started/install).
 
 Build the image by opening a cmd prompt and specifying your Packer template file as follows:
 

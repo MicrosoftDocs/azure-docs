@@ -22,6 +22,10 @@ In this article, you learn how to:
 ## Create empty application
 Create an empty Custom Commands application. For details, refer to the [quickstart](quickstart-custom-commands-application.md). This time, instead of importing a project, you create a blank project.
 
+1. In the **Name** box, enter project name as `Smart-Room-Lite` (or something else of your choice).
+1. In the **Language** list, select **English (United States)**.
+1. Select or create a LUIS resource of your choice.
+
    > [!div class="mx-imgBorder"]
    > ![Create a project](media/custom-commands/create-new-project.png)
 
@@ -31,7 +35,7 @@ You can update the authoring resource that you selected in the **New project** w
 
 ## Add TurnOn Command
 
-In the **smart room-lite** Custom Commands application, add a simple command that process an utterance, `turn on the tv`, and respond with the message `Ok, turning the tv on`.
+In the empty **Smart-Room-Lite** Custom Commands application you just created, add a simple command that processes an utterance, `turn on the tv`, and responds with the message `Ok, turning the tv on`.
 
 1. Create a new Command by selecting **New command** at the top of the left pane. The **New command** window opens.
 1. Provide value for the **Name** field as **TurnOn**.
@@ -69,7 +73,7 @@ For now, we don't have parameters, so we can move to the **Completion rules** se
 
 Next, the command needs to have a completion rule. This rule tells the user that a fulfillment action is being taken. To read more about rules and completion rules, go to [references](./custom-commands-references.md).
 
-1. Select default completion rule **Done** and edit it as follows: 
+1. Select default completion rule **Done** and edit it as follows:
 
     
     | Setting    | Suggested value                          | Description                                        |
@@ -79,13 +83,7 @@ Next, the command needs to have a completion rule. This rule tells the user that
     | **Actions**    | Send speech response > Simple editor > First variation > `Ok, turning the tv on` | The action to take when the rule condition is true |
     
 
-1. Alternatively, you can delete the existing default completion rule and create a new one by selecting the **Add** at the top of the middle pane.
-1. Provide value in **Name** section.
-1. Add an action.
-   1. Create an action by selecting **Add an action** in the **Actions** section.
-   1. In the **New Action** window, in the **Type** list, select **Send speech response**.
-   1. Under **Response**, select **Simple editor**.
-   1. In the **First variation** field, provide value for response as `Ok, turning the tv on`.
+
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-commands/create-speech-response-action.png)
@@ -93,6 +91,9 @@ Next, the command needs to have a completion rule. This rule tells the user that
 1. Select **Save** to save the action.
 1. Back in the **Completion rules** section, select **Save** to save all changes. 
 
+
+ > [!NOTE]
+    > It's not necessary to use the default completion rule that comes with the command. If needed, you can delete the existing default completion rule and add your own rule.
 
 ### Try it out
 

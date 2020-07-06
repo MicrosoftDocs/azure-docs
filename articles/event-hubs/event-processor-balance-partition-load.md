@@ -1,19 +1,8 @@
 ---
 title: Balance partition load across multiple instances - Azure Event Hubs | Microsoft Docs
 description: Describes how to balance partition load across multiple instances of your application using an event processor and the Azure Event Hubs SDK.  
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-editor: ''
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/28/2020
-ms.author: shvija 
-
+ms.date: 06/23/2020
 ---
 
 # Balance partition load across multiple instances of your application

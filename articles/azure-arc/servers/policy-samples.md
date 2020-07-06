@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Arc for servers
 description: Lists Azure Policy built-in policy definitions for Azure Arc for servers. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers

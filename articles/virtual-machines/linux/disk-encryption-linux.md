@@ -34,7 +34,7 @@ In all cases, you should [take a snapshot](snapshot-copy-managed-disk.md) and/or
 
 ## Install tools and connect to Azure
 
-Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/powershell/azure/new-azureps-module-az). To do so you must install the tools locally and connect to your Azure subscription.
+Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/powershell/azure/new-azureps-module-az). To do so, you must install the tools locally and connect to your Azure subscription.
 
 ### Azure CLI
 
@@ -392,23 +392,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Disable encryption for Linux VMs
-You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. 
-
->[!IMPORTANT]
->Disabling encryption with Azure Disk Encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.  
-
-- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDisk​Encryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Disable encryption with a Resource Manager template:** Use the [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) template to disable encryption.
-     1. Click **Deploy to Azure**.
-     2. Select the subscription, resource group, location, VM, legal terms, and agreement.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## Unsupported scenarios
 
@@ -416,7 +400,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 
 - Encrypting basic tier VM or VMs created through the classic VM creation method.
 - Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-- Encrypting OS drive for Linux virtual machine scale sets.
+- Encrypting the OS drive for Linux virtual machine scale sets.
 - Encrypting custom images on Linux VMs.
 - Integration with an on-premises key management system.
 - Azure Files (shared file system).
@@ -424,12 +408,15 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Dynamic volumes.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VM to another subscription.
+- Moving an encrypted VM to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
+- A VM with a data drive mounted on top of an OS folder.
+- M-series VMs with Write Accelerator disks.
 
 ## Next steps
 

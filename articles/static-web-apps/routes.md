@@ -245,6 +245,8 @@ The following examples describe what happens when a request matches a rule.
 - The _routes.json_ file cannot be more than 100 KB
 - The _routes.json_ file supports a maximum of 50 distinct roles
 
+See the [Quotas article](quotas.md) for general restrictions and limitations.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

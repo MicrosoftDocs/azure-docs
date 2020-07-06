@@ -1,15 +1,8 @@
 ---
 title: Configure your own key for encrypting Azure Event Hubs data at rest 
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
@@ -68,7 +61,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 
 ## Rotate your encryption keys
-You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. For more information, see [Set up key rotation and auditing](../key-vault/secrets/key-rotation-log-monitoring.md). Activation and expiration dates can also be set to automate key rotation. The Event Hubs service will detect new key versions and start using them automatically.
+You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Event Hubs service will detect new key versions and start using them automatically.
 
 ## Revoke access to keys
 Revoking access to the encryption keys won't purge the data from Event Hubs. However, the data can't be accessed from the Event Hubs namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).

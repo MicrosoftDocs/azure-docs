@@ -1,16 +1,10 @@
 ---
 title: Authorize access with a shared access signature in Azure Event Hubs
 description: This article provides information about authorizing access to Azure Event Hubs resources by using Shared Access Signatures (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
 ---
+
 # Authorizing access to Event Hubs resources using Shared Access Signatures
 A shared access signature (SAS) provides you with a way to grant limited access to resources in your Event Hubs namespace. SAS guards access to Event Hubs resources based on authorization rules. These rules are configured either on a namespace, or an entity (event hub or topic). This article provides an overview of the SAS model, and reviews SAS best practices.
 

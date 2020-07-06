@@ -294,6 +294,10 @@
       href: howto-restart-server-cli.md
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: Reference
   items:
   - name: Azure CLI
