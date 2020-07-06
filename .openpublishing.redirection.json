@@ -13113,7 +13113,7 @@
     },
     {
       "source_path": "articles/azure-vmware/tutorial-deploy-vm-content-library.md",
-      "redirect_url": "/articles/azure-vmware/deploy-vm-content-library",
+      "redirect_url": "/azure-vmware/deploy-vm-content-library",
       "redirect_document_id": true
     },
     {
