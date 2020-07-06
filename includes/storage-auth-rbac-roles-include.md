@@ -26,6 +26,6 @@ For detailed information about built-in RBAC roles for Azure Storage for both th
 > RBAC role assignments may take up to five minutes to propagate.
 
 > [!NOTE]
-> Only roles explicitly defined for data access permit a security principal to access blob or queue data. Roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the blob or queue data within that account.
+> Only roles explicitly defined for data access permit a security principal to access blob or queue data. Roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not directly provide access to the blob or queue data within that account. However, if a role includes the **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Use the Azure portal to access blob or queue data](../articles/storage/common/storage-access-blobs-queues-portal.md).
 >
 > Access to blob or queue data in the Azure portal can be authorized using either your Azure AD account or the storage account access key. For more information, see [Use the Azure portal to access blob or queue data](../articles/storage/common/storage-access-blobs-queues-portal.md).
