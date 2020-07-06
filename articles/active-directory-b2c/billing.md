@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Billing model for Azure Active Directory B2C
