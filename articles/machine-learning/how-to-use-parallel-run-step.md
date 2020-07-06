@@ -303,7 +303,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
 
-This example assumes you are using the `digit_identification.py` script from above. If using your own script, change the `source_directory` and `entry_script` parameters accordingly.
+This example assumes that you're using the `digit_identification.py` script that was discussed earlier. If you use your own script, change the `source_directory` and `entry_script` parameters accordingly.
 
 ```python
 from azureml.pipeline.core import PipelineParameter
