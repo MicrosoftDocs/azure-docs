@@ -1,5 +1,5 @@
 ---
-title: Connect privately to a Azure Web App using  Private Endpoint
+title: Connect privately to an Azure Web App using  Private Endpoint
 description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
@@ -123,9 +123,9 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 
 ## Next steps
 
-To deploy Private Endpoint for your Web App through the portal, see [How to connect privately to a Web App Azure Portal][howtoguide1]
+To deploy Private Endpoint for your Web App through the portal, see [How to connect privately to a Web App with the Portal][howtoguide1]
 
-To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect privately to a Web App Azure CLI][howtoguide2]
+To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect privately to a Web App with Azure CLI][howtoguide2]
 
 
 
