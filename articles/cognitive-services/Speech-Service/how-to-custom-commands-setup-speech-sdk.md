@@ -33,7 +33,7 @@ You'll also need:
 
 ## Step 1: Publish Custom Commands application
 
-1. Open your previously created Custom Commands application (Preview) and select **Publish**
+1. Open your previously created Custom Commands application and select **Publish**
 
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-commands/setup-speech-sdk-publish-application.png)

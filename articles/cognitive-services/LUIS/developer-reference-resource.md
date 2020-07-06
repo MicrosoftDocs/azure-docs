@@ -68,6 +68,10 @@ The following table explains the parameters, denoted with curly braces `{}`, in 
 |`version`|10 character version name|
 |`slot`| `production` or `staging`|
 
+### REST query string parameters
+
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
+
 ## App schema
 
 The [app schema](app-schema-definition.md) is imported and exported in a `.json` or `.lu` format.

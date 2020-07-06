@@ -1,6 +1,6 @@
 ﻿---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
+description: In this tutorial, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
 documentationcenter: na
 author: yelevin

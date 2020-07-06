@@ -4,7 +4,7 @@ description: Learn how to set up the drive preparation and repair tool for the A
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
