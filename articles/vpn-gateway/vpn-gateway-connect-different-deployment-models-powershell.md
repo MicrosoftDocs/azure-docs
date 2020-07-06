@@ -138,6 +138,7 @@ In this section, we specify the local network site that you want to connect the 
     </LocalNetworkSiteRef>
   </ConnectionsToLocalNetwork>
 </Gateway>
+```
 
 ### 5. Save the file and upload
 Save the file, then import it to Azure by running the following command. Make sure you change the file path as necessary for your environment.
