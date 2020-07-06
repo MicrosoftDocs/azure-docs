@@ -166,7 +166,7 @@ A [skillset object](https://docs.microsoft.com/rest/api/searchservice/create-ski
 1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2020-06-30
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. In request **Body**, copy the JSON definition below. This skillset consists of the following built-in skills.
