@@ -452,6 +452,8 @@
               href: faq-voice-assistants.md
             - name: Speech SDK
               href: speech-sdk.md
+            - name: Custom Commands encryption of data at rest
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?

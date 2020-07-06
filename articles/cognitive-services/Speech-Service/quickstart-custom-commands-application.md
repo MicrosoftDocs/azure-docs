@@ -24,8 +24,18 @@ In this quickstart, you create and test a basic Custom Commands application usin
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
-> [!NOTE]
-> At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and northeurope regions.
+## Regional availability
+At this time, Custom Commands only supports speech subscriptions in these regions:
+* West US
+* West US2
+* East US
+* East US2
+* North Europe
+* West Europe
+* West Central US
+* Central India
+* East Asia
+* Southeast Asia
 
 ## Go to the Speech Studio for Custom Commands
 
