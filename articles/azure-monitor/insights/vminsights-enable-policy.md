@@ -5,96 +5,78 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2020
+ms.date: 07/06/2020
 
 ---
 
 # Enable Azure Monitor for VMs by using Azure Policy
-This article explains how to enable Azure Monitor for VMs to enable monitoring for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc machines by using Azure Policy. This allows you to assign policies that will enable monitoring for all VMs across your Azure environment and automatically enable monitoring for VMs as they're created. 
+This article explains how to enable Azure Monitor for VMs to enable monitoring for Azure virtual machines using Azure Policy. This allows you to assign policies that will enable monitoring for all VMs across your Azure environment and automatically enable monitoring for VMs as they're created. Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy.
 
-In addition to providing policy definitions for Azure Policy that install the required agents, Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy.
+If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md).
 
-* Deploy the Log Analytics agent and the Dependency agent to enable a VM or VMSS for Azure Monitor for VMs.
-* Identify existing VMs in your environment that are not enabled for monitoring.
-* Remediate noncompliant VMs by applying to the policy to enable them for monitoring.
+> [!NOTE]
+> To use Azure Policy with Azure virtual machine scale sets or hybrid virtual machine connected with Azure Arc, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md#azure-monitor-for-vms).
 
-
-Get a brief introduction to Azure Policy and its relation to Azure Monitor at [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md).
-
-For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#assignments) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
 
 ## Prerequisites
-Prior to 
+- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
+- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
+
+## Azure Monitor for VMs initiative
+Azure Monitor for VMs provides builtin policy definitions to install the Log Analytics agent and Dependency agent on Azure virtual machines. The initiative **Enable Azure Monitor for VMs** includes each of these policy definitions. Assign the initiative to a management group, subscription, or resource group to automatically install the agents on any Azure virtual machines in that scope.
 
 ## Open Policy Coverage feature overview
 To access **Azure Monitor for VMs Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** and then **Enable** under **Enable using policy**.
 
 ![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
-From this view, you can check and manage coverage for the initiative across your management groups and subscriptions. This will show how many VMs exist in each of the management groups or subscriptions and their compliance status.
+From this view, you can check and manage coverage for the **Enable Azure Monitor for VMs** initiative across your management groups and subscriptions. This will show how many VMs exist in each of the management groups or subscriptions and their compliance status.
 
 ![Azure Monitor for VMs Manage Policy page](media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
 
 
-
-
-
-The following table provides a breakdown of the information that's presented on the policy coverage page and how to interpret it.
+The following table provides a breakdown of the information in this view.
 
 | Function | Description | 
 |----------|-------------| 
 | **Scope** | Management group and subscriptions that you have or inherited access to with ability to drill down through the management group hierarchy.|
 | **Role** | Your role in the scope, which might be reader, owner, or contributor. This will be blank if you have access to the subscription but not to the management group it belongs to. This role determines what data you can see and actions you can perform in terms of assigning policies or initiatives (owner), editing them, or viewing compliance. |
-| **Total VMs** | Total number of VMs in that scope regardless of whether they're onboarded or not. For a management group, this is a sum total of VMs nested under the subscriptions or child management groups. |
+| **Total VMs** | Total number of VMs in that scope regardless of their status. For a management group, this is a sum total of VMs nested under the subscriptions or child management groups. |
 | **Assignment Coverage** | Percent of VMs that are covered by the initiative. |
-| **Assignment Status** | Information on the status of your initiative assignment. |
+| **Assignment Status** | **Success** - All VMs in the scope have the Log Analytics and Dependency agents deployed to them.<br>**Warning** - The subscription isn't under a management group.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No VMs exist or a policy isn't assigned. |
 | **Compliant VMs** | Number of VMs that are compliant, which is the number of VMs that have both Log Analytics agent and Dependency agent installed. This will be blank if there are no assignments, no VMs in the scope, or not proper permissions. |
 | **Compliance** | The overall compliance number is the sum of distinct resources that are compliant divided by the sum of all distinct resources. |
-| **Compliance State** | Information on the compliance state for your policy or initiative assignment.|
-
-When you assign the policy or initiative, the scope selected in the assignment could be the scope listed or a subset of it. For instance, you might have created an assignment for a subscription (policy scope) and not a management group (coverage scope). In this case, the value of **Assignment Coverage** indicates the VMs in the policy or initiative scope divided by the VMs in coverage scope. In another case, you might have excluded some VMs, resource groups, or a subscription from policy scope. If the value is blank, it indicates that either the policy or initiative doesn't exist or you don't have permission. Information is provided under **Assignment Status**.
-
-## Enable by using Azure Policy
-
-To enable Azure Monitor for VMs by using Azure Policy in your tenant:
-
-- Assign the initiative to a scope: management group, subscription, or resource group.
-- Review and remediate compliance results.
+| **Compliance State** | **Compliant** - All VMs in the scope virtual machines have the Log Analytics and Dependency agents deployed to them or any new VMs in the scope subject to the assignment have not yet been evaluated.<br>**Non-compliant** - There are VMs that have been evaluated but are not enabled and may require remediation.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No policy is assigned.  |
 
 
 
 
-
-### Assign the Azure Monitor initiative
-
+When you assign the initiative, the scope selected in the assignment could be the scope listed or a subset of it. For instance, you might have created an assignment for a subscription (policy scope) and not a management group (coverage scope). In this case, the value of **Assignment Coverage** indicates the VMs in the initiative scope divided by the VMs in coverage scope. In another case, you might have excluded some VMs, resource groups, or a subscription from policy scope. If the value is blank, it indicates that either the policy or initiative doesn't exist or you don't have permission. Information is provided under **Assignment Status**.
 
 
+When you assign the Azure Monitor for VMs initiative, the scope selected in the assignment could be the scope listed here or a subset of it. For instance, you might have created an assignment for the subscription (policy scope) and not the management group (coverage scope). In this case, the coverage percentage would indicate the VMs in the policy or initiative scope divided by the VMs in the coverage scope. In another case, you might have excluded some VMs, or resource groups, or a subscription from the policy scope. If it's blank, it indicates that either the policy or initiative doesn't exist or you don't have permissions. Information is provided under **Assignment Status**.
 
-To create the policy assignment from the **Azure Monitor for VMs Policy Coverage** page, follow these steps. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
-When you assign the policy or initiative, the scope selected in the assignment could be the scope listed here or a subset of it. For instance, you might have created an assignment for the subscription (policy scope) and not the management group (coverage scope). In this case, the coverage percentage would indicate the VMs in the policy or initiative scope divided by the VMs in the coverage scope. In another case, you might have excluded some VMs, or resource groups, or a subscription from the policy scope. If it's blank, it indicates that either the policy or initiative doesn't exist or you don't have permissions. Information is provided under **Assignment Status**.
+## Assign the Azure Monitor for VMs initiative
+To create a new assignment, click **Assign Policy**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, select **Monitor**. 
 
-3. Choose **Virtual Machines** in the **Insights** section.
- 
-4. Select the **Get Started** tab. On the page, select **Manage Policy Coverage**.
+This is the same page to assign an initiative in Azure Policy except that it's hardcoded with the scope that you selected and the **Enable Azure Monitor for VMs** initiative definition. You can optionally change the **Assignment name** and add a **Description**. Select **Exclusions** if you want to provide an exclusion to the scope. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
 
-5. Select either a management group or a subscription from the table. Select **Scope** by selecting the ellipsis (...). 
-        In the example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
 
-6. On the **Azure Policy assignment** page, it's pre-populated with the initiative **Enable Azure Monitor for VMs**. 
-    The **Assignment name** box is automatically populated with the initiative name, but you can change it. You also can add an optional description. The **Assigned by** box is automatically populated based on who is logged in. This value is optional.
 
-7. (Optional) To remove one or more resources from the scope, select **Exclusions**.
 
-8. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
+On the **Parameters** page, select a **Log Analytics workspace** to be used by all virtual machines in the assignment. If you want to specify different workspaces for different virtual machines, then you must create multiple assignments, each with their own scope. 
 
    > [!NOTE]
    > If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure like `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+
+On the **Remediation** page, check **Create a remediation task** if you have existing virtual machines in scope that should be enabled. Remediation tasks evaluate virtual machines that existed before you 
+
+
+
    > To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
    > 
    >  The **Managed Identity** check box is selected because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
@@ -105,38 +87,22 @@ When you assign the policy or initiative, the scope selected in the assignment c
 
 After you create the assignment, the **Azure Monitor for VMs Policy Coverage** page updates **Assignment Coverage**, **Assignment Status**, **Compliant VMs**, and **Compliance State** to reflect the changes. 
 
-The following matrix maps each possible compliance state for the initiative.  
 
-| Compliance state | Description | 
-|------------------|-------------|
-| **Compliant** | All VMs in the scope have the Log Analytics and Dependency agents deployed to them.|
-| **Not Compliant** | Not all VMs in the scope have the Log Analytics and Dependency agents deployed to them and might require remediation.|
-| **Not Started** | A new assignment was added. |
-| **Lock** | You don't have sufficient privileges to the management group.<sup>1</sup> | 
-| **Blank** | No policy is assigned. | 
 
-<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions. 
 
-The following table maps each possible assignment status for the initiative.
 
-| Assignment status | Description | 
-|------------------|-------------|
-| **Success** | All VMs in the scope have the Log Analytics and Dependency agents deployed to them.|
-| **Warning** | The subscription isn't under a management group.|
-| **Not Started** | A new assignment was added. |
-| **Lock** | You don't have sufficient privileges to the management group.<sup>1</sup> | 
-| **Blank** | No VMs exist or a policy isn't assigned. | 
-| **Action** | Assign a policy or edit an assignment. | 
-
-<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions.
 
 ## Review and remediate the compliance results
 
-To learn how to review compliance results, see [Identify noncompliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the **Azure Monitor for VMs Policy Coverage** page, select either a management group or a subscription from the table. Select **View Compliance** by selecting the ellipsis (...).   
+ On the **Azure Monitor for VMs Policy Coverage** page, select either a management group or a subscription from the table. Select **View Compliance** by selecting the ellipsis (...).
+
+![View compliance](media/vminsights-enable-at-scale-policy/view-compliance.png)
+
+The **Compliance** page lists assignments matching the specified filter and whether they're compliant. Click on an assignment to view its details.
 
 ![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance.png)
 
-Based on the results of the policies included with the initiative, VMs are reported as noncompliant in the following scenarios:
+The **Initiative compliance** page lists the policy definitions in the initiative and whether each is in compliance. Scenarios that policy definitions will show as out of compliance include the following::
 
 * Log Analytics agent or Dependency agent isn't deployed.  
     This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a noncompliant policy.  
@@ -154,17 +120,17 @@ Based on the results of the policies included with the initiative, VMs are repor
     It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a noncompliant workspace.  
     - Audit Log Analytics workspace for VM – Report mismatch
 
-## Edit an initiative assignment
+![Compliance details](media/vminsights-enable-at-scale-policy/compliance-details.png)
 
-At any time after you assign an initiative to a management group or subscription, you can edit it to modify the following properties:
+Click on a policy definition to view its details.
 
-- Assignment name
-- Description
-- Assigned by
-- Log Analytics workspace
-- Exceptions
+![Policy compliance details](media/vminsights-enable-at-scale-policy/policy-compliance-details.png)
 
+Click **Create Remediation Task** to create a remediation task for the scope. 
 
+![New remediation task](media/vminsights-enable-at-scale-policy/remediation-task.png)
+
+Click **Remediate** to create the remediation task.
 
 ## Next steps
 

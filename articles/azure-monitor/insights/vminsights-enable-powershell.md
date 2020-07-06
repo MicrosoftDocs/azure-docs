@@ -5,16 +5,12 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2019
+ms.date: 07/06/2020
 
 ---
 
 # Enable Azure Monitor for VMs using PowerShell
-This article describes how to enable Azure Monitor for VMs for a single  virtual machine or virtual machine scale set using PowerShell. This procedure can be used for the following:
-
-- Azure virtual machine
-- Azure virtual machine scale set
-- Azure Arc machine
+This article describes how to enable Azure Monitor for VMs for Azure virtual machines  PowerShell.
 
 ## Prerequisites
 
