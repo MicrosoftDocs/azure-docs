@@ -26,11 +26,11 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 ## Using Azure AD admin center
 
-1. Sign in to [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
+1. Sign in to [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) as a Privileged role administrator or Global administrator in your organization.
 
 1. Select **Privileged Identity Management** > **Azure AD roles** > **Roles** > **Add assignments**
 
-1. Select a role, and then select a group. Only groups that are eligible for role assignment (the cloud groups created with "Azure AD roles can be assigned to the group") are shown in the list, not all groups.
+1. Select a role, and then select a group. Only groups that are eligible for role assignment (role-assignable groups) are displayed, not all groups.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
 
