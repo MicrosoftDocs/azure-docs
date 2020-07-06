@@ -125,7 +125,7 @@ Use T-SQL to move the existing files to a new location:
    GO
    ```
 
-   At this point, the database comes online with the log in the new location. 
+At this point, the database comes online with the log in the new location. 
 
 
 
@@ -144,6 +144,8 @@ Use SSMS to move the existing files to a new location:
    1. Right-click **Databases** in **Object Explorer** and select **Attach database**. 
    1. Using the dialog box, add each file, including the log file in its new location. 
    1. Select **OK** to attach the database. 
+
+At this point, the database comes online with the log in the new location.
 
 ---
 
