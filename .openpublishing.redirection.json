@@ -55682,7 +55682,7 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal/manage-offers/cpp-view-status-offer.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/publishing-status",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md",
