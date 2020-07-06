@@ -76,7 +76,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 3. Create the indexer by giving it a name and referencing the data source and target index:
 
-    ```
+   ```
     POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -86,7 +86,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
@@ -101,7 +101,7 @@ You may need to allow Azure services to connect to your database. See [Connectin
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
-```sql
+```
     GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
 ```
