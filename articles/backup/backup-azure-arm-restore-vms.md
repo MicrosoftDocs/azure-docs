@@ -189,6 +189,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports Backup and Restore of NSG information at vnet, subnet, and NIC level.
 **Zone Pinned VMs** | If you back up an Azure VM that is pinned to a zone (with Azure Backup), then you can restore it in the same zone where it was pinned. [Learn more](https://docs.microsoft.com/azure/availability-zones/az-overview)
 **Restore VM in any availability set** | When restoring a VM from the portal, there's no option to choose an availability set. A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
+**Restore special VMs such as SQL VMs** | If you backing up a SQL VM using Azure VM backup and then used the restore VM option or created a VM after restoring disks, then the newly created VM must be registered with SQL provider as mentioned [here](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash). This will convert the restored VM into a SQL VM.
 
 ## Track the restore operation
 

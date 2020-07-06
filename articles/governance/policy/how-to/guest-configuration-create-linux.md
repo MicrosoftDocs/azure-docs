@@ -399,7 +399,7 @@ end
 ```
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable including all details
+parameter named **Parameter**. This parameter takes a hashtable including all details
 about each parameter and automatically creates all the required sections of the files used to create
 each Azure Policy definition.
 
@@ -426,7 +426,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
