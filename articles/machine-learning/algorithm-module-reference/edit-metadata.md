@@ -50,8 +50,8 @@ Typical metadata changes might include:
     + The column type and values will change after you perform the Edit Metadata operation. You can recover the original data type at any time by using Edit Metadata to reset the column data type.  
 
     > [!NOTE]
-        > The **DateTime Format** follows [Python built-in datetime format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
-        > If you change any type of number to the **DateTime** type, leave the **DateTime Format** field blank. Currently it isn't possible to specify the target data format.
+    > The **DateTime Format** follows [Python built-in datetime format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > If you change any type of number to the **DateTime** type, leave the **DateTime Format** field blank. Currently it isn't possible to specify the target data format.
 
 1. Select the **Categorical** option to specify that the values in the selected columns should be treated as categories.
 

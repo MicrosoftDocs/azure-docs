@@ -20,9 +20,9 @@ This article covers the language components supported by Resource Graph:
 
 ## Resource Graph tables
 
-Resource Graph provides several tables for the data it stores about Resource Manager resource types
-and their properties. These tables can be used with `join` or `union` operators to get properties
-from related resource types. Here is the list of tables available in Resource Graph:
+Resource Graph provides several tables for the data it stores about Azure Resource Manager resource
+types and their properties. These tables can be used with `join` or `union` operators to get
+properties from related resource types. Here is the list of tables available in Resource Graph:
 
 |Resource Graph tables |Description |
 |---|---|
