@@ -59,7 +59,7 @@ Two phases help optimize scenarios where a member is being created in a long exi
 
 ## Known issues
 
-### Quorum v2.6.0 crashes when eth.estimateGas function is used
+### eth.estimateGas function throws exception in Quorum v2.6.0
 
 In Quorum v2.6.0, calls to *eth.estimateGas* function without providing the additional *value* parameter cause a *method handler crashed* exception. The Quorum team has been notified and a fix is expected end of July 2020. You can use the following workarounds until a fix is available:
 
