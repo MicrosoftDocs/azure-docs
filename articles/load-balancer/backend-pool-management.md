@@ -76,6 +76,11 @@ az network nic create \
   --lb-address-pools myBackEndPool
 ```
 
+Retrieve the Backend Pool to confirm the IP address have been correctly added:
+```
+az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+```
+
 Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
 ```
 az vm create \
@@ -101,6 +106,7 @@ Create a Network Interface and add it to the Backend Pool you have created via t
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
 
+JSON Request Body:
 ```
 {
   "properties": {
@@ -137,7 +143,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 JSON Request Body:
 ```
 {
-  "location": "westus",
+  "location": "easttus",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_D1_v2"
@@ -180,6 +186,39 @@ JSON Request Body:
 ### ARM Template
 
 
+```
+"resources": [
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2018-12-01",
+      "name": "[variables('lbName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('lbSkuName')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))]"
+      ],
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "[variables('lbFrontEndName')]",
+            "properties": {
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('lbPublicIpAddressName'))]"
+              }
+            }
+          }
+        ],
+        "backendAddressPools": [
+          {
+            "name": "[variables('lbBackendPoolName')]"
+          }
+        ],
+      }
+    }
+```
+
 ## Configuring Backend Pool by IP Address and Virtual Network
 If you are Load Balancing to container resources or pre-populating a Backend Pool with a range of IP Addresses, you can leverage IP Address and Virtual Network to route to any valid resource whether or not it has a Network Interface. When configuring via IP address and VNET all Backend Pool management is done directly on the Backend Pool object as highlighted in the examples below.
 
@@ -205,11 +244,30 @@ $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
 ```
 
-Retrieve the Backend Pool to confirm the IP address have been correctly added:
+Retrieve the Backend Pool information for the Load Balancer to confirm that the Backend Addresses are added to the Backend Pool:
 ```
 Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
 ```
+Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Addresses:
+```
+$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
+  -Name 'MyNic' -PublicIpAddress $RdpPublicIP_1 -PrivateIpAddress 10.0.0.4 $bepool -Subnet $vnet.Subnets[0]
+```
 
+Create a VM and attach the NIC with an IP Address in the Backend Pool:
+```
+# Create a username and password for the virtual machine
+$cred = Get-Credential
+
+# Create a virtual machine configuration
+$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize Standard_DS1_v2 `
+ | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred `
+ | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
+ | Add-AzVMNetworkInterface -Id $nic.Id
+ 
+# Create a virtual machine using the configuration
+$vm = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+```
 
 ### CLI
 Using CLI you can either populate the Backend Pool via command line parameters or through a JSON configuration file. 
@@ -250,12 +308,12 @@ JSON Configuration file:
         ]
 ```
 
-Retrieve the Backend Pool to confirm the IP address have been correctly added:
+Retrieve the Backend Pool information for the Load Balancer to confirm that the Backend Addresses are added to the Backend Pool:
 ```
 az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
 ```
 
-Create a new Network Interface and add it to the Backend Pool:
+Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Addresses:
 ```
 az network nic create \
   --resource-group myResourceGroup \
@@ -267,7 +325,7 @@ az network nic create \
   --private-ip-address 10.0.0.4
 ```
 
-Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
+Create a VM and attach the NIC with an IP Address in the Backend Pool:
 ```
 az vm create \
   --resource-group myResourceGroup \
@@ -279,9 +337,10 @@ az vm create \
 ```
 
 ### REST API
-Create the Backend Pool and define the Backend Addresses via a PUT Backend Pool request. Configure the Backend Addresses you would like to add via Address Name, IP Address, and Virtual Network ID in the JSON body of the PUT request.
 
-PUT request:
+
+Create the Backend Pool and define the Backend Addresses via a PUT Backend Pool request. Configure the Backend Addresses you would like to add via Address Name, IP Address, and Virtual Network ID in the JSON body of the PUT request:
+
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
 ```
@@ -313,17 +372,18 @@ JSON Request Body:
   }
 }
 ```
-Retrieve the Backend Pool information for the Load Balancer to confirm that this Backend Address is added to the Backend Pool:
+
+Retrieve the Backend Pool information for the Load Balancer to confirm that the Backend Addresses are added to the Backend Pool:
 ```
 GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Address.
-
+Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Addresses:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
 
+JSON Request Body:
 ```
 {
   "properties": {
@@ -344,7 +404,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 }
 ```
 
-Create a VM and attach the NIC referencing the Backend Pool.
+Create a VM and attach the NIC with an IP Address in the Backend Pool:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
