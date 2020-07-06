@@ -131,7 +131,13 @@ You can also build the jars directly from [spark-hbase-connector](https://github
     git clone https://github.com/hortonworks-spark/shc
     ```
     
-2. Build from branch-2.3, this will create a jar for you:
+2. Go to branch-2.3
+
+    ```bash
+    git checkout branch-2.3
+    ```
+
+3. Build from branch
 
     ```bash
     mvn clean package -DskipTests
@@ -140,7 +146,7 @@ You can also build the jars directly from [spark-hbase-connector](https://github
 3. Run the following command (make sure to change the jar name corresponding to the jar file you have built):
 
     ```bash
-    spark-shell --jars /home/sshuser/shc/core/target/sh1.1.2-2.3-s_2.11-SNAPSHOT.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
     ```
     
 4. Keep this Spark shell instance open and continue to the next section. 
