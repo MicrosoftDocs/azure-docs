@@ -48,7 +48,7 @@ The following gateways have completed their migration:
 - North Europe
 - West US 2
 
-# [October 2019](#tab/102019)
+# [October 2021](#tab/102021)
 - Brazil South
 - West US
 - West Europe
