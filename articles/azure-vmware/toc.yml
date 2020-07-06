@@ -48,7 +48,7 @@
     items:
     - name: API Management
       href: concepts-api-management.md
-    - name: Hub and sopke
+    - name: Hub and spoke
       href: concepts-avs-hub-and-spoke-integration.md
 - name: Reference
   items:
