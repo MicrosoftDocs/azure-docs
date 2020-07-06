@@ -568,7 +568,7 @@ aks_target.wait_for_completion(show_output = True)
 __Network contributor role__
 
 > [!IMPORTANT]
-> If you use a virtual network that you created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
+> If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
 >
 > To add the identity as network contributor, use the following steps:
 
