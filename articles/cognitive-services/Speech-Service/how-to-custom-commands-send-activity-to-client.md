@@ -86,7 +86,7 @@ Since you've created a JSON payload, you need to add a reference to the [JSON.NE
     > [!div class="mx-imgBorder"]
     > ![Send Activity payload](media/custom-commands/send-activity-to-client-json-nuget.png)
 
-1. Also, make sure nuget package **Microsoft.NETCore.UniversalWindowsPlatform** is at least 6.2.10. This guide is using version 6.2.10.
+1. Also, make sure NuGet package **Microsoft.NETCore.UniversalWindowsPlatform** is at least 6.2.10. This guide is using version 6.2.10.
 
 In `MainPage.xaml.cs', add
 
