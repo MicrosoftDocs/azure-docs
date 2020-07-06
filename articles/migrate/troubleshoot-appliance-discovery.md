@@ -140,6 +140,10 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## I do not see performance data for some network adapters on my physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. Due to a product gap, the network throughput is captured on the virtual network adapters discovered.
+
 ## Error: The file uploaded is not in the expected format
 Some tools have regional settings that create the CSV file with semi-colon as a delimiter. Please change the settings to ensure the delimiter is a comma.
 

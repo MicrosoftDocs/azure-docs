@@ -571,7 +571,7 @@ For logic apps that need direct access to resources in an Azure virtual network,
 
 When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network.
 
-Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control.
+Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC).
 
 * [Understand connectors for Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 

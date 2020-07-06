@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Use the Azure storage emulator for development and testing
