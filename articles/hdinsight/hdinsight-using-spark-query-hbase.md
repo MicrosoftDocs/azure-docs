@@ -137,7 +137,7 @@ You can also build the jars directly from [spark-hbase-connector](https://github
     git checkout branch-2.3
     ```
 
-3. Build from branch
+3. Build from branch, this will create a jar file
 
     ```bash
     mvn clean package -DskipTests
