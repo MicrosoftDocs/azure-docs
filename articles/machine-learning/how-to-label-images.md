@@ -5,6 +5,7 @@ description: Learn how to use the data tagging tools in an Azure Machine Learnin
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 

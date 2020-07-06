@@ -23,6 +23,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Key Vault Code Samples
+    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
 
 - name: Tutorials 
   items:
@@ -40,11 +42,6 @@
     href: create-certificate.md
   - name: Creating certificate signing request
     href: create-certificate-signing-request.md
-
-- name: Samples
-  items:
-  - name: Key Vault Code Samples
-    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
     
 - name: How-to guides 
   items:
