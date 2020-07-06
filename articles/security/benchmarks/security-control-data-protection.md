@@ -72,7 +72,7 @@ When no feature is available for your specific service in Azure, use a third-par
 
 Use Azure Information Protection for identifying sensitive information within Office 365 documents.
 
-Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
+Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Database.
 
 - [How to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 

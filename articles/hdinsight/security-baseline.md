@@ -1151,7 +1151,7 @@ How to configure storage redundancy for Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-How to configure redundancy for Azure SQL Databases:
+How to configure redundancy for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 

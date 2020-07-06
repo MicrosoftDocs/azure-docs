@@ -294,7 +294,7 @@ consider using Azure Data Box.
 - Geo-redundant backup should be enabled for Azure Database for PostgreSQL
 - Geo-redundant backup should be enabled for Azure Database for MySQL
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
-- Long-term geo-redundant backup should be enabled for Azure SQL Databases
+- Long-term geo-redundant backup should be enabled for Azure SQL Database
 
 ## IA-2 (1) Identification and Authentication (Organizational Users) | Network Access to Privileged Accounts
 
