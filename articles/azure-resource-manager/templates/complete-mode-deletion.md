@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/06/2020
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -35,7 +35,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
-> - [Microsoft.AzureStackResourceMonitor](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -55,6 +54,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
@@ -66,6 +66,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataCollaboration](#microsoftdatacollaboration)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -283,6 +284,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | attestationProviders | Yes |
+> | defaultProviders | No |
 
 ## Microsoft.Authorization
 
@@ -369,6 +371,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | cloudManifestFiles | No |
+> | edgeSubscriptions | Yes |
 > | registrations | Yes |
 > | registrations / customerSubscriptions | No |
 > | registrations / products | No |
@@ -379,13 +382,6 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | clusters | Yes |
-
-## Microsoft.AzureStackResourceMonitor
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | storageAccountMonitor | Yes |
 
 ## Microsoft.Batch
 
@@ -447,8 +443,15 @@ Jump to a resource provider namespace:
 > | billingAccounts / customers / transactions | No |
 > | billingAccounts / customers / transfers | No |
 > | billingAccounts / departments | No |
+> | billingAccounts / departments / billingPermissions | No |
+> | billingAccounts / departments / billingRoleAssignments | No |
+> | billingAccounts / departments / billingRoleDefinitions | No |
 > | billingAccounts / enrollmentAccounts | No |
+> | billingAccounts / enrollmentAccounts / billingPermissions | No |
+> | billingAccounts / enrollmentAccounts / billingRoleAssignments | No |
+> | billingAccounts / enrollmentAccounts / billingRoleDefinitions | No |
 > | billingAccounts / invoices | No |
+> | billingAccounts / invoices / transactions | No |
 > | billingAccounts / invoiceSections | No |
 > | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | No |
 > | billingAccounts / invoiceSections / billingSubscriptions | No |
@@ -722,7 +725,6 @@ Jump to a resource provider namespace:
 > | sharedVMImages / versions | No |
 > | snapshots | Yes |
 > | sshPublicKeys | Yes |
-> | swiftlets | Yes |
 > | virtualMachines | Yes |
 > | virtualMachines / extensions | Yes |
 > | virtualMachines / metricDefinitions | No |
@@ -733,6 +735,13 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets / publicIPAddresses | No |
 > | virtualMachineScaleSets / virtualMachines | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No |
+
+## Microsoft.ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | CacheNodes | Yes |
 
 ## Microsoft.Consumption
 
@@ -901,9 +910,30 @@ Jump to a resource provider namespace:
 > | datacatalogs / datasources | No |
 > | datacatalogs / datasources / scans | No |
 > | datacatalogs / datasources / scans / datasets | No |
-> | datacatalogs / datasources / scans / filters | No |
 > | datacatalogs / datasources / scans / triggers | No |
-> | datacatalogs / scanrulesets | No |
+
+## Microsoft.DataCollaboration
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | workspaces | Yes |
+> | workspaces / contracts | No |
+> | workspaces / contracts / entitlements | No |
+> | workspaces / dataAssets | No |
+> | workspaces / dataAssets / dataSets | No |
+> | workspaces / pipelines | No |
+> | workspaces / pipelines / pipelineSteps | No |
+> | workspaces / pipelines / runs | No |
+> | workspaces / proposals | No |
+> | workspaces / proposals / dataAssetReferences | No |
+> | workspaces / proposals / entitlements | No |
+> | workspaces / proposals / entitlements / constraints | No |
+> | workspaces / proposals / entitlements / policies | No |
+> | workspaces / proposals / invitations | No |
+> | workspaces / proposals / scriptReferences | No |
+> | workspaces / scripts | No |
+> | workspaces / scripts / scriptrevisions | No |
 
 ## Microsoft.DataFactory
 
@@ -951,6 +981,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | BackupVaults | Yes |
+> | ResourceOperationGateKeepers | Yes |
 
 ## Microsoft.DataShare
 
@@ -1753,6 +1784,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | privateLinkServicesForPowerBI | Yes |
+> | tenants | Yes |
+> | tenants / workspaces | No |
 > | workspaceCollections | Yes |
 
 ## Microsoft.PowerBIDedicated
@@ -1775,6 +1809,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | providerRegistrations | No |
+> | providerRegistrations / defaultRollouts | No |
 > | providerRegistrations / resourceTypeRegistrations | No |
 > | rollouts | Yes |
 
@@ -1900,6 +1935,8 @@ Jump to a resource provider namespace:
 > | iotSecuritySolutions / analyticsModels | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | No |
+> | iotSecuritySolutions / iotAlerts | No |
+> | iotSecuritySolutions / iotAlertTypes | No |
 > | jitNetworkAccessPolicies | No |
 > | policies | No |
 > | pricings | No |
