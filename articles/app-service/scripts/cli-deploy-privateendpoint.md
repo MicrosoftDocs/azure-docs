@@ -100,7 +100,7 @@ az network private-endpoint create \
 --group-id sites
 ```
 
-# Configure the private zone
+## Configure the private zone
 
 At the end, you need to create a private DNS zone named *privatelink.azurewebsites.net* linked to the VNet to resolve DNS name of the Web App.
 
