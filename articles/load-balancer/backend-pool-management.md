@@ -182,39 +182,71 @@ JSON Request Body:
 ```
 
 ### ARM Template
-
-
+Create the Load Balancer Resource with a Backend Pool:
 ```
-"resources": [
-    {
-      "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2018-12-01",
-      "name": "[variables('lbName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('lbSkuName')]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))]"
-      ],
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "[variables('lbFrontEndName')]",
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_myLB_location": {
+            "type": "SecureString"
+        },
+        "loadBalancers_myLB_location_1": {
+            "type": "SecureString"
+        },
+        "backendAddressPools_myBackendPool_location": {
+            "type": "SecureString"
+        },
+        "backendAddressPools_myBackendPool_location_1": {
+            "type": "SecureString"
+        },
+        "loadBalancers_myLB_name": {
+            "defaultValue": "myLB",
+            "type": "String"
+        },
+        "virtualNetworks_myVNET_externalid": {
+            "defaultValue": "/subscriptions/6bb4a28a-db84-4e8a-b1dc-fabf7bd9f0b2/resourceGroups/ErRobin4/providers/Microsoft.Network/virtualNetworks/myVNET",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2020-04-01",
+            "name": "[parameters('loadBalancers_myLB_name')]",
+            "location": "eastus",
+            "sku": {
+                "name": "Standard"
+            },
             "properties": {
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('lbPublicIpAddressName'))]"
-              }
+                "frontendIPConfigurations": [
+                    {
+                        "name": "LoadBalancerFrontEnd",
+                        "properties": {
+                            "privateIPAddress": "10.0.0.7",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_myVNET_externalid'), '/subnets/Subnet-1')]"
+                            },
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "myBackendPool",
+                    }
+                ],
+                "loadBalancingRules": [],
+                "probes": [],
+                "inboundNatRules": [],
+                "outboundRules": [],
+                "inboundNatPools": []
             }
-          }
-        ],
-        "backendAddressPools": [
-          {
-            "name": "[variables('lbBackendPoolName')]"
-          }
-        ],
-      }
-    }
+        },
+    ]
+}
 ```
 
 Create a Virtual Machine and attached Network Interface. Add the Network Interface to the Backend Pool of the Load Balancer:
@@ -452,11 +484,7 @@ az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VN
 ```
 Create and populate the Backend Pool via JSON configuration file:
 ```
-az network lb address-pool create \ 
---lb-name myLB \
---name myBackendPool \
---vnet {VNET resource ID} \
---backend-address-config-file @config_file.json
+az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address-config-file @config_file.json
 ```
 
 JSON Configuration file:
@@ -464,14 +492,12 @@ JSON Configuration file:
         [
           {
             "name": "address1",
-            "virtualNetwork": "clitestvnet",
+            "virtualNetwork": "/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}",
             "ipAddress": "10.0.0.4"
           },
           {
             "name": "address2",
-            "virtualNetwork": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cl
-        i_test_lb_address_pool_addresses000001/providers/Microsoft.Network/virtualNetworks/clitestvn
-        et",
+            "virtualNetwork": "/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}",
             "ipAddress": "10.0.0.5"
           }
         ]
