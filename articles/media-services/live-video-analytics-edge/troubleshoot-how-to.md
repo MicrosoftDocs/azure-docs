@@ -124,7 +124,7 @@ To fix this issue:
     ```
 1. Ensure you have the following extensions installed. As of the writing of this guide, the version for extensions were as follows:
 
-    |||
+    | Extension | Version |
     |---|---|
     |azure-cli   |      2.5.1*|
     |command-modules-nspkg         |   2.0.3|
@@ -249,7 +249,7 @@ Go through the following steps to gather the relevant logs that should be added 
 
 ### Support-bundle
 
-When you need to gather logs from an IoT Edge device, the easiest way is to use the support-bundle command. This command collects:
+When you need to gather logs from an IoT Edge device, the easiest way is to use the `support-bundle` command. This command collects:
 
 1. Module logs
 1. IoT Edge security manager and container engine logs
@@ -289,38 +289,38 @@ sudo iotedge support-bundle --since 2h
 
 Follow these steps to configure the LVA on IoT Edge module to generate debug logs:
 
-1. Sign in to the Azure portal and navigate to your IoT hub.
-1. Select IoT Edge from the menu.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Select **IoT Edge** from the menu.
 1. Click on the ID of the target device from the list of devices.
-1. Click on Set Modules link on the top menu.
+1. Click on **Set Modules** link on the top menu.
 
   ![set modules azure portal](media/troubleshoot-how-to/set-modules.png)
 
-5. Under the IoT Edge Modules section, find and click lvaEdge
-1. Click on Container Create Options
+5. Under the IoT Edge Modules section, find and click **lvaEdge**.
+1. Click on **Container Create Options**.
 1. In the Binds section, add the following command:
 
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     This binds the logs folders between the edge device and the container.
-1. Click on Update button
-1. Click on Review + Create button at the bottom of the page.
-1. A simple validation will take place and post successful validation message under a green banner, click on Create button.
-1. Next, we will update the Module Identity Twin to point the DebugLogsDirectory parameter to point to the directory in which the logs will be collected.
-    1. Select lvaEdge under the Modules table.
-    1. Click on Module Identity Twin link. You will find this at the top of the page.
-    1. This will open an editable pane where you will add the following key-value pair under “desired” key:
+
+1. Click on the **Update** button
+1. Click on the **Review + Create** button at the bottom of the page. A simple validation will take place and post successful validation message under a green banner.
+1. Click on the **Create** button.
+1. Next, update the **Module Identity Twin** to point the DebugLogsDirectory parameter to point to the directory in which the logs will be collected:
+    1. Select **lvaEdge** under the **Modules** table.
+    1. Click on the **Module Identity Twin** link. You will find this at the top of the page. This will open an editable pane.
+    1. Add the following key-value pair under **desired key**:
 
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
-    1. Click on Save
+    1. Click on **Save**.
+
 1. Reproduce the issue.
 1. Connect to the Virtual Machine from the IoT Hub page in your portal.
-    1. Navigate to /var/local/mediaservices/logs folder  and zip the bin content of this folder and share it with us.
+    1. Navigate to /var/local/mediaservices/logs folder and zip the bin content of this folder and share it with us. **Note:** These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
 
-    > [!NOTE] These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
-
-1. Log collection can be stopped by setting that value in Module Identity Twin to null again. Go back to the Module Identity Twin page and update the following parameter as:
+1. Log collection can be stopped by setting that value in **Module Identity Twin** to *null* again. Go back to the **Module Identity Twin** page and update the following parameter as:
 
     `"DebugLogsDirectory": ""`
 
