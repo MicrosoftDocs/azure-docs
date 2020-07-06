@@ -45,9 +45,9 @@ This deployment template contains all the Azure resources that comprise your sol
 
 A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, deployment, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance or any other resource beyond just Azure. Use this type for AppSource offers to connect with these Dynamics 365 offers:
 
-- Use [Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Business Central enterprise resource planning system such as finance, operations, supply chain, and CRM.
-- Use [Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) for a Customer Engagement system such as sales, service, project service, and field service.
-- Use [Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
+- Use [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) for a Business Central enterprise resource planning system such as finance, operations, supply chain, and CRM.
+- Use [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) for a Customer Engagement system such as sales, service, project service, and field service.
+- Use [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
 
 ### Logic app test drive
 

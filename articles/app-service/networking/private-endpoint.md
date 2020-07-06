@@ -1,5 +1,5 @@
 ---
-title: Connect privately to a Web App using Azure Private Endpoint
+title: Connect privately to a Azure Web App using  Private Endpoint
 description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
@@ -107,8 +107,6 @@ For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> These two records are automatically populated if you have a private DNS zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
 
 
 ## Pricing

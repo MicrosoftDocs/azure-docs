@@ -20,23 +20,25 @@ You can store App Service Environment customizations by using an array in the ne
 
 The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
 
-    "resources": [
-    {
-       "apiVersion": "2015-08-01",
-       "type": "Microsoft.Web/hostingEnvironments",
-       "name": ...,
-       "location": ...,
-       "properties": {
-          "clusterSettings": [
-             {
-                 "name": "nameOfCustomSetting",
-                 "value": "valueOfCustomSetting"
-             }
-          ],
-          "workerPools": [ ...],
-          etc...
-       }
+```json
+"resources": [
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": ...,
+    "location": ...,
+    "properties": {
+        "clusterSettings": [
+            {
+                "name": "nameOfCustomSetting",
+                "value": "valueOfCustomSetting"
+            }
+        ],
+        "workerPools": [ ...],
+        etc...
     }
+}
+```
 
 The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
 
@@ -57,13 +59,15 @@ For example, if an App Service Environment has four front ends, it will take rou
 
 The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is completely inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable this with a clusterSetting.  
 
-        "clusterSettings": [
-            {
-                "name": "InternalEncryption",
-                "value": "1"
-            }
-        ],
- 
+```json
+"clusterSettings": [
+    {
+        "name": "InternalEncryption",
+        "value": "1"
+    }
+],
+```
+
 After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable this on an ASE while it is in use. If you need to enable this on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes. 
 
 ## Disable TLS 1.0 and TLS 1.1
@@ -72,29 +76,31 @@ If you want to manage TLS settings on an app by app basis, then you can use the 
 
 If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the apps in an ASE, you can set the following **clusterSettings** entry:
 
-        "clusterSettings": [
-            {
-                "name": "DisableTls1.0",
-                "value": "1"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "DisableTls1.0",
+        "value": "1"
+    }
+],
+```
 
 The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
 
 ## Change TLS cipher suite order
 Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
-        "clusterSettings": [
-            {
-                "name": "FrontEndSSLCipherSuiteOrder",
-                "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "FrontEndSSLCipherSuiteOrder",
+        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+    }
+],
+```
 
 > [!WARNING]
 > If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
-> 
-> 
 
 ## Get started
 The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).

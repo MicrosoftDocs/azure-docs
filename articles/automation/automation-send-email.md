@@ -62,8 +62,8 @@ For other ways to create an Azure Key Vault and store a secret, see [Key Vault q
 
 To use Azure Key Vault within a runbook, you must import the following modules into your Automation account:
 
-    * [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
-    * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 For instructions, see [Import Az modules](shared-resources/modules.md#import-az-modules).
 

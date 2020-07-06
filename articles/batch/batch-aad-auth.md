@@ -15,7 +15,7 @@ When using Azure AD authentication with Azure Batch, you can authenticate in one
 - By using **integrated authentication** to authenticate a user that is interacting with the application. An application using integrated authentication gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
 - By using a **service principal** to authenticate an unattended application. A service principal defines the policy and permissions for an application in order to represent the application when accessing resources at runtime.
 
-To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
+To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml).
 
 ## Endpoints for authentication
 
@@ -414,7 +414,7 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 
 ## Next steps
 
-- To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+- To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
 - To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
 
