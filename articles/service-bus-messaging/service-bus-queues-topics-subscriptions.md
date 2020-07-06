@@ -57,6 +57,102 @@ For a full working example, see the [TopicSubscriptionWithRuleOperationsSample s
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
+## Java Message Service (JMS) Subscriptions (Preview)
+
+Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below subscriptions. 
+
+While, these are semantically similar to the Subscriptions described above (i.e. exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable** and **Non-durable** attributes for a given subscription.
+
+> [!NOTE]
+> The below subscriptions are available in Azure Service Bus Premium tier for Preview for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+>
+> For the Public preview, these subscriptions cannot be created using the Azure portal.
+>
+
+### Shared Durable Subscriptions
+
+A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription at all times.
+
+Since this is a shared subscription, any application that is authenticated to receive from Service Bus can receive from the subscription.
+
+To create a shared durable subscription, use the below methods on the `JMSContext` class -
+
+```java
+JMSConsumer createSharedDurableConsumer(Topic topic, String name)
+
+JMSConsumer createSharedDurableConsumer(Topic topic, String name, String messageSelector)
+```
+
+The shared durable subscription continues to exist unless deleted using the `unsubscribe` method on the `JMSContext` class.
+
+```java
+void unsubscribe(String name)
+```
+
+### Unshared Durable Subscriptions
+
+Just like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively  consuming from the subscription at all times.
+
+However, since this is an unshared subscription, only the application that created the subscription can receive from it.
+
+To create an unshared durable subscription, use the below methods from `JMSContext` class - 
+
+```java
+JMSConsumer createDurableConsumer(Topic topic, String name)
+
+JMSConsumer createDurableConsumer(Topic topic, String name, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> The `noLocal` feature is currently unsupported and ignored.
+>
+
+The unshared durable subscription continues to exist unless deleted using the `unsubscribe` method on the `JMSContext` class.
+
+```java
+void unsubscribe(String name)
+```
+
+### Shared non-durable Subscriptions
+
+A shared non-durable subscription is used when multiple client applications need to receive and process messages from a single subscription, only until they are actively consuming/receiving from it.
+
+Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there are no active consumers on it.
+
+To create a shared non-durable subscription, create a `JmsConsumer` as shown in the below methods from the `JMSContext` class -
+
+```java
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
+
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, String messageSelector)
+```
+
+The shared non-durable subscription continues to exist until there are active consumers receiving from it.
+
+### Unshared non-durable Subscriptions
+
+An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, i.e. the client that created the subscription.
+
+Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there is no active consumer on it.
+
+To create an unshared non-durable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext class - 
+
+```java
+JMSConsumer createConsumer(Destination destination)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> The `noLocal` feature is currently unsupported and ignored.
+>
+
+The unshared non-durable subscription continues to exist until there is an active consumer receiving from it.
+
+### Message selectors
+
 ## Next steps
 
 For more information and examples of using Service Bus messaging, see the following advanced topics:
