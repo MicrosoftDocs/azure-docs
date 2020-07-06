@@ -23,7 +23,7 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), go to your Azure subscription, and select **Resource providers** under the **Settings** tab:
 
-   !["Resource providers" entry from the left menu](./media/how-to-setup-cmk/portal-rp.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Resource providers entry from the left menu":::
 
 1. Search for the **Microsoft.DocumentDB** resource provider. Verify if the resource provider is already marked as registered. If not, choose the resource provider and select **Register**:
 
@@ -46,7 +46,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
-   !["Access policies" from the left menu](./media/how-to-setup-cmk/portal-akv-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Access policies from the left menu":::
 
 1. Select **+ Add Access Policy**.
 
@@ -64,7 +64,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
 1. From the Azure portal, go the Azure Key Vault instance that you plan to use to host your encryption keys. Then, select **Keys** from the left menu:
 
-   !["Keys" entry from the left menu](./media/how-to-setup-cmk/portal-akv-keys.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Keys entry from the left menu":::
 
 1. Select **Generate/Import**, provide a name for the new key, and select an RSA key size. A minimum of 3072 is recommended for best security. Then select **Create**:
 

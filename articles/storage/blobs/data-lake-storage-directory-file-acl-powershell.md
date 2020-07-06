@@ -256,7 +256,7 @@ You can use the `-Force` parameter to remove the file without a prompt.
 
 ## Manage access permissions
 
-You can get, set, and update access permissions of file systems, directories and files. These permissions are captured in access control lists (ACLs).
+You can get, set, and update access permissions of directories and files. These permissions are captured in access control lists (ACLs).
 
 > [!NOTE]
 > If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -265,7 +265,7 @@ You can get, set, and update access permissions of file systems, directories and
 
 Get the ACL of a directory or file by using the `Get-AzDataLakeGen2Item`cmdlet.
 
-This example gets the ACL of a **file system** and then prints the ACL to the console.
+This example gets the ACL of the root directory of a **file system** and then prints the ACL to the console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -300,7 +300,7 @@ In this example, the owning user has read, write, and execute permissions. The o
 
 Use the `set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
 
-This example sets the ACL on a **file system** for the owning user, owning group, or other users, and then prints the ACL to the console.
+This example sets the ACL on the root directory of a **file system** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```powershell
 $filesystemName = "my-file-system"
