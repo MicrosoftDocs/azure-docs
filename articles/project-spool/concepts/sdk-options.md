@@ -20,7 +20,7 @@ Assembly    | Protocols| Namespaces| Capabilities
 ----|----|---|---|
 Azure Resource Manager | REST    | Azure.Management.Communication |Control plane, Provision ACS resources
 Common|    REST    |Azure.Communication|Bases types for other areas, APIs for telemetry, creating rooms, token management
-Data Plane Management|REST|Azure.Communication|   Manage phone numbers, rooms, etc.
+Configuration|REST|Azure.Communication.Configuration|   Manage phone numbers, rooms, etc.
 Chat |    REST |Azure.Communication.Chat| Leverage threaded rich text chat.
 SMS |     REST | Azure.Communication.SMS|    Send and receive SMS messages.
 Calling |     Proprietary transport |Azure.Communication.Calling | Leverage voice, video, screen-sharing, and other real-time data communication capabilities. 
@@ -45,7 +45,7 @@ Area|  .NET | Python|Java | Swift | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|
 ARM  |July |    July    |September |   TBD  |TBD|September|GO - July, Azure CLI - July
 Common     |July    |July  |September| July| July| July |TBD
-Data Plane Management  | July |   September |  September| TBD|    TBD|    July| CLI|TBD
+Configuration  | July |   September |  September| TBD|    TBD|    July| CLI|TBD
 Chat   |September | TBD  |September |September    |September    |July    |TBD
 SMS     |September | TBD  |September |September    |September    |July    |TBD
 Calling   |September | TBD  |TBD |September    |July    |July    |iOS Objective C in July
