@@ -108,20 +108,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
 
-The Remote Desktop clients must have access to the following URLs:
-
-|Address|Outbound TCP port|Purpose|Client(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Service traffic|All|
-|*.servicebus.windows.net|443|Troubleshooting data|All|
-|go.microsoft.com|443|Microsoft FWLinks|All|
-|aka.ms|443|Microsoft URL shortener|All|
-|docs.microsoft.com|443|Documentation|All|
-|privacy.microsoft.com|443|Privacy statement|All|
-|query.prod.cms.rt.microsoft.com|443|Client updates|Windows Desktop|
-
->[!IMPORTANT]
->Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to the client sites and resources, and don't include URLs for other services like Azure Active Directory.
+To learn more about URLs you must unblock to use the Remote Clients, see the [Safe URL list](safe-url-list.md).
 
 ## Supported virtual machine OS images
 
