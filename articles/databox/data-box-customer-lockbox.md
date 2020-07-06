@@ -48,11 +48,11 @@ To track and approve a request to access customer data, follow these steps:
 
 1. Microsoft detects that there is an issue during the upload or download of the data at Azure datacenter. For example, the Data Box order is halted during the **Data Copy** stage. 
 
-    The support engineer first tries to troubleshoot the issue by using standard tools and telemetry. If the support engineer accessed the Data Box through support session and the disks are locked and shares are not accessible, then the Support engineer creates a Lockbox request. 
+    The support engineer connects to Data Box via Support session and tries to troubleshoot the issue by using standard tools and telemetry. If the Data Box disks are locked and shares are not accessible, then the Support engineer creates a Lockbox request. 
  
-2. When the request is created, usually the notification goes to the admin of the subscription but you can also configure a group for notifications. 
+2. When the request is created, usually the notification goes to subscription administrator but you can also configure a group for notifications. 
 
-3. The lockbox request shows up in the Azure portal for customer approval. 
+3. You can see the lockbox request in the Azure portal for your approval. 
 
     ![Request in Azure portal](./media/data-box-customer-lockbox/3-lockbox-request-azure-portal.png)
 
@@ -61,9 +61,9 @@ To track and approve a request to access customer data, follow these steps:
     ![Approve request](./media/data-box-customer-lockbox/4-lockbox-request-details-azure-portal.png)
 
 
-4. Once the request is approved, the support engineer can access the device. The support engineer then validates that the device disks are unlocked and shares can be accessed in the support session.
+    Once the request is approved, the device disks are unlocked and shares are accessible in the support session.
 
-5. The support engineer resolves the upload issue and then disables the support session.
+4. The support engineer resolves the upload issue and then disables the support session.
 
 After the issue is resolved, the data copy job will progress to completion.
 
@@ -74,12 +74,3 @@ After the issue is resolved, the data copy job will progress to completion.
 
 <!--- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)-->
 
-
-
-<!--This request is for **Unlock Data Box operation** and the resource type is **ACIS**.-->
-
-<!--![Create JIT request to unlock Data Box](./media/data-box-customer-lockbox/1-lockbox-jit-request.png)
-
-The request takes time to approve. Select **Submit**.
-
-![JIT approval wait time notification](./media/data-box-customer-lockbox/2-lockbox-jit-approval-wait.png)-->
