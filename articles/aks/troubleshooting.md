@@ -26,11 +26,34 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-When using Azure CNI network plugin, AKS allocates IP addresses based on the "--max-pods" per node parameter. The subnet size must be greater than number of nodes times the max pods per node setting. The following equation outlines it:
+This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
+Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node set.
+These errors are also surfaced in [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics) which proactively surfaces issues such as an insufficient subnet size.
 
-For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+The following three (3) cases cause an insufficient subnet size error:
+
+1. AKS Scale or AKS Nodepool scale
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** the `number of new nodes requested`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+1. AKS Upgrade or AKS Nodepool upgrade
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of buffer nodes needed to upgrade`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
+   
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview) which will increase the number of available IPs needed to complete an upgrade.
+
+1. AKS create or AKS Nodepool add
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+The following mitigation can be taken by creating new subnets. The permission to create a new subnet is required for mitigation due to the inability to update an existing subnet's CIDR range.
+
+1. Rebuild a new subnet with a larger CIDR range sufficient for operation goals:
+   1. Create a new subnet with a new desired non-overlapping range.
+   1. Create a new nodepool on the new subnet.
+   1. Drain pods from the old nodepool residing in the old subnet to be replaced.
+   1. Delete the old subnet and old nodepool.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 

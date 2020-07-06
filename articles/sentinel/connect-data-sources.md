@@ -1,6 +1,6 @@
 ---
 title: Connect data sources to Azure Sentinel | Microsoft Docs
-description: Learn how to connect data sources to Azure Sentinel.
+description: Learn how to connect data sources like Microsoft Threat Protection, Microsoft 365 and Office 365, Azure AD, ATP, and Cloud App Security to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin

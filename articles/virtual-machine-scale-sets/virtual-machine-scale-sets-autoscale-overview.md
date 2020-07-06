@@ -6,7 +6,7 @@ ms.author: avverma
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 05/29/2018
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 

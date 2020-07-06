@@ -107,11 +107,10 @@ To configure Azure AD single sign-on with Central Desktop, perform the following
 
     b. In the **Identifier** box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
-	| `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
-    | |
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.centraldesktop.com/saml2-assertion.php`

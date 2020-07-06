@@ -22,7 +22,7 @@ Marketplace Rewards is designed to support you at your specific stage of growth,
 
 The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform. 
 
-Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility. 
 
@@ -97,7 +97,7 @@ All the activities described on this page are covered by the [marketplace publis
 
 ### Cancellation policy
 
-[List and Trial](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
+[List and Trial](determine-your-listing-type.md) publishers can opt in or opt out to activities per offer publication. Partners may opt out of any engagement at any time. 
 
 Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
 

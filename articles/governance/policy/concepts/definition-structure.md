@@ -739,9 +739,9 @@ use within a policy rule, except the following functions and user-defined functi
 > the template deployment in a **deployIfNotExists** policy definition.
 
 The following function is available to use in a policy rule, but differs from use in an Azure
-Resource Manager template:
+Resource Manager template (ARM template):
 
-- `utcNow()` - Unlike a Resource Manager template, this property can be used outside _defaultValue_.
+- `utcNow()` - Unlike an ARM template, this property can be used outside _defaultValue_.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
