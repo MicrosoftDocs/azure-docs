@@ -65,13 +65,13 @@ Entitlement management introduces to Azure AD the concept of an *access package*
  Here are the types of resources you can manage user's access to with entitlement management:
 
 - Membership of Azure AD security groups
-- Membership of Office 365 Groups and Teams
+- Membership of Microsoft 365 Groups and Teams
 - Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign on and/or provisioning
 - Membership of SharePoint Online sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Office 365 Groups.  For example:
+You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
 - You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## How do I control who gets access?

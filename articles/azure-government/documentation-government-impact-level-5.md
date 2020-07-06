@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/25/2020
+ms.date: 07/03/2020
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
@@ -341,11 +341,11 @@ You can protect data via storage accounts as your device is associated with a st
 
 Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
-Azure Logic Apps relies on Azure Storage to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see Azure Storage encryption for data at rest and Azure Data Encryption-at-Rest.(https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
-
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Logic Apps** | X | X | X | | |
+| **Azure Logic Apps** | X | X | X | | X |
+
+For more information, see [Secure access and data in Azure Logic Apps - Isolation guidance](../logic-apps/logic-apps-securing-a-logic-app.md#isolation-logic-apps).
 
 ### [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 

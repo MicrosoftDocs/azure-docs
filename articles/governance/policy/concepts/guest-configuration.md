@@ -6,7 +6,9 @@ ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
 
-Azure Policy can audit settings inside a machine. The validation is performed by the Guest Configuration
+Azure Policy can audit settings inside a machine, both for machines running in Azure and
+[Arc Connected Machines](../../../azure-arc/servers/overview.md).
+The validation is performed by the Guest Configuration
 extension and client. The extension, through the client, validates settings such as:
 
 - The configuration of the operating system
@@ -16,6 +18,11 @@ extension and client. The extension, through the client, validates settings such
 At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine.
 They don't apply configurations. The exception is one built-in policy
 [referenced below](#applying-configurations-using-guest-configuration).
+
+## Enable Guest Configuration
+
+To audit the state of machines in your environment, including machines in Azure and Arc Connected Machines,
+review the following details.
 
 ## Resource provider
 
@@ -27,11 +34,14 @@ the portal. You can manually register through the
 or
 [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## Extension and client
+## Deploy requirements for Azure virtual machines
 
 To audit settings inside a machine, a
-[virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled. The
-extension downloads applicable policy assignment and the corresponding configuration definition.
+[virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled and the machine
+must have a system-managed identity. The extension downloads applicable policy assignment and the corresponding
+configuration definition. The identity is used to authenticate the machine as it reads and writes to the
+Guest Configuration service. The extension isn't required for Arc Connected Machines because it's included
+in the Arc Connected Machine agent.
 
 > [!IMPORTANT]
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
@@ -43,18 +53,19 @@ extension downloads applicable policy assignment and the corresponding configura
 
 To limit the extension from impacting applications running inside the machine, the Guest
 Configuration isn't allowed to exceed more than 5% of CPU. This limitation exists for both built-in
-and custom definitions.
+and custom definitions. The same is true for the Guest Configuration service in Arc Connected Machine agent.
 
 ### Validation tools
 
 Inside the machine, the Guest Configuration client uses local tools to run the audit.
 
-The following table shows a list of the local tools used on each supported operating system:
+The following table shows a list of the local tools used on each supported operating system. For built-in
+content, Guest Configuration handles loading these tools automatically.
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependenices for the InSpec package including Ruby and Python are installed as well. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
@@ -80,15 +91,11 @@ The following table shows a list of supported operating systems on Azure images:
 |Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 and later|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 and later|
 |Suse|SLES|12 SP3 and later|
 
 Custom virtual machine images are supported by Guest Configuration policies as long as they're one
 of the operating systems in the table above.
-
-### Unsupported client types
-
-Windows Server Nano Server isn't supported in any version.
 
 ## Guest Configuration Extension network requirements
 
@@ -162,9 +169,9 @@ Some parameters support an integer value range. For example, the Maximum Passwor
 audit the effective Group Policy setting. A "1,70" range would confirm that users are required to
 change their passwords at least every 70 days, but no less than one day.
 
-If you assign the policy using an Azure Resource Manager deployment template, use a parameters file
-to manage exceptions. Check in the files to a version control system such as Git. Comments about
-file changes provide evidence why an assignment is an exception to the expected value.
+If you assign the policy using an Azure Resource Manager template (ARM template), use a parameters
+file to manage exceptions. Check in the files to a version control system such as Git. Comments
+about file changes provide evidence why an assignment is an exception to the expected value.
 
 #### Applying configurations using Guest Configuration
 

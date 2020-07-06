@@ -362,10 +362,12 @@ Units SHALL be encrypted.
 >   The syntax of the fields defined in this section, specified in ABNF
 >   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) is as follows:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Note**: The compatibility brands ‘ccff’ and ‘iso8’ indicate that fragments conform
 to “Common Container File Format” and Common Encryption [ISO/IEC 23001-7] and
@@ -413,14 +415,18 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 > 
 >   Presentations containing HEVC Streams SHALL set:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Note: Boxes deprecated)
 > 
 >   Presentations SHOULD also set:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Stream Collection: A collection of Stream Description data elements, as
 >   specified in section *3.1.1.1.2*.

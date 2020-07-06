@@ -2,9 +2,9 @@
 title: Using multi-factor Azure Active Directory authentication
 description: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual

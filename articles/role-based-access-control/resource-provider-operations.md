@@ -1353,8 +1353,7 @@ Azure service: Classic deployment model storage
 
 ### Microsoft.DataBox
 
-Azure service: [Azure Data Box](../databox-family/index.md)
-
+Azure service: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
@@ -4135,7 +4134,7 @@ Azure service: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### Microsoft.Databricks
 
-Azure service: [Azure Databricks](../azure-databricks/index.yml)
+Azure service: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
