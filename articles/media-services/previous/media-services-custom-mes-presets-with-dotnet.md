@@ -117,9 +117,11 @@ The following code example uses Media Services .NET SDK to perform the following
 - Create an encoding job.
 - Get a reference to the Media Encoder Standard encoder.
 - Load the custom JSON preset that you created in the previous section. 
-  
-		// Load the JSON from the local file.
-		string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the JSON from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
 
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.

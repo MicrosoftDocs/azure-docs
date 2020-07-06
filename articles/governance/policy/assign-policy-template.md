@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: New policy assignment with templates"
-description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment to identify non-compliant resources.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
-# Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
+# Quickstart: Create a policy assignment to identify non-compliant resources by using an Azure Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks. At the end of this process, you'll successfully identify virtual machines that aren't using managed
-disks. They're _non-compliant_ with the policy assignment.
+machines that aren't using managed disks. At the end of this process, you'll successfully identify
+virtual machines that aren't using managed disks. They're _non-compliant_ with the policy
+assignment.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -65,8 +66,8 @@ Some additional resources:
   [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - To see the template reference, go to
   [Azure template reference](/azure/templates/microsoft.authorization/allversions).
-- To learn how to develop Resource Manager templates, see
-  [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
+- To learn how to develop Resource Manager templates (ARM templates), see
+  [Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
   [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
