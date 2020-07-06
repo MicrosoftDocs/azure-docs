@@ -23,10 +23,11 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Communication Resource](https://review.docs.microsoft.com/en-us/azure/project-spool/quickstarts/create-a-communication-resource?branch=pr-en-us-104477)
 > * Install [Node.js](https://nodejs.org)
+> * Download the [Azure Communication Services - Chat SDK](https://github.com/Azure/communication-preview/releases)
 
 
 ## Install the package
-Install the Azure Communication Service Javascript SDK
+Install the Azure Communication Services Javascript SDK
 
 ```bash
 npm install @ic3/communicationservices-chat
@@ -123,8 +124,4 @@ In this quick start you learned how to:
 > * Create a thread with 2 users
 > * Send a message to the thread
 > * Receive messages from a thread
-
-
-If you want to play around with chat functionality, you can use the [sample app](https://skype.visualstudio.com/SCC/_git/client_crossplatform_spool-sdk?path=%2Fsrc%2FSDK%2Fweb%2Fchat-demo&version=GBmaster) which has all the code specified above and more.
-
 
