@@ -41,6 +41,8 @@
         href: ./move-limitations/app-service-move-limitations.md
       - name: Azure DevOps
         href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+      - name: Azure Automation
+        href: ../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json
       - name: Classic deployment
         href: ./move-limitations/classic-model-move-limitations.md
       - name: Networking

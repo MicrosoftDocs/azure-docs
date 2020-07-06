@@ -65,8 +65,8 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
 
 1. Configure private endpoint access for IoT Hub
-1. Turn off public network access by using IP filter to block all IP
-1. Turn off the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
+1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
+1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
 1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 

@@ -75,7 +75,7 @@ In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) libr
 1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## Author your model
