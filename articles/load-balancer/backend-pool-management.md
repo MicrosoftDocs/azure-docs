@@ -11,11 +11,11 @@ ms.author: errobin
 ---
 
 # Backend Pool Management
-The Backend Pool  is a fundamental component of the Load Balancer which defines the group of compute resource that will serve traffic for a given Load-Balancing rule. By configuring a Backend Pool correctly you will have defined a group of eligible machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
+The Backend Pool  is a fundamental component of the Load Balancer, which defines the group of compute resource that will serve traffic for a given Load-Balancing rule. By configuring a Backend Pool properly, you will have defined a group of eligible machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
 
-In most scenarios involving VMs and VMSSes it is recommended to configuring your Backend Pool by NIC as this builds the most direct link between your resource and the Backend Pool. For scenarios involving containers and Kubernetes Pods which do not have a NIC or for preallocation of a range of IP addresses for Backend resources, you can configure your Backend Pool by IP Address and VNET ID combination.
+In most scenarios involving Virtual Machines and Virtual Machine Scale Sets, it is recommended to configuring your Backend Pool by NIC as this method builds the most direct link between your resource and the Backend Pool. For scenarios involving containers and Kubernetes Pods, that do not have a NIC or for preallocation of a range of IP addresses for Backend resources, you can configure your Backend Pool by IP Address and VNET ID combination.
 
-When configuring by either NIC or IP Address and VNET ID through Portal, the UI will walk you through each step and all configuration updates will be handled in the backend. The configuration sections of this article will focus on Azure PowerShell, CLI, REST API and ARM Templates to give insight into how the Backend Pools are structured for each configuration option.
+When configuring by either NIC or IP Address and VNET ID through Portal, the UI will walk you through each step and all configuration updates will be handled in the backend. The configuration sections of this article will focus on Azure PowerShell, CLI, REST API, and ARM Templates to give insight into how the Backend Pools are structured for each configuration option.
 
 ## Configuring Backend Pool by NIC
 When configuring a Backend Pool by NIC, it is important to keep in mind that the Backend Pool is created as part of the Load Balancer operation and members are added to the Backend Pool as part of the IP Configuration property of their Network Interface during the Network Interface operation. The following examples are focused on the create and populate operations for the Backend Pool to highlight this workflow and relationship.
@@ -393,7 +393,7 @@ Create a Virtual Machine and attached Network Interface. Add the Network Interfa
 ```
 
 ## Configuring Backend Pool by IP Address and Virtual Network
-If you are Load-Balancing to container resources or pre-populating a Backend Pool with a range of IP Addresses, you can leverage IP Address and Virtual Network to route to any valid resource whether or not it has a Network Interface. When configuring via IP address and VNET all Backend Pool management is done directly on the Backend Pool object as highlighted in the examples below.
+If you are Load-Balancing to container resources or pre-populating a Backend Pool with a range of IP Addresses, you can leverage IP Address and Virtual Network to route to any valid resource whether or not it has a Network Interface. When configuring via IP address and VNET, all Backend Pool management is done directly on the Backend Pool object as highlighted in the examples below.
 
 [NOTE!] This feature is currently in preview and has the following limitations:
   * Limit of 100 IP Addresses being added
