@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
+  ms.date: 06/30/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -41,12 +41,18 @@ conceptualContent:
   items: 
     - title: Get connected
       links: 
-        - url: ./core/howto-set-up-template.md
-          itemType: how-to-guide
-          text: Set up a device template 
-        - url: ./core/tutorial-connect-pnp-device.md
+        - url: ./core/overview-iot-central-developer.md
+          itemType: overview
+          text: Overview for device developers 
+        - url: ./core/tutorial-connect-device-nodejs.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play (preview) device
+          text: Connect device
+        - url: ./core/concepts-get-connected.md
+          itemType: concept
+          text: Device connectivity
+        - url: ./core/concepts-device-templates.md
+          itemType: concept
+          text: Device templates
       footerLink: 
         url: ./core/index.yml
         text: See more
