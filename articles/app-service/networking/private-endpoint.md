@@ -123,8 +123,9 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 
 ## Next steps
 
-To deploy Private endpoint for your Web App through the portal, see [How to connect privately to a Web App][howtoguide]
+To deploy Private Endpoint for your Web App through the portal, see [How to connect privately to a Web App Azure Portal][howtoguide1]
 
+To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect privately to a Web App Azure CLI][howtoguide2]
 
 
 
@@ -138,4 +139,5 @@ To deploy Private endpoint for your Web App through the portal, see [How to conn
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-privateendpoint
