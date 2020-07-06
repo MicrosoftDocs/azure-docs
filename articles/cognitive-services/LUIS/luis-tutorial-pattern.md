@@ -243,13 +243,13 @@ In order for a pattern to be matched to an utterance, _first_ the entities withi
 
 ### Query endpoint when patterns are used
 
-Now that the patterns are added to the app, train, publish and query the app at the prediction runtime endpoint.
+Now that the patterns are added to the app, train, publish, and query the app at the prediction runtime endpoint.
 
 1. Select **Train**. After training is complete, select **Publish** and select the **Production** slot then select **Done**.
 
 1. After publishing is complete, switch browser tabs back to the endpoint URL tab.
 
-1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with: `Who is the boss of Jill Jones?`
+1. Go to the end of the URL in the address bar and verify your query is still `Who is the boss of Jill Jones?` then submit the URL for a new prediction.
 
     ```json
     {
@@ -258,50 +258,50 @@ Now that the patterns are added to the app, train, publish and query the app at 
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.9999991
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 6.110738E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -320,9 +320,9 @@ Now that the patterns are added to the app, train, publish and query the app at 
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -339,7 +339,7 @@ Now that the patterns are added to the app, train, publish and query the app at 
     }
     ```
 
-The intent prediction is now significantly more confident and the next highest intent's score is significantly lower. These two intents won't flip-flop when training.
+The intent prediction is now significantly more confident and the next highest intent's score is very low. These two intents won't flip-flop when training.
 
 ### Working with optional text and prebuilt entities
 
@@ -373,7 +373,8 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 **Question: What about poorly phrased utterances such as `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
 
-**Remember: entities are found first, then the pattern is matched.**
+> [!CAUTION]
+> **Remember: entities are found first, then the pattern is matched.**
 
 ### Add new pattern template utterances
 
@@ -391,7 +392,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 4. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high.
 
-    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results. Each utterance should have the **OrgChart-Manager** intent and should extract the values for the entities of Employee and datetimeV2.
+    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results. Each utterance should have the **OrgChart-Manager** intent and should extract the values for the `EmployeeListEntity` and `datetimeV2` entities.
 
     |Utterance|
     |--|
@@ -413,7 +414,7 @@ This use of patterns provided:
 
 Several of the previous template utterances are very close. Use the **group** `()` and **OR** `|` syntax to reduce the template utterances.
 
-The following 2 patterns can combine into a single pattern using the group `()` and OR `|` syntax.
+The following two patterns can combine into a single pattern using the group `()` and OR `|` syntax.
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |--|--|
@@ -425,6 +426,9 @@ The new template utterance will be:
 `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them.
+
+> [!NOTE]
+> When using the _OR_ symbol , `|` (pipe), make sure to separate the pipe symbol with a space before and after it in the example template.
 
 1. On the **Patterns** page, select the **OrgChart-Manager** filter. Narrow the list by searching for `manager`.
 
