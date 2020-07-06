@@ -67,7 +67,7 @@ Now select **Add current client IP address** and then select **Save** . You can 
    
 > Note: Check if you network allows outbound traffc over port 5432 that is used by Azure database for PostgreSQL to avoid connectivity issues.  
 
-## Connect to your server using the psql client in Azure Cloud Shell
+## Connect to PostgreSQL database using psql in Azure Cloud Shell
 If you dont have any postgresql client installed , using [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the portal is the easiest way to connect to your server .  
 - Launch Azure Cloud Shell in the portal by selecting this icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 > Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
