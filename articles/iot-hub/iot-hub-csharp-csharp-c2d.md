@@ -97,7 +97,7 @@ In this article, you create a back-end service to send cloud-to-device messages 
 
 ## Send a cloud-to-device message
 
-Now you write a .NET console app that sends cloud-to-device messages to the device app.
+In this section, you create a .NET console app that sends cloud-to-device messages to the simulated device app.
 
 1. In the current Visual Studio solution, select **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and then select **Next**.
 
@@ -117,25 +117,24 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
    using Microsoft.Azure.Devices;
    ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string you noted previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{device id}` placeholder value with the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) quickstart.
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
+   static string targetDevice = "{device id}";
    ```
 
-1. Add the following method to the **Program** class. Set the device name to what you used when defining the device in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md).
+1. Add the following method to the **Program** class to send a message to your device.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync(targetDevice, commandMessage);
    }
    ```
-
-   This method sends a new cloud-to-device message to the device with the ID, `myFirstDevice`. Change this parameter only if you modified it from the one used in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md).
 
 1. Finally, add the following lines to the **Main** method.
 
