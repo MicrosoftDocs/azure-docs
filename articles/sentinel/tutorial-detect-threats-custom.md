@@ -58,6 +58,7 @@ You can create custom analytic rules to help you search for the types of threats
       > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
 
     1. Use the **Map entities** section to link parameters from your query results to Azure Sentinel-recognized entities. These entities form the basis for further analysis, including the grouping of alerts into incidents in the **Incident settings** tab.
+  
     1. In the **Query scheduling** section, set the following parameters:
 
        1. Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once a day.
@@ -67,16 +68,36 @@ You can create custom analytic rules to help you search for the types of threats
        > [!NOTE]
        > These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
 
-    1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query generates more than 1000 results each time it runs. As this is a required field, if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
+    1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. As this is a required field, if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
     
-    1. Under **Event grouping**, choose how you want the grouping of **events** into **alerts** to be handled. With the default setting, **Group all events into a single alert**, the query returns a single alert every time it runs. The alert includes a count of the number of events represented. The other setting, **Trigger an alert for each event**, tells Azure Sentinel to represent each event in its own unique alert. This is useful if you want to separate the display of events according to a particular criterion - by user, hostname, or others. You can use the query to create the grouping.
+    1. Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
+
+       - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs if the query returns at least one event. The alert includes a count of the number of events represented. 
+
+       - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or others. You can define these parameters in the query.
     
+       Currently the number of alerts a rule can generate is capped at 10. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 10 events, each of the first 9 events will generate a unique alert, and the tenth alert will summarize the entire count of returned events. In other words, the tenth alert is what would have been generated under the **Group all events into a single alert** option.
+
        > [!NOTE]
-       > What is the difference between **Events** and **Alerts**?
+       > What's the difference between **Events** and **Alerts**?
        >
-       > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event.
+       > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event.  In this context an event also refers to a single result returned by a query in an analytics rule.
        >
        > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
+       >
+       > - The flow of events and alerts in Azure Sentinel looks like this:
+       >
+       >    - **Data** flows into Azure Sentinel from connected data sources.
+       >
+       >    - **Rules** run on the **data** to detect threats.
+       >
+       >    - The **rules** execute **queries**.
+       >
+       >    - The **queries** return **events**.
+       >
+       >    - The **rules** generate **alerts** from the **events** (the query results).
+       >
+       >    - Azure Sentinel's internal logic creates **incidents** from the **alerts**. Incidents are cases for investigation and remediation.
        > 
        > Azure Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
     
