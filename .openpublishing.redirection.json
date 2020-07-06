@@ -17079,7 +17079,7 @@
     {
       "source_path": "articles/search/search-api-2017-11-11-preview.md",
       "redirect_url": "https://docs.microsoft.com/azure/search/search-api-preview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-api-indexers-2015-02-28-preview.md",
@@ -55757,6 +55757,11 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/index.md",
+      "redirect_url": "/azure/marketplace/",
       "redirect_document_id": false
     },
     {
