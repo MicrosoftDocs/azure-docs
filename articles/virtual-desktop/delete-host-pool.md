@@ -23,13 +23,13 @@ To delete a host pool using PowerShell, you first need to delete all app groups 
 Remove-AzWvdApplicationGroup -Name <appgroupname> -ResourceGroupName <resourcegroupname>
 ```
 
-Next, run this cmldet to delete the host pool:
+Next, run this cmdlet to delete the host pool:
 
 ```powershell
 Remove-AzWvdHostPool -Name <hostpoolname> -ResourceGroupName <resourcegroupname> -Force:$true
 ```
 
-This cmldet removes all existing user sessions on the host pool's session host. It also unregisters the session host from the host pool. Any related virtual machines (VMs) will still exist within your subscription.
+This cmdlet removes all existing user sessions on the host pool's session host. It also unregisters the session host from the host pool. Any related virtual machines (VMs) will still exist within your subscription.
 
 ## Delete host pool with the Azure portal
 
