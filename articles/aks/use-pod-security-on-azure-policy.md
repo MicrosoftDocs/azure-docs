@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 07/06/2020
 ---
 
-# Secure pods using Azure Policy (Preview)
+# Secure pods with Azure Policy (Preview)
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled and audit for anything running against policy. You define this access using specific policies enabled by the [Azure Policy Add-on][kubernetes-policy-reference]. This article shows you how to use Azure Policy to limit the deployment of pods in AKS.
 
@@ -100,12 +100,17 @@ If the built-in initiatives to address pod security do not match your requiremen
 
 ### Namespace exclusion
 
-AKS requires system pods to run on a cluster to provide critical services, such as DNS resolution. Policies which limit pod functionality can impact the ability system pod stability. As a result, the following namespaces are excluded from policy enforcement by default:
+> [!WARNING]
+> Pods in critical namespaces such as kube-system must run for a cluster to remain healthy, removing a required namespace from the the list of default excluded namespaces may throw policy violations due to a required system pod.
+
+AKS requires system pods to run on a cluster to provide critical services, such as DNS resolution. Policies which limit pod functionality can impact the ability system pod stability. As a result, the following namespaces are **excluded from greenfield and brownfield deployments by default**. This forces new deployments to these namespaces to be excluded from Azure policies.
 
 1. kube-system
 1. gatekeeper-system
 1. azure-arc
 1. aks-periscope
+
+For **brownfield deployments**, additional namespaces can be excluded. This enables pods in a sanctioned namespace to not throw audit violations.
 
 ## Apply the baseline initiative
 
@@ -113,21 +118,23 @@ AKS requires system pods to run on a cluster to provide critical services, such 
 > All policies default to an audit effect. Effects can be updated to deny at any time through Azure Policy.
 
 To apply the baseline initiative, we can assign through the Azure portal.
-
+<!--
 1. Navigate to the Policy service in Azure portal
-1. SIn the left pane of the Azure Policy page, select **Definitions**
+1. In the left pane of the Azure Policy page, select **Definitions**
 1. Search for "Baseline Profile" on the search pane to the right of the page
 1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
-![baseline initiative](media/use-pod-security-on-azure-policy/baseline-initiative.png)
-1. Review the set of baseline policies that these should all be applied
+-->
+1. Click [this link]() to review the pod security baseline initiative
 1. Set the **Scope** to the resource group holding the target AKS cluster with the Azure Policy Add-on enabled
-1. Select the **Parameters** page and update the **Effect** from `audit` to `deny`
+1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative
+1. Add additional namespaces to exclude from **brownfield deployments**, [some namespaces are forcibly excluded from greenfield deployments.](#namespace-exclusion) It is highly recommended to keep the default namespaces excluded from brownfield audits.
 ![update effect](media/use-pod-security-on-azure-policy/update-effect.png)
 1. Select **Review + create**
-1. Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`. Output should similar to:
+
+Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`. Output should be similar to:
 
 ```console
-~ kubectl get constrainttemplate
+$ kubectl get constrainttemplate
 NAME                                     AGE
 k8sazureallowedcapabilities              30m
 k8sazureblockhostnamespace               30m
@@ -237,7 +244,7 @@ Learn how to remove the [Azure Policy Add-on from Azure portal](../governance/po
 
 To migrate from pod security policy you need to take the following actions on a cluster.
 
-1. [Disable pod security policy](use-pod-security-policies.md#clean-up-resource) on the cluster
+1. [Disable pod security policy](use-pod-security-policies.md#clean-up-resources) on the cluster
 1. Enable the [Azure Policy Add-on][kubernetes-policy-reference]
 1. Enable the desired Azure policies from [available built-in policies][policy-samples]
 
@@ -245,19 +252,19 @@ Below is a summary of behavior changes between pod security policy and Azure Pol
 
 |Scenario| Pod security policy | Azure Policy |
 |---|---|---|
-|Installation|Enable PSP Admission Controller|Enable Azure Policy Add-on
-|Deploy policies| Deploy PSP resource| Assign Azure PSP Policies to subscription/resourceGroup scope. Azure Policy Add-on installs the policies.
-| Default policies | When PSP is enabled in AKS, default Privileged, Unrestricted policies are applied | No default policies applied on enabling Azure Policy Add-on. User has to explicitly do an assignment in Azure.
-| Who can create and assign policies | Cluster admin creates PSP resource | In Azure Portal, policies can be assigned at Management group/subscription/resource group level. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource group. Through API, user can assign policies at more granular level at AKS cluster resource scope. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource.
-| Authorizing policies| Users/ServiceAccounts should be given permissions to use PSP policies. | No additional cluster level assignment required. Once policies are assigned in Azure, all cluster users can use these policies.
-| Policy applicability | The admin user bypasses the enforcement of pod security policies. | All users (admin & non-admin) sees the same policies. There is no special casing based on users. Policy applicability can be excluded at namespace level.
-| Policy scope |Cluster scope: PSP resources are not namespaced. | Cluster scope: Constraint templates are not namespaced.
-| Deny/Audit/Mutation action | - Support only deny action - Mutate with default values on create request. - Only validation during update requests.| - Support audit & deny actions. - No mutation for now, planned for later.
-| PSP compliance of cluster | - There is no visibility on compliance of pods that existed before enabling PSPs. - Non-compliant pods created after enabling PSPs are denied. | - Any non-compliant pods that existed before applying PSPs would show up in policy violations. - Non-compliant pods created after enabling PSPs are denied (if policies are installed in deny mode). 
-| How to view policies on the cluster | `kubectl get psp` | `kubectl get constrainttemplate` - All policies including PSPs and non PSPs are listed. - Listing only PSP policies is not supported as of now.
-| PSP standard - Privileged | Privileged PSP resource is created by default by enabling the feature. | Privileged mode implies no restriction. This is equivalent to not having any Azure Policy assignment.
-| [PSP standard - Baseline/default](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | User installs standard PSP baseline resource. | Azure Policy provides an built-in initiative for baseline PSP. User assigns this initiative at cluster scope.
-| [PSP standard - Restricted](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | User installs standard PSP restricted resource. | Azure Policy provides an built-in initiative for restricted PSP. User assigns this initiative at cluster scope.
+|Installation|Enable pod security policy feature |Enable Azure Policy Add-on
+|Deploy policies| Deploy pod security policy resource| Assign Azure policies to the subscription or resource group scope. The Azure Policy Add-on is required for Kubernetes resource applications.
+| Default policies | When pod security policy is enabled in AKS, default Privileged and Unrestricted policies are applied. | No default policies are applied by enabling the Azure Policy Add-on. You must explicitly enable policies in Azure Policy.
+| Who can create and assign policies | Cluster admin creates a pod security policy resource | Users must have a minimum role of 'owner' or 'Resource Policy Contributor' permissions on the AKS cluster resource group. - Through API, users can assign policies at the AKS cluster resource scope. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource. - In Azure Portal, policies can be assigned at the Management group/subscription/resource group level.
+| Authorizing policies| Users and Service Accounts require explicit permissions to use pod security policies. | No additional assignment is required to authorize policies. Once policies are assigned in Azure, all cluster users can use these policies.
+| Policy applicability | The admin user bypasses the enforcement of pod security policies. | All users (admin & non-admin) sees the same policies. There is no special casing based on users. Policy application can be excluded at the namespace level.
+| Policy scope | Pod security policies are not namespaced | Constraint templates used by Azure Policy are not namespaced.
+| Deny/Audit/Mutation action | Pod security policies support only deny actions. Mutatation can be done with default values on create requests. Validation can be done during update requests.| Azure Policy supports both audit & deny actions. Mutation is not supported yet, but planned.
+| Pod security policy compliance | There is no visibility on compliance of pods that existed before enabling pod security policy. Non-compliant pods created after enabling pod security policies are denied. | Non-compliant pods that existed before applying Azure policies would show up in policy violations. Non-compliant pods created after enabling Azure policies are denied if policies are set with a deny effect.
+| How to view policies on the cluster | `kubectl get psp` | `kubectl get constrainttemplate` - All policies are returned.
+| Pod security policy standard - Privileged | A privileged pod security policy resource is created by default when enabling the feature. | Privileged mode implies no restriction, as a result it is equivalent to not having any Azure Policy assignment.
+| [Pod security policy standard - Baseline/default](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | User installs a pod security policy baseline resource. | Azure Policy provides a built-in initiative which maps to the baseline pod security policy.
+| [Pod security policy standard - Restricted](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | User installs a pod security policy restricted resource. | Azure Policy provides a built-in initiative which maps to the restricted pod security policy.
 
 ## Next steps
 
