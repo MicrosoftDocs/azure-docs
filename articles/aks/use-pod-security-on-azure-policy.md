@@ -48,7 +48,7 @@ This document details how to use Azure Policy to secure pods in an AKS cluster a
 
 * During preview, a limit of 200 pods with 20 Azure Policy for Kubernetes policies can run in a single cluster.
 * During preview, excluding custom namespaces is not supported.
-* Policies to secure pods are limited to Linux-based workloads, Windows workloads are not supported.
+* Windows pods are not supported for security enforcement, only Linux pods are supported for security contexts in Azure Policy.
 * Pod security policy and the Azure Policy Add-on for AKS cannot both be enabled. If installing the Azure Policy Add-on into a cluster with pod security policy enabled, disable the pod security policy with the [following instructions](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
 
 ## Azure policies to secure Kubernetes pods
@@ -60,7 +60,7 @@ Each policy can be customized with an effect. A full list of [AKS policies and t
 
 Each policy is applied at the **resource group level**, ensure the target AKS cluster's resource group is selected within scope of the policy. Each cluster in that resource group with the Azure Policy Add-on enabled is in scope for application.
 
-If you are familiar with pod security policy, [learn how the features differ and how to migrate to Azure Policy](#migrate-from-kubernetes-pod-security-policy-to-the-azure-policy).
+If you are familiar with pod security policy, [learn how the features differ and how to migrate to Azure Policy](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### Built-in policy initiatives
 
@@ -76,12 +76,12 @@ Both built-in initiatives are built from definitions used in [pod security polic
 |Usage of host namespaces|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Yes | Yes
 |Usage of host networking and ports|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Yes | Yes
 |Usage of the host filesystem|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Yes | Yes
-|Linux capabilities|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Yes
-|Usage of volume types|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| No | Yes
-|Restricting escalation to root privilege|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | No | Yes |
+|Restrict Linux capabilities|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Yes
+|Usage of volume types|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Yes
+|Restrict escalation to root privilege|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
+|The user and group IDs of the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes |
 |Allow specific FlexVolume drivers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | - | - |
 |Allocating an FSGroup that owns the pod's volumes|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | - |
-|The user and group IDs of the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | - |
 |Requiring the use of a read only root file system|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | - | - |
 |The SELinux context of the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) | - | - |
 |The Allowed Proc Mount types for the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85eb0dd-92ee-40e9-8a76-db25a507d6d3) | - | - |
@@ -108,6 +108,36 @@ AKS requires system pods to run on a cluster to provide critical services, such 
 1. aks-periscope
 
 ## Apply the baseline initiative
+
+> [!TIP]
+> All policies default to an audit effect. Effects can be updated to deny at any time through Azure Policy.
+
+To apply the baseline initiative, we can assign through the Azure portal.
+
+1. Navigate to the Policy service in Azure portal
+1. SIn the left pane of the Azure Policy page, select **Definitions**
+1. Search for "Baseline Profile" on the search pane to the right of the page
+1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
+![baseline initiative](media/use-pod-security-on-azure-policy/baseline-initiative.png)
+1. Review the set of baseline policies that these should all be applied
+1. Set the **Scope** to the resource group holding the target AKS cluster with the Azure Policy Add-on enabled
+1. Select the **Parameters** page and update the **Effect** from `audit` to `deny`
+![update effect](media/use-pod-security-on-azure-policy/update-effect.png)
+1. Select **Review + create**
+1. Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`. Output should similar to:
+
+```console
+~ kubectl get constrainttemplate
+NAME                                     AGE
+k8sazureallowedcapabilities              30m
+k8sazureblockhostnamespace               30m
+k8sazurecontainernoprivilege             30m
+k8sazurecontainernoprivilegeescalation   30m
+k8sazurehostfilesystem                   30m
+k8sazurehostnetworkingports              30m
+k8sazureurluniqueingresshost             60m
+k8sazurevolumetypes                      30m
+```
 
 ## Validate rejection of a privileged pod
 
@@ -137,9 +167,9 @@ kubectl apply -f nginx-privileged.yaml
 As expected the pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl apply -f nginx-privileged.yaml
+$ kubectl apply -f privileged.yaml
 
-Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: []
+Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
 ```
 
 The pod doesn't reach the scheduling stage, so there are no resources to delete before you move on.
@@ -148,25 +178,23 @@ The pod doesn't reach the scheduling stage, so there are no resources to delete 
 
 In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the baseline policy initiative, so the pod fails to start. Let's try now running that same NGINX pod with a specific user context, such as `runAsUser: 2000`.
 
-Create a file named `nginx-unprivileged-nonroot.yaml` and paste the following YAML manifest:
+Create a file named `nginx-unprivileged.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-unprivileged-nonroot
+  name: nginx-unprivileged
 spec:
   containers:
     - name: nginx-unprivileged
       image: nginx:1.14.2
-      securityContext:
-        runAsUser: 2000
 ```
 
 Create the pod using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
 ```console
-kubectl apply -f nginx-unprivileged-nonroot.yaml
+kubectl apply -f nginx-unprivileged.yaml
 ```
 
 The pod is successfully scheduled. When you check the status of the pod using the [kubectl get pods][kubectl-get] command, the pod is *Running*:
@@ -175,7 +203,7 @@ The pod is successfully scheduled. When you check the status of the pod using th
 $ kubectl get pods
 
 NAME                 READY   STATUS    RESTARTS   AGE
-nginx-unprivileged   1/1     Running   0          7m14s
+nginx-unprivileged   1/1     Running   0          18s
 ```
 
 This example shows the baseline initiative affecting only deployments which violate policies in the collection. Allowed deployments continue to function.
@@ -183,16 +211,19 @@ This example shows the baseline initiative affecting only deployments which viol
 Delete the NGINX unprivileged pod using the [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
 
 ```console
-kubectl delete -f nginx-unprivileged-nonroot.yaml
+kubectl delete -f nginx-unprivileged.yaml
 ```
 
 ## Disable policies and the Azure Policy Add-on
 
-To remove the baseline initiative, use the [az policy assignment delete][az-policy-assignment-delete] command.
+To remove the baseline initiative:
 
-```azure-cli
-az policy assignment delete --name <POLICY_NAME> --resource-group <RG_NAME>
-```
+1. Navigate to the Policy pane on the Azure portal
+1. Select **Assignments** from the left pane
+1. Click the "..." button next to the Baseline Profile
+1. Select "Delete assignment"
+
+![Delete assignment](media/use-pod-security-on-azure-policy/delete-assignment.png)
 
 To disable the Azure Policy Add-on, use the [az aks disable-addons][az-aks-disable-addons] command.
 
@@ -206,7 +237,7 @@ Learn how to remove the [Azure Policy Add-on from Azure portal](../governance/po
 
 To migrate from pod security policy you need to take the following actions on a cluster.
 
-1. [Disable pod security policy](use-pod-security-policies.md##clean-up-resource) on the cluster
+1. [Disable pod security policy](use-pod-security-policies.md#clean-up-resource) on the cluster
 1. Enable the [Azure Policy Add-on][kubernetes-policy-reference]
 1. Enable the desired Azure policies from [available built-in policies][policy-samples]
 
