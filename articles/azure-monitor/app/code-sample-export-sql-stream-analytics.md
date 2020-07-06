@@ -153,7 +153,9 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 
 The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```sql
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 In this example:
 
@@ -231,9 +233,10 @@ You can choose whether to start processing the data starting from now, or to sta
 
 After a few minutes, go back to SQL Server Management Tools and watch the data flowing in. For example, use a query like this:
 
-    SELECT TOP 100 *
-    FROM [dbo].[PageViewsTable]
-
+```sql
+SELECT TOP 100 *
+FROM [dbo].[PageViewsTable]
+```
 
 ## Related articles
 * [Export to Power BI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )

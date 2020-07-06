@@ -2,8 +2,8 @@
 title: "Azure SQL Database: Manage long-term backup retention"
 description: "Learn how to store and restore automated backups for an Azure SQL Database single or pooled database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

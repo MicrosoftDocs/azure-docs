@@ -3,8 +3,8 @@ title: Save compute costs with reserved capacity
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how to buy Azure SQL Database and SQL Managed Instance reserved capacity to save on your compute costs.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang:
 ms.topic: conceptual

@@ -55,7 +55,7 @@ Before you select a publishing option, it's important to understand the storefro
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](gtm-your-marketplace-benefits.md). Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|
