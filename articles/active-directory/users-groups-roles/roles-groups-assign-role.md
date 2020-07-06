@@ -44,57 +44,57 @@ For more information on assigning role permissions, see [Assign administrator an
 
 ### Create a group that can be assigned to role
 
-    ```powershell
-    $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
-    ```
+```powershell
+$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
+```
 
 ### Get the role definition for the role you want to assign
 
-    ```powershell
-    $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'" 
-    ```
+```powershell
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'" 
+```
 
 ### Create a role assignment
 
-    ```powershell
-    $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
-    ```
+```powershell
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+```
 
 ## Using Microsoft Graph API
 
 ### Create a group that can be assigned Azure AD role
 
-    ```
-    POST https://graph.microsoft.com/beta/groups 
-    { 
-    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.", 
-    "displayName": "Contoso_Helpdesk_Administrators", 
-    "groupTypes": [ 
-    "Unified" 
-    ], 
-    "mailEnabled": true, 
-    "securityEnabled": true 
-    "mailNickname": "contosohelpdeskadministrators", 
-    "isAssignableToRole": true, 
-    }
-    ```
+```
+POST https://graph.microsoft.com/beta/groups 
+{ 
+"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.", 
+"displayName": "Contoso_Helpdesk_Administrators", 
+"groupTypes": [ 
+"Unified" 
+], 
+"mailEnabled": true, 
+"securityEnabled": true 
+"mailNickname": "contosohelpdeskadministrators", 
+"isAssignableToRole": true, 
+}
+```
 
 ### Get the role definition
 
-    ```
-    GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
-    ```
+```
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
+```
 
 ### Create the role assignment
 
-    ```
-    POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
-    {
-    "principalId":"<Object Id of Group>",
-    "roleDefinitionId":"<ID of role definition>",
-    "resourceScope":"/"
-    }
-    ```
+```
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+{
+"principalId":"<Object Id of Group>",
+"roleDefinitionId":"<ID of role definition>",
+"resourceScope":"/"
+}
+```
 ## Next steps
 
 - [Use cloud groups to manage role assignments](roles-groups-concept.md)
