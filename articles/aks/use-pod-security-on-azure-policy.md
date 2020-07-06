@@ -153,7 +153,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: nginx
       securityContext:
         privileged: true
 ```
@@ -176,7 +176,7 @@ The pod doesn't reach the scheduling stage, so there are no resources to delete 
 
 ## Test creation of an unprivileged pod
 
-In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the baseline policy initiative, so the pod fails to start. Let's try now running that same NGINX pod with a specific user context, such as `runAsUser: 2000`.
+In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the baseline policy initiative, so the pod fails to start. Let's try now running that same NGINX pod without privileged access.
 
 Create a file named `nginx-unprivileged.yaml` and paste the following YAML manifest:
 
@@ -188,7 +188,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: nginx
 ```
 
 Create the pod using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
