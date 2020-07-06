@@ -200,8 +200,10 @@ Test the connection by doing the following steps:
 1. Use remote desktop protocol (RDP) to connect to a SQL Server instance that's in the same virtual network, but does not own the replica. This server can be the other SQL Server instance in the cluster.
 
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 The SQLCMD connection automatically connects to the SQL Server instance that hosts the primary replica. 
 

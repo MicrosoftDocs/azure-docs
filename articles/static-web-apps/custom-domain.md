@@ -24,11 +24,11 @@ When configuring domain names, "A" Records are used to map root domains (for ins
 
 There are a few different types of DNS configurations available for an application.
 
-| If you want to                            | Then                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Support `www.example.com`                 | [Map a CNAME record](#map-a-cname-record)           |
-| Support `example.com`                     | [Configure a root domain](#configure-a-root-domain) |
-| Point all subdomains to `www.example.com` | [Map a wildcard](#map-a-wildcard-domain)                   |
+| If you want to                                 | Then                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Support `www.example.com` or `blog.example.net`| [Map a CNAME record](#map-a-cname-record)           |
+| Support `example.com`                          | [Configure a root domain](#configure-a-root-domain) |
+| Point all subdomains to `www.example.com`      | [Map a wildcard](#map-a-wildcard-domain)            |
 
 ## Map a CNAME record
 

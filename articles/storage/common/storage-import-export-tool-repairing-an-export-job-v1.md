@@ -4,7 +4,7 @@ description: Learn how to repair an export job that was created and run using th
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common

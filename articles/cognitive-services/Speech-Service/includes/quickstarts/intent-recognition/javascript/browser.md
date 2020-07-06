@@ -3,7 +3,7 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Start with some boilerplate code
@@ -154,7 +154,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 ## Create an Audio configuration
 
-Now, you need to create an `AudioConfig` object that points to your input devic3. Insert this code in the `startIntentRecognizeAsyncButton.addEventListener()` method, right below your Speech configuration.
+Now, you need to create an `AudioConfig` object that points to your input device. Insert this code in the `startIntentRecognizeAsyncButton.addEventListener()` method, right below your Speech configuration.
 
 ```JavaScript
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();

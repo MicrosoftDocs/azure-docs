@@ -286,7 +286,7 @@ This Azure Blob Storage on IoT Edge module now provides integration with Event G
 
 Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module
 
-## Feedback
+## Suggestions
 
 Your feedback is important to us to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
 

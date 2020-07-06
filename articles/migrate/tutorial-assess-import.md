@@ -61,7 +61,7 @@ To set up a new Azure Migrate project:
 
 4. In **Getting started**, select **Add tool(s)**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-6. In **PROJECT DETAILS**, specify the project name and the geography in which you want to create the project. For more information:
+6. In **Project details**, specify the project name and the geography in which you want to create the project. For more information:
 
     - Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
     - You can select any target region when you run a migration.
@@ -174,10 +174,21 @@ To verify that the servers appear in the Azure portal after discovery:
 
 You can create two types of assessments by using Server Assessment.
 
-**Assessment type** | **Details** | **Data**
+
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.(concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### Sizing criteria
+
+Server Assessment provides two sizing criteria options:
+
+**Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on performance-data values specified. | **Recommended VM size**: Based on CPU and memory usage data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the input/output per second (IOPS) and throughput of the on-premises disks.
-**As on-premises** | Assessments based on on-premises sizing. | **Recommended VM size**: Based on the server size specified.<br/><br> **Recommended disk type**: Based on the storage-type setting you select for the assessment.
+**Performance-based** | Assessments that make recommendations based on collected performance data | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
+
 
 To run an assessment:
 
@@ -186,24 +197,31 @@ To run an assessment:
 
     ![Assess](./media/tutorial-assess-physical/assess.png)
 
-3. In **Assess servers**, specify a name for the assessment.
+3. In **Assess servers**, specify the assessment name and select the **assessment** type as *Azure VM* if you intend to perform Azure VM assessments or *Azure VMware Solution (AVS)* if you intend to perform AVS assessments.
+
+    ![Assessment Basics](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. In **Discovery source**, select **Machines added via import to Azure Migrate**.
+
 5. Select **View all** to review the assessment properties.
 
     ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
 
-6. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+6. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
 7. In **Add machines to the group**, select servers to add to the group.
-8. Select **Create assessment** to create the group, and then run the assessment.
+8. Click **next** to **Review + create assessment** to review the assessment details.
+9. Click **Create assessment** to create the group, and then run the assessment.
 
     ![Create an assessment](./media/tutorial-assess-physical/assessment-create.png)
 
 9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
 10. Select **Export assessment** to download it as a Microsoft Excel file.
 
-## Review an assessment
+To know more details about **Azure VMware Solution (AVS)** assessment, please refer [here](how-to-create-azure-vmware-solution-assessment.md). 
 
-An assessment describes:
+## Review an Azure VM assessment
+
+An Azure VM assessment describes:
 
 - **Azure readiness**: Whether servers are suitable for migration to Azure.
 - **Monthly cost estimation**: Estimated monthly compute and storage costs for running the servers in Azure.
