@@ -644,4 +644,4 @@ Finally, select **Generate Report** to download the test results and log files f
 
 ## Next step
 
-- [Generate a uniform resource identifiers (URI) for each VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Common SAS URI issues and fixes](common-sas-uri-issues.md)

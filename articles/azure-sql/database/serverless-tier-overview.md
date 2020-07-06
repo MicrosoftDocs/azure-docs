@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/29/2020
+ms.date: 7/6/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,7 +106,7 @@ Autopausing is triggered if all of the following conditions are true for the dur
 
 An option is provided to disable autopausing if desired.
 
-The following features do not support autopausing.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
+The following features do not support autopausing, but do support auto-scaling.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).

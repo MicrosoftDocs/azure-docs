@@ -246,6 +246,8 @@
         href: sql/data-loading-best-practices.md
       - name: Columnstore compression
         href: sql/data-load-columnstore-compression.md
+      - name: Data loading overview
+        href: sql/load-data-overview.md        
     - name: Development
       items:
       - name: Overview
@@ -380,8 +382,10 @@
     items:
     - name: Pipeline runs
       href: monitoring/how-to-monitor-pipeline-runs.md
-    - name: Spark applications
+    - name: Apache Spark applications
       href: monitoring/how-to-monitor-spark-applications.md
+    - name: Apache Spark application details
+      href: monitoring/apache-spark-applications.md
     - name: Synapse SQL
       items:
       - name: Monitor Gen2 cache
