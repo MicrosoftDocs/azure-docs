@@ -298,5 +298,5 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 
 ## See also
 
-* [Recipe: Anomaly Detection](./recipes/anomaly-detector.md)
+* [Recipe: Anomaly Detection](./recipes/anomaly-detection.md)
 * [Recipe: Art Explorer](./recipes/art-explorer.md)
