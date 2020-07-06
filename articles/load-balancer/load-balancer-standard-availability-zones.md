@@ -101,7 +101,7 @@ Other zones who can reach this VM can continue to serve the VM from their respec
 
 Load balancer is flexible in the context of availability zones. You can choose to align to zones or be zone-redundant for each rule. Increased availability can come at the price of increased complexity. Design for availability for optimal performance.
 
-### Automatic zone-redundancy
+### Zone-redundancy
 
 Load Balancer makes it simple to have a single IP as a zone-redundant frontend. A zone-redundant IP address can serve a zonal resource in any zone.  The IP can survive one or more zone failures as long as one zone remains healthy within the region.  Instead, a zonal frontend is a reduction of the service to a single zone and shares fate with the respective zone.
 
