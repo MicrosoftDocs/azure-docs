@@ -3,7 +3,7 @@ title: "PowerShell: Create a managed instance"
 titleSuffix: Azure SQL Managed Instance 
 description: This article provides an Azure PowerShell example script to create a managed instance. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: PowerShell

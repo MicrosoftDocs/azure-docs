@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 > [!IMPORTANT]
 > This deployment plan offers guidance and best practices for deploying Azure AD self-service password reset (SSPR).
 >
-> **If you're and end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
+> **If you're an end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 [Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 

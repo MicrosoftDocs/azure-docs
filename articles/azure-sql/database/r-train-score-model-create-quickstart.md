@@ -46,11 +46,11 @@ The requirements of a linear model are simple:
 > [!TIP]
 > If you need a refresher on linear models, try this tutorial which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-In the following steps you'll set up the training data, create a regression model, train it using the training data, then save the model to a SQL table.
+In the following steps you'll set up the training data, create a regression model, train it using the training data, then save the model to an SQL table.
 
-1. Open **SQL Server Management Studio** and connect to your SQL database.
+1. Open **SQL Server Management Studio** and connect to your database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query a database in Azure SQL Database](connect-query-ssms.md).
 
 1. Create the **CarSpeed** table to save the training data.
 
@@ -134,7 +134,7 @@ In the following steps you'll set up the training data, create a regression mode
 
 Generally, the output of R from the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) is limited to a single data frame. However, you can return outputs of other types, such as scalars, in addition to the data frame.
 
-For example, suppose you want to train a model but immediately view the table of coefficients from the model. To do so, you create the table of coefficients as the main result set, and output the trained model in a SQL variable. You can immediately re-use the model by calling the variable, or you can save the model to a table as shown here.
+For example, suppose you want to train a model but immediately view the table of coefficients from the model. To do so, you create the table of coefficients as the main result set, and output the trained model in an SQL variable. You can immediately re-use the model by calling the variable, or you can save the model to a table as shown here.
 
 ```sql
 DECLARE @model VARBINARY(max)

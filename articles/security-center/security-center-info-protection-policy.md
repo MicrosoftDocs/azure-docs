@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
 
 ---
@@ -70,7 +70,11 @@ To customize the information protection policy for your Azure tenant, you need t
 7. Be sure to click **Save** in the main **Labels** blade to apply all your changes.
  
 After your Information protection policy is fully defined and saved, it will apply to the classification of data on all Azure SQL databases in your tenant.
- 
+
+## Manage SQL information protection using Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): Retrieves the effective tenant SQL information protection policy.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Sets the effective tenant SQL information protection policy.
  
 ## Next steps
  

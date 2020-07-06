@@ -22,9 +22,9 @@ In this tutorial, you learn how to:
 
 You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.
 
-You need an Azure Batch account with an associated storage account.  See any of the Batch Quickstarts articles, such as the [CLI article](https://docs.microsoft.com/azure/batch/quick-create-cli) to create a Batch account.
+You need an Azure Batch account with an associated storage account.  See any of the Batch Quickstarts articles, such as the [CLI article](./quick-create-cli.md) to create a Batch account.
 
-A low-priority core quota of at least 50 cores is required for the VM size and number of VMs specified in this tutorial; the default quota can be used, but a smaller VM size will have to be used which will mean the images take longer to render. The process for requesting an increased core quota is detailed in [this article](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+A low-priority core quota of at least 50 cores is required for the VM size and number of VMs specified in this tutorial; the default quota can be used, but a smaller VM size will have to be used which will mean the images take longer to render. The process for requesting an increased core quota is detailed in [this article](./batch-quota-limit.md).
 
 Finally, [Batch Explorer](https://azure.github.io/BatchExplorer/) has to be installed; it is available for Windows, OSX, and Linux. It is optional, but if [Blender](https://www.blender.org/download/) is installed then the sample model file can be viewed.
 
@@ -141,4 +141,4 @@ When all tasks have completed, the job will be marked as being completed:
 ## Next steps
 * In the ‘Gallery’ section, explore the rendering applications available via Batch Explorer.
 * For each application there are several templates available, which will expand over time.  For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
-* For a comprehensive description of rendering capabilities, see the set of articles [here](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* For a comprehensive description of rendering capabilities, see the set of articles [here](./batch-rendering-service.md).

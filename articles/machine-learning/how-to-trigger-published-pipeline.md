@@ -8,7 +8,7 @@ ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/07/2020
 ms.custom: contperfq4
 

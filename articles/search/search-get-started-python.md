@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
+ms.custom: tracking-python
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks
@@ -64,7 +65,7 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2019-05-06'
+   api_version = '?api-version=2020-06-30'
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```

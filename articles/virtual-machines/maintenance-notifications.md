@@ -4,7 +4,7 @@ description: Overview of maintenance notifications for virtual machines running 
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: shants
 #pmcontact: shants

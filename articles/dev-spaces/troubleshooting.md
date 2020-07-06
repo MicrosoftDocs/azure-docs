@@ -22,6 +22,14 @@ In the CLI, you can output more information during command execution by using th
 
 Azure Dev Spaces also works best when debugging a single instance, or pod. The `azds.yaml` file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the *replicaCount* to configure your application to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
+## Common issues when using Local Process with Kubernetes
+
+### Fail to restore original configuration of deployment on cluster
+
+When using Local Process with Kubernetes, if the Local Process with Kubernetes client crashes or terminates abruptly, the service that Local Process with Kubernetes is redirecting may not be restored to its original state before Local Process with Kubernetes connected to it.
+
+To fix this issue, redeploy the service to your cluster.
+
 ## Common issues when enabling Azure Dev Spaces
 
 ### Error "Failed to create Azure Dev Spaces controller"
@@ -253,7 +261,7 @@ This error occurs because Azure Dev Spaces does not currently support multi-stag
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
-When using [Azure Dev Spaces to connect your AKS cluster to your development machine](how-to/connect.md), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](how-to/local-process-kubernetes-vs-code.md), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
 
 When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
 
@@ -268,7 +276,7 @@ For example, to stop and disable the *Windows BranchCache* service:
 
 ### Error "no AzureAssignedIdentity found for pod:azds/azds-webhook-deployment-\<id\> in assigned state"
 
-When running a service with Azure Dev Spaces on an AKS cluster with a [managed identity](../aks/use-managed-identity.md) and [pod managed identities](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) installed, the process may hang after the *chart install* step. If you inspect the *azds-injector-webhook* in the *azds* name space, you may see this error.
+When running a service with Azure Dev Spaces on an AKS cluster with a [managed identity](../aks/use-managed-identity.md) and [pod managed identities](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) installed, the process may stop responding after the *chart install* step. If you inspect the *azds-injector-webhook* in the *azds* name space, you may see this error.
 
 The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an AAD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
 

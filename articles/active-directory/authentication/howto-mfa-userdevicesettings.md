@@ -28,6 +28,10 @@ If you're assigned the *Authentication Administrator* role you can require users
 1. Choose the user you wish to perform an action on and select **Authentication methods**. At the top of the window, then choose one of the following options for the user:
    - **Reset Password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
    - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
+   
+      > [!NOTE]
+      > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
+   
    - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
 
    ![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)

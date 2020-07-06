@@ -26,6 +26,9 @@ When planning to configure a multi-region Azure Cosmos account with analytical s
 ### Can I choose to enable Synapse Link for only certain region and not all regions in a multi-region account set-up?
 In the preview release, when Synapse Link is enabled for a multi-region account, the analytical store is created in all regions. The underlying data is optimized for throughput and transactional consistency in the transactional store.
 
+### Is backup and restore supported for Synapse Link enabled accounts?
+In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. If you have production workloads that require backup and restore functionality, we recommended not to enable Synapse Link on those database accounts. 
+
 ### Can I disable the Synapse Link feature for my Azure Cosmos account?
 Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have to delete and re-create a new Azure Cosmos account.
 
@@ -100,10 +103,10 @@ Authentication with the analytical store is the same as a transactional store. F
 |Synapse runtime |Current support |
 |---------|---------|
 |Synapse Spark pools | Read, Write (through transactional store), Table, Temporary View |
-|Synapse SQL Serverless    | Read, View (Gated Preview)  |
+|Synapse SQL serverless    | Read, View (Gated Preview)  |
 |Synapse SQL Provisioned   |  Not available |
 
-### Do my Synapse Spark tables sync with my Synapse SQL Serverless tables the same way they do with Azure Data Lake?
+### Do my Synapse Spark tables sync with my Synapse SQL serverless tables the same way they do with Azure Data Lake?
 Currently, this feature is not available.
 
 ### Can I do Spark structured streaming from analytical store?
@@ -114,11 +117,11 @@ Currently Spark structured streaming support for Azure Cosmos DB is implemented 
 ### In the Synapse Studio, how do I recognize if I'm connected to an Azure Cosmos DB container with the analytics store enabled?
 An Azure Cosmos DB container enabled with analytical store has the following icon:
 
-![Azure Cosmos DB container enabled with analytical store- icon](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Azure Cosmos DB container enabled with analytical store- icon":::
 
 A transactional store container will be represented with the following icon:
 
-![Azure Cosmos DB container enabled with transactional store- icon](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB container enabled with transactional store- icon":::
  
 ### How do you pass Azure Cosmos DB credentials from Synapse Studio?
 Currently Azure Cosmos DB credentials are passed while creating the linked service by the user who has access to the Azure Cosmos DB databases. Access to that store is available to other users who have access to the workspace.

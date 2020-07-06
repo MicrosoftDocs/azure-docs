@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
+ms.date: 06/09/2020
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -141,18 +141,15 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. On the **Source data store** page, click on **Create new connection**.
 
-
 1. Under **New Linked Service**, search for **SQL Server**, and then select **Continue**.
 
 1. In the **New Linked Service (SQL Server)** dialog box, under **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
 
+1. In the **Integration Runtime Setup** dialog box, Select **Self-Hosted**. Then select **Continue**.
 
-1. In the **Integration Runtime Setup** dialog box, Select **Self-Hosted**. Then select **Next**.
+   ![Create integration runtime](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Create integration runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. In the **Integration Runtime Setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Next**.
-
+1. In the **Integration Runtime Setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Create**.
 
 1. In the **Integration Runtime Setup** dialog box, select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
 
@@ -211,20 +208,17 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. On the **Summary** dialog, review values for all the settings, and select **Next**.
 
-1. On the **Deployment** page, select **Monitor** to monitor the pipeline or task you created.
+1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
 
-   ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. When the pipeline run completes, you can view the status of the pipeline you created. 
 
-1. On the **Monitor** tab, you can view the status of the pipeline you created. You can use the links in the **Action** column to view activity runs associated with the pipeline run and to rerun the pipeline.
+1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
 
-1. Select the **View Activity Runs** link in the **Actions** column to see activity runs associated with the pipeline run. To see details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To switch back to the **Pipeline Runs** view, select **Pipeline Runs** at the top.
+1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column for more details about copy operation. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
 
 1. Confirm that you see the output file in the **fromonprem** folder of the **adftutorial** container.
 
-
 1. Select the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool by using the editor. Select **Code** to view the JSON code associated with the entity opened in the editor. For details on how to edit these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
-
-   ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## Next steps

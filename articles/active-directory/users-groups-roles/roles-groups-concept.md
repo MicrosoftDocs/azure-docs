@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,7 +24,7 @@ Consider this example: Contoso has hired people across geographies to manage and
 
 ## How this feature works
 
-Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users.
+Create a new Office 365 or security group with the ‘isAssignableToRole’ property set to ‘true’. You could also enable this property when creating a group in the Azure portal by turning on **Azure AD roles can be assigned to the group**. Either way, you can then assign the group to one or more Azure AD roles in the same way as you assign roles to users. A maximum of 200 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 If you do not want members of the group to have standing access to the role, you can use Azure AD Privileged Identity Management. Assign a group aa an eligible member of an Azure AD role. Each member of the group is then eligible to have their assignment activated for the role that the group is assigned to. They can then activate their role assignment for a fixed time duration.
 
@@ -40,7 +40,8 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 - Only Global admins and Privileged role admins can create a role-assignable group (with the "isAssignableToRole" property enabled).
 - It can't be an Azure AD dynamic group; that is, it must have a membership type of "Assigned." Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
--  By default, only Global admins and Privileged role admins can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners. To prevent elevation of privilege, the credentials of the owner of a role-assignable group can be changed only by a Privileged authentication administrator or a Global administrator.
+- By default, only Global admins and Privileged role admins can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
+- To prevent elevation of privilege, the credentials of members and owners of a role-assignable group can be changed only by a Privileged Authentication administrator or a Global administrator.
 - No nesting. A group can't be added as a member of a role-assignable group.
 
 ## Limitations

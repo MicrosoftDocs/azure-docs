@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,11 +22,15 @@ Here are some common questions and troubleshooting tips for assigning roles to g
 
 **Q:** I'm a Groups Administrator but I can't see the **Azure AD roles can be assigned to the group** switch.
 
-**A:** Only Privileged role administrators or Global Administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
+**A:** Only Privileged Role administrators or Global administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
 
 **Q:** Who can modify the membership of groups that are assigned to Azure AD roles?
 
 **A:** By default, only Privileged Role Administrator and Global Administrator manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
+
+**Q**: I am a Helpdesk Administrator in my organization but I can't update password of a user who is a Directory Reader. Why does that happen?
+
+**A**: The user might have gotten Directory Reader by way of a role-assignable group. All members and owners of a role-assignable groups are protected. Only users in the Privileged Authentication Administrator or Global Administrator roles can reset credentials for a protected user.
 
 **Q:** I can't update password of a user. They don't have any higher privileged role assigned. Why is it happening?
 

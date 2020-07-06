@@ -4,7 +4,7 @@ description: Learn how to use Azure DNS to host the reverse DNS lookup zones for
 author: rohinkoul
 
 ms.service: dns
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink

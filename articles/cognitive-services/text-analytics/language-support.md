@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
 > [!IMPORTANT]
-> Version 3.x of the Text Analytics API is currently unavailable in the following regions: Central India, Fairfax, UAE North, South Africa North, China North 2, China East.
+> Version 3.x of the Text Analytics API is currently unavailable in the following regions: Central India, UAE North, China North 2, China East.
 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
@@ -51,7 +51,7 @@ ms.author: aahi
 #### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 currently only supports the English language. If you call NER v3 with a different language, the API will return v2.1 results, provided the language is supported in version 2.1.
+> * NER v3 currently only supports English and Spanish languages. If you call NER v3 with a different language, the API will return v2.1 results, provided the language is supported in version 2.1.
 > * v2.1 only returns the full set of available entities for the English, Chinese-Simplified, French, German, and Spanish languages.  The "Person", "Location" and "Organization" entities are returned for the other supported languages.
 
 | Language               | Language code | v2.1 support | v3 support | Starting with v3 model version: |       Notes        |
@@ -76,7 +76,7 @@ ms.author: aahi
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Russian              |     `ru`      |     ✓      |            |                                 |                    |
-| Spanish               |     `es`      |     ✓      |            |                                 |                    |
+| Spanish               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Swedish               |     `sv`      |     ✓      |            |                                 |                    |
 | Turkish               |     `tr`      |     ✓      |            |                                 |                    |
 

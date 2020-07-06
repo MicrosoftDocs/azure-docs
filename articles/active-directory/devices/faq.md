@@ -174,6 +174,8 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **A:** Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
+
 ---
 
 ### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
@@ -266,6 +268,8 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 ### Q: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
+
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
 
 ---
 

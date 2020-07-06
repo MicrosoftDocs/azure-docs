@@ -4,7 +4,7 @@ description: In this learning path, get started protecting DNS zones and record 
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ---

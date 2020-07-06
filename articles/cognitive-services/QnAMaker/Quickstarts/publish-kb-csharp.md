@@ -4,7 +4,7 @@ description: This C# REST-based quickstart publishes your knowledge base and cre
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#.
 ---
 

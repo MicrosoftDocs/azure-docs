@@ -3,7 +3,7 @@ title: Troubleshoot common Azure Kubernetes Service problems
 description: Learn how to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
+ms.date: 06/20/2020
 ---
 
 # AKS troubleshooting
@@ -26,11 +26,34 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-When using Azure CNI network plugin, AKS allocates IP addresses based on the "--max-pods" per node parameter. The subnet size must be greater than number of nodes times the max pods per node setting. The following equation outlines it:
+This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
+Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node set.
+These errors are also surfaced in [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics) which proactively surfaces issues such as an insufficient subnet size.
 
-For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+The following three (3) cases cause an insufficient subnet size error:
+
+1. AKS Scale or AKS Nodepool scale
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** the `number of new nodes requested`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+1. AKS Upgrade or AKS Nodepool upgrade
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of buffer nodes needed to upgrade`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
+   
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview) which will increase the number of available IPs needed to complete an upgrade.
+
+1. AKS create or AKS Nodepool add
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+The following mitigation can be taken by creating new subnets. The permission to create a new subnet is required for mitigation due to the inability to update an existing subnet's CIDR range.
+
+1. Rebuild a new subnet with a larger CIDR range sufficient for operation goals:
+   1. Create a new subnet with a new desired non-overlapping range.
+   1. Create a new nodepool on the new subnet.
+   1. Drain pods from the old nodepool residing in the old subnet to be replaced.
+   1. Delete the old subnet and old nodepool.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -41,6 +64,19 @@ There might be various reasons for the pod being stuck in that mode. You might l
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
+AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
+
+- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
+- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail.
+- **Is your current IP covered by [API IP Authorized Ranges](api-server-authorized-ip-ranges.md)?** If you're using this feature and your IP is not included in the ranges your calls will be blocked. 
+- **Do you have a client or application leaking calls to the API server?** Make sure to use watches instead of frequent get calls and that your third-party applications aren't leaking such calls. For example, a bug in the Istio mixer causes a new API Server watch connection to be created every time a secret is read internally. Because this behavior happens at a regular interval, watch connections quickly accumulate, and eventually cause the API Server to become overloaded no matter the scaling pattern. https://github.com/istio/istio/issues/19481
+- **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
 
 Enabling role-based access control (RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
@@ -48,12 +84,6 @@ Enabling role-based access control (RBAC) on existing clusters isn't supported a
 ## I created a cluster with RBAC enabled and now I see many warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
 
 The reason for the warnings is the cluster has RBAC enabled and access to the dashboard is now restricted by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
-
-## I can't connect to the dashboard. What should I do?
-
-The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
-
-If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 

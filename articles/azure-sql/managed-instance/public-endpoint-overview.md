@@ -1,8 +1,8 @@
 ---
-title: Secure managed instance public endpoints
+title: Secure Azure SQL Managed Instance public endpoints
 description: "Securely use public endpoints in Azure SQL Managed Instance"
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ---
-# Use  Azure SQL Managed Instance securely with public endpoints
+# Use Azure SQL Managed Instance securely with public endpoints
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance can provide user connectivity over [public endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
