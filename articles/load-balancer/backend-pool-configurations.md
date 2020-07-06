@@ -12,7 +12,7 @@ ms.author: errobin
 
 # Backend Pool Management
 
-The Backend Pool of the Load Balancer is a fundamental component which defines the group of compute resource that will serve traffic for a given Load Balancing rule. By configuring a Backend Pool correctly you will have defined a group of eligble machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
+The Backend Pool  is a fundamental component of the Load Balancer which defines the group of compute resource that will serve traffic for a given Load Balancing rule. By configuring a Backend Pool correctly you will have defined a group of eligble machines to serve traffic. There are two ways of configuring a Backend Pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
 
 In most scenarios involving VMs and VMSSes it is recommended to configuring your Backend Pool by NIC as this builds the most direct link between your resource and the Backend Pool. For scenarios involving containers and Kubernetes Pods which do not have a NIC or for preallocation of a range of IP addresses for Backend resources, you can configure your Backend Pool by IP Address and VNET ID combination.
 
@@ -116,9 +116,69 @@ JSON Request Body:
 
 
 ### PowerShell
+Create a new Backend Pool: 
+```
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup	-LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+```
+
+Create a new Network Interface and add it to the Backend Pool:
+```
+$nicVM1 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
+  -Name 'MyNic1' -PublicIpAddress $RdpPublicIP_1 -LoadBalancerBackendAddressPool $bepool -Subnet $vnet.Subnets[0]
+```
+
+Retrieve the Backend Pool to confirm the Network Interface has been correctly added:
+```
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $bePool  
+```
+
+Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
+```
+# Create a username and password for the virtual machine
+$cred = Get-Credential
+
+# Create a virtual machine configuration
+$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 `
+ | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred `
+ | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
+ | Add-AzVMNetworkInterface -Id $nicVM1.Id
+ 
+# Create a virtual machine using the configuration
+$vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+```
 
 
+  
 ### CLI
+Create the Backend Pool:
+```
+az network lb address-pool create \ 
+  --lb-name myLB \
+  --name myBackendPool \
+```
+
+Create a new Network Interface and add it to the Backend Pool:
+```
+az network nic create \
+  --resource-group myResourceGroup \
+  --name myNic \
+  --vnet-name myVnet \
+  --subnet mySubnet \
+  --network-security-group myNetworkSecurityGroup \
+  --lb-name myLB \
+  --lb-address-pools myBackEndPool
+```
+
+Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
+```
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --nics myNic \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
 
 ### ARM Template
 
@@ -309,4 +369,33 @@ JSON Configuration file:
           }
         ]
 ```
+
+Retrieve the Backend Pool to confirm the IP address have been correctly added:
+```
+az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+```
+
+Create a new Network Interface and add it to the Backend Pool:
+```
+az network nic create \
+  --resource-group myResourceGroup \
+  --name myNic \
+  --vnet-name myVnet \
+  --subnet mySubnet \
+  --network-security-group myNetworkSecurityGroup \
+  --lb-name myLB \
+  --private-ip-address 10.0.0.4
+```
+
+Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
+```
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --nics myNic \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
 ### ARM Template
