@@ -463,7 +463,8 @@ Rotation of CMK requires explicit update to the *Cluster* resource with the new 
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## CMK configuration for queries 
+## Saving queries protected with CMK
+
 The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved searches* and *log-alerts* queries in your own storage account that you connect to your workspace. 
 
 > NOTE
@@ -481,6 +482,7 @@ With Bring Your Own Storage (BYOS), the service uploads queries into the storage
 * Pin to dashboard isn't supported
 
 **Configuration of BYOS for queries**
+
 Associate a storage account with *Query* dataSourceType to your workspace. 
 
 ```powershell
