@@ -1,5 +1,5 @@
 ---
-title: CLI: Deploy Private Endpoint for Web App with Azure CLI
+title: 'CLI: Deploy Private Endpoint for Web App with Azure CLI'
 description: Learn how to use the Azure CLI to deploy Private Endpoint for your Web App
 author: ericgre
 ms.assetid: a56faf72-7237-41e7-85ce-da8346f2bcaa
@@ -37,7 +37,12 @@ Create an App Service Plan with [az appservice plan create](/cli/azure/appservic
 This example creates App Service Plan named *myAppServicePlan* in the *francecentral* location with *P1V2* sku and only one worker: 
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location francecentral --sku P1V2 --number-of-workers 1
+az appservice plan create \
+--name myAppServicePlan \
+--resource-group myResourceGroup \
+--location francecentral \
+--sku P1V2 \
+--number-of-workers 1
 ```
 
 ## Create a Web App
