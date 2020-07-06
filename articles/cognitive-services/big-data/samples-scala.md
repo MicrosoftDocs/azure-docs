@@ -12,8 +12,7 @@ ms.author: marhamil
 
 # Quick Examples
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark.
- The samples below are in Scala.
+The following snippets are ready to run and will help get you started with using Cognitive Services on Spark. The samples below are in Scala.
 
 The samples use these Cognitive Services:
 
@@ -22,20 +21,18 @@ The samples use these Cognitive Services:
 - Bing Image Search - search the web for images related to a natural language query.
 - Speech-to-text - transcribe audio files to extract text-based transcripts.
 - Anomaly Detector - detect anomalies within a time series data.
-- Arbitrary Web APIs - collect information about countries with the World Bank API.
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. 
-This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
-1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
+1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
+1. After you create a new notebook in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
 1. Choose the run button (triangle icon) in the upper right corner of the cell, then select **Run Cell**.
 1. View results in a table below the cell.
 
 ## Shared code
-To get started, first we need to import the 
+To get started, add this code to your project:
 
 ```scala
 import com.microsoft.ml.spark.cognitive._
@@ -46,12 +43,8 @@ val location = "eastus"
 ```
 
 ## Text Analytics
-The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 
-service provides several algorithms for extracting intelligent insights from text. 
-For example, we can find the sentiment of given input text. 
-The service will return a score between 0.0 and 1.0 where low scores
- indicate negative sentiment and high score indicates positive sentiment. 
- The sample below uses three simple sentences and returns the sentiment for each.
+
+The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between `0.0` and `1.0` where low scores indicate negative sentiment and high score indicates positive sentiment.  The sample below uses three simple sentences and returns the sentiment score for each.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -84,7 +77,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 ## Computer Vision
 
 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
- In this sample, we "tag" a list of images. "Tags" are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+ In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```scala
 // Create a dataframe with the image URLs
@@ -120,10 +113,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) 
-searches the web to retrieve images related to a user's natural language query. 
-In this sample, we use a text query that looks for images with quotes. 
-It returns a list of image URLs that contain photos related to our query.
+[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 
 ```scala
@@ -200,9 +190,8 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 | https://mmlspark.blob.core.windows.net/datasets/Speech/audio3.mp3 | I like the reassurance for radio that I can hear it as well. |
 
 ## Anomaly Detector
-[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) 
-is great for detecting irregularities in your time series data. 
-In this sample, we use the service to find anomalies in the entire time series.
+
+[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

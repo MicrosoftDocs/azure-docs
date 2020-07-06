@@ -25,7 +25,7 @@ The samples in this article use these Cognitive Services:
 ## Prerequisites
 
 1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial shows you how to install MMLSpark and how to create your Spark cluster in Databricks.
-1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
+1. After you create a new notebook in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
 1. Choose the run button (triangle icon) in the upper right corner of the cell, then select **Run Cell**.
