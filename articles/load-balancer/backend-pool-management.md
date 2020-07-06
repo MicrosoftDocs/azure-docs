@@ -425,7 +425,7 @@ Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -Loa
 Create a Network Interface and add it to the Backend Pool by setting the IP Address to one of the Backend Addresses:
 ```
 $nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -PublicIpAddress $RdpPublicIP_1 -PrivateIpAddress 10.0.0.4 -Subnet $vnet.Subnets[0]
+  -Name 'MyNic' -PrivateIpAddress 10.0.0.4 -Subnet $vnet.Subnets[0]
 ```
 
 Create a VM and attach the NIC with an IP Address in the Backend Pool:
