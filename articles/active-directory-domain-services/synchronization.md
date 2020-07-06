@@ -75,6 +75,7 @@ The following table illustrates how specific attributes for user objects in Azur
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
+| proxyAddress | proxyAddress |
 | state |st |
 | streetAddress |streetAddress |
 | surname |sn |
