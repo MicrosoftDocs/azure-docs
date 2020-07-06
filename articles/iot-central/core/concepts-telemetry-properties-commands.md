@@ -31,9 +31,9 @@ For sample device code that shows some of these payloads in use, see the [Create
 
 ## Telemetry
 
-### Simple types
+### Primitive types
 
-This section shows examples of simple telemetry types that a device streams to an IoT Central application.
+This section shows examples of primitive telemetry types that a device streams to an IoT Central application.
 
 The following snippet from a DCM shows the definition of a `boolean` telemetry type:
 
@@ -130,7 +130,7 @@ The following snippet from a DCM shows the definition of a `dateTime` telemetry 
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example:
+A device client should send the telemetry as JSON that looks like the following example - `DateTime` types must be ISO 8061 compliant:
 
 ```json
 { "DateTimeTelemetry": "2020-08-30T19:16:13.853Z" }
@@ -150,7 +150,7 @@ The following snippet from a DCM shows the definition of a `duration` telemetry 
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example:
+A device client should send the telemetry as JSON that looks like the following example - durations must be ISO 8601 Duration compliant:
 
 ```json
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
@@ -249,9 +249,9 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
   "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
-    "en": "ObjectTelelmetry"
+    "en": "ObjectTelemetry"
   },
-  "name": "ObjectTelelmetry",
+  "name": "ObjectTelemetry",
   "schema": {
     "@id": "<element id>",
     "@type": "Object",
@@ -327,11 +327,11 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example. Possible values for `Property3` are `0`, `1`, and that display in IoT Central as `Item1`, `Item2`, and `Item3`:
+A device client should send the telemetry as JSON that looks like the following example. `DateTime` types must be ISO 8061 compliant. Possible values for `Property3` are `0`, `1`, and that display in IoT Central as `Item1`, `Item2`, and `Item3`:
 
 ```json
 {
-  "ObjectTelelmetry": {
+  "ObjectTelemetry": {
       "Property1": "2020-09-09T03:36:46.195Z",
       "Property2": 37,
       "Property3": 2
@@ -450,9 +450,9 @@ A device client should send the state as JSON that looks like the following exam
 
 ## Properties
 
-### Simple types
+### Primitive types
 
-This section shows examples of simple property types that a device sends to an IoT Central application.
+This section shows examples of primitive property types that a device sends to an IoT Central application.
 
 The following snippet from a DCM shows the definition of a `boolean` property type:
 
@@ -508,7 +508,7 @@ The following snippet from a DCM shows the definition of a `date` property type:
 }
 ```
 
-A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
+A device client should send a JSON payload that looks like the following example as a reported property in the device twin. `Date` types must be ISO 8061 compliant:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -528,7 +528,7 @@ The following snippet from a DCM shows the definition of a `duration` property t
 }
 ```
 
-A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
+A device client should send a JSON payload that looks like the following example as a reported property in the device twin - durations must be ISO 8601 Duration compliant:
 
 ```json
 { "DurationProperty": "PT10H24M6.169083011336625S" }
@@ -766,20 +766,20 @@ The device receives the following payload from IoT Central:
 
 ```json
 {  
-  StringPropertyWritable: { value: "A string from IoT Central" },
+  "StringPropertyWritable": { "value": "A string from IoT Central" },
   "$version": 7
 }
 ```
 
-The device sends the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
+The device should send the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
 
 ```json
 {
-  StringPropertyWritable: {
-    value: "A string from IoT Central",
-    statusCode: 200,
-    status: "completed",
-    desiredVersion: 7
+  "StringPropertyWritable": {
+    "value": "A string from IoT Central",
+    "statusCode": 200,
+    "status": "completed",
+    "desiredVersion": 7
   }
 }
 ```
@@ -839,20 +839,20 @@ The device receives the following payload from IoT Central:
 
 ```json
 {  
-  EnumPropertyWritable: { value: 1 },
+  "EnumPropertyWritable": { "value": 1 },
   "$version": 10
 }
 ```
 
-The device sends the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
+The device should send the following JSON payload to IoT Central after it processes the update. This message includes the version number of the original update received from IoT Central. When IoT Central receives this message, it marks the property as **synced** in the UI:
 
 ```json
 {
-  EnumPropertyWritable: {
-    value: 1,
-    statusCode: 200,
-    status: "completed",
-    desiredVersion: 10
+  "EnumPropertyWritable": {
+    "value": 1,
+    "statusCode": 200,
+    "status": "completed",
+    "desiredVersion": 10
   }
 }
 ```
@@ -861,7 +861,7 @@ The device sends the following JSON payload to IoT Central after it processes th
 
 ## Synchronous command types
 
-The following snippet from a DCM shows the definition of a synchronous command that has no parameters and that doesn"t expect the device to return anything:
+The following snippet from a DCM shows the definition of a synchronous command that has no parameters and that doesn't expect the device to return anything:
 
 ```json
 {
@@ -876,7 +876,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
 }
 ```
 
-The device receives an empty payload in the request and returns an empty payload in the response with a `200` HTTP response code to indicate success.
+The device receives an empty payload in the request and should return an empty payload in the response with a `200` HTTP response code to indicate success.
 
 The following snippet from a DCM shows the definition of a synchronous command that has an integer parameter and that expects the device to return an integer value:
 
@@ -911,7 +911,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
 }
 ```
 
-The device receives an integer value as the request payload. The device returns an integer value as the response payload with a `200` HTTP response code to indicate success.
+The device receives an integer value as the request payload. The device should return an integer value as the response payload with a `200` HTTP response code to indicate success.
 
 The following snippet from a DCM shows the definition of a synchronous command that has an object parameter and that expects the device to return an object. In this example, both objects have integer and string fields:
 
@@ -1001,13 +1001,13 @@ The following snippet from a DCM shows the definition of a synchronous command t
 The following snippet shows an example request payload sent to the device:
 
 ```json
-{ Field1: 56, Field2: "A string value" }
+{ "Field1": 56, "Field2": "A string value" }
 ```
 
 The following snippet shows an example response payload sent from the device. Use a `200` HTTP response code to indicate success:
 
 ```json
-{ Field1: 87, Field2: "Another string value" }
+{ "Field1": 87, "Field2": "Another string value" }
 ```
 
 ### Asynchronous command types
@@ -1045,14 +1045,14 @@ The following snippet from a DCM shows the definition of an asynchronous command
 }
 ```
 
-The device receives an integer value as the request payload. The device returns an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for asynchronous processing.
+The device receives an integer value as the request payload. The device should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for asynchronous processing.
 
-When the device has finished processing the request, it sends a property to IoT Central that looks like the following example. The property name must be the same as the command name:
+When the device has finished processing the request, it should send a property to IoT Central that looks like the following example. The property name must be the same as the command name:
 
 ```json
 {
-  AsynchronousCommandSimple: {
-    value: 87
+  "AsynchronousCommandSimple": {
+    "value": 87
   }
 }
 ```
