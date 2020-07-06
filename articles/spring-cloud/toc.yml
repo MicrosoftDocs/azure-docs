@@ -18,18 +18,16 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutorials
   items:
-    - name: Manually scale an application
+    - name: Manually scale an app
       href: spring-cloud-tutorial-scale-manual.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Use IntelliJ to deploy applications
+    - name: Use IntelliJ to deploy apps
       href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Circuit Breaker Dashboard
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Use IntelliJ to deploy apps
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: CI/CD with Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Samples
@@ -47,7 +45,7 @@
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
     - name: Security controls
       href: spring-cloud-concept-security-controls.md
-    - name: Understand app status in Azure Spring Cloud
+    - name: Understand app status
       href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
