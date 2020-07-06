@@ -18,9 +18,34 @@ As Azure infrastructure improves, Microsoft will periodically refresh hardware t
 
 Customers will be notified via email and in the Azure portal well in advance of any change to gateways available in each region. The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
 
-## Impact of this change
+## August 3, 2020
 
-The first round of traffic migration to newer gateways  is scheduled for **October 14, 2019** in the following regions:
+# [In progress](#tab/in-progress-ip)
+
+The following gateways are currently in the process of being migrated:
+
+- Australia East
+- Canada Central
+- North Europe
+- West US 2
+
+
+# [Completed](#tab/completed-ip)
+
+There are currently no gateway migrations that are complete, all are currently in progress. 
+
+# [Archived](#tab/archived-ip)
+
+There have been no gateways archived during this update thus far. 
+
+
+## October 14, 2019
+
+# [In progress](#tab/in-progress-ip)
+
+There are currently no gateway migrations in progress, all gateway migrations have completed. 
+
+# [Completed](#tab/completed-ip)
 
 - Brazil South
 - West US
@@ -35,6 +60,14 @@ The first round of traffic migration to newer gateways  is scheduled for **Octob
 - Japan East
 - East US 2
 - East Asia
+
+# [Archived](#tab/archived-ip)
+
+There have been no gateways archived during this update thus far. 
+
+---
+
+## Impact of this change
 
 The traffic migration will change the public IP address that DNS resolves for your database in Azure SQL Database.
 You will be impacted if you have:
