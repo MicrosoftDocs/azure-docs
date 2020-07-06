@@ -28,9 +28,9 @@ Azure delegated resource management allows greater flexibility to manage resourc
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-The Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) show the **tenantID** for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
+The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) show the **tenantID** for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
 
-Similarly, Azure CLI commands such as [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
 
 > [!TIP]
 > If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
@@ -55,6 +55,10 @@ Most tasks and services can be performed on delegated resources across managed t
 - Back up and restore customer data in customer tenants
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
+
+[Azure Cost Management + Billing](../../cost-management-billing/index.yml):
+
+- From the managing tenant, CSP partners can view, manage and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure RBAC access that the partner has for the customer's subscription.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
@@ -138,7 +142,6 @@ With all scenarios, please be aware of the following current limitations:
 - Role assignments must use role-based access control (RBAC) [built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 - While you can onboard subscriptions that use Azure Databricks, users in the managing tenant can't launch Azure Databricks workspaces on a delegated subscription at this time.
 - While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can't create their own deny assignments (user-assigned deny assignments).
-- Users in the managing tenant will not have access to view billing info for a delegated customer subscription, even if they have a built-in role that would typically allow access. This is because access to billing information requires additional steps that are currently only supported for users within the same tenant.
 
 ## Next steps
 

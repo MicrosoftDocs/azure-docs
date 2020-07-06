@@ -5,7 +5,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2020
+ms.date: 06/22/2020
 ms.author: diberry
 ---
 

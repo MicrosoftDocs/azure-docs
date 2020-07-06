@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the [OpenID Conne
 
 The **Name** attribute of the **Protocol** element needs to be set to `OpenIdConnect`. For example, the protocol for the **MSA-OIDC** technical profile is `OpenIdConnect`:
 
-```XML
+```xml
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
@@ -35,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 
 The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>

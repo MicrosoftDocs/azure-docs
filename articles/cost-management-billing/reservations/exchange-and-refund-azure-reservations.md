@@ -4,7 +4,7 @@ description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/01/2020
 ms.author: banders
 ---
 
@@ -17,7 +17,7 @@ Self-service exchange and cancel capability isn't available for US Government En
 You must have owner access on the Reservation Order to exchange or refund an existing reservation. You can [Add or change users who can manage a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
 
 > [!NOTE]
-> Microsoft is not currently charging early termination fees on reservation refunds. We might charge the fees on refunds made in the future. We currently don't have a date for enabling this fee.
+> Microsoft is not currently charging early termination fees for reservation refunds. We might charge the fees for refunds made in the future. We currently don't have a date for enabling the fee.
 
 ## How to exchange or refund an existing reservation
 
@@ -70,8 +70,8 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 
 **Refund policies**
 
-- We're currently not charging early termination fee, but in the future there might be a 12% fee for cancellations.
-- Total canceled commitment can't exceed 50,000 USD in a 12-month rolling window. Example: for a three-year reservation that's 100 USD per month and refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from this refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation will deplete the same pool, and the same replenishment logic will apply.
+- We're currently not charging an early termination fee, but in the future there might be a 12% early termination fee for cancellations.
+- Total cancelled commitment can't exceed 50,000 USD in a 12-month rolling window. Example: for a three-year reservation that's 100 USD per month and refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from this refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation will deplete the same pool, and the same replenishment logic will apply.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

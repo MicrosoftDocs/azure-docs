@@ -6,7 +6,7 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan

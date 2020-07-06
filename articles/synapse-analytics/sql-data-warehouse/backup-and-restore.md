@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -102,4 +102,4 @@ You can [restore your SQL pool](sql-data-warehouse-restore-from-geo-backup.md#re
 
 ## Next steps
 
-For more information about disaster planning, see [Business continuity overview](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+For more information about restore points, see [User-defined restore points](sql-data-warehouse-restore-points.md)
