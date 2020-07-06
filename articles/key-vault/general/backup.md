@@ -36,7 +36,7 @@ Attempting to use the commands shown in the document below to create custom auto
 * Backup creates a point-in-time snapshot. Secrets may renew during a backup causing a mismatch of encryption keys.
 * Exceeding key vault service limits for requests per second will cause your key vault to be throttled and will cause the backup to fail.
 
-## Design Considerations
+## Design considerations
 
 When you back up an object stored in key vault (secret, key, or certificate) the backup operation downloads the object as an encrypted blob. This blob cannot be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure Subscription and Azure Geography.
 [Azure Geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
@@ -47,7 +47,7 @@ When you back up an object stored in key vault (secret, key, or certificate) the
 * A primary key vault containing secrets you want to back up
 * A secondary key vault where secrets will be restored.
 
-## Backup and Restore Using Azure portal
+## Backup and restore using Azure portal
 
 ### Backup
 
