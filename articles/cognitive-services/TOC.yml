@@ -77,7 +77,7 @@
   - name: Recipes
     items:
     - name: "Recipe: Anomaly Detector"
-      href: ./big-data/recipes/anomaly-detector.md
+      href: ./big-data/recipes/anomaly-detection.md
     - name: "Recipe: Art Explorer"
       href: ./big-data/recipes/art-explorer.md
 - name: Resources
