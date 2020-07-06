@@ -285,12 +285,15 @@ If you used custom installation, set the permissions manually by doing the follo
 6. Are the domain controllers reachable by Azure AD Connect? If the Connect server cannot connect to all domain controllers, configure **Only use preferred domain controller**.  
     
     ![Domain controller used by Active Directory connector](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Go back to **Synchronization Service Manager** and **Configure Directory Partition**. 
  
 8. Select your domain in **Select directory partitions**, select the **Only use preferred domain controllers** check box, and then click **Configure**. 
 
 9. In the list, enter the domain controllers that Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
+
+> [!NOTE]
+> To apply these changes, restart the **Microsoft Azure AD Sync** (ADSync) service.
 
 10. If the script shows that there is no heartbeat, run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 

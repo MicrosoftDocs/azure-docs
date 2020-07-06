@@ -298,7 +298,7 @@ In this quickstart, you learned how to upload, list, and delete blobs using Java
 For tutorials, samples, quickstarts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript documentation](/azure/javascript/)
+> [Azure for JavaScript documentation](/azure/developer/javascript/)
 
 * To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
