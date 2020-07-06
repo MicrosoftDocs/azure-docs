@@ -214,7 +214,7 @@ public void Process(ITelemetry item)
    appInsights.addTelemetryInitializer(filteringFunction);
    ```
 
-## Add or modify properties: ITelemetryInitializer
+## Add/modify properties: ITelemetryInitializer
 
 Use telemetry initializers to enrich telemetry with additional information or to override telemetry properties set by the standard telemetry modules.
 
