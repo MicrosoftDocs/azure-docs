@@ -140,4 +140,4 @@ To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
-[howtoguide2]: https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
