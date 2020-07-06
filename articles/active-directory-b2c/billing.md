@@ -139,12 +139,12 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ### Move by un-linking and re-linking
 
-If the source and destination subscriptions have different Azure Active Directory tenants associated with them, you cannot perform the move via Azure Resource Manager as explained above. However, you can still achieve the same end result by un-linking the Azure AD B2C tenant from the source subscription and re-linking it to the destination subscription. This is safe to do as the only object you delete is the _billing link_, not the actual Azure AD B2C tenant itself (i.e. none of the users, apps, user flows etc will be affected).
+If the source and destination subscriptions are associated with different Azure Active Directory tenants, you can't perform the move via Azure Resource Manager as explained above. However, you can still achieve the same end result by un-linking the Azure AD B2C tenant from the source subscription and re-linking it to the destination subscription. This method is safe because the only object you delete is the *billing link*, not the Azure AD B2C tenant itself. None of the users, apps, user flows, etc. will be affected.
 
-1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Azure Active Directory tenant (the one that the destination Azure subscription is linked to) and ensure this user has the **Global administrator** role in Azure AD B2C.
-1. Navigate to the _Azure resource_ representing Azure AD B2C in your source Azure subscription as explained in the [Manage your Azure AD B2C tenant resources](#manage-your-azure-ad-b2c-tenant-resources) section above (i.e. do not switch to the actual Azure AD B2C tenant).
-1. Click the **Delete** button on the **Overview** page. As the next page calls out, this will _not_ delete the related Azure AD B2C tenant's users or applications: it merely removes the billing link from the source subscription.
-1. In the Azure Portal, navigate to the destination Azure subscription (which is linked to the destination Azure Active Directory tenant) as the user that was added as an administrator in Azure AD B2C in step 1.
+1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Azure AD tenant (the one that the destination Azure subscription is linked to) and ensure this user has the **Global administrator** role in Azure AD B2C.
+1. Navigate to the *Azure resource* representing Azure AD B2C in your source Azure subscription as explained in the [Manage your Azure AD B2C tenant resources](#manage-your-azure-ad-b2c-tenant-resources) section above. Don't switch to the actual Azure AD B2C tenant.
+1. Click the **Delete** button on the **Overview** page. This does *not* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
+1. Sign in to the Azure portal with the user account that was added as an administrator in Azure AD B2C in step 1. Then navigate to the destination Azure subscription, which is linked to the destination Azure Active Directory tenant. 
 1. Re-establish the billing link in the destination subscription by following the [Create the link](#create-the-link) procedure above.
 1. Your Azure AD B2C resource has now moved to the destination Azure subscription (linked to the target Azure Active Directory) and will be billed through this subscription going forward.
 
