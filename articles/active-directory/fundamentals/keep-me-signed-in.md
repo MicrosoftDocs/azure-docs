@@ -54,6 +54,17 @@ You can stop users from seeing the interrupt by setting the **Show option to rem
 
 You also can use the persistent browser session controls in conditional access to prevent users from seen the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for the remaining users in the directory. For more information, see [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
 
+
+Here are some known scenarios for which KMSI prompt will not be shown intentionally (by design). This ensures the KMSI prompt is only shown during valid scenarios that can benefit the end user.
+
+* User logged on via seamless SSO and windows integrated authentication
+* User logged on via AD FS and windows integrated authentication
+* User is a guest in the tenant
+* User risk score is high
+* Logon during user or admin consent flow
+* Persistent browser session control is configured in a conditional access policy
+
+
 ## Next steps
 
 Learn about other settings that affect sign-in session timeout:
