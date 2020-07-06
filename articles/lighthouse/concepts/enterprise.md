@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 09/25/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
 ---
 
@@ -13,7 +13,7 @@ The most common scenario for [Azure Lighthouse](../overview.md) is a service pro
 
 For most organizations, management is easier with a single Azure AD tenant. Having all resources within one tenant allows centralization of management tasks by designated users, user groups, or service principals within that tenant. We recommend using one tenant for your organization whenever possible.
 
-At the same time, there are situations that may require an organization to maintain multiple Azure AD tenants. In some cases, this may be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy will take some time to define. An organization may also need to maintain multiple tenants on an ongoing basis (due to wholly independent subsidiaries, geographical or legal requirements, and so on). In cases where a multi-tenant architecture is required, Azure delegated resource management can be used to centralize and streamline management operations. Subscriptions from multiple tenants can be onboarded for [Azure delegated resource management](azure-delegated-resource-management.md), allowing designated users in a managing tenant to perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized and scalable manner.
+At the same time, there are situations that may require an organization to maintain multiple Azure AD tenants. In some cases, this may be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy will take some time to define. An organization may also need to maintain multiple tenants on an ongoing basis (due to wholly independent subsidiaries, geographical or legal requirements, and so on). In cases where a multi-tenant architecture is required, Azure Lighthouse can be used to centralize and streamline management operations. Subscriptions from multiple tenants can be onboarded for [Azure delegated resource management](azure-delegated-resource-management.md), allowing designated users in a managing tenant to perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized and scalable manner.
 
 ## Tenant management architecture
 
@@ -27,17 +27,17 @@ Your organization wants to use the same policy definitions, backup practices, an
 
 ## Security and access considerations
 
-In most enterprise scenarios, you’ll want to delegate a full subscription for Azure delegated resource management, although you can also delegate only specific resource groups within a subscription.
+In most enterprise scenarios, you’ll want to delegate a full subscription to Azure Lighthouse, although you can also delegate only specific resource groups within a subscription.
 
 Either way, be sure to [follow the principle of least privilege when defining which users will have access to resources](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Doing so helps to ensure that users only have the permissions needed to perform the required tasks and reduces the chance of inadvertent errors.
 
-Azure Lighthouse and Azure delegated resource management only provide logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
+Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
 
 Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/platform/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can monitor and gain visibility to actions taken by the users in the other tenant by viewing logged activity.
 
 ## Onboarding process considerations
 
-Subscriptions (or resource groups within a subscription) can be onboarded to Azure delegated resource management either by deploying Azure Resource Manager templates or through Managed Services offers published to Azure Marketplace, either privately or publicly.
+Subscriptions (or resource groups within a subscription) can be onboarded to Azure Lighthouse either by deploying Azure Resource Manager templates or through Managed Services offers published to Azure Marketplace, either privately or publicly.
 
 Since enterprise users will normally be able to gain direct access to the enterprise’s tenants, and there’s no need to market or promote a management offering, it’s generally faster and more straightforward to deploy directly with Azure Resource Manager templates. While we refer to service providers and customers in the [onboarding guidance](../how-to/onboard-customer.md), enterprises can use the same processes.
 

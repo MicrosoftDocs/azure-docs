@@ -20,7 +20,7 @@ With Azure delegated resource management, authorized users can work directly in 
 
 The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log, which is stored in the customer's tenant (and can be viewed by users in the managing tenant). This means that both the customer and service provider can easily identify the user associated with any changes.
 
-When you onboard a customer to Azure delegated resource management, they'll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
+When you onboard a customer to Azure delegated resource management, they'll have access to the **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 
 You can [publish the new Managed Service offer type to Azure Marketplace](../how-to/publish-managed-services-offers.md) to easily onboard customers to Azure delegated resource management. Alternatively, you can [complete the onboarding process by deploying Azure Resource Manager templates](../how-to/onboard-customer.md).
 
