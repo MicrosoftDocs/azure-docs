@@ -53,7 +53,7 @@ assert (location is not None)
 We'll read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
 
 ```python
-df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True)
+df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
 ### Run anomaly detection using Cognitive Services on Spark
@@ -77,15 +77,28 @@ detector = (SimpleDetectAnomalies()
 
 df_anomaly = (df_signals
     .where(col("unitSymbol") == 'RPM')
-    .withColumnRenamed("dateTime", "timestamp")
+    .withColumn("timestamp", col("dateTime").cast("string"))
     .withColumn("value", col("measureValue").cast("double"))
     .withColumn("grouping", struct("deviceId"))
-    .mlTransform(detector))
+    .mlTransform(detector)).cache()
 
 df_anomaly.createOrReplaceTempView('df_anomaly')
 ```
 
-Replace `paste-your-key-here` and `paste-your-endpoint-here` with the key and the endpoint for your Anomaly Detector resource, respectively.
+We can quickly take a look at our data thus far:
+
+```python
+df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
+```
+
+This cell should yield a result that looks like:
+
+| timestamp           |   value | deviceId   | isAnomaly   |
+|:--------------------|--------:|:-----------|:------------|
+| 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
+| 2020-05-01 18:33:52 |    2976 | dev-7      | False       |
+| 2020-05-01 18:33:53 |    2714 | dev-7      | False       |
+
 
  ## Visualize anomalies for one of the devices
 
@@ -117,15 +130,18 @@ adf = df_anomaly_single_device.toPandas()
 adf_subset = df_anomaly_single_device.where(col("isAnomaly") == 1).toPandas() 
 
 plt.figure(figsize=(23,8))
-plt.plot(adf['timestamp'],adf['expectedUpperValue'], color='darkred', linestyle='solid', linewidth=0.25)
-plt.plot(adf['timestamp'],adf['expectedValue'], color='darkgreen', linestyle='solid', linewidth=2)
-plt.plot(adf['timestamp'],adf['measureValue'], 'b', color='royalblue', linestyle='dotted', linewidth=2)
-plt.plot(adf['timestamp'],adf['expectedLowerValue'],  color='black', linestyle='solid', linewidth=0.25)
-plt.plot(adf_subset['timestamp'],adf_subset['measureValue'], 'ro')
-plt.legend(['RPM-UpperMargin', 'RPM-ExpectedValue', 'RPM-ActualValue', 'RPM-LowerMargin', 'RPM-Anomaly'])
-plt.title('RPM Anomalies with Expected, Actual, Upper and Lower Values')
+plt.plot(adf['timestamp'],adf['expectedUpperValue'], color='darkred', linestyle='solid', linewidth=0.25, label='UpperMargin')
+plt.plot(adf['timestamp'],adf['expectedValue'], color='darkgreen', linestyle='solid', linewidth=2, label='Expected Value')
+plt.plot(adf['timestamp'],adf['measureValue'], 'b', color='royalblue', linestyle='dotted', linewidth=2, label='Actual')
+plt.plot(adf['timestamp'],adf['expectedLowerValue'],  color='black', linestyle='solid', linewidth=0.25, label='Lower Margin')
+plt.plot(adf_subset['timestamp'],adf_subset['measureValue'], 'ro', label = 'Anomaly')
+plt.legend()
+plt.title('RPM Anomalies with Confidence Intervals')
 plt.show()
 ```
+
+If sucessfull, your output will look like this:
+
 
 ## Next steps
 
