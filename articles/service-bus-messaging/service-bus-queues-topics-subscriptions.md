@@ -153,6 +153,10 @@ The unshared non-durable subscription continues to exist until there is an activ
 
 ### Message selectors
 
+Just like **Filters and Actions** exist for regular Service Bus subscriptions, **Message Selectors** exist for JMS Subscriptions.
+
+Message selectors can be setup on each of the JMS subscriptions and exist as a filter condition on the message header properties. Only messages with header properties matching the message selector expression are delivered. A value of null or an empty string indicates that there is no message selector for the JMS Subscription/Consumer.
+
 ## Next steps
 
 For more information and examples of using Service Bus messaging, see the following advanced topics:
