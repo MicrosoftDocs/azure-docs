@@ -50,7 +50,7 @@ For a large or very active database, the restore might take several hours. If th
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
-| | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
 |Single database (per subscription)|10|60|
 |Elastic pool (per pool)|4|200|
