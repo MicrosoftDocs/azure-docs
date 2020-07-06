@@ -58,7 +58,7 @@ When added to the log, the values are combined with a comma delimited list. For 
  
 You can add a maximum of 10 unique headers (repetitions of the same header with different values are only counted as one). The total maximum length of the value for any one header is 2048 characters.
 
-If you're using the Firely C# client API library, the code looks something like this:
+If you're using the Firefly C# client API library, the code looks something like this:
 
 ```C#
 FhirClient client;
