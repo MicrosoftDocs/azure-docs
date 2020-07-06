@@ -54370,8 +54370,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure/azure-sql/database/machine-learning-services-add-r-packages.md",
+      "redirect_url": "/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-data-issues.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-data-issues",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/azure-sql/database/machine-learning-services-data-issues.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": true
     },
     {
@@ -54380,8 +54390,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/machine-learning-services-differences.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-differences",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-functions.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/azure-sql/database/machine-learning-services-functions.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": true
     },
     {
@@ -54392,6 +54412,11 @@
     {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-overview.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/machine-learning-services-overview.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-overview",
       "redirect_document_id": true
     },
     {
@@ -54415,8 +54440,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/r-script-create-quickstart.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-quickstart-r-train-score-model.md",
       "redirect_url": "/azure/azure-sql/database/r-train-score-model-create-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/r-train-score-model-create-quickstart.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": true
     },
     {
@@ -54550,6 +54585,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/clustering-model-build-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-build",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/clustering-model-deploy-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-deploy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/clustering-model-prepare-data-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-introduction",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-deploy.md",
       "redirect_url": "/azure/azure-sql/database/predictive-model-deploy-tutorial",
       "redirect_document_id": true
@@ -54557,6 +54607,21 @@
     {
       "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-prepare-data.md",
       "redirect_url": "/azure/azure-sql/database/predictive-model-prepare-data-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/predictive-model-build-compare-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/predictive-model-deploy-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/predictive-model-prepare-data-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": true
     },
     {
