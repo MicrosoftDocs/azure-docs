@@ -1,19 +1,8 @@
 ---
 title: Use Platform-as-a-Service (PaaS) services in Azure DevTest Labs
 description: Learn how to use Platform-as-a-Service (Pass) services in Azure DevTest Labs. 
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Use Platform-as-a-Service (PaaS) services in Azure DevTest Labs

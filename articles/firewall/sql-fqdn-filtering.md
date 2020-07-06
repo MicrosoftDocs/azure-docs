@@ -4,7 +4,7 @@ description: In this article, you learn how to configure SQL FQDNs in Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
 ---
@@ -58,4 +58,4 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 
 ## Next steps
 
-To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../azure-sql/database/connectivity-architecture.md).
+To learn about SQL proxy and redirect modes, see [Azure SQL Database connectivity architecture](../azure-sql/database/connectivity-architecture.md).

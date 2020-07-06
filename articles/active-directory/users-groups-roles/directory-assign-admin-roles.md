@@ -1344,8 +1344,7 @@ Can manage commercial purchases for a company, department or team.
 | --- | --- |
 | microsoft.commerce.billing/partners/read | Read partner property of O365 Billing. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Manage all aspects of Volume Licensing Service Center. |
-| microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and view own Office 365 support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 

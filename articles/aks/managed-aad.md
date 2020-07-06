@@ -3,8 +3,10 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/25/2020
+ms.author: mlearned
 ---
 
 # Integrate AKS-managed Azure AD (Preview)
@@ -57,9 +59,6 @@ kubectl version --client
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
-
-> [!CAUTION]
-> After you register a feature on a subscription, you can't currently unregister that feature. When you enable some preview features, defaults might be used for all AKS clusters created afterward in the subscription. Don't enable preview features on production subscriptions. Instead, use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
@@ -168,7 +167,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [Role Based Access Control (RBAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) to configure additional security groups for your clusters.
+Configure [Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
@@ -185,7 +184,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## Non-interactive login with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the cluster in non-interactive scenarios.
+There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the the cluster with non-interactive service principal login.
 
 ## Next steps
 
