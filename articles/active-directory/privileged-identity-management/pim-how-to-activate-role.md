@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Azure AD roles - My eligible roles list](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Select **Activate** to open the Activate pane.
+1. Select **Activate** to open the Activate page.
 
     ![Azure AD roles - activation page contains duration and scope](./media/pim-how-to-activate-role/activate-page.png)
 
