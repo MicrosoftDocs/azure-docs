@@ -103,7 +103,8 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 ### Map a CNAME record
 
 In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).
-If you have another subdomain then `www` you just replace `www` with your subdomain (for example `sub` if your custom domain is `sub.constoso.com`).
+
+If you have a subdomain other than `www`, replace `www` with your subdomain (for example, with `sub` if your custom domain is `sub.constoso.com`).
 
 #### Access DNS records with domain provider
 
