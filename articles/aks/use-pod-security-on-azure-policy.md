@@ -139,11 +139,8 @@ NAME                                     AGE
 k8sazureallowedcapabilities              30m
 k8sazureblockhostnamespace               30m
 k8sazurecontainernoprivilege             30m
-k8sazurecontainernoprivilegeescalation   30m
 k8sazurehostfilesystem                   30m
 k8sazurehostnetworkingports              30m
-k8sazureurluniqueingresshost             60m
-k8sazurevolumetypes                      30m
 ```
 
 ## Validate rejection of a privileged pod
