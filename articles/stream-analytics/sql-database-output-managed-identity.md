@@ -4,7 +4,7 @@ description: This article describes how to use managed identities to authenticat
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
 ---
 

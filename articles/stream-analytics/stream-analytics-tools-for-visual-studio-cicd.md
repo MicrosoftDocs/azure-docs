@@ -5,7 +5,7 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2019
 ---
 # Use the Azure Stream Analytics CI/CD NuGet package for integration and development 

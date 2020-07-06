@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 
