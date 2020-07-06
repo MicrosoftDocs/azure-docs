@@ -42,12 +42,12 @@ void SetOutlineParameters(AzureSession session)
 ```cpp
 void SetOutlineParameters(ApiHandle<AzureSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
-    outlineSettings->Color(outlineColor);
-    outlineSettings->PulseRateHz(2.0f);
-    outlineSettings->PulseIntensity(0.5f);
+    outlineSettings->SetColor(outlineColor);
+    outlineSettings->SetPulseRateHz(2.0f);
+    outlineSettings->SetPulseIntensity(0.5f);
 }
 ```
 

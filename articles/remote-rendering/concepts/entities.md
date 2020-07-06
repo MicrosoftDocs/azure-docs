@@ -41,7 +41,7 @@ ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
     if (auto entityRes = session->Actions()->CreateEntity())
     {
         entity = entityRes.value();
-        entity->Position(Double3{ 1, 2, 3 });
+        entity->SetPosition(Double3{ 1, 2, 3 });
         return entity;
     }
     return entity;
@@ -67,7 +67,7 @@ CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
 
 // or alternatively:
-ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### Querying transforms
@@ -85,8 +85,8 @@ Quaternion rotation = entity.Rotation;
 
 ```cpp
 // local space transform of the entity
-Double3 translation = *entity->Position();
-Quaternion rotation = *entity->Rotation();
+Double3 translation = entity->GetPosition();
+Quaternion rotation = entity->GetRotation();
 ```
 
 
@@ -119,11 +119,11 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
 metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
     {
-        if (query->IsRanToCompletion())
+        if (query->GetIsRanToCompletion())
         {
-            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaData> metaData = query->GetResult();
             ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->AsInt64();
+            int64_t intValue = *entry->GetAsInt64();
 
             // ...
         }

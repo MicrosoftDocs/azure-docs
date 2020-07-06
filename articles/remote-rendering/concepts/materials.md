@@ -60,17 +60,17 @@ void SetMaterialColorToGreen(Material material)
 ```cpp
 void SetMaterialColorToGreen(ApiHandle<Material> material)
 {
-    if (*material->MaterialSubType() == MaterialType::Color)
+    if (material->GetMaterialSubType() == MaterialType::Color)
     {
         ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
-        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        colorMaterial->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 
-    if (*material->MaterialSubType() == MaterialType::Pbr)
+    if (material->GetMaterialSubType() == MaterialType::Pbr)
     {
         ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
-        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        pbrMat->SetAlbedoColor({ 0, 1, 0, 1 });
         return;
     }
 }

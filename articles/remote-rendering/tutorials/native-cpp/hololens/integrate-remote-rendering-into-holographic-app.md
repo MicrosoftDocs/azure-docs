@@ -196,9 +196,9 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
             auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
             createSessionAsync->Completed([&](auto handler)
                 {
-                    if (handler->Result())
+                    if (handler->GetStatus() == RR::Result::Success)
                     {
-                        SetNewSession(*handler->Result());
+                        SetNewSession(handler->GetResult());
                     }
                     else
                     {
@@ -315,7 +315,7 @@ void HolographicAppMain::StartModelLoading()
         m_loadModelAsync = *loadModel;
         m_loadModelAsync->Completed([this](const RR::ApiHandle<RR::LoadModelAsync>& async)
         {
-            m_modelLoadResult = *async->Status();
+            m_modelLoadResult = async->GetStatus();
             m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
             m_loadModelAsync = nullptr;
             char buffer[1024];
@@ -442,9 +442,10 @@ HolographicFrame HolographicAppMain::Update()
                 m_sessionPropertiesAsync = *propAsync;
                 m_sessionPropertiesAsync->Completed([this](const RR::ApiHandle<RR::SessionPropertiesAsync>& async)
                     {
-                        if (auto res = async->Result())
+                        if (async->GetStatus() == RR::Result::Success)
                         {
-                            switch (res->Status)
+                            auto res = async->GetResult();
+                            switch (res.Status)
                             {
                             case RR::RenderingSessionStatus::Ready:
                             {

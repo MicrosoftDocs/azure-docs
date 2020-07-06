@@ -43,10 +43,10 @@ void GetBounds(ApiHandle<Entity> entity)
     ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
     boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
     {
-        if (bounds->IsRanToCompletion())
+        if (bounds->GetIsRanToCompletion())
         {
-            Double3 aabbMin = bounds->Result()->min;
-            Double3 aabbMax = bounds->Result()->max;
+            Double3 aabbMin = bounds->GetResult().min;
+            Double3 aabbMax = bounds->GetResult().max;
             // ...
         }
     });
