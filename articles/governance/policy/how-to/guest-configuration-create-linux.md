@@ -95,7 +95,7 @@ service. Little knowledge of DSC is required when working with custom InSpec con
 
 The name of the custom configuration must be consistent everywhere. The name of
 the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+assignment name in the Azure Resource Manager template (ARM template), must be the same.
 
 ### Custom Guest Configuration configuration on Linux
 

@@ -4,7 +4,7 @@ description: Learn how to use managed identities in Azure Kubernetes Service (AK
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/30/2020
 ms.author: mlearned
 ---
 
@@ -100,3 +100,9 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
+
+## Next steps
+* Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create Managed Identity enabled clusters.
+
+<!-- LINKS - external -->
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters

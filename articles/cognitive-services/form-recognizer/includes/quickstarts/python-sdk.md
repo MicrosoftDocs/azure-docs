@@ -53,7 +53,7 @@ key = os.environ["FORM_RECOGNIZER_KEY"]
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure_ai_formrecognizer
+pip install azure-ai-formrecognizer
 ```
 
 <!-- 
@@ -77,9 +77,9 @@ These code snippets show you how to do the following tasks with the Form Recogni
 Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
 ## Define variables
@@ -226,7 +226,7 @@ Train custom models to recognize all fields and values found in your custom form
 The following code uses the training client with the **begin_training** function to train a model on a given set of documents.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=False)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
 ```
 
@@ -257,7 +257,7 @@ You can also train custom models by manually labeling the training documents. Tr
 > To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_training** function with the *use_training_labels* parameter set to `true`.
 
 ```python
-poller = form_training_client.begin_training(self.trainingDataUrl, use_training_labels=True)
+poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
 ```
 

@@ -114,8 +114,9 @@ You can modify the default target settings used by Site Recovery.
 6. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
->During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 >
+> - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
+> - If a recovery point has not been generated in last 60 minutes, the replication health of the virtual machine will become critical.
 
 ## Next steps
 

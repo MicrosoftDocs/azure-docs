@@ -1,12 +1,12 @@
 ---
 title: Configure authentication session management - Azure Active Directory
-description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
+description: Customize Azure AD authentication session configuration including user sign-in frequency and browser session persistence.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 06/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,11 +32,11 @@ Before diving into details on how to configure the policy, let’s examine the d
 
 Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
-The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
+The Azure Active Directory (Azure AD) default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
 It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
-Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
+The sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
 
 - Word, Excel, PowerPoint Online
 - OneNote Online
@@ -48,15 +48,17 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Dynamics CRM Online
 - Azure portal
 
+The sign-in frequency setting works with SAML applications as well, as long as they do not drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
+
 ### User sign-in frequency and multi-factor authentication
 
-Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
+Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined, and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
 
 [![Sign in frequency and MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### User sign-in frequency and device identities
 
-If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign in frequency policy as well. In the following 2 examples user sign-in frequency is set to 1 hour:
+If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
 
 Example 1:
 
@@ -98,9 +100,9 @@ Conditional Access is an Azure AD Premium capability and requires a premium lice
 1. Select a value of **Hours** or **Days** from dropdown
 1. Save your policy
 
-![Conditional Access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the Sign in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the Sign in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
+On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the sign-in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the sign-in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
 
 If you have configured different Sign-in frequency for different web apps that are running in the same browser session, the strictest policy will be applied to both apps because all apps running in the same browser session share a single session token.
 

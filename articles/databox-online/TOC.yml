@@ -31,6 +31,8 @@
       href: data-box-gateway-use-cases.md
   - name: How to
     items:
+    - name: Update
+      href: data-box-gateway-apply-updates.md
     - name: Manage
       items:
         - name: Shares

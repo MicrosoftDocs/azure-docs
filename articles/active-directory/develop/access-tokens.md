@@ -252,7 +252,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
 
 Refresh tokens can be revoked by the server due to a change in credentials, or due to use or admin action.  Refresh tokens fall into two classes - those issued to confidential clients (the rightmost column) and those issued to public clients (all other columns).   
 
-|   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
+| Change | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Password expires | Stays alive | Stays alive | Stays alive | Stays alive | Stays alive |
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
