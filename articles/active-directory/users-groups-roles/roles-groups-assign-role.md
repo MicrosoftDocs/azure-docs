@@ -22,7 +22,7 @@ This section describes how an IT admin can assign Azure Active Directory (Azure 
 
 ## Using Azure AD admin center
 
-Assigning a group to an Azure AD role is similar to assigning users and service principals with one difference: Only groups that are assignable (that is, created with "Azure AD roles can be assigned to the group" selected) are shown in the menu.
+Assigning a group to an Azure AD role is similar to assigning users and service principals except that only groups that are role-assignable can be used. In the Azure portal, only groups that are role-assignable are displayed.
 
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 
@@ -65,17 +65,17 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinition
 ### Create a group that can be assigned Azure AD role
 
 ```
-POST https://graph.microsoft.com/beta/groups 
-{ 
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.", 
-"displayName": "Contoso_Helpdesk_Administrators", 
-"groupTypes": [ 
-"Unified" 
-], 
-"mailEnabled": true, 
-"securityEnabled": true 
-"mailNickname": "contosohelpdeskadministrators", 
-"isAssignableToRole": true, 
+POST https://graph.microsoft.com/beta/groups
+{
+"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+"displayName": "Contoso_Helpdesk_Administrators",
+"groupTypes": [
+"Unified"
+],
+"mailEnabled": true,
+"securityEnabled": true
+"mailNickname": "contosohelpdeskadministrators",
+"isAssignableToRole": true,
 }
 ```
 
