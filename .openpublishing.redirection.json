@@ -17079,7 +17079,7 @@
     {
       "source_path": "articles/search/search-api-2017-11-11-preview.md",
       "redirect_url": "https://docs.microsoft.com/azure/search/search-api-preview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-api-indexers-2015-02-28-preview.md",

@@ -1,5 +1,5 @@
 ---
-title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution | Microsoft Docs
+title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Python) | Microsoft Docs
 description: Use Python to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
 author: ericmitt
 ms.author: ericmitt
