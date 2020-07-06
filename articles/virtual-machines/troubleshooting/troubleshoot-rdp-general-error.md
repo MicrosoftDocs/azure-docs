@@ -88,7 +88,7 @@ Before you follow these steps, take a snapshot of the OS disk of the affected VM
     reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
     ```
     > [!NOTE]
-    > If the TermService service is disabled by the domain group policy, The change to fDenyTSConnections will be reset to 1. To resolve the issue, you must change the domain group policy in the domain controller.
+    > This step enables the TermService service temporarily. The change will be reset when the group policy settings are refreshed. To resolve the issue, you need to check if the TermService service is disabled by the local group policy or the domain group policy, and then update the policy settings correspondingly.
     
 2. Check the current remote connection configuration.
     ```
