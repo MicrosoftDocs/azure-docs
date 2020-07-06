@@ -21,13 +21,17 @@ A device template in Azure IoT Central is a blueprint that defines the:
 
 This article describes, for device developers, the JSON payloads that devices send and receive for telemetry, properties, and commands defined in a device template.
 
-The article doesn"t describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
+The article doesn't describe every possible type of telemetry, property, and command payload, but the examples illustrate all the key types.
 
 Each example shows a snippet from the device capability model (DCM) that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
 
+The JSON file that defines the DCM uses the [Digital Twin Definition Language (DTDL) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). This specification includes the definition of the `@id` property format.
+
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
 
-## Simple telemetry types
+## Telemetry
+
+### Simple types
 
 This section shows examples of simple telemetry types that a device streams to an IoT Central application.
 
@@ -35,7 +39,7 @@ The following snippet from a DCM shows the definition of a `boolean` telemetry t
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:BooleanTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "BooleanTelemetry"
@@ -55,7 +59,7 @@ The following snippet from a DCM shows the definition of a `string` telemetry ty
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:StringTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "StringTelemetry"
@@ -75,7 +79,7 @@ The following snippet from a DCM shows the definition of an `integer` telemetry 
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:IntegerTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "IntegerTelemetry"
@@ -96,7 +100,7 @@ The following snippet from a DCM shows the definition of a `double` telemetry ty
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:DoubleTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DoubleTelemetry"
@@ -116,7 +120,7 @@ The following snippet from a DCM shows the definition of a `dateTime` telemetry 
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:DateTimeTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DateTimeTelemetry"
@@ -136,7 +140,7 @@ The following snippet from a DCM shows the definition of a `duration` telemetry 
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:DurationTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "DurationTelemetry"
@@ -152,7 +156,7 @@ A device client should send the telemetry as JSON that looks like the following 
 { "DurationTelemetry": "PT10H24M6.169083011336625S" }
 ```
 
-## Complex telemetry types
+### Complex types
 
 This section shows examples of complex telemetry types that a device streams to an IoT Central application.
 
@@ -160,7 +164,7 @@ The following snippet from a DCM shows the definition of a `geopoint` telemetry 
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:GeopointTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "GeopointTelemetry"
@@ -186,14 +190,14 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:EnumTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "EnumTelemetry"
   },
   "name": "EnumTelemetry",
   "schema": {
-    "@id": "urn:samples:TelemetryTypes:EnumTelemetry:bgqdpvgy0:1",
+    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -201,7 +205,7 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "urn:samples:TelemetryTypes:EnumTelemetry:bgqdpvgy0:Item1:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
@@ -210,7 +214,7 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
         "name": "Item1"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:EnumTelemetry:bgqdpvgy0:Item2:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
@@ -219,7 +223,7 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
         "name": "Item2"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:EnumTelemetry:bgqdpvgy0:Item3:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
@@ -232,7 +236,7 @@ The following snippet from a DCM shows the definition of an `Enum` telemetry typ
 }
 ```
 
-A device client should send the telemetry as JSON that looks like the following example. Possible values are `0`, `1`, and  that display in IoT Central as `Item1`, `Item2`, and `Item3`:
+A device client should send the telemetry as JSON that looks like the following example. Possible values are `0`, `1`, and `2` that display in IoT Central as `Item1`, `Item2`, and `Item3`:
 
 ```json
 { "EnumTelemetry": 1 }
@@ -242,21 +246,21 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "ObjectTelelmetry"
   },
   "name": "ObjectTelelmetry",
   "schema": {
-    "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:1",
+    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property1:1",
+        "@id": "<element id>",
         "@type": "SchemaField",
         "displayName": {
           "en": "Property1"
@@ -265,7 +269,7 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
         "schema": "dateTime"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property2:1",
+        "@id": "<element id>",
         "@type": "SchemaField",
         "displayName": {
           "en": "Property2"
@@ -274,14 +278,14 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
         "schema": "integer"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property3:1",
+        "@id": "<element id>",
         "@type": "SchemaField",
         "displayName": {
           "en": "Property3"
         },
         "name": "Property3",
         "schema": {
-          "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property3:lz01rb8pn3:1",
+          "@id": "<element id>",
           "@type": "Enum",
           "displayName": {
             "en": "Enum"
@@ -289,7 +293,7 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
           "valueSchema": "integer",
           "enumValues": [
             {
-              "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property3:lz01rb8pn3:Item1:1",
+              "@id": "<element id>",
               "@type": "EnumValue",
               "displayName": {
                 "en": "Item1"
@@ -298,7 +302,7 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
               "name": "Item1"
             },
             {
-              "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property3:lz01rb8pn3:Item2:1",
+              "@id": "<element id>",
               "@type": "EnumValue",
               "displayName": {
                 "en": "Item2"
@@ -307,7 +311,7 @@ The following snippet from a DCM shows the definition of an `Object` telemetry t
               "name": "Item2"
             },
             {
-              "@id": "urn:samples:TelemetryTypes:ObjectTelelmetry:rphnephnv0:Property3:lz01rb8pn3:Item3:1",
+              "@id": "<element id>",
               "@type": "EnumValue",
               "displayName": {
                 "en": "Item3"
@@ -339,7 +343,7 @@ The following snippet from a DCM shows the definition of a `vector` telemetry ty
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:VectorTelemetry:1",
+  "@id": "<element id>",
   "@type": "Telemetry",
   "displayName": {
     "en": "VectorTelemetry"
@@ -361,7 +365,7 @@ A device client should send the telemetry as JSON that looks like the following 
 }
 ```
 
-## Event and state telemetry types
+### Event and state types
 
 This section shows examples of telemetry events and states that a device sends to an IoT Central application.
 
@@ -369,7 +373,7 @@ The following snippet from a DCM shows the definition of a `integer` event type:
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:IntegerEvent:1",
+  "@id": "<element id>",
   "@type": [
     "Telemetry",
     "SemanticType/Event"
@@ -392,7 +396,7 @@ The following snippet from a DCM shows the definition of a `integer` state type:
 
 ```json
 {
-  "@id": "urn:samples:TelemetryTypes:IntegerState:1",
+  "@id": "<element id>",
   "@type": [
     "Telemetry",
     "SemanticType/State"
@@ -402,12 +406,12 @@ The following snippet from a DCM shows the definition of a `integer` state type:
   },
   "name": "IntegerState",
   "schema": {
-    "@id": "urn:samples:TelemetryTypes:IntegerState:2dn7xccf3g:1",
+    "@id": "<element id>",
     "@type": "Enum",
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "urn:samples:TelemetryTypes:IntegerState:2dn7xccf3g:Level1:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Level1"
@@ -416,7 +420,7 @@ The following snippet from a DCM shows the definition of a `integer` state type:
         "name": "Level1"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:IntegerState:2dn7xccf3g:Level2:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Level2"
@@ -425,7 +429,7 @@ The following snippet from a DCM shows the definition of a `integer` state type:
         "name": "Level2"
       },
       {
-        "@id": "urn:samples:TelemetryTypes:IntegerState:2dn7xccf3g:Level3:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Level3"
@@ -444,7 +448,9 @@ A device client should send the state as JSON that looks like the following exam
 { "IntegerState": 2 }
 ```
 
-## Simple property types
+## Properties
+
+### Simple types
 
 This section shows examples of simple property types that a device sends to an IoT Central application.
 
@@ -452,7 +458,7 @@ The following snippet from a DCM shows the definition of a `boolean` property ty
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:BooleanProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "BooleanProperty"
@@ -472,7 +478,7 @@ The following snippet from a DCM shows the definition of a `boolean` property ty
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:LongProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "LongProperty"
@@ -492,7 +498,7 @@ The following snippet from a DCM shows the definition of a `date` property type:
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:DateProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DateProperty"
@@ -512,7 +518,7 @@ The following snippet from a DCM shows the definition of a `duration` property t
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:DurationProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "DurationProperty"
@@ -532,7 +538,7 @@ The following snippet from a DCM shows the definition of a `float` property type
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:FloatProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "FloatProperty"
@@ -552,7 +558,7 @@ The following snippet from a DCM shows the definition of a `string` property typ
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:StringProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringProperty"
@@ -568,7 +574,7 @@ A device client should send a JSON payload that looks like the following example
 { "StringProperty": "A string value - could be a URL" }
 ```
 
-## Complex property types
+### Complex types
 
 This section shows examples of complex property types that a device sends to an IoT Central application.
 
@@ -576,7 +582,7 @@ The following snippet from a DCM shows the definition of a `geopoint` property t
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:GeopointProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "GeopointProperty"
@@ -604,14 +610,14 @@ The following snippet from a DCM shows the definition of an `Enum` property type
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:EnumProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumProperty"
   },
   "name": "EnumProperty",
   "schema": {
-    "@id": "urn:samples:PropertyTypes:EnumProperty:ny5x4b3ji:1",
+    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -619,7 +625,7 @@ The following snippet from a DCM shows the definition of an `Enum` property type
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "urn:samples:PropertyTypes:EnumProperty:ny5x4b3ji:Item1:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
@@ -628,7 +634,7 @@ The following snippet from a DCM shows the definition of an `Enum` property type
         "name": "Item1"
       },
       {
-        "@id": "urn:samples:PropertyTypes:EnumProperty:ny5x4b3ji:Item2:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
@@ -637,7 +643,7 @@ The following snippet from a DCM shows the definition of an `Enum` property type
         "name": "Item2"
       },
       {
-        "@id": "urn:samples:PropertyTypes:EnumProperty:ny5x4b3ji:Item3:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
@@ -660,21 +666,21 @@ The following snippet from a DCM shows the definition of an `Object` property ty
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:ObjectProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
   "schema": {
-    "@id": "urn:samples:PropertyTypes:ObjectProperty:qhgjwl9wy:1",
+    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "urn:samples:PropertyTypes:ObjectProperty:qhgjwl9wy:Field1:1",
+        "@id": "<element id>",
         "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
@@ -683,7 +689,7 @@ The following snippet from a DCM shows the definition of an `Object` property ty
         "schema": "integer"
       },
       {
-        "@id": "urn:samples:PropertyTypes:ObjectProperty:qhgjwl9wy:Field2:1",
+        "@id": "<element id>",
         "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
@@ -713,7 +719,7 @@ The following snippet from a DCM shows the definition of an `vector` property ty
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:VectorProperty:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "VectorProperty"
@@ -737,7 +743,7 @@ A device client should send a JSON payload that looks like the following example
 }
 ```
 
-## Writeable property types
+### Writeable property types
 
 This section shows examples of writeable property types that a device receives from an IoT Central application.
 
@@ -745,7 +751,7 @@ The following snippet from a DCM shows the definition of a writeable `string` pr
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:StringPropertyWritable:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "StringPropertyWritable"
@@ -782,7 +788,7 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
 
 ```json
 {
-  "@id": "urn:samples:PropertyTypes:EnumPropertyWritable:1",
+  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "EnumPropertyWritable"
@@ -790,7 +796,7 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
   "name": "EnumPropertyWritable",
   "writable": true,
   "schema": {
-    "@id": "urn:samples:PropertyTypes:EnumPropertyWritable:in2thlbx4p:1",
+    "@id": "<element id>",
     "@type": "Enum",
     "displayName": {
       "en": "Enum"
@@ -798,7 +804,7 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
     "valueSchema": "integer",
     "enumValues": [
       {
-        "@id": "urn:samples:PropertyTypes:EnumPropertyWritable:in2thlbx4p:Item1:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item1"
@@ -807,7 +813,7 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
         "name": "Item1"
       },
       {
-        "@id": "urn:samples:PropertyTypes:EnumPropertyWritable:in2thlbx4p:Item2:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item2"
@@ -816,7 +822,7 @@ The following snippet from a DCM shows the definition of a writeable `Enum` prop
         "name": "Item2"
       },
       {
-        "@id": "urn:samples:PropertyTypes:EnumPropertyWritable:in2thlbx4p:Item3:1",
+        "@id": "<element id>",
         "@type": "EnumValue",
         "displayName": {
           "en": "Item3"
@@ -851,13 +857,15 @@ The device sends the following JSON payload to IoT Central after it processes th
 }
 ```
 
+## Commands
+
 ## Synchronous command types
 
 The following snippet from a DCM shows the definition of a synchronous command that has no parameters and that doesn"t expect the device to return anything:
 
 ```json
 {
-  "@id": "urn:samples:CommandTypes:SynchronousCommandBasic:1",
+  "@id": "<element id>",
   "@type": "Command",
   "commandType": "synchronous",
   "durable": false,
@@ -874,12 +882,12 @@ The following snippet from a DCM shows the definition of a synchronous command t
 
 ```json
 {
-  "@id": "urn:samples:CommandTypes:SynchronousCommandSimple:1",
+  "@id": "<element id>",
   "@type": "Command",
   "commandType": "synchronous",
   "durable": false,
   "request": {
-    "@id": "urn:samples:CommandTypes:SynchronousCommandSimple:RequestParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "RequestParam"
@@ -888,7 +896,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
     "schema": "integer"
   },
   "response": {
-    "@id": "urn:samples:CommandTypes:SynchronousCommandSimple:ResponseParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "ResponseParam"
@@ -909,26 +917,26 @@ The following snippet from a DCM shows the definition of a synchronous command t
 
 ```json
 {
-  "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:1",
+  "@id": "<element id>",
   "@type": "Command",
   "commandType": "synchronous",
   "durable": false,
   "request": {
-    "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:RequestParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "RequestParam"
     },
     "name": "RequestParam",
     "schema": {
-      "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:RequestParam:ctg6a3sjk:1",
+      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:RequestParam:ctg6a3sjk:Field1:1",
+          "@id": "<element id>",
           "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
@@ -937,7 +945,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
           "schema": "integer"
         },
         {
-          "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:RequestParam:ctg6a3sjk:Field2:1",
+          "@id": "<element id>",
           "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
@@ -949,21 +957,21 @@ The following snippet from a DCM shows the definition of a synchronous command t
     }
   },
   "response": {
-    "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:ResponseParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "ResponseParam"
     },
     "name": "ResponseParam",
     "schema": {
-      "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:ResponseParam:qfrlpaclcw:1",
+      "@id": "<element id>",
       "@type": "Object",
       "displayName": {
         "en": "Object"
       },
       "fields": [
         {
-          "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:ResponseParam:qfrlpaclcw:Field1:1",
+          "@id": "<element id>",
           "@type": "SchemaField",
           "displayName": {
             "en": "Field1"
@@ -972,7 +980,7 @@ The following snippet from a DCM shows the definition of a synchronous command t
           "schema": "integer"
         },
         {
-          "@id": "urn:samples:CommandTypes:SynchronousCommandComplex:ResponseParam:qfrlpaclcw:Field2:1",
+          "@id": "<element id>",
           "@type": "SchemaField",
           "displayName": {
             "en": "Field2"
@@ -1002,18 +1010,18 @@ The following snippet shows an example response payload sent from the device. Us
 { Field1: 87, Field2: "Another string value" }
 ```
 
-## Asynchronous command types
+### Asynchronous command types
 
 The following snippet from a DCM shows the definition of an asynchronous command. The command has an integer parameter and expects the device to return an integer value:
 
 ```json
 {
-  "@id": "urn:samples:CommandTypes:AsynchronousCommandSimple:1",
+  "@id": "<element id>",
   "@type": "Command",
   "commandType": "asynchronous",
   "durable": false,
   "request": {
-    "@id": "urn:samples:CommandTypes:AsynchronousCommandSimple:RequestParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "RequestParam"
@@ -1022,7 +1030,7 @@ The following snippet from a DCM shows the definition of an asynchronous command
     "schema": "integer"
   },
   "response": {
-    "@id": "urn:samples:CommandTypes:AsynchronousCommandSimple:ResponseParam:1",
+    "@id": "<element id>",
     "@type": "SchemaField",
     "displayName": {
       "en": "ResponseParam"
