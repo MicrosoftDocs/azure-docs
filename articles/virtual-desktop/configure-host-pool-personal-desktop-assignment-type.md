@@ -6,7 +6,7 @@ author: HeidiLohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 07/06/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -67,7 +67,7 @@ To assign a user to a specific session host, run the following PowerShell cmdlet
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
-To directly assign a use to a session host in the Azure portal:
+To directly assign a user to a session host in the Azure portal:
 
 1. Sign in to the Azure portal at <https://portal.azure.com>.
 2. Enter **Windows Virtual Desktop** into the search bar.
