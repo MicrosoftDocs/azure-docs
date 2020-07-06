@@ -76,7 +76,7 @@ Akamai EAA Application is set up individually on the Azure AD Portal. Admin can 
 
 • You can define individual CA Policies
 
-• All Apps are represented on the 0365 Waffle and myApps.microsoft.com Panel.
+• All Apps are represented on the O365 Waffle and myApps.microsoft.com Panel.
 
 **Cons**:
 
