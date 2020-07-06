@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ---
 
-# Copy data from and to Snowflake by using Microsoft Azure Data Factory
+# Copy data from and to Snowflake by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article outlines how to use copy activity in Data Factory to copy data from and to Snowflake. For more information about Data Factory, see the [introductory article](introduction.md).
+This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Snowflake. For more information about Data Factory, see the [introductory article](introduction.md).
 
 ## Supported capabilities
 
@@ -26,10 +26,10 @@ This Snowflake connector is supported for the following activities:
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
 - [Lookup activity](control-flow-lookup-activity.md)
 
-For copy activity, this Snowflake connector supports the following functions:
+For the Copy activity, this Snowflake connector supports the following functions:
 
-- Copy data from Snowflake that utilizes Snowflake’s [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
-- Copy data to Snowflake that takes advantage of Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure.
+- Copy data from Snowflake that utilizes Snowflake's [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
+- Copy data to Snowflake that takes advantage of Snowflake's [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure.
 
 ## Get started
 
@@ -45,7 +45,7 @@ The following properties are supported for a Snowflake-linked service.
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **Snowflake**.              | Yes      |
 | connectionString | Configure the [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (including additional segments that identify the region and cloud platform), user name, password, database, and warehouse. Specify the JDBC connection string to connect to the Snowflake instance. You can also put password in Azure Key Vault. Refer to the examples below the table, as well as the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.| Yes      |
-| connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No       |
+| connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
 
@@ -100,8 +100,8 @@ The following properties are supported for the Snowflake dataset.
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The type property of the dataset must be set to **SnowflakeTable**. | Yes                         |
-| schema | Name of the schema. |No for source, Yes for sink  |
-| table | Name of the table/view. |No for source, Yes for sink  |
+| schema | Name of the schema. |No for source, yes for sink  |
+| table | Name of the table/view. |No for source, yes for sink  |
 
 **Example:**
 
@@ -131,15 +131,15 @@ For a full list of sections and properties available for defining activities, se
 
 Snowflake connector utilizes Snowflake’s [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
 
-If sink data store and format are natively supported by the Snowflake COPY command, you can use copy activity to directly copy from Snowflake to sink. For details, see [Direct copy from Snowflake](#direct-copy-from-snowflake). Otherwise, use built-in [Staged copy from Snowflake](#staged-copy-from-snowflake).
+If sink data store and format are natively supported by the Snowflake COPY command, you can use the Copy activity to directly copy from Snowflake to sink. For details, see [Direct copy from Snowflake](#direct-copy-from-snowflake). Otherwise, use built-in [Staged copy from Snowflake](#staged-copy-from-snowflake).
 
-To copy data from Snowflake, the following properties are supported in the copy activity **source** section.
+To copy data from Snowflake, the following properties are supported in the Copy activity **source** section.
 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | The type property of the copy activity source must be set to **SnowflakeSource**. | Yes      |
+| type                         | The type property of the Copy activity source must be set to **SnowflakeSource**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake.<br>Executing stored procedure is not supported. | No       |
-| exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that ADF will pass through when you invoke the statement. | No       |
+| exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that Data Factory will pass through when you invoke the statement. | No       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
@@ -147,9 +147,9 @@ To copy data from Snowflake, the following properties are supported in the copy 
 
 #### Direct copy from Snowflake
 
-If your sink data store and format meet the criteria described in this section, you can use copy activity to directly copy from Snowflake to sink. Data Factory checks the settings and fails the copy activity run if the following criteria is not met:
+If your sink data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from Snowflake to sink. Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **sink linked service** is [**Azure Blob**](connector-azure-blob-storage.md) with **shared access signature** authentication.
+- The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
 
 - The **sink data format** is of **Parquet** or **delimited text**, with the following configurations:
 
@@ -159,7 +159,7 @@ If your sink data store and format meet the criteria described in this section, 
      - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
      - `encodingName` is left as default or set to **utf-8**.
      - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
-- In copy activity source, `additionalColumns` is not specified.
+- In the Copy activity source, `additionalColumns` is not specified.
 - Column mapping is not specified.
 
 **Example:**
@@ -208,10 +208,10 @@ If your sink data store and format meet the criteria described in this section, 
 
 When your sink data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you better throughput. Data Factory exports data from Snowflake into staging storage, then copies the data to sink, and finally cleans up your temporary data from the staging storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data by using staging.
 
-To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in copy activity.
+To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
 > [!NOTE]
-> The staging Azure Blob linked service must use shared access signature authentication, as required by the Snowflake COPY command. 
+> The staging Azure Blob storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. 
 
 **Example:**
 
@@ -257,15 +257,15 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
 
-If source data store and format are natively supported by Snowflake COPY command, you can use copy activity to directly copy from source to Snowflake. For details, see [Direct copy to Snowflake](#direct-copy-to-snowflake). Otherwise, use built-in [Staged copy to Snowflake](#staged-copy-to-snowflake).
+If source data store and format are natively supported by Snowflake COPY command, you can use the Copy activity to directly copy from source to Snowflake. For details, see [Direct copy to Snowflake](#direct-copy-to-snowflake). Otherwise, use built-in [Staged copy to Snowflake](#staged-copy-to-snowflake).
 
-To copy data to Snowflake, the following properties are supported in the copy activity **sink** section.
+To copy data to Snowflake, the following properties are supported in the Copy activity **sink** section.
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | The type property of the copy activity sink, set to **SnowflakeSink**. | Yes                                           |
-| preCopyScript     | Specify a SQL query for copy activity to run before writing data into Snowflake in each run. Use this property to clean up the preloaded data. | No                                            |
-| importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that ADF will pass through when you invoke the statement. | No |
+| type              | The type property of the Copy activity sink, set to **SnowflakeSink**. | Yes                                           |
+| preCopyScript     | Specify a SQL query for the Copy activity to run before writing data into Snowflake in each run. Use this property to clean up the preloaded data. | No                                            |
+| importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that Data Factory will pass through when you invoke the statement. | No |
 | ***Under `importSettings`:*** |                                                              |  |
 | type | The type of import command, set to **SnowflakeImportCopyCommand**. | Yes |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
@@ -273,9 +273,9 @@ To copy data to Snowflake, the following properties are supported in the copy ac
 
 #### Direct copy to Snowflake
 
-If your source data store and format meet the criteria described in this section, you can use copy activity to directly copy from source to Snowflake. Azure Data Factory checks the settings and fails the copy activity run if the following criteria is not met:
+If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. Azure Data Factory checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **source linked service** is [**Azure Blob**](connector-azure-blob-storage.md) with **shared access signature** authentication.
+- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
 
 - The **source data format** is **Parquet** or **Delimited text**, with the following configurations:
 
@@ -287,7 +287,7 @@ If your source data store and format meet the criteria described in this section
      - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
      - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
 
-- In copy activity source: 
+- In the Copy activity source: 
 
    -  `additionalColumns` is not specified.
    - If your source is a folder, `recursive` is set to true.
@@ -338,10 +338,10 @@ If your source data store and format meet the criteria described in this section
 
 When your sink data store or format is not natively compatible with the Snowflake COPY command, as mentioned in the last section, enable the built-in staged copy using an interim Azure Blob storage instance. The staged copy feature also provides you better throughput. Data Factory automatically converts the data to meet the data format requirements of Snowflake. It then invokes the COPY command to load data into Snowflake. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data using staging.
 
-To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in copy activity.
+To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
 > [!NOTE]
-> The staging Azure Blob linked service need to use shared access signature authentication as required by the Snowflake COPY command.
+> The staging Azure Blob storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 
 **Example:**
 
@@ -389,4 +389,4 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 ## Next steps
 
-For a list of data stores supported as sources and sinks by copy activity in Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy activity in Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
