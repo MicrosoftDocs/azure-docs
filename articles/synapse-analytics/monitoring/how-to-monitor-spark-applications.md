@@ -1,5 +1,5 @@
 ---
-title: Monitor Apache Spark applications
+title: How to Monitor Apache Spark applications
 description: Use the Azure Synapse Studio to monitor your Apache Spark applications.
 services: synapse-analytics 
 author: matt1883
