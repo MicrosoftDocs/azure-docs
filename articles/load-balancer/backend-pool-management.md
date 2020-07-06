@@ -21,7 +21,7 @@ When configuring by either NIC or IP Address and VNET ID through Portal, the UI 
 When configuring a Backend Pool by NIC, it is important to keep in mind that the Backend Pool is created as part of the Load Balancer operation and members are added to the Backend Pool as part of the IP Configuration property of their Network Interface during the Network Interface operation. The following examples are focused on the create and populate operations for the Backend Pool to highlight this workflow and relationship.
 
   >[!NOTE] 
-  >It is important to note that Backend Pools configured via Network Interface cannot be updated as part of an operation on the Backend Pool. Any addition or deletion of backend   >resources must occur on the Network Interface of the resource.
+  >It is important to note that Backend Pools configured via Network Interface cannot be updated as part of an operation on the Backend Pool. Any addition or deletion of backend resources must occur on the Network Interface of the resource.
 
 ### PowerShell
 Create a new Backend Pool: 
