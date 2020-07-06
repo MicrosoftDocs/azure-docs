@@ -1,16 +1,11 @@
 ---
 title: How to enable nested virtualization in Azure Virtual Machines  
 description: How to enable nested virtualization in Azure Virtual Machines
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 
 
@@ -139,7 +134,7 @@ You can assign an IP address to the guest virtual machine either by manually set
 ###  Option 1: Configure DHCP to dynamically assign an IP address to the guest virtual machine
 Follow the steps below to configure DHCP on the host virtual machine for dynamic address assignment.
 
-#### Install DCHP Server on the Azure VM
+#### Install DHCP Server on the Azure VM
 
 1. Open Server Manager. On the Dashboard, click **Add roles and features**. The Add Roles and Features Wizard appears.
   
@@ -157,7 +152,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 3. Enter a Name and Description for the scope and click **Next**.
   
-4. Define an IP Range for your DCHP Server (for example, 192.168.0.100 to 192.168.0.200).
+4. Define an IP Range for your DHCP Server (for example, 192.168.0.100 to 192.168.0.200).
   
 5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway, then click **Add**.
   

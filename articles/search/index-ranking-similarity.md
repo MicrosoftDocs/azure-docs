@@ -14,17 +14,19 @@ ms.date: 03/13/2020
 # Ranking algorithm in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Starting July 15, 2020, newly created search services will use the BM25 ranking function, which has proven in most cases to provide search rankings that align better with user expectations than the current default ranking.  Beyond superior ranking, BM25 also enables configuration options for tuning results based on factors such as document size.  
+> Starting July 15, 2020, newly created search services will use the BM25 ranking function automatically, which has proven in most cases to provide search rankings that align better with user expectations than the current default ranking. Beyond superior ranking, BM25 also enables configuration options for tuning results based on factors such as document size.  
 >
-> With this change, you will most likely see slight changes in the ordering of your search results.   For those that want to test the impact of this change, we have made available in the 2019-05-06-Preview API an ability to enable BM25 scoring on new indexes.  
+> With this change, you will most likely see slight changes in the ordering of your search results. For those who want to test the impact of this change, the BM25 algorithm is available in the api-version 2019-05-06-Preview and in 2020-06-30.  
 
-This article describes how you can update a service created before July 15, 2020 to to use the new BM25 ranking algorithm.
+This article describes how you can use the new BM25 ranking algorithm on existing search services for new indexes created and queried using the preview API.
 
-Azure Cognitive Search will be using the official Lucene implementation of the Okapi BM25 algorithm, *BM25Similarity*, which will replace the previously used *ClassicSimilarity* implementation. Like the older ClassicSimilarity algorithm, BM25Similarity is a TF-IDF-like retrieval function which uses the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking. While conceptually similar to the older Classic Similarity algorithm, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
+Azure Cognitive Search is in the process of adopting the official Lucene implementation of the Okapi BM25 algorithm, *BM25Similarity*, which will replace the previously used *ClassicSimilarity* implementation. Like the older ClassicSimilarity algorithm, BM25Similarity is a TF-IDF-like retrieval function that uses the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking. 
+
+While conceptually similar to the older Classic Similarity algorithm, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
 
 ## How to test BM25 today
 
-When you create a new index, you can set a "similarity" property. You will need to use the *2019-05-06-Preview* version, as shown below.
+When you create a new index, you can set a **similarity** property to specify the algorithm. You can use the `api-version=2019-05-06-Preview`, as shown below, or `api-version=2020-06-30`.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -53,16 +55,19 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-For services created before July 15, 2020: If the similarity is omitted or set to null, the index will use the old classic similarity algorithm.
+The **similarity** property is useful during this interim period when both algorithms are available, on existing services only. 
 
-For services created after July 15, 2020: If the similarity is omitted or set to null, the index will use the new BM25 similarity algorithm.
+| Property | Description |
+|----------|-------------|
+| similarity | Optional. Valid values include *"#Microsoft.Azure.Search.ClassicSimilarity"* or *"#Microsoft.Azure.Search.BM25Similarity"*. <br/> Requires `api-version=2019-05-06-Preview` or later on a search service created prior to July 15, 2020. |
 
-You can also explicitly set the similarity value to be one of the following two values:   *"#Microsoft.Azure.Search.ClassicSimilarity"* or *"#Microsoft.Azure.Search.BM25Similarity"*.
+For new services created after July 15, 2020, BM25 is used automatically and is the sole similarity algorithm. If you try to set **similarity** to `ClassicSimilarity` on a new service, a 400 error will be returned because that algorithm is not supported on a new service.
 
+For existing services created before July 15, 2020, the Classic similarity remains the default algorithm. If the **similarity** property is omitted or set to null, the index uses the Classic algorithm. If you want to use the new algorithm, you will need to set **similarity** as described above.
 
 ## BM25 similarity parameters
 
-BM25 similarity adds two user customizable parameters to control the calculated relevance score:
+BM25 similarity adds two user customizable parameters to control the calculated relevance score.
 
 ### k1
 
@@ -94,10 +99,9 @@ The similarity algorithm can only be set at index creation time. This means the 
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-
 ## See also  
 
- [Azure Cognitive Search REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Add scoring profiles to your index](index-add-scoring-profiles.md)    
- [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-  [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Add scoring profiles to your index](index-add-scoring-profiles.md)    
++ [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

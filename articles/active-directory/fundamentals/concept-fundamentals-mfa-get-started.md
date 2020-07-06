@@ -29,7 +29,7 @@ So how does your organization turn on MFA even for free, before becoming a stati
 
 Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication in their environment.
 
-## Office 365 Business Premium, E3, or E5
+## Microsoft 365 Business, E3, or E5
 
 For customers with Office 365, there are two options:
 
@@ -40,7 +40,7 @@ For customers with Office 365, there are two options:
 
 For customers with Azure AD Premium P1 or similar licenses that include this functionality such as Enterprise Mobility + Security E3, Microsoft 365 F1, or Microsoft 365 E3: 
 
-Use [Azure AD Conditional Access](../conditional-access/overview.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements.
+Use [Azure AD Conditional Access](../authentication/tutorial-enable-azure-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements.
 
 ## Azure AD Premium P2
 
@@ -50,7 +50,7 @@ Provides the strongest security position and improved user experience. Adds [ris
 
 ## Authentication methods
 
-|   | Security defaults | All other methods |
+| Method | Security defaults | All other methods |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token |   | X |

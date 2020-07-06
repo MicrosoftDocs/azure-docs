@@ -142,7 +142,7 @@ The method `AddAuthentication` configures the service to add cookie-based authen
 
 The line containing `.AddAzureAd` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint.
 
-> |Where  |  |
+> |Where | Description |
 > |---------|---------|
 > | ClientId  | Application (client) ID from the application registered in the Azure portal. |
 > | Authority | The STS endpoint for the user to authenticate. Usually, this is <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
@@ -152,6 +152,19 @@ The line containing `.AddAzureAd` adds the Microsoft identity platform authentic
 > [!NOTE]
 > Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
+>
+> Also note the `Configure` method which contains two important methods: `app.UseCookiePolicy()` and `app.UseAuthentication()`
+
+```csharp
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    // more core
+    app.UseCookiePolicy();
+    app.UseAuthentication();
+    // more core
+}
+```
 
 ### Protect a controller or a controller's method
 

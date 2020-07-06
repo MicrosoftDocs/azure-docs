@@ -3,10 +3,9 @@ title: Prepay for software plans - Azure Reservations
 description: Learn how you can prepay for software plans to save money over your pay-as-you-go costs.
 author: bandersmsft
 manager: yashesvi
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/06/2020
 ms.author: banders
 ---

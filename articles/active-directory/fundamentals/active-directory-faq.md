@@ -9,7 +9,7 @@ ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -149,7 +149,7 @@ We do have a gateway that filters requests and provides some protection from bot
 
 **A:** Azure AD has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
 
-For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ---
 **Q: What if the application I need is not in the Azure AD marketplace?**

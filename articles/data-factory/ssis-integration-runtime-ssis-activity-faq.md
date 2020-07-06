@@ -91,13 +91,13 @@ This error occurs when package execution can't find a file in the local disk in 
 
 ### Error message: "The database 'SSISDB' has reached its size quota"
 
-A potential cause is that the SSISDB database created in the Azure SQL database, or a managed instance when you're creating an SSIS integration runtime, has reached its quota. Try these actions:
-* Consider increasing the DTU of your database. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
+* Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### Error message: "The request limit for the database is ... and has been reached."
 
-If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### Error message: "SSIS Operation failed with unexpected operation status: ..."
 

@@ -84,7 +84,7 @@ To set up a local Docker container and have a service fabric cluster running on 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. The cluster will take a short amount of time to start, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
+5. The cluster will take a short amount of time to start, you can view logs using the following command or jump to the dashboard to view the clusters health `http://localhost:19080`:
 
     ```powershell 
     docker logs sftestcluster

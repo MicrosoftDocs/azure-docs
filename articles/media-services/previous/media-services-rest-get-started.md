@@ -813,7 +813,7 @@ The returned **Path** property contains the SAS URL.
 Once you have the AccessPolicy and Locator set, you can download files using the Azure Storage REST APIs.  
 
 > [!NOTE]
-> You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4`? . . .
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 

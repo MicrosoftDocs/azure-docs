@@ -19,9 +19,6 @@ ms.custom: aaddev, fasttrack-edit
 
 Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform endpoint, and it changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
-> [!NOTE]
-> The Microsoft identity platform endpoint does not support all scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
-
 ## Scopes and permissions
 
 The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
@@ -62,12 +59,14 @@ _Effective permissions_ are the permissions that your app will have when making 
 - For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
    For example, assume your app has been granted the _User.ReadWrite.All_ delegated permission. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user isn't in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
-  
-- For application permissions, the _effective permissions_ of your app will be the full level of privileges implied by the permission. For example, an app that has the _User.ReadWrite.All_ application permission can update the profile of every user in the organization. 
+
+- For application permissions, the _effective permissions_ of your app will be the full level of privileges implied by the permission. For example, an app that has the _User.ReadWrite.All_ application permission can update the profile of every user in the organization.
 
 ## OpenID Connect scopes
 
-The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that are also hosted on the Microsoft Graph: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+
+Requesting the OIDC scopes and a token will give you a token to call the [UserInfo endpoint](userinfo.md).
 
 ### openid
 
@@ -88,7 +87,7 @@ The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.ht
 > [!NOTE]
 > This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)).  This is to cover scenarios where a client can begin within the implicit flow, and then move onto to the code flow where a refresh token is expected.
 
-On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions. 
+On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
 For more information about how to get and use refresh tokens, see the [Microsoft identity platform protocol reference](active-directory-v2-protocols.md).
 
@@ -96,7 +95,7 @@ For more information about how to get and use refresh tokens, see the [Microsoft
 
 In an [OpenID Connect or OAuth 2.0](active-directory-v2-protocols.md) authorization request, an app can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the app sends a request like the following example (with line breaks added for legibility):
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
@@ -113,7 +112,7 @@ The `scope` parameter is a space-separated list of delegated permissions that th
 After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
 
 > [!NOTE]
->At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
+>At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.
 
 ![Example screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -145,8 +144,8 @@ If the application is requesting application permissions and an administrator gr
 
 ## Using the admin consent endpoint
 
-> [!NOTE] 
-> Please note after granting admin consent using the admin consent endpoint, you have finished granting admin consent and users do not need to perform any further additional actions. After granting admin consent, users can get an access token via a typical auth flow and the resulting access token will have the consented permissions. 
+> [!NOTE]
+> Please note after granting admin consent using the admin consent endpoint, you have finished granting admin consent and users do not need to perform any further additional actions. After granting admin consent, users can get an access token via a typical auth flow and the resulting access token will have the consented permissions.
 
 When a Company Administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform will detect the user's role and ask them if they would like to consent on behalf of the entire tenant for the permissions you have requested. However, there is also a dedicated admin consent endpoint you can use if you would like to proactively request that an administrator grants permission on behalf of the entire tenant. Using this endpoint is also necessary for requesting Application Permissions (which can't be requested using the authorize endpoint).
 
@@ -178,15 +177,15 @@ When you sign the user into your app, you can identify the organization to which
 
 When you're ready to request permissions from your organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-  GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-  &scope=
-  https://graph.microsoft.com/calendars.read 
-  https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -196,7 +195,7 @@ When you're ready to request permissions from your organization's admin, you can
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`        | Required        | Defines the set of permissions being requested by the application. This can be either static (using [`/.default`](#the-default-scope)) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `/.default` to request the statically configured list of permissions.  | 
+|`scope`        | Required        | Defines the set of permissions being requested by the application. This can be either static (using [`/.default`](#the-default-scope)) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `/.default` to request the statically configured list of permissions.  |
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.
@@ -205,7 +204,7 @@ At this point, Azure AD requires a tenant administrator to sign in to complete t
 
 If the admin approves the permissions for your app, the successful response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -219,7 +218,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 If the admin does not approve the permissions for your app, the failed response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -234,7 +233,7 @@ After you've received a successful response from the admin consent endpoint, you
 
 After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity. An access token can be used only for a single resource, but encoded inside the access token is every permission that your app has been granted for that resource. To acquire an access token, your app can make a request to the Microsoft identity platform token endpoint, like this:
 
-```
+```HTTP
 POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
@@ -249,7 +248,7 @@ Content-Type: application/json
 }
 ```
 
-You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task. 
+You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task.
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [Microsoft identity platform endpoint protocol reference](active-directory-v2-protocols.md).
 
@@ -257,7 +256,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slash-and-default) for cases where you must include a second slash to correctly request the token.
 
-The /.default scope can be used in any OAuth 2.0 flow, but is necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md), as well as when using the v2 admin consent endpoint to request application permissions.  
+The /.default scope can be used in any OAuth 2.0 flow, but is necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md), as well as when using the v2 admin consent endpoint to request application permissions.
 
 > [!NOTE]
 > Clients can't combine static (`/.default`) and dynamic consent in a single request. Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.
@@ -286,7 +285,7 @@ In this example, the user has already consented to `mail.read` for the client. T
 
 A special case of the `/.default` scope exists where a client requests its own `/.default` scope. The following example demonstrates this scenario.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -297,13 +296,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform endpoint.  
+This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform endpoint.
 
 ### Trailing slash and /.default
 
-Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash! 
+Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash!
 
-In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. This happens because the login server emits a token with the audience matching the URIs in the `scope` parameter - with `/.default` removed from the end.  If this removes the trailing slash, the login server still processes the request and validates it against the resource URI, even though they no longer match - this is non-standard and should not be relied on by your application.  
+In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. This happens because the login server emits a token with the audience matching the URIs in the `scope` parameter - with `/.default` removed from the end.  If this removes the trailing slash, the login server still processes the request and validates it against the resource URI, even though they no longer match - this is non-standard and should not be relied on by your application.
 
 ## Troubleshooting permissions and consent
 

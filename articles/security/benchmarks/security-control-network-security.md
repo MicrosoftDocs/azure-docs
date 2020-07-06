@@ -114,7 +114,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
-Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
+Deploy Azure Application Gateway for web applications with HTTPS/TLS enabled for trusted certificates.
 
 - [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -160,7 +160,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
 

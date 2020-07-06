@@ -15,6 +15,7 @@ As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need 
 This best practices article focuses on how a cluster operator can manage access and identity for AKS clusters. In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Authenticate AKS cluster users with Azure Active Directory
 > * Control access to resources with role-based access controls (RBAC)
 > * Use a managed identity to authenticate themselves with other services
@@ -93,14 +94,14 @@ Managed identities for Azure resources (currently implemented as an associated A
 
 When pods request access to an Azure service, network rules redirect the traffic to the Node Management Identity (NMI) server. The NMI server identifies pods that request access to Azure services based on their remote address, and queries the Managed Identity Controller (MIC). The MIC checks for Azure identity mappings in the AKS cluster, and the NMI server then requests an access token from Azure Active Directory (AD) based on the pod's identity mapping. Azure AD provides access to the NMI server, which is returned to the pod. This access token can be used by the pod to then request access to services in Azure.
 
-In the following example, a developer creates a pod that uses a managed identity to request access to an Azure SQL Server instance:
+In the following example, a developer creates a pod that uses a managed identity to request access to Azure SQL Database:
 
 ![Pod identities allow a pod to automatically request access to other services](media/operator-best-practices-identity/pod-identities.png)
 
 1. Cluster operator first creates a service account that can be used to map identities when pods request access to services.
 1. The NMI server and MIC are deployed to relay any pod requests for access tokens to Azure AD.
 1. A developer deploys a pod with a managed identity that requests an access token through the NMI server.
-1. The token is returned to the pod and used to access an Azure SQL Server instance.
+1. The token is returned to the pod and used to access Azure SQL Database
 
 > [!NOTE]
 > Managed pod identities is an open source project, and is not supported by Azure technical support.

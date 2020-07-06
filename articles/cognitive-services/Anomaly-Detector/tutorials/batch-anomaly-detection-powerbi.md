@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/17/2020
 ms.author: aahi
 ---
 
@@ -27,8 +27,8 @@ In this tutorial, you'll learn how to:
 * An [Azure subscription](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), available for free.
 * An excel file (.xlsx) containing time series data points. The example data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. 
-    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll do this later in the quickstart.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. 
+    * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll do this later in the quickstart.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -138,10 +138,10 @@ In the main Power BI screen, begin using the queries created above to visualize 
 
 Add the following fields from the **Invoked Function** to the chart's **Values** field. Use the below screenshot to help build your chart.
 
-    * Value
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* Value
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![An image of the new quick measure screen](../media/tutorials/chart-settings.png)
 

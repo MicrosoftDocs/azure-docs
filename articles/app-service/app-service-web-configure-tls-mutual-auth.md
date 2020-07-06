@@ -20,7 +20,7 @@ You can restrict access to your Azure App Service app by enabling different type
 
 ## Enable client certificates
 
-To set up your app to require client certificates, you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
+To set up your app to require client certificates, you can switch **On** the Require incoming certificate by selecting **Configuration** > **General Settings** from the Azure Portal or you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

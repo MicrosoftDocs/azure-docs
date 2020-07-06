@@ -1,12 +1,12 @@
 ---
-title: Learn about Azure Image Builder for Windows Virtual Machines (preview)
+title: Learn about Azure Image Builder (preview)
 description: Learn more about Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
-ms.service: virtual-machines-windows
-manager: gwallace
+ms.topic: conceptual
+ms.service: virtual-machines
+ms.subservice: imaging
 ---
 
 # Preview: Azure Image Builder overview

@@ -68,6 +68,10 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
 
 ## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
+For detailed troubleshooting instructions on RDP issues, please see our documentation [here](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+For detailed troubleshooting instructions on SSH issues, please see our documentation [here](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
 1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -169,4 +173,4 @@ To resolve the issue:
 - Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

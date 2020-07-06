@@ -10,8 +10,8 @@ ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 02/20/2020
+ms.topic: end-user-help
+ms.date: 07/06/2020
 ms.author: curtand
 ---
 
@@ -84,7 +84,7 @@ You can add new phone numbers, or update existing numbers, from the **Additional
 
 1. From the **How would you like to respond?** section of the **Additional security verification** page, update the phone number information for your **Authentication phone** (your primary mobile device) and your **Office phone**.
 
-1. Select the box next to the **Alternate authentication phone** option, and then type in a secondary phone number where you can receive text messages or phone calls if you can't access your primary device.
+1. Select the box next to the **Alternate authentication phone** option, and then type in a secondary phone number where you can receive phone calls if you can't access your primary device.
 
 1. Select **Save**.
 

@@ -23,7 +23,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
 * View alert rules defined in [Azure Alerts](alerts-overview.md)
-* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](cli-samples.md).
+* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](../samples/cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](diagnostic-settings.md) for a resource.
 * View the [log profile](activity-log-export.md) for a subscription.

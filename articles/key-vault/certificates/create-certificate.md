@@ -77,10 +77,10 @@ When a request to create a KV certificate completes, the status of the pending o
 ## Partnered CA Providers
 Certificate creation can be completed manually or using a “Self” issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
 
-|Provider|Certificate type|  
-|--------------|----------------------|  
-|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert|
-|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign|
+|Provider|Certificate type|Configuration setup  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
 

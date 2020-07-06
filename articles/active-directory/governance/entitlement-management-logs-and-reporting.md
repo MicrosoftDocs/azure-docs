@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/14/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -188,5 +188,5 @@ $bResponse.Results |ft
 ```
 
 ## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/app/usage-workbooks.md) 
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md) 
 

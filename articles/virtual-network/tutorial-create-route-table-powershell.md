@@ -4,7 +4,7 @@ description: In this article, learn how to route network traffic with a route ta
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -12,7 +12,7 @@ Customer intent: I want to route traffic from one subnet, to a different subnet,
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018

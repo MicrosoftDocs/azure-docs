@@ -1,16 +1,8 @@
 ---
 title: What is QnA Maker service?
-titleSuffix: Azure Cognitive Services
 description: QnA Maker is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 02/21/2020
-ms.author: diberry
-#customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
+ms.date: 05/26/2020
 ---
 
 # What is the QnA Maker service?
@@ -43,9 +35,9 @@ Once a QnA Maker knowledge base is published, a client application sends a quest
 
 ## What is a knowledge base?
 
-QnA Maker [imports your content](../concepts/knowledge-base.md) into a knowledge base of question and answer sets. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer sets. You can edit these question and answer sets or add new sets.
+QnA Maker [imports your content](../concepts/knowledge-base.md) into a knowledge base of question and answer pairs. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer pairs. You can edit these question and answer pairs or add new pairs.
 
-The content of the question and answer set includes:
+The content of the question and answer pair includes:
 * All the alternate forms of the question
 * Metadata tags used to filter answer choices during the search
 * Follow-up prompts to continue the search refinement
@@ -56,7 +48,7 @@ After you publish your knowledge base, a client application sends a user's quest
 
 ## Create, manage, and publish to a bot without code
 
-The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final _markdown_ format supports rich presentation including images and links.
+The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer pairs. Each pair is analyzed for follow-up prompts and connected to other pairs. The final _markdown_ format supports rich presentation including images and links.
 
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download and continue development.
 
@@ -66,7 +58,7 @@ QnA Maker's system is a layered ranking approach. The data is stored in Azure se
 
 ## QnA Maker improves the conversation process
 
-QnA Maker provides multi-turn prompts and active learning to help you improve your basic question and answer sets.
+QnA Maker provides multi-turn prompts and active learning to help you improve your basic question and answer pairs.
 
 **Multi-turn prompts** give you the opportunity to connect question and answer pairs. This connection allows the client application to provide a top answer and provides more questions to refine the search for a final answer.
 

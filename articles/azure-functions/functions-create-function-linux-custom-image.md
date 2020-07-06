@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -145,7 +145,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
 Use **Ctrl**-**C** to stop the host.
 
@@ -174,7 +174,7 @@ Once the image is running in a local container, open a browser to `http://localh
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-Once the image is running in a local container, browse to [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
+Once the image is running in a local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
 After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
@@ -290,17 +290,24 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     # [Portal](#tab/portal)
 
-    1. Sign in to the Azure portal, then locate your function app by entering your function app name in the **Search** box at the top of the page. In the results, select the **App Service** resource.
+    1. Sign in to the Azure portal, then search for and select **Function App**.
 
-    1. In the left navigation panel, under **Functions (Read Only)**, select the name of your function.
+    1. Select the function you want to verify.
 
-    1. In the details panel, select **</> Get function URL**:
+    1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Select **Get Function Url**.
 
-    1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copying the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in the local image, push the image to the registry again, and then redeploy to Azure. You can set up continuous deployment in a later section.
@@ -335,11 +342,11 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     ---
 
-1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello Azure" should appear in the browser.
+1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello, Azure" should appear in the browser.
 
     ![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. To test authorization, remove the code= parameter from the URL and verify that you get no response from the function.
+1. To test authorization, remove the `code=` parameter from the URL and verify that you get no response from the function.
 
 
 ## Enable continuous deployment to Azure
@@ -424,7 +431,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 ## Write to an Azure Storage queue
 
-Azure Functions lets you connect your functions to other Azure services and resources having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 

@@ -5,7 +5,7 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: ajitbhu
 

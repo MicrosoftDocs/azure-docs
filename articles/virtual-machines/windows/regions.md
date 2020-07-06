@@ -4,8 +4,7 @@ description: Learn about the regions for running Windows virtual machines in Azu
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ---

@@ -97,7 +97,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 ## Provide permissions
 
-Azure VM needs read-only access to back up the keys and secrets, along with the associated VMs.
+Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault.
@@ -126,7 +126,9 @@ To set permissions:
 
 ## Restore an encrypted VM
 
-You restore encrypted VMs as follows:
+Encrypted VMs can only be restored by restoring the VM disk as explained below. **Replace existing** and **Restore VM** aren't supported.
+
+Restore encrypted VMs as follows:
 
 1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
 2. Recreate the virtual machine instance by doing one of the following:

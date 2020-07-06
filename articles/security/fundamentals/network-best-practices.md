@@ -70,7 +70,7 @@ Networks need to evolve from traditional defenses because networks might be vuln
 Best practices are:
 
 **Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../role-based-access-control/conditional-access-azure-management.md).
+**Detail**: [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Azure Security Center](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.

@@ -126,6 +126,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
 
 ## Unsupported writeback operations
 
@@ -134,8 +135,9 @@ Passwords aren't written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API.
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API.
+   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API (the [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) is supported).
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com).
+   * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
 > [!WARNING]
 > Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).

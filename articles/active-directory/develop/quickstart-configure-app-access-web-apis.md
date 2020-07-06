@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
@@ -107,7 +107,10 @@ To configure application settings based on the platform or device, you're target
    | **Web**              | Enter the **Redirect URI** for your application. |
    | **iOS / macOS**              | Enter the app **Bundle ID**, which you can find in XCode in Info.plist, or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
    | **Android**          | Provide the app **Package name**, which you can find in the AndroidManifest.xml file.<br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
-   | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `https://localhost`. |
+   | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `http://localhost`. |
+
+   > [!NOTE]
+   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`. 
 
    > [!IMPORTANT]
    > For mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.

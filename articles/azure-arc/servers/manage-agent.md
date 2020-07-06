@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/14/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
 ---
 
@@ -23,11 +23,19 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 | Windows | Manually<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### Windows agent
 
-To update the agent on a Windows machine to the latest version, the agent is available from Microsoft Update and can be deployed using your existing software update management process. It can also be run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`. 
+Update package for the Connected Machine agent for Windows is available from:
+
+* Microsoft Update
+
+* [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx)
+
+* [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
+
+The agent can be upgraded following a variety of methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * To upgrade the agent, you must have *Administrator* permissions.
@@ -55,7 +63,9 @@ The Setup Wizard discovers if a previous version exists, and then it automatical
 
 ### Linux agent
 
-To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package. 
+To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package.
+
+You can download the latest agent package from Microsoft's [package repository](https://packages.microsoft.com/).
 
 > [!NOTE]
 > To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
@@ -166,7 +176,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 
-This command requires higher privileges than the [Azure Connected Machine Onboarding](overview.md#required-permissions) role.
+This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
 
 To reconnect using a service principal, run the following command:
 
@@ -202,7 +212,7 @@ Both of the following methods remove the agent, but they do not remove the *C:\P
 #### Uninstall from the command line
 
 To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
-    
+
 1. Open the Registry Editor.
 
 2. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.
@@ -256,3 +266,49 @@ If you are planning to stop managing the machine with supporting services in Azu
 1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
 
 2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
+
+## Update or remove proxy settings
+
+To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task.
+
+### Windows
+
+To set the proxy server environment variable, run the following command:
+
+```powershell
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("https_proxy","http://{proxy-url}:{proxy-port}","Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds
+```
+
+To configure the agent to stop communicating through a proxy server, run the following command to remove the proxy server environmental variable and restart the agent service:
+
+```powershell
+[Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds
+```
+
+### Linux
+
+To set the proxy server, run the following command from the directory you downloaded the agent installation package to:
+
+```bash
+# Reconfigure the connected machine agent and set the proxy server.
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+To configure the agent to stop communicating through a proxy server, run the following command to remove the proxy configuration:
+
+```bash
+sudo azcmagent_proxy remove
+```
+
+## Next steps
+
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), and much more.
+
+- Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).

@@ -1,29 +1,28 @@
 ---
-title: No users are being provisioned to an Azure AD Gallery application
+title: Users are not being provisioned in my application
 description: How to troubleshoot common issues faced when you don't see users appearing in an Azure AD Gallery Application you have configured for user provisioning with Azure AD
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 09/03/2019
-ms.author: mimart
+ms.topic: how-to
+ms.date: 04/20/2020
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
 ---
 
-# No users are being provisioned to an Azure AD Gallery application
+# No users are being provisioned 
+>[!NOTE]
+>Starting 04/16/2020 we have changed the behavior for users assigned the default access role. Please see the section below for details. 
+>
 After automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid), then users and/or groups are provisioned to the app. Provisioning is determined by the following things:
 
 -   Which users and groups have been **assigned** to the application. Note that provisioning nested groups or Office 365 groups is not supported. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Whether or not **attribute mappings** are enabled, and configured to sync valid attributes from Azure AD to the app. For more information on attribute mappings, see [Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md).
 -   Whether or not there is a **scoping filter** present that is filtering users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+  
   
 If you observe that users are not being provisioned, consult the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. Search for log entries for a specific user.
 

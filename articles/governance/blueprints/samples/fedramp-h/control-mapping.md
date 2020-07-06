@@ -1,7 +1,7 @@
 ---
 title: FedRAMP High blueprint sample controls
 description: Control mapping of the FedRAMP High blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 01/31/2020
+ms.date: 05/12/2020
 ms.topic: sample
 ---
 # Control mapping of the FedRAMP High blueprint sample
@@ -175,12 +175,12 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL managed instances and SQL servers.
-These policy definitions also audit configuration of diagnostic logs to provide insight into
-operations that are performed within Azure resources. These insights provide real-time information
-about the security state of your deployed resources and can help you prioritize remediation actions.
-For detailed vulnerability scanning and monitoring, we recommend you leverage Azure Sentinel and
-Azure Security Center as well.
+assessment on virtual machines, virtual machine scale sets, SQL Database servers, and SQL Managed
+Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
+insight into operations that are performed within Azure resources. These insights provide real-time
+information about the security state of your deployed resources and can help you prioritize
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - \[Preview\]: Enable Azure Monitor for VMs
@@ -527,7 +527,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [FedRAMP High blueprint - Overview](./index.md)
 > [FedRAMP High blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

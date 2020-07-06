@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/11/2020
 
 ---
 
@@ -147,92 +147,7 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 
 ## GetMetric
 
-### Examples
-
-*C#*
-
-```csharp
-namespace User.Namespace.Example01
-{
-    using System;
-    using Microsoft.ApplicationInsights;
-    using Microsoft.ApplicationInsights.DataContracts;
-
-    /// <summary>
-    /// Most simple cases are one-liners.
-    /// This is all possible without even importing an additional namespace.
-    /// </summary>
-
-    public class Sample01
-    {
-        /// <summary />
-        public static void Exec()
-        {
-            // *** SENDING METRICS ***
-
-            // Recall how you send custom telemetry with Application Insights in other cases, e.g. Events.
-            // The following will result in an EventTelemetry object to be sent to the cloud right away.
-            TelemetryClient client = new TelemetryClient();
-            client.TrackEvent("SomethingInterestingHappened");
-
-            // Metrics work very similar. However, the value is not sent right away.
-            // It is aggregated with other values for the same metric, and the resulting summary (aka "aggregate" is sent automatically every minute.
-            // To mark this difference, we use a pattern that is similar, but different from the established TrackXxx(..) pattern that sends telemetry right away:
-
-            client.GetMetric("CowsSold").TrackValue(42);
-
-            // *** MULTI-DIMENSIONAL METRICS ***
-
-            // The above example shows a zero-dimensional metric.
-            // Metrics can also be multi-dimensional.
-            // In the initial version we are supporting up to 2 dimensions, and we will add support for more in the future as needed.
-            // Here is an example for a one-dimensional metric:
-
-            Metric animalsSold = client.GetMetric("AnimalsSold", "Species");
-
-            animalsSold.TrackValue(42, "Pigs");
-            animalsSold.TrackValue(24, "Horses");
-
-            // The values for Pigs and Horses will be aggregated separately from each other and will result in two distinct aggregates.
-            // You can control the maximum number of number data series per metric (and thus your resource usage and cost).
-            // The default limits are no more than 1000 total data series per metric, and no more than 100 different values per dimension.
-            // We discuss elsewhere how to change them.
-            // We use a common .NET pattern: TryXxx(..) to make sure that the limits are observed.
-            // If the limits are already reached, Metric.TrackValue(..) will return False and the value will not be tracked. Otherwise it will return True.
-            // This is particularly useful if the data for a metric originates from user input, e.g. a file:
-
-            Tuple<int, string> countAndSpecies = ReadSpeciesFromUserInput();
-            int count = countAndSpecies.Item1;
-            string species = countAndSpecies.Item2;
-
-            if (!animalsSold.TrackValue(count, species))
-
-            {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", SeverityLevel.Error);
-            }
-
-            // You can inspect a metric object to reason about its current state. For example:
-            int currentNumberOfSpecies = animalsSold.GetDimensionValues(1).Count;
-        }
-
-        private static void ResetDataStructure()
-        {
-            // Do stuff
-        }
-
-        private static Tuple<int, string> ReadSpeciesFromUserInput()
-        {
-            return Tuple.Create(18, "Cows");
-        }
-
-        private static int AddItemsToDataStructure()
-        {
-            // Do stuff
-            return 5;
-        }
-    }
-}
-```
+To learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications visit the [GetMetric](../../azure-monitor/app/get-metric.md) documentation.
 
 ## TrackMetric
 
@@ -732,7 +647,7 @@ Ideally, flush() method should be used in the shutdown activity of the Applicati
 
 ## Authenticated users
 
-In a web app, users are (by default) identified by cookies. A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
+In a web app, users are (by default) [identified by cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
 
 If users sign in to your app, you can get a more accurate count by setting the authenticated user ID in the browser code:
 
@@ -1179,16 +1094,14 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 * [Java reference](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-
 ## SDK code
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-
 
 ## Questions
 

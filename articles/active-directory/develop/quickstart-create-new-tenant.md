@@ -70,4 +70,4 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 * [Register an app](quickstart-register-app.md) and integrate with Microsoft identity platform. 
 * Learn the [basics of authentication](authentication-scenarios.md).
-* See [How Azure subscriptions are associated with Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.
+* See [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.

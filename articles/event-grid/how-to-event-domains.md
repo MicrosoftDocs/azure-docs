@@ -2,10 +2,10 @@
 title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
 services: event-grid
-author: banisadr
+author: femila
 
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 10/22/2019
 ---

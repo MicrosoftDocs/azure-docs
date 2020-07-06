@@ -53,7 +53,7 @@ All of the identity and access recommendations are available within two security
 
 Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-- If you have a premium edition of AD, enable MFA using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
 - Users of AD free edition can enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) but the Security Center recommendation to enable MFA will still appear.
 

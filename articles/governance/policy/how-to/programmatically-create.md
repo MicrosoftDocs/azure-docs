@@ -1,7 +1,7 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
 ---
 # Programmatically create policies
@@ -110,7 +110,7 @@ HTTP requests.
    - Subscription - `/subscriptions/{subId}/`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-For more information about managing resource policies using the Azure Resource Manager PowerShell
+For more information about managing resource policies using the Resource Manager PowerShell
 module, see [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### Create and assign a policy definition using ARMClient
@@ -149,10 +149,10 @@ Use the following procedure to create a policy definition.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId}
@@ -183,7 +183,7 @@ resource group level.
 1. Create the policy assignment using the following call:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
    Replace example information in &lt;&gt; symbols with your own values.
@@ -232,9 +232,9 @@ To create a policy definition, use the following procedure:
    policy definition in the selected subscription of the sessions context. To save the definition
    to a different location, use the following parameters:
 
-   - **--subscription** - Save to a different subscription. Requires a _GUID_ value for the
+   - **subscription** - Save to a different subscription. Requires a _GUID_ value for the
      subscription ID or a _string_ value for the subscription name.
-   - **--management-group** - Save to a management group. Requires a _string_ value.
+   - **management-group** - Save to a management group. Requires a _string_ value.
 
 1. Use the following command to create a policy assignment. Replace example information in &lt;&gt;
    symbols with your own values.
@@ -243,12 +243,12 @@ To create a policy definition, use the following procedure:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   The **--scope** parameter on `az policy assignment create` works with management group,
+   The **scope** parameter on `az policy assignment create` works with management group,
    subscription, resource group, or a single resource. The parameter uses a full resource path. The
-   pattern for **--scope** for each container is as follows. Replace `{rName}`, `{rgName}`,
-   `{subId}`, and `{mgName}` with your resource name, resource group name, subscription ID, and
-   management group name, respectively. `{rType}` would be replaced with the **resource type** of
-   the resource, such as `Microsoft.Compute/virtualMachines` for a VM.
+   pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`,
+   and `{mgName}` with your resource name, resource group name, subscription ID, and management
+   group name, respectively. `{rType}` would be replaced with the **resource type** of the resource,
+   such as `Microsoft.Compute/virtualMachines` for a VM.
 
    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`

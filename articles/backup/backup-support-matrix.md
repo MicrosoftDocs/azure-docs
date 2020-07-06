@@ -51,7 +51,7 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Limit** | **Details**
 --- | ---
-**Azure VM data disks** | Limit of 16 <br> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+**Azure VM data disks** | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
 **Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
@@ -96,14 +96,14 @@ Azure Backup supports encryption for in-transit and at-rest data.
 
 - Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
 - Backup data is sent over a secure HTTPS link.
+
+### Data security
+
 - Backup data is stored in the Recovery Services vault in encrypted form.
 - Only you have the passphrase to unlock this data. Microsoft can't decrypt the backup data at any point.
 
     > [!WARNING]
     > After setting up the vault, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
-
-### Data security
-
 - When you're backing up Azure VMs, you need to set up encryption *within* the virtual machine.
 - Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines.
 - On the back end, Azure Backup uses [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), which protects data at rest.

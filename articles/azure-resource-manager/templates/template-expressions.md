@@ -118,7 +118,7 @@ The same formatting applies when passing values in from a parameter file. The ch
 
 ## Null values
 
-To set a property to null, you can use **null** or **[json('null')]**. The [json function](template-functions-array.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property isn't present.
+To set a property to null, you can use **null** or **[json('null')]**. The [json function](template-functions-object.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property isn't present.
 
 ```json
 "stringValue": null,

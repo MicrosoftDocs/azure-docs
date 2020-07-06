@@ -16,15 +16,25 @@ Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-
 
 ## Spring Boot
 
-Add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar <myapp.jar>`, for example:
+Add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar`, for example:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> Args placed after `-jar <myapp.jar>` are passed to the app as program args.
+## Spring Boot via Docker entry point
 
+If you are using the *exec* form, add the parameter `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+If you are using the *shell* form, add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar`, for example:
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## Tomcat 8 (Linux)
 

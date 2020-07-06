@@ -6,7 +6,7 @@ ms.date: 03/03/2020
 
 ---
 
-# Back up Windows machines by using the Azure Backup MARS agent
+# Back up Windows Server files and folders to Azure
 
 This article explains how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
 
@@ -155,4 +155,3 @@ For more information, see [Create a backup policy](#create-a-backup-policy).
 
 * Learn how to [Restore files in Azure](backup-azure-restore-windows-server.md).
 * Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
-

@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 02/19/2020
+ms.subservice: sql-dw 
+ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -41,15 +41,13 @@ The basic steps for implementing ELT are:
 5. Transform the data.
 6. Insert the data into production tables.
 
-For a PolyBase loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
-
-For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+For a loading tutorial, see [loading data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## 1. Extract the source data into text files
 
-Getting data out of your source system depends on the storage location.  The goal is to move the data into PolyBase and the COPY supported delimited text or CSV files.
+Getting data out of your source system depends on the storage location. The goal is to move the data into supported delimited text or CSV files.
 
-### PolyBase and COPY external file formats
+### Supported file formats
 
 With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files.
 
@@ -63,17 +61,17 @@ Tools and services you can use to move data to Azure Storage:
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
 - [AZCopy utility](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Analytics, see [Loading data for SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL pool, see [Loading data for SQL pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## 3. Prepare the data for loading
 
 You might need to prepare and clean the data in your storage account before loading. Data preparation can be performed while your data is in the source, as you export the data to text files, or after the data is in Azure Storage.  It is easiest to work with the data as early in the process as possible.  
 
-### Define external tables
+### Define the tables
 
-If you are using PolyBase, you need to define external tables in your SQL pool before loading. External tables are not required by the COPY statement. PolyBase uses external tables to define and access the data in Azure Storage.
+You must first defined the table(s) you are loading to in your SQL pool when using the COPY statement.
 
-An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the SQL pool.
+If you are using PolyBase, you need to define external tables in your SQL pool before loading. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the SQL pool.
 
 Defining external tables involves specifying the data source, the format of the text files, and the table definitions. T-SQL syntax reference articles that you will need are:
 
@@ -81,34 +79,47 @@ Defining external tables involves specifying the data source, the format of the 
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-When loading Parquet, the SQL data type mapping is:
+Use the following SQL data type mapping when loading Parquet files:
 
-| **Parquet Data Type** | **SQL Data Type** |
-| :-------------------: | :---------------: |
-|        tinyint        |      tinyint      |
-|       smallint        |     smallint      |
-|          int          |        int        |
-|        bigint         |      bigint       |
-|        boolean        |        bit        |
-|        double         |       float       |
-|         float         |       real        |
-|        double         |       money       |
-|        double         |    smallmoney     |
-|        string         |       nchar       |
-|        string         |     nvarchar      |
-|        string         |       char        |
-|        string         |      varchar      |
-|        binary         |      binary       |
-|        binary         |     varbinary     |
-|       timestamp       |       date        |
-|       timestamp       |   smalldatetime   |
-|       timestamp       |     datetime2     |
-|       timestamp       |     datetime      |
-|       timestamp       |       time        |
-|         date          |       date        |
-|        decimal        |      decimal      |
+|                         Parquet type                         |   Parquet logical type (annotation)   |  SQL data type   |
+| :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
+|                           BOOLEAN                            |                                       |       bit        |
+|                     BINARY / BYTE_ARRAY                      |                                       |    varbinary     |
+|                            DOUBLE                            |                                       |      float       |
+|                            FLOAT                             |                                       |       real       |
+|                            INT32                             |                                       |       int        |
+|                            INT64                             |                                       |      bigint      |
+|                            INT96                             |                                       |    datetime2     |
+|                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binary      |
+|                            BINARY                            |                 UTF8                  |     nvarchar     |
+|                            BINARY                            |                STRING                 |     nvarchar     |
+|                            BINARY                            |                 ENUM                  |     nvarchar     |
+|                            BINARY                            |                 UUID                  | uniqueidentifier |
+|                            BINARY                            |                DECIMAL                |     decimal      |
+|                            BINARY                            |                 JSON                  |  nvarchar(MAX)   |
+|                            BINARY                            |                 BSON                  |  varbinary(max)  |
+|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     decimal      |
+|                          BYTE_ARRAY                          |               INTERVAL                |  varchar(max),   |
+|                            INT32                             |             INT(8, true)              |     smallint     |
+|                            INT32                             |            INT(16,   true)            |     smallint     |
+|                            INT32                             |             INT(32, true)             |       int        |
+|                            INT32                             |            INT(8,   false)            |     tinyint      |
+|                            INT32                             |            INT(16, false)             |       int        |
+|                            INT32                             |           INT(32,   false)            |      bigint      |
+|                            INT32                             |                 DATE                  |       date       |
+|                            INT32                             |                DECIMAL                |     decimal      |
+|                            INT32                             |            TIME (MILLIS )             |       time       |
+|                            INT64                             |            INT(64,   true)            |      bigint      |
+|                            INT64                             |           INT(64, false  )            |  decimal(20,0)   |
+|                            INT64                             |                DECIMAL                |     decimal      |
+|                            INT64                             |         TIME (MICROS / NANOS)         |       time       |
+|                            INT64                             | TIMESTAMP   (MILLIS / MICROS / NANOS) |    datetime2     |
+| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LIST                  |   varchar(max)   |
+| [Complex   type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
 
-For an example of creating external objects, see the [Create external tables](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) step in the loading tutorial.
+
+
+For an example of creating external objects, see [Create external tables](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
 ### Format text files
 
@@ -121,17 +132,16 @@ To format the text files:
 
 ## 4. Load the data using PolyBase or the COPY statement
 
-It is best practice to load data into a staging table. Staging tables allow you to handle errors without interfering with the production tables. A staging table also gives you the opportunity to use the SQL pool MPP for data transformations before inserting the data into production tables.
+It is best practice to load data into a staging table. Staging tables allow you to handle errors without interfering with the production tables. A staging table also gives you the opportunity to use the SQL pool parallel processing architecture for data transformations before inserting the data into production tables.
 
-The table will need to be pre-created when loading into a staging table with COPY.
+### Options for loading
 
-### Options for loading with PolyBase and COPY statement
+To load data, you can use any of these loading options:
 
-To load data with PolyBase, you can use any of these loading options:
-
-- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions.
-- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
+- The [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. 
+- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) requires you to define external data objects.
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
+- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
 - [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
 
 ### Other loading options

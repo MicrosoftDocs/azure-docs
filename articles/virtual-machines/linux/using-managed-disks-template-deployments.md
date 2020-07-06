@@ -8,7 +8,7 @@ manager:
 
 ms.service: virtual-machines-linux
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage
 ms.date: 06/01/2017

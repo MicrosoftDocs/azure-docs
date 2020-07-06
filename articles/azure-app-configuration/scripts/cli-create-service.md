@@ -39,7 +39,7 @@ appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
   --location eastus \
   --resource-group $myResourceGroupName \
-  --query hostName \
+  --query endpoint \
   --sku free \
   -o tsv
   )

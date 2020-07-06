@@ -76,10 +76,9 @@ To configure and test Azure AD single sign-on with PolicyStat, you need to compl
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure PolicyStat Single Sign-On](#configure-policystat-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create PolicyStat test user](#create-policystat-test-user)** - to have a counterpart of Britta Simon in PolicyStat that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+3. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Create PolicyStat test user](#create-policystat-test-user)** - to have a counterpart of Britta Simon in PolicyStat that is linked to the Azure AD representation of user.
+5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -162,25 +161,7 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
    
     ![Administrator Menu](./media/policystat-tutorial/ic808633.png "Administrator Menu")
 
-3. In the **Setup** section, select **Enable Single Sign-on Integration**.
-   
-    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
-
-4. Click **Configure Attributes**, and then, in the **Configure Attributes** section, perform the following steps:
-   
-    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808635.png "Single Sign-On Configuration")
-   
-    a. In the **Username Attribute** textbox, type **uid**.
-
-    b. In the **First Name Attribute** textbox, type **firstname** of user **Britta**.
-
-    c. In the **Last Name Attribute** textbox, type **lastname** of user **Simon**.
-
-    d. In the **Email Attribute** textbox, type **emailaddress** of user `BrittaSimon@contoso.com`.
-
-    e. Click **Save Changes**.
-
-5. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
+3. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
    
     ![Single Sign-On Configuration](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
    
@@ -188,33 +169,26 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
 
     b. Click **Save Changes**.
 
-### Create an Azure AD test user 
+4. Click **Configure Attributes**, and then, in the **Configure Attributes** section, perform the following steps:
+   
+    a. In the **Username Attribute** textbox, type **uid**.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    b. In the **First Name Attribute** textbox, type your First Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+    c. In the **Last Name Attribute** textbox, type your Last Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    d. In the **Email Attribute** textbox, type your Email Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-2. Select **New user** at the top of the screen.
+    e. Click **Save Changes**.
 
-    ![New user Button](common/new-user.png)
+5. In the **Setup** section, select **Enable Single Sign-on Integration**.
+   
+    ![Single Sign-On Configuration](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
 
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to PolicyStat.
+In this section, you enable your own account to use Azure single sign-on by granting access to PolicyStat.
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **PolicyStat**.
 
@@ -232,7 +206,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog select your account in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
@@ -258,4 +232,3 @@ When you click the PolicyStat tile in the Access Panel, you should be automatica
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

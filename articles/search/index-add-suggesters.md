@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/21/2020
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes the term or phrase, and *suggestions* that return a short list of matching documents.  
+In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invites click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
 The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
@@ -29,27 +29,36 @@ Search-as-you-type support is enabled on a per-field basis for string fields. Yo
 
 ## What is a suggester?
 
-A suggester is a data structure that supports search-as-you-type behaviors by storing prefixes for matching on partial queries. Similar to tokenized terms, prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
-
-When creating prefixes, a suggester has its own analysis chain, similar to the one used for full text search. However, unlike analysis in full text search, a suggester can only operate over fields that use the standard Lucene analyzer (default) or a [language analyzer](index-add-language-analyzers.md). Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined analyzers](index-add-custom-analyzers.md#predefined-analyzers-reference) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
-
-> [!NOTE]
-> If you need to work around the analyzer constraint, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
+A suggester is an internal data structure that supports search-as-you-type behaviors by storing prefixes for matching on partial queries. As with tokenized terms, prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
 
 ## Define a suggester
 
-To create a suggester, add one to an [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index) and [set each property](#property-reference). In the index, you can have one suggester (specifically, one suggester in the suggesters collection). The best time to create a suggester is when you are also defining the field that will use it.
+To create a suggester, add one to an [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index) and [set each property](#property-reference). The best time to create a suggester is when you are also defining the field that will use it.
+
++ Use string fields only
+
++ Use the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`) on the field
 
 ### Choose fields
 
-Although a suggester has several properties, it is primarily a collection of fields for which you are enabling a search-as-you-type experience. For suggestions in particular, choose fields that best represent a single result. Names, titles, or other unique fields that distinguish among multiple matches work best. If fields consist of repetitive values, the suggestions consist of identical results and a user won't know which one to click.
+Although a suggester has several properties, it is primarily a collection of string fields for which you are enabling a search-as-you-type experience. There is one suggester for each index, so the suggester list must include all fields that contribute content for both suggestions and autocomplete.
 
-Make sure each field uses an analyzer that performs lexical analysis during indexing. You can use either the default standard Lucene analyzer (`"analyzer": null`) or a [language analyzer](index-add-language-analyzers.md) (for example, `"analyzer": "en.Microsoft"`). 
+Autocomplete benefits from a larger pool of fields to draw from because the additional content has more term completion potential.
 
-Your choice of an analyzer determines how fields are tokenized and subsequently prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer will result in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string would not exist.
+Suggestions, on the other hand, produce better results when your field choice is selective. Remember that the suggestion is a proxy for a search document so you will want fields that best represent a single result. Names, titles, or other unique fields that distinguish among multiple matches work best. If fields consist of repetitive values, the suggestions consist of identical results and a user won't know which one to click.
 
-> [!TIP]
-> Consider using the [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) for insight into how terms are tokenized and subsequently prefixed. Once you build an index, you can try various analyzers on a string to view the tokens it emits.
+To satisfy both search-as-you-type experiences, add all of the fields that you need for autocomplete, but then use **$select**, **$top**, **$filter**, and **searchFields** to control results for suggestions.
+
+### Choose analyzers
+
+Your choice of an analyzer determines how fields are tokenized and subsequently prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer will result in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string would not exist. 
+
+When evaluating analyzers, consider using the [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) for insight into how terms are tokenized and subsequently prefixed. Once you build an index, you can try various analyzers on a string to view token output.
+
+Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined analyzers](index-add-custom-analyzers.md#predefined-analyzers-reference) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
+
+> [!NOTE]
+> If you need to work around the analyzer constraint, for example if you need a keyword or ngram analyzer for certain query scenarios, you should use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
 
 ### When to create a suggester
 
@@ -59,8 +68,7 @@ If you try to create a suggester using pre-existing fields, the API will disallo
 
 ## Create using REST
 
-In the REST API, add suggesters through [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) or 
-[Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+In the REST API, add suggesters through [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -143,7 +151,7 @@ In a search application, client code should leverage a library like [jQuery UI A
 API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a **search** parameter, which in this case provides the partial query. Second, you must add **suggesterName** to the request. If a suggester is not defined in the index, a call to autocomplete or suggestions will fail.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -158,7 +166,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## Next steps
 
-We recommend the following example to see how the requests are formulated.
+We recommend the following article to learn more about how requests formulation.
 
 > [!div class="nextstepaction"]
 > [Add autocomplete and suggestions to client code](search-autocomplete-tutorial.md) 

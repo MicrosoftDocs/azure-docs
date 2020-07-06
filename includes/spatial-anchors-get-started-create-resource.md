@@ -36,6 +36,10 @@ Then, you can view the resource properties. Copy the resource's **Account ID** v
 
    ![Resource properties](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
+Also copy the resource's **Account Domain** value into a text editor because you'll need it later.
+
+   ![Account domain](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+
 Under **Settings**, select **Key**. Copy the **Primary key** value into a text editor. This value is the `Account Key`. You'll need it later.
 
    ![Account key](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

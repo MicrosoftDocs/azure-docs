@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator, I want to understand how to use parallel documents to build a custom translation model.
@@ -17,8 +17,8 @@ ms.topic: conceptual
 Parallel documents are pairs of documents where one is the translation of the
 other. One document in the pair contains sentences in the source language and
 the other document contains these sentences translated into the target language.
-It doesn’t matter which language is marked as “source” and which language is
-marked as “target” – a parallel document can be used to train a translation
+It doesn't matter which language is marked as "source" and which language is
+marked as "target" – a parallel document can be used to train a translation
 system in either direction.
 
 ## Requirements
@@ -26,7 +26,7 @@ system in either direction.
 You will need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. Please refer to [Sentence Alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 Microsoft requires that documents uploaded to the Custom Translator do not
-violate a third party’s copyright or intellectual properties. For more
+violate a third party's copyright or intellectual properties. For more
 information, please see the [Terms of
 Use](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Uploading a document using the portal does not alter the ownership of the

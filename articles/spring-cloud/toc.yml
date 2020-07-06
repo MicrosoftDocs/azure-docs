@@ -24,14 +24,31 @@
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Use IntelliJ to deploy applications
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Circuit Breaker Dashboard
+      href: spring-cloud-tutorial-circuit-breaker.md
+    - name: Custom DNS name
+      href: spring-cloud-tutorial-custom-domain.md
+    - name: Use IntelliJ to deploy apps
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: CI/CD with Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+- name: Samples
+  items:  
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items: 
-    - name: Understanding quotas and limits
+    - name: Understand quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understanding metrics
+    - name: Understand metrics
       href: spring-cloud-concept-metrics.md
+    - name: Azure Spring Boot Actuator
+      href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
+    - name: Security controls
+      href: spring-cloud-concept-security-controls.md
+    - name: Understand app status in Azure Spring Cloud
+      href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
@@ -48,12 +65,18 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind an app to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
-    - name: Start, stop, and delete an application
+    - name: Start, stop, and delete an app
       href: spring-cloud-howto-start-stop-delete.md
     - name: Set up a staging environment
       href: spring-cloud-howto-staging-environment.md
     - name: Use persistent storage
       href: spring-cloud-howto-persistent-storage.md
+    - name: Integrate with Azure Load Balance Solutions
+      href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Enable system-assigned managed identity
+      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+    - name: Self diagnose and solve problems
+      href: spring-cloud-howto-self-diagnose-solve.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights
@@ -68,7 +91,7 @@
           href: spring-cloud-howto-cicd.md
         - name: CI/CD with GitHub Actions
           href: spring-cloud-howto-github-actions.md
-        - name: Auth with Key Vault in GitHub actions
+        - name: Auth with Key Vault in GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
     - name: Troubleshoot
       items:
@@ -77,7 +100,7 @@
 - name: Reference
   items: 
     - name: Azure CLI Plugin
-      href: spring-cloud-cli-reference.md
+      href: https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud
     - name: Resources
       href: spring-cloud-resources.md
     - name: Frequently Asked Questions

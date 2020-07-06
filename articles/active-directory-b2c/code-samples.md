@@ -43,3 +43,9 @@ The following tables provide links to samples for applications including iOS, An
 | Sample | Description |
 |--------| ----------- |
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. |
+
+## SAML test application
+
+| Sample | Description |
+|--------| ----------- |
+| [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | SAML test application to test Azure AD B2C configured to act as SAML identity provider. |

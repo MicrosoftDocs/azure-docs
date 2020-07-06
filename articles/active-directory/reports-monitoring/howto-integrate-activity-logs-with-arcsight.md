@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -50,7 +50,7 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
     * The application settings from your deployment are persisted in the Application Settings in Azure Function Apps. 
     * A new resource group for ArcSight is created in Azure, with an Azure AD application for the ArcSight connector and storage accounts containing the mapped files in CEF format.
 
-4. Finally, complete the post-deployment steps in the **Post-Deployment Configurations** of the configuration guide. This section explains how to perform additional configuration if you are on an App Service Plan to prevent the function apps from going idle after a timeout period, configure streaming of diagnostic logs from the event hub, and update the SysLog NG Daemon SmartConnector keystore certificate to associate it with the newly created storage account.
+4. Finally, complete the post-deployment steps in the **Post-Deployment Configurations** of the configuration guide. This section explains how to perform additional configuration if you are on an App Service Plan to prevent the function apps from going idle after a timeout period, configure streaming of resource logs from the event hub, and update the SysLog NG Daemon SmartConnector keystore certificate to associate it with the newly created storage account.
 
 5. The configuration guide also explains how to customize the connector properties in Azure, and how to upgrade and uninstall the connector. There is also a section on performance improvements, including upgrading to an [Azure Consumption plan](https://azure.microsoft.com/pricing/details/functions) and configuring an ArcSight Load Balancer if the event load is greater than what a single Syslog NG Daemon SmartConnector can handle.
 

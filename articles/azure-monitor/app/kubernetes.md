@@ -8,14 +8,13 @@ ms.date: 04/25/2019
 
 ---
 
-# Zero instrumentation application monitoring for Kubernetes hosted applications
+# Zero instrumentation application monitoring for Kubernetes hosted applications with Istio - DEPRECATED
 
 > [!IMPORTANT]
-> This functionality is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This functionality is currently being deprecated and will no longer be supported after August 1st, 2020.
+> Currently the codeless monitoring can only be enabled for [Java through standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). For other languages, use the SDKs to monitor your apps on AKS: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript), and [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
-Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](../../azure-monitor/app/app-map.md) to model your dependencies, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md), and [Workbooks](../../azure-monitor/app/usage-workbooks.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
+Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](../../azure-monitor/app/app-map.md) to model your dependencies, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md), and [Workbooks](../../azure-monitor/platform/workbooks-overview.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
 
 > [!NOTE]
 > This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
@@ -108,7 +107,7 @@ Below is the troubleshooting flow to use when telemetry doesn't appear in the Az
    ```
    Verify that there is a container named *istio-proxy* running on the pod.
 
-5. View the Application Insights adapter’s traces.
+5. View the Application Insights adapter's traces.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"

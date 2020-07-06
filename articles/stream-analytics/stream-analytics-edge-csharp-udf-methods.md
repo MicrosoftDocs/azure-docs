@@ -37,17 +37,29 @@ There are three ways to implement UDFs:
 The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. This package path is used for all functions regardless of the method used to employ them.
 
 ## Supported types and mapping
+For Azure Stream Analytics values to be used in C#, they need to be marshaled from one environment to the other. Marshaling happens for all input parameters of a UDF. Every Azure Stream Analytics type has a corresponding type in C# shown on the table below:
 
-|**UDF type (C#)**  |**Azure Stream Analytics type**  |
+|**Azure Stream Analytics type** |**C# type** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | string |
+|datetime | DateTime |
+|Record | Dictionary\<string, object> |
+|Array | Object[] |
+
+The same is true when data needs to be marshaled from C# to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
+
+|**C# type**  |**Azure Stream Analytics type**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |string  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|object  |  IRecord   |
-|Array\<object>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|DateTime  |  dateTime   |
+|struct  |  Record   |
+|object  |  Record   |
+|Object[]  |  Array   |
+|Dictionary\<string, object>  |  Record   |
 
 ## CodeBehind
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following the [C# UDF for Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf.md) tutorial. 
@@ -124,6 +136,43 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
    |Custom Code Assembly Source|Existing assembly packages from the cloud|
    |Custom Code Assembly Source|UserCustomCode.zip|
 
+## User logging
+The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time.
+
+The `StreamingContext` class lets you publish diagnostic information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext` is passed as an input parameter to the UDF method and can be used within the UDF to publish custom log information. In the example below, `MyUdfMethod` defines a **data** input, which is provided by the query, and a **context** input as the `StreamingContext`, provided by the runtime engine. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+The `StreamingContext` value doesn't need to be passed in by the SQL query. Azure Stream Analytics provides a context object automatically if an input parameter is present. The use of the `MyUdfMethod` does not change, as shown in the following query:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+You can access log messages through the [diagnostic logs](data-errors.md).
+
 ## Limitations
 The UDF preview currently has the following limitations:
 
@@ -132,6 +181,10 @@ The UDF preview currently has the following limitations:
 * The Azure portal query editor shows an error when using .NET Standard UDF in the portal. 
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
+
+* Supporting files included in the project are copied to the User Custom Code zip file that is used when you publish the job to the cloud. All files in subfolders are copied directly to the root of the User Custom Code folder in the cloud when unzipped. The zip is "flattened" when decompressed.
+
+* User Custom Code doesn't support empty folders. Don't add empty folders to the supporting files in the project.
 
 ## Next steps
 

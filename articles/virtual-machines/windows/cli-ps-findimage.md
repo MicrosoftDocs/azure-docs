@@ -1,16 +1,9 @@
 ---
 title: Select Windows VM images in Azure 
 description: Use Azure PowerShell to determine the publisher, offer, SKU, and version for Marketplace VM images.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
-
+ms.subservice: imaging
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure

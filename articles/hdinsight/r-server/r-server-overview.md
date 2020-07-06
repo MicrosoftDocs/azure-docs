@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive
-ms.date: 04/03/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/20/2020
 #Customer intent: As a developer I want to have a basic understanding of Microsoft's implementation of machine learning in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
@@ -19,7 +19,7 @@ ML Services on HDInsight provides the latest capabilities for R-based analytics 
 
 The edge node provides a convenient place to connect to the cluster and run your R scripts. The edge node allows running the ScaleR parallelized distributed functions across the cores of the server. You can also run them across the nodes of the cluster by using ScaleR's Hadoop Map Reduce. You can also use Apache Spark compute contexts.
 
-The models or predictions that result from analysis can be downloaded for on-premises use. They can also be operationalized elsewhere in Azure. In particular, through [Azure Machine Learning Studio (classic)](https://studio.azureml.net), and [web service](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+The models or predictions that result from analysis can be downloaded for on-premises use. They can also be `operationalized` elsewhere in Azure. In particular, through [Azure Machine Learning Studio (classic)](https://studio.azureml.net), and [web service](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## Get started with ML Services on HDInsight
 
@@ -59,16 +59,16 @@ The following features are included in ML Services on HDInsight.
 | R-enabled | [R packages](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) for solutions written in R, with an open-source distribution of R, and run-time infrastructure for script execution. |
 | Python-enabled | [Python modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) for solutions written in Python, with an open-source distribution of Python, and run-time infrastructure for script execution.
 | [Pre-trained models](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | For visual analysis and text sentiment analysis, ready to score data you provide. |
-| [Deploy and consume](r-server-operationalize.md) | Operationalize your server and deploy solutions as a web service. |
+| [Deploy and consume](r-server-operationalize.md) | `Operationalize` your server and deploy solutions as a web service. |
 | [Remote execution](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Start remote sessions on ML Services cluster on your network from your client workstation. |
 
 ## Data storage options for ML Services on HDInsight
 
-Default storage for the HDFS file system can be an Azure Storage account or Azure Data Lake Storage. Uploaded data to cluster storage during analysis is made persistent. The data is available even after the cluster is deleted. Various tools can handle the data transfer to storage. The tools include the portal-based upload facility of the storage account and the [AzCopy](../../storage/common/storage-use-azcopy.md) utility.
+Default storage for the HDFS file system can be an Azure Storage account or Azure Data Lake Storage. Uploaded data to cluster storage during analysis is made persistent. The data is available even after the cluster is deleted. Various tools can handle the data transfer to storage. The tools include the portal-based upload facility of the storage account and the AzCopy utility.
 
 You can enable access to additional Blob and Data lake stores during cluster creation. You aren't limited by the primary storage option in use.  See [Azure Storage options for ML Services on HDInsight](./r-server-storage.md) article to learn more about using multiple storage accounts.
 
-You can also use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables file shares created in Azure Storage to the Linux file system. For more information, see [Azure Storage options for ML Services on HDInsight](r-server-storage.md).
+You can also use Azure Files as a storage option for use on the edge node. Azure Files enables file shares created in Azure Storage to the Linux file system. For more information, see [Azure Storage options for ML Services on HDInsight](r-server-storage.md).
 
 ## Access ML Services edge node
 
@@ -78,9 +78,9 @@ You can connect to Microsoft ML Server on the edge node using a browser, or SSH/
 
 Your R scripts can use any of the 8000+ open-source R packages. You can also use the parallelized and distributed routines from the ScaleR library. Scripts run on the edge node run within the R interpreter on that node. Except for steps that call ScaleR functions with a Map Reduce (RxHadoopMR) or Spark (RxSpark) compute context. The functions run in a distributed fashion across the data nodes that are associated with the data. For more information about context options, see [Compute context options for ML Services on HDInsight](r-server-compute-contexts.md).
 
-## Operationalize a model
+## `Operationalize` a model
 
-When your data modeling is complete, you can operationalize the model to make predictions for new data either from Azure or on-premises. This process is known as scoring. Scoring can be done in HDInsight, Azure Machine Learning, or on-premises.
+When your data modeling is complete, `operationalize` the model to make predictions for new data either from Azure or on-premises. This process is known as scoring. Scoring can be done in HDInsight, Azure Machine Learning, or on-premises.
 
 ### Score in HDInsight
 
@@ -92,7 +92,7 @@ To score using Azure Machine Learning, use the open-source Azure Machine Learnin
 
 ### Score on-premises
 
-To score on-premises after creating your model: serialize the model in R, download it, de-serialize it, then use it for scoring new data. You can score new data by using the approach described earlier in [Score in HDInsight](#score-in-hdinsight) or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+To score on-premises after creating your model: serialize the model in R, download it, de-serialize it, then use it for scoring new data. You can score new data by using the approach described earlier in Score in HDInsight or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## Maintain the cluster
 
@@ -110,7 +110,9 @@ Available memory to ML Services can be modified when it's running a MapReduce jo
 
 Available memory to ML Services can be changed by using Hadoop switches in the call to **RxHadoopMR**:
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### Scale your cluster
 
@@ -126,7 +128,7 @@ Running jobs might slow down during maintenance. However, they should still run 
 
 The Linux edge node of an HDInsight cluster is the landing zone for R-based analysis. Recent versions of HDInsight provide a browser-based IDE of RStudio Server on the edge node. RStudio Server is more productive than the R console for development and execution.
 
-A desktop IDE can access the cluster through a remote MapReduce or Spark compute context. Options include: Microsoft's [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio, and Walware's Eclipse-based [StatET](http://www.walware.de/goto/statet).
+A desktop IDE can access the cluster through a remote MapReduce or Spark compute context. Options include: Microsoft's [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio, and Walware's Eclipse-based StatET.
 
 Access the R console on the edge node by typing **R** at the command prompt. When using the console interface, it's convenient to develop R script in a text editor. Then cut and paste sections of your script into the R console as needed.
 
