@@ -376,7 +376,7 @@ Our standard recommendation is to use the rowversion data type for the high wate
 
 If you attempt to use rowversion on a read-only replica, you will see the following error: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
 **Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
 
