@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 The following table includes links to Azure CLI script examples to manage single and pooled databases in Azure SQL Database. 
 
-| | |
+|Area|Description|
 |---|---|
 |**Create databases in Azure SQL Database**||
 | [Create a single database and configure a firewall rule](scripts/create-and-configure-database-cli.md) | Creates an SQL Database and configures a server-level firewall rule. |
@@ -58,7 +58,7 @@ Learn more about the [single-database Azure CLI API](single-database-manage.md#t
 
 The following table includes links to Azure CLI script examples for Azure SQL Managed Instance.
 
-| | |
+|Area|Description|
 |---|---|
 | **Create a SQL Managed Instance**||
 | [Create a SQL Managed Instance](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |

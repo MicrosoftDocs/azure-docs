@@ -59,14 +59,14 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 
 |                                              | Geo-replication | Failover groups  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Automatic failover                           |     No          |      Yes         |
-| Fail over multiple databases simultaneously  |     No          |      Yes         |
-| User must update connection string after failover      |     Yes         |      No          |
-| SQL Managed Instance support                   |     No          |      Yes         |
-| Can be in same region as primary             |     Yes         |      No          |
-| Multiple replicas                            |     Yes         |      No          |
-| Supports read-scale                          |     Yes         |      Yes         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Automatic failover**                          |     No          |      Yes         |
+| **Fail over multiple databases simultaneously**  |     No          |      Yes         |
+| **User must update connection string after failover**      |     Yes         |      No          |
+| **SQL Managed Instance support**                   |     No          |      Yes         |
+| **Can be in same region as primary**             |     Yes         |      No          |
+| **Multiple replicas**                            |     Yes         |      No          |
+| **Supports read-scale**                          |     Yes         |      Yes         |
+
 
 ## Recover a database to the existing server
 
