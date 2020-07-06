@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/06/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -21,7 +21,9 @@ This article covers how Customer Lockbox requests are initiated and tracked for 
 
 Before you begin, make sure:
 
-1. You have created an Azure Data Box import order as per the instructions in [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+1. You have created an Azure Data Box order as per the instructions in:
+    1. [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md) for import orders.
+    1. [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md) for export orders.
 
 2. You have configured Customer Lockbox for Data Box. This is an opt-in service. 
 
@@ -33,28 +35,24 @@ Before you begin, make sure:
 
 ## Access customer data
 
-Microsoft does not typically access customer data. For Data Box, the following are the most common cases where there is a need to access customer data: 
+Microsoft typically does not  access customer data. The only scenarios where there is a need to access customer data is when there is an issue with the data that needs to be fixed. For example, if the data is copied to a wrong folder or is an incorrect format and is likely to result in an upload or download failure, then Microsoft will try to access your data in the Azure datacenter. 
 
-- Prepare to ship step was not run.
-- The data was copied in the wrong folder.
-- The data is copied in an incorrect format.
-
-In these cases, Microsoft will try to access your data in the Azure datacenter and will require your explicit consent to access the data. The access is requested and tracked via the Customer Lockbox interface if you have enabled Lockbox. 
+If you have enabled Lockbox, Microsoft will require your explicit consent to access the data. The access is requested and tracked via the Customer Lockbox service in the portal. 
 
 If you have not enabled Lockbox, then your consent is not needed to access the data.
 
 
-## Initiate request via Lockbox
+## Track, approve request via Lockbox
 
- To create a request to access customer data, these steps are followed:
+To track and approve a request to access customer data, follow these steps:
 
-1. Typically a customer initiates a service request via Lockbox. However, for Data Box, if Microsoft detects that there is an issue during the upload or download of the data at Azure datacenter, Microsoft Support reaches out to the customer. For example, if the Data Box order was halted during the **Data Copy** stage, Data Box Support will initiate a Customer Lockbox request. 
+1. Microsoft detects that there is an issue during the upload or download of the data at Azure datacenter. For example, the Data Box order is halted during the **Data Copy** stage. 
+
+    The support engineer first tries to troubleshoot the issue by using standard tools and telemetry. If the support engineer accessed the Data Box through support session and the disks are locked and shares are not accessible, then the Support engineer creates a Lockbox request. 
  
-2. The support engineer first tries to troubleshoot the issue by using standard tools and telemetry. If the support engineer accessed the Data Box through support session and the disks are locked and shares are not accessible, then the Support engineer creates a Lockbox request. 
+2. When the request is created, usually the notification goes to the admin of the subscription but you can also configure a group for notifications. 
 
-    When the request is created, usually the notification goes to the admin of the subscription but you can also configure a group for notifications. 
-
-4. The lockbox request shows up in the Azure portal for customer approval. 
+3. The lockbox request shows up in the Azure portal for customer approval. 
 
     ![Request in Azure portal](./media/data-box-customer-lockbox/3-lockbox-request-azure-portal.png)
 
@@ -63,9 +61,9 @@ If you have not enabled Lockbox, then your consent is not needed to access the d
     ![Approve request](./media/data-box-customer-lockbox/4-lockbox-request-details-azure-portal.png)
 
 
-5. Once the request is approved, the support engineer can access the device. The support engineer then validates that the device disks are unlocked and shares can be accessed in the support session.
+4. Once the request is approved, the support engineer can access the device. The support engineer then validates that the device disks are unlocked and shares can be accessed in the support session.
 
-7. The support engineer resolves the upload issue and then disables the support session.
+5. The support engineer resolves the upload issue and then disables the support session.
 
 After the issue is resolved, the data copy job will progress to completion.
 
@@ -73,7 +71,8 @@ After the issue is resolved, the data copy job will progress to completion.
 ## Next steps
 
 - [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
-- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)
+
+<!--- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)-->
 
 
 
