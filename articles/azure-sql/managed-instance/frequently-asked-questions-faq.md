@@ -64,39 +64,41 @@ To use another DNS zone instead of the default, for example, *.contoso.com*:
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or a script as well.
 - Use *CNAME* with the *TrustServerCertificate=true* option.
 
-## Move a database from SQL Managed Instance 
 
-**How can I move a database from SQL Managed Instance back to SQL Server or Azure SQL Database?**
+## Migration options
 
-You can [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
+**How can I migrate from Azure SQL Database single or elastic pool to SQL Managed Instance?**
 
-Transactional replication can be used if all tables in the database have primary keys.
+Managed instance offers the same performance levels per compute and storage size as other deployment options of Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in managed instance, you can migrate your data by using export/import (BACPAC) functionality. Here are other ways to consider for SQL Database migration to SQL Managed Instance: 
+- Using [Data Source External](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
+- Using [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Using [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-Native `COPY_ONLY` backups taken from SQL Managed Instance cannot be restored to SQL Server because SQL Managed Instance has a higher database version compared to SQL Server.
+**How can I migrate my instance database to a single Azure SQL Database?**
 
-## Migrate an instance database
+One option is to [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
-**How can I migrate my instance database to Azure SQL Database?**
+[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
 
-One option is to [export the database to a BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). 
+Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
 
-This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
+**How can I migrate my SQL Server instance to SQL Managed Instance?**
+
+To migrate your SQL Server instance, see [SQL Server instance migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+
+**How can I migrate from other platforms to SQL Managed Instance?**
+
+For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Switch hardware generation 
 
-**Can I switch my SQL Managed Instance hardware generation between Gen 4 and Gen 5 online?**
+**Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online?**
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where SQL Managed Instance is provisioned. In this case, you can check the [vCore model overview page](../database/service-tiers-vcore.md), which explains how to switch between hardware generations.
+Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware generations.
 
-This is a long-running operation, as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instances, with a quick failover at the end of the process. 
+This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process.
 
-**What if both hardware generations are not supported in the same region?**
-
-If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the wanted hardware generation is available, and manually back up and restore data between the old and new instances.
-
-**What if there are not enough IP addresses for performing update operation?**
-
-In case there are not enough IP addresses in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. (For proper subnet size, check [how to determine the size of a VNet subnet](vnet-subnet-determine-size.md).) After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
+Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware. Switching from Gen5 to Gen4 is also not available.
 
 
 ## Tune performance
