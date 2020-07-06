@@ -16,7 +16,13 @@ ms.author: egeaney
 
 Azure Form Recognizer automatically encrypts your data when persisted it to the cloud. Form Recognizer encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
-[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
+## About Cognitive Services encryption
+
+Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
+
+## About encryption key management
+
+By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
 
 > [!IMPORTANT]
 > Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Form Recognizer, you will need to create a new Form Recognizer resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
