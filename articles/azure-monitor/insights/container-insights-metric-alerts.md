@@ -20,7 +20,7 @@ Before you start, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, a new containerized agent, version **microsoft/oms:ciprod05262020**, is included in the release.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020**.
 
     To verify your cluster is running the newer version of the agent, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`. In the status returned, note the value for *omi* and *omsagent*. They should match the latest version.
 
@@ -109,7 +109,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
     ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
-After selecting the **Enable/Disable** radio button to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
+After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
 ### Enable with a Resource Manager template
 
@@ -220,4 +220,4 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 
-- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](container-insights-health.md).
+- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md).
