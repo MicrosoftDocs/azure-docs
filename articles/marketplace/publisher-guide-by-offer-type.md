@@ -13,7 +13,7 @@ ms.author: dsindona
 
 This article describes the offer types that are available in the commercial marketplace. The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
 
-Before you can create an offer, and after you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you must choose an offer type that will be used to present your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
+Before you can create an offer, and after you [decide on a publishing option](determine-your-listing-type.md), you must choose an offer type that will be used to present your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
 
 A single offer type can be configured in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 

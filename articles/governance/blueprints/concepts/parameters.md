@@ -6,11 +6,11 @@ ms.topic: conceptual
 ---
 # Creating dynamic blueprints through parameters
 
-A fully defined blueprint with various artifacts (such as resource groups, Resource Manager
-templates, policies, or role assignments) offers the rapid creation and consistent creation of
-objects within Azure. To enable flexible use of these reusable design patterns and containers, Azure
-Blueprints supports parameters. The parameter creates flexibility, both during definition and
-assignment, to change properties on the artifacts deployed by the blueprint.
+A fully defined blueprint with various artifacts such as resource groups, Azure Resource Manager
+templates (ARM templates), policies, or role assignments, offers the rapid creation and consistent
+creation of objects within Azure. To enable flexible use of these reusable design patterns and
+containers, Azure Blueprints supports parameters. The parameter creates flexibility, both during
+definition and assignment, to change properties on the artifacts deployed by the blueprint.
 
 A simple example is the resource group artifact. When a resource group is created, it has two
 required values that must be provided: name and location. When adding a resource group to your
@@ -41,12 +41,12 @@ level parameter](#blueprint-level-parameter).
 
 ### Using secureString and secureObject parameters
 
-While a Resource Manager template _artifact_ supports parameters of the **secureString** and
-**secureObject** types, Azure Blueprints requires each to be connected with an Azure Key Vault. This
-security measure prevents the unsafe practice of storing secrets along with the Blueprint and
-encourages employment of secure patterns. Azure Blueprints supports this security measure, detecting
-the inclusion of either secure parameter in a Resource Manager template _artifact_. The service then
-prompts during assignment for the following Key Vault properties per detected secure parameter:
+While an ARM template _artifact_ supports parameters of the **secureString** and **secureObject**
+types, Azure Blueprints requires each to be connected with an Azure Key Vault. This security measure
+prevents the unsafe practice of storing secrets along with the Blueprint and encourages employment
+of secure patterns. Azure Blueprints supports this security measure, detecting the inclusion of
+either secure parameter in an ARM template _artifact_. The service then prompts during assignment
+for the following Key Vault properties per detected secure parameter:
 
 - Key Vault resource ID
 - Key Vault secret name
