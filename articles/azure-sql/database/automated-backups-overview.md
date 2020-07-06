@@ -56,7 +56,7 @@ To perform a restore, see [Restore database from backups](recovery-using-backups
 
 You can try backup configuration and restore operations using the following examples:
 
-| | Azure portal | Azure PowerShell |
+| Operation | Azure portal | Azure PowerShell |
 |---|---|---|
 | Change backup retention | [Single database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Managed instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Single database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Managed instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Change long-term backup retention | [Single database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed instance - N/A  | [Single database](long-term-backup-retention-configure.md)<br/>[Managed instance](../managed-instance/long-term-backup-retention-configure.md)  |
