@@ -11,7 +11,7 @@ ms.date: 05/08/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Reference documentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 
 ```javascript

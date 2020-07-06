@@ -180,4 +180,4 @@ In the guest virtual machine, open your browser and navigate to a web page.
 
 ## Set up intranet connectivity for the guest virtual machine
 
-For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).
+For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
