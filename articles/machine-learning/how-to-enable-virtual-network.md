@@ -546,8 +546,29 @@ When __attaching an existing cluster__ to your workspace, you must wait until af
 
 For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
 
+After attaching the existing cluster, you can then update the cluster to use a private IP.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__Network contributor role__
+
 > [!IMPORTANT]
-> After attaching a cluster, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains your Azure virtual network. This must be done before you try to change the internal load balancer to private IP.
+> If you use a virtual network that you created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
 >
 > To add the identity as network contributor, use the following steps:
 
@@ -574,26 +595,6 @@ For information on attaching a cluster, see [Attach an existing AKS cluster](how
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-
-After adding the service principal or managed identity as a network contributor, you can then update the cluster to use a private IP.
-
-```python
-import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
-from azureml.core.compute import AksCompute
-
-# ws = workspace object. Creation not shown in this snippet
-aks_target = AksCompute(ws,"myaks")
-
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
-# Update AKS configuration to use an internal load balancer
-update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-aks_target.update(update_config)
-# Wait for the operation to complete
-aks_target.wait_for_completion(show_output = True)
-```
-
 For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
 ## Use Azure Container Instances (ACI)
