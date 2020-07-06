@@ -187,12 +187,14 @@ You now can use Media Services to dynamically encrypt your HTTP Live Streaming (
 ## <a id="feb_changes16"></a>February 2016 release
 The latest version of the Media Services SDK for .NET (3.5.3) contains a Google Widevine-related bug fix. It was impossible to reuse AssetDeliveryPolicy for multiple assets encrypted with Widevine. As part of this bug fix, the following property was added to the SDK: WidevineBaseLicenseAcquisitionUrl.
 
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-    {
-        {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+```csharp
+Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+{
+    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
 
-    };
+};
+```
 
 ## <a id="jan_changes_16"></a>January 2016 release
 Encoding reserved units were renamed to reduce confusion with encoder names.
@@ -319,7 +321,9 @@ The Media Services .NET SDK is now version 3.1.0.1.
 
 This release marked the default Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate constructor as obsolete. The new constructor takes TokenType as an argument.
 
-    TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```csharp
+TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```
 
 
 ## <a id="december_changes_14"></a>December 2014 release

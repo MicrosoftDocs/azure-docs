@@ -62,17 +62,19 @@ When you configure the token-restricted policy, you must specify the primary ver
 ### PlayReady
 When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-          <LicenseTemplates>
-            <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-              <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-              <LicenseType>Nonpersistent</LicenseType>
-              <PlayRight>
-                <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-              </PlayRight>
-            </PlayReadyLicenseTemplate>
-          </LicenseTemplates>
-        </PlayReadyLicenseResponseTemplate>
+```xml
+<PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+  <LicenseTemplates>
+    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+      <LicenseType>Nonpersistent</LicenseType>
+      <PlayRight>
+        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+      </PlayRight>
+    </PlayReadyLicenseTemplate>
+  </LicenseTemplates>
+</PlayReadyLicenseResponseTemplate>
+```
 
 You can select the **import policy xml** button and provide a different XML that conforms to the XML schema defined in the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
 

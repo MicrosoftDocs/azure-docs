@@ -44,19 +44,21 @@ Media Services uses the value of the **IAssetFile.Name** property when building 
 
 To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and [Powershell](/powershell/module/az.media), as shown in the following example:
 
-	$regionName = "West US"
-	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-	$resourceGroupName = "SkyMedia-USWest-App"
-	$mediaAccountName = "sky"
-	$storageAccount1Name = "skystorage1"
-	$storageAccount2Name = "skystorage2"
-	$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-	$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-	$storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-	$storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-	$storageAccounts = @($storageAccount1, $storageAccount2)
+```azurepowershell
+$regionName = "West US"
+$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccount1Name = "skystorage1"
+$storageAccount2Name = "skystorage2"
+$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+$storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+$storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+$storageAccounts = @($storageAccount1, $storageAccount2)
 	
-	Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+```
 
 ### Support for Cool Storage
 
