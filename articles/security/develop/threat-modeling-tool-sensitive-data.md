@@ -213,7 +213,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2014 |
-| **References**              | [SQL database backup encryption](https://msdn.microsoft.com/library/dn449489) |
+| **References**              | [SQL Database backup encryption](https://msdn.microsoft.com/library/dn449489) |
 | **Steps** | SQL Server has the ability to encrypt the data while creating a backup. By specifying the encryption algorithm and the encryptor (a Certificate or Asymmetric Key) when creating a backup, one can create an encrypted backup file. |
 
 ## <a id="api-browser"></a>Ensure that sensitive data relevant to Web API is not stored in browser's storage
