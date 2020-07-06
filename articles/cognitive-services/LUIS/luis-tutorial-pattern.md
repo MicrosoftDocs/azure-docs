@@ -38,7 +38,7 @@ Use the following steps:
 1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
-1. Import the JSON into a new app into the [LUIS portal](https://www.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step.
+1. Import the JSON into a new app into the [LUIS portal](https://www.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step, name the app, `Patterns tutorial`.
 
 ## Create new intents and their utterances
 
