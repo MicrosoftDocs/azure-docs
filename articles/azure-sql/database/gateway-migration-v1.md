@@ -38,6 +38,8 @@ There are currently no gateway migrations that are complete, all are currently i
 
 There have been no gateways archived during this update thus far. 
 
+---
+
 
 ## October 14, 2019
 
