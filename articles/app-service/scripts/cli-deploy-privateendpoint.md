@@ -47,7 +47,10 @@ Create a Web App with [az appservice plan create](/cli/azure/appservice/plan?vie
 This example creates a Web App named *mySiteName* in the Plan named *myAppServicePlan*
 
 ```azurecli-interactive
-az webapp create --name mySiteName --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create \
+--name mySiteName \
+--resource-group myResourceGroup \
+--plan myAppServicePlan
 ```
 
 ## Create a VNet
@@ -55,7 +58,13 @@ az webapp create --name mySiteName --resource-group myResourceGroup --plan myApp
 Create a Virtual Network with [az network vnet create](/cli/azure/network/vnet). This example creates a default Virtual Network named *myVNet* with one subnet named *mySubnet*:
 
 ```azurecli-interactive
-az network vnet create --name myVNet --resource-group myResourceGroup --location francecentral --address-prefixes 10.8.0.0/16 --subnet-name mySubnet --subnet-prefixes 10.8.100.0/24
+az network vnet create \
+--name myVNet \
+--resource-group myResourceGroup \
+--location francecentral \
+--address-prefixes 10.8.0.0/16 \
+--subnet-name mySubnet \
+--subnet-prefixes 10.8.100.0/24
 ```
 
 ## Configure the Subnet 
@@ -63,7 +72,11 @@ az network vnet create --name myVNet --resource-group myResourceGroup --location
 You need to update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
-az network vnet subnet update --name mySubnet --resource-group myResourceGroup --vnet-name myVNet --disable-private-endpoint-network-policies true
+az network vnet subnet update \
+--name mySubnet \
+--resource-group myResourceGroup \
+--vnet-name myVNet \
+--disable-private-endpoint-network-policies true
 
 ## Create the Private Endpoint
 
@@ -71,7 +84,14 @@ Create the Private Endpoint for your Web App with [az network private-endpoint c
 This examples creates a Private Endpoint named *myPrivateEndpoint* in the in the VNet *myVNet* in the Subnet *mySubnet* with a connection named *myConnectionName* to the resource ID of my Web App /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp, the group parameter is *sites* for Web App type. 
 
 ```azurecli-interactive
-az network private-endpoint create --name myPrivateEndpoint --resource-group myResourceGroup --vnet-name myVNet --subnet mySubnet --connection-name myConnectionName --private-connection-resource-id /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp --group-id sites
+az network private-endpoint create \
+--name myPrivateEndpoint \
+--resource-group myResourceGroup \
+--vnet-name myVNet \
+--subnet mySubnet \
+--connection-name myConnectionName \
+--private-connection-resource-id /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp \
+--group-id sites
 ```
 
 # Configure the private zone
@@ -80,9 +100,23 @@ At the end, you need to create a private DNS zone named *privatelink.azurewebsit
 
 
 ```azurecli-interactive
-az network private-dns zone create --name privatelink.azurewebsites.net --resource-group myResourceGroup
-az network private-dns link vnet create --name myDNSLink --resource-group myResourceGroup --registration-enabled false --virtual-network myVNet --zone-name privatelink.azurewebsites.net
-az network private-endpoint dns-zone-group create --name myZoneGroup --resource-group myResourceGroup --endpoint-name myPrivateEndpoint --private-dns-zone privatelink.azurewebsites.net --zone-name privatelink.azurewebsites.net
+az network private-dns zone create \
+--name privatelink.azurewebsites.net \
+--resource-group myResourceGroup
+
+az network private-dns link vnet create \
+--name myDNSLink \
+--resource-group myResourceGroup \
+--registration-enabled false \
+--virtual-network myVNet \
+--zone-name privatelink.azurewebsites.net
+
+az network private-endpoint dns-zone-group create \
+--name myZoneGroup \
+--resource-group myResourceGroup \
+--endpoint-name myPrivateEndpoint \
+--private-dns-zone privatelink.azurewebsites.net \
+--zone-name privatelink.azurewebsites.net
 ```
 
 
