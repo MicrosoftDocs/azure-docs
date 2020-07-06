@@ -245,7 +245,7 @@ We recommend that you should not call direct methods in a parallel fashion, but 
 
 ### Collecting logs for submitting a support ticket
 
-When self-guided troubleshooting steps do not resolve your problems, you should go the Azure Portal and [open a support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+When self-guided troubleshooting steps do not resolve your problems, you should go the Azure portal and [open a support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 Go through the following steps to gather the relevant logs that should be added to the ticket. You will be able to upload the log files in the **Details** tab of the support request.
 
@@ -253,39 +253,41 @@ Go through the following steps to gather the relevant logs that should be added 
 
 When you need to gather logs from an IoT Edge device, the easiest way is to use the `support-bundle` command. This command collects:
 
-1. Module logs
-1. IoT Edge security manager and container engine logs
-    1. The IoT Edge security manager is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
-    1. To view more detailed logs of the IoT Edge security manager:
-        1. Edit the IoT Edge daemon settings on the IoT edge device:
+- Module logs
+- IoT Edge security manager and container engine logs
+- Iotedge check JSON output
+- Useful debug information
 
-            ```
-            sudo systemctl edit iotedge.service
-            ```
+#### Use the IoT Edge security manager
+ 
+The IoT Edge security manager is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information. To view more detailed logs of the IoT Edge security manager:
 
-        1. Update the following lines:
+1. Edit the IoT Edge daemon settings on the IoT edge device:
 
-            ```
-            [Service]
-                Environment=IOTEDGE_LOG=edgelet=debug
-            ```
+    ```
+    sudo systemctl edit iotedge.service
+    ```
 
-        1. Restart the IoT Edge Security Daemon by running these commands:
+1. Update the following lines:
 
-          ```
-            sudo systemctl cat iotedge.service
-            sudo systemctl daemon-reload
-            sudo systemctl restart iotedge
-          ```
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
 
-1. Iotedge check JSON output
-1. Useful debug information
+1. Restart the IoT Edge Security Daemon by running these commands:
 
-Run the support-bundle command with the --since flag to specify how long from the past you want to get logs. For example, 2h will get logs since the last two hours. You can change the value of this flag to include logs for a different period.
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
 
-```
-sudo iotedge support-bundle --since 2h
-```
+1. Run the `support-bundle` command with the --since flag to specify how long from the past you want to get logs. For example, 2h will get logs since the last two hours. You can change the value of this flag to include logs for a different period.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
 
 ### LVA debug logs
 
@@ -314,13 +316,15 @@ Follow these steps to configure the LVA on IoT Edge module to generate debug log
     1. Click on the **Module Identity Twin** link. You will find this at the top of the page. This will open an editable pane.
     1. Add the following key-value pair under **desired key**:
 
-    `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     1. Click on **Save**.
 
 1. Reproduce the issue.
 1. Connect to the Virtual Machine from the IoT Hub page in your portal.
-    1. Navigate to /var/local/mediaservices/logs folder and zip the bin content of this folder and share it with us. **Note:** These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
+1. Navigate to /var/local/mediaservices/logs folder and zip the bin content of this folder and share it with us.
+
+     > [!NOTE] These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
 
 1. Log collection can be stopped by setting that value in **Module Identity Twin** to *null* again. Go back to the **Module Identity Twin** page and update the following parameter as:
 
