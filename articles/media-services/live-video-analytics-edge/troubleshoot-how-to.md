@@ -267,7 +267,7 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 
             ```
             [Service]
-                Environment=IOTEDGE_LOG=edgelet=debug
+            Environment=IOTEDGE_LOG=edgelet=debug
             ```
 
         1. Restart the IoT Edge Security Daemon by running these commands:
@@ -320,7 +320,8 @@ Follow these steps to configure the LVA on IoT Edge module to generate debug log
 
 1. Reproduce the issue.
 1. Connect to the Virtual Machine from the IoT Hub page in your portal.
-    1. Navigate to /var/local/mediaservices/logs folder and zip the bin content of this folder and share it with us. **Note:** These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
+    1. Navigate to /var/local/mediaservices/logs folder and zip the bin content of this folder and share it with us.  
+    **Note:** These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
 
 1. Log collection can be stopped by setting that value in **Module Identity Twin** to *null* again. Go back to the **Module Identity Twin** page and update the following parameter as:
 
