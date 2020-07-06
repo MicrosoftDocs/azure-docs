@@ -64,14 +64,7 @@ az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB
 
 Create a new Network Interface and add it to the Backend Pool:
 ```
-az network nic create \
-  --resource-group myResourceGroup \
-  --name myNic \
-  --vnet-name myVnet \
-  --subnet mySubnet \
-  --network-security-group myNetworkSecurityGroup \
-  --lb-name myLB \
-  --lb-address-pools myBackEndPool
+az network nic create --resource-group myResourceGroup --name myNic --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup --lb-name myLB --lb-address-pools myBackEndPool
 ```
 
 Retrieve the Backend Pool to confirm the IP address have been correctly added:
@@ -81,13 +74,7 @@ az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPo
 
 Create a new Virtual Machine and attach the Network Interface to place it in the Backend Pool:
 ```
-az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --nics myNic \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --generate-ssh-keys
+az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
 ```
 
 ### REST API
