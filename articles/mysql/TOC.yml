@@ -280,7 +280,7 @@
       href: howto-data-encryption-validation.md
   - name: Infrastructure double encryption
     items:
-    - name: Azure configurations
+    - name: Configure infrastructure double encryption
       href: howto-double-encryption.md
   - name: Azure AD Integration
     items:
