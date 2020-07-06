@@ -34,24 +34,24 @@ There are two locations where this policy may be assigned. Organizations should 
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
+1. Confirm your settings, and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
 ## Enable through Identity Protection
 
 1. Sign in to the **Azure portal**.
-1. Click on **All services**, then browse to **Azure AD Identity Protection**.
-1. Click on **User risk policy**.
+1. Select **All services**, then browse to **Azure AD Identity Protection**.
+1. Select **User risk policy**.
 1. Under **Assignments**, select **Users**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Select excluded users**, choose your organization's emergency access or break-glass accounts, and select **Select**.
    1. Select **Done**.
 1. Under **Conditions**, select **User risk**, then choose **High**.
-   1. Click **Select** then **Done**.
+   1. Select **Select**, then **Done**.
 1. Under **Controls** > **Access**, choose **Allow access**, and then select **Require password change**.
-   1. Click **Select**.
+   1. Select **Select**.
 1. Set **Enforce Policy** to **On**.
-1. Click **Save**.
+1. Select **Save**.
 
 ## Next steps
 

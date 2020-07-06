@@ -44,18 +44,18 @@ There are two locations where this policy may be assigned. Organizations should 
 ## Enable through Identity Protection
 
 1. Sign in to the **Azure portal**.
-1. Click on **All services**, then browse to **Azure AD Identity Protection**.
-1. Click on **Sign-in risk policy**.
+1. Select **All services**, then browse to **Azure AD Identity Protection**.
+1. Select **Sign-in risk policy**.
 1. Under **Assignments**, select **Users**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Select excluded users**, choose your organization's emergency access or break-glass accounts, and select **Select**.
    1. Select **Done**.
 1. Under **Conditions**, select **Sign-in risk**, then choose **Medium and above**.
-   1. Click **Select** then **Done**.
+   1. Select **Select**, then **Done**.
 1. Under **Controls** > **Access**, choose **Allow access**, and then select **Require multi-factor authentication**.
-   1. Click **Select**.
+   1. Select **Select**.
 1. Set **Enforce Policy** to **On**.
-1. Click **Save**.
+1. Select **Save**.
 
 ## Next steps
 
