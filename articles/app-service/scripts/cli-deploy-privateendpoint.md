@@ -24,7 +24,7 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Create a resource group
 
-Before you can create any resource, you have to create a resource group to host the Web App, the Virtual Network and other network components. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *francecentral* location:
+Before you can create any resource, you have to create a resource group to host the Web App, the Virtual Network, and other network components. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *francecentral* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location francecentral 
@@ -77,6 +77,7 @@ az network vnet subnet update \
 --resource-group myResourceGroup \
 --vnet-name myVNet \
 --disable-private-endpoint-network-policies true
+```
 
 ## Create the Private Endpoint
 
