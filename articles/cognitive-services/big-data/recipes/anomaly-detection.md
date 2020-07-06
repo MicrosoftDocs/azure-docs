@@ -1,7 +1,7 @@
 ---
-title: "Recipe: Using Cognitive Services on Spark for Predictive Maintenance"
+title: "Recipe: Predictive maintenence with the Cognitive Services for Big Data"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to create a searchable art database using Azure Search and MMLSpark.
+description: This quickstart shows how to perform distributed anomaly detection with the Cognitive Services for Big Data
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: marhamil
 ms.custom: tracking-python
 ---
 
-# Recipe: Using Cognitive Services on Spark for predictive maintenance
+# Recipe: Predictive maintenence with the Cognitive Services for Big Data
 
 This example will walk you through how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. Our example follows along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. However, for simplicity's sake, we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
