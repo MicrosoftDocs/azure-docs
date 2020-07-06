@@ -162,7 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Coggle Configuration](./media/Coggle-tutorial/configure4.png)
 
-    a. In the **Entrypoint (ID Provider SSO URL)** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    a. In the **Entrypoint (ID Provider SSO URL)** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     b. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
