@@ -14,7 +14,7 @@ ms.author: sausin
 
 # Add interaction rules
 
-In this article, you learn about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
+In this article, you learned about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
 
 * Confirming commands
 * Adding one step correction to commands
@@ -35,7 +35,7 @@ To add a confirmation, use the **SetTemperature** command. For achieving confirm
 1. Select **SetTemperature** command from the left pane.
 2. Add interaction rules by selecting **Add** in the middle pane and then selecting **Interaction rules** > **Confirm command**.
 
-    This will add 3 interaction rules This rule will ask the user to confirm the date and time of the alarm and is expecting a confirmation (yes/no) for the next turn.
+    This will add 3 interaction rules which will ask the user to confirm the date and time of the alarm and is expecting a confirmation (yes/no) for the next turn.
 
     1. Modify the **Confirm Command** interaction rule as per the following configuration
         1. Rename **Name** to  **`Confirm Temperature`**.
@@ -60,7 +60,7 @@ To add a confirmation, use the **SetTemperature** command. For achieving confirm
           1. Leave the already existing **Confirmation was denied** condition.
           1. Add a new condition as- **Type >  Required Parameters > Temperature**
           1. Add a new action as- **Type > Send speech response > `No problem. What temperature then?`**
-          1. Leave the default value of **Post-execution state** as **Wait for user's input**.
+          1. Set **Post-execution state** as **Wait for user's input**.
 
 > [!IMPORTANT]
 > In this article, you used the inbuilt confirmation capability. Alternatively, you can also achieve the same by adding the interaction rules one by one, manually.
@@ -71,13 +71,13 @@ To add a confirmation, use the **SetTemperature** command. For achieving confirm
 Select **Train**, wait for training complete and select **Test**.
 
 - Input: set temperature to 80 degrees
-- Output: ok 80?
+- Output: are you sure you want to set the temperature as 80 degrees?
 - Input: No
 - Output: no problem. what temperature then?
-- Input: 83 degrees
-- Output: ok 83?
+- Input: 72 degrees
+- Output: are you sure you want to set the temperature as 72 degrees?
 - Input: Yes
-- Output: Ok, setting temperature to 83 degrees
+- Output: Ok, setting temperature to 72 degrees
 
 
 ## Implementing corrections in a command
@@ -120,14 +120,14 @@ Custom Commands platform also provides the capability for one-step correction ev
 1. Leave the default condition **Previous command needs to be updated** as is.
 1.  Add a new condition as **Type > Required Parameter > DateTime**.
 1. Add a new action as **Type > Send speech response > Simple editor > `Updating previous alarm time to {DateTime}.`**
-1. Leave the default value of post execution state as **Command completed**.
+1. Set post execution state as **Command completed**.
 
 ### Try out the changes
 
 Select **Train**, wait for training complete and select **Test**.
 
 - Input: set an alarm
-- Output: Ready to set alarm with tone as Chimes. What time?
+- Output: Ready to set alarm with tone as Chimes. For what time?
 - Input: set an alarm with tone as jingle for 9 am tomorrow
 - Output: Ok, alarm set for 2020-05-21 09:00:00. The alarm tone is jingle.
 - Input: no, 8 am
