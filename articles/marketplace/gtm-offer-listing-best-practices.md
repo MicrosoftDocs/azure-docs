@@ -36,7 +36,7 @@ Categories and industries for a different storefront will be applicable to diffe
 | Dynamics 365 Finance & Supply Chain Management | | X | X | 
 | Dynamics 365 Business Central | | X | X |
 | IoT Edge Modules | X | |
-| PowerBI | | X | X |
+| Power BI | | X | X |
 | SaaS | X | X | X |
 | Azure Virtual Machine |  X |    |
 
@@ -152,7 +152,7 @@ Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/p
 |  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
 
 1. Depending on category/subcategory and industry selection
-2. Offers with private plans will be published to the Azure Portal
+2. Offers with private plans will be published to the Azure portal
 
 
 ### Industries
