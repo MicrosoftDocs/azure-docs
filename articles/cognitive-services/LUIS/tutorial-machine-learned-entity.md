@@ -104,7 +104,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. Select **Entities** from the left menu then select **+ Create**.
 
-1. Set the entity name as `SizeListentity` so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
+1. Set the entity name as `SizeListentity` and set the Type as **List** so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
 
 1. Add the sizes the client application expects: `Small`, `Medium`, `Large`, and `XLarge` then add synonyms for each. The synonyms should be the terms that a user enters in the chat bot. The entity is extracted with a list entity when it matched exactly to the normalized value or synonyms.
 
