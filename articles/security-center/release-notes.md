@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 07/01/2020
 ms.author: memildin
 
 ---
@@ -24,6 +24,19 @@ Azure Security is in active development and receives improvements on an ongoing 
 - Deprecated functionality
 
 This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
+
+## July 2020
+
+Updates in July include:
+- [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+
+### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
+
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
+
+Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
+
+Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
 
 
 ## June 2020
@@ -405,13 +418,3 @@ As attackers increasing employ stealthier methods to avoid detection, Azure Secu
 
 To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
 
-
-## January 2020
-
-### Enhanced secure score (preview)
-
-An enhanced version of the secure score feature of Azure Security Center is now available in preview. In this version, multiple recommendations are grouped into Security Controls that better reflect your vulnerable attack surfaces (for example, restrict access to management ports).
-
-Familiarize yourself with the secure score changes during the preview phase and determine other remediations that will help you to further secure your environment.
-
-Learn more about [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
