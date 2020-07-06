@@ -104,7 +104,7 @@ For more information about the chain of custody audit logs, see [Get chain of cu
 
 <!-- write a few lines about order history and link out to the detailed section on order history-->
 
-## Access logs
+## Access audit logs
 
 These logs are stored in the Geneva Storage Management system in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md). 
 
