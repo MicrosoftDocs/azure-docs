@@ -39,31 +39,24 @@ Source code for this tutorial is in the [custom-analyzers](https://github.com/Az
 
 To complete this tutorial, you'll need an Azure Cognitive Search service, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough.
 
-### Get an admin api-key and URL for Azure Cognitive Search
+For the next step, you'll need to know the name of your search service and its API Key. If you're unsure how to find those items, check out this [quickstart](search-create-service-portal.md#get-a-key-and-url-endpoint).
 
-API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-
-1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
-
-   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 ## 2 - Set up Postman
 
-Start Postman and import the collection you downloaded from [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples).
+Next, start Postman and import the collection you downloaded from [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples).
 
-To import the collection, go to **Files** > **Import**, then select the collection to import.
+To import the collection, go to **Files** > **Import**, then select the collection file you'd like to import.
 
 For each request, you need to:
 
-1. Replace `<YOUR-SEARCH-SERVICE>` with the name of your search service (for example, if the endpoint is https://mydemo.search.windows.net, then the service name is "mydemo").
+1. Replace `<YOUR-SEARCH-SERVICE>` with the name of your search service.
 
 1. Replace `<YOUR-ADMIN-API-KEY>` with either the primary or secondary key of your search service.
 
   ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
-Alternatively, you can set up each HTTP request from scratch. If you are unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md).
+If you're unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md).
 
 ## 3 - Create an initial index
 
@@ -164,7 +157,7 @@ With the data in the index, we're ready to start searching.
 
 ### Search
 
-To make the search intuitive, it's best to not expect users to format queries in a specific way. A user could search for `(425) 555-2311` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample queries to see how they do.
+To make the search intuitive, it's best to not expect users to format queries in a specific way. A user could search for `(425) 555-2311` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample queries to see how they perform.
 
 We start by searching `(425) 555-2311`:
 
@@ -249,8 +242,8 @@ These tokens are then stored in an inverted index, which allows for fast, full-t
 
 All of search comes down to searching for the terms stored in the inverted index. When a user issues a query:
 
-1. The query is analyzed and broken into tokens
-1. The inverted index is then scanned for documents with matching terms
+1. The query is analyzed and broken into tokens.
+1. The inverted index is then scanned for documents with matching terms.
 1. Finally, the results are ranked by feeding the matching terms into a [similarity algorithm](index-ranking-similarity.md) to score the results.
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
@@ -258,7 +251,7 @@ All of search comes down to searching for the terms stored in the inverted index
 If the tokens from your query don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 
 > [!Note]
-> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical anlysis process so the query text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching tokens don't exist in the index.
+> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical analysis process so the query text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching terms don't exist in the index.
 
 ### Test analyzer using the Analyze Text API
 
@@ -442,7 +435,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 
 Notice that any of the tokens in the output can now be searched. If our query includes any of those tokens, the phone number will be returned.
 
-With the custom analyzer defined, recreate the index, so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index with the analyzer named `tutorial-first-analyzer`.
+With the custom analyzer defined, recreate the index so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index with the analyzer named `tutorial-first-analyzer`.
 
 ## 6 - Test the custom analyzer
 
@@ -493,7 +486,7 @@ You will then be able to see the collection of tokens resulting from the phone n
 
 After making some sample searches against the index with the custom analyzer, you'll find that recall has improved and all matching phone numbers are now returned. However, the n-gram token filter causes some false positives to be returned as well. This is a common side effect of an n-gram token filter.
 
-To prevent false positives, we create a separate analyzer for searching. This analyzer will be the same as the analyzer we created but **without** the `custom_ngram_filter`.
+To prevent false positives, we'll create a separate analyzer for searching. This analyzer will be the same as the analyzer we created already but **without** the `custom_ngram_filter`.
 
 ```json
     {
@@ -580,7 +573,7 @@ DELETE https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-ba
 
 ## Takeaways
 
-This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the analyze text API to see the lexical analysis process in action.
+This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the Analyze Text API to see the lexical analysis process in action.
 
 While the analyzer defined in this tutorial offers an easy solution for searching against phone numbers, this same process can be used to build a custom phone analyzer for any scenario you may have.
 
