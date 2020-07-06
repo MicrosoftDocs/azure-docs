@@ -278,7 +278,7 @@
         href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
-      - name: View and Edit Reliable Collections Backup Offline
+      - name: View and edit a Reliable Collections backup offline
         href: backup-explorer.md
     - name: Initializer CodePackages
       href: initializer-codepackages.md
