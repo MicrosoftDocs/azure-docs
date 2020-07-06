@@ -415,11 +415,12 @@ Create a Virtual Machine and attached Network Interface. Add the Network Interfa
 ## Configuring Backend Pool by IP Address and Virtual Network
 If you are Load-Balancing to container resources or pre-populating a Backend Pool with a range of IP Addresses, you can leverage IP Address and Virtual Network to route to any valid resource whether or not it has a Network Interface. When configuring via IP address and VNET, all Backend Pool management is done directly on the Backend Pool object as highlighted in the examples below.
 
-  >[!NOTE] This feature is currently in preview and has the following limitations:
-  * Limit of 100 IP Addresses being added
-  * The backend resources must be in the same Virtual Network as the Load Balancer
-  * This feature is not currently support in the Portal UX
-  * This is only available for Standard Load Balancers
+  >[!NOTE] 
+  >This feature is currently in preview and has the following limitations:
+  >* Limit of 100 IP Addresses being added
+  >* The backend resources must be in the same Virtual Network as the Load Balancer
+  >* This feature is not currently support in the Portal UX
+  >* This is only available for Standard Load Balancers
   
 ### PowerShell
 Create new backend pool: 
