@@ -66,7 +66,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataCollaboration](#microsoftdatacollaboration)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -911,29 +910,6 @@ Jump to a resource provider namespace:
 > | datacatalogs / datasources / scans | No |
 > | datacatalogs / datasources / scans / datasets | No |
 > | datacatalogs / datasources / scans / triggers | No |
-
-## Microsoft.DataCollaboration
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | workspaces | Yes |
-> | workspaces / contracts | No |
-> | workspaces / contracts / entitlements | No |
-> | workspaces / dataAssets | No |
-> | workspaces / dataAssets / dataSets | No |
-> | workspaces / pipelines | No |
-> | workspaces / pipelines / pipelineSteps | No |
-> | workspaces / pipelines / runs | No |
-> | workspaces / proposals | No |
-> | workspaces / proposals / dataAssetReferences | No |
-> | workspaces / proposals / entitlements | No |
-> | workspaces / proposals / entitlements / constraints | No |
-> | workspaces / proposals / entitlements / policies | No |
-> | workspaces / proposals / invitations | No |
-> | workspaces / proposals / scriptReferences | No |
-> | workspaces / scripts | No |
-> | workspaces / scripts / scriptrevisions | No |
 
 ## Microsoft.DataFactory
 

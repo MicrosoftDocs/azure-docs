@@ -61,7 +61,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataCollaboration](#microsoftdatacollaboration)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
@@ -910,29 +909,6 @@ Jump to a resource provider namespace:
 > | datacatalogs / datasources / scans | No | No |
 > | datacatalogs / datasources / scans / datasets | No | No |
 > | datacatalogs / datasources / scans / triggers | No | No |
-
-## Microsoft.DataCollaboration
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | workspaces | Yes | Yes |
-> | workspaces / contracts | No | No |
-> | workspaces / contracts / entitlements | No | No |
-> | workspaces / dataAssets | No | No |
-> | workspaces / dataAssets / dataSets | No | No |
-> | workspaces / pipelines | No | No |
-> | workspaces / pipelines / pipelineSteps | No | No |
-> | workspaces / pipelines / runs | No | No |
-> | workspaces / proposals | No | No |
-> | workspaces / proposals / dataAssetReferences | No | No |
-> | workspaces / proposals / entitlements | No | No |
-> | workspaces / proposals / entitlements / constraints | No | No |
-> | workspaces / proposals / entitlements / policies | No | No |
-> | workspaces / proposals / invitations | No | No |
-> | workspaces / proposals / scriptReferences | No | No |
-> | workspaces / scripts | No | No |
-> | workspaces / scripts / scriptrevisions | No | No |
 
 ## Microsoft.DataFactory
 
@@ -2141,7 +2117,7 @@ Jump to a resource provider namespace:
 <a id="sqlnote"></a>
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
 ## Microsoft.SqlVirtualMachine
 
