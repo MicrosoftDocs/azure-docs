@@ -3,6 +3,7 @@ title: Job automation
 description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more databases'
 services: sql-database
 ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview

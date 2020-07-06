@@ -4,6 +4,7 @@ description: "Azure SQL Database and Azure SQL Managed Instance Import/Export se
 ms.custom: seo-lt-2019, sqldbrb=1
 services: sql-database
 ms.service: sql-db-mi
+ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
