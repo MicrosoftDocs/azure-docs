@@ -467,7 +467,7 @@ If you are working on Linux, .NET relays on OpenSSL to do the validation:
    update-ca-certificates
    ```
 
-### Mac OS
+### macOS
 
 Use the following steps if you are working on Mac:
 
