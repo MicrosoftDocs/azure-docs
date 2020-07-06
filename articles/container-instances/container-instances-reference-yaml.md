@@ -269,6 +269,7 @@ The following tables describe the values you need to set in the schema.
 ### EncryptionProperties object
 
 | Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
 | vaultBaseUrl	| string	| Yes	| The keyvault base url. |
 | keyName	| string	| Yes	| The encryption key name. |
 | keyVersion	| string	| Yes	| The encryption key version. |
@@ -276,8 +277,9 @@ The following tables describe the values you need to set in the schema.
 ### InitContainerDefinition object
 
 | Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
 | name	| string |	Yes	| The name | for | the | init | container. |
-| properties	| object	| Yes	| The properties for the init container. - [InitContainerPropertiesDefinition object](#initContainerpropertiesdefinition-object)
+| properties	| object	| Yes	| The properties for the init container. - [InitContainerPropertiesDefinition object](#initcontainerpropertiesdefinition-object)
 
 
 ### ContainerProperties object
@@ -341,6 +343,7 @@ The following tables describe the values you need to set in the schema.
 ### InitContainerPropertiesDefinition object
 
 | Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
 | image	| string	| No	| The image of the init container. |
 | command	| array	| No	| The command to execute within the init container in exec form. - string |
 | environmentVariables | array	| No |The environment variables to set in the init container. - [EnvironmentVariable object](#environmentvariable-object)
