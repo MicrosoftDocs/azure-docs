@@ -3,9 +3,9 @@ title: 'Overview: What is Azure Time Series Insights Gen 2? - Azure Time Series 
 description: Learn about changes, improvements, and features in Azure Time Series Insights Gen 2.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: dpalled
 ms.workload: big-data
 ms.topic: overview
 ms.date: 07/06/2020
@@ -14,9 +14,11 @@ ms.custom: seodec18
 
 # What is Azure Time Series Insights Gen 2?
 
-Azure Time Series Insights Gen 2 is an end-to-end platform-as-a-service (PaaS) offering. You can use it to collect, process, store, analyze, and query data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series. 
+Azure Time Series Insights Gen2 is an open and scalable end-to-end IoT analytics service featuring best-in-class user experiences and rich APIs to integrate its powerful capabilities into your existing workflow or application. 
 
-Azure Time Series Insights is designed for ad hoc data exploration and operational analysis. It's an extensible and customized service offering that meets the broad needs of industrial IoT deployments.
+You can use it to collect, process, store, query and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series. 
+
+Azure Time Series Insights is designed for ad hoc data exploration and operational analysis allowing you to uncover hidden trends, spotting anomalies, and conduct root-cause analysis. It's an open and flexible offering that meets the broad needs of industrial IoT deployments. 
 
 ## Video
 
@@ -55,7 +57,7 @@ A rich operational analytics platform combined with our interactive data explora
 
 * Semantic model support that describes the domain and metadata associated with the derived and raw signals from assets and devices.
 
-* Flexible analytics platform to store historical time series data in customer-owned Azure Storage account, thereby allowing customers to have ownership of their IoT data. Data is stored in open source Apache Parquet format that enables connectivity and interop across a variety of data scenarios including predictive analytics, machine learning, and other custom computations done using familiar technologies including Spark, Databricks, and Jupyter.
+* Flexible analytics platform to store historical time series data in customer-owned Azure Storage account, thereby allowing customers to have ownership of their IoT data. Data is stored in open source Apache Parquet format that enables connectivity and interop across a variety of data scenarios including predictive analytics, machine learning, and other custom computations done using familiar technologies including Spark and Databricks. 
 
 * Rich analytics with enhanced query APIs and user experience that combines asset-based data insights with rich, ad hoc data analytics with support for interpolation, scalar and aggregate functions, categorical variables, scatter plots, and time shifting time series signals for in-depth analysis.
 
