@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 01/15/2020
+ms.date: 07/06/2020
 ---
 
 # Debug and troubleshoot ParallelRunStep
