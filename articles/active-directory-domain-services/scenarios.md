@@ -110,7 +110,7 @@ To get started, [Create and configure an Azure Active Directory Domain Services 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
 [tutorial-create-instance]: tutorial-create-instance.md
-[custom-ou]: custom-ou.md
+[custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
 [sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
 
