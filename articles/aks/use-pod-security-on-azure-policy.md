@@ -131,7 +131,7 @@ To apply the baseline initiative, we can assign through the Azure portal.
 ![update effect](media/use-pod-security-on-azure-policy/update-effect.png)
 1. Select **Review + create**
 
-Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`. Output should be similar to:
+Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`. The output should be similar to:
 
 ```console
 $ kubectl get constrainttemplate
@@ -148,7 +148,7 @@ k8sazurevolumetypes                      30m
 
 ## Validate rejection of a privileged pod
 
-Let's first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. T baseline initiative disallows privileged pods, so the request will be denied resulting in the deployment being rejected.
+Let's first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. The baseline initiative disallows privileged pods, so the request will be denied resulting in the deployment being rejected.
 
 Create a file named `nginx-privileged.yaml` and paste the following YAML manifest:
 
@@ -298,5 +298,5 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-delete-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [az-policy-assignment-delete]: /cli/azure/policy/assignment#az-policy-assignment-delete
