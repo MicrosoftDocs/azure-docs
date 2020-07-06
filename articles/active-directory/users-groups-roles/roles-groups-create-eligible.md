@@ -46,67 +46,78 @@ The group is created with any roles you might have assigned to it.
 
 ### Install the Azure AD preview module
 
-    install-module azureadpreview
-    import-module azureadpreview
+```powershell
+install-module azureadpreview
+import-module azureadpreview
+```
 
 To verify that the module is ready to use, issue the following command:
 
-    get-module azureadpreview
+```powershell
+get-module azureadpreview
+```
 
 ### Create a group that can be assigned to role
 
-    $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
+```powershell
+$group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
+```
 
 For this type of group, `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
 ### Copy one group's users and service principals into a role-assignable group
 
-    #Basic set up
-    install-module azureadpreview
-    import-module azureadpreview
-    get-module azureadpreview
-    
-    #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
-    Connect-AzureAD
-    
-    #Input variabled: Existing group
-    $idOfExistingGroup = "14044411-d170-4cb0-99db-263ca3740a0c"
-    
-    #Input variables: New role-assignable group
-    $groupName = "Contoso_Bellevue_Admins"
-    $groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
-    $mailNickname = "contosobellevueadmins"
-    
-    #Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
-    $roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
-    
-    #Get details of existing group
-    $existingGroup = Get-AzureADMSGroup -Id $idOfExistingGroup
-    $membersOfExistingGroup = Get-AzureADGroupMember -ObjectId $existingGroup.Id
+```powershell
+#Basic set up
+install-module azureadpreview
+import-module azureadpreview
+get-module azureadpreview
 
-    #Copy users and service principals from existing group to new group
-    foreach($member in $membersOfExistingGroup){
-    if($member.ObjectType -eq 'User' -or $member.ObjectType -eq 'ServicePrincipal'){
-    Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.ObjectId
-    }
-    }
+#Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
+Connect-AzureAD
+
+#Input variabled: Existing group
+$idOfExistingGroup = "14044411-d170-4cb0-99db-263ca3740a0c"
+
+#Input variables: New role-assignable group
+$groupName = "Contoso_Bellevue_Admins"
+$groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
+$mailNickname = "contosobellevueadmins"
+
+#Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
+$roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
+
+#Get details of existing group
+$existingGroup = Get-AzureADMSGroup -Id $idOfExistingGroup
+$membersOfExistingGroup = Get-AzureADGroupMember -ObjectId $existingGroup.Id
+
+#Copy users and service principals from existing group to new group
+foreach($member in $membersOfExistingGroup){
+if($member.ObjectType -eq 'User' -or $member.ObjectType -eq 'ServicePrincipal'){
+Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.ObjectId
+}
+}
+```
 
 ## Using Microsoft Graph API
 
 ### Create a role-assignable group in Azure AD
 
-    POST https://graph.microsoft.com/beta/groups
-    {
-    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
-    "displayName": "Contoso_Helpdesk_Administrators",
-    "groupTypes": [
-    "Unified"
-    ],
-    "mailEnabled": true,
-    "securityEnabled": true
-    "mailNickname": "contosohelpdeskadministrators",
-    "isAssignableToRole": true,
-    }
+```powershell
+POST https://graph.microsoft.com/beta/groups
+{
+"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+"displayName": "Contoso_Helpdesk_Administrators",
+"groupTypes": [
+"Unified"
+],
+"mailEnabled": true,
+"securityEnabled": true
+"mailNickname": "contosohelpdeskadministrators",
+"isAssignableToRole": true,
+}
+```
+
 For this type of group, `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
 ## Next steps

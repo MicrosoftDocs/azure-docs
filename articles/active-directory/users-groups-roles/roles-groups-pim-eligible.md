@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management (PIM).
 
-> [!Note]
+> [!NOTE]
 > You must be using the updated version of Privileged Identity Management to be able to assign a group to an Azure AD role using PIM. You might be on older version of PIM if your Azure AD organization leverages the Privileged Identity Management API. If so, please reach out to the alias pim_preview@microsoft.com to move your organization and update your API. Learn more at [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## Using Azure AD admin center
@@ -44,51 +44,59 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 To install the Azure AD #PowerShell module, use the following cmdlets:
 
-    install-module azureadpreview 
-    import-module azureadpreview 
+```powershell
+install-module azureadpreview
+import-module azureadpreview
+```
 
 To verify that the module is ready to use, use the following cmdlet:
 
-    get-module azureadpreview 
+```powershell
+get-module azureadpreview
+```
 
 ### Assign a group as an eligible member of a role
 
-    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
-    $schedule.Type = "Once"     
-    $schedule.StartDateTime = "2019-04-26T20:49:11.770Z"
-    $schedule.endDateTime = "2019-07-25T20:49:11.770Z"
-    Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd" 
+```powershell
+$schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
+$schedule.Type = "Once"
+$schedule.StartDateTime = "2019-04-26T20:49:11.770Z"
+$schedule.endDateTime = "2019-07-25T20:49:11.770Z"
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $schedule -ResourceId "[YOUR TENANT ID]" -RoleDefinitionId "9f8c1837-f885-4dfd-9a75-990f9222b21d" -SubjectId "[YOUR GROUP ID]" -AssignmentState "Eligible" -Type "AdminAdd"
+```
 
 ## Using Microsoft Graph API
 
-    POST 
-    https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
-    
-    {
-    
-     "roleDefinitionId": {roleDefinitionId}, 
-    
-     "resourceId": {tenantId}, 
-    
-     "subjectId": {GroupId}, 
-    
-     "assignmentState": "Eligible", 
-    
-     "type": "AdminAdd", 
-    
-     "reason": "reason string", 
-    
-     "schedule": { 
-    
-           "startDateTime": {DateTime}, 
-    
-           "endDateTime": {DateTime}, 
-    
-           "type": "Once"  
-    
-     } 
-    
-    }
+```powershell
+POST
+https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
+
+{
+
+ "roleDefinitionId": {roleDefinitionId},
+
+ "resourceId": {tenantId},
+
+ "subjectId": {GroupId},
+
+ "assignmentState": "Eligible",
+
+ "type": "AdminAdd",
+
+ "reason": "reason string",
+
+ "schedule": {
+
+   "startDateTime": {DateTime},
+
+   "endDateTime": {DateTime},
+
+   "type": "Once"
+
+ }
+
+}
+```
 
 ## Next steps
 
