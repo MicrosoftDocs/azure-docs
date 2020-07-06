@@ -54,18 +54,20 @@ Form Recognizer can also extract text and table structure (the row and column nu
 
 Follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-* Custom - train a model to your forms
-  * Train without labels
-    * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
-    * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
-  * Train with labels
-    * [Train a Form Recognizer model with labels using the sample labeling tool](quickstarts/label-tool.md)
-    * [Train a Form Recognizer model with labels using REST API and Python](quickstarts/python-labeled-data.md)
-* Prebuilt receipts - extract data from USA sales receipts
-  * [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
-  * [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
-* Layout - extract text and table structure from forms
-  * [Quickstart: Extract layout data using Python](quickstarts/python-layout.md)
+* [Client library quickstart](./quickstarts/client-library.md) (all languages, multiple scenarios)
+* Web UI quickstarts
+  * [Train with labels - sample labeling tool](quickstarts/label-tool.md)
+* REST quickstarts
+  * Train custom models and extract form data
+    * [Train without labels - cURL](quickstarts/curl-train-extract.md)
+    * [Train without labels - Python](quickstarts/python-train-extract.md)
+    * [Train with labels - Python](quickstarts/python-labeled-data.md)
+  * Extract data from USA sales receipts
+    * [Extract receipt data - cURL](quickstarts/curl-receipts.md)
+    * [Extract receipt data - Python](quickstarts/python-receipts.md)
+  * Extract text and table structure from forms
+    * [Extract layout data - Python](quickstarts/python-layout.md)
+
 
 ### Review the REST APIs
 

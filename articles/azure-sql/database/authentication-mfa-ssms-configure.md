@@ -3,7 +3,7 @@ title: Configure multi-factor authentication
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 description: Learn how to use multi-factored authentication with SSMS for Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: has-adal-ref, sqldbrb=3
 ms.devlang: 
