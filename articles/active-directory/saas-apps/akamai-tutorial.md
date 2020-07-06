@@ -78,6 +78,7 @@ Akamai EAA Application is set up individually on the Azure AD Portal. Admin can 
 
 * All Apps are represented on the 0365 Waffle and myApps.microsoft.com Panel.
 
+
 **Cons**:
 
 * You need to configure multiple IDP.
