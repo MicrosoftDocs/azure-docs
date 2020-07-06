@@ -156,7 +156,7 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled on accounts with read permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled on accounts with owner permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled on accounts with write permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
-|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Long-term geo-redundant backup should be enabled for Azure SQL Database|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
+|\[Preview\]: Audit FedRAMP High controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Long-term geo-redundant backup should be enabled for Azure SQL Databases|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 
 
 ## Next steps
