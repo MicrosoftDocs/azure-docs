@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --name myVM --nics myNic --image U
 ```
 
 ### REST API
-When configuring the Backend Pool for a NIC-based configuration, you will create the Backend Pool via the [PUT Backend Pool] (https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/loadbalancerbackendaddresspools/createorupdate) command and then add resources to the Backend Pool via the [PUT Network Interface] (https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/createorupdate) command. 
+When configuring the Backend Pool for a NIC-based configuration, you will create the Backend Pool via the (PUT Backend Pool) [https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/loadbalancerbackendaddresspools/createorupdate] command and then add resources to the Backend Pool via the (PUT Network Interface) [https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/createorupdate] command. 
 
 Create the Backend Pool:
 ```
