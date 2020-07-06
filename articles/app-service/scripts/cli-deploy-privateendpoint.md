@@ -9,8 +9,8 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-
 ---
+
 
 # Create an App Service app and deploy Private Endpoint using Azure CLI
 
@@ -82,7 +82,7 @@ az network vnet subnet update \
 ## Create the Private Endpoint
 
 Create the Private Endpoint for your Web App with [az network private-endpoint create](/cli/azure/network/private-endpoint). 
-This examples creates a Private Endpoint named *myPrivateEndpoint* in the in the VNet *myVNet* in the Subnet *mySubnet* with a connection named *myConnectionName* to the resource ID of my Web App /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp, the group parameter is *sites* for Web App type. 
+This example creates a Private Endpoint named *myPrivateEndpoint* in the VNet *myVNet* in the Subnet *mySubnet* with a connection named *myConnectionName* to the resource ID of my Web App /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp, the group parameter is *sites* for Web App type. 
 
 ```azurecli-interactive
 az network private-endpoint create \
