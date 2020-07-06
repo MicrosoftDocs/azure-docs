@@ -60,7 +60,7 @@ Once the disk is attached, start your VM once more using the Azure portal.
 
 
 
-## Format UltraDisk
+## Format disk
 
 Connect to your virtual machine and format your ultra disk.  
 
@@ -70,7 +70,7 @@ To format your ultra disk, follow these steps:
 1. Use [Disk Management](/windows-server/storage/disk-management/overview-of-disk-management) to format and partition your newly attached ultra disk. 
 
 
-## Use disk
+## Use disk for log
 
 Configure SQL Server to use the new log drive. You can do so using Transact-SQL (T-SQL) or SQL Server Management Studio (SSMS). The account used for the SQL Server service account must have full control of the new log file location. 
 
@@ -118,9 +118,9 @@ Use T-SQL to move the existing files to a new location:
 1. Attach the database, specifying the new file locations: 
 
    ```sql
-   sp_attach_db 'AdventureWorks'
+    sp_attach_db 'AdventureWorks'
    'E:\Fixed_FG\AdventureWorks.mdf',
-   'E:\Fixed_FG\AdventureWorks_2.ndf'
+   'E:\Fixed_FG\AdventureWorks_2.ndf',
    'F:\New_Log\AdventureWorks_log.ldf'
    GO
    ```
@@ -145,6 +145,7 @@ Use SSMS to move the existing files to a new location:
    1. Using the dialog box, add each file, including the log file in its new location. 
    1. Select **OK** to attach the database. 
 
+---
 
 
 ## Next steps
