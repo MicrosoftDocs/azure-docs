@@ -17,7 +17,6 @@ ms.date: 11/01/2018
 ms.author: delhan
 
 ---
-
 # Troubleshoot Azure VM RDP connection issues by Event ID 
 
 This article explains how to use event IDs to troubleshoot issues that prevent a Remote Desktop protocol (RDP) connection to an Azure Virtual Machine (VM).
