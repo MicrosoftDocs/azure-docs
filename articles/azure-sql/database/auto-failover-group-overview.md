@@ -3,7 +3,7 @@ title: Auto-failover groups
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Auto-failover groups allow you to manage replication and automatic / coordinated failover of a group of databases on a server or all databases in a managed instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
