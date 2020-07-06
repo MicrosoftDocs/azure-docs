@@ -304,7 +304,7 @@ Follow these steps to configure the LVA on IoT Edge module to generate debug log
 
     This binds the logs folders between the edge device and the container.
 1. Click on Update button
-1. Click on Review + Create button at the bottom of the page. 
+1. Click on Review + Create button at the bottom of the page.
 1. A simple validation will take place and post successful validation message under a green banner, click on Create button.
 1. Next, we will update the Module Identity Twin to point the DebugLogsDirectory parameter to point to the directory in which the logs will be collected.
     1. Select lvaEdge under the Modules table.
@@ -317,7 +317,9 @@ Follow these steps to configure the LVA on IoT Edge module to generate debug log
 1. Reproduce the issue.
 1. Connect to the Virtual Machine from the IoT Hub page in your portal.
     1. Navigate to /var/local/mediaservices/logs folder  and zip the bin content of this folder and share it with us.
-    > [!NOTE] These log files are not meant for self-diagnosis and they are meant for Azure engineering to analyze your issues.
+
+    > [!NOTE] These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
+
 1. Log collection can be stopped by setting that value in Module Identity Twin to null again. Go back to the Module Identity Twin page and update the following parameter as:
 
     `"DebugLogsDirectory": ""`
