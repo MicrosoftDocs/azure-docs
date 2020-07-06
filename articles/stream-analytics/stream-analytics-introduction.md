@@ -27,7 +27,7 @@ The following scenarios are examples of when you can use Azure Stream Analytics:
 
 An Azure Stream Analytics job consists of an input, query, and an output. Stream Analytics ingests data from Azure Event Hubs (including Azure Event Hubs from Apache Kafka), Azure IoT Hub, or Azure Blob Storage. The query, which is based on SQL query language, can be used to easily filter, sort, aggregate, and join streaming data over a period of time. You can also extend this SQL language with JavaScript and C# user defined functions (UDFs). You can easily adjust the event ordering options and duration of time windows when preforming aggregation operations through simple language constructs and/or configurations.
 
-Each job has one of several outputs for the transformed data, and you can control what happens in response to the information you've analyzed. For example, you can:
+Each job has one or several outputs for the transformed data, and you can control what happens in response to the information you've analyzed. For example, you can:
 
 * Send data to services such as Azure Functions, Service Bus Topics or Queues to trigger communications or custom workflows downstream.
 * Send data to a Power BI dashboard for real-time dashboarding.
