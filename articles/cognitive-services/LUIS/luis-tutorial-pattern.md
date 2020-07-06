@@ -2,7 +2,7 @@
 title: "Tutorial: Patterns - LUIS"
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 07/06/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
@@ -35,12 +35,10 @@ A pattern is applied as a combination of text matching and machine learning.  Th
 
 Use the following steps:
 
-1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Import the JSON into a new app into the [LUIS portal](https://www.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step.
-
-1. From the **Manage** section, on the **Versions** tab, select the active version, then select **Clone**. Name the cloned version `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Create new intents and their utterances
 
@@ -63,8 +61,6 @@ The two intents find the manager or the manager's direct reports, based on the u
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Don't worry if the keyPhrase entity is labeled in the utterances of the intent instead of the employee entity. Both are correctly predicted in the Test pane and at the endpoint.
 
 1. Select **Intents** in the left navigation.
 
@@ -105,50 +101,50 @@ The two intents find the manager or the manager's direct reports, based on the u
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.5373289
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.168523118
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -167,9 +163,9 @@ The two intents find the manager or the manager's direct reports, based on the u
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -186,13 +182,9 @@ The two intents find the manager or the manager's direct reports, based on the u
     }
     ```
 
-The scores of the two top intents are close but the highest intent isn't significantly high (over 60%) and isn't far enough above the next intent's score.
+The correct top intent was predicted, `OrgChart-Manager`, but the score is not good enough at 53%. Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
 
-Because LUIS training is not exactly the same each time (there is a bit of variation), these top two scores could invert on the next training cycle. The result is that the wrong intent could be returned.
-
-Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score.
-
-Leave this second browser window open. You use it again later in the tutorial.
+Leave this second browser window open. You will use it again later in the tutorial.
 
 ## Template utterances
 Because of the nature of the Human Resource subject domain, there are a few common ways of asking about employee relationships in organizations. For example:
@@ -202,16 +194,16 @@ Because of the nature of the Human Resource subject domain, there are a few comm
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples.
+These utterances are too close to determine the contextual uniqueness of each without providing _many_ utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without the need of supplying many more utterance examples.
 
 Template utterance examples for this intent include:
 
 |Template utterances examples|syntax meaning|
 |--|--|
-|`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
-|`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
 
-The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or [punctuation](luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The `{EmployeeListEntity}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or [punctuation](luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
 
@@ -229,25 +221,25 @@ In order for a pattern to be matched to an utterance, _first_ the entities withi
 
     |Template utterances|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    These template utterances include the **Employee** entity with the curly bracket notation.
+    These template utterances include the **EmployeeListEntity** entity with the curly bracket notation.
 
 1. While still on the Patterns page, select the **OrgChart-Reports** intent, then enter the following template utterances:
 
     |Template utterances|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### Query endpoint when patterns are used
 
@@ -368,8 +360,8 @@ Example template utterances that allow for this optional information:
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 The use of the optional syntax of square brackets, `[]`, makes this optional text easy to add to the template utterance and can be nested up to a second level, `[[]]`, and include entities or text.
@@ -379,7 +371,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 **Question: Why isn't prebuilt number part of the template utterance if March 3 is predicted both as number `3` and date `March 3`?** The template utterance contextually is using a date, either literally as in `March 3` or abstracted as `in a month`. A date can contain a number but a number may not necessarily be seen as a date. Always use the entity that best represents the type you want returned in the prediction JSON results.
 
-**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
+**Question: What about poorly phrased utterances such as `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances.
 
 **Remember: entities are found first, then the pattern is matched.**
 
@@ -389,9 +381,9 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
     |Intent|Example utterances with optional text and prebuilt entities|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Select **Train** in the navigation bar to train the app.
 
@@ -425,12 +417,12 @@ The following 2 patterns can combine into a single pattern using the group `()` 
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 The new template utterance will be:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them.
 
@@ -440,7 +432,7 @@ This uses a **group** around the required verb tense and the optional `in` and `
 
 1. Change the template utterance to:
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Select **Train** in the navigation bar to train the app.
 
