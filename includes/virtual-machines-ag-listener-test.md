@@ -14,7 +14,9 @@ Client connectivity has the following requirements:
 
 One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
 
-    sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
+```
 
 > [!NOTE]
 > If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
