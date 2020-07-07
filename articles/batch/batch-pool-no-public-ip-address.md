@@ -25,7 +25,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Prerequisites
 
-- **Authentication**. To use a pool without public IP addresses inside a [virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network), the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Azure AD authentication or key-based authentication can be used.
+- **Authentication**. To use a pool without public IP addresses inside a [virtual network](./batch-virtual-network.md), the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). If you aren't creating your pool within a virtual network, either Azure AD authentication or key-based authentication can be used.
 
 - **An Azure VNet**. If you are creating your pool in a [virtual network](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods.
   - The VNet must be in the same subscription and region as the Batch account you use to create your pool.
@@ -57,7 +57,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Azure Batch REST API](https://docs.microsoft.com/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The example below shows how to use the [Azure Batch REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 

@@ -59,14 +59,14 @@ For example, to view a count of Activity log records for each category, use the 
 
 ```kusto
 AzureActivity
-| summarize count() by CategoryValue
+| summarize count() by Category
 ```
 
 To retrieve all records in the administrative category, use the following query.
 
 ```kusto
 AzureActivity
-| where CategoryValue == "Administrative"
+| where Category == "Administrative"
 ```
 
 

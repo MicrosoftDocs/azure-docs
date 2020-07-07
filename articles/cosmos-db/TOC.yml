@@ -123,7 +123,7 @@
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Create a synthetic partition key
+      - name: Synthetic partition key
         href: synthetic-partition-keys.md
     - name: Provisioned throughput
       items:
@@ -1005,7 +1005,7 @@
           href: performance-tips-async-java.md          
         - name: Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Async Java SDK v2
+        - name: Troubleshoot- Async Java SDK v2
           href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md

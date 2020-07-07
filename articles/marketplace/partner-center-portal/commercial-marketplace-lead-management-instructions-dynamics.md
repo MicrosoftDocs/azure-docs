@@ -55,7 +55,7 @@ To write leads into your Dynamics 365 Customer Engagement instance, you must sha
 Use the following steps to create the service account and assign permissions. You can use Azure Active Directory or Office 365.
 
 >[!NOTE]
->Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) or [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
+>Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](#azure-active-directory) or [Office 365](#office-365).
 
 ### Azure Active Directory
 

@@ -95,7 +95,9 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
     If you use macOS or Linux, run the following command:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
     Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
