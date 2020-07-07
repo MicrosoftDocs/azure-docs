@@ -960,7 +960,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
     ```console
     # MB=$((1024*1024))
     # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
-  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+      gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
     # rounded_size=$((($size/$MB + 1)*$MB))
     # qemu-img resize rhel-7.4.raw $rounded_size
@@ -1134,15 +1134,15 @@ To resolve this issue, add Hyper-V modules to initramfs and rebuild it:
 
 Edit `/etc/dracut.conf`, and add the following content:
 
-    ```config-conf
-    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
-    ```
+```config-conf
+add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
+```
 
 Rebuild initramfs:
 
-    ```console
-    # dracut -f -v
-    ```
+```console
+# dracut -f -v
+```
 
 For more details, see the information about [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 

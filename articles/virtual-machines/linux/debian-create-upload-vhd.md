@@ -22,18 +22,18 @@ This section assumes that you have already installed a Debian Linux operating sy
 ## Use Azure-Manage to create Debian VHDs
 There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [Credativ](https://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download the `azure-manage` utility (and dependencies) and run the `azure_build_image` script:
 
-    ```console
-    # sudo apt-get update
-    # sudo apt-get install git qemu-utils mbr kpartx debootstrap
+```console
+# sudo apt-get update
+# sudo apt-get install git qemu-utils mbr kpartx debootstrap
 
-    # sudo apt-get install python3-pip python3-dateutil python3-cryptography
-    # sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
-    # git clone https://github.com/credativ/azure-manage.git
-    # cd azure-manage
-    # sudo pip3 install .
+# sudo apt-get install python3-pip python3-dateutil python3-cryptography
+# sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
+# git clone https://github.com/credativ/azure-manage.git
+# cd azure-manage
+# sudo pip3 install .
 
-    # sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
-    ```
+# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+```
 
 
 ## Manually prepare a Debian VHD

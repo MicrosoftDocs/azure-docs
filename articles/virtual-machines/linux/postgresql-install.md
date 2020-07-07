@@ -167,39 +167,39 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
 Run the following commands:
 
-    ```console
-    # cd /root/postgresql-9.3.5/contrib/start-scripts
+```console
+# cd /root/postgresql-9.3.5/contrib/start-scripts
 
-    # cp linux /etc/init.d/postgresql
-    ```
+# cp linux /etc/init.d/postgresql
+```
 
 Modify two variables in the /etc/init.d/postgresql file. The prefix is set to the installation path of PostgreSQL: **/opt/pgsql**. PGDATA is set to the data storage path of PostgreSQL: **/opt/pgsql_data**.
 
-    ```config
-    # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
+```config
+# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
-    # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
-    ```
+# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+```
 
 ![image](./media/postgresql-install/no2.png)
 
 Change the file to make it executable:
 
-    ```console
-    # chmod +x /etc/init.d/postgresql
-    ```
+```console
+# chmod +x /etc/init.d/postgresql
+```
 
 Start PostgreSQL:
 
-    ```console
-    # /etc/init.d/postgresql start
-    ```
+```console
+# /etc/init.d/postgresql start
+```
 
 Check if the endpoint of PostgreSQL is on:
 
-    ```console
-    # netstat -tunlp|grep 1999
-    ```
+```console
+# netstat -tunlp|grep 1999
+```
 
 You should see the following output:
 
@@ -208,30 +208,30 @@ You should see the following output:
 ## Connect to the Postgres database
 Switch to the postgres user once again:
 
-    ```console
-    # su - postgres
-    ```
+```console
+# su - postgres
+```
 
 Create a Postgres database:
 
-    ```console
-    $ createdb events
-    ```
+```console
+$ createdb events
+```
 
 Connect to the events database that you just created:
 
-    ```console
-    $ psql -d events
-    ```
+```console
+$ psql -d events
+```
 
 ## Create and delete a Postgres table
 Now that you have connected to the database, you can create tables in it.
 
 For example, create a new example Postgres table by using the following command:
 
-    ```sql
-    CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
-    ```
+```sql
+CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
+```
 
 You have now set up a four-column table with the following column names and restrictions:
 
@@ -251,9 +251,9 @@ You can also check the table structure by using the following command:
 ### Add data to a table
 First, insert information into a row:
 
-    ```sql
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
-    ```
+```sql
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
+```
 
 You should see this output:
 
@@ -261,20 +261,20 @@ You should see this output:
 
 You can add a couple more people to the table as well. Here are some options, or you can create your own:
 
-    ```sql
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
+```sql
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
-    ```
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
+```
 
 ### Show tables
 Use the following command to show a table:
 
-    ```sql
-    select * from potluck;
-    ```
+```sql
+select * from potluck;
+```
 
 The output is:
 
@@ -283,9 +283,9 @@ The output is:
 ### Delete data in a table
 Use the following command to delete data in a table:
 
-    ```sql
-    delete from potluck where name=’John’;
-    ```
+```sql
+delete from potluck where name=’John’;
+```
 
 This deletes all the information in the "John" row. The output is:
 
@@ -294,9 +294,9 @@ This deletes all the information in the "John" row. The output is:
 ### Update data in a table
 Use the following command to update data in a table. For this one, Sandy has confirmed that they are attending, so we will change the RSVP from "N" to "Y":
 
-    ```sql
-    UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
-    ```
+```sql
+UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
+```
 
 ## Get more information about PostgreSQL
 Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](https://www.postgresql.org/).

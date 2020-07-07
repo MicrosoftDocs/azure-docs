@@ -127,13 +127,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.
 3. On the shell, run the command '`zypper lr`'. If this command returns output similar to the following, then the repositories are configured as expected--no adjustments are necessary (note that version numbers may vary):
-   
-# | Alias                 | Name                  | Enabled | Refresh
---+-----------------------+-----------------------+---------+--------
-1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
-2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
-3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-   
+
+   | # | Alias                 | Name                  | Enabled | Refresh
+   | - | :-------------------- | :-------------------- | :------ | :------
+   | 1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
+   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
+   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
+
     If the command returns "No repositories defined..." then use the following commands to add these repos:
 
     ```console
