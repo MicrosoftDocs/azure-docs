@@ -18,7 +18,7 @@ This tutorial describes how to configure a compute role for an advanced deployme
 
 Compute can be configured for simple or advanced deployment flow on your device.
 
-|                  | Simple deployment                                | Advanced deployment                   |
+| Criteria | Simple deployment                                | Advanced deployment                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Intended for     | IT administrators                                | Developers                            |
 | Type             | Use Azure Stack Edge service to deploy modules      | Use IoT Hub service to deploy modules |
