@@ -494,7 +494,9 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
@@ -762,7 +764,9 @@ You may obtain function keys programmatically by using [Key management APIs](htt
 
 Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 

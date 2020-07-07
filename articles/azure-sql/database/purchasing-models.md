@@ -3,8 +3,8 @@ title: Purchasing models
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
 description: Learn about the purchasing models that are available for Azure SQL Database and Azure SQL Managed Instance.  
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual

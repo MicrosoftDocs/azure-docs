@@ -78,7 +78,7 @@ Blob-level tiering allows you to upload data to the access tier of your choice u
 The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. 
 
 > [!NOTE]
-> Archive storage and blob-level tiering only support block blobs. You also cannot currently change the tier of a block blob that has snapshots.
+> Archive storage and blob-level tiering only support block blobs.
 
 ### Blob lifecycle management
 

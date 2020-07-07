@@ -18,7 +18,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Data source  |In-memory  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Yes      |    Yes      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL Data Warehouse)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Yes       |    No      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Yes       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Yes        |  No        |<sup>[1](#tab1400a)</sup> |

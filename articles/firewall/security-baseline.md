@@ -1,10 +1,10 @@
 ---
-title: Security baseline for Azure Firewall
-description: Security baseline for Azure Firewall
+title: Azure Firewall security baseline for Azure Security Benchmark
+description: The Azure Firewall security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,17 +12,17 @@ ms.custom: security-benchmark
 
 ---
 
-# Security baseline for Azure Firewall
+# Azure Firewall security baseline for Azure Security Benchmark
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Firewall. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Firewall. **Controls** not applicable to Azure Firewall have been excluded. To see how Azure Firewall completely maps to the Azure Security Benchmark, see the [full Azure Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets/security_baselines).
+This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Firewall. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Firewall. **Controls** not applicable to Azure Firewall have been excluded. To see how Azure Firewall completely maps to the Azure Security Benchmark, see the [full Azure Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 **Guidance**: Azure Firewall is integrated with Azure Monitor for logging of traffic processed by the firewall.
 
@@ -34,7 +34,7 @@ Additionally, use Azure Security Center and follow network protection recommenda
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 **Guidance**: Enable Threat intelligence-based filtering to alert and deny traffic from/to known malicious IP addresses and domains. Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to-known malicious IP addresses and domains.
 
@@ -102,7 +102,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -182,7 +182,7 @@ Azure Monitor logs: Azure Monitor logs is best used for general real-time monito
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 **Guidance**: Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. There are a few different types of Azure Firewall logs.
 
@@ -224,7 +224,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -250,7 +250,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
@@ -260,7 +260,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 **Guidance**: Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -272,7 +272,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication(MFA) configured to log into and configure Azure Firewall and related resources.
 
@@ -340,7 +340,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 **Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -356,7 +356,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -418,7 +418,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure Active Directory role-based acess control (RBAC) to control access to Azure Firewall and related resources.
+**Guidance**: Use Azure Active Directory role-based access control (RBAC) to control access to Azure Firewall and related resources.
 
 * [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -450,11 +450,27 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+
+### 5.1: Run automated vulnerability scanning tools
+
+**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
+### 5.2: Deploy automated operating system patch management solution
+
+**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 5.4: Compare back-to-back vulnerability scans
 
-**Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
+**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -462,7 +478,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
-**Guidance**: Use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.
+**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -470,7 +486,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.2: Maintain asset metadata
 
@@ -496,7 +512,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
 **Guidance**: Create an inventory of approved Azure Firewall resources including configuration as per your organizational needs.
 
@@ -564,7 +580,7 @@ Use Azure Resource Graph to query/discover Azure Firewall resources within their
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -572,9 +588,7 @@ Use Azure Resource Graph to query/discover Azure Firewall resources within their
 
 You can also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
-
-* [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+Azure policy is not fully supported at this time.
 
 * [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
@@ -622,16 +636,6 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 **Responsibility**: Customer
 
-### 7.9: Implement automated configuration monitoring for Azure resources
-
-**Guidance**: Use Azure Policy to audit Azure Firewall and related resource configurations.
-
-* [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 7.12: Manage identities securely and automatically
 
 **Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication to Azure Resource Manager and can be used with API/Azure Portal/CLI/PowerShell.
@@ -654,9 +658,9 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 **Guidance**: Use Azure Resource Manager to export the Azure Firewall and related resources in a Java Script Object Notation (JSON) template which can be used as backup for Azure Firewall and related configurations. You can also export Azure Firewall configuration using Export template feature of Azure Firewall from Azure Portal. Use Azure Automation to run the backup scripts automatically.
 
@@ -672,7 +676,7 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: Use Azure Resource Manager to export the Azure Firewall and related resources in a Java Script Object Notation (JSON) template which can be used as backup for Azure Firewall and related configurations. You can also export Azure Firewall configuration using Export template feature of Azure Firewall from Azure Portal.
 
@@ -684,7 +688,7 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager template backed files.
 
@@ -696,7 +700,7 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
@@ -710,7 +714,7 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -728,7 +732,13 @@ You can also use recommendations from Azure Security Center as a secure configur
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Not applicable.
+**Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+
+* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+
+* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+
+* [Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -780,7 +790,7 @@ Continuous Export allows you to export alerts and recommendations either manuall
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -796,5 +806,5 @@ Continuous Export allows you to export alerts and recommendations either manuall
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

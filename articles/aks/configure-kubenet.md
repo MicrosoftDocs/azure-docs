@@ -135,10 +135,10 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Now assign the service principal for your AKS cluster *Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
+Now assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## Create an AKS cluster in the virtual network

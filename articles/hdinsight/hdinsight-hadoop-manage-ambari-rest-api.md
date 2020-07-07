@@ -359,7 +359,9 @@ This example returns a JSON document containing the current configuration for th
 2. Edit `newconfig.json`.  
    Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"livy.server.csrf_protection.enabled"` from `"true"` to `"false"`.
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     Save the file once you're done making modifications.
 

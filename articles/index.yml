@@ -1271,7 +1271,7 @@ productDirectory:
         - networking
       url: firewall/index.yml
     # Card
-    - title: Azure Firewall Manager (Preview)
+    - title: Azure Firewall Manager
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
