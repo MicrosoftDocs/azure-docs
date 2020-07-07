@@ -222,12 +222,6 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
-- name: Samples
-  items:
-  - name: Azure Quickstart Templates
-    href: https://azure.microsoft.com/resources/templates/
-  - name: Template samples
-    href: template-samples.md
 - name: Concepts
   items:
   - name: Template best practices
@@ -439,6 +433,8 @@
     href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
+  - name: Azure Quickstart Templates
+    href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator
