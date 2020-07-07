@@ -102,7 +102,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad --enable-azure
 A successful creation of a cluster with AAD integration and Azure RBAC for Kubernetes Authorization has the following section in the response body:
 
 ```json
-"Azure ADProfile": {
+"AADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "enableAzureRbac": true,
@@ -228,7 +228,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 
 ## Use Azure RBAC for Kubernetes Authorization with `kubelogin`
 
-To unblock additional scenarios like non-interactive logins, and leveraging SSO across multiple clusters without the need to sign in to new cluster, granted that your token is still valid, AKS created an exec plugin called [`kubelogin`](https://github.com/Azure/kubelogin).
+To unblock additional scenarios like non-interactive logins, older `kubectl` versions or leveraging SSO across multiple clusters without the need to sign in to new cluster, granted that your token is still valid, AKS created an exec plugin called [`kubelogin`](https://github.com/Azure/kubelogin).
 
 You can use it by running:
 

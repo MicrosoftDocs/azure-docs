@@ -42,11 +42,12 @@ A ClusterRole works in the same way to grant permissions to resources, but can b
 
 ### RoleBindings and ClusterRoleBindings
 
-Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory](#azure-active-directory-integration), bindings are how those Azure AD users are granted permissions to perform actions within the cluster.
+Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory](#azure-active-directory-integration), bindings are how those Azure AD users are granted permissions to perform actions within the cluster, see how in [Control access to cluster resources using role-based access control and Azure Active Directory identities](azure-ad-rbac.md).
 
 Role bindings are used to assign roles for a given namespace. This approach lets you logically segregate a single AKS cluster, with users only able to access the application resources in their assigned namespace. If you need to bind roles across the entire cluster, or to cluster resources outside a given namespace, you can instead use *ClusterRoleBindings*.
 
 A ClusterRoleBinding works in the same way to bind roles to users, but can be applied to resources across the entire cluster, not a specific namespace. This approach lets you grant administrators or support engineers access to all resources in the AKS cluster.
+
 
 > [!NOTE]
 > Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access. Read more about [AKS support policies](support-policies.md).
@@ -68,7 +69,7 @@ The security of AKS clusters can be enhanced with the integration of Azure Activ
 
 With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they're prompted to sign in with their Azure AD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
 
-Azure AD authentication in AKS clusters uses OpenID Connect, an identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use access tokens to access protected resources, and OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. For more information on OpenID Connect, see the [Open ID Connect documentation][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
+Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect]. From inside of the Kubernetes cluster, [Webhook Token Authentication][webhook-token-docs] is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
@@ -122,7 +123,7 @@ With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook
 
 As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active integration section](#azure-active-directory-integration). 
 
-But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity doesn't exist in AAD, for example a Kubernetes storage account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
+But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity doesn't exist in AAD, for example a Kubernetes service account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
 
 In this scenario you could give users one of the four built-in roles, or create custom roles as you would do with Kubernetes roles but in this case using the Azure RBAC mechanisms and APIs. 
 
@@ -131,7 +132,7 @@ This feature will allow you to, for example, not only give users permissions to 
 
 #### Built-in roles
 
-AKS provides the following four built-in roles based on the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles):
+AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) but with a few differences like supporting CRDs. For the full list of actions allowed by each built in role please see [here](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
