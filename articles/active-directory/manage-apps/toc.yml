@@ -3,20 +3,20 @@
   - name: Overview
     expanded: true
     items:
-     - name: What is cloud app management and single sign-on?
+     - name: What is application management?
        href: what-is-application-management.md
-     - name: What is Application Proxy for on-premises apps?
-       href: what-is-application-proxy.md
-     - name: Common app management scenarios
-       href: common-scenarios.md
-     - name: What is application provisioning?
-       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Quickstarts
     items:
-    - name: Add a cloud app from the gallery
-      href: add-application-portal.md
-    - name: View your enterprise applications
+    - name: View your apps
       href: view-applications-portal.md
+    - name: Add an app
+      href: add-application-portal.md
+    - name: Configure an app
+      href: add-application-portal-configure.md
+    - name: Set up single sign-on
+      href: add-application-portal-setup-sso.md
+    - name: Delete an app
+      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
@@ -32,6 +32,8 @@
     items: 
     - name: App management best practices
       href: application-management-fundamentals.md
+    - name: App management common scenarios
+      href: common-scenarios.md
     - name: Cloud apps and single sign-on
       items:
       - name: Planning a cloud app integration
@@ -80,6 +82,8 @@
       items:
        - name: Application Proxy
          href: application-proxy.md
+       - name: What is application proxy for on-premises apps?
+         href: what-is-application-proxy.md
        - name: Planning an Application Proxy deployment
          href: application-proxy-deployment-plan.md
        - name: Connectors
@@ -101,12 +105,8 @@
       items:
       - name: Add a cloud app
         items:
-        - name: Add a gallery app
-          href: add-gallery-app.md
         - name: Add a non-gallery app
           href: add-non-gallery-app.md
-        - name: Change the app name or logo
-          href: change-name-or-logo-portal.md
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on

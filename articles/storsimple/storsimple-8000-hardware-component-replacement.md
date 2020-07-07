@@ -24,10 +24,10 @@ ms.custom:
 The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple 8000 series device and the steps necessary to remove and replace them. This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.
 
 > [!IMPORTANT]
-> Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
-
+> Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](#safety-icon-conventions) and other [safety precautions](storsimple-8000-safety.md).
 
 ### Safety icon conventions
+
 The following table describes the safety icons used in these tutorials. Pay close attention to these safety icons as you go through the steps to remove and replace device components.
 
 | Icon | Text | Additional information |
@@ -43,7 +43,8 @@ The following table describes the safety icons used in these tutorials. Pay clos
 | ![Tip hazard icon](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Tip Hazard** | |
 
 ### Before you begin
-Familiarize yourself with the safety information about your device and safety icons used in this tutorial. Go to [Safely install and operate your StorSimple device](storsimple-safety.md) for complete information. Be sure to review the [Safety precautions](storsimple-safety.md#handling-precautions) before you handle your StorSimple device.
+
+Familiarize yourself with the safety information about your device and safety icons used in this tutorial. Go to [Safely install and operate your StorSimple device](storsimple-8000-safety.md) for complete information. Be sure to review the [Safety precautions](storsimple-8000-safety.md#handling-precautions) before you handle your StorSimple device.
 
 Before you attempt to replace a component, consider the following information.
 
@@ -57,6 +58,7 @@ Before you attempt to replace a component, consider the following information.
 When you replace a module, **NEVER leave an empty bay in the rear of the enclosure**. Obtain a replacement or blank module before removing the problem part.
 
 ## Hardware component replacement procedures
+
 Your StorSimple 8000 series device consists of several plug-in modules in the primary and/or EBOD enclosures. The 8100 has a single primary enclosure, whereas the 8600 is a dual enclosure device with a primary enclosure and an EBOD enclosure.
 
 The main hardware components in your device are summarized in the following tables. Click the link in the **Replacement procedure** column to go to the associated tutorial.
@@ -117,6 +119,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 | 4 |EBOD Controller 1 |
 
 ## Field replaceable units
+
 The following field replaceable units (FRUs) are available for your StorSimple device:
 
 * Chassis (including the integrated operations panel)
@@ -131,5 +134,5 @@ The following field replaceable units (FRUs) are available for your StorSimple d
 Please [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) to order any of these replacement units.
 
 ## Next steps
-Review all [safety information](storsimple-safety.md) before you attempt to replace a StorSimple hardware component.
 
+Review all [safety information](storsimple-8000-safety.md) before you attempt to replace a StorSimple hardware component.

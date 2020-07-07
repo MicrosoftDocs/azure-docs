@@ -39,10 +39,9 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 
-
 ## Next steps
 
-* Visit the [commercial marketplace publisher guide page](https://docs.microsoft.com/azure/marketplace/).
-* Learn more about [support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Visit the [commercial marketplace publisher guide page](index.yml).
+* Learn more about [support for the commercial marketplace program in Partner Center](partner-center-portal/support.md).
 
 ---

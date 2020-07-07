@@ -19,10 +19,11 @@ ms.collection: M365-identity-device-management
 
 A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
 
-> [!NOTE]
-> For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN. If your applications are currently using UPN, we recommend setting the UPN to match the user's primary email address to improve their experience.<br> **In a hybrid environment, it is important that the UPN for a user is identical in the on-premises directory and in Azure Active Directory**.
-
 **This article assumes you're using UPN as the user identifier. It addresses planning for UPN changes, and recovering from issues that may result from UPN changes.**
+
+> [!NOTE]
+> For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN or email addresses as their values can change.
+
 
 ## Learn about UPNs and UPN changes
 Sign-in pages often prompt users to enter their email address when the required value is actually their UPN. Therefore, you should be sure to change users' UPN anytime their primary email address changes.
@@ -57,7 +58,7 @@ You can change a UPN by changing the prefix, suffix, or both.
      Or<br>
     * Britta.Simon@corp.contoso.com to Britta.Simon@labs.contoso.com 
 
-Change the user's UPN every time the primary email address for a user is updated. No matter the reason for the email change, the UPN must always be updated to match.
+We recommend to change users' UPN every time their primary email address is updated.
 
 During the initial synchronization from Active Directory to Azure AD, ensure the users' emails  are identical to their UPNs.
 
@@ -74,7 +75,7 @@ For example, you may want to add labs.contoso.com and have the users' UPNs and e
 username@labs.contoso.com.
 
 >[!IMPORTANT]
-> If UPNs in Active directory and Azure Active Directory do not match, issues will arise. If you are [changing the suffix in Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), you must ensure that a matching custom domain name has been [added and verified on Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
+> If you are [changing the suffix in Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), you must ensure that a matching custom domain name has been [added and verified on Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
 
 ![A screenshot of verified domains](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
@@ -127,10 +128,14 @@ By [bringing your devices to Azure AD](https://docs.microsoft.com/azure/active-d
 **Known issues** <br>
 Users may experience single sign-on issues with applications that depend on Azure AD for authentication.
 
+**Resolution** <br>
+The issues mentioned on this section have been fixed on the Windows 10 May 2020 update (2004).
+
 **Workaround** <br>
 Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
+
 
 ### Hybrid Azure AD joined devices
 
@@ -146,6 +151,9 @@ Additionally, the following message will appear, forcing a restart after one min
 
 "Your PC will automatically restart in one minute. Windows ran into a problem and needs to restart. You should close this message now and save your work".
 
+**Resolution** <br>
+The issues mentioned on this section have been fixed on the Windows 10 May 2020 update (2004).
+
 **Workaround** 
 
 The device must be unjoined from Azure AD and restarted. After restart, the device will automatically join Azure AD again and the user must sign in using the new UPN by selecting the "Other user" tile. 
@@ -155,6 +163,7 @@ To unjoin a device from Azure AD, run the following command at a command prompt:
 
 The user will need to [re-enroll](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) for Windows Hello for Business if it's being used. 
 Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
+
 
 ## Microsoft Authenticator known issues and workarounds
 

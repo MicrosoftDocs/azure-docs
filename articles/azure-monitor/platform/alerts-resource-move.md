@@ -63,6 +63,8 @@ If **only some** of the resources in the scope have moved, you need to remove th
 
 - **For alert rules** -
 Navigate to Alerts > Manage alert rules > filter by the containing subscription and the moved resource.
+> [!NOTE]
+> Activity Log alert rules do not support this process. It’s not possible to update the scope of an activity log alert rule and have it point to a resource in another subscription. Instead you can create a new rule that will replace the old one.
 
 - **For action rules** - 
 Navigate to Alerts > Manage actions > Action rules (preview) > filter by the containing subscription and the moved resource.
