@@ -30,6 +30,8 @@
     href: concepts-upgrades.md
 - name: How-to guides
   items:
+  - name: AVS migration assessment
+    href: https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment
   - name: Set up HCX
     href: hybrid-cloud-extension-installation.md
   - name: Manage DHCP
