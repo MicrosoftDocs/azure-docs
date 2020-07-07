@@ -23,7 +23,7 @@ Some examples, of issues with provisioning:
 - Networking is not set up correctly
 - Swap file or partition failures
 
-This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [cloud-init deep dive](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloud-init-deep-dive).
+This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [cloud-init deep dive](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
 
 ## Step 1: Test the deployment without customData
 
@@ -55,7 +55,7 @@ While the VM is running, you will need the logs from the VM to understand why pr
 
 - [Enable Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
 
-- [Run AZ VM Repair](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk, which will allow you to collect these logs:
+- [Run AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk, which will allow you to collect these logs:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -128,4 +128,4 @@ Not every failure in cloud-init results in a fatal provisioning failure. For exa
 
 ## Next steps
 
-If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloud-init-deep-dive) for more information. 
+If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) for more information. 
