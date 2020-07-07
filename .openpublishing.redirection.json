@@ -271,6 +271,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
+      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": false
@@ -742,7 +747,7 @@
     },
     {
       "source_path": "articles/machine-learning/how-to-train-chainer.md",
-      "redirect_url": "azure/machine-learning/how-to-train-ml-models",
+      "redirect_url": "/azure/machine-learning/how-to-train-ml-models",
       "redirect_document_id": false
     },
     {
@@ -2584,12 +2589,12 @@
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/cli-samples.md",
-      "redirect_url": "azure/virtual-machine-scale-sets/scripts/cli-sample-create-simple-scale-set",
+      "redirect_url": "/azure/virtual-machine-scale-sets/scripts/cli-sample-create-simple-scale-set",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/powershell-samples.md",
-      "redirect_url": "azure/virtual-machine-scale-sets/scripts/powershell-sample-create-simple-scale-set",
+      "redirect_url": "/azure/virtual-machine-scale-sets/scripts/powershell-sample-create-simple-scale-set",
       "redirect_document_id": false
     },
     {
@@ -4908,6 +4913,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/use-vs-code-to-create-template.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
       "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false
@@ -6969,7 +6984,7 @@
     },
     {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
-      "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
     },
     {
@@ -8268,42 +8283,42 @@
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-instrumentation-engine.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-monitoring.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-monitoring.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-config.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-status.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-set-config.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/status-monitor-v2-api-start-trace.md",
-      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference",
       "redirect_document_id": false
     },
     {
@@ -19688,17 +19703,17 @@
     },
     {
       "source_path": "articles/backup/backup-azure-configure-reports.md",
-      "redirect_url": "/azure/backup/configure-reports.md",
+      "redirect_url": "/azure/backup/configure-reports",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/backup/backup-azure-log-analytics-data-model.md",
-      "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/backup/backup-azure-log-analytics-new-data-model.md",
-      "redirect_url": "/azure/backup/backup-azure-reports-data-model.md",
+      "redirect_url": "/azure/backup/backup-azure-reports-data-model",
       "redirect_document_id": false
     },
     {
@@ -20644,6 +20659,11 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/publishing-status.md",
+      "redirect_url": "/azure/marketplace/review-publish-offer",
       "redirect_document_id": true
     },
     {
@@ -23029,6 +23049,11 @@
     {
       "source_path": "articles/active-directory/authentication/howto-registration-mfa-sspr-converged-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/howto-registration-mfa-sspr-combined-troubleshoot",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/app-sign-in-risk.md",
+      "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-risk",
       "redirect_document_id": true
     },
     {
@@ -31619,6 +31644,21 @@
     {
       "source_path": "articles/billing/billing-mca-create-subscription.md",
       "redirect_url": "/azure/billing/billing-create-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-storage-ingress.md",
+      "redirect_url": "/azure/time-series-insights/concepts-ingestion-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-tsm.md",
+      "redirect_url": "/azure/time-series-insights/concepts-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-tsq.md",
+      "redirect_url": "/azure/time-series-insights/concepts-query-overview",
       "redirect_document_id": false
     },
     {
@@ -45018,7 +45058,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring",
       "redirect_document_id": false
     },
     {
@@ -51097,7 +51137,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
-      "redirect_url": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
+      "redirect_url": "/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users",
       "redirect_document_id": false
     },
     {
@@ -52052,7 +52092,7 @@
     },
     {
       "source_path": "articles/load-balancer/quickstart-create-basic-load-balancer-powershell.md",
-      "redirect_url": "articles/load-balancer/quickstart-load-balancer-standard-public-powershell",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
       "redirect_document_id": false
     },
     {
@@ -52267,7 +52307,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorials.md",
-      "redirect_url": "/azure/cognitive-services/face/QuickStarts/java.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/java",
       "redirect_document_id": false
     },
     {
@@ -54370,9 +54410,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/machine-learning-services-add-r-packages.md",
+      "redirect_url": "/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-data-issues.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-data-issues",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/machine-learning-services-data-issues.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-differences.md",
@@ -54380,9 +54430,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/machine-learning-services-differences.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-differences",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-functions.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-functions",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/machine-learning-services-functions.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-manage-after-migration.md",
@@ -54392,6 +54452,11 @@
     {
       "source_path": "articles/sql-database/sql-database-machine-learning-services-overview.md",
       "redirect_url": "/azure/azure-sql/database/machine-learning-services-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/machine-learning-services-overview.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-overview",
       "redirect_document_id": true
     },
     {
@@ -54415,9 +54480,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/r-script-create-quickstart.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-quickstart-r-train-score-model.md",
       "redirect_url": "/azure/azure-sql/database/r-train-score-model-create-quickstart",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/r-train-score-model-create-quickstart.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-resource-limits-database-server.md",
@@ -54535,9 +54610,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/clustering-model-build-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-tutorial-clustering-model-deploy.md",
       "redirect_url": "/azure/azure-sql/database/clustering-model-deploy-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/clustering-model-deploy-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-tutorial-clustering-model-prepare-data.md",
@@ -54545,9 +54630,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/clustering-model-prepare-data-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-build-compare.md",
       "redirect_url": "/azure/azure-sql/database/predictive-model-build-compare-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/predictive-model-build-compare-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-deploy.md",
@@ -54555,9 +54650,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/database/predictive-model-deploy-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-tutorial-predictive-model-prepare-data.md",
       "redirect_url": "/azure/azure-sql/database/predictive-model-prepare-data-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/database/predictive-model-prepare-data-tutorial.md",
+      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-update-sync-schema.md",
@@ -55677,7 +55782,7 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal/manage-offers/cpp-view-status-offer.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/publishing-status",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md",
@@ -56437,6 +56542,16 @@
     {
       "source_path": "articles/load-balancer/load-balancer-configure-ha-ports.md",
       "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/change-name-or-logo-portal.md",
+      "redirect_url": "/azure/active-directory/manage-apps/add-application-portal-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
+      "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
     }
   ]
