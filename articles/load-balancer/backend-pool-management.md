@@ -31,7 +31,7 @@ The configuration sections of this article will focus on:
 These sections give insight into how the backend pools are structured for each configuration option.
 
 ## Configuring backend pool by NIC
-The backend pool is created as part of the load balancer operation. The IP configuration property of the NIC is used to add backend pool members
+The backend pool is created as part of the load balancer operation. The IP configuration property of the NIC is used to add backend pool members.
 
 The following examples are focused on the create and populate operations for the backend pool to highlight this workflow and relationship.
 
@@ -105,7 +105,6 @@ New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Window
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
-<<<<<<< HEAD
 ### CLI
 Create the backend pool:
 
@@ -114,14 +113,6 @@ az network lb address-pool create \
 --resourceGroup myResourceGroup \
 --lb-name myLB \
 --name myBackendPool 
-=======
-
-  
-## CLI
-Create the Backend Pool:
-```bash
-az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
->>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
 ```
 
 Create a new network interface and add it to the backend pool:
@@ -158,14 +149,9 @@ az vm create \
 --generate-ssh-keys
 ```
 
-<<<<<<< HEAD
 ### REST API
 Create the backend pool:
 
-=======
-## REST API
-Create the Backend Pool:
->>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
