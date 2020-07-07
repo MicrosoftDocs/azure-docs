@@ -137,7 +137,7 @@ To apply the baseline initiative, we can assign through the Azure portal.
 Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`.
 
 > [!NOTE]
-> Policies can take [up to 20 minutes to sync](../governance/policy/concepts/policy-for-kubernetes#assign-a-built-in-policy-definition) into each cluster.
+> Policies can take [up to 20 minutes to sync](../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition) into each cluster.
 
 The output should be similar to:
 
