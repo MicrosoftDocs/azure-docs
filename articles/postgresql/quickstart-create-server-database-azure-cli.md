@@ -60,14 +60,14 @@ admin-password | *secure password* | The password of the administrator user. It 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
 
 >[!IMPORTANT] 
->- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11 . 
+>- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11. 
 >- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
->- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
+>- SSL is enabled by default on your server. For more infroamtion on SSL , see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
 ## Configure a server-level firewall rule 
 By default the server created is not publicly accessible and you need to give permissions to your local machine IP. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local machine access to connect to the server. 
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you dont know where to look for your IP , go to [Google](https://google.com) and type in “what is my ip address”. You will see your IP in the search results. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you dont know where to look for your IP, go to [Google](https://google.com) and type in “what is my ip address”. You will see your IP in the search results. 
 
 
 ```azurecli-interactive
@@ -115,7 +115,7 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 ```
 
 ## Connect to PostgreSQL database using psql
-Connect to your server using the **psql** command-line tool. [Azure Cloud Shell](../cloud-shell/overview.md) has psql.exe available to use but you can also use a local [psql](https://www.postgresql.org/docs/current/static/app-psql.html) on your computer.  An empty database , 'postgres' is already create with your new PostgreSQL sverer that you can use to connect with psql as shown below 
+Connect to your server using the **psql** command-line tool. [Azure Cloud Shell](../cloud-shell/overview.md) has psql.exe available to use but you can also use a local [psql](https://www.postgresql.org/docs/current/static/app-psql.html) on your computer.  An empty database, 'postgres' is already create with your new PostgreSQL sverer that you can use to connect with psql as shown below 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
