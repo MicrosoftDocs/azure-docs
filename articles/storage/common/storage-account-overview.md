@@ -181,6 +181,8 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## Next steps
 
 - [Create a storage account](storage-account-create.md)
