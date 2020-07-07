@@ -66,6 +66,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Built-in security controls
     href: load-balancer-security-controls.md
+  - name: Backend Pool management
+    href: backend-pool-management.md
 - name: How to
   items:
   - name: Virtual machine scale sets
