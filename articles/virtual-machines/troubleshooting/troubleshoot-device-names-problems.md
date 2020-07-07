@@ -118,7 +118,7 @@ $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataD
 
 Applications and scripts read the output of `blkid`, or similar sources of information, to construct symbolic links in the /dev path. The output shows the UUIDs of all disks that are attached to the VM and their associated device file:
 
-```azurecli
+```console
 $ sudo blkid -s UUID
 
 /dev/sr0: UUID="120B021372645f72"
@@ -129,7 +129,7 @@ $ sudo blkid -s UUID
 
 The Azure Linux agent Udev rules construct a set of symbolic links under the /dev/disk/azure path:
 
-```azurecli
+```console
 $ ls -l /dev/disk/azure
 
 total 0
@@ -143,7 +143,7 @@ Applications use the links to identify the boot disk device and the resource (ep
 
 Any additional partitions from the `blkid` list reside on a data disk. Applications maintain the UUID for these partitions and use a path to discover the device name at runtime:
 
-```azurecli
+```console
 $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
 lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
@@ -154,7 +154,7 @@ lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793
 
 To get the latest Azure Storage rules, run the following commands:
 
-```azurecli
+```console
 # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
 # sudo udevadm trigger --subsystem-match=block
 ```
