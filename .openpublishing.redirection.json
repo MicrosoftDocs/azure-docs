@@ -27,7 +27,7 @@
     },
     {
       "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
-      "redirect_url": "/security/fundamentals/ddos-best-practices",
+      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
       "redirect_document_id": false
     },
     {
