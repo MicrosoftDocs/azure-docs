@@ -19,12 +19,12 @@ A Data Box or Data Box Heavy order goes through the following steps during the c
 
 This article contains information on the Data Box audit logs including the types of logs and the information collected as well as the location of logs. 
 
-The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy. The logs collected from the Data Box service are not covered in this article. 
+The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy. The logs collected from the Data Box service running in Azure are not covered in this article. 
 
 
 ## About audit logs 
 
-On your Data Box the following logs are collected :
+On your Data Box, the following logs are collected :
 
 - **System logs** - Data Box being a Windows based device, all the hardware, software, and system events are logged. A set of these events are collected and reported in the system audit logs. 
 
@@ -66,7 +66,7 @@ The following application log event IDs are collected as a part of package audit
 - **Microsoft-Azure-DataBox-HcsMgmt-Audit** - contains events related only to Prepare to Ship step before the device is shipped back to the Azure datacenter. 
 - **Microsoft-Azure-DataBox-IfxAudit** - contains the messages logged by different entities of the product about the jobs, logs that indicate more information about whats happening in some of the flows.
 
-Here is table summarizing the various event providers and the corresponding event IDs that are collected in each case.
+Here is a table summarizing the various event providers and the corresponding event IDs that are collected in each case.
 
 |Event provider name    |Event ID    | Notes |
 |-----------------|-----------------|-------------------|
