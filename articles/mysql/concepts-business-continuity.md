@@ -43,6 +43,10 @@ The other option is to use the Azure Database for MySQL's geo-restore feature th
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created server configured with geo-redundant backups.
 
+## Cross-region read replicas
+
+You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using MySQL's binary log replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
+
 ## Next steps
 
 - Learn more about the [automated backups in Azure Database for MySQL](concepts-backup.md).
