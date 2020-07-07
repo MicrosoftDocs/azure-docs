@@ -82,8 +82,8 @@ A common scenario is to select an Azure Storage account as the log destination. 
 
 Alternately, you can:
 
-- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
-- Send diagnostic logs to [Azure Monitor logs](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
+- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
+- Send diagnostic logs to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 
@@ -173,4 +173,3 @@ Service log events emitted by the Batch service include the following:
 
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 - Learn more about [monitoring Batch solutions](monitoring-overview.md).
-
