@@ -37,7 +37,7 @@ When you're ready to publish your updated offer, select **Publish** from any pag
 To add a new plan within an existing offer that you've already published:
 
 1. With the **Offer overview** page for your existing offer open, go to the **Plan overview** page, and then select **Create new plan**.
-1. Create a new plan according to the [guidelines](./create-new-saas-offer#plan-overview) by using the **existing plans Pricing model**.
+1. Create a new plan according to the [guidelines](./create-new-saas-offer.md#plan-overview) by using the **existing plans Pricing model**.
 1. Select **Save draft** after you change the plan name. 
 1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
 
