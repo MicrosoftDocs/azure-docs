@@ -301,13 +301,13 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
           itemType: concept
           text: G-Cloud (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
+          itemType: concept
+          text: ISMS (Korea)
 
     # Card
     - title: Regional
       links:
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
-          itemType: concept
-          text: ISMS (Korea)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-it-grundschutz-workbook-germany
           itemType: concept
           text: IT-Grundschutz (Germany)
