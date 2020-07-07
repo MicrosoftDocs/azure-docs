@@ -1,5 +1,5 @@
 ﻿---
-title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault | Microsoft Docs
+title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
 author: amitbapat
@@ -387,7 +387,9 @@ To validate the downloaded package:
         ```
    * For India:
 
-         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+      ```azurepowershell
+      "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+      ```
    * For France:
 
         ```azurepowershell
