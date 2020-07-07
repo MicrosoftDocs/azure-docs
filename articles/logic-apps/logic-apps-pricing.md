@@ -44,7 +44,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
 * **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
-For logic apps that you create and run in an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
+For logic apps that you create and run in an ISE, you pay a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps) (versus pay per use) for these capabilities:
 
 * [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
@@ -52,7 +52,7 @@ For logic apps that you create and run in an ISE, you pay a [fixed monthly price
 
 * [Standard](../connectors/apis-list.md#managed-connectors) connectors and [Enterprise](../connectors/apis-list.md#enterprise-connectors) connectors, which let you have as many Enterprise connections as you want
 
-   Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the public, "global", multi-tenant Logic Apps service. Fixed monthly pricing also applies to connectors that run in the multi-tenant service when you use them with logic apps that run in an ISE.
+   Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the public, "global", multi-tenant Logic Apps service. Fixed pricing also applies to connectors that run in the multi-tenant service when you use them with logic apps that run in an ISE.
 
 * [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 

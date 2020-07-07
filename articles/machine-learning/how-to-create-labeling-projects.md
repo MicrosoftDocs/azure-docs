@@ -5,6 +5,7 @@ description: Learn how to create and run labeling projects to tag data for machi
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 
