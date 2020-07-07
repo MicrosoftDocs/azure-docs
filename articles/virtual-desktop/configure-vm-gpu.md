@@ -76,7 +76,7 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 ## Configure fullscreen video encoding
 
-If you often use applications that produce a high-frame rate content, such as 3D modelling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experince for such applications at expense of network bandwidth and both session host and client resources. It is recomended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding encoding. Continuing the steps above:
+If you often use applications that produce a high-frame rate content, such as 3D modeling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experience for such applications at expense of network bandwidth and both session host and client resources. It is recommended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding. Continuing the steps above:
 
 1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
 2. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
@@ -90,7 +90,7 @@ If you often use applications that produce a high-frame rate content, such as 3D
 
 To verify that apps are using the GPU for rendering, try any of the following:
 
-* For Azure VMs with an NVIDIA GPU, use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
+* For Azure VMs with a NVIDIA GPU, use the `nvidia-smi` utility as described in [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) to check for GPU utilization when running your apps.
 * On supported operating system versions, you can use the Task Manager to check for GPU utilization. Select the GPU in the "Performance" tab to see whether apps are utilizing the GPU.
 
 ## Verify GPU-accelerated frame encoding
@@ -107,7 +107,7 @@ To verify that Remote Desktop is using fullscreen video encoding:
 
 1. Connect to the desktop of the VM using Windows Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
-3. To determine if fullscren video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
+3. To determine if fullscreen video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
 
 ## Next steps
 
