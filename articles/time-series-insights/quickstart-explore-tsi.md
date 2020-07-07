@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Explore the Gen 2 demo environment - Azure Time Series Insights | Microsoft Docs'
-description: Explore key features of the Azure Time Series Insights Gen 2 demo environment.
+title: 'Quickstart: Explore the Gen2 demo environment - Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Explore key features of the Azure Time Series Insights Gen2 demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: deepakpalled
@@ -9,27 +9,27 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ---
 
-# Quickstart: Explore the Azure Time Series Insights Gen 2 demo environment
+# Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
 
-This quickstart gets you started with the Azure Time Series Insights Gen 2 environment. In the free demo, you tour key features that have been added to Azure Time Series Insights Gen 2.
+This quickstart gets you started with an Azure Time Series Insights Gen2 environment. In the free demo, you tour key features that have been added to Azure Time Series Insights Gen2.
 
-The Azure Time Series Insights Gen 2 demo environment contains a scenario company, Contoso, that operates two wind turbine farms. Each farm has 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch, and yaw position. Information about generator performance, gearbox behavior, and safety monitors also is recorded.
+The Azure Time Series Insights Gen2 demo environment contains a scenario company, Contoso, that operates two wind turbine farms. Each farm has 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch, and yaw position. Information about generator performance, gearbox behavior, and safety monitors also is recorded.
 
-In this quickstart, you learn how to use Azure Time Series Insights to find actionable insights in Contoso data. You also conduct a short root cause analysis to better predict critical failures and to perform maintenance.
+In this quickstart, you learn how to use Azure Time Series Insights Gen2 to find actionable insights in Contoso data. You also conduct a short root cause analysis to better predict critical failures and to perform maintenance.
 
 > [!IMPORTANT]
 > Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you don't have one.
 
-## Explore the Azure Time Series Insights Explorer in a demo environment
+## Explore the Azure Time Series Insights Gen2 Explorer in a demo environment
 
-The Azure Time Series Insights Gen 2 Explorer demonstrates historical data and root cause analysis. To get started:
+The Azure Time Series Insights Gen2 Explorer demonstrates historical data and root cause analysis. To get started:
 
 1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
 
-1. If you're prompted, sign in to the Azure Time Series Insights Explorer by using your Azure account credentials.
+1. If you're prompted, sign in to the Azure Time Series Insights Gen2 Explorer by using your Azure account credentials.
 
 ## Work with historical data
 
@@ -40,7 +40,7 @@ The Azure Time Series Insights Gen 2 Explorer demonstrates historical data and r
 
       [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights, the fire alert sensor that was activated during the fire is displayed.
+1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights Gen2, the fire alert sensor that was activated during the fire is displayed.
 
    1. Change the view range to **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. Select **Safety System** > **FireAlert**.
@@ -66,7 +66,7 @@ The Azure Time Series Insights Gen 2 Explorer demonstrates historical data and r
 
       [![Look for historical patterns](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
-By using Azure Time Series Insights and sensor telemetry, we've discovered a long-term trend hidden in the historical data. With these new insights, we can:
+By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered a long-term trend hidden in the historical data. With these new insights, we can:
 
 * Explain what actually occurred.
 * Correct the problem.
@@ -114,17 +114,17 @@ By using Azure Time Series Insights and sensor telemetry, we've discovered a lon
 
 Now that you've completed the quickstart, clean up the resources that you created:
 
-1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, and locate your Azure Time Series Insights resource group.
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, and locate your Azure Time Series Insights Gen2 resource group.
 1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 
-You're ready to create your own Azure Time Series Insights Gen 2 environment. To start:
+You're ready to create your own Azure Time Series Insights Gen2 environment. To start:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights Gen 2 environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights Gen2 environment](time-series-insights-update-plan.md)
 
 Learn to use the demo and its features:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen 2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
