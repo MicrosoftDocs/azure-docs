@@ -37,7 +37,7 @@ Monitoring is the act of collecting and analyzing data to audit the performance,
 availability of your resources. An effective monitoring strategy helps you understand the operation
 of components and to increase your uptime with notifications. Read an overview of Monitoring that
 covers the different services used at [Monitoring Azure applications and
-resources](../monitoring/monitoring-overview.md).
+resources](../azure-monitor/overview.md).
 
 ## Configure
 
@@ -71,7 +71,7 @@ securing Azure resources.
 
 Protection refers to keeping your applications and data available, even with outages that are beyond
 your control. Protection in Azure is provided by two services. [Azure
-Backup](../backup/backup-introduction-to-azure-backup.md) provides backup and recovery of your data,
+Backup](../backup/backup-overview.md) provides backup and recovery of your data,
 either in the cloud or on-premises. [Azure Site
 Recovery](../site-recovery/site-recovery-overview.md) provides business continuity and immediate
 recovery during a disaster.
@@ -79,7 +79,7 @@ recovery during a disaster.
 ## Migrate
 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.
-[Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration
+[Azure Migrate](../migrate/migrate-services-overview.md) is a service that helps you assess the migration
 suitability of on-premises virtual machines to Azure. Azure Site Recovery migrates virtual machines
 [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web
 Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database

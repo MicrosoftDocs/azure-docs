@@ -254,7 +254,7 @@ is saved to a subscription, it can only be assigned to that subscription.
    subscriptions that you want to deploy this blueprint to.
 
    If there are supported Enterprise offerings available from
-   [Azure Billing](../../billing/index.md), a **Create new** link is activated under the
+   [Azure Billing](../../cost-management-billing/index.yml), a **Create new** link is activated under the
    **Subscription** box. Follow these steps:
 
    1. Select the **Create new** link to create a new subscription instead of selecting existing
