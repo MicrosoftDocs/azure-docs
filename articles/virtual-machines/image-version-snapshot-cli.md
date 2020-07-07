@@ -97,7 +97,7 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 
 In this example, the version of our image is *1.0.0* and we are going to create 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. When choosing target regions for replication, remember that you also have to include the *source* region of the VHD or snapshot as a target for replication.
 
-Pass the ID of the snapshot or VMD in the `--os-snapshot` parameter.
+Pass the ID of the snapshot or VHD in the `--os-snapshot` parameter.
 
 
 ```azurecli-interactive 
