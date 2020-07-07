@@ -293,14 +293,6 @@
       - name: Outputs
         displayName: iteration,copy
         href: copy-outputs.md
-  - name: Use authoring tools
-    items:
-    - name: Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: Update VS deployment script to Az module
-      href: update-visual-studio-deployment-script.md
-    - name: IntelliJ IDEA
-      href: create-templates-use-intellij.md
   - name: Discover template properties
     items:
     - name: Export template
@@ -336,6 +328,8 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
+    - name: View deployment history
+      href: deployment-history.md
   - name: Scoped deployments
     items:
     - name: Subscription
@@ -359,8 +353,14 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: View deployment history
-    href: deployment-history.md
+  - name: Use authoring tools
+    items:
+    - name: Visual Studio
+      href: create-visual-studio-deployment-project.md
+    - name: Update VS deployment script to Az module
+      href: update-visual-studio-deployment-script.md
+    - name: IntelliJ IDEA
+      href: create-templates-use-intellij.md
   - name: Troubleshoot deployments
     items:
     - name: Troubleshoot deployment errors
