@@ -91,7 +91,7 @@ Use the following steps to monitor the topology using the Storm UI:
 2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 ```
 
-    In this example, the word **seven** has occurred 1493957 times. This count is how many times the word has been encountered since this topology was started.
+In this example, the word **seven** has occurred 1493957 times. This count is how many times the word has been encountered since this topology was started.
 
 ## Stop the topology
 
