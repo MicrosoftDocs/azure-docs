@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="A diagram showing an example batch-kit container workflow.":::
 
-The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/batch-processing-kit/tags). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
+The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
 
 | Feature  | Description  |
 |---------|---------|
@@ -35,7 +35,7 @@ The batch kit container is available for free on [GitHub](https://github.com/mic
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download the latest batch kit container.
 
 ```bash
-docker pull docker.io/batchkit/batch-processing-kit:latest
+docker pull docker.io/batchkit/speech-batch-kit:latest
 ```
 
 ## Endpoint configuration
@@ -74,7 +74,7 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
 Use the Docker `run` command to start the container. This will start an interactive shell inside the container.
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs <batch-client-location>:latest  
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest
 ```
 
 To run the batch client:  
@@ -86,7 +86,7 @@ run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio
 To run the batch client and container in a single command:
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs <batch-client-location>:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
