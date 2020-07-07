@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 ### New features
 
-* **Neural TTS, 15 new neural voices**: The new voices added to the Neural TTS portfolio are Salma in Arabic (Egypt), Zariyah in Arabic (Saudi Arabia), Alba in Catalan (Spain), Christel in Danish (Denmark), Neerja in English (India), Swara in Hindi (India), Colette in Dutch (Netherland), Zofia in Polish (Poland), Fernanda in Portuguese (Portugal), Dariya in Russian (Russia), Hillevi in Swedish (Sweden), Achara in Thai (Thailand), Iselin Norwegian (Bokmål) in (Norway),  HiuGaai in Chinese (Hongkong) and HsiaoYu in Chinese (Taiwan). Check all [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **Neural TTS, 15 new neural voices**: The new voices added to the Neural TTS portfolio are Salma in Arabic (Egypt), Zariyah in Arabic (Saudi Arabia), Alba in Catalan (Spain), Christel in Danish (Denmark), Neerja in English (India), Swara in Hindi (India), Colette in Dutch (Netherlands), Zofia in Polish (Poland), Fernanda in Portuguese (Portugal), Dariya in Russian (Russia), Hillevi in Swedish (Sweden), Achara in Thai (Thailand), Iselin Norwegian (Bokmål) in (Norway),  HiuGaai in Chinese (Hongkong) and HsiaoYu in Chinese (Taiwan). Check all [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Custom Voice, streamlined voice testing with the training flow to simplify user experience**: With the new testing feature, each voice will be automatically tested with a predefined test set optimized for each language to cover general and voice assistant scenarios. These test sets are carefully selected and tested to include typical use cases and phonemes in the language. Besides, users can still select to upload their own test scripts when training a model.
 
@@ -46,7 +46,7 @@ ms.custom: seodec18
 
 * Updated `de-DE` and `ja-JP` voice models to make the TTS output more natural.
     
-    * Updated Katja in German with the latest prosody modelling method, the MOS (Mean Opinion Score) gain is +0.13. 
+    * Updated Katja in German with the latest prosody modeling method, the MOS (Mean Opinion Score) gain is +0.13. 
     * Updated Nanami in Japanese with a new pitch accent prosody model, the MOS (Mean Opinion Score) gain is +0.19;  
 
 * Improved word-level pronunciation accuracy in 5 languages.
@@ -96,7 +96,7 @@ ms.custom: seodec18
 
 **Bug fixes**
 -   **C\#, C++**: Fixed microphone recording was not working in 1.12 in speaker recognition.
--   **JavaScript**: Fixes for Text-To-Speech in FireFox, and Safari on MacOS and iOS.
+-   **JavaScript**: Fixes for Text-To-Speech in FireFox, and Safari on macOS and iOS.
 -   Fix for Windows application verifier access violation crash on conversation transcription when using 8-channel stream.
 -   Fix for Windows application verifier access violation crash on multi-device conversation translation.
 
@@ -282,7 +282,7 @@ Stay healthy!
 - Added `Compressed` input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
 - Added `SendMessageAsync` in `Connection` class for sending a message to service
 - Added `SetMessageProperty` in `Connection` class for setting property of a message
-- TTS added bindings for Java (Jre and Android), Python, Swift, and Objective-C
+- TTS added bindings for Java (JRE and Android), Python, Swift, and Objective-C
 - TTS added playback support for macOS, iOS, and Android.
 - Added "word boundary" information for TTS.
 
