@@ -17,7 +17,7 @@ ms.custom: seodec18
 This article describes how to work with Time Series Model in Azure Time Series Insights Gen 2. It details several common data scenarios.
 
 > [!TIP]
-> * Read more about the [Time Series Model](time-series-insights-update-tsm.md).
+> * Read more about the [Time Series Model](concepts-model-overview.md).
 > * Learn more about navigating the [Azure Time Series Insights Gen 2 explorer](./time-series-insights-update-explorer.md).
 
 ## Instances
@@ -163,7 +163,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ## Next steps
 
-- For more information about Time Series Model, read [Data modeling](./time-series-insights-update-tsm.md).
+- For more information about Time Series Model, read [Data modeling](./concepts-model-overview.md).
 
 - To learn more about the Gen 2, read [Visualize data in the Azure Time Series Insights Gen 2 explorer](./time-series-insights-update-explorer.md).
 

@@ -9,7 +9,6 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.custom: seodec18
 ---
 
 # Data storage and ingress in Azure Time Series Insights Preview
