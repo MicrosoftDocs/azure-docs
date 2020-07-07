@@ -217,7 +217,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     You can replace *route* with the following route string that you copied earlier. In this example, enter the name of the local share that will push data to the cloud share. Replace the `modulename` with the name of the module. Select **Next**.
         
-    ```
+    ```text
     "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
     ```
 
