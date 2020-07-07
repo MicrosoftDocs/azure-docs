@@ -78,7 +78,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/about-digital-twins.md) |
+| Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](../../app-service/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
@@ -113,13 +113,13 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering<sup>1</sup> | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
-| Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
+| Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
 | Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Object Store |
-| Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
+| Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
@@ -131,7 +131,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
-| Microsoft.Relay | [Azure Relay](../../service-bus-relay/relay-what-is-it.md) |
+| Microsoft.Relay | [Azure Relay](../../azure-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
 | Microsoft.Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
