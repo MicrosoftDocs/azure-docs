@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, [review](migrate-architecture.md) the VMware agent-based migration architecture.
+Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware agent-based migration architecture.
 
 ## Prepare Azure
 

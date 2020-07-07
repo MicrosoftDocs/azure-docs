@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-[Review](migrate-architecture.md) the migration architecture.
+[Review](./agent-based-migration-architecture.md) the migration architecture.
 
 ## Prepare Azure
 

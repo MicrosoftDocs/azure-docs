@@ -23,7 +23,7 @@ This article helps you troubleshoot issues when deploying the [Azure Migrate](mi
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](/azure/migrate/tutorial-assessment-vmware). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-prepare-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 2. If deployment still fails, and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 3. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
@@ -36,7 +36,7 @@ This can happen if the appliance machine is behind a proxy.
 
 - Make sure you provide the authorization credentials if the proxy needs them.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
-- If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](/azure/migrate/concepts-collector).
+- If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
 
 ## Can't sign into Azure from the appliance web app
 
@@ -60,7 +60,7 @@ An error about date and time synchronization (802) indicates that the server clo
 
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at `https://\*servername*.com:9443/sdk` that can accept the message.
 
-- Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](/azure/migrate/concepts-collector).
+- Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](./migrate-appliance.md).
 - If the issue still occurs in the latest version, the appliance might be unable to resolve the specified vCenter Server name, or the specified port might be wrong. By default, if the port is not specified, the collector will try to connect to port number 443.
 
     1. Ping *Servername*.com from the appliance.

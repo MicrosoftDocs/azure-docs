@@ -8,7 +8,7 @@ ms.author: raynew
 
 # Azure Migrate support matrix
 
-You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
+You can use the [Azure Migrate service](./migrate-services-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
 
 ## Supported assessment/migration scenarios
 
@@ -115,4 +115,3 @@ There are two versions of the Azure Migrate service:
 
 - [Assess VMware VMs](tutorial-assess-vmware.md) for migration.
 - [Assess Hyper-V VMs](tutorial-assess-hyper-v.md) for migration.
-
