@@ -71,7 +71,9 @@ Typical use cases include:
 
 Edge Zones will be offered in partnership with the following operators:
 
-- AT&T (Atlanta, Dallas, and Los Angeles)
+- AT&T (Atlanta, Dallas, and Los Angeles) 
+
+[Contact the Edge Zone team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones
 
