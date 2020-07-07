@@ -166,14 +166,14 @@ Use the following steps to configure provisioning:
  5.  Click **New Configuration**
  ![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)</br>
  6.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
- ![Screenshot of configuration screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)</br>
+ ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)</br>
  7. Under **Configure**, select **All users** to change the scope of the configuration rule.
- ![Screenshot of configuration screen with "All users" highlighted next to "Scope users".](media/how-to-configure/scope2.png)</br>
+ ![Screenshot of Configure screen with "All users" highlighted next to "Scope users".](media/how-to-configure/scope2.png)</br>
  8. On the right, change the scope to include the specific OU you just created "OU=CPUsers,DC=contoso,DC=com".
  ![Screenshot of the Scope users screen highlighting the scope changed to the OU you created.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Click **Done** and **Save**.
  10. The scope should now be set to one organizational unit. 
- ![Screenshot of configuration screen with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope3.png)</br>
+ ![Screenshot of Configure screen with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## Verify users are provisioned by cloud provisioning
