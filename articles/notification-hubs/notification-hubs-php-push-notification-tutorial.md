@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -28,7 +26,7 @@ You can access all Notification Hubs features from a Java/PHP/Ruby backend using
 In this topic we show how to:
 
 * Build a REST client for Notification Hubs features in PHP;
-* Follow the [Get started tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md) for your mobile platform of choice, implementing the backend portion in PHP.
+* Follow the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) for your mobile platform of choice, implementing the backend portion in PHP.
 
 ## Client interface
 
@@ -287,4 +285,5 @@ In this topic, we showed how to create a simple Java REST client for Notificatio
 For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Get started tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md)
+

@@ -2,7 +2,7 @@
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 06/15/2020
 
 ---
 
@@ -64,7 +64,7 @@ $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-If the Log Analytics workspace is in Azure China, run the following command:
+If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -89,6 +89,20 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
+### Upgrade agent on Azure Arc enabled Kubernetes
+
+Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster without a proxy endpoint.
+
+```
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+Perform the following command to upgrade the agent when a proxy endpoint is specified. For more information about the proxy endpoint, see [Configure proxy endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+
+```
+helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## How to disable environment variable collection on a container

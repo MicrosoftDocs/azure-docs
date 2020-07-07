@@ -5,6 +5,7 @@ services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
+
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -12,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
-ms.author: yurid
+ms.author: memildin
 
 ---
 # Azure Security Center Readiness Roadmap

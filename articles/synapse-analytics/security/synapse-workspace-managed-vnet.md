@@ -4,6 +4,7 @@ description: An article that explains Managed virtual network in Azure Synapse A
 author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick

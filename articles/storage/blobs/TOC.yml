@@ -105,6 +105,8 @@
       href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: JavaScript
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Other languages
+      href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
@@ -468,9 +470,7 @@
       - name: Java
         items:
         - name: Use the Spring Boot Starter
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-      - name: Xamarin
-        href: storage-xamarin-blob-storage.md
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage      
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor (classic)
@@ -814,7 +814,7 @@
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/products/topics/azure-blob-storage.html
+      href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Pricing

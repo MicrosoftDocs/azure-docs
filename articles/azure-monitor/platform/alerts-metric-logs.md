@@ -1,10 +1,10 @@
 ---
 title: Creating Metric Alerts for Logs in Azure Monitor
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
-author: yanivlavi
-ms.author: yalavi
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 06/17/2020
 ms.subservice: alerts
 ---
 
@@ -158,7 +158,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -447,7 +447,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {

@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 06/11/2020
+ms.date: 07/05/2020
 
 ---
 
@@ -25,7 +25,7 @@ Azure Monitor use of encryption is identical to the way [Azure Storag
 
 CMK lets you control the access to your data and revoke it at any time. Azure Monitor storage always respects changes in key permissions within an hour. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
 
-The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted before you start configuring CMK.
+The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed before you start configuring CMK.
 
 The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
 
@@ -70,7 +70,7 @@ The following rules apply:
 
 ## CMK provisioning procedure
 
-1. Allowing subscription -- The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted
+1. Allowing subscription -- The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed.
 2. Creating Azure Key Vault and storing key
 3. Creating a *Cluster* resource
 4. Granting permissions to your Key Vault
@@ -173,9 +173,9 @@ Operation failed
 }
 ```
 
-### Allowing subscription
+### Allowing subscription for CMK deployment
 
-The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your contacts into Microsoft to provide your Subscriptions IDs.
+The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your contacts into Microsoft to provide your Subscriptions IDs.
 
 > [!IMPORTANT]
 > CMK capability is regional. Your Azure Key Vault, *Cluster* resource and associated Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
@@ -192,7 +192,7 @@ These settings are available via CLI and PowerShell:
 
 ### Create *Cluster* resource
 
-This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located.
+This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were allowed, create a Log Analytics *Cluster* resource at the region where your workspaces are located.
 
 You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
@@ -209,13 +209,10 @@ This operation is asynchronous and can a while to complete.
 > [!IMPORTANT]
 > Copy and save the response since you will need the details in next steps.
 > 
-**PowerShell**
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
 ```
-
-**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -305,13 +302,9 @@ details.
 
 This operation is asynchronous when updating Key identifier details and can take a while to complete. It is synchronous when updating Capacity value.
 
-**PowerShell**
-
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
-
-**REST**
 
 > [!NOTE]
 > You can update the *Cluster* resource *sku*, *keyVaultProperties* or *billingType* using PATCH.
@@ -393,14 +386,10 @@ You need to have 'write' permissions to both your workspace and *Cluster* resour
 
 This operation is is asynchronous and can a while to complete.
 
-**PowerShell**
-
 ```powershell
-$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
-Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
 ```
-
-**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -474,17 +463,85 @@ Rotation of CMK requires explicit update to the *Cluster* resource with the new 
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## CMK manage
+## Saving queries protected with CMK
+
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved searches* and *log-alerts* queries in your own storage account that you connect to your workspace. 
+
+> NOTE
+> CMK for queries used in workbooks and Azure dashboards isn't supported yet. These queries remain encrypted with Microsoft key.  
+
+With Bring Your Own Storage (BYOS), the service uploads queries into the storage account that you control. That means that you control the [encryption-at-rest policy](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+
+**Considerations before setting CMK for queries**
+* You need to have 'write' permissions to both your workspace and Storage Account
+* Make sure to create your Storage Account in the same region as your Log Analytics workspace is located
+* The *saves searches* in storage is considered as service artifacts and their format may change
+* Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved searches* using this [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Query history isn't supported and you won't be able to see queries that you ran
+* You can associate a single storage account to workspace for the purpose of saving queries, but is can be used fro both *saved searches* and *log-alerts* queries
+* Pin to dashboard isn't supported
+
+**Configuration of BYOS for queries**
+
+Associate a storage account with *Query* dataSourceType to your workspace. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Query", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+After the configuration, any new *saved search* query will be saved in your storage.
+
+**Configuration of BYOS for log-alerts**
+
+Associate a storage account with *Alerts* dataSourceType to your workspace. 
+
+```powershell
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+```
+
+```rst
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "dataSourceType": "Alerts", 
+    "storageAccountIds": 
+    [
+      "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+    ]
+  }
+}
+```
+
+After the configuration, any new alert query will be saved in your storage.
+
+## CMK management
 
 - **Get all *Cluster* resources for a resource group**
   
-  **PowerShell**
-
   ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name}
+  Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
-
-  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -528,13 +585,9 @@ All your data remains accessible after the key rotation operation, since data al
 
 - **Get all *Cluster* resources for a subscription**
   
-  **PowerShell**
-
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
-
-  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -549,14 +602,10 @@ All your data remains accessible after the key rotation operation, since data al
 
   When the data volume to your associated workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body and should include the sku:
 
-  **PowerShell**
-
   ```powershell
-  Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -SkuCapacity {daily-ingestion-gigabyte}
+  Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
   ```
 
-  **REST**
-   
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -596,13 +645,9 @@ All your data remains accessible after the key rotation operation, since data al
 
   This operation is is asynchronous and can a while to complete.
 
-  **PowerShell**
-
   ```powershell
-  Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -Name {workspace-name} -LinkedServiceName cluster
+  Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
-
-  **REST**
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
@@ -619,12 +664,11 @@ All your data remains accessible after the key rotation operation, since data al
   2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, disassociated workspace won't have the *clusterResourceId* under *features*.
 
 - **Check workspace association status**
-  Perform Get operation on the workspace and verify if *clusterId* is present in response. Associated workspace will have the *clusterId* property.
-
-  **PowerShell**
+  
+  Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*. Associated workspace will have the *clusterResourceId* property.
 
   ```powershell
-  Get-AzOperationalInsightsWorkspace -ResourceGroupName {resource-group-name} -Name {workspace-name}
+  Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
 
 - **Delete your *Cluster* resource**
@@ -633,14 +677,10 @@ All your data remains accessible after the key rotation operation, since data al
   
   The workspaces disassociated operation is asynchronous and can take up to 90 minutes to complete.
 
-  **PowerShell**
-
   ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
 
-  **REST**
-  
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -699,8 +739,6 @@ All your data remains accessible after the key rotation operation, since data al
 
 - If you update existing *Cluster* resource with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
 
-- If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
-
 - If you get conflict error when creating a *Cluster* resource – It may be that you have deleted your *Cluster* resource in the last 14 days and it’s in a soft-delete period. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the *Cluster* resource is permanently deleted.
 
 - If you update your *Cluster* resource while an operation is in progress, the operation will fail.
@@ -708,5 +746,9 @@ All your data remains accessible after the key rotation operation, since data al
 - If you fail to deploy your *Cluster* resource, verify that your Azure Key Vault, *Cluster* resource and associated Log Analytics workspaces are in the same region. The can be in different subscriptions.
 
 - If you update your key version in Key Vault and don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the *Cluster* resource to resume data ingestion and ability to query data.
+
+- Some operations are long and can take a while to complete -- these are *Cluster* create, *Cluster* key update and *Cluster* delete. You can check the operation status in two ways:
+  1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+  2. Send GET request to *Cluster* or workspace and observe the response. For example, disassociated workspace won't have the *clusterResourceId* under *features*.
 
 - For support and help related to customer managed key, use your contacts into Microsoft.

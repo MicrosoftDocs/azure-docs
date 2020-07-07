@@ -258,7 +258,7 @@ To create a backup policy:
 
 You can enable auto-protection to automatically back up all existing and future databases to a standalone SQL Server instance or to an Always On availability group.
 
-* There's no limit on the number of databases you can select for auto-protection at one time.
+* There's no limit on the number of databases you can select for auto-protection at a time. Discovery typically runs every eight hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting the **Rediscover DBs** option.
 * You can't selectively protect or exclude databases from protection in an instance at the time you enable auto-protection.
 * If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 

@@ -1,5 +1,5 @@
 ---
-title: Terminology - Azure
+title: Live Video Analytics on IoT Edg terminology - Azure
 description: This article provides an overview of Live Video Analytics on IoT Edge terminology.
 ms.topic: conceptual
 ms.date: 05/30/2020

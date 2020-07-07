@@ -184,7 +184,7 @@ The following example shows a modified **delegatedResourceManagement.parameters.
 }
 ```
 
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant,  which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) in the customer tenant,  which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md).  The user is also able to create support incidents.  No other permissions normally associated with the User Access Administrator role will apply to this user.
 
 ## Deploy the Azure Resource Manager templates
 
@@ -193,9 +193,9 @@ Once you have updated your parameter file, a user in the customer's tenant must 
 Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
 
 > [!IMPORTANT]
-> This subscription-level deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> This subscription-level deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
-> If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
+> If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
 
 ### PowerShell
 

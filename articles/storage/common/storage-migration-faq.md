@@ -10,6 +10,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ---
+
 # Frequently asked questions about Azure Storage migration
 
 This article answers common questions about Azure Storage migration.
@@ -232,6 +233,7 @@ There is no backup solution. However, Azure Files also supports asynchronous cop
 - From a share to a blob container within a storage account or to a different storage account.
 
 For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md).
+
 ## Configuration
 
 **How do I change the secondary location to the Europe region for a storage account?**
@@ -239,13 +241,13 @@ For more information, see [Transfer data with AzCopy on Windows](storage-use-azc
 When you create a storage account, you select the primary region for the
 account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
-**Where can I get more information about Azure Storage Service Encryption (SSE)?**  
+**Where can I get more information about Azure Storage encryption?**  
 
 See the following articles:
 
--  [Azure Storage security guide](../blobs/security-recommendations.md)
-
--  [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md)
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md)
+- [Provide an encryption key on a request to Blob storage (preview)](encryption-customer-provided-keys.md)
 
 **How do I encrypt data in a storage account?**
 
@@ -273,26 +275,23 @@ If you have virtual machines, you must take additional steps before you migrate 
 
 To give other people access to the storage resources:
 
--   Use a shared access signature (SAS) token to provide access to a
+- Use a shared access signature (SAS) token to provide access to a
     resource.
 
--   Provide a user with the primary or secondary key for the
+- Provide a user with the primary or secondary key for the
     storage account. For more information, see [Manage storage account access keys](storage-account-keys-manage.md).
 
--   Change the access policy to allow anonymous access. For more
+- Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers
     and blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Where is AzCopy installed?**
 
--   If you access AzCopy from the Microsoft Azure Storage command
-    line, type **AzCopy**. The command line is installed alongside AzCopy.
+- If you access AzCopy from the Microsoft Azure Storage command line, type **AzCopy**. The command line is installed alongside AzCopy.
 
--   If you installed the 32-bit version, it's located
-    here: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
+- If you installed the 32-bit version, it's located here: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
--   If you installed the 64-bit version, it's located
-    here: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
+- If you installed the 64-bit version, it's located here: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
 **How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
@@ -312,15 +311,15 @@ Read-access geo-redundant storage is required to access redundant storage. Howev
 
 **For a replicated storage account (such as zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
--   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
+- If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
--   If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
+- If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
 
-    - **AzCopy**: Append **-secondary** to the storage account name in the URL to access the secondary endpoint. For example:  
+  - **AzCopy**: Append **-secondary** to the storage account name in the URL to access the secondary endpoint. For example:  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).
+  - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-sas-overview.md).
 
 **How do I use FTP to access data that is in a storage account?**
 
@@ -328,6 +327,6 @@ There is no way to access a storage account directly by using FTP. However, you 
 
 If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-sas-overview.md).
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

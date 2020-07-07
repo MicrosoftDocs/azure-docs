@@ -49,7 +49,9 @@ To use the cmdlets, you must first sign in to your Azure account from within the
 
 To export your predictive experiment, use [this sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the .exe file from the code, you can type:
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```azurepowershell
+C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```
 
 Running the application creates a web service JSON template. To use the template to deploy a web service, you must add the following information:
 
@@ -64,13 +66,15 @@ Add them to the JSON template as children of the *Properties* node at the same l
 
 Here's an example:
 
-    "StorageAccount": {
-            "name": "YourStorageAccountName",
-            "key": "YourStorageAccountKey"
-    },
-    "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
-    }
+```json
+"StorageAccount": {
+        "name": "YourStorageAccountName",
+        "key": "YourStorageAccountKey"
+},
+"CommitmentPlan": {
+    "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+}
+```
 
 See the following articles and sample code for additional details:
 

@@ -18,7 +18,7 @@ You must have an active Azure subscription.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a storage account
+## Create a Batch account with storage
 
 ### Review the template
 
@@ -28,8 +28,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Creates a storage account.
-- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): Creates a Batch account.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Creates a storage account.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): Creates a Batch account.
 
 ### Deploy the template
 

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: ARM template documentation
-summary: Azure Resource Manager templates are a JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
+summary: Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
 
 metadata:
   title: ARM template documentation

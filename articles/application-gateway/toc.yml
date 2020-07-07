@@ -30,7 +30,7 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-  - name: Ingres Controller Add-on for AKS (Greenfield)
+  - name: Ingress Controller Add-on for AKS (Greenfield)
     href: tutorial-ingress-controller-add-on-new.md
   - name: Ingress Controller Add-on for AKS (Brownfield)
     href: tutorial-ingress-controller-add-on-existing.md
@@ -70,8 +70,6 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers
       href: rewrite-http-headers.md
-    - name: Custom error pages
-      href: custom-error.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -240,6 +238,8 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+  - name: Custom error pages
+    href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference

@@ -87,7 +87,7 @@ The listing page is where you provide the text and images that customers see whe
 | Useful links Title + URL  | Optional. |
 | Supporting Documents Title + File  | Required, min 1 and max 3. Must be PDF file format. |
 | Screenshots  | Required, min 1 screenshot and max 5; four or more recommended. Must be 1280 X 720 in PNG format. |
-| Store logos (Small, Medium, Large, Wide, Hero)  | Small (48 X 48) and Large (216 X 216) required; other sizes optional but recommended: Medium (90 x 90), Wide (255 x 115), Hero (815 x 290). Must be in PNG format. |
+| Store logos (Small, Medium, Large, Wide)  | Small (48 X 48) and Large (216 X 216) required; other sizes optional but recommended: Medium (90 x 90), Wide (255 x 115). Must be in .PNG format. |
 | Videos name + URL + thumbnail  | Optional, recommended, max 4 videos. Thumbnail must be 1280 x 720 in PNG format. Video must be hosted in YouTube or Vimeo. |
 | Contacts (CSP Program,  Engineering, Support)  | Engineering and Support contact required (Name, email, and phone number); CSP Program contact optional but recommended. |
 | Support URL  | Required. |

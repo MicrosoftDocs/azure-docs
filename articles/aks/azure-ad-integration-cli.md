@@ -11,7 +11,7 @@ ms.date: 04/16/2019
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal].
+This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster.
 
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
 

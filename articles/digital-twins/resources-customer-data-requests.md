@@ -8,12 +8,9 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Summary of customer data request features​
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital Twins is a developer platform for creating secure digital representations of a business environment. Representations are driven by live state data from data sources selected by users.
 

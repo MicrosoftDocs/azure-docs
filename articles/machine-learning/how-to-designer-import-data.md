@@ -1,7 +1,7 @@
 ---
 title: Import data
 titleSuffix: Azure Machine Learning
-description: Learn how to import your data into Azure Machine Learning designer from various data sources.
+description: Learn how to import data into Azure Machine Learning designer from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 01/16/2020
 ms.custom: designer
 ---
 
-# Import your data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer (preview)
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
@@ -85,6 +85,10 @@ The designer uses an internal data type to pass data between modules. You can ex
 ## Data constraints
 
 Modules in the designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## Access data in a virtual network
+
+If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## Next steps
 

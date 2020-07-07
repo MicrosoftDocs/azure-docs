@@ -1,16 +1,8 @@
 ---
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to failover and perform disaster recovery in Azure Service Bus
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Azure Service Bus Geo-disaster recovery

@@ -174,7 +174,7 @@ Azure Monitor provides extensive support for querying application logs by using 
 
 ### How to convert multi-line Java stack traces into a single line?
 
-There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as below:
+There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as follows:
 
 ```xml
 <configuration>
