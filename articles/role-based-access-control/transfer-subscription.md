@@ -76,7 +76,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
 
-If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 ## Prerequisites
 
