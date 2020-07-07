@@ -28,7 +28,7 @@ This tutorial takes you through the following steps:
 >
 > * [Set up Push Notification Services and Azure Notification Hubs.](#set-up-push-notification-services-and-azure-notification-hub)
 > * [Create an ASP.NET Core Web API backend application.](#create-an-aspnet-core-web-api-backend-application)
-> * [Create a cross-platform React Native application.](#create-a-cross-platform-reactnative-application)
+> * [Create a cross-platform React Native application.](#create-a-cross-platform-react-native-application)
 > * [Configure the native Android project for push notifications.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure the native iOS project for push notifications.](#configure-the-native-ios-project-for-push-notifications)
 > * [Test the solution.](#test-the-solution)
@@ -59,7 +59,7 @@ You can follow the steps in this first-principles example with no prior experien
 * [Apple Developer Portal](https://developer.apple.com)
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
-* [Microsoft Azure](https://portal.azure.com) and [Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
 * [React Native](https://reactnative.dev/docs/getting-started).
 
 The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Visual Studio Code](https://code.visualstudio.com/download) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
@@ -72,7 +72,7 @@ In this section, you set up **[Firebase Cloud Messaging (FCM)](https://firebase.
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-common-enable-apple-push-notifications.md)]
 
-[!INCLUDE [Create a notification hub](../../includes/notification-hubs-common-create-a-notification-hub.md)]
+[!INCLUDE [Create a notification hub](../../includes/notification-hubs-common-create-notification-hub.md)]
 
 [!INCLUDE [Configure your notification hub with APNs information](../../includes/notification-hubs-common-configure-with-apns-information.md)]
 
@@ -106,7 +106,7 @@ You can now test sending notifications via the backend service.
 
 [!INCLUDE [Testing the solution](../../includes/notification-hubs-backend-service-testing.md)]
 
-## Next Steps
+## Next steps
 
 You should now have a basic React Native app connected to a notification hub via a backend service and can send and receive notifications.
 
@@ -116,7 +116,7 @@ You should now have a basic React Native app connected to a notification hub via
 
 [!INCLUDE [Troubleshooting](../../includes/notification-hubs-backend-service-troubleshooting.md)]
 
-## Related Links
+## Related links
 
 * [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
 * [Installing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
