@@ -61,7 +61,11 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
