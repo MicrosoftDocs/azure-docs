@@ -141,4 +141,4 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
-[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
