@@ -20,7 +20,7 @@ The following table includes links to PowerShell scripts built using the Azure P
 | [Create an app and deploy code with FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and upload files from a local directory using FTP. |
 | [Create an app and deploy code from a local Git repository](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and configures code push from a local Git repository. |
 | [Create an app and deploy code to a staging environment](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app with a deployment slot for staging code changes. |
-|  [Create an app and expose your app with a Private Endpoint](./scripts/powershell-deploy-privateendpoint?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app with a Private Endpoint. |
+|  [Create an app and expose your app with a Private Endpoint](./scripts/powershell-deploy-privateendpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app with a Private Endpoint. |
 |**Configure app**||
 | [Map a custom domain to an app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an App Service app and maps a custom domain name to it. |
 | [Bind a custom TLS/SSL certificate to an app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an App Service app and binds the TLS/SSL certificate of a custom domain name to it. |
