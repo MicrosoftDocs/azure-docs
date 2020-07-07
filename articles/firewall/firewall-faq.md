@@ -217,4 +217,4 @@ A standard behavior of a network firewall is to ensure TCP connections are kept 
 
 ## Can I deploy Azure Firewall without a public IP address?
 
-No, this is not currently supported.
+No, currently you must deploy Azure Firewall with a public IP address.
