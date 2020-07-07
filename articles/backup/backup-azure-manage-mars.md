@@ -162,6 +162,27 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
 - Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
+## Managing backup data for unavailable machines
+
+This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
+
+For these machines, the Azure Backup service ensures that the last recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+
+### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
+
+- You can delete the backed-up data from the Azure portal using the steps listed in [this article](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### Scenario 2: The source machine is unavailable, and you need to retain backup data
+
+Managing the backup policy for MARS is done through the MARS console and not through the portal. If you need to extend retention settings for existing recovery points before they expire, then you need to restore the machine, install the MARS console, and extend the policy.
+
+- To restore the machine, perform the following steps:
+  - [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recreate the target machine with same host name as the source machine
+  - Install the agent and re-register to the same vault and with the same passphrase
+  - Launch the MARS client to extend the retention duration according to your requirements
+- Your newly restored machine, protected with MARS, will continue to take backups.  
+
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).

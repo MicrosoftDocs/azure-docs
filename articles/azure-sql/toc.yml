@@ -61,7 +61,11 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -364,46 +368,6 @@
           href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
-
-    - name: Machine Learning Services
-      items:
-      - name: Overview
-        href: database/machine-learning-services-overview.md
-      - name: Key differences
-        href: database/machine-learning-services-differences.md
-      - name: Quickstarts
-        items:
-        - name: Create R scripts
-          href: database/r-script-create-quickstart.md
-        - name: Train and score a model
-          href: database/r-train-score-model-create-quickstart.md
-      - name: Tutorials
-        items:
-        - name: Build a predictive model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/predictive-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/predictive-model-build-compare-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/predictive-model-deploy-tutorial.md
-        - name: Build a clustering model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/clustering-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/clustering-model-build-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/clustering-model-deploy-tutorial.md
-      - name: How to
-        items:
-          - name: Write advanced R functions
-            href: database/machine-learning-services-functions.md
-          - name: Work with R and SQL data
-            href: database/machine-learning-services-data-issues.md
-          - name: Add R packages
-            href: database/machine-learning-services-add-r-packages.md
-
 
     - name: Database sharding
       items:
