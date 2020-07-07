@@ -5,14 +5,12 @@ description: This quickstart shows how to create an Automation account by using 
 services: automation
 documentationcenter: na
 author: mgoedtel
-manager: twooley
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ms.service: automation
 ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2020
+ms.date: 07/06/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -41,9 +39,9 @@ After you complete these steps, you need to [configure diagnostic settings](auto
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-account-create/azuredeploy.json).
+The template used in this quickstart is from [Azure Quickstart Templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/101-automation-account-create/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json" range="1-324" highlight="58-122":::
 
 ### API versions
 
@@ -86,7 +84,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Automation account, a Log Analytics workspace, and links the Automation account to the workspace.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation-account-create%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
 
 2. Enter the values.
 
