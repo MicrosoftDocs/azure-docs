@@ -39,7 +39,7 @@
     npx react-native init PushDemo --template react-native-template-typescript
     ```
 
-1. Run metro server, which builds JavaScript bundles as well as monitors any code updates to refresh the bundles in realtime:
+1. Run metro server, which builds JavaScript bundles and monitors any code updates to refresh the bundles in real-time:
 
     ```bash
     cd PushDemo
@@ -82,7 +82,7 @@ You need the following three packages for this sample to work:
 
 1. [React Native Push Notifications iOS](https://www.npmjs.com/package/@react-native-community/push-notification-ios) - [Project GitHub](https://github.com/react-native-community/push-notification-ios)
 
-    This module was created when the PushNotificationIOS was split out from the core of React Native. The package natively implements push notifications for iOS and provides React Native interface to access it. Run the following command to install the package:
+    This package was created when the PushNotificationIOS was split out from the core of React Native. The package natively implements push notifications for iOS and provides React Native interface to access it. Run the following command to install the package:
 
     ```bash
     yarn add @react-native-community/push-notification-ios
@@ -90,14 +90,14 @@ You need the following three packages for this sample to work:
 
 1. [React Native Push Notifications Cross-platform](https://www.npmjs.com/package/react-native-push-notification)
 
-    This module implements local and remote notifications on iOS and Android. The previous module is the only dependency for this one. Run the following command to install the package:
+    This package implements local and remote notifications on iOS and Android. Run the following command to install the package:
 
     ```bash
     yarn add react-native-push-notification
     ```
 
 1. [Device info package](https://www.npmjs.com/package/react-native-device-info)
-    The module provides information about a device in runtime. Use it to define a device identifier, which is used to register for push notification. Run the following command to install the package:
+    The package provides information about a device in runtime. Use it to define a device identifier, which is used to register for push notification. Run the following command to install the package:
 
     ```bash
     yarn add react-native-device-info
@@ -252,7 +252,7 @@ You need the following three packages for this sample to work:
     "configure": "cp .app.config.tsx src/config/AppConfig.tsx"
     ```
 
-    Then execute this script which will copy the default config to the `config` folder.
+    Then execute this script, which will copy the default config to the `config` folder.
 
     ```bash
     yarn configure
