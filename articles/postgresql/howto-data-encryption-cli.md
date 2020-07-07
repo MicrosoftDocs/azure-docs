@@ -83,36 +83,37 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
 ### Creating a restored/replica server
 
-  *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a read replica server](howto-read-replicas-cli.md) 
+* [Create a restore server](howto-restore-server-cli.md)
+* [Create a read replica server](howto-read-replicas-cli.md)
 
 ### Once the server is restored, revalidate data encryption the restored server
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## Additional capability for the key being used for the Azure Database for PostgreSQL Single server
 
 ### Get the Key used
 
-    ```azurecli-interactive
-    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Key url: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### Drop the key being used
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## Using an Azure Resource Manager template to enable data encryption
 
 Apart from Azure portal, you can also enable data encryption on your Azure Database for PostgreSQL single server using Azure Resource Manager templates for new and existing server.
