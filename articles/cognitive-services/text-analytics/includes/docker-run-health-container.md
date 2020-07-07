@@ -27,7 +27,7 @@ Execute the following `docker run` command. Replace the placeholders below with 
 | **{INPUT_DIR}** | The input directory for the container. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
-docker run --rm -it -p 5000:5000 --cpus 6 --memory 8g \
+docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
 --mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -39,6 +39,6 @@ This command:
 
 - Assumes that the input directory exists on the host machine
 - Runs a Text Analytics for Health container from the container image
-- Allocates 6 CPU core and 8 gigabytes (GB) of memory
+- Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Automatically removes the container after it exits. The container image is still available on the host computer.
