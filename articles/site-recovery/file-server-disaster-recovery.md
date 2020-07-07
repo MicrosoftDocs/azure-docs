@@ -91,7 +91,7 @@ Azure Files can be used to completely replace or supplement traditional on-premi
 
 The following steps briefly describe how to use File Sync:
 
-1. [Create a storage account in Azure](/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
 3. [Start File Sync](../storage/files/storage-sync-files-deployment-guide.md) on your Azure file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. A sync group also must contain one server endpoint, which represents a path on a Windows server.
@@ -124,7 +124,7 @@ The following steps describe replication for a VMware VM. For steps to replicate
 
 1. Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
 2. Extend on-premises Active Directory.
-3. [Create and provision a file server VM](/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
+3. [Create and provision a file server VM](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
 Make sure that the virtual machine is added to the same Azure virtual network, which has cross-connectivity with the on-premises environment. 
 4. Install and [configure DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) on Windows Server.
 5. [Implement a DFS namespace](/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
@@ -140,7 +140,7 @@ To integrate File Sync with Site Recovery:
 
 Follow these steps to use File Sync:
 
-1. [Create a storage account in Azure](/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
+1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
 3. [Deploy File Sync](../storage/files/storage-sync-files-deployment-guide.md) in your on-premises file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. The sync group also must contain one server endpoint, which represents a path on the on-premises Windows server.

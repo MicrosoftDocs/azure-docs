@@ -65,7 +65,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
    - [Load balancers](../load-balancer/index.yml)
    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-   For any other networking components, see the [Azure networking documentation](/azure/?pivot=products&panel=network). 
+   For any other networking components, see the [Azure networking documentation](../index.yml?pivot=products&panel=network). 
 
 4. To test the configuration before you perform the move, manually [create a non-production network](../virtual-network/quick-create-portal.md) in the target region. Testing the setup creates minimal interference with the production environment, and we recommend it.
     
