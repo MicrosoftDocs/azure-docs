@@ -65,7 +65,7 @@
         - name: SQL Vulnerability Assessment
           href: database/sql-vulnerability-assessment.md
         - name: Vulnerability assessment rules
-          href: sql-database-vulnerability-assessment-rules.md
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
