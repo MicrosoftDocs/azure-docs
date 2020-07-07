@@ -19,7 +19,7 @@ This sample script creates an app in App Service with its related resources, and
 
 ## Sample script
 
-```powershell
+```azurepowershell-interactive
 # Parameters
 $sitename="mywebapp-$(Get-Random)"
 $appserviceplanname="ASP-"+$sitename
