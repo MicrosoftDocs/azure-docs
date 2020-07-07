@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Azure migrate
-    tocHref: /azure/azure-vmware/
-    topicHref: /azure/migrate/index
