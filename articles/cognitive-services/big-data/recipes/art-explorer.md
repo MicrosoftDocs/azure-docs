@@ -1,5 +1,5 @@
 ---
-title: "Recipe: Intelligent Art Exploration with Cognitive Services on Spark"
+title: "Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data"
 titleSuffix: Azure Cognitive Services
 description: This recipe shows how to create a searchable art database using Azure Search and MMLSpark.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: marhamil
 ms.custom: tracking-python
 ---
 
-# Recipe: Intelligent Art Exploration with Cognitive Services on Spark
+# Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data
 
 In this example, we'll use Cognitive Services and write to an Azure Search Index, using MMLSpark. With a subset of The MET's open-access collection, the data will be enriched by passing it through 'Describe Image'. The results are written to a searchable index.
 
