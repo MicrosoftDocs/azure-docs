@@ -186,3 +186,18 @@ To directly remove an IoT Connector instance, select the instance from **IoT Con
 
 [![Delete IoT Connector instance](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 
+## Next steps
+
+In this quickstart guide, you've deployed IoT Connector feature in your Azure API for FHIR resource. Select from below next steps to learn more about IoT Connector:
+
+Understand different stages of data flow  within IoT Connector.
+
+>[!div class="nextstepaction"]
+>[IoT Connector data flow](iot-data-flow.md)
+
+Learn how to configure IoT Connector using device and FHIR mapping templates.
+
+>[!div class="nextstepaction"]
+>[IoT Connector mapping templates](iot-mapping-templates.md)
+
+FHIR is the registered trademark of HL7 and is used with the permission of HL7.

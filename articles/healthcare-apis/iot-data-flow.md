@@ -50,4 +50,12 @@ If no Device resource for a given device identifier exists in the FHIR server, t
 ## Persist
 Once the Observation FHIR resource is generated in the Transform stage, resource is saved into Azure API for FHIR. If the FHIR resource is new, it will be created on the server. If the FHIR resource already existed, it will get updated.
 
+## Next steps
+
+Click below next step to learn how to create device and FHIR mapping templates.
+
+>[!div class="nextstepaction"]
+>[IoT Connector mapping templates](iot-mapping-templates.md)
+
+
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
