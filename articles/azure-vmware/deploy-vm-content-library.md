@@ -1,11 +1,11 @@
 ---
 title: Create a content library to deploy VMs in Azure VMware Solution (AVS)
 description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/16/2020
 ---
 
-# Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)
+# Create a content library to deploy VMs in Azure VMware Solution (AVS)
 
 A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
  

@@ -37,13 +37,15 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. Select **Azure resource roles** to see a list of your eligible Azure resource roles.
 
-   ![My roles - Azure resource roles page](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![My roles - Azure resource roles page](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. In the **Azure resource roles** list, find the role you want to activate.
 
     ![Azure resource roles - My eligible roles list](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Select **Activate** to open the Activate pane.
+1. Select **Activate** to open the Activate page.
+
+     ![The opened Activate pane with scope, start time, duration, and reason](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
 
@@ -66,10 +68,6 @@ When you need to take on an Azure resource role, you can request activation by u
     ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Select **Activate**.
-
-    If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role, follow the steps in next section.
-
-    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-how-to-activate-role/azure-role-activation-status.png)
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
