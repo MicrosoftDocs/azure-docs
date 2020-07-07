@@ -2,9 +2,9 @@
 title: Azure Database for PostgreSQL - Hyperscale security baseline for Azure Security Benchmark
 description: The Azure Database for PostgreSQL - Hyperscale security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: postgresql-hyperscale
+ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -40,8 +40,7 @@ How to configure Firewall rules in Azure Database for PostgreSQL - Hyperscale (C
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
-
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22453).
@@ -63,7 +62,7 @@ How to configure Firewall rules in Azure Database for PostgreSQL - Hyperscale (C
 
 **Responsibility**: Not applicable
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22455).
@@ -86,7 +85,7 @@ How to configure Firewall rules in Azure Database for PostgreSQL - Hyperscale (C
 
 **Responsibility**: Not applicable
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22457).
@@ -241,7 +240,7 @@ Storing resource logs in an Azure Storage Account: https://docs.microsoft.com/az
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22468).
@@ -366,7 +365,7 @@ How to create users in Azure Database for PostgreSQL - Hyperscale (Citus): https
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22476).
@@ -380,7 +379,7 @@ Use Azure Active Directory for authenticating with Azure Database for PostgreSQL
 
 **Responsibility**: Not applicable
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22477).
@@ -397,7 +396,7 @@ How to monitor identity and access within Azure Security Center: https://docs.mi
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22478).
@@ -495,7 +494,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22484).
@@ -729,7 +728,8 @@ Feature coverage for Azure PaaS services in Azure Security Center: https://docs.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22499).
 
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Database for PostgreSQL - Hyperscale (Citus).
+**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Database for PostgreSQL - Hyperscale (Citus). For vulnerabilities related to the configuration of your database cluster and related resources, use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -739,7 +739,7 @@ Feature coverage for Azure PaaS services in Azure Security Center: https://docs.
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use automated Asset Discovery solution
+### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22500).
@@ -786,7 +786,7 @@ How to create and use tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22503).
@@ -955,11 +955,7 @@ Single and multi-resource export to a template in Azure portal: https://docs.mic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22515).
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
-
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1007,9 +1003,8 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22519).
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
+**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1098,7 +1093,7 @@ How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcreds
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22526).
@@ -1141,7 +1136,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22529).
@@ -1154,7 +1149,7 @@ How to backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus):
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22530).
@@ -1170,7 +1165,7 @@ How to backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus):
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22531).
@@ -1185,7 +1180,7 @@ How to backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus):
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22532).
