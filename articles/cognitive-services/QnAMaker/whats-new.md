@@ -22,7 +22,7 @@ Learn what's new with QnA Maker.
 
 ### July 2020
 
-* Free Cognitive Search resources are removed after [90 days of inactivity](set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
+* Free Cognitive Search resources are removed after [90 days of inactivity](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### June 2020
 
