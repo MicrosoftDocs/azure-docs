@@ -120,10 +120,9 @@ As an example, the following table lists two versions and the corresponding comm
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
     |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Keep this Spark shell instance open and continue to the next section "Define a Catalog and Query". If you do not find the jars corresponding to your versions in the SHC Core respository, continue reading. 
+2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core respository, continue reading. 
 
-
-You can also build the jars directly from [spark-hbase-connector](https://github.com/hortonworks-spark/shc) github branch. For example, if you are running with Spark 2.3 and HBase 1.1:
+You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.3 and HBase 1.1, complete these steps:
 
 1. Clone the repo:
 
@@ -131,19 +130,19 @@ You can also build the jars directly from [spark-hbase-connector](https://github
     git clone https://github.com/hortonworks-spark/shc
     ```
     
-2. Go to branch-2.3
+2. Go to branch-2.3:
 
     ```bash
     git checkout branch-2.3
     ```
 
-3. Build from branch, this will create a jar file
+3. Build from the branch (creates a .jar file):
 
     ```bash
     mvn clean package -DskipTests
     ```
     
-3. Run the following command (make sure to change the jar name corresponding to the jar file you have built):
+3. Run the following command (be sure to change the .jar name to correspond to the .jar file you built):
 
     ```bash
     spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
@@ -153,7 +152,7 @@ You can also build the jars directly from [spark-hbase-connector](https://github
 
 
 
-## Define a Catalog and Query
+## Define a catalog and query
 
 In this step, you define a catalog object that maps the schema from Apache Spark to Apache HBase.  
 
