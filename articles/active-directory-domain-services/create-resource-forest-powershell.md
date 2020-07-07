@@ -30,7 +30,7 @@ In this article, you learn how to:
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
 > * Test and validate the trust relationship for authentication and resource access
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
 > Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
@@ -40,7 +40,7 @@ If you don’t have an Azure subscription, [create an account](https://azure.mic
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 
@@ -163,7 +163,7 @@ Before you start, make sure you understand the [network considerations and recom
     When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your Azure AD DS resource forest.
 
 1. Make a note of the DNS addresses shown on the overview page. You need these addresses when you configure the on-premises Active Directory side of the trust relationship in a following section.
-1. Restart the management VM for it to receive the new DNS settings, then [join the VM to the Azure AD DS managed domain](join-windows-vm.md#join-the-vm-to-the-azure-ad-ds-managed-domain).
+1. Restart the management VM for it to receive the new DNS settings, then [join the VM to the Azure AD DS managed domain](join-windows-vm.md#join-the-vm-to-the-managed-domain).
 1. After the management VM is joined to the Azure AD DS managed domain, connect again using remote desktop.
 
     From a command prompt, use `nslookup` and the Azure AD DS resource forest name to validate name resolution for the resource forest.
@@ -257,7 +257,7 @@ You should have Windows Server virtual machine joined to the Azure AD DS resourc
     whoami /fqdn
     ```
 
-1. Use the `runas` command to authenticate as a user from the on-premises domain. In the following command, replace `userUpn@trusteddomain.com` with the UPN of a user from the trusted on-premises domain. The command prompts you for the user’s password:
+1. Use the `runas` command to authenticate as a user from the on-premises domain. In the following command, replace `userUpn@trusteddomain.com` with the UPN of a user from the trusted on-premises domain. The command prompts you for the user's password:
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
