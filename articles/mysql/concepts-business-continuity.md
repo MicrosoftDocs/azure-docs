@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 7/7/2020
 ---
 
 # Understand business continuity in Azure Database for MySQL
