@@ -146,7 +146,7 @@ If you have a project, add the tool as follows:
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 
-    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png
+    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
 2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
