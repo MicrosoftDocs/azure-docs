@@ -10,7 +10,7 @@ ms.date: 02/07/2019
 ms.author: mihansen
 ---
 
-# Frequently asked questions
+# Frequently asked questions about the Azure API for FHIR
 
 ## Azure API for FHIR
 

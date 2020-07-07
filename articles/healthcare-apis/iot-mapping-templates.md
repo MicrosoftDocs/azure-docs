@@ -560,7 +560,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on IoT Connector
 
 >[!div class="nextstepaction"]
->[IoT Connector FAQs](fhir-faq.md#iomt-connector-preview)
+>[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
 
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
