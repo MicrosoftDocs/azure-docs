@@ -1208,10 +1208,8 @@
       href: database/database-import-export-hang.md
   - name: Service updates
     items:
-    - name: Gateway IP address updates v1
-      href: database/gateway-migration-v1.md
-    - name: Gateway IP address updates v2
-      href: database/gateway-migration-v2.md
+    - name: Gateway IP address updates
+      href: database/gateway-migration.md
     - name: Periodic maintenance events
       href: database/planned-maintenance.md
   - name: Videos
