@@ -12,7 +12,7 @@ ms.date: 06/22/2020
 
 # Tutorial: Create a custom analyzer for phone numbers
 
-Analyzers are a key component in any search solution. To improve the quality of search results, it's important to understand how analyzers work and impact these results.
+[Analyzers](search-analyzers.md) are a key component in any search solution. To improve the quality of search results, it's important to understand how analyzers work and impact these results.
 
 In some cases, like with a free text field, simply selecting the correct [language analyzer](index-add-language-analyzers.md) will improve search results. However, some scenarios such as accurately searching phone numbers, URLs, or emails may require the use of custom analyzers.
 
@@ -224,7 +224,7 @@ To understand these search results, it's important to first understand how analy
 
 ### How analyzers work
 
-An analyzer is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. For this scenario, we need to build an analyzer tailored to phone numbers.
+An [analyzer](search-analyzers.md) is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. For this scenario, we need to build an analyzer tailored to phone numbers.
 
 Analyzers consist of three components:
 
@@ -242,20 +242,20 @@ These tokens are then stored in an inverted index, which allows for fast, full-t
 
 All of search comes down to searching for the terms stored in the inverted index. When a user issues a query:
 
-1. The query is analyzed and broken into tokens.
+1. The query is parsed and the query terms are analyzed.
 1. The inverted index is then scanned for documents with matching terms.
-1. Finally, the results are ranked by feeding the matching terms into a [similarity algorithm](index-ranking-similarity.md) to score the results.
+1. Finally, the retrieved documents are ranked by the [similarity algorithm](index-ranking-similarity.md).
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
-If the tokens from your query don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
+If the query terms don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 
 > [!Note]
-> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical analysis process so the query text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching terms don't exist in the index.
+> [Partial term queries](search-query-partial-matching.md) are an important exception to this rule. These queries (prefix query, wildcard query, regex query) bypass the lexical analysis process unlike regular term queries. Partial terms are only lowercased before being matched against terms in the index. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching terms don't exist in the index.
 
 ### Test analyzer using the Analyze Text API
 
-Azure Cognitive Search provides an [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they tokenize text.
+Azure Cognitive Search provides an [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
 
 The Analyze Text API is called using the following request:
 
@@ -319,9 +319,9 @@ Conversely, the phone number `4255552311` formatted without any punctuation is t
 }
 ```
 
-Keep in mind that both searches and the data in the index are tokenized. Thinking back to the search results from the previous step, we can start to see why those results were returned.
+Keep in mind that both query terms and the indexed documents are analyzed. Thinking back to the search results from the previous step, we can start to see why those results were returned.
 
-In the first query, the incorrect phone numbers were returned because one of their tokens, `555`, matched one of the tokens we searched. In the second query, only the one number was returned because it was the only record that had a token matching `4255552311`.
+In the first query, the incorrect phone numbers were returned because one of their terms, `555`, matched one of the terms we searched. In the second query, only the one number was returned because it was the only record that had a term matching `4255552311`.
 
 ## 5 - Build a custom analyzer
 
@@ -335,7 +335,7 @@ The goal is to provide intuitive search against phone numbers no matter what for
 
 Character filters are used to process text before it's fed into the tokenizer. Common uses of character filters include filtering out HTML elements or replacing special characters.
 
-For phone numbers, we want to remove whitespace and special characters because not all phone number formats contain the same special characters and whitespace.
+For phone numbers, we want to remove whitespace and special characters because not all phone number formats contain the same special characters and spaces.
 
 ```json
 "charFilters": [
@@ -416,7 +416,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 "analyzers": [
   {
     "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
-    "name": "custom_phone_analyzer",
+    "name": "phone_analyzer",
     "tokenizer": "custom_tokenizer_phone",
     "tokenFilters": [
       "custom_ngram_filter"
@@ -435,7 +435,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 
 Notice that any of the tokens in the output can now be searched. If our query includes any of those tokens, the phone number will be returned.
 
-With the custom analyzer defined, recreate the index so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index with the analyzer named `tutorial-first-analyzer`.
+With the custom analyzer defined, recreate the index so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index named `tutorial-first-analyzer` with the analyzer we defined.
 
 ## 6 - Test the custom analyzer
 
@@ -448,7 +448,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-firs
 
   {
     "text": "+1 (321) 555-5784",
-    "analyzer": "phone_char_mapping"
+    "analyzer": "phone_analyzer"
   }
 ```
 
@@ -482,16 +482,16 @@ You will then be able to see the collection of tokens resulting from the phone n
 }
 ```
 
-## 7 - Build a custom analyzer for searches
+## 7 - Build a custom analyzer for queries
 
-After making some sample searches against the index with the custom analyzer, you'll find that recall has improved and all matching phone numbers are now returned. However, the n-gram token filter causes some false positives to be returned as well. This is a common side effect of an n-gram token filter.
+After making some sample queries against the index with the custom analyzer, you'll find that recall has improved and all matching phone numbers are now returned. However, the n-gram token filter causes some false positives to be returned as well. This is a common side effect of an n-gram token filter.
 
-To prevent false positives, we'll create a separate analyzer for searching. This analyzer will be the same as the analyzer we created already but **without** the `custom_ngram_filter`.
+To prevent false positives, we'll create a separate analyzer for querying. This analyzer will be the same as the analyzer we created already but **without** the `custom_ngram_filter`.
 
 ```json
     {
       "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
-      "name": "custom_phone_analyzer_search",
+      "name": "phone_analyzer_search",
       "tokenizer": "custom_tokenizer_phone",
       "tokenFilters": [],
       "charFilters": [
@@ -510,8 +510,8 @@ In the index definition, we then specify both an `indexAnalyzer` and a `searchAn
       "searchable": true,
       "filterable": false,
       "facetable": false,
-      "indexAnalyzer": "custom_phone_analyzer",
-      "searchAnalyzer": "custom_phone_analyzer_search"
+      "indexAnalyzer": "phone_analyzer",
+      "searchAnalyzer": "phone_analyzer_search"
     }
 ```
 
@@ -523,13 +523,15 @@ With this change, you're all set. Recreate the index, index the data, and test t
 
 The analyzer above was designed to maximize the flexibility for search. However, it does so at the cost of storing many potentially unimportant terms in the index.
 
-The example below shows a different analyzer that can also be used for this task. The analyzer works well except for input data such as `14255552311` that makes it difficult to logically chunk the phone number.
+The example below shows a different analyzer that can also be used for this task. 
+
+The analyzer works well except for input data such as `14255552311` that makes it difficult to logically chunk the phone number. For example, the analyzer wouldn't be able to separate the country code, `1`, from the area code, `425`. This discrepancy would lead to the number above not being returned if a user didn't include a country code in their search.
 
 ```json
 "analyzers": [
   {
     "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
-    "name": "custom_phone_shingles",
+    "name": "phone_analyzer_shingles",
     "tokenizer": "custom_tokenizer_phone",
     "tokenFilters": [
       "custom_shingle_filter"
