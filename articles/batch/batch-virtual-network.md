@@ -57,7 +57,7 @@ When you add a UDR, define the route for each related Batch IP address prefix, a
 ![User-defined route](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table. Alternately, you can [create a pool with specified IP addresses that you control](create-pool-public-ip.md).
+> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table.
 
 ## Next steps
 
