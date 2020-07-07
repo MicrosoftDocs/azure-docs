@@ -904,9 +904,9 @@
         href: insights/vminsights-enable-portal.md
       - name: Azure PowerShell
         href: insights/vminsights-enable-powershell.md
-      - name: Azure policy
+      - name: Azure Policy
         href: insights/vminsights-enable-policy.md
-      - name: Manual install
+      - name: Hybrid VMs
         href: insights/vminsights-enable-hybrid.md
       - name: Upgrade Dependency agent
         href: insights/vminsights-dependency-agent-maintenance.md

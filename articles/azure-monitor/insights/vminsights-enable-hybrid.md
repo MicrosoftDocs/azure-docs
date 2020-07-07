@@ -1,29 +1,30 @@
 ---
-title: Enable Azure Monitor for a hybrid environment | Microsoft Docs
+title: Enable Azure Monitor for a hybrid environment
 description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
 ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/01/2020
+ms.date: 07/07/2020
 
 ---
 
 # Enable Azure Monitor for VMs for a hybrid virtual machine
-This article describes how to enable Azure Monitor for VMs for a virtual machine ourside Azure, including on-premises and other cloud environments.
+This article describes how to enable Azure Monitor for VMs for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). Alternatively, you can create a new workspace as part of this workspace.
+- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
 - See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 
 ## Overview
-Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Since you can't use VM extensions to install the agents though, you must manually install them in the guest operating system or have them installed through some other method. See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. 
+Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Since you can't use VM extensions to install the agents though, you must manually install them in the guest operating system or have them installed through some other method. 
+
+See [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) or [Connect Linux computers to Azure Monitor](../platform/agent-linux.md) for details on deploying the Log Analytics agent. Details for the Dependency agent are provided in this article. 
 
 ## Firewall requirements
-The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
-
+Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](..//platform/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 
 ## Dependency agent
@@ -54,6 +55,16 @@ For example, to run the installation program with the `/?` parameter, enter **In
 
 Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
+### PowerShell script
+Use the following sample PowerShell script to download and install the agent:
+
+```powershell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+
 ## Install the Dependency agent on Linux
 
 The Dependency agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
@@ -68,9 +79,7 @@ The Dependency agent is installed on Linux servers from *InstallDependencyAgent-
 | -s | Perform a silent installation with no user prompts. |
 | --check | Check permissions and the operating system, but don't install the agent. |
 
-For example, to run the installation program with the `-help` parameter, enter **InstallDependencyAgent-Linux64.bin -help**.
-
-Install the Linux Dependency agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
+For example, to run the installation program with the `-help` parameter, enter **InstallDependencyAgent-Linux64.bin -help**. Install the Linux Dependency agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
@@ -84,19 +93,8 @@ Files for the Dependency agent are placed in the following directories:
 | Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
-## Installation script examples
-
-To easily deploy the Dependency agent on many servers at once, the following script example is provided to download and install the Dependency agent on either Windows or Linux.
-
-### PowerShell script for Windows
-
-```powershell
-Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
-
-.\InstallDependencyAgent-Windows.exe /S
-```
-
-### Shell script for Linux
+### Shell script 
+Use the following sample shell script to download and install the agent:
 
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin

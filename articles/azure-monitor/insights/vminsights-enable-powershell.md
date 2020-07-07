@@ -5,28 +5,31 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/06/2020
+ms.date: 07/07/2020
 
 ---
 
 # Enable Azure Monitor for VMs using PowerShell
-This article describes how to enable Azure Monitor for VMs for Azure virtual machines  PowerShell.
+This article describes how to enable Azure Monitor for VMs on Azure virtual machines using PowerShell. This procedure can be used for the following:
+
+- Azure virtual machine
+- Azure virtual machine scale set
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). Alternatively, you can create a new workspace as part of this workspace.
+- [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
 - See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 
 ## PowerShell script
 
-To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). It's available from the Azure PowerShell Gallery. This script iterates through:
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), which is available from the Azure PowerShell Gallery. This script iterates through:
 
 - Every virtual machine and virtual machine scale set in your subscription.
 - The scoped resource group that's specified by *ResourceGroup*.
 - A single VM or virtual machine scale set that's specified by *Name*.
 
-For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is installed, the script tries to reinstall it. If the VM extension isn't installed, the script installs the Log Analytics and Dependency agent VM extensions.
+For each VM or VMSS, the script verifies whether the VM extension for the Log Analytics agent and Dependency agent are already installed. If both extensions are installed, the script tries to reinstall it. If both extensions aren't installed, the script installs them.
 
 Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

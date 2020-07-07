@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 
 ---
 
@@ -52,7 +52,7 @@ The steps to configure Azure Monitor for VMs are as follows. Follow each link fo
 
 ## Role-based access control
 
-To enable and access the features in Azure Monitor for VMs, you must have the *Log Analytics contributor* role. To view performance, health, and map data, you must have the *monitoring reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.
+To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM.
 
 For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
@@ -65,11 +65,3 @@ For more information about how to control access to a Log Analytics workspace, s
 
 To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-enable-overview.md).
 
-
-
-
-The following key features deliver in-depth insight:
-
-- **Pre-defined trending performance charts**: Display core performance metrics from the guest VM operating system.
-
-- **Dependency map**: Displays the interconnected components with the VM from various resource groups and subscriptions.  
