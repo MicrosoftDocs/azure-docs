@@ -213,7 +213,7 @@ In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 random data to an application. Inducing program failure helps reveal
 potential security issues before the application is released.
 
-[Security Risk Detection](https://www.microsoft.com/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
 
 ### Conduct attack surface review
 
