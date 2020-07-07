@@ -1,13 +1,13 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ---
 
 # Monitor delegation changes in your managing tenant
 
-As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), or when previously delegated resources are removed.
+As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure Lighthouse](../overview.md), or when previously delegated resources are removed.
 
 In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
 
@@ -153,5 +153,5 @@ else
 
 ## Next steps
 
-- Learn how to onboard customers to [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+- Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
