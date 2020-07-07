@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: iainfou
 ---
 
@@ -26,13 +26,13 @@ Replica sets are currently in preview.
 
 ## How replica sets work
 
-The first replica set for a managed domain, such as *aaddscontoso.com*, creates the domain configuration. Additional replica sets share the same namespace and configuration. Configuration changes, or user and credentials updates, replicate to all replica sets in the managed domain.
+When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created to apply the domain configuration. Additional replica sets share the same namespace and configuration. Configuration changes, or user and credentials updates, are applied to all replica sets in the managed domain using AD DS replication.
 
-You create each replica set in a virtual network. Each virtual network must be peered to every other virtual network that hosts a managed domain's replica set. This configuration creates a meshed network topology that supports directory replication. A virtual network can support multiple replica sets provided each replica set is in a different virtual subnet.
+You create each replica set in a virtual network. Each virtual network must be peered to every other virtual network that hosts a managed domain's replica set. This configuration creates a mesh network topology that supports directory replication. A virtual network can support multiple replica sets provided each replica set is in a different virtual subnet.
 
-Users, groups, group memberships, and password hashes are replicated using normal intrastate replication to provide the quickest convergence possible.
+Users, groups, group memberships, and password hashes are replicated using normal intrasite replication to provide the quickest convergence possible.
 
-The following diagram shows a managed domain with two replica sets. The first replica set created with the domain namespace and a second replica set:
+The following diagram shows a managed domain with two replica sets. The first replica set is created with the domain namespace, and a second replica set is created afterwards:
 
 ![Diagram of example managed domain with two replica sets](./media/concepts-replica-sets/two-replica-set-example.png)
 
@@ -51,15 +51,13 @@ The default SKU for a managed domain is the *Enterprise* SKU, which supports mul
 
 The maximum number of replica sets supported during preview is four, including the first replica created when you created the managed domain.
 
-If you use an existing Azure AD tenant that has secure LDAP enabled, check when the TLS certificate expires before you add a replica set. If the certificate expires in the next six months, it's recommended to renew and upload the replacement using the Azure portal.
-
 Azure bills each replica set based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, Azure bills your subscription per hour for each of the three replica sets.
 
 ## Frequently asked questions
 
 ### Can I use my production managed domain with this preview?
 
-We strongly encourage you to use a test tenant while replica sets are in preview. There's nothing to prevent you from using a production environment, though refer to the [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+We encourage you to use a test tenant while replica sets are in preview. There's nothing to prevent you from using a production environment, though refer to the [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Can I create a replica set in subscription different from my managed domain?
 
@@ -67,7 +65,7 @@ No. Replica sets must be in the same subscription as the managed domain.
 
 ### How many replica sets can I create?
 
-The preview is limited to a maximum of four replica sets - the initial replica set for the managed domain, plus three replicas.
+The preview is limited to a maximum of four replica sets - the initial replica set for the managed domain, plus three additional replica sets.
 
 ### How does user and group information get synchronized to my replica sets?
 
