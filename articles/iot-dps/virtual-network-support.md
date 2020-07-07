@@ -55,7 +55,7 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Private endpoints will not work with DPS when the DPS resource and the linked Hub are in different clouds. For example, [Azure Government and global Azure](../azure-government/documentation-government-welcome.md).
 
-* Currently, [custom allocation policies with Azure Functions](how-to-use-custom-allocation-policies.md) will not work with DPS and private endpoints. This functionality is planned to be enabled in a future release.
+* Currently, [custom allocation policies with Azure Functions](how-to-use-custom-allocation-policies.md) for DPS will not work a VNET and private endpoints. 
 
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
 
