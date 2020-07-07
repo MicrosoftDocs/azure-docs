@@ -287,7 +287,7 @@ Steps :
 
 For time, use format : yyyy-mm-dd 00:00:00
 
-## How do I check standard deviation in traffic recieved by my VMs from on-premise machines
+## How do I check standard deviation in traffic received by my VMs from on-premise machines
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
