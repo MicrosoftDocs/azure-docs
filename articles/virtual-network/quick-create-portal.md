@@ -219,3 +219,5 @@ When you're done using the virtual network and the VMs, delete the resource grou
 To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 By default, Azure allows secure communication between VMs. Azure only allows inbound remote desktop connections to Windows VMs from the internet. To learn more about types of VM network communications, see [Filter network traffic](tutorial-filter-network-traffic.md).
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]

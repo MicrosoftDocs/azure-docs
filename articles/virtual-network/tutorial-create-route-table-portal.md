@@ -354,3 +354,8 @@ While you can deploy many Azure resources within a virtual network, Azure can't 
 
 > [!div class="nextstepaction"]
 > [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
