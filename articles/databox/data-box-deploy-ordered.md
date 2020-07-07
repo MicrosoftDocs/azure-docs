@@ -693,7 +693,7 @@ The following table shows the parameter information for `Stop-AzDataBoxJob`:
 |ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
 |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
 |Reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
-|Force | Forces the cmdlet to run without user confirmation. | |
+|Force | Forces the cmdlet to run without user confirmation. | -Force |
 
 Here's an example of the command with output:
 
@@ -725,7 +725,7 @@ The following table shows the parameter information for `Remove-AzDataBoxJob`:
 |---|---|---|
 |ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
 |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
-|Force | Forces the cmdlet to run without user confirmation. | |
+|Force | Forces the cmdlet to run without user confirmation. | -Force |
 
 Here's an example of the command with output:
 
