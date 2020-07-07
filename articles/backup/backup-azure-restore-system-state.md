@@ -163,22 +163,28 @@ System State backup includes Active Directory data. Use the following steps to r
     Shutdown /r /t 0
     ```
 
-1. [Apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
-1. To recover Active Directory as part of a system state restore, use the [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) command.
+1. To recover Active Directory as part of a system state restore, you can choose one of two methods:
 
-    You'll need the version identifier of the backup you wish to use. You can get a list of version identifiers by running this command:
+    * Follow the instructions above to [apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
 
-    ```cmd
-    wbadmin get versions -backuptarget <servername\sharename>
-    ```
+        >[!NOTE]
+        >If you choose this method, in step 9 above, make sure to select **Perform an authoritative restore of Active Directory files**.
 
-    You then use that version identifier to run the restore.
+    * Use the [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 
-    For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 A.M., which is stored on the shared resource `\\servername\share` for `server01`, type:
+        You'll need the version identifier of the backup you wish to use. You can get a list of version identifiers by running this command:
 
-    ```cmd
-    wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
-    ```
+        ```cmd
+        wbadmin get versions -backuptarget <servername\sharename>
+        ```
+
+        You then use that version identifier to run the restore.
+
+        For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 AM, which is stored on the shared resource `\\servername\share` for `server01`, type:
+
+        ```cmd
+        wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
+        ```
 
 1. After you've successfully completed a restore, you should restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
 1. Reboot the server.
