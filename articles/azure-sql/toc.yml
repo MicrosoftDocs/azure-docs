@@ -1022,8 +1022,6 @@
             items: 
             - name: Create DNN for FCI
               href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: Feature interoperability with DNN 
-              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
             - name: FCI DNN & SQL Server features
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: Configure connectivity
