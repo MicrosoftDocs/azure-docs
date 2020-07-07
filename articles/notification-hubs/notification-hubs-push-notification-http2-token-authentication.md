@@ -49,15 +49,15 @@ To enable token-based authentication, you need the following properties from you
 
 The key identifier can be obtained from the **Keys** page under **Certificates, Identifiers & Profiles**, in your Apple Developer account:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
+![Certificates](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
+![Identifiers](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### Application identifier and application name
 
 The application name and identifier are also available in the **Certificates, Identifiers & Profiles** page in the developer account:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
+![Certificates and IDs](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
 ### Configure via the .NET SDK or the Azure portal
 
