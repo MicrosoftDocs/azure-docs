@@ -1,5 +1,5 @@
 ---
-title: Create Azure Machine Learning workspaces in the portal
+title: Create workspaces in the portal
 titleSuffix: Azure Machine Learning
 description: Learn how to create, view, and delete Azure Machine Learning workspaces in the Azure portal.
 services: machine-learning

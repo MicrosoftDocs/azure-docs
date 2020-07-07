@@ -56,6 +56,10 @@ Service endpoints cannot be used to restrict access to apps that run in an App S
 
 With service endpoints, you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applications with secure backends. For more details on some of the possibilities, read [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
+> [!NOTE]
+> Service endpoints currently are not supported for web apps that use IP SSL virtual IP (VIP). 
+>
+
 ## Managing access restriction rules
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.

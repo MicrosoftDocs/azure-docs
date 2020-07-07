@@ -350,7 +350,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 **Azure Security Center monitoring**: Yes
 
@@ -446,7 +446,7 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 How to create and configure an AAD instance:
 
@@ -474,7 +474,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 How to integrate Azure Activity Logs into Azure Monitor:
 
@@ -636,7 +636,7 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
-**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Azure SQL Databases and other critical or related resources.
+**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Azure SQL Database and other critical or related resources.
 
 How to create alerts for Azure Activity Log events:
 
@@ -654,7 +654,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Guidance**: Enable Advanced Data Security for Azure SQL Database and follow recommendations from Azure Security Center on performing vulnerability assessments on your servers.
 
-How to run vulnerability assessments on your Azure SQL Databases:
+How to run vulnerability assessments on Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
@@ -1068,7 +1068,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
-**Guidance**: Azure SQL Database automatically creates the database backups that are kept between 7 and 35 days, and uses Azure read-access geo-redundant storage (RA-GRS) to ensure that they are preserved even if the data center is unavailable. These backups are created automatically. If required, enable long-term geo-redundant backups for your Azure SQL Databases.
+**Guidance**: Azure SQL Database automatically creates the database backups that are kept between 7 and 35 days, and uses Azure read-access geo-redundant storage (RA-GRS) to ensure that they are preserved even if the data center is unavailable. These backups are created automatically. If required, enable long-term geo-redundant backups for your Azure SQL databases.
 
 If using customer-managed keys for Transparent Data Encryption, ensure your keys are being backed up.
 

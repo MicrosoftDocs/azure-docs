@@ -36,9 +36,9 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    1. In **Users and groups**, select **All users**, and then select **New user**.
    
-           The **User** pane opens:
+        The **User** pane opens:
       
-      ![The "User" pane](./media/add-user.png)
+        ![The "User" pane](./media/add-user.png)
     
    1. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
     

@@ -135,6 +135,8 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 > You may see a popup like this: 
 > :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
 > If so, select **Attempt to retrieve credentials from Azure** and **Save**.
+>
+> If you see a warning that *Your version of the functions runtime does not match the version running in Azure*, follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
 
 ### Assign permissions to the function app
 

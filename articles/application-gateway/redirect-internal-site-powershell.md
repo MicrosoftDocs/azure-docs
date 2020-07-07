@@ -5,7 +5,7 @@ description: Learn how to create an application gateway that redirects internal 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: victorh
 ---

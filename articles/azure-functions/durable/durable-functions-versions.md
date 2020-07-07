@@ -77,3 +77,7 @@ In the case where an abstract base class contained virtual methods, these virtua
 #### function.json changes (JavaScript and C# Script)
 
 In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
+
+#### Raise event changes
+
+In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that did not exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an exception.

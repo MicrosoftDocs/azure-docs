@@ -17,9 +17,6 @@ Data encryption with customer-managed keys for Azure Database for MySQL, is set 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> This capability is currently being rolled out globally and will be soon available in all regions. If you do not see it in your region, contact AskAzureDBforMySQL@service.microsoft.com
-
-> [!NOTE]
 > This feature is available in all Azure regions where Azure Database for MySQL supports "General Purpose" and "Memory Optimized" pricing tiers.
 
 ## Benefits

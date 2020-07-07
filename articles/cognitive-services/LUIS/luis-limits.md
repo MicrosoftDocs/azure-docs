@@ -31,7 +31,7 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | [Prebuilt entities](./luis-prebuilt-entities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
-| [Utterance][utterances] | 500 characters<br><br>If you have text longer than this character limit, you need to segment the utterance prior to input to LUIS and merge the responses accordingly. There are obvious breaks you can work with, such as punctuation marks and long pauses in speech.|
+| [Utterance][utterances] | 500 characters<br><br>If you have text longer than this character limit, you need to segment the utterance prior to input to LUIS and you will receive individual intent responses per segment. There are obvious breaks you can work with, such as punctuation marks and long pauses in speech.|
 | [Utterance examples][utterances] | 15,000 per application - there is no limit on the number of utterances per intent<br><br>If you need to train the application with more examples, use a [dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) model approach. You train individual LUIS apps (known as child apps to the parent dispatch app) with one or more intents and then train a dispatch app that samples from each child LUIS app's utterances to direct the prediction request to the correct child app. |
 | [Versions](luis-concept-version.md)| 100 versions per application |
 | [Version name][luis-how-to-manage-versions] | 128 characters |

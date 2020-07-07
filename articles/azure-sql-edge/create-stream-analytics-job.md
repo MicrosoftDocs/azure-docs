@@ -28,7 +28,7 @@ T-SQL streaming uses the external data source functionality of SQL Server to def
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Additionally, if Azure SQL Edge, SQL Server, or Azure SQL Database is used as an output stream, you need the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). This T-SQL command defines the credentials to access the SQL database.
+Additionally, if Azure SQL Edge, SQL Server, or Azure SQL Database is used as an output stream, you need the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). This T-SQL command defines the credentials to access the database.
 
 ### Supported input and output stream data sources
 
@@ -37,7 +37,7 @@ Azure SQL Edge currently only supports the following data sources as stream inpu
 | Data source type | Input | Output | Description |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge hub | Y | Y | Data source to read and write streaming data to an Azure IoT Edge hub. For more information, see [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | Y | Data source connection to write streaming data to SQL Database. The SQL database can be a local database in Azure SQL Edge, or a remote database in SQL Server or Azure SQL Database.|
+| SQL Database | N | Y | Data source connection to write streaming data to SQL Database. The database can be a local database in Azure SQL Edge, or a remote database in SQL Server or Azure SQL Database.|
 | Azure Blob storage | N | Y | Data source to write data to a blob on an Azure storage account. |
 | Kafka | Y | N | Data source to read streaming data from a Kafka topic. This adapter is currently only available for Intel or AMD versions of Azure SQL Edge. It isn't available for the ARM64 version of Azure SQL Edge.|
 

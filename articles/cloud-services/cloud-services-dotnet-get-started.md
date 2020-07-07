@@ -99,9 +99,9 @@ In the following section you'll configure the solution to use Azure cloud resour
 You'll do the following steps to run the application in the cloud:
 
 * Create an Azure cloud service.
-* Create an Azure SQL database.
+* Create a database in Azure SQL Database.
 * Create an Azure storage account.
-* Configure the solution to use your Azure SQL database when it runs in Azure.
+* Configure the solution to use your database when it runs in Azure.
 * Configure the solution to use your Azure storage account when it runs in Azure.
 * Deploy the project to your Azure cloud service.
 
@@ -125,7 +125,7 @@ An Azure cloud service is the environment the application will run in.
 
     ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### Create an Azure SQL database
+### Create a database in Azure SQL Database
 When the app runs in the cloud, it will use a cloud-based database.
 
 1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Databases > SQL Database**.
@@ -177,8 +177,9 @@ In a real-world application, you would typically create separate accounts for ap
 
     In the image, a storage account is created with the URL `csvccontosoads.core.windows.net`.
 
-### Configure the solution to use your Azure SQL database when it runs in Azure
-The web project and the worker role project each has its own database connection string, and each needs to point to the Azure SQL database when the app runs in Azure.
+### Configure the solution to use your database in Azure SQL Database when it runs in Azure
+
+The web project and the worker role project each has its own database connection string, and each needs to point to the database in Azure SQL Database when the app runs in Azure.
 
 You'll use a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) for the web role and a cloud service environment setting for the worker role.
 
