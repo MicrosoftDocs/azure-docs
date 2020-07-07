@@ -67,7 +67,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use VS Code
-            url: use-vs-code-to-create-template.md
+            url: quickstart-create-templates-use-visual-studio-code.md
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
