@@ -40,7 +40,7 @@ To get started, you need the following:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* EasySSO for BitBucket supports SP- and IdP-initiated SSO.
+* EasySSO for BitBucket supports SP-initiated and IdP-initiated SSO.
 * EasySSO for BitBucket supports "just-in-time" user provisioning.
 * After you configure EasySSO for BitBucket, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
