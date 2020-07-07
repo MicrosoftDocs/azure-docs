@@ -55,8 +55,8 @@ The following table describes the minimum and recommended specifications for the
 |---|---------|-------------|--|--|
 | **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
 | **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
-| **Text Analytics for health - 1 document/request**   |  4 core, 8GB memory | 6 core, 12GB memory |15 | 30|
-| **Text Analytics for health - 100 documents/request**   |  6 core, 12GB memory | 8 core, 16GB memory |15 | 30|
+| **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
+| **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
