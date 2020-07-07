@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 07/07/2020
 ms.author: diberry
 ---
 
@@ -19,6 +19,10 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes
 
 Learn what's new with QnA Maker.
+
+### July 2020
+
+* Free Cognitive Search resources are removed after [90 days of inactivity](set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### June 2020
 
