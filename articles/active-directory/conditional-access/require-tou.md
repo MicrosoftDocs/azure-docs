@@ -208,4 +208,3 @@ When no longer needed, delete the test user and the Conditional Access policy:
 
 > [!div class="nextstepaction"]
 > [Require MFA for specific apps](app-based-mfa.md)
-> [Block access when a session risk is detected](app-sign-in-risk.md)
