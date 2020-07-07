@@ -1,15 +1,8 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal

@@ -50,7 +50,7 @@ The following table shows the endpoints for the management and data planes.
 
 | Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
 | --- | --- | --- | --- |
-| Management plane | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure Resource Manager RBAC |
+| Management plane | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure RBAC |
 | Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Keys: decrypt, encrypt,<br> unwrap, wrap, verify, sign,<br> get, list, update, create,<br> import, delete, backup, restore<br><br> Secrets: get, list, set, delete | Key Vault access policy |
 
 ## Management plane and RBAC
@@ -75,6 +75,8 @@ There are several predefined roles. If a predefined role doesn't fit your needs,
 You grant data plane access by setting Key Vault access policies for a key vault. To set these access policies, a user, group, or application must have `Contributor` permissions for the management plane for that key vault.
 
 You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
+
+You can see the full list of vault and secret operations and understand the operations allowed when you configure key vault access policies by viewing the following reference. [Key Vault Operation Reference](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>
 Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
@@ -230,4 +232,4 @@ For more information about usage logging for Key Vault, see [Azure Key Vault log
 
 For more information about using keys and secrets with Azure Key Vault, see [About keys and secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-If you have questions about Key Vault, visit the [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

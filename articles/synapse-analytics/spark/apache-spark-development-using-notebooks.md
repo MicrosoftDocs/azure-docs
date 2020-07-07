@@ -1,19 +1,20 @@
 ---
-title: Create, develop, and maintain Azure Synapse Studio (preview) notebooks
+title: Synapse Studio notebooks
 description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice:
-ms.date: 04/15/2020
+ms.subservice: spark
+ms.date: 05/01/2020
 ms.author: ruxu 
 ms.reviewer: 
+ms.custom: tracking-python
 ---
 
-# Create, develop, and maintain Azure Synapse Studio (preview) notebooks
+# Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics
 
-An Azure Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -50,12 +51,12 @@ There are multiple ways to add a new cell to your notebook.
 
 ### Set a primary language
 
-Azure Synapse Studio notebooks support four spark languages:
+Azure Synapse Studio notebooks support four Apache Spark languages:
 
-* pyspark (python)
-* spark (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* pySpark (Python)
+* Spark (Scala)
+* SparkSQL
+* .NET for Apache Spark (C#)
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
@@ -70,9 +71,9 @@ You can use multiple languages in one notebook by specifying the correct languag
 |%%pyspark| Python | Execute a **Python** query against Spark Context.  |
 |%%spark| Scala | Execute a **Scala** query against Spark Context.  |  
 |%%sql| SparkSQL | Execute a **SparkSQL** query against Spark Context.  |
-|%%csharp | Spark.NET C# | Execute a **Spark.NET C#** query against Spark Context. |
+|%%csharp | .NET for Spark C# | Execute a **.NET for Spark C#** query against Spark Context. |
 
-The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to Scala.
+The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to pySpark.
 
    ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -104,7 +105,7 @@ You cannot reference data or variables directly across different languages in a 
 
 ### IDE-style IntelliSense
 
-Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error maker, and automatic code completions help you to write code and identify issues quicker.
+Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
 The IntelliSense features are at different levels of maturity for different languages. Use the table below to see what's supported.
 
@@ -113,7 +114,7 @@ The IntelliSense features are at different levels of maturity for different lang
 |PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
 |SparkSQL|Yes|Yes|-|-|-|-|-|-|
-|Spark.NET (C#)|Yes|-|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### Format text cell with toolbar buttons
 
@@ -340,7 +341,7 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you cant type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
+2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
@@ -387,5 +388,8 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Next steps
 
+- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
+- [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

@@ -26,7 +26,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 
 ## Key features
 
-- **Free web hosting** for static content like HTML, CSS, JavaScript, and images.
+- **Web hosting** for static content like HTML, CSS, JavaScript, and images.
 - **Integrated API** support provided by Azure Functions.
 - **First-party GitHub integration** where repository changes trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.

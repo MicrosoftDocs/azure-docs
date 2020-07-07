@@ -10,7 +10,7 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ---
 
 # Configure advanced threat protection for Azure Storage

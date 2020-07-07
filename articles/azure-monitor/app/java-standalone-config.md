@@ -29,14 +29,14 @@ You will find more details and additional configuration options below for more d
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.5.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configurationFile` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.4.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.5.jar` is located.
 
 ## Connection string
 

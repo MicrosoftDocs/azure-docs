@@ -71,65 +71,18 @@ For now, customer-managed keys have the following restrictions:
 
 - If this feature is enabled for your disk, you cannot disable it.
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
-- Only ["soft" and "hard" RSA keys](../../key-vault/keys/about-keys.md) of size 2048 are supported, no other keys or sizes.
+- Only [software and HSM RSA keys](../../key-vault/keys/about-keys.md) of size 2048 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
-- If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
 - Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
 - For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../image-version-encryption.md).
 
 ### CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
 
-1. Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).
-
-1. Create an instance of Azure Key Vault and encryption key.
-
-    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
-
-    > [!IMPORTANT]
-    > Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
-
-    ```azurecli
-    subscriptionId=yourSubscriptionID
-    rgName=yourResourceGroupName
-    location=westcentralus
-    keyVaultName=yourKeyVaultName
-    keyName=yourKeyName
-    diskEncryptionSetName=yourDiskEncryptionSetName
-    diskName=yourDiskName
-
-    az account set --subscription $subscriptionId
-
-    az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
-
-    az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
-    ```
-
-1.    Create an instance of a DiskEncryptionSet. 
-    
-        ```azurecli
-        keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
-    
-        keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
-    
-        az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
-        ```
-
-1.    Grant the DiskEncryptionSet resource access to the key vault. 
-
-        > [!NOTE]
-        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
-
-        ```azurecli
-        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-    
-        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
-        ```
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 #### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
@@ -156,7 +109,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskEncryptionSetName=yourDiskEncryptionSetName
  
-az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetName
 ```
 
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
@@ -216,11 +169,7 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 
 #### Find the status of server-side encryption of a disk
 
-```azurecli
-
-az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
-
-```
+[!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

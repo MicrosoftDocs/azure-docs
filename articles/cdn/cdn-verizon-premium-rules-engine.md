@@ -5,7 +5,7 @@ services: cdn
 author: asudbring
 
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
 

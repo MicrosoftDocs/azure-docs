@@ -24,8 +24,6 @@ ms.author: juliako
 
 The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one). If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
-You can have General Purpose v1 or General Purpose v2 as your primary storage account. Currently, the Azure portal only allows picking v1 but you can add v2 when creating you account using the API or Powershell. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
-
 The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
 This article shows how to create a Media Services account using the Azure portal.

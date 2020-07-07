@@ -1,6 +1,6 @@
 ---
-title: Enable machines for management by Azure Automation State Configuration
-description: How to set up machines for management with Azure Automation State Configuration
+title: Enable Azure Automation State Configuration
+description: This article tells how to set up machines for management with Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
 ---
-# Enable machines for management by Azure Automation State Configuration
+# Enable Azure Automation State Configuration
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 
 ## Enable Azure VMs
 
-Azure Automation State Configuration lets you easily enable Azure VMs for configuration management, using the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into a VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation State Configuration. Since the Azure extension runs asynchronously, steps to track its progress or troubleshoot it are provided in [Troubleshoot VM setup for State Configuration](#troubleshoot-vm-setup-for-state-configuration).
+Azure Automation State Configuration lets you easily enable Azure VMs for configuration management, using the Azure portal, Azure Resource Manager templates, or PowerShell. Under the hood, and without an administrator having to remote into a VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation State Configuration. Since the Azure extension runs asynchronously, steps to track its progress are provided in [Check status of VM setup](#check-status-of-vm-setup).
 
 > [!NOTE]
 >Deploying DSC to a Linux node uses the **/tmp** folder. Modules such as `nxautomation` are temporarily downloaded for verification before installing them in their appropriate locations. To ensure that modules install correctly, the Log Analytics agent for Linux needs read/write permissions on the **/tmp** folder.<br><br>
@@ -119,7 +119,7 @@ To enable any machine for State Configuration, you can generate a [DSC metaconfi
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to enable a machine in an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
-Proxy support for metaconfigurations is controlled by LCM, which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of the proxy URL and the proxy credential as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. See [Configuring the Local Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7).
+Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md). 
 
 ### Generate DSC metaconfigurations using a DSC configuration
 
@@ -305,27 +305,26 @@ After registering a machine as a DSC node in Azure Automation State Configuratio
 
 You can re-register a node just as you registered the node initially, using any of the methods described in this document. You do not need to unregister a node from Azure Automation State Configuration before re-registering it.
 
-## Troubleshoot VM setup for State Configuration
+## Check status of VM setup
 
 State Configuration lets you easily enable Azure Windows VMs for configuration management. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation State Configuration. Since the Azure VM Desired State Configuration extension runs asynchronously, tracking its progress and troubleshooting its execution can be important.
 
 > [!NOTE]
 > Any method of enabling Azure Windows VMs for State Configuration that uses the Azure VM Desired State Configuration extension can take up to an hour for Azure Automation to show VMs as registered. This delay is due to the installation of WMF 5 on the VM by the Azure VM Desired State Configuration extension, which is required to enable VMs for State Configuration.
 
-To troubleshoot or view the status of the Azure VM Desired State Configuration extension:
+To view the status of the Azure VM Desired State Configuration extension:
 
 1. In the Azure portal, navigate to the VM being enabled.
 2. Click **Extensions** under **Settings**. 
 3. Now select **DSC** or **DSCForLinux**, depending on your operating system. 
 4. For more details, you can click **View detailed status**.
 
-For more information on troubleshooting, see [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).
-
 ## Next steps
 
-- To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 - For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- For an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Usage Example: Continuous deployment to virtual machines Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).
+- For an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
+- For troubleshooting information, see [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).

@@ -1,8 +1,8 @@
 ---
 title: Set up private link
-description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network
+description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/19/2020
 ---
 
 # Configure Azure Private Link for an Azure container registry 
@@ -19,7 +19,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Prerequisites
 
-* To use the Azure CLI steps in this article, Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* To use the Azure CLI steps in this article, Azure CLI version 2.6.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and [import](container-registry-import-images.md) a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry.
 * To configure registry access using a private link in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
 
@@ -277,10 +277,24 @@ Your private link is now configured and ready for use.
 
 ## Disable public access
 
-For many scenarios, disable registry access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. To disable public access using the portal:
+For many scenarios, disable registry access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. 
+
+### Disable public access - CLI
+
+To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. 
+
+> [!NOTE]
+> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
+
+### Disable public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **Disabled**. Then select **Save**.
 
 ## Validate private link connection
 

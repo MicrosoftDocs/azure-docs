@@ -32,7 +32,7 @@ Use this article to find the limits for the size, and rates that you can send da
 
 The maximum number of documents you can send in a single request will depend on the API version and feature you're using.
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3](#tab/version-3)
 
 > [!NOTE]
 > If your v3 API request exceeds these limits, but is within the v2 limits, a warning will be returned in the API response. Starting 7/15/2020, a 400 error code will be returned instead. 

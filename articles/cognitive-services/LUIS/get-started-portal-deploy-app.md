@@ -35,7 +35,8 @@ Every time you create a new authoring or query prediction resource for LUIS, you
 
 1. Select your tenant, subscription, and resource name. Select **Assign resource**.
 
-   ![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Complete the same steps to add the authoring key to your app.
 
@@ -46,11 +47,11 @@ Every time you create a new authoring or query prediction resource for LUIS, you
 
 ## Train the app
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+If you changed the app since you trained it last, [train](get-started-portal-build-app.md) the app.
 
 ## Publish the app to the prediction endpoint
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## Prediction endpoint request
 

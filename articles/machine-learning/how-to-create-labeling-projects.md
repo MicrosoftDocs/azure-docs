@@ -5,12 +5,13 @@ description: Learn how to create and run labeling projects to tag data for machi
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 
 ---
 
-# Create a data labeling project and export labels 
+# Create a data labeling project (preview) and export labels 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -36,7 +37,6 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-
 * The data that you want to label, either in local files or in Azure blob storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
@@ -51,8 +51,7 @@ If your data is already in Azure Blob storage, you should make it available as a
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
-![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation wizard":::
 
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
@@ -64,6 +63,8 @@ Select **Next** when you're ready to continue.
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
+> [!NOTE]
+> A project cannot contain more than 500,000 images.  If your dataset has more, only the first 500,000 images will be loaded.  
 
 ### Create a dataset from an Azure datastore
 
@@ -82,8 +83,6 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-> [!NOTE]
-> The data you choose is loaded into your project.  Adding more data to the datastore will not appear in this project once the project is created.  
 
 ### Create a dataset from uploaded data
 
@@ -99,6 +98,19 @@ To directly upload your data:
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+
+## <a name="incremental-refresh"> </a> Configure incremental refresh
+
+If you plan to add new images to your dataset, use incremental refresh to add these new images your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 images.
+
+To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
+
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
+
+Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
+
+You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
+
 
 ## Specify label classes
 
@@ -161,7 +173,10 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 ## Initialize the labeling project
 
-After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
+After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**.
+
+> [!NOTE]
+> This page may not automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
 ## Run and monitor the project
 

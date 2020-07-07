@@ -2,12 +2,15 @@
 title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
 ms.topic: troubleshooting
-ms.date: 10/04/2019
+ms.date: 06/25/2020
 ---
 
 # Resolve error when deployment count exceeds 800
 
 Each resource group is limited to 800 deployments in its deployment history. This article describes the error you receive when a deployment fails because it would exceed the allowed 800 deployments. To resolve this error, delete deployments from the resource group history. Deleting a deployment from the history doesn't affect any of the resources that were deployed.
+
+> [!NOTE]
+> Azure Resource Manager will soon start automatically deleting deployments from your history as you near the limit. You may still see this error if you've opted out of automatic deletions. For more information, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 
 ## Symptom
 

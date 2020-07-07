@@ -28,8 +28,12 @@
     href: Quickstarts/batch-testing.md
 - name: Concepts
   items:
+  - name: Plan your knowledge base
+    href: Concepts/plan.md
   - name: Azure resources
     href: Concepts/azure-resources.md
+  - name: Collaborate with others
+    href: Concepts/role-based-access-control.md
   - name: Design a knowledge base
     items:
     - name: For languages
@@ -42,7 +46,7 @@
       href: Concepts/knowledge-base.md
     - name: Content types imported
       href: Concepts/content-types.md
-    - name: Question and answer sets
+    - name: Question and answer pairs
       href: Concepts/question-answer-set.md
   - name: Knowledge base lifecycle
     items:
@@ -70,8 +74,6 @@
     - name: Manage resources
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Create a business continuity plan
-      href: How-To/business-continuity-plan.md
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
@@ -107,10 +109,6 @@
   - name: Query knowledge base
     href: How-To/metadata-generateanswer-usage.md
     displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
-  - name: Use with a client application
-    items:
-    - name: LUIS and QnA Maker
-      href: Tutorials/integrate-qnamaker-luis.md
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
   - name: Using REST APIs
@@ -155,6 +153,8 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
+  - name: Role-based access control (RBAC)
+    href: reference-role-based-access-control.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Service configuration
@@ -201,12 +201,14 @@
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-go
-    - name: Node.js
+    - name: JavaScript
       items:
       - name: Reference Documentation
         href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
-      - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+      - name: NPM - Authoring
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
+      - name: NPM - Query runtime
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker-runtime
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python

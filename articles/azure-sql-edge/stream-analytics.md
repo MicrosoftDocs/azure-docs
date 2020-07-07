@@ -2,8 +2,8 @@
 title: Using Azure Stream Analytics Edge jobs with Azure SQL Edge (Preview)
 description: Learn about using Stream Analytics jobs in Azure SQL Edge (Preview)
 keywords: SQL Edge, stream analytics, 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -47,7 +47,7 @@ Azure SQL Edge has a native implementation of the stream analytics runtime. This
     |Field      | Description |
     |---------------|-------------|
     |Output alias | Name of the output alias.|
-    |Database | Name of the SQL database. It needs to be a valid name of a database that exists on the SQL Edge instance.|
+    |Database | Name of the database. It needs to be a valid name of a database that exists on the SQL Edge instance.|
     |Server name | Name (or IP address) and port number details for the SQL instance. For a SQL Edge deployment, you can use **tcp:.,1433** for the server name.|
     |Username | SQL sign-in account that has data reader and data writer access to the database that you specified earlier.|
     |Password | Password for the SQL sign-in account that you specified earlier.|

@@ -5,12 +5,13 @@ description: Learn how to use the data tagging tools in an Azure Machine Learnin
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 
 ---
 
-# Tag images in a labeling project
+# Tag images in a labeling project (preview)
 
 After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 

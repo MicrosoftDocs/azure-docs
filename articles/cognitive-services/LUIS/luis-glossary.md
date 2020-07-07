@@ -33,11 +33,11 @@ Authoring is the ability to create, manage and deploy a LUIS app, either using t
 
 ### Authoring Key
 
-The [authoring key](luis-concept-keys.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
+The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-concept-keys.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
@@ -134,9 +134,9 @@ The entity schema is the structure you define for machine learned entities with 
 
 ### Entity's subentity
 
-A subentity is a child entity of a machine-learned entity.
+A subentity is a child entity of a machine-learning entity.
 
-### Non-machine-learned entity
+### Non-machine-learning entity
 
 An entity that uses text matching to extract data:
 * List entity
@@ -159,7 +159,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learned feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 
@@ -195,6 +195,10 @@ A (machine learned) model is a function that makes a prediction on input data. I
 
 You add values to your [list](#list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
 
+## Overfitting
+
+Overfitting happens when the model is fixated on the specific examples and is not able to generalize well.
+
 ## Owner
 
 Each app has one owner who is the person that created the app. The owner manages permissions to the application in the Azure portal.
@@ -225,7 +229,7 @@ A prediction is a REST request to the Azure LUIS prediction service that takes i
 
 ### Prediction key
 
-The [prediction key](luis-concept-keys.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
+The [prediction key](luis-how-to-azure-subscription.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
 
 This key is not the authoring key. If you have a prediction endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current prediction key inside the endpoint URL at the bottom of Azure resources page in LUIS website. It is the value of the subscription-key name/value pair.
 
@@ -255,7 +259,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 
 ## Schema
 
-Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances. 
+Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
 Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).

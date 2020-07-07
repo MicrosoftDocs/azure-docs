@@ -2,13 +2,13 @@
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: babanisa
+ms.author: femila
 ---
 # Authorizing access to Event Grid resources
 Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).

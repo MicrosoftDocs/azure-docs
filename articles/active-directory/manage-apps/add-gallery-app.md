@@ -2,14 +2,14 @@
 title: Add a gallery app - Azure Active Directory | Microsoft Docs
 description: Learn how to add an app from the Azure AD gallery to your Azure enterprise applications. 
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
       Behavior for **assigned** users:
 
-       | Application property settings | | | Assigned-user experience | |
+       | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
        |---|---|---|---|---|
        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
        | yes | yes | yes | yes | yes  |

@@ -33,7 +33,11 @@ The Speech Devices SDK enables a variety of voice-enabled scenarios, such as [vo
 
 ### Android
 
-For Android, devices download the latest version of the [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
+The Speech Devices SDK for Android supports the [Roobo v1](speech-devices-sdk-roobo-v1.md) and equivalent devices, for these download the latest version of the [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
+
+
+If you have a different Android device, like a phone or mobile, start with the [Android Speech SDK](speech-sdk.md)
+
 
 ### Windows
 

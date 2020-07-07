@@ -3,7 +3,7 @@ title: Troubleshoot Azure HPC Cache NFS storage targets
 description: Tips to avoid and fix configuration errors and other problems that can cause failure when creating an NFS storage target
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
 ---

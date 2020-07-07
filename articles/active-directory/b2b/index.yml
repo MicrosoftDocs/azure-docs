@@ -24,6 +24,18 @@ landingContent:
             url: compare-with-b2c.md
           - text: What is B2B guest user access?
             url: what-is-b2b.md
+  - title: Self-service sign-up (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is self-service sign-up?
+            url: self-service-sign-up-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Add a self-service sign-up user flow
+            url: self-service-sign-up-user-flow.md
+          - text: Define custom attributes for user flows
+            url: user-flow-add-custom-attributes.md
   - title: Invite B2B guest users
     linkLists:
       - linkListType: concept

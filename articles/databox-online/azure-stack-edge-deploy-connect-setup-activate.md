@@ -20,6 +20,7 @@ The setup and activation process can take around 20 minutes to complete.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Connect to a physical device
 > * Set up and activate the physical device
 
@@ -30,7 +31,7 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 * You've installed the physical device as detailed in [Install Azure Stack Edge](azure-stack-edge-deploy-install.md).
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge device. For more information, go to [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md).
 
-## Connect to the local web UI setup 
+## Connect to the local web UI setup
 
 1. Configure the Ethernet adapter on your computer to connect to the Azure Stack Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
@@ -38,11 +39,10 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 
     ![Backplane of a cabled device](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
-    This action may take a few minutes after you've turned on the device. 
+    This action may take a few minutes after you've turned on the device.
 
-    You see an error or a warning indicating that there is a problem with the website's security certificate. 
+    You see an error or a warning indicating that there is a problem with the website's security certificate.
    
     ![Website security certificate error message](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
@@ -91,12 +91,12 @@ Your dashboard displays the various settings that are required to configure and 
    
    a. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
-   b. Under **Authentication**, select **None** or **NTLM**.
+   b. Under **Authentication**, select **None** or **NTLM**. If you enable compute and use IoT Edge module on your Azure Stack Edge device, we recommend you set web proxy authentication to **None**. **NTLM** is not supported.
 
    c. If you're using authentication, enter a username and password.
 
    d. To validate and apply the configured web proxy settings, select **Apply settings**.
-   
+
    > [!NOTE]
    > Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL.
    > Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's cert is not trusted.

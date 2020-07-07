@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ---
@@ -153,7 +153,7 @@ The default Blob container stores cluster-specific information such as job histo
 
 ## Use additional storage accounts
 
-While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. Also, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process. Or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. Also, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.

@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 03/27/2018
+ms.date: 06/25/2020
 ms.custom: avverma
 ---
 
@@ -44,4 +44,3 @@ This script uses the following commands to create the deployment. Each item in t
 ## Next steps
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).

@@ -74,9 +74,6 @@ When the assistant app has focus, the customer intent is clearly to interact wit
 
 Available with 19H2, assistants built on Windows voice activation platform are available to answer above lock.
 
-> [!NOTE]
-> Due to an active issue, assistants that draw above lock UI must implement WindowService.CloseWindow() for all dismissals. This will result in app termination, but mitigates a technical issue and keeps the assistant in a clean state. Furthermore, to maintain clean state if an app is enabled for above lock voice activation, it must listen for lock state changes and WindowService.CloseWindow() when the device locks.
-
 ### Customer opt-in
 
 Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implementation-guide.md#detecting-above-lock-activation-user-preference).

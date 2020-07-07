@@ -107,10 +107,10 @@ To configure Azure AD single sign-on with ClickTime, perform the following steps
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `https://app.clicktime.com/Login/` |
-	| `https://app.clicktime.com/App/Login/Consume.aspx` |
+        ```https
+        https://app.clicktime.com/Login/
+        https://app.clicktime.com/App/Login/Consume.aspx
+        ```
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

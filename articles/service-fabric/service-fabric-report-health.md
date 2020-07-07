@@ -1,11 +1,11 @@
 ---
 title: Add custom Service Fabric health reports 
 description: Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.
-author: oanapl
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
+ms.author: gwallace
 ---
 # Add custom Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. The health model uses **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. The health information can save time and effort on debugging and investigation. The usefulness is especially clear once the service is up and running at scale in the cloud (private or Azure).

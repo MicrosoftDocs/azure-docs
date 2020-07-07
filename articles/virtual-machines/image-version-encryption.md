@@ -11,7 +11,7 @@ ms.author: cynthn
 
 # Preview: Use customer-managed keys for encrypting images
 
-Gallery images are stored as managed disks, so they are automatically encrypted using server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Gallery images are stored as managed disks, so they are automatically encrypted using server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
 You can rely on platform-managed keys for the encryption of your images, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
@@ -19,7 +19,7 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 To use customer managed keys for images, you first need an Azure Key Vault. You then create a disk encryption set. The disk encryption set is then used when creating you image versions.
 
-For more information about creating and using disk encryption sets, see [Customer managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+For more information about creating and using disk encryption sets, see [Customer managed keys](./windows/disk-encryption.md#customer-managed-keys).
 
 ## Limitations
 
@@ -68,7 +68,7 @@ If it doesn't return `Registered`, use the following to register the providers:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-To specify a disk encryption set to for an image version, use  [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter. 
+To specify a disk encryption set to for an image version, use  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter. 
 
 ```azurepowershell-interactive
 
@@ -190,4 +190,4 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 
 ## Next steps
 
-Learn more about [server-side disk encryption](/windows/disk-encryption.md)).
+Learn more about [server-side disk encryption](./windows/disk-encryption.md).

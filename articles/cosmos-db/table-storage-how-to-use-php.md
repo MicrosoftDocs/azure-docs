@@ -503,8 +503,8 @@ Now that you've learned the basics of the Azure Table service and Azure Cosmos D
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: https://php.net/require_once
-[table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
+[table-service-timeouts]: /rest/api/storageservices/setting-timeouts-for-table-service-operations
 
-[table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model
-[filters]: https://docs.microsoft.com/rest/api/storageservices/Querying-Tables-and-Entities
-[entity-group-transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
+[table-data-model]: /rest/api/storageservices/Understanding-the-Table-Service-Data-Model
+[filters]: /rest/api/storageservices/Querying-Tables-and-Entities
+[entity-group-transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions

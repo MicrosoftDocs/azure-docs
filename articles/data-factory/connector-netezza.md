@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/28/2020
 ms.author: jingwang
 
 ---
@@ -62,8 +62,8 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use TLS.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use TLS. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses TLS. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an TLS connection is available. | No |
-| CaCertFile | The full path to the TLS/SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if TLS is enabled |
+| SecurityLevel | The level of security that the driver uses for the connection to the data store. The driver supports SSL connections with one-way authentication using SSL version 3. <br>Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an SSL connection is available. | No |
+| CaCertFile | The full path to the SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
 
 **Example**
 
