@@ -96,8 +96,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 ### Use CMD or PowerShell in Serial Console
 
 1.    Connect to the serial console. If you successfully connect, the prompt is **SAC>**:
-
-![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+    ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
 2.    Enter `cmd` to create a channel that has a CMD instance.
 
@@ -108,8 +107,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 5.    After you've entered valid credentials, the CMD instance opens.
 
 6.    To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
-
-![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+    ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### Use the serial console for NMI calls
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine won't ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times. Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems that are not responding.
