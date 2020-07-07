@@ -19,15 +19,13 @@ In this example, we'll use Cognitive Services and write to an Azure Search Index
 
 ## Prerequisites
 
-* You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
-
-* You must have a subscription key for Azure Cognitive Search. For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
-
-<a name="ImportLibraries"></a>
+* You must have a subscription key for Computer Vision and Cognitive Search. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+  > [!NOTE]
+  > For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
 ## Import Libraries
 
-Run the following command to import libraries that will be used in this recipe.
+Run the following command to import libraries for this recipe.
 
 ```python
 import os, sys, time, json, requests
@@ -35,8 +33,6 @@ from pyspark.ml import Transformer, Estimator, Pipeline
 from pyspark.ml.feature import SQLTransformer
 from pyspark.sql.functions import lit, udf, col, split
 ```
-
-<a name="SubscriptionKeys"></a>
 
 ## Set up Subscription Keys
 
