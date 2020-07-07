@@ -43102,6 +43102,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-policy.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-policy.md",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-hybrid-cloud.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid.md",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
