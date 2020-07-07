@@ -130,6 +130,14 @@
       href: https://github.com/Azure-Samples/dtdl-validator
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
+  - name: Digital Twins tools
+    items: 
+    - name: Azure Cloud Shell
+      href: https://shell.azure.com
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iot
+    - name: Azure portal
+      href: https://portal.azure.com
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
