@@ -13,10 +13,20 @@ ms.author: memildin
 ---
 # Secure your management ports with just-in-time access
 
-If you're on Security Center's standard pricing tier (see [pricing](/azure/security-center/security-center-pricing)), you can lock down inbound traffic to your Azure VMs with just-in-time (JIT) virtual machine (VM) access. This reduces exposure to attacks while providing easy access to connect to VMs when needed.
+Lock down inbound traffic to your Azure Virtual Machines with just-in-time (JIT) virtual machine (VM) access. This reduces exposure to attacks while providing easy access to connect to VMs when needed.
 
-> [!NOTE]
-> Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
+## Availability
+
+- Release state: **General availability**
+- Pricing: **Standard tier**. [Learn more about pricing](/azure/security-center/security-center-pricing).
+- Required roles and permissions:
+    - **Reader** and **SecurityReader** roles can both read policies. 
+    - To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](faq-just-in-time.md#what-permissions-are-needed-to-configure-and-use-jit)
+- Supported VMs: VMs deployed through Azure Resource Manager (ARM). [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+- Clouds: 
+    - ✔ Commercial clouds
+    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
+
 
 [!INCLUDE [security-center-jit-description](../../includes/security-center-jit-description.md)]
 
@@ -226,7 +236,10 @@ Run the following in PowerShell to accomplish this:
 
 3.    Configure the just-in-time VM access policy on the selected VM:
     
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        ```Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr```
+
+    > [!NOTE]
+    > Please use the -Name parameter with Set-AzJitNetworkAccessPolicy cmdlet to setup JIT Policy for a specific VM. For example, in order to setup policy for two different VMs - VM1 and VM2, use Set-AzJitNetworkAccessPolicy -Name VM1 and Set-AzJitNetworkAccessPolicy -Name VM2 respectively.
 
 ### Request access to a VM via PowerShell
 
@@ -251,14 +264,6 @@ Run the following in PowerShell:
 For more information, see the [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
-## Automatic cleanup of redundant JIT rules 
-
-Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed any more. The cleaner never deletes rules that you've created.
-
-Examples scenarios when the cleaner might remove a built-in rule:
-
-- When two rules with identical definitions exist and one has a higher priority than the other (meaning, the lower priority rule will never be used)
-- When a rule description includes the name of a VM which doesn't match the destination IP in the rule 
 
 
 ## Next steps

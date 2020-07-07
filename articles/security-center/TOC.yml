@@ -186,6 +186,8 @@
     items:
     - name: General questions
       href: faq-general.md
+    - name: Just-in-time (JIT) questions
+      href: faq-just-in-time.md
     - name: Billing questions
       href: faq-billing.md
     - name: Permissions questions
