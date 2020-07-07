@@ -66,299 +66,84 @@ To utilize the JMS features supported by Service Bus Standard tier (see [What JM
 > JMS JAR names and versions may have changed. For details, see [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 >
 
-## Coding Java applications (TODO clean up and add Premium bits)
-### Java Naming and Directory Interface (JNDI)
-JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple property file-based JNDI Provider that is configured using a properties file of the following format:
+## Coding Java applications
 
-```TEXT
-# servicebus.properties - sample JNDI configuration
+Once the dependencies have been imported, the Java applications can be written in a JMS provider agnostic manner.
 
-# Register a ConnectionFactory in JNDI using the form:
-# connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+Since Azure Service Bus Standard and Premium differ in the dependencies and the number of JMS features they support, the programming model is slightly different for the two.
 
-# Register some queues in JNDI using the form
-# queue.[jndi_name] = [physical_name]
-# topic.[jndi_name] = [physical_name]
-queue.QUEUE = queue1
-```
+> [!IMPORTANT]
+> The below guide showcases how to connect to Azure Service Bus given a simple application.
+>
+> Given that most enterprise application architectures may have a custom way to manage dependencies and configurations, use the below as a guide to understand what is needed and adapt to your application appropriately.
+>
 
-#### Setup JNDI context and Configure the ConnectionFactory
+### Connecting to Azure Service Bus using JMS
 
-The **ConnectionString** referenced in the one available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**
-```java
-// The connection string builder is the only part of the azure-servicebus SDK library
-// we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
-// connection string. 
-ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
-        
-// set up JNDI context
-Hashtable<String, String> hashtable = new Hashtable<>();
-hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
-hashtable.put("queue.QUEUE", "BasicQueue");
-hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
-Context context = new InitialContext(hashtable);
+To connect with Azure Service Bus using JMS clients, you need the **ConnectionString** which is available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
 
-ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
 
-// Look up queue
-Destination queue = (Destination) context.lookup("QUEUE");
-```
+#### Connecting to Azure Service Bus Premium over JMS 2.0 (Preview)
 
-#### Configure Producer and Consumer Destination Queues
-The entry used to define a destination in the Qpid properties file JNDI provider is of the following format:
+1. Instantiate the `ServiceBusJmsConnectionFactorySettings`
+    ```java
+    ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
 
-To create the destination queue for the Producer - 
-```java
-String queueName = "queueName";
-Destination queue = (Destination) queueName;
+    connFactorySettings.setConnectionIdleTimeoutMS(20000);
+    ```
+2. Instantiate the `ServiceBusJmsConnectionFactory` with the appropriate `ServiceBusConnectionString`.
+    ```java
+    String ServiceBusConnectionString = "<SERVICE_BUS_CONNECTION_STRING_WITH_MANAGE_PERMISSIONS>";
+    ConnectionFactory factory = new ServiceBusJmsConnectionFactory(ServiceBusConnectionString, connFactorySettings);
+    ```
 
-ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-Connection connection - cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+3. Use the `ConnectionFactory` to either create a `Connection` and then a `Session` 
+    ```java
+    Connection connection = factory.createConnection();
+    Session session = connection.createSession();
+    ```
+    or a `JMSContext` (for JMS 2.0 clients)
 
-Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+    ```java
+    JMSContext jmsContext = factory.createContext();
+    ```
 
-// Create Producer
-MessageProducer producer = session.createProducer(queue);
-```
+#### Connecting to Azure Service Bus Standard over JMS 1.1
 
-To create a destination queue for the Consumer - 
-```java
-String queueName = "queueName";
-Destination queue = (Destination) queueName;
+1. Insert Azure Service Bus configuration into JNDI properties file called **servicebus.properties**.
+    ```properties
+    # servicebus.properties - sample JNDI configuration
+    
+    # Register a ConnectionFactory in JNDI using the form:
+    # connectionfactory.[jndi_name] = [ConnectionURL]
+    connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+    ```
 
-ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-Connection connection - cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+2. Setup JNDI context and configure the ConnectionFactory
+    ```java
+    ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
 
-Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-
-// Create Consumer
-MessageConsumer consumer = session.createConsumer(queue);
-```
+    // set up JNDI context
+    Hashtable<String, String> hashtable = new Hashtable<>();
+    hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
+    hashtable.put("queue.QUEUE", "BasicQueue");
+    hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
+    Context context = new InitialContext(hashtable);
+    
+    ConnectionFactory factory = (ConnectionFactory) context.lookup("SBCF");
+    ```
+3. Use the `ConnectionFactory` to create a `Connection` and then a `Session`.
+    ```java
+    Connection connection - factory.createConnection(csb.getSasKeyName(), csb.getSasKey());
+    Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+    ```
 
 ### Write the JMS application
-There are no special APIs or options required when using JMS with Service Bus. However, there are a few restrictions that will be covered later. As with any JMS application, the first thing required is configuration of the JNDI environment, to be able to resolve a **ConnectionFactory** and destinations.
 
-#### Configure the JNDI InitialContext
-The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class. The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL. The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named **servicebus.properties**.
+Once the `Session` or `JMSContext` has been instantiated, your application can leverage the JMS APIs to perform both management and data operations.
 
-```java
-// set up JNDI context
-Hashtable<String, String> hashtable = new Hashtable<>();
-hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + \
-"?amqp.idleTimeout=120000&amqp.traceFrames=true");
-hashtable.put("queue.QUEUE", "BasicQueue");
-hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
-Context context = new InitialContext(hashtable);
-``` 
+Please refer to the list of [supported JMS features](#what-jms-features-are-supported-?) for both Standard and Premium tier.
 
-### A simple JMS application using a Service Bus queue
-The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.
-
-You can all access all the source code and configuration information from the [Azure Service Bus Samples JMS Queue quickstart](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
-
-```java
-// Copyright (c) Microsoft. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
-package com.microsoft.azure.servicebus.samples.jmsqueuequickstart;
-
-import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
-import org.apache.commons.cli.*;
-import org.apache.log4j.*;
-
-import javax.jms.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import java.util.Hashtable;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
-
-/**
- * This sample demonstrates how to send messages from a JMS Queue producer into
- * an Azure Service Bus Queue, and receive them with a JMS message consumer.
- * JMS Queue. 
- */
-public class JmsQueueQuickstart {
-
-    // Number of messages to send
-    private static int totalSend = 10;
-    //Tracking counter for how many messages have been received; used as termination condition
-    private static AtomicInteger totalReceived = new AtomicInteger(0);
-    // log4j logger 
-    private static Logger logger = Logger.getRootLogger();
-
-    public void run(String connectionString) throws Exception {
-
-        // The connection string builder is the only part of the azure-servicebus SDK library
-        // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
-        // connection string. 
-        ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
-        
-        // set up JNDI context
-        Hashtable<String, String> hashtable = new Hashtable<>();
-        hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
-        hashtable.put("queue.QUEUE", "BasicQueue");
-        hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
-        Context context = new InitialContext(hashtable);
-        ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-        
-        // Look up queue
-        Destination queue = (Destination) context.lookup("QUEUE");
-
-        // we create a scope here so we can use the same set of local variables cleanly 
-        // again to show the receive side separately with minimal clutter
-        {
-            // Create Connection
-            Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
-            // Create Session, no transaction, client ack
-            Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-
-            // Create producer
-            MessageProducer producer = session.createProducer(queue);
-
-            // Send messages
-            for (int i = 0; i < totalSend; i++) {
-                BytesMessage message = session.createBytesMessage();
-                message.writeBytes(String.valueOf(i).getBytes());
-                producer.send(message);
-                System.out.printf("Sent message %d.\n", i + 1);
-            }
-
-            producer.close();
-            session.close();
-            connection.stop();
-            connection.close();
-        }
-
-        {
-            // Create Connection
-            Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
-            connection.start();
-            // Create Session, no transaction, client ack
-            Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-            // Create consumer
-            MessageConsumer consumer = session.createConsumer(queue);
-            // create a listener callback to receive the messages
-            consumer.setMessageListener(message -> {
-                try {
-                    // receives message is passed to callback
-                    System.out.printf("Received message %d with sq#: %s\n",
-                            totalReceived.incrementAndGet(), // increments the tracking counter
-                            message.getJMSMessageID());
-                    message.acknowledge();
-                } catch (Exception e) {
-                    logger.error(e);
-                }
-            });
-
-            // wait on the main thread until all sent messages have been received
-            while (totalReceived.get() < totalSend) {
-                Thread.sleep(1000);
-            }
-            consumer.close();
-            session.close();
-            connection.stop();
-            connection.close();
-        }
-
-        System.out.printf("Received all messages, exiting the sample.\n");
-        System.out.printf("Closing queue client.\n");
-    }
-
-    public static void main(String[] args) {
-
-        System.exit(runApp(args, (connectionString) -> {
-            JmsQueueQuickstart app = new JmsQueueQuickstart();
-            try {
-                app.run(connectionString);
-                return 0;
-            } catch (Exception e) {
-                System.out.printf("%s", e.toString());
-                return 1;
-            }
-        }));
-    }
-
-    static final String SB_SAMPLES_CONNECTIONSTRING = "SB_SAMPLES_CONNECTIONSTRING";
-
-    public static int runApp(String[] args, Function<String, Integer> run) {
-        try {
-
-            String connectionString = null;
-
-            // parse connection string from command line
-            Options options = new Options();
-            options.addOption(new Option("c", true, "Connection string"));
-            CommandLineParser clp = new DefaultParser();
-            CommandLine cl = clp.parse(options, args);
-            if (cl.getOptionValue("c") != null) {
-                connectionString = cl.getOptionValue("c");
-            }
-
-            // get overrides from the environment
-            String env = System.getenv(SB_SAMPLES_CONNECTIONSTRING);
-            if (env != null) {
-                connectionString = env;
-            }
-
-            if (connectionString == null) {
-                HelpFormatter formatter = new HelpFormatter();
-                formatter.printHelp("run jar with", "", options, "", true);
-                return 2;
-            }
-            return run.apply(connectionString);
-        } catch (Exception e) {
-            System.out.printf("%s", e.toString());
-            return 3;
-        }
-    }
-}
-```
-
-### Run the application
-Pass the **Connection String** from the Shared Access Policies to run the application.
-Below is the output of the form by running the Application:
-
-```Output
-> mvn clean package
->java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
-
-Sent message 1.
-Sent message 2.
-Sent message 3.
-Sent message 4.
-Sent message 5.
-Sent message 6.
-Sent message 7.
-Sent message 8.
-Sent message 9.
-Sent message 10.
-Received message 1 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-1
-Received message 2 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-2
-Received message 3 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-3
-Received message 4 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-4
-Received message 5 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-5
-Received message 6 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-6
-Received message 7 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-7
-Received message 8 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-8
-Received message 9 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-9
-Received message 10 with sq#: ID:7f6a7659-bcdf-4af6-afc1-4011e2ddcb3c:1:1:1-10
-Received all messages, exiting the sample.
-Closing queue client.
-
-```
-
-## AMQP disposition and Service Bus operation mapping
-Here is how an AMQP disposition translates to a Service Bus operation:
-
-```Output
-ACCEPTED = 1; -> Complete()
-REJECTED = 2; -> DeadLetter()
-RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
-MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
-MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
-```
 
 ## JMS Topics vs. Service Bus Topics
 Using Azure Service Bus topics and subscriptions through the Java Message Service (JMS) API provides basic send and receive capabilities. It's a convenient choice when porting applications from other message brokers with JMS-compliant APIs, even though Service Bus topics differ from JMS Topics and require a few adjustments. 
@@ -372,14 +157,16 @@ JMS Topics allow clients to dynamically create nondurable and durable subscriber
 The JMS Topic publisher side is compatible with Service Bus, as shown in this sample, but dynamic subscribers aren't. The following topology-related JMS APIs aren't supported with Service Bus. 
 
 ## Summary
-This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
+This guide showcased how Java client applications using Java Message Service (JMS) over AMQP 1.0 can interact with Azure Service Bus.
 
 You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus.
 
 ## Next steps
+
+For more information on Azure Service Bus and details about Java Message Service (JMS) entities check out the links below - 
+* [Service Bus - Queues, Topics and Subscriptions](service-bus-queues-topics-subscriptions.md)
+* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#Java-Message-Service-(JMS)-Entities-(Preview))
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
-* [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [Java Developer Center](https://azure.microsoft.com/develop/java/)
 

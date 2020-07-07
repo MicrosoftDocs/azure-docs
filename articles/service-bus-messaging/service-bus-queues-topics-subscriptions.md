@@ -57,7 +57,13 @@ For a full working example, see the [TopicSubscriptionWithRuleOperationsSample s
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
-## Java Message Service (JMS) Subscriptions (Preview)
+## Java Message Service (JMS) Entities (Preview)
+
+### Temporary Queues
+
+### Temporary Topics
+
+### Java Message Service (JMS) Subscriptions
 
 Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below subscriptions. 
 
@@ -69,7 +75,7 @@ While, these are semantically similar to the Subscriptions described above (i.e.
 > For the Public preview, these subscriptions cannot be created using the Azure portal.
 >
 
-### Shared Durable Subscriptions
+#### Shared Durable Subscriptions
 
 A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription at all times.
 
@@ -89,7 +95,7 @@ The shared durable subscription continues to exist unless deleted using the `uns
 void unsubscribe(String name)
 ```
 
-### Unshared Durable Subscriptions
+#### Unshared Durable Subscriptions
 
 Just like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively  consuming from the subscription at all times.
 
@@ -113,7 +119,7 @@ The unshared durable subscription continues to exist unless deleted using the `u
 void unsubscribe(String name)
 ```
 
-### Shared non-durable Subscriptions
+#### Shared non-durable Subscriptions
 
 A shared non-durable subscription is used when multiple client applications need to receive and process messages from a single subscription, only until they are actively consuming/receiving from it.
 
@@ -129,7 +135,7 @@ JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, Str
 
 The shared non-durable subscription continues to exist until there are active consumers receiving from it.
 
-### Unshared non-durable Subscriptions
+#### Unshared non-durable Subscriptions
 
 An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, i.e. the client that created the subscription.
 
@@ -151,7 +157,7 @@ JMSConsumer createConsumer(Destination destination, String messageSelector, bool
 
 The unshared non-durable subscription continues to exist until there is an active consumer receiving from it.
 
-### Message selectors
+#### Message selectors
 
 Just like **Filters and Actions** exist for regular Service Bus subscriptions, **Message Selectors** exist for JMS Subscriptions.
 
