@@ -201,9 +201,6 @@
           items:
             - name: Text-to-speech REST API
               href: rest-text-to-speech.md
-        - name: Release notes
-          displayName: 'Text-to-speech release notes'
-          href: release-notes-tts.md
     - name: Resources
       items:
         - name: Standard voice support
