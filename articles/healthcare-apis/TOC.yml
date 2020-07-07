@@ -19,8 +19,8 @@
     href: fhir-oss-powershell-quickstart.md
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
-  - name: Deploy IoMT connector - Portal
-    href: iomt-fhir-portal-quickstart.md
+  - name: Deploy IoT connector - Portal
+    href: iot-fhir-portal-quickstart.md
 - name: Tutorials
   expanded: false
   items:
@@ -90,13 +90,13 @@
     href: azure-ad-hcapi-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
-  - name: IoMT connector workings
+  - name: IoT Connector workings
     expanded: false
     items:
-    - name: IoMT connector data flow
-      href: iomt-data-flow.md
-    - name: IoMT connector mapping templates
-      href: iomt-mapping-templates.md
+    - name: IoT Connector data flow
+      href: iot-data-flow.md
+    - name: IoT Connector mapping templates
+      href: iot-mapping-templates.md
 - name: Resources
   items:
   - name: FAQ

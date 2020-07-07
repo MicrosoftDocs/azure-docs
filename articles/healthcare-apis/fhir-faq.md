@@ -45,40 +45,40 @@ SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a 
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
 
 
-## IoMT connector (preview)
+## IoT Connector (preview)
 
 ### What is IoMT?
 IoMT stands for Internet of Medical Things and it's a category of IoT devices that capture and exchange health and wellness data with other healthcare IT systems over a network. Some examples of IoMT devices include fitness and clinical wearables, monitoring sensors, activity trackers, point of care kiosks, or even a smart pill.
 
-### How many IoMT connectors do I need?
-A single IoMT connector can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
-- **Scale**: For public preview, IoMT connector resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more IoMT connectors, if higher throughput is needed.
-- **Device type**: You may setup a separate IoMT connector for each type of IoMT devices you have for device management reasons.
+### How many IoT Connectors do I need?
+A single IoT Connector can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
+- **Scale**: For public preview, IoT Connector resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more IoT Connectors, if higher throughput is needed.
+- **Device type**: You may setup a separate IoT Connector for each type of IoMT devices you have for device management reasons.
 
-### Is there a limit on IoMT connector during public preview?
-Yes, you can create only two IoMT connector per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is free during the preview. On request this limit could be raised up to a maximum of five IoMT connectors.
+### Is there a limit on IoT Connector during public preview?
+Yes, you can create only two IoT Connectors per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is free during the preview. On request this limit could be raised up to a maximum of five IoT Connectors.
 
-### What Azure regions IoMT connector feature is available during public preview?
-IoMT connector is available only in the following three Azure regions during public preview: West US 2, East US 2, and UK South. More regions will be added when the feature is released for General Availability (GA).
+### What Azure regions IoT Connector feature is available during public preview?
+IoT Connector is available only in the following three Azure regions during public preview: West US 2, East US 2, and UK South. More regions will be added when the feature is released for General Availability (GA).
 
-### Can I configure scaling capacity for IoMT connector?
-Since IoMT connector is free of charge during public preview, its scaling capacity is fixed and limited. IoMT connector configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
+### Can I configure scaling capacity for IoT Connector?
+Since IoT Connector is free of charge during public preview, its scaling capacity is fixed and limited. IoT Connector configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
 
-### Why can't I see IoMT connector feature under Azure API for FHIR?
-You will not see IoMT connector if one of the following is true:
+### Why can't I see IoT Connector feature under Azure API for FHIR?
+You will not see IoT Connector if one of the following is true:
 - Your Azure API for FHIR service is not installed on one of the supported regions.
 - Your Azure API for FHIR service is running on a FHIR version STU3.
 - Your Azure API for FHIR service has Private link enabled.
 
-### What's the difference between the open-source IoMT FHIR Connector for Azure and IoMT connector feature of Azure API for FHIR service?
-IoMT connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates. 
+### What's the difference between the open-source IoMT FHIR Connector for Azure and IoT Connector feature of Azure API for FHIR service?
+IoT Connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates. 
 
 When you're running IoMT FHIR Connector for Azure, you have direct access to the underlying resources. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS IoMT connector feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
+From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS IoT Connector feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
 
-### Is IoMT connector a FDA-regulated medical device and/or whether IoMT connector requires QMS certification?
-No, IoMT connector is not a FDA-regulated medical device and doesn't require to comply with FDA's Quality System regulations. If you want to use IoMT connector with devices that have QMS requirements, Microsoft is available to work with you to help conduct any evaluation processes you may have.
+### Is IoT Connector an FDA-regulated medical device and/or whether IoT Connector requires QMS certification?
+No, IoT Connector is not a FDA-regulated medical device and doesn't require to comply with FDA's Quality System regulations. If you want to use IoT Connector with devices that have QMS requirements, Microsoft is available to work with you to help conduct any evaluation processes you may have.
 
 
 ## Next steps
