@@ -4,7 +4,7 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ---
 

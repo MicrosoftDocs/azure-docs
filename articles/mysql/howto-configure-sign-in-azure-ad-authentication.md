@@ -4,7 +4,7 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
 ---
 

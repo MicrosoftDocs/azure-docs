@@ -4,7 +4,7 @@ description: Learn about how to set up Azure Active Directory (AAD) for authenti
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ---
 
