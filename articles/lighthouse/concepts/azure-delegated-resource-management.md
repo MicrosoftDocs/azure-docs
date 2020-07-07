@@ -1,13 +1,13 @@
 ---
 title: Azure delegated resource management
-description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
+description: Azure delegated resource management is a key part of Azure Lighthouse, allowing service providers to manage delegated resources at scale with agility and precision.
 ms.date: 05/28/2020
 ms.topic: conceptual
 ---
 
 # Azure delegated resource management
 
-Azure delegated resource management is one of the key components of Azure Lighthouse. With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
+Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
 
 ## What is Azure delegated resource management?
 
