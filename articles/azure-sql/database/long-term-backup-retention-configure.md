@@ -184,7 +184,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### Restore from LTR backups
 
-This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
+This example shows how to restore from an LTR backup. Note, this interface did not change but the resource ID parameter now requires the LTR backup resource ID.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
