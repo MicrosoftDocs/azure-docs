@@ -31,7 +31,7 @@
 - name: How-to guides
   items:
   - name: AVS migration assessment
-    href: https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment
+    href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: Set up HCX
     href: hybrid-cloud-extension-installation.md
   - name: Manage DHCP
