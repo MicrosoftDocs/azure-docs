@@ -59,7 +59,7 @@
         href: concepts-streaming-ingress-throughput-limits.md
       - name: Storage
         href: concepts-storage.md
-        - name: Model
+    - name: Model
       items:
       - name: Model overview
         href: concepts-model-overview.md
