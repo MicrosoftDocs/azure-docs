@@ -206,4 +206,4 @@ If you are a Warm Store user with a large number of properties and believe that 
 
 ## Next steps
 
-* Check out the article on [ingress and storage](time-series-insights-update-storage-ingress.md) to learn about the supported data types.
+* See [this](concepts-supported-data-types.md) article to view the full list of supported data types.
