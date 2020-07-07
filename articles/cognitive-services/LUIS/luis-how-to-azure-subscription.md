@@ -33,7 +33,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 An Azure resource, such as a LUIS, is owned by the subscription containing the resource.
 
-To transfer ownership of a resource, ou can either:
+To transfer ownership of a resource, you can either:
 * Transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription
 * Export the LUIS app as a file, then import app on a different subscription. Export is available from the **My apps** page in the LUIS portal.
 

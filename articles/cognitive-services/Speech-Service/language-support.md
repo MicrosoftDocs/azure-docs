@@ -31,53 +31,53 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Locale  | Language                          | Supported | Customizations                                    |
-|---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabic (UAE)                      | Yes       | No                                                |
-| `ar-BH` | Arabic (Bahrain), modern standard | Yes       | Language model                                    |
-| `ar-EG` | Arabic (Egypt)                    | Yes       | Language model                                    |
-| `ar-IL` | Arabic (Israel)                   | Yes       | No                                                |
-| `ar-JO` | Arabic (Jordan)                   | Yes       | No                                                |
-| `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
-| `ar-LB` | Arabic (Lebanon)                  | Yes       | No                                                |
-| `ar-PS` | Arabic (Palestine)                | Yes       | No                                                |
-| `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
-| `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
-| `ar-SY` | Arabic (Syria)                    | Yes       | Language model                                    |
-| `ca-ES` | Catalan                           | Yes       | Language model                                    |
-| `da-DK` | Danish (Denmark)                  | Yes       | Language model                                    |
-| `de-DE` | German (Germany)                  | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `en-AU` | English (Australia)               | Yes       | Acoustic model<br>Language model                  |
-| `en-CA` | English (Canada)                  | Yes       | Acoustic model<br>Language model                  |
-| `en-GB` | English (United Kingdom)          | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `en-IN` | English (India)                   | Yes       | Acoustic model<br>Language model                  |
-| `en-NZ` | English (New Zealand)             | Yes       | Acoustic model<br>Language model                  |
-| `en-US` | English (United States)           | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `es-ES` | Spanish (Spain)                   | Yes       | Acoustic model<br>Language model                  |
-| `es-MX` | Spanish (Mexico)                  | Yes       | Acoustic model<br>Language model                  |
-| `fi-FI` | Finnish (Finland)                 | Yes       | Language model                                    |
-| `fr-CA` | French (Canada)                   | Yes       | Acoustic model<br>Language model                  |
-| `fr-FR` | French (France)                   | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `gu-IN` | Gujarati (Indian)                 | Yes       | Language model                                    |
-| `hi-IN` | Hindi (India)                     | Yes       | Acoustic model<br>Language model                  |
-| `it-IT` | Italian (Italy)                   | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `ja-JP` | Japanese (Japan)                  | Yes       | Language model                                    |
-| `ko-KR` | Korean (Korea)                    | Yes       | Language model                                    |
-| `mr-IN` | Marathi (India)                   | Yes       | Language model                                    |
-| `nb-NO` | Norwegian (Bokmål) (Norway)       | Yes       | Language model                                    |
-| `nl-NL` | Dutch (Netherlands)               | Yes       | Language model                                    |
-| `pl-PL` | Polish (Poland)                   | Yes       | Language model                                    |
-| `pt-BR` | Portuguese (Brazil)               | Yes       | Acoustic model<br>Language model<br>Pronunciation |
-| `pt-PT` | Portuguese (Portugal)             | Yes       | Language model                                    |
-| `ru-RU` | Russian (Russia)                  | Yes       | Acoustic model<br>Language model                  |
-| `sv-SE` | Swedish (Sweden)                  | Yes       | Language model                                    |
-| `ta-IN` | Tamil (India)                     | Yes       | Language model                                    |
-| `te-IN` | Telugu (India)                    | Yes       | Language model                                    |
-| `th-TH` | Thai (Thailand)                   | Yes       | No                                                |
-| `tr-TR` | Turkish (Turkey)                  | Yes       | Language model                                    |
-| `zh-CN` | Chinese (Mandarin, simplified)    | Yes       | Acoustic model<br>Language model                  |
-| `zh-HK` | Chinese (Cantonese, Traditional)  | Yes       | Language model                                    |
-| `zh-TW` | Chinese (Taiwanese Mandarin)      | Yes       | Language model                                    |
+| Locale  | Language                          | Customizations                                    |
+|---------|-----------------------------------|---------------------------------------------------|
+| `ar-AE` | Arabic (UAE)                      | No                                                |
+| `ar-BH` | Arabic (Bahrain), modern standard | Language model                                    |
+| `ar-EG` | Arabic (Egypt)                    | Language model                                    |
+| `ar-IL` | Arabic (Israel)                   | No                                                |
+| `ar-JO` | Arabic (Jordan)                   | No                                                |
+| `ar-KW` | Arabic (Kuwait)                   | No                                                |
+| `ar-LB` | Arabic (Lebanon)                  | No                                                |
+| `ar-PS` | Arabic (Palestine)                | No                                                |
+| `ar-QA` | Arabic (Qatar)                    | No                                                |
+| `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
+| `ar-SY` | Arabic (Syria)                    | Language model                                    |
+| `ca-ES` | Catalan                           | Language model                                    |
+| `da-DK` | Danish (Denmark)                  | Language model                                    |
+| `de-DE` | German (Germany)                  | Acoustic model<br>Language model<br>Pronunciation |
+| `en-AU` | English (Australia)               | Acoustic model<br>Language model                  |
+| `en-CA` | English (Canada)                  | Acoustic model<br>Language model                  |
+| `en-GB` | English (United Kingdom)          | Acoustic model<br>Language model<br>Pronunciation |
+| `en-IN` | English (India)                   | Acoustic model<br>Language model                  |
+| `en-NZ` | English (New Zealand)             | Acoustic model<br>Language model                  |
+| `en-US` | English (United States)           | Acoustic model<br>Language model<br>Pronunciation |
+| `es-ES` | Spanish (Spain)                   | Acoustic model<br>Language model                  |
+| `es-MX` | Spanish (Mexico)                  | Acoustic model<br>Language model                  |
+| `fi-FI` | Finnish (Finland)                 | Language model                                    |
+| `fr-CA` | French (Canada)                   | Acoustic model<br>Language model                  |
+| `fr-FR` | French (France)                   | Acoustic model<br>Language model<br>Pronunciation |
+| `gu-IN` | Gujarati (Indian)                 | Language model                                    |
+| `hi-IN` | Hindi (India)                     | Acoustic model<br>Language model                  |
+| `it-IT` | Italian (Italy)                   | Acoustic model<br>Language model<br>Pronunciation |
+| `ja-JP` | Japanese (Japan)                  | Language model                                    |
+| `ko-KR` | Korean (Korea)                    | Language model                                    |
+| `mr-IN` | Marathi (India)                   | Language model                                    |
+| `nb-NO` | Norwegian (Bokmål) (Norway)       | Language model                                    |
+| `nl-NL` | Dutch (Netherlands)               | Language model                                    |
+| `pl-PL` | Polish (Poland)                   | Language model                                    |
+| `pt-BR` | Portuguese (Brazil)               | Acoustic model<br>Language model<br>Pronunciation |
+| `pt-PT` | Portuguese (Portugal)             | Language model                                    |
+| `ru-RU` | Russian (Russia)                  | Acoustic model<br>Language model                  |
+| `sv-SE` | Swedish (Sweden)                  | Language model                                    |
+| `ta-IN` | Tamil (India)                     | Language model                                    |
+| `te-IN` | Telugu (India)                    | Language model                                    |
+| `th-TH` | Thai (Thailand)                   | No                                                |
+| `tr-TR` | Turkish (Turkey)                  | Language model                                    |
+| `zh-CN` | Chinese (Mandarin, simplified)    | Acoustic model<br>Language model                  |
+| `zh-HK` | Chinese (Cantonese, Traditional)  | Language model                                    |
+| `zh-TW` | Chinese (Taiwanese Mandarin)      | Language model                                    |
 
 ## Text-to-speech
 
