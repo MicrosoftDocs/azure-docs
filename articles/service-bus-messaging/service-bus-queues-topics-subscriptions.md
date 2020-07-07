@@ -57,15 +57,51 @@ For a full working example, see the [TopicSubscriptionWithRuleOperationsSample s
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
-## Java Message Service (JMS) Entities (Preview)
+## Java Message Service (JMS) 2.0 Entities (Preview)
+
+Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below entities.
+
+### Queues
+
+Queues in JMS are semantically comparable with the traditional Service Bus queues discussed above.
+
+To create a Queue, utilize the below methods in the `JMSContext` class -
+
+```java
+Queue createQueue(String queueName)
+```
+
+### Topics
+
+Topics in JMS are semantically comparable with the traditional Service Bus topics discussed above.
+
+To create a Topic, utilize the below methods in the `JMSContext` class -
+
+```java
+Topic createTopic(String topicName)
+```
 
 ### Temporary Queues
 
+When a client application requires a temporary entity which exists for the lifetime of the application, it can leverage Temporary queues. These are specifically utilized in the [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) pattern.
+
+To create a temporary queue, utilize the below methods in the `JMSContext` class -
+
+```java
+TemporaryQueue createTemporaryQueue()
+```
+
 ### Temporary Topics
 
-### Java Message Service (JMS) Subscriptions
+Just like Temporary Queues, Temporary Topics exist to enable publish/subscribe through a temporary entity that exists for the lifetime of the application.
 
-Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below subscriptions. 
+To create a temporary topic, utilize the below emthods in the `JMSContext` class -
+
+```java
+TemporaryTopic createTemporaryTopic()
+```
+
+### Java Message Service (JMS) Subscriptions
 
 While, these are semantically similar to the Subscriptions described above (i.e. exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable** and **Non-durable** attributes for a given subscription.
 

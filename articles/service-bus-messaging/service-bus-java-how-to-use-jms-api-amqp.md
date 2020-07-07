@@ -142,7 +142,7 @@ To connect with Azure Service Bus using JMS clients, you need the **ConnectionSt
 
 Once the `Session` or `JMSContext` has been instantiated, your application can leverage the familiar JMS APIs to perform both management and data operations.
 
-Please refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-api-amqp.md#what-jms-features-are-supported) for both Standard and Premium tier.
+Please refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-api-amqp.md#what-jms-features-are-supported) for both Standard and Premium tier to see which APIs will be supported in each tier.
 
 ## Summary
 This guide showcased how Java client applications using Java Message Service (JMS) over AMQP 1.0 can interact with Azure Service Bus.
