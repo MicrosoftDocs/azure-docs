@@ -28,7 +28,7 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 
 ## Use runbook authentication to local resources
 
-If preparing a runbook that provides its own authentication to resources, use [credential](automation-credentials.md) and [certificate](automation-certificates.md) assets in your runbook. There are several cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
+If preparing a runbook that provides its own authentication to resources, use [credential](./shared-resources/credentials.md) and [certificate](./shared-resources/certificates.md) assets in your runbook. There are several cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -68,7 +68,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
 
 ## Use runbook authentication with Run As account
 
-Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To do this, you must define a [credential asset](automation-credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
+Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To do this, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
 
 The user name for the credential must be in one of the following formats:
 
@@ -78,7 +78,7 @@ The user name for the credential must be in one of the following formats:
 
 Use the following procedure to specify a Run As account for a Hybrid Runbook Worker group:
 
-1. Create a [credential asset](automation-credentials.md) with access to local resources.
+1. Create a [credential asset](./shared-resources/credentials.md) with access to local resources.
 2. Open the Automation account in the Azure portal.
 3. Select **Hybrid Worker Groups**, and then select the specific group.
 4. Select **All settings**, followed by **Hybrid worker group settings**.

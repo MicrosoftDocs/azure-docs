@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 Most Azure Automation runbooks have some form of output. This output can be an error message to the user or a complex object intended to be used with another runbook. Windows PowerShell provides [multiple streams](/powershell/module/microsoft.powershell.core/about/about_redirection) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for using the streams when you're creating a runbook.
 
-The following table briefly describes each stream with its behavior in the Azure portal for published runbooks and during [testing of a runbook](automation-testing-runbook.md). The output stream is the main stream used for communication between runbooks. The other streams are classified as message streams, intended to communicate information to the user. 
+The following table briefly describes each stream with its behavior in the Azure portal for published runbooks and during [testing of a runbook](./manage-runbooks.md). The output stream is the main stream used for communication between runbooks. The other streams are classified as message streams, intended to communicate information to the user. 
 
 | Stream | Description | Published | Test |
 |:--- |:--- |:--- |:--- |
@@ -147,7 +147,7 @@ The Verbose message stream supports general information about runbook operation.
 
 By default, the job history does not store verbose messages from published runbooks, for performance reasons. To store verbose messages, use the Azure portal **Configure** tab with the **Log Verbose Records** setting to configure your published runbooks to log verbose messages. Turn on this option only to troubleshoot or debug a runbook. In most cases, you should keep the default setting of not logging verbose records.
 
-When [testing a runbook](automation-testing-runbook.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](automation-testing-runbook.md), you must set the `VerbosePreference` variable to Continue. With that variable set, verbose messages are displayed in the Test output pane of the Azure portal.
+When [testing a runbook](./manage-runbooks.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](./manage-runbooks.md), you must set the `VerbosePreference` variable to Continue. With that variable set, verbose messages are displayed in the Test output pane of the Azure portal.
 
 The following code creates a verbose message using the [Write-Verbose](/powershell/module/microsoft.powershell.utility/write-verbose) cmdlet.
 

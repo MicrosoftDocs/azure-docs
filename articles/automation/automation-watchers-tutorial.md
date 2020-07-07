@@ -32,7 +32,7 @@ This tutorial walks you through creating a watcher task to monitor when a new fi
 To complete this tutorial, the following are required:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
+* [Automation account](./index.yml) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
 * PowerShell runbooks. PowerShell Workflow runbooks aren't supported by watcher tasks.
 
@@ -56,7 +56,7 @@ You can also import this runbook into your automation account from the portal us
 
 ## Create an Automation variable
 
-An [automation variable](automation-variables.md) is used to store the timestamps that the preceding runbook reads and stores from each file.
+An [automation variable](./shared-resources/variables.md) is used to store the timestamps that the preceding runbook reads and stores from each file.
 
 1. Select **Variables** under **Shared Resources** and click **+ Add a variable**.
 1. Enter Watch-NewFileTimestamp for the name.

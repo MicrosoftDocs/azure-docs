@@ -647,7 +647,7 @@ Possible causes for this issue are:
 
 #### Not using a Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
+Follow [Step 5 - Add authentication to manage Azure resources](../learn/automation-tutorial-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
@@ -656,7 +656,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../automation-fir
 ## Recommended documents
 
 * [Runbook execution in Azure Automation](../automation-runbook-execution.md)
-* [Starting a runbook in Azure Automation](../automation-starting-a-runbook.md)
+* [Starting a runbook in Azure Automation](../start-runbooks.md)
 
 ## Next steps
 

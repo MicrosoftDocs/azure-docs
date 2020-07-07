@@ -10,9 +10,9 @@ keywords: powershell,  runbook, json, azure automation
 
 # Deploy an Azure Resource Manager template in a PowerShell runbook
 
-You can write an [Azure Automation PowerShell runbook](automation-first-runbook-textual-powershell.md)
+You can write an [Azure Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md)
 that deploys an Azure resource by using an 
-[Azure Resource Management template](../azure-resource-manager/resource-manager-create-first-template.md). Use of the template allows you to use Azure Automation and Azure Storage to automate deployment of your Azure resources. You can maintain your Resource Manager
+[Azure Resource Management template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Use of the template allows you to use Azure Automation and Azure Storage to automate deployment of your Azure resources. You can maintain your Resource Manager
 templates in a central, secure location, such as Azure Storage.
 
 In this article, we create a PowerShell runbook that uses a Resource Manager template stored in
@@ -21,8 +21,8 @@ In this article, we create a PowerShell runbook that uses a Resource Manager tem
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
-* [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
-* [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
+* [Automation account](./manage-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Azure Storage account](../storage/common/storage-account-create.md) in which to store the Resource Manager template
 * Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-az-ps?view=azps-3.5.0) for information about how to get Azure PowerShell.
 
 ## Create the Resource Manager template
@@ -198,7 +198,7 @@ Publish-AzAutomationRunbook @publishParams
 Now we start the runbook by calling the 
 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0)
 cmdlet. For information about how to start a runbook in the Azure portal, see
-[Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
+[Starting a runbook in Azure Automation](./start-runbooks.md).
 
 Run the following commands in the PowerShell console:
 

@@ -101,7 +101,7 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 ## Tracking of file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-create-storage-account.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. 
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. 
 
 ![View changes in a file](./media/change-tracking/view-file-changes.png)
 

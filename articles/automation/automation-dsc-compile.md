@@ -60,7 +60,7 @@ $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 
 ### Declare basic parameters
 
-Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](automation-starting-a-runbook.md) to learn more about runbook parameters.
+Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](./start-runbooks.md) to learn more about runbook parameters.
 
 The following example uses `FeatureName` and `IsPresent` parameters to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
 
@@ -184,10 +184,10 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 Asset references are the same in both Azure Automation State Configuration and runbooks. For more information, see the
 following:
 
-- [Certificates](automation-certificates.md)
+- [Certificates](./shared-resources/certificates.md)
 - [Connections](automation-connections.md)
-- [Credentials](automation-credentials.md)
-- [Variables](automation-variables.md)
+- [Credentials](./shared-resources/credentials.md)
+- [Variables](./shared-resources/variables.md)
 
 #### Credential assets
 

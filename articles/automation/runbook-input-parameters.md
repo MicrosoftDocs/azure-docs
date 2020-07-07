@@ -64,7 +64,7 @@ In this case, you can pass the following value to the parameter.
 
 ### Configure input parameters in graphical runbooks
 
-To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](automation-first-runbook-graphical.md).
+To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/automation-tutorial-runbook-graphical.md).
 
 A graphical runbook uses these these major runbook activities:
 
@@ -107,7 +107,7 @@ Follow these steps to configure the input parameters.
 Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks do not take named parameters. The runbook editor parses all input parameters as an array of argument values. You can access the array by importing the `sys` module into your Python script, and then using the `sys.argv` array. It is important to note that the first element of the array, `sys.argv[0]`, is the name of the script. Therefore the first actual input parameter is `sys.argv[1]`.
 
 For an example of how to use input parameters in a Python runbook, see
-[My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md).
+[My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python2.md).
 
 ## Assign values to input parameters in runbooks
 
@@ -244,13 +244,13 @@ An HTTP status code 201 is returned if the job is successfully created. For more
 
 ### Test a runbook and assign parameters
 
-When you [test the draft version of your runbook](automation-testing-runbook.md) by using the test option, the Test page opens. Use this page to configure values for the parameters that you have created.
+When you [test the draft version of your runbook](./manage-runbooks.md) by using the test option, the Test page opens. Use this page to configure values for the parameters that you have created.
 
 ![Test and assign parameters](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### Link a schedule to a runbook and assign parameters
 
-You can [link a schedule](automation-schedules.md) to your runbook so that the runbook starts at a specific time. You assign input parameters when you create the schedule, and the runbook uses these values when it is started by the schedule. You can't save the schedule until all mandatory parameter values are provided.
+You can [link a schedule](./shared-resources/schedules.md) to your runbook so that the runbook starts at a specific time. You assign input parameters when you create the schedule, and the runbook uses these values when it is started by the schedule. You can't save the schedule until all mandatory parameter values are provided.
 
 ![Schedule and assign parameters](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
@@ -284,7 +284,7 @@ Type the following code in a text file, and save it as **test.json** somewhere o
 
 ### Create the runbook
 
-Create a new PowerShell runbook named **Test-Json** in Azure Automation. See [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
+Create a new PowerShell runbook named **Test-Json** in Azure Automation. See [My first PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md).
 
 To accept the JSON data, the runbook must take an object as an input parameter. The runbook can then use the properties defined in the JSON file.
 
