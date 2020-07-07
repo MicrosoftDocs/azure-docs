@@ -39,7 +39,7 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.)
 - Do not enter the `master` database as the `dbo` user, and have limited permissions in master.
-- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
+- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL Database.  
 - Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.

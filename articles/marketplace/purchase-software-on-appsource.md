@@ -60,4 +60,4 @@ For business products, [contact help here](https://docs.microsoft.com/office365/
 
 ## Next steps
 
-- See the [Commercial Marketplace documentation](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for more information.
+- See the [Commercial Marketplace documentation](partner-center-portal/commercial-marketplace-overview.md) for more information.
