@@ -479,5 +479,9 @@ groups:
     title: C#
   - id: programming-language-nodejs
     title: Node.js
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
   - id: programming-language-swift
-    title: Swift
+    title: Swift (iOS)
