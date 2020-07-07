@@ -91,7 +91,8 @@ We recommend that you disable the application to block users from accessing the 
 
 ### PowerShell commands
 
-To run the PowerShell commands, you need to get service principal object ID:
+
+Retrieve service principal object ID
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
