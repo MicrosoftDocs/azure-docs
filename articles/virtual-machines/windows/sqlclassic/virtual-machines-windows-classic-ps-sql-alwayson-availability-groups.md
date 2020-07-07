@@ -124,10 +124,10 @@ This tutorial is intended to show you the steps that are required to set up the 
                 <AddressPrefix>10.10.2.0/24</AddressPrefix>
               </Subnet>
             </Subnets>
-        </VirtualNetworkSite>
-      </VirtualNetworkSites>
-    </VirtualNetworkConfiguration>
-        </NetworkConfiguration>
+          </VirtualNetworkSite>
+        </VirtualNetworkSites>
+      </VirtualNetworkConfiguration>
+    </NetworkConfiguration>
     ```xml
 
 5. Create a storage account that's associated with the affinity group that you created, and set it as the current storage account in your subscription.

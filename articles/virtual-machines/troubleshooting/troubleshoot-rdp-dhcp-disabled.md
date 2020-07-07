@@ -36,9 +36,9 @@ You cannot make an RDP connection a VM in Azure because the DHCP Client service 
 
 For Resource Manager VMs, you can use Serial Access Console feature to query for the event logs 7022 using the following command:
 
-    ```console
+```console
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
-    ```
+```
 
 For Classic VMs, you will need to work in OFFLINE mode and collect the logs manually.
 
