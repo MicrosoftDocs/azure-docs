@@ -87,17 +87,17 @@ The refresh feature allows you to refresh the contents of an on-premises share. 
 
 Do the following steps in the Azure portal to refresh a share.
 
-1.   In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
+1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-    ![Select share](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Select share](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Click **Refresh**. 
+2. Click **Refresh**. 
 
-    ![Click refresh](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Click refresh](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share. 
+3. When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share. 
 
-    ![Confirm refresh](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Confirm refresh](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   While the refresh is in progress, the refresh option is grayed out in the context menu. Click the job notification to view the refresh job status.
 
