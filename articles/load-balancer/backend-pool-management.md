@@ -23,7 +23,7 @@ When configuring a Backend Pool by NIC, it is important to keep in mind that the
   >[!NOTE] 
   >It is important to note that Backend Pools configured via Network Interface cannot be updated as part of an operation on the Backend Pool. Any addition or deletion of backend resources must occur on the Network Interface of the resource.
 
-### PowerShell
+## PowerShell
 Create a new Backend Pool: 
 ```powershell
 $backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup	-LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
@@ -57,7 +57,7 @@ $vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmCo
 
 
   
-### CLI
+## CLI
 Create the Backend Pool:
 ```bash
 az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
@@ -78,7 +78,7 @@ Create a new Virtual Machine and attach the Network Interface to place it in the
 az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
 ```
 
-### REST API
+## REST API
 Create the Backend Pool:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
@@ -168,7 +168,7 @@ JSON Request Body:
 }
 ```
 
-### ARM Template
+## Template
 Follow this [Quick Start ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a Load Balancer and Virtual Machines and add the Virtual Machines to the Backend Pool via Network Interface.
 
 ## Configuring Backend Pool by IP Address and Virtual Network
