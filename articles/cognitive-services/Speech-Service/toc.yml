@@ -520,6 +520,8 @@
         - name: Configure speech containers
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
+        - name: Batch processing with speech containers
+          href: speech-container-batch-processing.md
         - name: Speech containers with Kubernetes and Helm
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md

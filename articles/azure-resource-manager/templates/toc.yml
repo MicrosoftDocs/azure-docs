@@ -301,8 +301,6 @@
         href: copy-outputs.md
   - name: Use authoring tools
     items:
-    - name: VS Code
-      href: use-vs-code-to-create-template.md
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
