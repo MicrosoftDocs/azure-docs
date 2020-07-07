@@ -370,7 +370,7 @@ It depends. For full indexing of a table or view, you can use a secondary replic
 
 For incremental indexing, Azure Cognitive Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
 
-On read-only replicas, SQL database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
+On read-only replicas, SQL Database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
 
 Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on the `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
 

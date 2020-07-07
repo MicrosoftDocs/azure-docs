@@ -8,9 +8,9 @@ ms.author: genemi
 
 ## C# program example
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL (T-SQL) statements to the SQL database. The C# program demonstrates the following actions:
+The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL (T-SQL) statements to SQL Database. The C# program demonstrates the following actions:
 
-- [Connect to SQL database using ADO.NET](#cs_1_connect)
+- [Connect to SQL Database using ADO.NET](#cs_1_connect)
 - [Methods that return T-SQL statements](#cs_2_return)
     - Create tables
     - Populate tables with data
@@ -77,7 +77,7 @@ The C# program is logically one .cs file, and is physically divided into several
 
 <a name="cs_1_connect"/>
 
-### Connect to SQL database using ADO.NET
+### Connect to SQL Database using ADO.NET
 
 ```csharp
 using System;
