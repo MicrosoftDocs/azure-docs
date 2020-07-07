@@ -1,5 +1,5 @@
 ---
-title: Create an image from a snapshot or VHD in a Shared Image Gallery 
+title: CLI - Create an image from a snapshot or VHD in a Shared Image Gallery 
 description: Learn how to Create an image from a snapshot or VHD in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines

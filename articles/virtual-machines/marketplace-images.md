@@ -16,7 +16,7 @@ ms.reviewer: akjosh
 
 If you are creating an image in a shared gallery, using a source that was originally created from an Azure Marketplace image, you may need to keep track of purchase plan information. This article shows how to find purchase plan information for a VM, then use that information when creating an image definition to simplify passing that information in when creating a VM.
 
-For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](../windows/cli-ps-findimage.md).
+For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](./windows/cli-ps-findimage.md).
 
 
 ## Get the source VM information
@@ -66,7 +66,7 @@ Create the image definition, using the  `-PurchasePlanPublisher`, `-PurchasePlan
    -PurchasePlanName  $vm.Plan.Name
 ```
 
-Then create your image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You can create an image version from a [VM](../image-version-vm-powershell.md#create-an-image-version), [managed image](../image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](../image-version-snapshot-powershell.md#create-an-image-version), or [another image version](../image-version-another-gallery-powershell.md#create-the-image-version). 
+Then create your image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You can create an image version from a [VM](image-version-vm-powershell.md#create-an-image-version), [managed image](image-version-managed-image-powershell.md#create-an-image-version), [VHD\snapshot](image-version-snapshot-powershell.md#create-an-image-version), or [another image version](image-version-another-gallery-powershell.md#create-the-image-version). 
 
 
 ## Create the VM
@@ -142,4 +142,4 @@ New-AzVM `
 
 ## Next steps
 
-For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](../windows/cli-ps-findimage.md).
+For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](./windows/cli-ps-findimage.md).

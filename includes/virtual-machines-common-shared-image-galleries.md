@@ -81,7 +81,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
-| Source regions        |                   |                    |                    |
+| Source regions                                                                      |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australia Central     | China East        | South India        | West Europe        |
 | Australia Central 2   | China East 2      | Southeast Asia     | UK South           |

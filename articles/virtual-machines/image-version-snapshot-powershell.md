@@ -1,5 +1,5 @@
 ---
-title: Create an image from a snapshot or VHD in a Shared Image Gallery
+title: PowerShell - Create an image from a snapshot or VHD in a Shared Image Gallery
 description: Learn how to Create an image from a snapshot or VHD in a Shared Image Gallery using PowerShell.
 author: cynthn
 ms.topic: how-to
@@ -104,7 +104,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ### Purchase plan information
 
-In some cases, you need to pass purchase plan information in when creating a VM from an image that was based on an Azure Marketplace image. In these cases, we recommend you include the purchase plan information in the image definition. In this case, see [Supply Azure Marketplace purchase plan information when creating images](../marketplace-images.md).
+In some cases, you need to pass purchase plan information in when creating a VM from an image that was based on an Azure Marketplace image. In these cases, we recommend you include the purchase plan information in the image definition. In this case, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 
 
 ## Create an image version
