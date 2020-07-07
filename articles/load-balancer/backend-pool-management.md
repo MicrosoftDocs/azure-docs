@@ -10,7 +10,6 @@ ms.date: 07/07/2020
 ms.author: allensu
 
 ---
-
 # Backend pool management
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
 
@@ -255,16 +254,11 @@ JSON request body:
 }
 ```
 
-<<<<<<< HEAD
 ### Resource Manager Template
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load Balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
 ## Configure backend pool by IP address and virtual network
-In scenarios with containers or a pre-populated backend pool with IPs, use IP virtual network to load balance traffic to these resources. 
-=======
-## Template
-Follow this [Quick Start ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a Load Balancer and Virtual Machines and add the Virtual Machines to the Backend Pool via Network Interface.
->>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
+In scenarios with containers or a pre-populated backend pool with IPs, use IP and virtual network.
 
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
