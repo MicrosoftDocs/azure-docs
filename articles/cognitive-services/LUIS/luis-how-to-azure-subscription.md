@@ -3,13 +3,14 @@ title: How to use authoring and runtime keys - LUIS
 description: When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intend to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ---
 
 # Create LUIS resources
 
 Authoring and query prediction runtime resources provide authentication to your LUIS app and prediction endpoint.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -65,6 +66,8 @@ For apps that have not migrated yet: the key is reset on all your apps in the LU
 
 Regenerate the Azure keys from the Azure portal, on the **Keys** page.
 
+
+<a name="securing-the-endpoint"></a>
 
 ## App Ownership, access, and security
 
