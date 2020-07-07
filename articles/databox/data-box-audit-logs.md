@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Audit logs for your Azure Data Box and Azure Data Box Heavy
 
-Logs are immutable, timestamped records of discrete events that happened over time. The logs contain diagnostic, audit, and security information from your device. You can use the data from the logs to analyze, monitor, or diagnose applications or environments. 
+Logs are immutable, timestamped records of discrete events that happened over time. The logs contain diagnostic, audit, and security information from your device.  
 
 A Data Box or Data Box Heavy order goes through the following steps during the course of its operation: order, set up, data copy, return, upload to Azure and verify, and data erasure. For each of these steps, all the events are audited and logged.
 
