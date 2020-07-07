@@ -30,7 +30,31 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
+- Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+- [Azure Storage account](../storage/common/storage-account-create.md) You need an Azure Storage account as both *source* and *destination* data stores.
+- [Blob container](../storage/blobs/storage-quickstart-blobs-portal.md): You need a blob container. Remember that the name of your blob must be unique across Azure. For this article, we use the name **adftutorial**.
+    - Create a folder named **input** in the container you created.
+    - Upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
+
+        ```emp.txt
+        John, Doe
+        Jane, Doe
+        ```
+    - Save the file on your local system.
+    - [Upload the **emp.txt** file to your blob container](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container).
+
+
+Keep the **adftutorial** container page open. You use it to verify the output at the end of this quickstart.
+
+# [Portal](#tab/Portal)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Create an Azure Data Factory
 
