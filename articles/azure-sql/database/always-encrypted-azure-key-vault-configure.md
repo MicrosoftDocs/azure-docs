@@ -586,8 +586,9 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     You can now see the plaintext data in the encrypted columns.
-     ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   You can now see the plaintext data in the encrypted columns.
+   
+   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## Next steps
 
