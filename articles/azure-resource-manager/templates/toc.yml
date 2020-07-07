@@ -89,7 +89,7 @@
     - name: DevOps
       items:
       - name: Pipelines
-        href: https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
+        href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Integration
       items:
       - name: Event Grid
