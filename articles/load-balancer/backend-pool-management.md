@@ -26,7 +26,7 @@ When configuring a Backend Pool by NIC, it is important to keep in mind that the
 ### PowerShell
 Create a new Backend Pool: 
 ```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup	-LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup	-LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 Create a new Network Interface and add it to the Backend Pool:
