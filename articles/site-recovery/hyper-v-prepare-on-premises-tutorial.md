@@ -52,7 +52,7 @@ If Hyper-V hosts are managed by VMM, you need to prepare the on-premises VMM ser
 
 ### Prepare VMM for network mapping
 
-If you're using VMM, [network mapping](site-recovery-network-mapping.md) maps between on-premises VMM VM networks, and Azure virtual networks. Mapping ensures that Azure VMs are connected to the right network when they're created after failover.
+If you're using VMM, [network mapping](./hyper-v-vmm-network-mapping.md) maps between on-premises VMM VM networks, and Azure virtual networks. Mapping ensures that Azure VMs are connected to the right network when they're created after failover.
 
 Prepare VMM for network mapping as follows:
 
@@ -98,5 +98,5 @@ After failover, you can access Azure VMs using the same IP address as the replic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
-> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs](./hyper-v-azure-tutorial.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds](./hyper-v-vmm-azure-tutorial.md)

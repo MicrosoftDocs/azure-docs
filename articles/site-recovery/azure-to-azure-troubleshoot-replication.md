@@ -9,7 +9,7 @@ ms.date: 04/03/2020
 
 # Troubleshoot replication in Azure VM disaster recovery
 
-This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
+This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery consistently replicates data from the source region to the disaster recovery region. It also creates a crash-consistent recovery point every 5 minutes. If Site Recovery can't create recovery points for 60 minutes, it alerts you with this information:
 

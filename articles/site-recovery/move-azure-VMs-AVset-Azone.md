@@ -62,7 +62,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
      The following documents tell how to create the most commonly used network resources that are relevant to you, based on the source VM configuration.
 
     - [Network security groups](../virtual-network/manage-network-security-group.md)
-    - [Load balancers](/azure/load-balancer)
+    - [Load balancers](../load-balancer/index.yml)
     - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
    For any other networking components, refer to the networking [documentation](/azure/?pivot=products&panel=network).
@@ -148,5 +148,3 @@ In this tutorial, you increased the availability of an Azure VM by moving into a
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
-
-

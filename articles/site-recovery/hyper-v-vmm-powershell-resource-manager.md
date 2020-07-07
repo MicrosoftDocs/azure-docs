@@ -18,9 +18,9 @@ This article shows how to automate the steps for replication of Hyper-V VMs in S
 ## Prerequisites
 
 - Review the [scenario architecture and components](hyper-v-vmm-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
-- Make sure that Virtual Machine Manager servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
-- Check that the VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md).
+- Review the [support requirements](./vmware-physical-secondary-support-matrix.md) for all components.
+- Make sure that Virtual Machine Manager servers and Hyper-V hosts comply with [support requirements](./vmware-physical-secondary-support-matrix.md).
+- Check that the VMs you want to replicate comply with [replicated machine support](./vmware-physical-secondary-support-matrix.md).
 
 ## Prepare for network mapping
 

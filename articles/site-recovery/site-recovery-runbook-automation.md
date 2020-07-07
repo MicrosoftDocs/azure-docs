@@ -124,7 +124,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 You can use a single runbook script in multiple recovery plans, by using external variables. 
 
-- You use [Azure Automation variables](../automation/automation-variables.md) to store parameters for running a recovery plan.
+- You use [Azure Automation variables](../automation/shared-resources/variables.md) to store parameters for running a recovery plan.
 - By adding the recovery plan name as a prefix to the variable, you can create individual variables for each recovery plan. Then, use the variables as parameters.
 - You can change a parameter without changing the script, but still change the way the script works.
 
@@ -259,9 +259,6 @@ This video provides another example. It demonstrates how to recover a two-tier W
 
 ## Next steps
 
-- Learn about an [Azure Automation Run As account](../automation/automation-create-runas-account.md)
+- Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
 - Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Learn more](site-recovery-failover.md) about running failovers.
-
-
-

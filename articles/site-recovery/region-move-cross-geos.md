@@ -92,7 +92,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
      Please refer to the following documents to create the most commonly used network resources relevant for you, based on the source VM configuration.
 
     - [Network Security Groups](../virtual-network/manage-network-security-group.md)
-    - [Load balancers](/azure/load-balancer)
+    - [Load balancers](../load-balancer/index.yml)
     - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
     For any other networking components, refer to the networking [documentation](/azure/?pivot=products&panel=network).

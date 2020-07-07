@@ -265,10 +265,10 @@ Multiple IP addresses | Not supported | When you fail over a VM that has a NIC w
 Traffic Manager     | Supported | You can preconfigure Traffic Manager so that traffic is routed to the endpoint in the source region on a regular basis, and to the endpoint in the target region in case of failover.
 Azure DNS | Supported |
 Custom DNS    | Supported |
-Unauthenticated proxy | Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)
+Unauthenticated proxy | Supported | [Learn more](./azure-to-azure-about-networking.md)
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.
-VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic is not routed to on-premises. [Learn more](site-recovery-azure-to-azure-networking-guidance.md)
-VNET to VNET connection    | Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)
+VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic is not routed to on-premises. [Learn more](./azure-to-azure-about-networking.md)
+VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-networking.md)
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated networking | Supported | Accelerated networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With third party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions and outbound connectivity to be available. But the appliance does not let any outbound activity to be configured inside the Virtual Machine.
@@ -277,5 +277,5 @@ IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are
 
 
 ## Next steps
-- Read [networking guidance](site-recovery-azure-to-azure-networking-guidance.md)  for replicating Azure VMs.
-- Deploy disaster recovery by [replicating Azure VMs](site-recovery-azure-to-azure.md).
+- Read [networking guidance](./azure-to-azure-about-networking.md)  for replicating Azure VMs.
+- Deploy disaster recovery by [replicating Azure VMs](./azure-to-azure-quickstart.md).

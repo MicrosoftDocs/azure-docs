@@ -66,7 +66,7 @@ In this tutorial, you will:
 
     To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
     - [Network security groups](../virtual-network/manage-network-security-group.md)
-    - [Load balancers](/azure/load-balancer)
+    - [Load balancers](../load-balancer/index.yml)
     -  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     - For any other networking components, see the [networking documentation](/azure/?pivot=products&panel=network).
 
@@ -141,4 +141,3 @@ In this tutorial, you moved an Azure VM to a different Azure region. Now you can
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
-

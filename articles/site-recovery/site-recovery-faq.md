@@ -188,7 +188,7 @@ Dynamic disks are supported when replicating Hyper-V virtual machines, and when 
 Yes. You can read more about throttling bandwidth in these articles:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
-* [Capacity planning for replicating Hyper-V VMs to Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Capacity planning for replicating Hyper-V VMs to Azure](./hyper-v-deployment-planner-overview.md)
 
 ### Can I enable replication with app-consistency in Linux servers? 
 Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. Below are the steps to enable it.
@@ -244,7 +244,7 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 
 * [Read more](site-recovery-create-recovery-plans.md) about recovery plans.
 * [Read more](site-recovery-failover.md) about failover.
-* [Read more](site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
+* [Read more](./vmware-azure-failback.md) about failing back VMware VMs and physical servers
 
 ### If my on-premises host is not responding or crashed, can I fail back to a different host?
 Yes, you can use the alternate location recovery to failback to a different host from Azure.
@@ -269,4 +269,3 @@ Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or
 
 ## Next steps
 * Read the [Site Recovery overview](site-recovery-overview.md)
-

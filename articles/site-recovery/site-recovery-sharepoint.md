@@ -33,8 +33,8 @@ You can watch the below video about recovering a multi-tier application to Azure
 
 Before you start, make sure you understand the following:
 
-1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
-2. How to [design a recovery network](site-recovery-network-design.md)
+1. [Replicating a virtual machine to Azure](./vmware-azure-tutorial.md)
+2. How to [design a recovery network](./concepts-on-premises-to-azure-networking.md)
 3. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
 4. [Doing a failover to Azure](site-recovery-failover.md)
 5. How to [replicate a domain controller](site-recovery-active-directory.md)
@@ -69,7 +69,7 @@ If you are using a shared disk-based cluster as any tier in your application the
 
 ## Replicating virtual machines
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure.
+Follow [this guidance](./vmware-azure-tutorial.md) to start replicating the virtual machine to Azure.
 
 * Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'Replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
@@ -94,7 +94,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 ### DNS and Traffic Routing
 
-For internet facing sites, [create a Traffic Manager profile of 'Priority' type](../traffic-manager/traffic-manager-create-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
+For internet facing sites, [create a Traffic Manager profile of 'Priority' type](../traffic-manager/quickstart-create-traffic-manager-profile.md) in the Azure subscription. And then configure your DNS and Traffic Manager profile in the following manner.
 
 
 | **Where**	| **Source** | **Target**|

@@ -310,5 +310,4 @@ For configuration server deployments before May 2016, certificate expiry was set
 
 ## Next steps
 
-Review the tutorials for setting up disaster recovery of [physical servers](tutorial-physical-to-azure.md) to Azure.
-
+Review the tutorials for setting up disaster recovery of [physical servers](./physical-azure-disaster-recovery.md) to Azure.

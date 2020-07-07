@@ -138,7 +138,7 @@ The custom proxy settings are invalid and the Azure Site Recovery Mobility servi
 
 ### Fix the problem
 
-To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the steps in the [networking guidance document](./azure-to-azure-about-networking.md).
 
 ## Next steps
 

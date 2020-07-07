@@ -109,5 +109,4 @@ The Provider coordinates communications between VMM servers.
 
 ## Next steps
 
-[Replicate Hyper-V VMs in VMM clouds to a secondary site](tutorial-vmm-to-vmm.md)
-
+[Replicate Hyper-V VMs in VMM clouds to a secondary site](./hyper-v-vmm-disaster-recovery.md)

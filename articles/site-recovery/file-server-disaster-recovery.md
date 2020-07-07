@@ -107,18 +107,18 @@ If you have on-premises clients that access the IaaS file server virtual machine
 3. [Set up disaster recovery](azure-to-azure-tutorial-enable-replication.md) for the IaaS file server machine to a secondary region.
 
 
-For more information on disaster recovery to a secondary region, see [this article](concepts-azure-to-azure-architecture.md).
+For more information on disaster recovery to a secondary region, see [this article](./azure-to-azure-architecture.md).
 
 
 ## Replicate an on-premises file server by using Site Recovery
 
-The following steps describe replication for a VMware VM. For steps to replicate a Hyper-V VM, see [this tutorial](tutorial-hyper-v-to-azure.md).
+The following steps describe replication for a VMware VM. For steps to replicate a Hyper-V VM, see [this tutorial](./hyper-v-azure-tutorial.md).
 
 1. [Prepare Azure resources](tutorial-prepare-azure.md) for replication of on-premises machines.
 2. Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
 3. Extend on-premises Active Directory.
-4. [Prepare on-premises VMware servers](tutorial-prepare-on-premises-vmware.md).
-5. [Set up disaster recovery](tutorial-vmware-to-azure.md) to Azure for on-premises VMs.
+4. [Prepare on-premises VMware servers](./vmware-azure-tutorial-prepare-on-premises.md).
+5. [Set up disaster recovery](./vmware-azure-tutorial.md) to Azure for on-premises VMs.
 
 ## Extend DFSR to an Azure IaaS virtual machine
 
@@ -134,7 +134,7 @@ Make sure that the virtual machine is added to the same Azure virtual network, w
 You can use File Sync to replicate files to the cloud. In the event of a disaster and the unavailability of your on-premises file server, you can mount the desired file locations from the cloud and continue to service requests from client machines.
 To integrate File Sync with Site Recovery:
 
-* Protect the file server machines by using Site Recovery. Follow the steps in [this tutorial](tutorial-vmware-to-azure.md).
+* Protect the file server machines by using Site Recovery. Follow the steps in [this tutorial](./vmware-azure-tutorial.md).
 * Use File Sync to replicate files from the machine that serves as a file server to the cloud.
 * Use the recovery plan feature in Site Recovery to add scripts to mount the Azure file share on the failed-over file server VM in Azure.
 

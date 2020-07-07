@@ -85,7 +85,7 @@ The virtual network takes a few seconds to create. After it's created, you'll se
 
 ## Next steps
 
-- For VMware disaster recovery, [prepare the on-premises VMware infrastructure](tutorial-prepare-on-premises-vmware.md).
+- For VMware disaster recovery, [prepare the on-premises VMware infrastructure](./vmware-azure-tutorial-prepare-on-premises.md).
 - For Hyper-V disaster recovery, [prepare the on-premises Hyper-V servers](hyper-v-prepare-on-premises-tutorial.md).
 - For physical server disaster recovery, [set up the configuration server and source environment](physical-azure-disaster-recovery.md)
 - [Learn about](../virtual-network/virtual-networks-overview.md) Azure networks.

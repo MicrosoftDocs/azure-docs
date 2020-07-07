@@ -80,7 +80,7 @@ If the **Connect** button on the failed over VM in Azure is grayed out and you a
 
 ## Unable to connect/RDP/SSH - VM Connect button available
 
-If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
@@ -166,7 +166,7 @@ To resolve the issue:
 
 
 ## Next steps
-- Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Troubleshoot [RDP connection to Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Troubleshoot [SSH connection to Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
 If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

@@ -509,7 +509,7 @@
 - name: Related
   items:
   - name: Azure Automation
-    href: /azure/automation/
+    href: ../automation/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap

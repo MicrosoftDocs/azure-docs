@@ -13,7 +13,7 @@ ms.author: raynew
 # Set up disaster recovery for Azure VMs after migration to Azure 
 
 
-Follow this article if you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service, and you now want to get the VMs set up for disaster recovery to a secondary Azure region. The article describes how to ensure that the Azure VM agent is installed on migrated VMs, and how to remove the Site Recovery Mobility service that's no longer needed after migration.
+Follow this article if you've [migrated on-premises machines to Azure VMs](./migrate-tutorial-on-premises-azure.md) using the [Site Recovery](site-recovery-overview.md) service, and you now want to get the VMs set up for disaster recovery to a secondary Azure region. The article describes how to ensure that the Azure VM agent is installed on migrated VMs, and how to remove the Site Recovery Mobility service that's no longer needed after migration.
 
 
 
