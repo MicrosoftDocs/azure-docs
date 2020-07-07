@@ -33,9 +33,9 @@ Use the table below to find which model versions are supported by each endpoint.
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
 
-## Text Analytics for health
+## Text Analytics for Health
 
-The [Text Analytics for health](../how-tos/text-analytics-for-healthcare.md) container uses separate model versioning than the above API endpoints.  Please note that only one model version is available per container image.
+The [Text Analytics for Health](../how-tos/text-analytics-for-health.md) container uses separate model versioning than the above API endpoints.  Please note that only one model version is available per container image.
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|

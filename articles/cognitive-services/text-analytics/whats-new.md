@@ -31,7 +31,7 @@ The container offers the following features:
 
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-healthcare.md)
+> [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-health.md)
 
 ## May 2020
 
