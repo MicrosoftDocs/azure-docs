@@ -63,6 +63,7 @@ The following are other parameters that can be set on your image definition so t
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 * Hyper-V generation - you can specify whether the image was created from a gen 1 or gen 2 Hyper-V VHD.
+* Purchase plan information for Marketplace images - `-PurchasePlanPublisher `, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage).
 
 ## Generalized and specialized images
 

@@ -50,7 +50,7 @@ You can use the same process to get any data disks that you want to include in y
 
 ## Find the gallery
 
-You will need about the image gallery in order to create the image definition.
+You will need information about the image gallery in order to create the image definition.
 
 List information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list). Note the gallery name which resource group the gallery is in to use later.
 
