@@ -9,14 +9,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Azure Time Series Insights Gen 1
-    items:
-    - name: Explore Time Series Insights
-      href: time-series-quickstart.md
-  - name: Azure Time Series Insights Gen 2
-    items:
-    - name: Explore the Time Series Insights
-      href: quickstart-explore-tsi.md
+  - name: Explore Time Series Insights Gen2
+    href: quickstart-explore-tsi.md
 - name: Tutorials
   items:
   - name: Azure Time Series Insights Gen 1
@@ -101,6 +95,8 @@
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Azure Time Series Insights Gen 1
     items:
+    - name: Explore Time Series Insights Gen1
+      href: time-series-quickstart.md
     - name: Create an environment
       href: time-series-insights-get-started.md
     - name: Configure data retention
