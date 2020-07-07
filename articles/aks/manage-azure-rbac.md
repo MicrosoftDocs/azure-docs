@@ -13,14 +13,14 @@ author: palma21
 
 # Use Azure RBAC for Kubernetes Authorization (preview)
 
-Today you can already leverage [integrated authentication between Azure Active Directory (AAD) and AKS](managed-aad.md). When enabled, this integration allows customers to use AAD users, groups, or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
+Today you can already leverage [integrated authentication between Azure Active Directory (Azure AD) and AKS](managed-aad.md). When enabled, this integration allows customers to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
 This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md).
 
 This document covers a new approach that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 ## Before you begin
 
-The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, AAD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, Azure AD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -75,14 +75,14 @@ az extension update --name aks-preview
 
 ### Limitations
 
-- Requires [Managed AAD integration](managed-aad.md).
+- Requires [Managed Azure AD integration](managed-aad.md).
 - You can't integrate Azure RBAC for Kubernetes authorization into existing clusters during preview, but you will be able to at General Availability (GA).
 - Use [kubectl v1.18.3+][az-aks-install-cli].
 - During preview, you can only add *Namespace level* permissions via the Azure CLI.
 - If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. AKS is working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
 - New role assignments can take up to 5min to propagate and be updated by the authorization server.
 
-## Create a new cluster using Azure RBAC and managed AAD integration
+## Create a new cluster using Azure RBAC and managed Azure AD integration
 
 Create an AKS cluster by using the following CLI commands.
 
@@ -93,14 +93,14 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location westus2
 ```
 
-Create the AKS cluster with managed AAD integration and Azure RBAC for Kubernetes Authorization.
+Create the AKS cluster with managed Azure AD integration and Azure RBAC for Kubernetes Authorization.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad --enable-azure-rbac
 ```
 
-A successful creation of a cluster with AAD integration and Azure RBAC for Kubernetes Authorization has the following section in the response body:
+A successful creation of a cluster with Azure AD integration and Azure RBAC for Kubernetes Authorization has the following section in the response body:
 
 ```json
 "AADProfile": {
