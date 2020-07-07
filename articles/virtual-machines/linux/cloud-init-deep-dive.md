@@ -42,8 +42,9 @@ When provisioning with cloud-init, there are 5 stages of boot, which process con
 
 3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in /etc/cloud/cloud.cfg will be run. The VM in Azure will be mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
 
-   These are some of the cloud_init_modules:
-```bash
+   These are some of the `cloud_init_modules`:
+   
+   ```bash
    - migrator
    - seed_random
    - bootcmd
@@ -55,8 +56,8 @@ When provisioning with cloud-init, there are 5 stages of boot, which process con
    - set_hostname
    - update_hostname
    - ssh
-```
-
+   ```
+   
    After this stage, cloud-init will signal to the Azure platform that the VM has been provisioned successfully. Some modules may have failed, not all module failures will result in a provisioning failure.
 
 4. [Cloud-init Config Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): At this stage, the modules in `cloud_config_modules` defined and listed in /etc/cloud/cloud.cfg will be run.
