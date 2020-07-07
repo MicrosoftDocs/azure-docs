@@ -89,10 +89,9 @@ To see how to use Azure AD groups to control access to Kubernetes resources usin
 
 There are two levels of access needed to fully operate an AKS cluster: 
 1. Access the AKS resource on your Azure subscription. This access level allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This access level is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization
-
 To see how to control access to the AKS resource and the kubeconfig, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
 
+2. Access to the Kubernetes API. This access level is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization.
 To see how to granularly give permissions to the Kubernetes API using Azure RBAC see [Use Azure RBAC for Kubernetes authorization](manage-azure-rbac.md).
 
 ## Use pod identities
@@ -101,7 +100,7 @@ To see how to granularly give permissions to the Kubernetes API using Azure RBAC
 
 When pods need access to other Azure services, such as Cosmos DB, Key Vault, or Blob Storage, the pod needs access credentials. These access credentials could be defined with the container image or injected as a Kubernetes secret, but need to be manually created and assigned. Often, the credentials are reused across pods, and aren't regularly rotated.
 
-Managed identities for Azure resources (currently implemented as an associated AKS open-source project) let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
+Managed identities for Azure resources (currently implemented as an associated AKS open source project) let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
 
 * **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster. The NMI server listens for pod requests to Azure services.
 * **The Managed Identity Controller (MIC)** is a central pod with permissions to query the Kubernetes API server and checks for an Azure identity mapping that corresponds to a pod.

@@ -11,16 +11,16 @@ author: palma21
 #Customer intent: As a cluster operator or developer, I want to learn how to leverage Azure RBAC permissions to authorize actions within the AKS cluster.
 ---
 
-# Use Azure RBAC for Kubernetes Authorization (Preview)
+# Use Azure RBAC for Kubernetes Authorization (preview)
 
 Today you can already leverage [integrated authentication between Azure Active Directory (AAD) and AKS](managed-aad.md). When enabled, this integration allows customers to use AAD users, groups, or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
-This feature frees you from having to separately manage user identities and credentials for Kubernetes, however you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on Authentication, Authorization and RBAC on AKS see [here](concepts-identity.md).
+This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md).
 
 This document covers a new approach that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 ## Before you begin
 
-The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, AAD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on Authentication, Authorization and RBAC on AKS see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, AAD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -28,7 +28,7 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 > - [AKS Support Policies](support-policies.md)
 > - [Azure Support FAQ](faq.md)
 
-### Pre-requisites 
+### Prerequisites 
 - Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
 - Ensure you have the `AAD-V2` feature flag enabled.
@@ -238,7 +238,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 ``` 
 
-For the first time you'll have to sign in interactively like with regular kubectl, but afterwards you'll no longer be required, even for new aad clusters (as long as your token is still valid).
+The first time, you'll have to sign in interactively like with regular kubectl, but afterwards you'll no longer need to, even for new Azure AD clusters (as long as your token is still valid).
 
 ```bash
 kubectl get nodes
