@@ -117,7 +117,7 @@ You can use an Azure Resource Manager template and parameters file to create the
 
 The basic steps are as follows:
 
-1. Download one or all of the available templates that describe how to create the alert.
+1. Download one or all of the available templates that describe how to create the alert from [GitHub](https://github.com/microsoft/Docker-Provider/tree/ci_dev/alerts/recommended_alerts_ARM).
 
 2. Create and use a [parameters file](../../azure-resource-manager/templates/parameter-files.md) as a JSON to set the values required to create the alert rule.
 
