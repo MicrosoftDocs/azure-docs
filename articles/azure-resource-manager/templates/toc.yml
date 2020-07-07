@@ -89,7 +89,7 @@
     - name: DevOps
       items:
       - name: Pipelines
-        href: https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
+        href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Integration
       items:
       - name: Event Grid
@@ -301,8 +301,6 @@
         href: copy-outputs.md
   - name: Use authoring tools
     items:
-    - name: VS Code
-      href: use-vs-code-to-create-template.md
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module

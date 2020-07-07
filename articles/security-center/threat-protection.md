@@ -127,7 +127,7 @@ Advanced Threat Protection for Azure SQL Database detects anomalous activities i
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Databases, Azure SQL Database managed instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
