@@ -162,24 +162,27 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
 - Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
-## Managing backup data for unavailable on-premises machines
+## Managing backup data for unavailable machines
 
-This section discusses the scenario where you have an on-premises machine (source machine) that was protected with MARS. This machine either got deleted, corrupted, infected with malware/ransomware, or got decommissioned.
+This section discusses the scenario where you have a source machine that was protected with MARS. This machine was deleted, corrupted, infected with malware/ransomware, or decommissioned.
 
-Whatever the retention specified in the backup policy, the Azure Backup service will ensure the last recovery point is retained. This safeguard is in place to ensure you can restore and reprotect the machine or remove it.
+Whatever the specified retention in the backup policy, the Azure Backup service will ensure the last recovery point is retained. This safeguard is in place to ensure you can restore and reprotect the machine or remove it.
 
 Managing the backup policy for MARS is done through the MARS console. Since the machine (with the MARS console) is unavailable, consider the following scenarios you can perform on the backed-up data on Azure Backup:
 
-- The source machine is unavailable, and you no longer need to retain backup data
-  - You can delete the backed-up data from the Azure portal using the steps listed in [this article](backup-azure-delete-vault.md#delete-protected-items-on-premises).
-- The source machine is unavailable, and you need to retain backup data
-  - Recovery points for the source machine will be retained or pruned based on the retention duration specified on the backup policy.
-  - If existing recovery points will expire because of a short retention duration, then do the following to extend the retention duration:
-    - [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-    - Recreate the target machine with same host name as source machine
-    - Install the agent and re-register to the same vault and with the same passphrase
-    - Launch the MARS client to extend the retention duration according to your requirements.
-  - Your newly restored machine, protected with MARS, will continue to take backups.  
+### The source machine is unavailable, and you no longer need to retain backup data
+
+- You can delete the backed-up data from the Azure portal using the steps listed in [this article](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### The source machine is unavailable, and you need to retain backup data
+
+- Recovery points for the source machine will be retained or pruned based on the retention duration specified in the backup policy.
+- If existing recovery points will expire because of a short retention duration, then do the following to extend the retention duration:
+  - [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recreate the target machine with same host name as the source machine
+  - Install the agent and re-register to the same vault and with the same passphrase
+  - Launch the MARS client to extend the retention duration according to your requirements.
+- Your newly restored machine, protected with MARS, will continue to take backups.  
 
 ## Next steps
 
