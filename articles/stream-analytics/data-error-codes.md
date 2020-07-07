@@ -3,12 +3,12 @@ title: Data error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with data error codes. 
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
 
-# Azure Stream Analytics configuration error codes
+# Azure Stream Analytics data error codes
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every data error error code. Data errors occur when there is bad data in the stream, such as an unexpected record schema.
 
