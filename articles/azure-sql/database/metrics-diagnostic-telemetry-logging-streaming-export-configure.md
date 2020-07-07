@@ -128,9 +128,9 @@ To enable streaming of diagnostic telemetry for an elastic pool resource, follow
 > [!IMPORTANT]
 > In addition to configuring diagnostic telemetry for an elastic pool, you also need to configure diagnostic telemetry for each database in the elastic pool.
 
-### Single and pooled databases in Azure SQL Database
+### Databases in Azure SQL Database
 
-You can set up a single or pooled database resource to collect the following diagnostic telemetry:
+You can set up a database resource to collect the following diagnostic telemetry:
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |

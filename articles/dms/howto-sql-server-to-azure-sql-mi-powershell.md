@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Migrate SQL Server to SQL managed instance"
+title: "PowerShell: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration

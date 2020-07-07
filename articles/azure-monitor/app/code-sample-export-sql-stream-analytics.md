@@ -73,7 +73,7 @@ Once again starting from your subscription in [Azure portal][portal], create the
 
 ![New, Data, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Make sure that the database server allows access to Azure services:
+Make sure that the server allows access to Azure services:
 
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 

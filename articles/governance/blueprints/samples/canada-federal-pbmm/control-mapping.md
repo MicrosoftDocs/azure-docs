@@ -161,7 +161,7 @@ an audit system failure or misconfiguration and help you take corrective action.
 
 - Audit diagnostic setting
 - Auditing on SQL server should be enabled
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 
 ## AU-6 (4) Audit Review, Analysis, and Reporting | Central Review and Analysis
@@ -192,7 +192,7 @@ and Advanced Data Security are configured on SQL servers.
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
 - Auditing on SQL server should be enabled
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Auditing on SQL servers
@@ -295,7 +295,7 @@ blueprint also assigns policy definitions that audit and enforce Advanced Data S
 servers. Advanced data security included vulnerability assessment and advanced threat protection
 capabilities to help you understand vulnerabilities in your deployed resources.
 
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
@@ -377,7 +377,7 @@ policy. Specifically, the policy definitions assigned by this blueprint require 
 lake storage accounts; require transparent data encryption on SQL databases; and audit missing
 encryption on SQL databases, virtual machine disks, and automation account variables.
 
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy SQL DB transparent data encryption
@@ -437,7 +437,7 @@ you can take appropriate action.
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Advanced Threat Protection on Storage Accounts
