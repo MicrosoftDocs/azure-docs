@@ -100,12 +100,11 @@ Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 
     1. Uses the device SDK to create a device client and connect to your IoT hub.
 
-    1. Updates properties for three components. The **main** function uses the **pnp_update_property** function defined in the pnp_methods.py file to update the properties. You pass the client, the component name, and the properties as key value pairs to this function. The property update task for the SDK information interface has a key called **version** that's a constant imported from the device SDK.  
+    1. Updates properties. The model we are using, **Thermostat**, defines `targetTemperature` and `maxTempSinceLastReboot` as the two properties for our Thermostat, so that is what we will be using. Properties are updated using the `patch_twin_reported_properties` method defined on the `device_client`.
 
-    1. Starts listening for command requests using the **execute_listener** function from the pnp_methods.py file. You pass the client, the component name, the method name, and the user handler as parameters. If the command needs to send a custom response, you also pass the user-defined command response function as a parameter.  
-        - The user handler function defines what the device should do when it receives a command.
-        - A response is sent to your IoT hub when a command executes successfully. You can view this response in the portal.
-        - In this sample, only the **blink** command sends a custom response to your IoT hub.  
+    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`. 
+        - The `user_command_handler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
+        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. For instance, if your alarm goes off, you respond by hitting snooze, which is feedback to the service. Think of this as the reply you give to the service. You can view this response in the portal.
 
     1. Starts sending telemetry. The **pnp_send_telemetry** is defined in the pnp_methods.py file. The sample code uses a loop to call this function every eight seconds.
 
@@ -114,10 +113,10 @@ Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 Now that you've seen the code, use the following command to run the sample:
 
 ```cmd/sh
-python pnp_sample_device.py
+python pnp_thermostat.py
 ```
 
-The sample device sends telemetry messages every eight seconds to your IoT hub.
+The sample device sends telemetry messages every eight seconds to your IoT Hub.
 
 You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
