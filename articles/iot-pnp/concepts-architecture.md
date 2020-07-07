@@ -1,9 +1,9 @@
 ---
 title: IoT Plug and Play architecture | Microsoft Docs
 description: As a solution developer, understand key architectural elements of IoT Plug and Play.
-author: dominicbetts
-ms.author: dobett
-ms.date: 05/07/2020
+author: ridomin
+ms.author: rmpablos
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
@@ -38,7 +38,7 @@ The model repository uses RBAC to enable you to limit access to interface defini
 A device developer implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the developer to:
 
 - Connect securely to an IoT hub.
-- Register the device with your IoT hub and register the model ID that identifies the collection of interfaces the device implements.
+- Register the device with your IoT hub and announce the model ID that identifies the collection of interfaces the device implements.
 - Update the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
 - Add command handlers for the commands defined in the DTDL interfaces the device implements.
 - Send telemetry to the IoT hub.
@@ -59,7 +59,7 @@ An IoT hub:
 A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the service SDKs to implement your backend solution. To understand the capabilities of a connected device, the solution backend:
 
 1. Retrieves the model ID the device registered with the IoT hub.
-1. Uses the model ID to retrieve the interface definitions from the model repository using the REST API.
+1. Uses the model ID to retrieve the interface definitions from any model repository.
 1. Uses the model parser to extract information from the interface definitions.
 
 The backend solution can use the information from the interface definitions to:
