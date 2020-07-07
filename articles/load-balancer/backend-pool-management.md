@@ -1,7 +1,7 @@
 ---
 title: Backend Pool Management
 titleSuffix: Azure Load Balancer
-description: Get started learning how to configure and manage the backend pool of a Azure Load Balancer
+description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -12,14 +12,29 @@ ms.author: allensu
 ---
 
 # Backend pool management
-The backend pool is a fundamental component of the load balancer, which defines the group of compute resource that will serve traffic for a given load-balancing rule. By configuring a backend pool properly, you will have defined a group of eligible machines to serve traffic. There are two ways of configuring a backend pool, by Network Interface Card (NIC) and by a combination IP address and Virtual Network (VNET) Resource ID. 
+The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
 
-In most scenarios involving Virtual Machines and Virtual Machine Scale Sets, it is recommended to configuring your backend pool by NIC as this method builds the most direct link between your resource and the backend pool. For scenarios involving containers and Kubernetes Pods, that do not have a NIC or for preallocation of a range of IP addresses for backend resources, you can configure your backend pool by IP Address and VNET ID combination.
+There are two ways of configuring a backend pool:
+* Network Interface Card (NIC)
+* Combination IP address and Virtual Network (VNET) Resource ID. 
 
-When configuring by either NIC or IP Address and VNET ID through Portal, the UI will walk you through each step and all configuration updates will be handled in the backend. The configuration sections of this article will focus on Azure PowerShell, CLI, REST API, and Azure Resource Manager (ARM) templates to give insight into how the backend pools are structured for each configuration option.
+Configure your backend pool by NIC when using virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
+
+In scenarios where a NIC is unavailable, such as containers or Kubernetes Pods, configure your backend pool by IP address and VNET ID combination.
+
+The configuration sections of this article will focus on:
+
+* Azure PowerShell
+* Azure CLI
+* REST API
+* Azure Resource Manager templates 
+
+These sections give insight into how the backend pools are structured for each configuration option.
 
 ## Configuring backend pool by NIC
-When configuring a backend pool by NIC, it is important to keep in mind that the backend pool is created as part of the load balancer operation and members are added to the backend pool as part of the IP configuration property of their network interface during the network interface operation. The following examples are focused on the create and populate operations for the backend pool to highlight this workflow and relationship.
+The backend pool is created as part of the load balancer operation. The IP configuration property of the NIC is used to add backend pool members
+
+The following examples are focused on the create and populate operations for the backend pool to highlight this workflow and relationship.
 
   >[!NOTE] 
   >It is important to note that backend pools configured via network interface cannot be updated as part of an operation on the backend pool. Any addition or deletion of backend resources must occur on the network interface of the resource.
@@ -142,7 +157,7 @@ Create the backend pool:
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Create a network interface and add it to the backend pool you have created via the IP configurations property of the network interface:
+Create a network interface and add it to the backend pool you've created via the IP configurations property of the network interface:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
@@ -226,11 +241,13 @@ JSON request body:
 }
 ```
 
-### ARM Template
-Follow this [Quick Start ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load Balancer and virtual machines and add the virtual machines to the backend pool via network interface.
+### Resource Manager Template
+Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load Balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
 ## Configure backend pool by IP address and virtual network
-If you are load-balancing to container resources or pre-populating a backend pool with a range of IP Addresses, you can leverage IP Address and virtual network to route to any valid resource whether or not it has a network interface. When configuring via IP address and virtual network, all backend pool management is done directly on the backend pool object as highlighted in the examples below.
+In scenarios with containers or a pre-populated backend pool with IPs, use IP virtual network to load balance traffic to these resources. 
+
+All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
   >[!IMPORTANT] 
   >This feature is currently in preview and has the following limitations:
@@ -273,7 +290,7 @@ Retrieve the backend pool information for the load balancer to confirm that the 
 ```azurepowershell-interactive
 Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
-Create a network interface and add it to the backend pool by setting the IP address to one of the backend addresses:
+Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 
 ```azurepowershell-interactive
 $nic = 
@@ -308,7 +325,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 ### CLI
 Using CLI you can either populate the backend pool via command-line parameters or through a JSON configuration file. 
 
-Create and populate the backend pool via the command line parameters:
+Create and populate the backend pool via the command-line parameters:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -356,7 +373,7 @@ az network lb address-pool show \
 --name MyBackendPool
 ```
 
-Create a network interface and add it to the backend pool by setting the IP address to one of the backend addresses:
+Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 
 ```azurecli-interactive
 az network nic create \
@@ -383,7 +400,12 @@ az vm create \
 
 ### REST API
 
-Create the backend pool and define the backend addresses via a PUT backend pool request. Configure the backend addresses you would like to add via address name, IP address, and virtual network ID in the JSON body of the PUT request:
+Create the backend pool and define the backend addresses via a PUT backend pool request. 
+Configure the backend addresses in the JSON body of the PUT request by:
+
+* Address name
+* IP address
+* Virtual network ID 
 
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
@@ -422,7 +444,7 @@ Retrieve the backend pool information for the load balancer to confirm that the 
 GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Create a network interface and add it to the backend pool by setting the IP address to one of the backend addresses:
+Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
@@ -497,7 +519,7 @@ JSON Request Body:
 }
 ```
 
-### ARM Template
+### Resource Manager Template
 Create the load balancer, backend pool, and populate the backend pool with backend addresses:
 ```
 {
@@ -816,6 +838,6 @@ Create a virtual machine and attached network interface. Set the IP address of t
 }
 ```
 ## Next steps
-In this article you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.
+In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.
 
 Learn more about [Azure Load Balancer](load-balancer-overview.md).
