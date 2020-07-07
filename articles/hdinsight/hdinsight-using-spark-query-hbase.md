@@ -142,7 +142,7 @@ You can build the jars directly from the [spark-hbase-connector](https://github.
     mvn clean package -DskipTests
     ```
     
-3. Run the following command (be sure to change the .jar name to correspond to the .jar file you built):
+3. Run the following command (be sure to change the .jar name that corresponds to the .jar file you built):
 
     ```bash
     spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
