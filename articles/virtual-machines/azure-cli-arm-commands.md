@@ -28,7 +28,9 @@ In addition to command-specific optional parameters documented here, there are t
 ## Setting the Resource Manager mode
 Use the following command to enable Azure CLI Resource Manager mode commands.
 
-    azure config mode arm
+```azurecli
+azure config mode arm
+```
 
 > [!NOTE]
 > The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
@@ -40,887 +42,1100 @@ Your Azure subscription information is used by the tool to connect to your accou
 
 **List the imported subscriptions**
 
-    account list [options]
+```azurecli
+account list [options]
+```
 
 **Show details about a subscription**  
 
-    account show [options] [subscriptionNameOrId]
+```azurecli
+account show [options] [subscriptionNameOrId]
+```
 
 **Set the current subscription**
-
-    account set [options] <subscriptionNameOrId>
+```azurecli
+account set [options] <subscriptionNameOrId>
+```
 
 **Remove a subscription or environment, or clear all of the stored account and environment info**  
-
-    account clear [options]
+```azurecli
+account clear [options]
+```
 
 **Commands to manage your account environment**  
 
-    account env list [options]
-    account env show [options] [environment]
-    account env add [options] [environment]
-    account env set [options] [environment]
-    account env delete [options] [environment]
+```azurecli
+account env list [options]
+account env show [options] [environment]
+account env add [options] [environment]
+account env set [options] [environment]
+account env delete [options] [environment]
+```
 
 ## Active Directory objects
 **Commands to display active directory applications**
 
-    ad app create [options]
-    ad app delete [options] <object-id>
+```azurecli
+ad app create [options]
+ad app delete [options] <object-id>
+```
 
 **Commands to display active directory groups**
 
-    ad group list [options]
-    ad group show [options]
+```azurecli
+ad group list [options]
+ad group show [options]
+```
 
 **Commands to provide an active directory sub group or member info**
 
-    ad group member list [options] [objectId]
+```azurecli
+ad group member list [options] [objectId]
+```
 
 **Commands to display active directory service principals**
 
-    ad sp list [options]
-    ad sp show [options]
-    ad sp create [options] <application-id>
-    ad sp delete [options] <object-id>
+```azurecli
+ad sp list [options]
+ad sp show [options]
+ad sp create [options] <application-id>
+ad sp delete [options] <object-id>
+```
 
 **Commands to display active directory users**
 
-    ad user list [options]
-    ad user show [options]
+```azurecli
+ad user list [options]
+ad user show [options]
+```
 
 ## Availability sets
 **Creates an availability set within a resource group**
 
-    availset create [options] <resource-group> <name> <location> [tags]
+```azurecli
+availset create [options] <resource-group> <name> <location> [tags]
+```
 
 **Lists the availability sets within a resource group**
 
-    availset list [options] <resource-group>
+```azurecli
+availset list [options] <resource-group>
+```
 
 **Gets one availability set within a resource group**
 
-    availset show [options] <resource-group> <name>
+```azurecli
+availset show [options] <resource-group> <name>
+```
 
 **Deletes one availability set within a resource group**
 
-    availset delete [options] <resource-group> <name>
+```azurecli
+availset delete [options] <resource-group> <name>
+```
 
 ## Local settings
 **List Azure CLI configuration settings**
 
-    config list [options]
+```azurecli
+config list [options]
+```
 
 **Delete a config setting**
 
-    config delete [options] <name>
+```azurecli
+config delete [options] <name>
+```
 
 **Update a config setting**
 
-    config set <name> <value>
+```azurecli
+config set <name> <value>
+```
 
 **Sets the Azure CLI working mode to either `arm` or `asm`**
 
-    config mode [options] <modename>
+```azurecli
+config mode [options] <modename>
+```
 
 
 ## Account features
 **List all features available for your subscription**
 
-    feature list [options]
+```azurecli
+feature list [options]
+```
 
 **Shows a feature**
 
-    feature show [options] <providerName> <featureName>
+```azurecli
+feature show [options] <providerName> <featureName>
+```
 
 **Registers a previewed feature of a resource provider**
 
-    feature register [options] <providerName> <featureName>
+```azurecli
+feature register [options] <providerName> <featureName>
+```
 
 ## Resource groups
 **Creates a resource group**
 
-    group create [options] <name> <location>
+```azurecli
+group create [options] <name> <location>
+```
 
 **Set tags to a resource group**
 
-    group set [options] <name> <tags>
+```azurecli
+group set [options] <name> <tags>
+```
 
 **Deletes a resource group**
 
-    group delete [options] <name>
+```azurecli
+group delete [options] <name>
+```
 
 **Lists the resource groups for your subscription**
 
-    group list [options]
+```azurecli
+group list [options]
+```
 
 **Shows a resource group for your subscription**
 
-    group show [options] <name>
+```azurecli
+group show [options] <name>
+```
 
 **Commands to manage resource group logs**
 
-    group log show [options] [name]
+```azurecli
+group log show [options] [name]
+```
 
 **Commands to manage your deployment in a resource group**
 
-    group deployment create [options] [resource-group] [name]
-    group deployment list [options] <resource-group> [state]
-    group deployment show [options] <resource-group> [deployment-name]
-    group deployment stop [options] <resource-group> [deployment-name]
+```azurecli
+group deployment create [options] [resource-group] [name]
+group deployment list [options] <resource-group> [state]
+group deployment show [options] <resource-group> [deployment-name]
+group deployment stop [options] <resource-group> [deployment-name]
+```
 
 **Commands to manage your local or gallery resource group template**
 
-    group template list [options]
-    group template show [options] <name>
-    group template download [options] [name] [file]
-    group template validate [options] <resource-group>
+```azurecli
+group template list [options]
+group template show [options] <name>
+group template download [options] [name] [file]
+group template validate [options] <resource-group>
+```
 
 ## HDInsight clusters
 **Commands to create or add to a cluster configuration file**
 
-    hdinsight config create [options] <configFilePath> <overwrite>
-    hdinsight config add-config-values [options] <configFilePath>
-    hdinsight config add-script-action [options] <configFilePath>
+```azurecli
+hdinsight config create [options] <configFilePath> <overwrite>
+hdinsight config add-config-values [options] <configFilePath>
+hdinsight config add-script-action [options] <configFilePath>
+```
 
 
 Example: Create a configuration file that contains a script action to run when creating a cluster.
 
-    hdinsight config create "C:\myFiles\configFile.config"
-    hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+```azurecli
+hdinsight config create "C:\myFiles\configFile.config"
+hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+```
 
 **Command to create a cluster in a resource group**
 
-    hdinsight cluster create [options] <clusterName>
+```azurecli
+hdinsight cluster create [options] <clusterName>
+```
 
 Example: Create a Storm on Linux cluster
 
-    azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+```azurecli
+azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
-    info:    Executing command hdinsight cluster create
-    + Submitting the request to create cluster...
-    info:    hdinsight cluster create command OK
+info:    Executing command hdinsight cluster create
++ Submitting the request to create cluster...
+info:    hdinsight cluster create command OK
+```
 
 Example: Create a cluster with a script action
 
-    azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+```azurecli
+azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
-    info:    Executing command hdinsight cluster create
-    + Submitting the request to create cluster...
-    info:    hdinsight cluster create command OK
+info:    Executing command hdinsight cluster create
++ Submitting the request to create cluster...
+info:    hdinsight cluster create command OK
+```
 
 Parameter options:
 
-    -h, --help                                                 output usage information
-    -v, --verbose                                              use verbose output
-    -vv                                                        more verbose with debug output
-    --json                                                     use json output
-    -g --resource-group <resource-group>                       The name of the resource group
-    -c, --clusterName <clusterName>                            HDInsight cluster name
-    -l, --location <location>                                  Data center location for the cluster
-    -y, --osType <osType>                                      HDInsight cluster operating system
-    'Windows' or 'Linux'
-    --version <version>                                        HDInsight cluster version
-    --clusterType <clusterType>                                HDInsight cluster type.
-    Hadoop | HBase | Spark | Storm
-    --defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
-    --defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
-    --defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
-    --headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
-    --workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
-    --workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
-    --zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
-    --userName <userName>                                      Cluster username
-    --password <password>                                      Cluster password
-    --sshUserName <sshUserName>                                SSH username (only for Linux clusters)
-    --sshPassword <sshPassword>                                SSH password (only for Linux clusters)
-    --sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
-    --rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
-    --rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
-    --rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
-    For example 12/12/2015 (only for Windows clusters)
-    --virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
-    Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
-    --subnetName <subnetName>                                  (Optional) Subnet for the cluster
-    --additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
-    Can be multiple.
-    In the format of 'accountName#accountKey'.
-    For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
-    --hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
-    --hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
-    --hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
-    --hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
-    --oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
-    --oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
-    --oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
-    --oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
-    --configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
-    -s, --subscription <id>                                    The subscription id
-    --tags <tags>                                              Tags to set to the cluster.
-    Can be multiple.
-    In the format of 'name=value'.
-    Name is required and value is optional.
-    For example, --tags tag1=value1;tag2
+```txt
+-h, --help                                                 output usage information
+-v, --verbose                                              use verbose output
+-vv                                                        more verbose with debug output
+--json                                                     use json output
+-g --resource-group <resource-group>                       The name of the resource group
+-c, --clusterName <clusterName>                            HDInsight cluster name
+-l, --location <location>                                  Data center location for the cluster
+-y, --osType <osType>                                      HDInsight cluster operating system
+'Windows' or 'Linux'
+--version <version>                                        HDInsight cluster version
+--clusterType <clusterType>                                HDInsight cluster type.
+Hadoop | HBase | Spark | Storm
+--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+--userName <userName>                                      Cluster username
+--password <password>                                      Cluster password
+--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+For example 12/12/2015 (only for Windows clusters)
+--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
+Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+Can be multiple.
+In the format of 'accountName#accountKey'.
+For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+-s, --subscription <id>                                    The subscription id
+--tags <tags>                                              Tags to set to the cluster.
+Can be multiple.
+In the format of 'name=value'.
+Name is required and value is optional.
+For example, --tags tag1=value1;tag2
+```
 
 
 **Command to delete a cluster**
 
-    hdinsight cluster delete [options] <clusterName>
+```azurecli
+hdinsight cluster delete [options] <clusterName>
+```
 
 **Command to show cluster details**
 
-    hdinsight cluster show [options] <clusterName>
+```azurecli
+hdinsight cluster show [options] <clusterName>
+```
 
 **Command to list all clusters (in a specific resource group, if provided)**
 
-    hdinsight cluster list [options]
+```azurecli
+hdinsight cluster list [options]
+```
 
 **Command to resize a cluster**
 
-    hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+```azurecli
+hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+```
 
 **Command to enable HTTP access for a cluster**
 
-    hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+```azurecli
+hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+```
 
 **Command to disable HTTP access for a cluster**
 
-    hdinsight cluster disable-http-access [options] <clusterName>
+```azurecli
+hdinsight cluster disable-http-access [options] <clusterName>
+```
 
 **Command to enable RDP access for a cluster**
 
-    hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+```azurecli
+hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+```
 
 **Command to disable HTTP access for a cluster**
 
-    hdinsight cluster disable-rdp-access [options] <clusterName>
+```azurecli
+hdinsight cluster disable-rdp-access [options] <clusterName>
+```
 
 ## Insights (events, alert rules, autoscale settings, metrics)
 **Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider**
 
-    insights logs list [options]
+```azurecli
+insights logs list [options]
+```
 
 ## Locations 
 **List the available locations**
 
-    location list [options]
+```azurecli
+location list [options]
+```
 
 ## Network resources
 **Commands to manage virtual networks**
 
-    network vnet create [options] <resource-group> <name> <location>
+```azurecli
+network vnet create [options] <resource-group> <name> <location>
+```
 Creates a virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
-    azure network vnet create myresourcegroup newvnet "west us"
-    info:    Executing command network vnet create
-    + Looking up virtual network "newvnet"
-    + Creating virtual network "newvnet"
-     Loading virtual network state
-    data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
-    data:    Name:                 newvnet
-    data:    Type:                 Microsoft.Network/virtualNetworks
-    data:    Location:             westus
-    data:    Tags:
-    data:    Provisioning state:   Succeeded
-    data:    Address prefixes:
-    data:     10.0.0.0/8
-    data:    DNS servers:
-    data:    Subnets:
-    data:
-    info:    network vnet create command OK
+```azurecli
+azure network vnet create myresourcegroup newvnet "west us"
+info:    Executing command network vnet create
++ Looking up virtual network "newvnet"
++ Creating virtual network "newvnet"
+    Loading virtual network state
+data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+data:    Name:                 newvnet
+data:    Type:                 Microsoft.Network/virtualNetworks
+data:    Location:             westus
+data:    Tags:
+data:    Provisioning state:   Succeeded
+data:    Address prefixes:
+data:     10.0.0.0/8
+data:    DNS servers:
+data:    Subnets:
+data:
+info:    network vnet create command OK
+```
 
 
 Parameter options:
 
-     -h, --help                                 output usage information
-     -v, --verbose                              use verbose output
-    --json                                     use json output
-     -g, --resource-group <resource-group>      the name of the resource group
-     -n, --name <name>                          the name of the virtual network
-     -l, --location <location>                  the location
-     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
-      For example -a 10.0.0.0/24,10.0.1.0/24.
-      Default value is 10.0.0.0/8
+```txt
+-h, --help                                 output usage information
+-v, --verbose                              use verbose output
+--json                                     use json output
+-g, --resource-group <resource-group>      the name of the resource group
+-n, --name <name>                          the name of the virtual network
+-l, --location <location>                  the location
+-a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+For example -a 10.0.0.0/24,10.0.1.0/24.
+Default value is 10.0.0.0/8
 
-    -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
-     -t, --tags <tags>                          the tags set on this virtual network.
-      Can be multiple. In the format of "name=value".
-      Name is required and value is optional.
-      For example, -t tag1=value1;tag2
-     -s, --subscription <subscription>          the subscription identifier
+-d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
+-t, --tags <tags>                          the tags set on this virtual network.
+Can be multiple. In the format of "name=value".
+Name is required and value is optional.
+For example, -t tag1=value1;tag2
+-s, --subscription <subscription>          the subscription identifier
+```
 <BR>
 
-    network vnet set [options] <resource-group> <name>
+```azurecli
+network vnet set [options] <resource-group> <name>
+```
 
 Updates a virtual network configuration within a resource group.
 
-    azure network vnet set myresourcegroup newvnet
+```azurecli
+azure network vnet set myresourcegroup newvnet
 
-    info:    Executing command network vnet set
-    + Looking up virtual network "newvnet"
-    + Updating virtual network "newvnet"
-    + Loading virtual network state
-    data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
-    data:    Name:                 newvnet
-    data:    Type:                 Microsoft.Network/virtualNetworks
-    data:    Location:             westus
-    data:    Tags:
-    data:    Provisioning state:   Succeeded
-    data:    Address prefixes:
-    data:     10.0.0.0/8
-    data:    DNS servers:
-    data:    Subnets:
-    data:
-    info:    network vnet set command OK
+info:    Executing command network vnet set
++ Looking up virtual network "newvnet"
++ Updating virtual network "newvnet"
++ Loading virtual network state
+data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+data:    Name:                 newvnet
+data:    Type:                 Microsoft.Network/virtualNetworks
+data:    Location:             westus
+data:    Tags:
+data:    Provisioning state:   Succeeded
+data:    Address prefixes:
+data:     10.0.0.0/8
+data:    DNS servers:
+data:    Subnets:
+data:
+info:    network vnet set command OK
+```
 
 Parameter options:
 
-       -h, --help                                 output usage information
-       -v, --verbose                              use verbose output
-       --json                                     use json output
-       -g, --resource-group <resource-group>      the name of the resource group
-       -n, --name <name>                          the name of the virtual network
-       -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network.
-        For example -a 10.0.0.0/24,10.0.1.0/24.
-        This list will be appended to the current list of address prefixes.
-        The address prefixes in this list should not overlap between them.
-        The address prefixes in this list should not overlap with existing address prefixes in the vnet.
+```txt
+-h, --help                                 output usage information
+-v, --verbose                              use verbose output
+--json                                     use json output
+-g, --resource-group <resource-group>      the name of the resource group
+-n, --name <name>                          the name of the virtual network
+-a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network.
+For example -a 10.0.0.0/24,10.0.1.0/24.
+This list will be appended to the current list of address prefixes.
+The address prefixes in this list should not overlap between them.
+The address prefixes in this list should not overlap with existing address prefixes in the vnet.
 
-       -d, --dns-servers [dns-servers]            the comma separated list of DNS servers IP addresses.
-        This list will be appended to the current list of DNS server IP addresses.
+-d, --dns-servers [dns-servers]            the comma separated list of DNS servers IP addresses.
+This list will be appended to the current list of DNS server IP addresses.
 
-       -t, --tags <tags>                          the tags set on this virtual network.
-        Can be multiple. In the format of "name=value".
-        Name is required and value is optional. For example, -t tag1=value1;tag2.
-        This list will be appended to the current list of tags
+-t, --tags <tags>                          the tags set on this virtual network.
+Can be multiple. In the format of "name=value".
+Name is required and value is optional. For example, -t tag1=value1;tag2.
+This list will be appended to the current list of tags
 
-       --no-tags                                  remove all existing tags
-       -s, --subscription <subscription>          the subscription identifier
+--no-tags                                  remove all existing tags
+-s, --subscription <subscription>          the subscription identifier
+```
 <BR>
 
-    network vnet list [options] <resource-group>
+```azurecli
+network vnet list [options] <resource-group>
+```
 
 The command lists all virtual networks in a resource group.
 
-    C:\>azure network vnet list myresourcegroup
+```azurecli
+C:\>azure network vnet list myresourcegroup
 
-    info:    Executing command network vnet list
-    + Listing virtual networks
-        data:    ID
-       Name      Location  Address prefixes  DNS servers
-    data:    -------------------------------------------------------------------
-    ------  --------  --------  ----------------  -----------
-    data:    /subscriptions/###############################/resourceGroups/
-    wvnet   newvnet   westus    10.0.0.0/8
-    info:    network vnet list command OK
+info:    Executing command network vnet list
++ Listing virtual networks
+    data:    ID
+    Name      Location  Address prefixes  DNS servers
+data:    -------------------------------------------------------------------
+------  --------  --------  ----------------  -----------
+data:    /subscriptions/###############################/resourceGroups/
+wvnet   newvnet   westus    10.0.0.0/8
+info:    network vnet list command OK
+```
 
 Parameter options:
 
-      -h, --help                             output usage information
-      -v, --verbose                          use verbose output
-      --json                                 use json output
-      -g, --resource-group <resource-group>  the name of the resource group
-      -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-s, --subscription <subscription>      the subscription identifier
+```
 
 <BR>
 
-    network vnet show [options] <resource-group> <name>
+```azurecli
+network vnet show [options] <resource-group> <name>
+```
 The command shows the virtual network properties in a resource group.
 
-    azure network vnet show -g myresourcegroup -n newvnet
+```azurecli
+azure network vnet show -g myresourcegroup -n newvnet
 
-    info:    Executing command network vnet show
-    + Looking up virtual network "newvnet"
-    data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
-    data:    Name:                 newvnet
-    data:    Type:                 Microsoft.Network/virtualNetworks
-    data:    Location:             westus
-    data:    Tags:
-    data:    Provisioning state:   Succeeded
-    data:    Address prefixes:
-    data:     10.0.0.0/8
-    data:    DNS servers:
-    data:    Subnets:
-    data:
-    info:    network vnet show command OK
+info:    Executing command network vnet show
++ Looking up virtual network "newvnet"
+data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+data:    Name:                 newvnet
+data:    Type:                 Microsoft.Network/virtualNetworks
+data:    Location:             westus
+data:    Tags:
+data:    Provisioning state:   Succeeded
+data:    Address prefixes:
+data:     10.0.0.0/8
+data:    DNS servers:
+data:    Subnets:
+data:
+info:    network vnet show command OK
+```
 <BR>
 
-    network vnet delete [options] <resource-group> <name>
+```azurecli
+network vnet delete [options] <resource-group> <name>
+```
 The command removes a virtual network.
 
-    azure network vnet delete myresourcegroup newvnetX
+```azurecli
+azure network vnet delete myresourcegroup newvnetX
 
-    info:    Executing command network vnet delete
-    + Looking up virtual network "newvnetX"
-    Delete virtual network newvnetX? [y/n] y
-    + Deleting virtual network "newvnetX"
-    info:    network vnet delete command OK
+info:    Executing command network vnet delete
++ Looking up virtual network "newvnetX"
+Delete virtual network newvnetX? [y/n] y
++ Deleting virtual network "newvnetX"
+info:    network vnet delete command OK
+```
 
 Parameter options:
 
-     -h, --help                             output usage information
-     -v, --verbose                          use verbose output
-     --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -n, --name <name>                      the name of the virtual network
-     -q, --quiet                            quiet mode, do not ask for delete confirmation
-     -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-n, --name <name>                      the name of the virtual network
+-q, --quiet                            quiet mode, do not ask for delete confirmation
+-s, --subscription <subscription>      the subscription identifier
+```
 
 
 **Commands to manage virtual network subnets**
 
-    network vnet subnet create [options] <resource-group> <vnet-name> <name>
+```azurecli
+network vnet subnet create [options] <resource-group> <vnet-name> <name>
+```
 
 Adds another subnet to an existing virtual network.
 
-    azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
+```azurecli
+azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
 
-    info:    Executing command network vnet subnet create
-    + Looking up the subnet "subnet"
-    + Creating subnet "subnet"
-    + Looking up the subnet "subnet"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
-    data:    Name:                      subnet
-    data:    Type:                      Microsoft.Network/virtualNetworks/subnets
-    data:    Provisioning state:        Succeeded
-    data:    Address prefix:            10.0.1.0/24
-    info:    network vnet subnet create command OK
+info:    Executing command network vnet subnet create
++ Looking up the subnet "subnet"
++ Creating subnet "subnet"
++ Looking up the subnet "subnet"
+data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+data:    Name:                      subnet
+data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+data:    Provisioning state:        Succeeded
+data:    Address prefix:            10.0.1.0/24
+info:    network vnet subnet create command OK
+```
 
 Parameter options:
 
-     -h, --help                                                       output usage information
-     -v, --verbose                                                    use verbose output
-         --json                                                           use json output
-     -g, --resource-group <resource-group>                            the name of the resource group
-     -e, --vnet-name <vnet-name>                                      the name of the virtual network
-     -n, --name <name>                                                the name of the subnet
-     -a, --address-prefix <address-prefix>                            the address prefix
-     -w, --network-security-group-id <network-security-group-id>      the network security group identifier.
-           e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
-     -o, --network-security-group-name <network-security-group-name>  the network security group name
-     -s, --subscription <subscription>                                the subscription identifier
+```txt
+-h, --help                                                       output usage information
+-v, --verbose                                                    use verbose output
+    --json                                                           use json output
+-g, --resource-group <resource-group>                            the name of the resource group
+-e, --vnet-name <vnet-name>                                      the name of the virtual network
+-n, --name <name>                                                the name of the subnet
+-a, --address-prefix <address-prefix>                            the address prefix
+-w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+    e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+-o, --network-security-group-name <network-security-group-name>  the network security group name
+-s, --subscription <subscription>                                the subscription identifier
+```
 
 <BR>
 
-    network vnet subnet set [options] <resource-group> <vnet-name> <name>
+```azurecli
+network vnet subnet set [options] <resource-group> <vnet-name> <name>
+```
 
 Sets a specific virtual network subnet within a resource group.
 
-    C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+```azurecli
+C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
-    info:    Executing command network vnet subnet set
-    + Looking up the subnet "subnet1"
-    + Setting subnet "subnet1"
-    + Looking up the subnet "subnet1"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
-    data:    Name:                      subnet1
-    data:    Type:                      Microsoft.Network/virtualNetworks/subnets
-    data:    Provisioning state:        Succeeded
-    data:    Address prefix:            10.0.1.0/24
-    info:    network vnet subnet set command OK
+info:    Executing command network vnet subnet set
++ Looking up the subnet "subnet1"
++ Setting subnet "subnet1"
++ Looking up the subnet "subnet1"
+data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+data:    Name:                      subnet1
+data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+data:    Provisioning state:        Succeeded
+data:    Address prefix:            10.0.1.0/24
+info:    network vnet subnet set command OK
+```
 <BR>
 
-    network vnet subnet list [options] <resource-group> <vnet-name>
+```azurecli
+network vnet subnet list [options] <resource-group> <vnet-name>
+```
 
 Lists all the virtual network subnets for a specific virtual network within a resource group.
 
-    azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+```azurecli
+azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
-    info:    Executing command network vnet subnet set
-    + Looking up the subnet "subnet1"
-    + Setting subnet "subnet1"
-    + Looking up the subnet "subnet1"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
-    data:    Name:                      subnet1
-    data:    Type:                      Microsoft.Network/virtualNetworks/subnets
-    data:    Provisioning state:        Succeeded
-    data:    Address prefix:            10.0.1.0/24
-    info:    network vnet subnet set command OK
+info:    Executing command network vnet subnet set
++ Looking up the subnet "subnet1"
++ Setting subnet "subnet1"
++ Looking up the subnet "subnet1"
+data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+data:    Name:                      subnet1
+data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+data:    Provisioning state:        Succeeded
+data:    Address prefix:            10.0.1.0/24
+info:    network vnet subnet set command OK
+```
 <BR>
 
-    network vnet subnet show [options] <resource-group> <vnet-name> <name>
+```azurecli
+network vnet subnet show [options] <resource-group> <vnet-name> <name>
+```
 Displays virtual network subnet properties
 
-    azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
+```azurecli
+azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
 
-    info:    Executing command network vnet subnet show
-    + Looking up the subnet "subnet1"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
-    .Network/virtualNetworks/newvnet/subnets/subnet1
-    data:    Name:                      subnet1
-    data:    Type:                      Microsoft.Network/virtualNetworks/subnets
-    data:    Provisioning state:        Succeeded
-    data:    Address prefix:            10.0.1.0/24
-    info:    network vnet subnet show command OK
+info:    Executing command network vnet subnet show
++ Looking up the subnet "subnet1"
+data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
+.Network/virtualNetworks/newvnet/subnets/subnet1
+data:    Name:                      subnet1
+data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+data:    Provisioning state:        Succeeded
+data:    Address prefix:            10.0.1.0/24
+info:    network vnet subnet show command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -e, --vnet-name <vnet-name>            the name of the virtual network
-    -n, --name <name>                      the name of the subnet
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-e, --vnet-name <vnet-name>            the name of the virtual network
+-n, --name <name>                      the name of the subnet
+-s, --subscription <subscription>      the subscription identifier
+```
 <BR>
 
-    network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
+```azurecli
+network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
+```
 Removes a subnet from an existing virtual network.
 
-    azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
+```azurecli
+azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
 
-    info:    Executing command network vnet subnet delete
-    + Looking up the subnet "subnet1"
-    Delete subnet "subnet1"? [y/n] y
-    + Deleting subnet "subnet1"
-    info:    network vnet subnet delete command OK
+info:    Executing command network vnet subnet delete
++ Looking up the subnet "subnet1"
+Delete subnet "subnet1"? [y/n] y
++ Deleting subnet "subnet1"
+info:    network vnet subnet delete command OK
+```
 
 Parameter options:
 
-     -h, --help                             output usage information
-     -v, --verbose                          use verbose output
-     --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -e, --vnet-name <vnet-name>            the name of the virtual network
-     -n, --name <name>                      the subnet name
-     -s, --subscription <subscription>      the subscription identifier
-     -q, --quiet                            quiet mode, do not ask for delete confirmation
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-e, --vnet-name <vnet-name>            the name of the virtual network
+-n, --name <name>                      the subnet name
+-s, --subscription <subscription>      the subscription identifier
+-q, --quiet                            quiet mode, do not ask for delete confirmation
+```
 
 **Commands to manage load balancers**
 
-    network lb create [options] <resource-group> <name> <location>
+```azurecli
+network lb create [options] <resource-group> <name> <location>
+```
 Creates a load balancer set.
 
-    azure network lb create -g myresourcegroup -n mylb -l westus
+```azurecli
+azure network lb create -g myresourcegroup -n mylb -l westus
 
-    info:    Executing command network lb create
-    + Looking up the load balancer "mylb"
-    + Creating load balancer "mylb"
-    + Looking up the load balancer "mylb"
-    data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
-    data:    Name:                         mylb
-    data:    Type:                         Microsoft.Network/loadBalancers
-    data:    Location:                     westus
-    data:    Provisioning state:           Succeeded
-    info:    network lb create command OK
+info:    Executing command network lb create
++ Looking up the load balancer "mylb"
++ Creating load balancer "mylb"
++ Looking up the load balancer "mylb"
+data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+data:    Name:                         mylb
+data:    Type:                         Microsoft.Network/loadBalancers
+data:    Location:                     westus
+data:    Provisioning state:           Succeeded
+info:    network lb create command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -l, --location <location>              the location
-    -t, --tags <tags>                      the list of tags.
-     Can be multiple. In the format of "name=value".
-     Name is required and value is optional. For example, -t tag1=value1;tag2
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-n, --name <name>                      the name of the load balancer
+-l, --location <location>              the location
+-t, --tags <tags>                      the list of tags.
+    Can be multiple. In the format of "name=value".
+    Name is required and value is optional. For example, -t tag1=value1;tag2
+-s, --subscription <subscription>      the subscription identifier
+```
 <BR>
 
-    network lb list [options] <resource-group>
+```azurecli
+network lb list [options] <resource-group>
+```
 Lists Load balancer resources within a resource group.
 
-    azure network lb list myresourcegroup
+```azurecli
+azure network lb list myresourcegroup
 
-    info:    Executing command network lb list
-    + Getting the load balancers
-    data:    Name  Location
-    data:    ----  --------
-    data:    mylb  westus
-    info:    network lb list command OK
+info:    Executing command network lb list
++ Getting the load balancers
+data:    Name  Location
+data:    ----  --------
+data:    mylb  westus
+info:    network lb list command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-s, --subscription <subscription>      the subscription identifier
+```
 <BR>
 
-    network lb show [options] <resource-group> <name>
+```azurecli
+network lb show [options] <resource-group> <name>
+```
 
 Displays load balancer information of a specific load balancer within a resource group
 
-    azure network lb show myresourcegroup mylb -v
+```azurecli
+azure network lb show myresourcegroup mylb -v
 
-    info:    Executing command network lb show
-    verbose: Looking up the load balancer "mylb"
-    data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
-    data:    Name:                         mylb
-    data:    Type:                         Microsoft.Network/loadBalancers
-    data:    Location:                     westus
-    data:    Provisioning state:           Succeeded
-    info:    network lb show command OK
+info:    Executing command network lb show
+verbose: Looking up the load balancer "mylb"
+data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+data:    Name:                         mylb
+data:    Type:                         Microsoft.Network/loadBalancers
+data:    Location:                     westus
+data:    Provisioning state:           Succeeded
+info:    network lb show command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-n, --name <name>                      the name of the load balancer
+-s, --subscription <subscription>      the subscription identifier
+```
 
 <BR>
 
-    network lb delete [options] <resource-group> <name>
+```azurecli
+network lb delete [options] <resource-group> <name>
+```
 
 Delete load balancer resources.
 
-    azure network lb delete  myresourcegroup mylb
+```azurecli
+azure network lb delete  myresourcegroup mylb
 
-    info:    Executing command network lb delete
-    + Looking up the load balancer "mylb"
-    Delete load balancer "mylb"? [y/n] y
-    + Deleting load balancer "mylb"
-    info:    network lb delete command OK
+info:    Executing command network lb delete
++ Looking up the load balancer "mylb"
+Delete load balancer "mylb"? [y/n] y
++ Deleting load balancer "mylb"
+info:    network lb delete command OK
+```
 
 Parameter options:
 
-     -h, --help                             output usage information
-     -v, --verbose                          use verbose output
-     --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -n, --name <name>                      the name of the load balancer
-     -q, --quiet                            quiet mode, do not ask for delete confirmation
-     -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-n, --name <name>                      the name of the load balancer
+-q, --quiet                            quiet mode, do not ask for delete confirmation
+-s, --subscription <subscription>      the subscription identifier
+```
 
 **Commands to manage probes of a load balancer**
 
-    network lb probe create [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb probe create [options] <resource-group> <lb-name> <name>
+```
 
 Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer requires a frontend-ip resource (Check out command "azure network frontend-ip" to assign an ip address to load balancer).
 
-    azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
+```azurecli
+azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
-    info:    Executing command network lb probe create
-    + Looking up the load balancer "mylb"
-    + Updating load balancer "mylb"
-    info:    network lb probe create command OK
+info:    Executing command network lb probe create
++ Looking up the load balancer "mylb"
++ Updating load balancer "mylb"
+info:    network lb probe create command OK
+```
 
 Parameter options:
 
-     -h, --help                             output usage information
-     -v, --verbose                          use verbose output
-     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the probe
-    -p, --protocol <protocol>              the probe protocol
-    -o, --port <port>                      the probe port
-    -f, --path <path>                      the probe path
-    -i, --interval <interval>              the probe interval in seconds
-    -c, --count <count>                    the number of probes
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-l, --lb-name <lb-name>                the name of the load balancer
+-n, --name <name>                      the name of the probe
+-p, --protocol <protocol>              the probe protocol
+-o, --port <port>                      the probe port
+-f, --path <path>                      the probe path
+-i, --interval <interval>              the probe interval in seconds
+-c, --count <count>                    the number of probes
+-s, --subscription <subscription>      the subscription identifier
+```
 
 <BR>
 
-    network lb probe set [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb probe set [options] <resource-group> <lb-name> <name>
+```
 
 Updates an existing load balancer probe with new values for it.
 
-    azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
+```azurecli
+azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 
-    info:    Executing command network lb probe set
-        + Looking up the load balancer "mylb"
-    + Updating load balancer "mylb"
-    info:    network lb probe set command OK
+info:    Executing command network lb probe set
+    + Looking up the load balancer "mylb"
++ Updating load balancer "mylb"
+info:    network lb probe set command OK
+```
 
 Parameter options
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the probe
-    -e, --new-probe-name <new-probe-name>  the new name of the probe
-    -p, --protocol <protocol>              the new value for probe protocol
-    -o, --port <port>                      the new value for probe port
-    -f, --path <path>                      the new value for probe path
-    -i, --interval <interval>              the new value for probe interval in seconds
-    -c, --count <count>                    the new value for number of probes
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-l, --lb-name <lb-name>                the name of the load balancer
+-n, --name <name>                      the name of the probe
+-e, --new-probe-name <new-probe-name>  the new name of the probe
+-p, --protocol <protocol>              the new value for probe protocol
+-o, --port <port>                      the new value for probe port
+-f, --path <path>                      the new value for probe path
+-i, --interval <interval>              the new value for probe interval in seconds
+-c, --count <count>                    the new value for number of probes
+-s, --subscription <subscription>      the subscription identifier
+```
 <BR>
 
-    network lb probe list [options] <resource-group> <lb-name>
+```azurecli
+network lb probe list [options] <resource-group> <lb-name>
+```
 
 List the probe properties for a load balancer set.
 
-    C:\>azure network lb probe list -g myresourcegroup -l mylb
+```azurecli
+C:\>azure network lb probe list -g myresourcegroup -l mylb
 
-    info:    Executing command network lb probe list
-    + Looking up the load balancer "mylb"
-    data:    Name       Protocol  Port  Path  Interval  Count
-    data:    ---------  --------  ----  ----  --------  -----
-    data:    mylbprobe  Tcp       443         300       2
-    info:    network lb probe list command OK
+info:    Executing command network lb probe list
++ Looking up the load balancer "mylb"
+data:    Name       Protocol  Port  Path  Interval  Count
+data:    ---------  --------  ----  ----  --------  -----
+data:    mylbprobe  Tcp       443         300       2
+info:    network lb probe list command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-l, --lb-name <lb-name>                the name of the load balancer
+-s, --subscription <subscription>      the subscription identifier
+```
 
-
-    network lb probe delete [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb probe delete [options] <resource-group> <lb-name> <name>
+```
 Removes the probe created for the load balancer.
 
-    azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
+```azurecli
+azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
 
-    info:    Executing command network lb probe delete
-    + Looking up the load balancer "mylb"
-    Delete a probe "mylbprobe?" [y/n] y
-    + Updating load balancer "mylb"
-    info:    network lb probe delete command OK
+info:    Executing command network lb probe delete
++ Looking up the load balancer "mylb"
+Delete a probe "mylbprobe?" [y/n] y
++ Updating load balancer "mylb"
+info:    network lb probe delete command OK
+```
 
 **Commands to manage frontend ip configurations of a load balancer**
 
-    network lb frontend-ip create [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb frontend-ip create [options] <resource-group> <lb-name> <name>
+```
 Creates a frontend IP configuration to an existing load balancer set.
 
-    azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
+```azurecli
+azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
 
-    info:    Executing command network lb frontend-ip create
-    + Looking up the load balancer "mylb"
-    + Looking up the subnet "subnet"
-    + Creating frontend IP configuration "myfrontendip"
-    + Looking up the load balancer "mylb"
-    data:    Id:                           /subscriptions/###############################/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
-    /frontendIPConfigurations/myfrontendip
-    data:    Name:                         myfrontendip
-    data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
-    data:    Provisioning state:           Succeeded
-    data:    Private IP allocation method: Dynamic
-    data:    Private IP address:           10.0.1.4
-    data:    Subnet:                       id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
-    data:    Public IP address:
-    data:    Inbound NAT rules
-    data:    Outbound NAT rules
-    data:    Load balancing rules
-    data:
-    info:    network lb frontend-ip create command OK
+info:    Executing command network lb frontend-ip create
++ Looking up the load balancer "mylb"
++ Looking up the subnet "subnet"
++ Creating frontend IP configuration "myfrontendip"
++ Looking up the load balancer "mylb"
+data:    Id:                           /subscriptions/###############################/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+/frontendIPConfigurations/myfrontendip
+data:    Name:                         myfrontendip
+data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
+data:    Provisioning state:           Succeeded
+data:    Private IP allocation method: Dynamic
+data:    Private IP address:           10.0.1.4
+data:    Subnet:                       id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+data:    Public IP address:
+data:    Inbound NAT rules
+data:    Outbound NAT rules
+data:    Load balancing rules
+data:
+info:    network lb frontend-ip create command OK
+```
 
 <BR>
 
-    network lb frontend-ip set [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb frontend-ip set [options] <resource-group> <lb-name> <name>
+```
 
 Updates an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.
 
-    azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
+```azurecli
+azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
-    info:    Executing command network lb frontend-ip set
-    + Looking up the load balancer "mylb"
-    + Looking up the public ip "mypubip5"
-    + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
-    data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
-    data:    Name:                         myfrontendip
-    data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
-    data:    Provisioning state:           Succeeded
-    data:    Private IP allocation method: Dynamic
-    data:    Private IP address:
-    data:    Subnet:
-    data:    Public IP address:            id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypubip5
-    data:    Inbound NAT rules
-    data:    Outbound NAT rules
-    data:    Load balancing rules
-    data:
-    info:    network lb frontend-ip set command OK
+info:    Executing command network lb frontend-ip set
++ Looking up the load balancer "mylb"
++ Looking up the public ip "mypubip5"
++ Updating load balancer "mylb"
++ Looking up the load balancer "mylb"
+data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+data:    Name:                         myfrontendip
+data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
+data:    Provisioning state:           Succeeded
+data:    Private IP allocation method: Dynamic
+data:    Private IP address:
+data:    Subnet:
+data:    Public IP address:            id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypubip5
+data:    Inbound NAT rules
+data:    Outbound NAT rules
+data:    Load balancing rules
+data:
+info:    network lb frontend-ip set command OK
+```
 
 Parameter options:
 
-    -h, --help                                                         output usage information
-    -v, --verbose                                                      use verbose output
-    --json                                                             use json output
-    -g, --resource-group <resource-group>                              the name of the resource group
-    -l, --lb-name <lb-name>                                            the name of the load balancer
-    -n, --name <name>                                                  the name of the frontend ip configuration
-    -a, --private-ip-address <private-ip-address>                      the private ip address
-    -o, --private-ip-allocation-method <private-ip-allocation-method>  the private ip allocation method [Static, Dynamic]
-    -u, --public-ip-id <public-ip-id>                                  the public ip identifier.
-    e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
-    -i, --public-ip-name <public-ip-name>                              the public ip name.
-    This public ip must exist in the same resource group as the lb.
-    Please use public-ip-id if that is not the case.
-    -b, --subnet-id <subnet-id>                                        the subnet id.
-    e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/VirtualNetworks/<vnet-name>/subnets/<subnet-name>
-    -e, --subnet-name <subnet-name>                                    the subnet name
-    -m, --vnet-name <vnet-name>                                        the virtual network name.
-    This virtual network must exist in the same resource group as the lb.
-    Please use subnet-id if that is not the case.
-    -s, --subscription <subscription>                                  the subscription identifier
+```txt
+-h, --help                                                         output usage information
+-v, --verbose                                                      use verbose output
+--json                                                             use json output
+-g, --resource-group <resource-group>                              the name of the resource group
+-l, --lb-name <lb-name>                                            the name of the load balancer
+-n, --name <name>                                                  the name of the frontend ip configuration
+-a, --private-ip-address <private-ip-address>                      the private ip address
+-o, --private-ip-allocation-method <private-ip-allocation-method>  the private ip allocation method [Static, Dynamic]
+-u, --public-ip-id <public-ip-id>                                  the public ip identifier.
+e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+-i, --public-ip-name <public-ip-name>                              the public ip name.
+This public ip must exist in the same resource group as the lb.
+Please use public-ip-id if that is not the case.
+-b, --subnet-id <subnet-id>                                        the subnet id.
+e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/VirtualNetworks/<vnet-name>/subnets/<subnet-name>
+-e, --subnet-name <subnet-name>                                    the subnet name
+-m, --vnet-name <vnet-name>                                        the virtual network name.
+This virtual network must exist in the same resource group as the lb.
+Please use subnet-id if that is not the case.
+-s, --subscription <subscription>                                  the subscription identifier
+```
 
 <BR>
 
-    network lb frontend-ip list [options] <resource-group> <lb-name>
+```azurecli
+network lb frontend-ip list [options] <resource-group> <lb-name>
+```
 
 Lists all the frontend IP resources configured for the load balancer.
 
-    azure network lb frontend-ip list -g myresourcegroup -l mylb
+```azurecli
+azure network lb frontend-ip list -g myresourcegroup -l mylb
 
-    info:    Executing command network lb frontend-ip list
-    + Looking up the load balancer "mylb"
-    data:    Name         Provisioning state  Private IP allocation method  Subnet
-    data:    -----------  ------------------  ----------------------------  ------
-    data:    myprivateip  Succeeded           Dynamic
-    info:    network lb frontend-ip list command OK
+info:    Executing command network lb frontend-ip list
++ Looking up the load balancer "mylb"
+data:    Name         Provisioning state  Private IP allocation method  Subnet
+data:    -----------  ------------------  ----------------------------  ------
+data:    myprivateip  Succeeded           Dynamic
+info:    network lb frontend-ip list command OK
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-l, --lb-name <lb-name>                the name of the load balancer
+-s, --subscription <subscription>      the subscription identifier
+```
 <BR>
 
-    network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
+```
 Deletes the frontend IP object associated to load balancer
 
-    network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
-    info:    Executing command network lb frontend-ip delete
-    + Looking up the load balancer "mylb"
-    Delete frontend ip configuration "myfrontendip"? [y/n] y
-    + Updating load balancer "mylb"
+```azurecli
+network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
+info:    Executing command network lb frontend-ip delete
++ Looking up the load balancer "mylb"
+Delete frontend ip configuration "myfrontendip"? [y/n] y
++ Updating load balancer "mylb"
+```
 
 Parameter options:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the frontend ip configuration
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+```txt
+-h, --help                             output usage information
+-v, --verbose                          use verbose output
+--json                                 use json output
+-g, --resource-group <resource-group>  the name of the resource group
+-l, --lb-name <lb-name>                the name of the load balancer
+-n, --name <name>                      the name of the frontend ip configuration
+-q, --quiet                            quiet mode, do not ask for delete confirmation
+-s, --subscription <subscription>      the subscription identifier
+```
 
 **Commands to manage backend address pools of a load balancer**
 
-    network lb address-pool create [options] <resource-group> <lb-name> <name>
+```azurecli
+network lb address-pool create [options] <resource-group> <lb-name> <name>
+```
 
 Create a backend address pool for a load balancer.
 
-    azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
+```azurecli
+azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
 
-    info:    Executing command network lb address-pool create
-    + Looking up the load balancer "mylb"
-    + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourgroup/providers/Microso.Network/loadBalancers/mylb/backendAddressPools/myaddresspool
-    data:    Name:                      myaddresspool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool create command OK
+info:    Executing command network lb address-pool create
++ Looking up the load balancer "mylb"
++ Updating load balancer "mylb"
++ Looking up the load balancer "mylb"
+data:    Id:                        /subscriptions/###############################/resourceGroups/myresourgroup/providers/Microso.Network/loadBalancers/mylb/backendAddressPools/myaddresspool
+data:    Name:                      myaddresspool
+data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
+data:    Provisioning state:        Succeeded
+data:    Backend IP configurations:
+data:    Load balancing rules:
+data:
+info:    network lb address-pool create command OK
+```
 
 Parameter options:
 
