@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ---
 
-# Use Azure Active Directory for authenticating with PostgreSQL
+# Use Azure Active Directory for authentication with PostgreSQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL, and how to connect using an Azure AD token.
 

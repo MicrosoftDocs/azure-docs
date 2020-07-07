@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/22/2019
 ---
 
-# Use Azure Active Directory for authenticating with MySQL
+# Use Azure Active Directory for authentication with MySQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 

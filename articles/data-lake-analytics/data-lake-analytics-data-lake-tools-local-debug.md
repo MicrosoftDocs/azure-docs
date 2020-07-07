@@ -36,8 +36,10 @@ You can debug C# assemblies without submitting and registering them to the Azure
 1. Create a C# assembly project, and build it to generate the output **DLL** file.
 2. Register the **DLL** file by using a U-SQL statement:
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-        
+   ```sql
+   CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```
+
 3. Set breakpoints in the C# code.
 4. Select **F5** to debug the script by referencing the C# **DLL** file locally.
 

@@ -83,36 +83,36 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
 ### Creating a restored/replica server
 
-  *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a read replica server](howto-read-replicas-cli.md) 
+* [Create a restore server](howto-restore-server-cli.md) 
+* [Create a read replica server](howto-read-replicas-cli.md) 
 
 ### Once the server is restored, revalidate data encryption the restored server
 
-    ```azurecli-interactive
-    az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## Additional capability for the key being used for the Azure Database for MySQL
 
 ### Get the Key used
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 
-    ```azurecli-interactive
-    az mysql server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az mysql server key list --name  <server name>  -g <resource_group>
+```
 
 ### Drop the key being used
 
-    ```azurecli-interactive
-    az mysql server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az mysql server key delete -g <resource_group> --kid <key url> 
+```
 
 ## Using an Azure Resource Manager template to enable data encryption
 
