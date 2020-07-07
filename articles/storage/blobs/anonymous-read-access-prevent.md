@@ -24,7 +24,16 @@ This article describes how to analyze anonymous requests against a storage accou
 
 When you disable public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disabling public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
 
-Before you disable public access for a storage account, Microsoft recommends that you enable logging and metrics for that account and analyze traffic to that account after an interval of time to determine patterns of anonymous requests.
+To understand how disabling public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time.
+
+### Monitor anonymous requests with Metrics in Azure Monitor
+
+You can configure Azure 
+
+
+
+
+
 
 When public access is enabled for a container, the container or blobs in the container can be accessed anonymously. The authentication type is captured as Anonymous in both Storage metrics and Storage logs. You can detect active public access cases by looking at metrics and logs.
 
