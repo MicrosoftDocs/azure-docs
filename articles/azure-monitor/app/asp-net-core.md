@@ -395,7 +395,7 @@ public class HomeController : Controller
     }
 ```
 
-For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/). Similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](./get-metric.md).
+For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](./get-metric.md).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
