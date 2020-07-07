@@ -13,7 +13,7 @@ The package is [automatically linked](https://github.com/react-native-community/
 
 ### Configure Android manifest
 
-In your "android/app/src/main/AndroidManifest.xml", verify the package name, permissions and required services. Make sure that you registered `RNPushNotificationPublisher` and `RNPushNotificationBootEventReceiver` receivers, and registered the `RNPushNotificationListenerService` service. The notifications metadata can be used to customize your push notifications appearance.
+In your "android/app/src/main/AndroidManifest.xml", verify the package name, permissions, and required services. Make sure that you registered `RNPushNotificationPublisher` and `RNPushNotificationBootEventReceiver` receivers, and registered the `RNPushNotificationListenerService` service. The notifications metadata can be used to customize your push notifications appearance.
 
   ```xml
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"

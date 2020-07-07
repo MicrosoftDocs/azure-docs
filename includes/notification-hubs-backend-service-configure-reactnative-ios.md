@@ -21,7 +21,7 @@ npx pod-install
 
 1. Update Bundle Identifier to match the value used in the provisioning profile.
 
-1. Add 2 new Capabilities using the - "+" button:
+1. Add two new Capabilities using the - "+" button:
 
     - Background Mode capability and tick Remote Notifications.
     - Push Notifications capability

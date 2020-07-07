@@ -23,7 +23,7 @@
     sudo gem install cocoapods
     ```
 
-1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. You are going to use `npx` to automatically use the latest React Native CLI version available:
+1. In `Terminal`, run the following command, if you have `React Native` CLI installed to uninstall it. Use `npx` to automatically access the latest React Native CLI version available:
 
     ```bash
     npm uninstall -g react-native-cli
@@ -32,14 +32,14 @@
     > [!NOTE]
     > React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
 
-1. Navigate to your projects folder where you want to create the new application. Use the Typescript based template by specifying the `--template` parameter:
+1. Navigate to your projects folder where you want to create the new application. Use the Typescript-based template by specifying the `--template` parameter:
 
     ```bash
     # init new project with npx
     npx react-native init PushDemo --template react-native-template-typescript
     ```
 
-1. Run metro server which builds javascript bundles as well as monitors any code updates to refresh it on the fly:
+1. Run metro server, which builds JavaScript bundles as well as monitors any code updates to refresh the bundles in realtime:
 
     ```bash
     cd PushDemo
@@ -52,7 +52,7 @@
     npx react-native run-ios
     ```
 
-1. Run the Android app to verify the setup. This requires a few additional steps in order to configure an Android emulator or device to be able accessing the React Native metro server. The following commands generate initial javascript bundle for Android and put it into the assets folder.
+1. Run the Android app to verify the setup. It requires a few additional steps to configure an Android emulator or device to be able accessing the React Native metro server. The following commands generate initial JavaScript bundle for Android and put it into the assets folder.
 
     ```bash
     # create assets folder for the bundle
@@ -63,22 +63,22 @@
     adb reverse tcp:8081 tcp:8081
     ```
 
-    This script will be pre-deployed with the initial version of the app, where you will be able to configure your emulator or device to access the metro server by specifying the server ip address. Execute the following command to build and run the Android application:
+    This script will be pre-deployed with the initial version of the app. Once deployed, configure your emulator or device to access the metro server by specifying the server ip address. Execute the following command to build and run the Android application:
 
     ```bash
     npx react-native run-android
     ```
 
-    Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location` and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
+    Once in the app, hit `CMD+M` (emulator) or shake the device to populate the developer settings, navigate to `Settings` > `Change Bundle Location`, and specify the metro server ip address with the default port: `<metro-server-ip-address>:8081`.
 
-1. In the `App.tsx` file apply any change to the page layout, save it and make the change is automatically reflected in both iOS and Android apps.
+1. In the `App.tsx` file, apply any change to the page layout, save it and make the change is automatically reflected in both iOS and Android apps.
 
     > [!NOTE]
     > Detailed development environment setup guide is available in the [official documentation](https://reactnative.dev/docs/environment-setup)
 
 ### Install required packages
 
-You need the 3 following packages for this sample to work:
+You need the following three packages for this sample to work:
 
 1. [React Native Push Notifications iOS](https://www.npmjs.com/package/@react-native-community/push-notification-ios) - [Project GitHub](https://github.com/react-native-community/push-notification-ios)
 
@@ -97,7 +97,7 @@ You need the 3 following packages for this sample to work:
     ```
 
 1. [Device info package](https://www.npmjs.com/package/react-native-device-info)
-    The module provides information about a device in runtime, you will use it to define a device identifier, which is used to register for push notification. Run the following command to install the package:
+    The module provides information about a device in runtime. Use it to define a device identifier, which is used to register for push notification. Run the following command to install the package:
 
     ```bash
     yarn add react-native-device-info
