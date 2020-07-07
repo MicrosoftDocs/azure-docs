@@ -39,7 +39,7 @@
     npx react-native init PushDemo --template react-native-template-typescript
     ```
 
-1. Run metro server, which builds JavaScript bundles and monitors any code updates to refresh the bundles in real-time:
+1. Run metro server, which builds JavaScript bundles and monitors any code updates to refresh the bundles in real time:
 
     ```bash
     cd PushDemo
@@ -90,7 +90,7 @@ You need the following three packages for this sample to work:
 
 1. [React Native Push Notifications Cross-platform](https://www.npmjs.com/package/react-native-push-notification)
 
-    This package implements local and remote notifications on iOS and Android. Run the following command to install the package:
+    This package implements local and remote notifications on iOS and Android in a cross-platform way. Run the following command to install the package:
 
     ```bash
     yarn add react-native-push-notification
