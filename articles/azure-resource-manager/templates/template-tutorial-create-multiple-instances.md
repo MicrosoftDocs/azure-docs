@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template to create multiple Azure resource instances.
 author: mumian
@@ -39,7 +39,7 @@ To complete this article, you need:
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. There is a 'Microsoft.Storage/storageAccounts' resource defined in the template. Compare the template to the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). It is helpful to get some basic understanding of the template before customizing it.
+4. There is a 'Microsoft.Storage/storageAccounts' resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It is helpful to get some basic understanding of the template before customizing it.
 5. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
 ## Edit the template

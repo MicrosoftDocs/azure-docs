@@ -130,12 +130,12 @@ This example shows how to list the LTR policies within a server
 
 ```powershell
 # get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
-    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $serverName | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy
 
 # get the LTR policy of a specific database
 $ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
-    -ResourceGroupName $resourceGroup -Current
+    -ResourceGroupName $resourceGroup
 ```
 
 ### Clear an LTR policy
