@@ -12,7 +12,7 @@ ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
 ---
 
-# Quickstart: Create an Azure Stream Analytics job by using the ARM template
+# Quickstart: Create an Azure Stream Analytics job by using an ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Stream Analytics job. Once the job is created, you validate the deployment.
 
@@ -108,4 +108,4 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you created an Azure Stream Analytics job by using an ARM template and validated the deployment. Advance to the next article to learn how to export an ARM template for an existing job using VS Code.
 
 > [!div class="nextstepaction"]
-> [Export an Azure Stream Analytics job Azure Resource Manager template](resource-manager-export.md)
+> [Export an Azure Stream Analytics job ARM template](resource-manager-export.md)
