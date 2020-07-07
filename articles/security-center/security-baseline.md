@@ -4,7 +4,7 @@ description: The Security Center security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -23,7 +23,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Document traffic configuration rules
+### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -34,7 +34,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 1.1: Document traffic configuration rules
+### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -67,7 +67,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13654).
@@ -89,7 +89,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13656).
@@ -148,7 +148,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
-### 2.1: Enable command-line audit logging
+### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -159,7 +159,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 2.1: Enable command-line audit logging
+### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -214,7 +214,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13667).
@@ -262,7 +262,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
-### 3.1: Regularly review and reconcile user access
+### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -273,7 +273,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.1: Regularly review and reconcile user access
+### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -306,7 +306,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13675).
@@ -317,7 +317,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13676).
@@ -328,7 +328,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13677).
@@ -383,7 +383,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13683).
@@ -571,7 +571,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Maintain an inventory of approved software titles
+### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -582,7 +582,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 6.1: Maintain an inventory of approved software titles
+### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -615,7 +615,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13702).
@@ -718,7 +718,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
-### 7.1: Implement automated configuration monitoring for operating systems
+### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -729,7 +729,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 7.1: Implement automated configuration monitoring for operating systems
+### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
@@ -865,7 +865,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13725).
@@ -902,7 +902,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13728).
@@ -913,7 +913,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13729).
@@ -924,7 +924,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13730).
@@ -935,7 +935,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13731).
