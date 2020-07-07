@@ -106,6 +106,7 @@ New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Window
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
+<<<<<<< HEAD
 ### CLI
 Create the backend pool:
 
@@ -114,6 +115,14 @@ az network lb address-pool create \
 --resourceGroup myResourceGroup \
 --lb-name myLB \
 --name myBackendPool 
+=======
+
+  
+## CLI
+Create the Backend Pool:
+```bash
+az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
+>>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
 ```
 
 Create a new network interface and add it to the backend pool:
@@ -150,9 +159,14 @@ az vm create \
 --generate-ssh-keys
 ```
 
+<<<<<<< HEAD
 ### REST API
 Create the backend pool:
 
+=======
+## REST API
+Create the Backend Pool:
+>>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
@@ -241,11 +255,16 @@ JSON request body:
 }
 ```
 
+<<<<<<< HEAD
 ### Resource Manager Template
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load Balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
 ## Configure backend pool by IP address and virtual network
 In scenarios with containers or a pre-populated backend pool with IPs, use IP virtual network to load balance traffic to these resources. 
+=======
+## Template
+Follow this [Quick Start ARM Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a Load Balancer and Virtual Machines and add the Virtual Machines to the Backend Pool via Network Interface.
+>>>>>>> 5dd18f3d8092904df871b11c98c6c906d24bef22
 
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
