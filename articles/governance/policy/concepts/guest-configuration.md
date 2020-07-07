@@ -169,9 +169,9 @@ Some parameters support an integer value range. For example, the Maximum Passwor
 audit the effective Group Policy setting. A "1,70" range would confirm that users are required to
 change their passwords at least every 70 days, but no less than one day.
 
-If you assign the policy using an Azure Resource Manager deployment template, use a parameters file
-to manage exceptions. Check in the files to a version control system such as Git. Comments about
-file changes provide evidence why an assignment is an exception to the expected value.
+If you assign the policy using an Azure Resource Manager template (ARM template), use a parameters
+file to manage exceptions. Check in the files to a version control system such as Git. Comments
+about file changes provide evidence why an assignment is an exception to the expected value.
 
 #### Applying configurations using Guest Configuration
 
