@@ -4,7 +4,7 @@ description: Private links for securely exporting and importing data to Azure Ma
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 07/06/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -24,3 +24,38 @@ You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from 
 ## Regional availability
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
+
+## Create a DiskAccess resource
+
+1. Sign in to the Azure portal
+1. Navigate to DiskAccess
+1. Select create
+1. Select a resource group and region, fill in the name
+1. Select create
+
+## Create a private endpoint
+
+1. From your diskaccess resource, select private endpoints
+1. Select add.
+1. Select a resource group
+1. Fill in the name and select the same region as your diskaccess resource
+1. Select next
+1. On the Resource blade, select **Microsoft.Compute/diskAccesses**
+1. For **Resource** select the diskAccess resource you created earlier
+1. Leave the target sub-resource as **disks**
+1. Select next.
+1. Select the vNet of the VM the disk is attached to.
+
+> [!NOTE]
+> Note about subnet and NSG here
+
+1. Select the subnet
+1. The remaining selections are up to you
+1. Select create
+
+## Enable private endpoint on your disk
+
+1. Navigate to the disk you'd like to configure
+1. Select **Networking**
+1. Select **Private endpoint** and select the private endpoint you just configured
+1. Select save.
