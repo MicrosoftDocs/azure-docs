@@ -71,7 +71,7 @@ landingContent:
             url: check-health.md
           - text: Configure email notifications
             url: notifications.md
-          - text: Enable security audits (preview)
+          - text: Enable security audits
             url: security-audit-events.md
   - title: Domain-join VMs
     linkLists:
