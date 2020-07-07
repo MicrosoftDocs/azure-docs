@@ -132,7 +132,7 @@ This feature will allow you to, for example, not only give users permissions to 
 
 #### Built-in roles
 
-AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) but with a few differences like supporting CRDs. For the full list of actions allowed by each built in role please see [here](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
+AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) but with a few differences like supporting CRDs. For the full list of actions allowed by each built in role please see [here](../role-based-access-control/built-in-roles.md).
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
