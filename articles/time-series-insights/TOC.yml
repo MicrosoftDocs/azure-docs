@@ -73,6 +73,12 @@
       items:
       - name: UX panels
         href: concepts-ux-panels.md
+    - name: Breaking Changes
+      items:
+      - name: Adding support for long data type
+        href: breaking-changes-long-data-type.md
+      - name: Changes to JSON flattening and storage 
+        href: ingestion-rules-update.md
   - name: Develop
     items:
     - name: Authenticate and authorize
@@ -137,12 +143,6 @@
       items:
       - name: How to connect to Power BI
         href: how-to-connect-power-bi.md
-    - name: Breaking Changes
-      items:
-      - name: Adding support for long data type
-        href: breaking-changes-long-data-type.md
-      - name: Changes to JSON flattening and storage 
-        href: ingestion-rules-update.md
 - name: Reference
   items:
   - name: Time Series Insights 
