@@ -1,12 +1,12 @@
 ---
 title: Using the Azure Import/Export Tool | Microsoft Docs
 description: Learn how to use the Import/Export Tool to prepare hard drives for an import job, repair an import job, or repair an export job.
-author: twooley
+author: priestlg
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 01/15/2017
-ms.author: twooley
+ms.date: 07/07/2020
+ms.author: v-grpr
 ms.subservice: common
 ---
 
@@ -27,4 +27,4 @@ The following articles show you how to:
 
 ## Next steps
 
-* [Setting up the WAImportExport tool](storage-import-export-tool-setup.md)
+Learn how to [Use the Azure Import/Export to transfer data to and from Azure Storage](storage-import-export-service.md).

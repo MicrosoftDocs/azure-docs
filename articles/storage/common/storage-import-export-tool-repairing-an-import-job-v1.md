@@ -97,5 +97,4 @@ After making the necessary files available to the tool, or updating the path map
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
 * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)

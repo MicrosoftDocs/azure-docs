@@ -73,6 +73,5 @@ In addition to the status posted on Azure Portal, REST APIs can be used to track
 
 ## Next steps
 
-* [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

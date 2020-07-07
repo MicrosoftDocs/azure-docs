@@ -82,4 +82,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 ## Next steps
 
-Learn how to [Troubleshoot issues related to Import/Export service](storage-import-export-tool-troubleshooting-v1.md).
+Learn how to [Use the Azure Import/Export to transfer data to and from Azure Storage](storage-import-export-service.md).

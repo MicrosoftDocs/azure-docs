@@ -28528,12 +28528,12 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-how-to-v1.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to-v1",
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-how-to.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to",
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
       "redirect_document_id": true
     },
     {
@@ -28603,12 +28603,12 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-setup.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-setup",
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-troubleshooting-v1.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-troubleshooting-v1",
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
       "redirect_document_id": true
     },
     {

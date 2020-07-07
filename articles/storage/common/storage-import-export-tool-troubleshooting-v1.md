@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting the Azure Import/Export Tool | Microsoft Docs
 description: Learn about some of the common issues seen when using the Azure Import/Export Tool, and how to handle them.
-author: twooley
+author: priestlg
 services: storage
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 01/15/2017
-ms.author: twooley
+ms.date: 07/07/2020
+ms.author: v-grpr
 ms.subservice: common
 ---
 
