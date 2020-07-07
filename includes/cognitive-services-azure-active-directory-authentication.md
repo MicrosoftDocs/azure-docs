@@ -84,7 +84,7 @@ In this sample, a password is used to authenticate the service principal. The to
    > [!NOTE]
    > If you're using Azure Cloud Shell, the `SecureClientSecret` class isn't available. 
 
-   #### [PoweerShell](#tab/powershell)
+   #### [PowerShell](#tab/powershell)
    ```powershell-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
