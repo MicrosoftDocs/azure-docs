@@ -263,7 +263,7 @@ Steps :
 - Click "New alert rule" to create the alert
 - Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
 
-## How do I check which VMs are receiving most on-premise traffic
+## How do I check which VMs are receiving most on-premises traffic?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -287,7 +287,7 @@ Steps :
 
 For time, use format : yyyy-mm-dd 00:00:00
 
-## How do I check standard deviation in traffic received by my VMs from on-premise machines
+## How do I check standard deviation in traffic received by my VMs from on-premises machines?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -308,7 +308,7 @@ For IPs:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## How do I check which ports are reachable (or bocked) between IP pairs with NSG rules
+## How do I check which ports are reachable (or blocked) between IP pairs with NSG rules?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -346,7 +346,7 @@ The geo map page contains two main sections:
 ### Keyboard navigation at any stage
     
 - `Esc` collapses the expanded selection.
-- The `Up arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
+- The `Up-arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
 - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
 
 ## How can I navigate by using the keyboard in the virtual network topology view?
