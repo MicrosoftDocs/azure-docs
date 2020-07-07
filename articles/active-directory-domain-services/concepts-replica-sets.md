@@ -69,9 +69,9 @@ The preview is limited to a maximum of four replica sets - the initial replica s
 
 ### How does user and group information get synchronized to my replica sets?
 
-All replica sets are connected to each other using a mesh virtual network peering. One replica set receives user and group updates from Azure AD. Those changes are then replicated to the other replica sets using normal Active Directory replication over the peered network.
+All replica sets are connected to each other using a mesh virtual network peering. One replica set receives user and group updates from Azure AD. Those changes are then replicated to the other replica sets using normal AD DS replication over the peered network.
 
-Just like with on-premises Active Directory Domain Services, an extended disconnected state can cause disruption in replication. As peered virtual networks aren't transitive, the design requirements for replica sets requires a fully meshed network topology.
+Just like with on-premises AD DS, an extended disconnected state can cause disruption in replication. As peered virtual networks aren't transitive, the design requirements for replica sets requires a fully meshed network topology.
 
 ### How do I make changes in my managed domain after I have replica sets?
 
@@ -79,7 +79,8 @@ Changes within the managed domain work just like they previously did. You [creat
 
 ## Next steps
 
-To get started with creating an Azure AD DS managed domain with replica sets, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced].
+To get started with replica sets, [create and configure an Azure AD DS managed domain][tutorial-create-advanced]. When deployed, [create and use additional replica sets][create-replica-set].
 
 <!-- LINKS - INTERNAL -->
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md
+[create-replica-set]: tutorial-create-replica-set.md
