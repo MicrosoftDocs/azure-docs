@@ -192,23 +192,29 @@ Suppression always takes precedence on the same scope.
 
 ### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1
+   ```output
+   action rule AR1 defined for VM1 and VM2 with action group AG1
+   action rule AR2 defined for VM2 and VM3 with action group AG1
+   ```
 
 For every alert on VM1 and VM3, action group AG1 would be triggered once. For every alert on **VM2**, action group AG1 would be triggered twice, because action rules don't deduplicate actions. 
 
 ### What happens if I have a resource monitored in two separate action rules and one calls for action while another for suppression? For example, **VM2** in the following scenario:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression
+   ```output
+   action rule AR1 defined for VM1 and VM2 with action group AG1 
+   action rule AR2 defined for VM2 and VM3 with suppression
+   ```
 
 For every alert on VM1, action group AG1 would be triggered once. Actions and notifications for every alert on VM2 and VM3 will be suppressed. 
 
 ### What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, **VM1** in the following scenario:
 
-      alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1 
- 
+   ```output
+   alert rule rule1 on VM1 with action group AG2
+   action rule AR1 defined for VM1 with action group AG1
+   ```
+
 For every alert on VM1, action group AG1 would be triggered once. Whenever alert rule "rule1" is triggered, it will also trigger AG2 additionally. Action groups defined within action rules and alert rules operate independently, with no deduplication. 
 
 ## Next steps
