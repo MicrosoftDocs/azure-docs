@@ -15,7 +15,7 @@ ms.custom: tracking-python
 
 # Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data
 
-In this example, we'll use Cognitive Services and write to an Azure Search Index, using MMLSpark. With a subset of The MET's open-access collection, the data will be enriched by passing it through 'Describe Image'. The results are written to a searchable index.
+In this example, we'll use the Cognitive Services for Big Data to add intelligent annotations to the Open Acces collection from the Metropolitan Museum of Art. This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
 
 ## Prerequisites
 
