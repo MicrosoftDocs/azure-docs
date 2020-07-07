@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Time Series Insights
+  - name: What is Time Series Insights Gen2
     href: overview-what-is-tsi.md
   - name: Use cases
     href: overview-use-cases.md
