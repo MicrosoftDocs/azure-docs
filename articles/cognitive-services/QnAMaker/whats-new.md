@@ -22,7 +22,7 @@ Learn what's new with QnA Maker.
 
 ### July 2020
 
-* [Steps](./how-to-set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) to configure Cognitive Search endpoints to be private, but still accessible to QnA Maker.
+* [Steps](./how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) to configure Cognitive Search endpoints to be private, but still accessible to QnA Maker.
 * Free Cognitive Search resources are removed after [90 days of inactivity](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
 
 ### June 2020
