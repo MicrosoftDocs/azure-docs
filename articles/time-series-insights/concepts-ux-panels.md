@@ -70,11 +70,11 @@ The Azure Time Series Insights Gen 2 supports full create, read, update, and del
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different instances in your Time Series Model.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
-To learn more about the Time Series Model, read [Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the Time Series Model, read [Times Series Models](./concepts-model-overview.md).
 
 ## 3. Hierarchy tree and search panel
 
-The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./concepts-model-overview.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
 
 [![Hierarchy tree and search panel](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -235,6 +235,10 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 ## Next steps
 
-- Learn about [ingress and storage](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Gen 2.
+- Learn about [ingesting data](./concepts-ingestion-overview.md) into your environment.
 
-- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Azure Time Series Insights environment.
+- Check out the article on [storage](concepts-storage.md).
+
+- Read about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen 2.
+
+- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your environment.

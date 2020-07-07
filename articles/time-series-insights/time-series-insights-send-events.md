@@ -48,15 +48,15 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 1. Under **Claim**, select the **Send** check box.
 
-## Add a Azure Time Series Insights instance
+## Add an Azure Time Series Insights instance
 
-The Azure Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
+In Azure Time Series Insights Gen 2 you can add contextual data to incoming telemetry using the Time Series Model (TSM). In TSM, your tags or signals are refered to as *instances,* and you can store contextual data in *instance fields.* The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about storing data in instance fields read the [Time Series Model](./concepts-model-overview.md) overview.
 
 ### Create a Azure Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./time-series-insights-update-tsm.md).
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./concepts-model-overview.md).
 
 ### Push events to windmills sample
 

@@ -491,7 +491,7 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable definition including all details
+parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.
 
@@ -517,7 +517,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

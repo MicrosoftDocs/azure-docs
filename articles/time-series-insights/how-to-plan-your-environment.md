@@ -45,8 +45,8 @@ Queries on warm store are free, while queries on cold store incur costs. It's im
 
 To start, you need three additional items:
 
-* A [Time Series Model](./time-series-insights-update-tsm.md)
-* An [event source connected to Azure Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* A [Time Series Model](./concepts-model-overview.md)
+* An [event source connected to Time Series Insights](./concepts-streaming-ingestion-event-sources.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
 ## Review Gen 2 limits
@@ -60,7 +60,7 @@ To create a new Azure Time Series Insights environment, select a Time Series ID.
 > [!IMPORTANT]
 > Time Series IDs *can't be changed later*. Verify each one before final selection and first use.
 
-You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
+You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Ingestion rules](concepts-json-flattening-escaping-rules.md).
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
@@ -71,7 +71,7 @@ When left blank, the Event Enqueue Time of an event source is used as the event 
 
 ## Understand the Time Series Model
 
-You can now configure your Azure Time Series Insights environment's Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+You can now configure your Azure Time Series Insights environment's Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the [Time Series Model](./concepts-model-overview.md) overview to learn more.
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Azure Time Series Insights. To build your model, read [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
 
@@ -93,5 +93,7 @@ For more information, read [Shape events](./time-series-insights-send-events.md#
 ## Next steps
 
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Gen 2.
-- Learn about [data modeling](./time-series-insights-update-tsm.md) in Azure Time Series Insights Gen 2.
+- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+- Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen 2.
+- Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen 2.
+- Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen 2.
