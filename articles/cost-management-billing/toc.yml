@@ -1,4 +1,4 @@
-- name: Azure Cost Management and Billing documentation
+- name: Azure Cost Management + Billing documentation
   href: index.yml
   items:
   - name: Overview
