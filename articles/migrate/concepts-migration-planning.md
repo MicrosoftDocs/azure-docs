@@ -78,7 +78,7 @@ Export the Azure VM assessment report and filter by the following readiness cate
 
 - **Readiness unknown**: Azure Migrate is unable to determine the readiness of the machine because of insufficient metadata
 
-Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Databases or Azure SQL Database managed instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
+Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Database or Azure SQL Managed Instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
 
  ![Database assessments](./media/concepts-migration-planning/database-assessment-portal.png)
 
