@@ -45,10 +45,10 @@ The other option is to use the Azure Database for MariaDB's geo-restore feature 
 
 ## Cross-region read replicas
 
-You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using MySQL's binary log replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
+You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using MariaDB's binary log replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
 
 ## Next steps
 
-- - Learn more about the [automated backups in Azure Database for MariaDB](concepts-backup.md).
+- Learn more about the [automated backups in Azure Database for MariaDB](concepts-backup.md).
 - Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).
 - Learn about [read replicas in Azure Database for MariaDB](concepts-read-replicas.md).
