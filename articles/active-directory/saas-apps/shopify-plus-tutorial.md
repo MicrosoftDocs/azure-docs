@@ -102,6 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ---------------| --------------- | --------- |
 	| email | | user.mail |
 
+1. Change the Name ID format to persistent.  Click the Unique User Identifier (Name ID) option, and then Choose name identifier format.  Select Persistent for this option.  Save changes.
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
