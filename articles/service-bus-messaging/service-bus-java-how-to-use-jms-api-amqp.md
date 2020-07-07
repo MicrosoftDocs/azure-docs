@@ -140,21 +140,9 @@ To connect with Azure Service Bus using JMS clients, you need the **ConnectionSt
 
 ### Write the JMS application
 
-Once the `Session` or `JMSContext` has been instantiated, your application can leverage the JMS APIs to perform both management and data operations.
+Once the `Session` or `JMSContext` has been instantiated, your application can leverage the familiar JMS APIs to perform both management and data operations.
 
 Please refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-api-amqp.md#what-jms-features-are-supported) for both Standard and Premium tier.
-
-
-## JMS Topics vs. Service Bus Topics
-Using Azure Service Bus topics and subscriptions through the Java Message Service (JMS) API provides basic send and receive capabilities. It's a convenient choice when porting applications from other message brokers with JMS-compliant APIs, even though Service Bus topics differ from JMS Topics and require a few adjustments. 
-
-Azure Service Bus topics route messages into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command-line tools, or through the Azure portal. Each subscription allows for up to 2000 selection rules, each of which may have a filter condition and, for SQL filters, also a metadata transformation action. Each filter condition match selects the input message to be copied into the subscription.  
-
-Receiving messages from subscriptions is identical receiving messages from queues. Each subscription has an associated dead-letter queue and the ability to automatically forward messages to another queue or topics. 
-
-JMS Topics allow clients to dynamically create nondurable and durable subscribers that optionally allow filtering  messages with message selectors. These unshared entities aren't supported by Service Bus. The SQL filter rule syntax for Service Bus is, however, similar to the message selector syntax supported by JMS. 
-
-The JMS Topic publisher side is compatible with Service Bus, as shown in this sample, but dynamic subscribers aren't. The following topology-related JMS APIs aren't supported with Service Bus. 
 
 ## Summary
 This guide showcased how Java client applications using Java Message Service (JMS) over AMQP 1.0 can interact with Azure Service Bus.
