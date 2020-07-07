@@ -439,12 +439,12 @@ additionalContent:
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
             - text: GxP guidelines
               url: https://azure.microsoft.com/resources/microsoft-azure-gxp-guidelines-april/
+            - text: HITRUST customer responsibility matrix
+              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
 
         # Card
         - title: Implementation and mappings
           links:
-            - text: HITRUST customer responsibility matrix
-              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
             - text: ISO 27001 security controls
               url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
             - text: IT-Grundschutz workbook
