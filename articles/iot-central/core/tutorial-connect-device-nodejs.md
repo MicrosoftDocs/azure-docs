@@ -3,7 +3,7 @@ title: Tutorial - Connect a generic Node.js client app to Azure IoT Central | Mi
 description: This tutorial shows you how, as a device developer, to connect a device running a Node.js client app to your Azure IoT Central application. You create a device template by importing a device capability model and add views that let you interact with a connected device
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
