@@ -1,22 +1,21 @@
 ---
-title: How to use the Text Analytics for health service
+title: How to use Text Analytics for Health
 titleSuffix: Azure Cognitive Services
-description: This article explains how to use the Text Analytics for health service.
+description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for Health. 
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/07/2020
 ms.author: aahi
 ---
 
 # How to: Use Text Analytics for Health (preview)
 
 > [!IMPORTANT] 
-> Text Analytics for Health is not a substitute for professional medical advice, diagnosis, or treatment. Azure Text Analytics for Health should only be used in patient care scenarios after review for accuracy and sound medical judgment by trained medical professionals.
+> Text Analytics for Health should only be used in healthcare scenarios and is not a replacement for professional medical assistance. Text Analytics for Health results should only be used after professional medical and technical review.  
 
 Azure Text Analytics for Health is a containerized service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
 
@@ -65,7 +64,7 @@ Text Analytics for Health only supports English language documents.
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. Currently you will not be billed for Text Analytics for Health usage. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -73,16 +72,19 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 ## Install the container
 
-See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers.md?tabs=healthcare) to get your container running. You can also use the below PowerShell scripts for Azure web app for containers and Azure container instances to automate the resource deployment and container configuration.
+There are multiple ways you can install and run the container. 
 
-### Using Azure Web App for Containers
+1. Using the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to get your container.
+2. Using the below PowerShell and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
+
+### Install the container using Azure Web App for Containers
 
 Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is an Azure resource dedicated to running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support of docker containers and docker compose, HTTPS support and much more.
 
 > [!NOTE]
 > Using Azure Web App you will automatically get a domain in the form of `<appservice_name>.azurewebsites.net`
 
-Run this PowerShell script using the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create a Web App for Containers, using your subscription and the container image over HTTPS. Wait for the script to complete (approximately 20 minutes) before submitting the first request.
+Run this PowerShell script using the Azure CLI to create a Web App for Containers, using your subscription and the container image over HTTPS. Wait for the script to complete (approximately 20 minutes) before submitting the first request.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -108,22 +110,22 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 # Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
 ```
 
-### Using Azure Container Instance
+### Install the container using Azure Container Instance
 
 You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
 
-See [How to use Azure Container Instances](text-analytics-how-to-use-container-instances.md) article for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 20 minutes) before submitting the first request.
+See [How to use Azure Container Instances](text-analytics-how-to-use-container-instances.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 20 minutes) before submitting the first request.
 
 > [!NOTE] 
 > Azure Container Instances don't include HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX below.
 
 ```bash
-$subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
+$subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
-                                           #    and AppService to be attached to.
+                                           # and AppService to be attached to.
 $resources_location = ""                   # This is the location you wish the web app to be deployed to.
-                                           #    You can use the "az account list-locations -o table" command to
-                                           #    get the list of available locations and location code names.
+                                           # You can use the "az account list-locations -o table" command to
+                                           # Get the list of available locations and location code names.
 $azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
 $TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
 $TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
@@ -142,14 +144,14 @@ az container create --resource-group $resource_group_name --name $azure_containe
 
 ### Secure ACI connectivity
 
-By default there is no security provided when using ACI with container API. This is because typically containers will run as part of a pod which is protected from the outside by a network bridge. You can however modify a container with a front-facing component, keeping the container endpoint private. Here we describe how to accomplish this using [NGINX](https://www.nginx.com), which can be used as an ingress gateway to support HTTPS/SSL and client-certificate authentication.
+By default there is no security provided when using ACI with container API. This is because typically containers will run as part of a pod which is protected from the outside by a network bridge. You can however modify a container with a front-facing component, keeping the container endpoint private. The following examples use [NGINX](https://www.nginx.com) as an ingress gateway to support HTTPS/SSL and client-certificate authentication.
 
 > [!NOTE]
-> NGINX is an open-source, high-performance HTTP server and proxy. An NGINX container can be used to terminate a TLS connection for a single container. A more complex NGINX ingress-based TLS termination solution can also be constructed.
+> NGINX is an open-source, high-performance HTTP server and proxy. An NGINX container can be used to terminate a TLS connection for a single container. More complex NGINX ingress-based TLS termination solutions are also possible.
 
 #### Set up NGINX as an ingress gateway
 
-NGINX uses [configuration files](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) (a sample is provided below) to enable features at runtime. In order to enable TLS termination for another service, you must specify an SSL certificate to terminate the TLS connection and  `proxy_pass` to specify an address for the service.
+NGINX uses [configuration files](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) to enable features at runtime. In order to enable TLS termination for another service, you must specify an SSL certificate to terminate the TLS connection and  `proxy_pass` to specify an address for the service. A sample is provided below.
 
 
 > [!NOTE]
@@ -205,7 +207,7 @@ services:
       - <path-to-conf-folder>:/etc/nginx/conf.d/
 ```
 
-To initiate this docker compose file, execute the following command from a console at the root level of the file:
+To initiate this Docker compose file, execute the following command from a console at the root level of the file:
 
 ```bash
 docker-compose up
@@ -373,7 +375,7 @@ The following JSON is an example of the Text Analytics for Health API response b
 ```
 
 > [!NOTE] 
-> With negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the "isNegated" flag:
+> With negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the `isNegated` flag:
 
 ```json
 {
