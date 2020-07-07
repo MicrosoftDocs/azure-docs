@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database: Manage long-term backup retention"
-description: "Learn how to store and restore automated backups for an Azure SQL Database single or pooled database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
+description: "Learn how to store and restore automated backups for Azure SQL Database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
@@ -184,7 +184,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### Restore from LTR backups
 
-This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
+This example shows how to restore from an LTR backup. Note, this interface did not change but the resource ID parameter now requires the LTR backup resource ID.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
