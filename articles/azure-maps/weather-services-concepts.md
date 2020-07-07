@@ -43,7 +43,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 |20      |percent             |
 |21      |float               |
 |22      |integer             |
-
+|31      |MicrogramsPerCubicMeterOfAir             |
 
 ## Weather icons
 
