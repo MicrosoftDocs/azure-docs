@@ -25,7 +25,7 @@ $(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --upn-or-object-id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@consoso.com --query objectId --out tsv
 ```
 
 ## Find service principal object ID
