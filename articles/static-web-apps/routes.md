@@ -175,7 +175,7 @@ The `mimeTypes` object, listed at the same level as the `routes` array, allows y
 }
 ```
 
-In the example above, all files with the `js` extension are served with the `application/javascript` MIME type.
+In the example above, all files with the `.custom` extension are served with the `text/html` MIME type.
 
 The following considerations are important as you work with MIME types:
 
