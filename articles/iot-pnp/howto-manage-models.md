@@ -22,7 +22,7 @@ Interfaces can be public or private.
 
 Private interfaces are maintained by your company. Access to private interfaces is controlled through role-based access control (RBAC) both on your organization's Azure AD tenant and on individual interfaces. Tenant roles determine who can create and publish interfaces in your organization. Roles on individual interfaces allow the creator of a private interface to share it with a limited audience of your partners.
 
-Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal. The [common interfaces](./concepts-common-interfaces.md) published by Microsoft are examples of public interfaces.
+Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal.
 
 For an overview of the model repository including RBAC, see [Understand the Azure IoT Model Repository](concepts-model-repository.md).
 
