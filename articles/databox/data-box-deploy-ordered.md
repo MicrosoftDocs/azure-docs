@@ -556,6 +556,38 @@ To get tracking information about a single, existing Azure Data Box order, run [
    myDataBoxOrderPSTest DataBox              DeviceOrdered      7/7/2020 12:37:16 AM  WestUS               myResourceGroup
    ```
 
+### List all orders
+
+If you have ordered multiple devices, you can run [Get-AzDataBoxJob](https://docs.microsoft.com//powershell/module/az.databox/Get-AzDataBoxJob) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
+The command also displays time stamps of each order.
+
+> [!NOTE]
+> `Get-AzDataBoxJob` is used for displaying both single and multiple orders. The difference is that you specify the order name for single orders.
+
+```azurecli
+Get-AzDataBoxJob -ResourceGroupName <String>
+```
+
+Here's an example of the command:
+
+```azurecli
+PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup"
+```
+
+Here is the output from running the command:
+
+```output
+jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+----------------     -------------------- ------------------ --------------------- -------------------- -------------
+guspImportTest       DataBox              Cancelled          5/26/2020 11:20:57 PM westus               myResourceGroup
+mydataboxExportTest  DataBox              Cancelled          5/27/2020 12:04:16 AM westus               myResourceGroup
+mydataboximport1     DataBox              Cancelled          6/26/2020 11:00:34 PM westus               myResourceGroup
+myDataBoxOrderPSTest DataBox              Cancelled          7/07/2020 12:37:16 AM WestUS               myResourceGroup
+mydataboxtest2       DataBox              Cancelled          6/10/2020 4:54:23  PM westus               myResourceGroup
+mydataboxtest4       DataBox              DeviceOrdered      6/18/2020 3:48:00  AM westus               myResourceGroup
+PS C:\WINDOWS\system32>
+```
+
 ---
 
 ## Cancel the order
