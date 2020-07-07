@@ -44,7 +44,7 @@ The minimum SAP HANA certified conditions for the different storage types are:
 - Azure Ultra disk at least for the **/hana/log** volume. The **/hana/data** volume can be placed on either premium storage without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol
 
-Some of the storage types can be combined. For example, it is possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you us a volume based on ANF for **/hana/data**,  **/hana/log** volume needs to be based on NFS on top of ANF as well. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
+Some of the storage types can be combined. For example, it is possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you use a volume based on ANF for **/hana/data**,  **/hana/log** volume needs to be based on NFS on top of ANF as well. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that SAP is recommending, are:
 
@@ -73,7 +73,7 @@ Linux has several different I/O scheduling modes. Common recommendation through 
 Azure Write Accelerator is a functionality that is available for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> When using Azure premium storage, the usage of Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) or the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
+> When using Azure premium storage, the usage of Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -91,7 +91,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
 
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes the recommendation is to use:**
 
 - 256 KB for **/hana/data**
 - 64 KB for **/hana/log**
