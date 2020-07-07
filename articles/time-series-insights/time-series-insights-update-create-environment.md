@@ -200,7 +200,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 ## Define and apply a model
 
-In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, read [Time Series Model](./time-series-insights-update-tsm.md).
+In this section, you apply a model to structure your data. To complete the model, you define types, hierarchies, and instances. To learn more about data modeling, read [Time Series Model](./concepts-model-overview.md).
 
 1. In the explorer, select the **Model** tab:
 
@@ -345,15 +345,15 @@ In this tutorial, you learned how to:
 
 Now that you know how to create your own Azure Time Series Insights Preview environment, learn more about the key concepts in Azure Time Series Insights.
 
-Read about the Azure Time Series Insights storage configuration:
+Read about the Azure Time Series Insights ingestion::
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
+> [Azure Time Series Insights data ingestion overview](./concepts-ingestion-overview.md)
 
 Learn more about Time Series Models:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Preview data modeling](./time-series-insights-update-tsm.md)
+> [Azure Time Series Insights Preview data modeling](./concepts-model-overview.md)
 
 Learn more about Connect your environment to Power BI
 
