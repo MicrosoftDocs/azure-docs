@@ -98,6 +98,8 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
+---
+
 ## Connect with SSMS
 
 Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
