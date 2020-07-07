@@ -88,7 +88,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 2. Enter the values.
 
-3. The deployment can take a few minutes to finish. When completed, the output is similar to:
+3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 
     ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
 
