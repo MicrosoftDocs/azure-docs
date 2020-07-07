@@ -26,7 +26,7 @@ Query Performance Insight provides intelligent query analysis for single and poo
 
 ## Prerequisites
 
-Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
+Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Database by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
 > If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration).

@@ -1,7 +1,9 @@
 ---
 title: Troubleshoot Live Video Analytics on IoT Edge - Azure
 description: This article covers troubleshooting steps for Live Video Analytics on IoT Edge.
+author: IngridAtMicrosoft
 ms.topic: how-to
+ms.author: inhenkel
 ms.date: 05/24/2020
 
 ---
@@ -124,7 +126,7 @@ To fix this issue:
     ```
 1. Ensure you have the following extensions installed. As of the writing of this guide, the version for extensions were as follows:
 
-    |||
+    | Extension | Version |
     |---|---|
     |azure-cli   |      2.5.1*|
     |command-modules-nspkg         |   2.0.3|
@@ -239,7 +241,92 @@ Live Video Analytics on IoT Edge provides a direct method based programming mode
 
 Assembly Initialization method Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: Microsoft.Azure.Devices.Common.Exceptions.IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-We recommend that you should not call direct methods in a parallel fashion, but do so in a sequential manner, i.e.  one direct method call only after the previous one finishes. 
+We recommend that you should not call direct methods in a parallel fashion, but do so in a sequential manner, i.e.  one direct method call only after the previous one finishes.
+
+### Collecting logs for submitting a support ticket
+
+When self-guided troubleshooting steps do not resolve your problems, you should go the Azure portal and [open a support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Go through the following steps to gather the relevant logs that should be added to the ticket. You will be able to upload the log files in the **Details** tab of the support request.
+
+### Support-bundle
+
+When you need to gather logs from an IoT Edge device, the easiest way is to use the `support-bundle` command. This command collects:
+
+- Module logs
+- IoT Edge security manager and container engine logs
+- Iotedge check JSON output
+- Useful debug information
+
+#### Use the IoT Edge security manager
+ 
+The IoT Edge security manager is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information. To view more detailed logs of the IoT Edge security manager:
+
+1. Edit the IoT Edge daemon settings on the IoT edge device:
+
+    ```
+    sudo systemctl edit iotedge.service
+    ```
+
+1. Update the following lines:
+
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
+
+1. Restart the IoT Edge Security Daemon by running these commands:
+
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
+
+1. Run the `support-bundle` command with the --since flag to specify how long from the past you want to get logs. For example, 2h will get logs since the last two hours. You can change the value of this flag to include logs for a different period.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
+
+### LVA debug logs
+
+Follow these steps to configure the LVA on IoT Edge module to generate debug logs:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Select **IoT Edge** from the menu.
+1. Click on the ID of the target device from the list of devices.
+1. Click on **Set Modules** link on the top menu.
+
+  ![set modules azure portal](media/troubleshoot-how-to/set-modules.png)
+
+5. Under the IoT Edge Modules section, find and click **lvaEdge**.
+1. Click on **Container Create Options**.
+1. In the Binds section, add the following command:
+
+    `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
+
+    This binds the logs folders between the edge device and the container.
+
+1. Click on the **Update** button
+1. Click on the **Review + Create** button at the bottom of the page. A simple validation will take place and post successful validation message under a green banner.
+1. Click on the **Create** button.
+1. Next, update the **Module Identity Twin** to point the DebugLogsDirectory parameter to point to the directory in which the logs will be collected:
+    1. Select **lvaEdge** under the **Modules** table.
+    1. Click on the **Module Identity Twin** link. You will find this at the top of the page. This will open an editable pane.
+    1. Add the following key-value pair under **desired key**:
+
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+    1. Click on **Save**.
+
+1. Reproduce the issue.
+1. Connect to the Virtual Machine from the IoT Hub page in your portal.
+1. Navigate to the `/var/local/mediaservices/logs` folder and zip the bin content of this folder and share it with us. (These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.)
+
+1. Log collection can be stopped by setting that value in **Module Identity Twin** to *null* again. Go back to the **Module Identity Twin** page and update the following parameter as:
+
+    `"DebugLogsDirectory": ""`
 
 ## Next steps
 

@@ -27,7 +27,7 @@ This preview feature includes functionality for identifying and mitigating poten
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
 
 >[!TIP]
-> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse, and SQL Managed Instances.
+> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), available for Azure SQL Database, Azure Synapse, and SQL Managed Instance.
 
 
 ## Set up advanced data security for SQL machines 
