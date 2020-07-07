@@ -61,7 +61,11 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -1018,8 +1022,6 @@
             items: 
             - name: Create DNN for FCI
               href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: Feature interoperability with DNN 
-              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
             - name: FCI DNN & SQL Server features
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: Configure connectivity
