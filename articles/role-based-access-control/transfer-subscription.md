@@ -66,7 +66,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-other-known-resources) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL Databases with Azure AD authentication | Yes | No | [Check Azure SQL Databases with Azure AD authentication](#list-other-known-resources) |  |  |
+| Azure SQL databases with Azure AD authentication | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-other-known-resources) |  |  |
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Data Lake Storage Gen1 | Yes |  |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
@@ -74,8 +74,9 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Managed Disks | Yes | N/A |  |  |
 | Azure Container Services for Kubernetes | Yes | Yes |  |  |
 | Azure Active Directory Domain Services | Yes | No |  |  |
+| App registrations | Yes | Yes |  |  |
 
-If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 ## Prerequisites
 
@@ -220,9 +221,9 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     az keyvault show --name MyKeyVault
     ```
 
-### List Azure SQL Databases with Azure AD authentication
+### List Azure SQL databases with Azure AD authentication
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -349,14 +350,23 @@ This section describes the basic steps to update your key vaults. For more infor
 
 1. If you are using Azure Files, assign the appropriate ACLs.
 
-### Rotate access keys
+### Review other security methods
 
-If your intent is to remove access from users in the source directory so that they don't have access in the target directory, you should consider rotating any access keys. Until the access keys are regenerated, users would continue to have access after the transfer.
+Even though role assignments are removed during the transfer, users in the original owner account might continue to have access to the subscription through other security methods, including:
+
+- Access keys for services like Storage.
+- [Management certificates](../cloud-services/cloud-services-certs-create.md) that grant the user administrator access to subscription resources.
+- Remote Access credentials for services like Azure Virtual Machines.
+
+If your intent is to remove access from users in the source directory so that they don't have access in the target directory, you should consider rotating any credentials. Until the credentials are updated, users will continue to have access after the transfer.
 
 1. Rotate storage account access keys. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
-1. If you are using access keys for other services such as Azure SQL Databases or Azure Service Bus Messaging, rotate access keys.
+1. If you are using access keys for other services such as Azure SQL Database or Azure Service Bus Messaging, rotate access keys.
 
+1. For resources that use secrets, open the settings for the resource and update the secret.
+
+1. For resources that use certificates, update the certificate.
 
 ## Next steps
 

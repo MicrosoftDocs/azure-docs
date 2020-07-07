@@ -121,7 +121,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 
 ## Example: Microsoft MPI on a Windows H16r VM pool
 
-To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
+To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
 
 1. Deploy an Azure H16r VM running Windows Server 2016. For example, create the VM in the US West region. 
 2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](../virtual-machines/sizes-hpc.md) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell. 
@@ -157,6 +157,6 @@ Using the Batch APIs or Azure portal, create a pool using this image and with th
 
 ## Next steps
 
-* To run MPI jobs on an Azure Batch pool, see the [Windows](batch-mpi.md) or [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) examples.
+* To run MPI jobs on an Azure Batch pool, see the [Windows](batch-mpi.md) or [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch) examples.
 
 * For examples of GPU workloads on Batch, see the [Batch Shipyard](https://github.com/Azure/batch-shipyard/) recipes.
