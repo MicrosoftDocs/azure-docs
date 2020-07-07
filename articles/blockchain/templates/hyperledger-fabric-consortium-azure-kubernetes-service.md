@@ -15,6 +15,8 @@ After reading this article, you will:
 - Obtain working knowledge of Hyperledger Fabric and the various components that form the building blocks of Hyperledger Fabric blockchain network.
 - Learn how to deploy and configure a Hyperledger Fabric consortium on Azure Kubernetes Service for your production scenarios.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## Hyperledger Fabric Consortium architecture
 
 To build Hyperledger Fabric network on Azure, you need to deploy Ordering Service and organization with peer nodes. The different fundamental components that are created as part of the template deployment are:
@@ -424,6 +426,6 @@ To provide product feedback or to request new features, post or vote for an idea
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-- [Microsoft Q&A question page for Azure Blockchain Service](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
