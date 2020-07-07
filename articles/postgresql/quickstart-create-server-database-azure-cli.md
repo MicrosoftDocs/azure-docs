@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
@@ -26,13 +26,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)command. Note the **id** property  which is **Subscritpion ID** from the command output for the corresponding subscription name.
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)command. Note the **id** property  which refers to **Subscritpion ID** for your azure account. 
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Make a not of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)
+Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -49,16 +49,16 @@ Create an [Azure Database for PostgreSQL server](overview.md) using the [az post
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
 ```
-Here are the details for arguments above : 
+Here are the details for arguments above: 
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
 name | mydemoserver | Choose a unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
 location | westus | The Azure location for the server.
-admin-user | myadmin | The username for the administrator log in. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter.For more information , see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/)
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter. For more information , see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/)
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11. 
@@ -66,9 +66,9 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration.
 >- SSL is enabled by default on your server. For more infroamtion on SSL , see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
 ## Configure a server-level firewall rule 
-By default the server created is not publicly accessible and you need to give permissions to your local IP. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server. 
+By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server. 
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you don't know where to look for your IP, go to [Google](https://google.com) and type in “what is my ip address”. You will see your IP in the search results. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you don't know how to look for your IP, go to [Google](https://google.com) and type in "what is my ip address". You will see your IP in the search results. 
 
 
 ```azurecli-interactive
@@ -116,7 +116,7 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 ```
 
 ## Connect to PostgreSQL database using psql
-Connect to your server using the [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) using [Azure Cloud Shell](../cloud-shell/overview.md) or use psql installed on your local environment. An empty database, 'postgres' is already create with your new PostgreSQL sverer that you can use to connect with psql as shown below 
+Connect to your server using the [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) using [Azure Cloud Shell](../cloud-shell/overview.md) or use psql installed on your local environment. An empty database, 'postgres' is already create with your new PostgreSQL server that you can use to connect with psql as shown below 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
