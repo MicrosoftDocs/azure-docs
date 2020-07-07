@@ -4,7 +4,7 @@ description: Learn how to set up and manage data encryption for your Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ---
 
@@ -83,8 +83,8 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
 ### Creating a restored/replica server
 
-  *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a read replica server](howto-read-replicas-cli.md) 
+* [Create a restore server](howto-restore-server-cli.md) 
+* [Create a read replica server](howto-read-replicas-cli.md) 
 
 ### Once the server is restored, revalidate data encryption the restored server
 
