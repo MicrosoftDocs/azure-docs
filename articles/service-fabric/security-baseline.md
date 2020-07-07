@@ -4,7 +4,7 @@ description: The Service Fabric security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -29,7 +29,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
+### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24082).
@@ -50,7 +50,7 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networki
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24083).
@@ -92,7 +92,7 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24085).
@@ -109,7 +109,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 **Responsibility**: Customer
 
-### 1.5: Record network packets and flow logs
+### 1.5: Record network packets
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24086).
@@ -127,7 +127,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24087).
@@ -164,8 +164,9 @@ https://docs.microsoft.com/azure/application-gateway/overview
 
 **Guidance**: Use Virtual network service tags to define network access controls on network security groups (NSG) that are attached to the subnet your Azure Service Fabric cluster is deployed in. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Understand and using Service Tags for Azure Service Fabric:
-https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
+Virtual network service tags:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -345,7 +346,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24098).
@@ -360,7 +361,7 @@ https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches
 
 **Responsibility**: Customer
 
-### 2.7: Enable alerts for anomalous activity
+### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24099).
@@ -475,7 +476,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24106).
@@ -486,7 +487,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24107).
@@ -499,7 +500,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24108).
@@ -518,7 +519,7 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activity from administrative accounts
+### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24109).
@@ -579,7 +580,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **Responsibility**: Customer
 
-### 3.11: Monitor attempts to access deactivated accounts
+### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24113).
@@ -596,7 +597,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24114).
@@ -708,7 +709,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Responsibility**: Shared
 
-### 4.6: Use Azure RBAC to control access to resources
+### 4.6: Use Role-based access control to control access to resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24121).
@@ -740,7 +741,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24123).
 
-**Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data.
+**Guidance**: Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. 
+Understand encryption at rest in Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest  How to configure customer managed encryption keys: https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -797,7 +800,7 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestrati
 
 **Responsibility**: Customer
 
-### 5.3: Deploy automated third-party software patch management solution
+### 5.3: Deploy automated patch management solution for third-party software titles
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24127).
@@ -838,7 +841,7 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestrati
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use Azure Asset Discovery
+### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24130).
@@ -884,7 +887,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Responsibility**: Customer
 
-### 6.4: Maintain an inventory of approved Azure resources and software titles
+### 6.4: Define and maintain inventory of approved Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24133).
@@ -971,7 +974,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Customer
 
-### 6.10: Implement approved application list
+### 6.10: Maintain an inventory of approved software titles
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24139).
@@ -982,7 +985,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Customer
 
-### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
+### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24140).
@@ -1107,7 +1110,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Responsibility**: Customer
 
-### 7.7: Deploy system configuration management tools
+### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24149).
@@ -1122,7 +1125,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Responsibility**: Customer
 
-### 7.8: Deploy system configuration management tools for operating systems
+### 7.8: Deploy configuration management tools for operating systems
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24150).
@@ -1133,7 +1136,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Responsibility**: Customer
 
-### 7.9: Implement automated configuration monitoring for Azure services
+### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24151).
@@ -1221,7 +1224,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24156).
@@ -1270,7 +1273,7 @@ does not run on customer content.
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24159).
@@ -1281,7 +1284,7 @@ does not run on customer content.
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24160).
@@ -1304,7 +1307,7 @@ How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/mod
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24161).
@@ -1327,7 +1330,7 @@ How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/mo
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24162).
@@ -1437,7 +1440,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 *For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24168).
