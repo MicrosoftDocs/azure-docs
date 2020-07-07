@@ -381,7 +381,7 @@ Do the following steps using Azure CLI to order a device:
     $storAcct = Get-AzStorageAccount -Name "gptestaccount0520" -ResourceGroup "GDPTest"
    ```
    
-2. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the PowerShell command to create the Data Box order. The following table shows the parameter settings used for [New-AzDataBoxJob](powershell/module/az.databox/New-AzDataBoxJob).
+2. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the PowerShell command to create the Data Box order. The following table shows the parameter settings used for [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Setting (parameter) | Description |  Sample value |
     |---|---|---|
@@ -403,7 +403,7 @@ Do the following steps using Azure CLI to order a device:
     |StorageAccountResourceId| The Azure Storage account from where you want to import data.| "mystorageaccount"|
     |ExpectedDataSizeInTeraBytes | | |
  
-3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
+3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "gptestaccount0520"
