@@ -157,8 +157,8 @@ display(pipeline.fit(df).transform(df))
 | https://tsal-eszuskq0bptlfh8awbb.stackpathdns.com/wp-content/uploads/2018/01/MartinLutherKingQuotes.jpg  |
 
 ## Speech-to-Text
-The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. 
-In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+
+The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```scala
 import org.apache.spark.sql.functions.col

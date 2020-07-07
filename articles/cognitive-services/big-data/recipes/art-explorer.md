@@ -15,7 +15,7 @@ ms.custom: tracking-python
 
 # Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data
 
-In this example, we'll use the Cognitive Services for Big Data to add intelligent annotations to the Open Acces collection from the Metropolitan Museum of Art. This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
+In this example, we'll use the Cognitive Services for Big Data to add intelligent annotations to the Open Access collection from the Metropolitan Museum of Art (MET). This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
 
 ## Prerequisites
 
@@ -44,8 +44,6 @@ AZURE_SEARCH_KEY = 'INSERT_AZURE_COGNITIVE_SEARCH_SUBSCRIPTION_KEY'
 search_service = "mmlspark-azure-search"
 search_index = "test"
 ```
-
-<a name="ReadData"></a>
 
 ## Read the Data
 
@@ -114,5 +112,5 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 
 ## Next steps
 
-Recipe: [Use the Cogntivice Services for Big Data for wind turbine Anomaly Detection](anomaly-detection.md)
+Learn how to use [Cognitive Services for Big Data for Anomaly Detection](anomaly-detection.md).
 

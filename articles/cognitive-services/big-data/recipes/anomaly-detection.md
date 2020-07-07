@@ -15,7 +15,7 @@ ms.custom: tracking-python
 
 # Recipe: Predictive maintenence with the Cognitive Services for Big Data
 
-This example will walk you through how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. Our example follows along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. However, for simplicity's sake, we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
+This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
 ## Hypothetical Scenario
 
@@ -34,11 +34,13 @@ There could be outliers in the data in random frequency. In those situations, RP
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). You can also:
 
--   View an existing resource in the  [Azure portal](https://portal.azure.com/).
+- View an existing resource in the  [Azure portal](https://portal.azure.com/).
 
-Be sure to make a note of the endpoint and the key for this resource.
+Make note of the endpoint and the key for this resource, you'll need it in this guide.
 
 ## Enter Your Service Keys
+
+Let's start by adding your key and location.
 
 ```python
 service_key = None # Paste your anomaly detector key here
@@ -50,7 +52,7 @@ assert (location is not None)
 
 ## Read data into a DataFrame
 
-We'll read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
+Next, let's read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
 
 ```python
 df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
@@ -58,9 +60,7 @@ df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.n
 
 ### Run anomaly detection using Cognitive Services on Spark
 
-The goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and do predictive maintenance. 
-
-To do that, we use Anomaly Detector on Spark:
+The goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and do predictive maintenance. To do that, let's use Anomaly Detector on Spark:
 
 ```python
 from pyspark.sql.functions import col, struct
@@ -85,7 +85,7 @@ df_anomaly = (df_signals
 df_anomaly.createOrReplaceTempView('df_anomaly')
 ```
 
-We can quickly take a look at our data thus far:
+Let's take a look at the data:
 
 ```python
 df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
@@ -144,7 +144,6 @@ If sucessfull, your output will look like this:
 
 ![Anomaly Detector Plot](../media/anomaly_output.png)
 
-
 ## Next steps
 
-Check out how to do predictive maintenance at scale using Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB [here](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
+Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
