@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create geo-replicated registry - Resource Manager template
+title: Quickstart - Create a container instance - Azure Resource Manager template
 description: In this quickstart, you use an Azure Resource Manager template to quickly deploy a containerized web app that runs in an isolated Azure container instance.
 services: azure-resource-manager
 ms.service: azure-resource-manager

@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
+To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
 ### Create an SSH key pair
 
