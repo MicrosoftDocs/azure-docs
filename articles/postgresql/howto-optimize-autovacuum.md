@@ -4,7 +4,7 @@ description: This article describes how you can optimize autovacuum on an Azure 
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 
@@ -29,8 +29,10 @@ If you don't vacuum from time to time, the dead tuples that accumulate can resul
 
 ## Monitor bloat with autovacuum queries
 The following sample query is designed to identify the number of dead and live tuples in a table named XYZ:
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## Autovacuum configurations
 The configuration parameters that control autovacuum are based on answers to two key questions:
