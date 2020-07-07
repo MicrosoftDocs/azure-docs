@@ -8,11 +8,11 @@ ms.date: 03/17/2020
 
 ## Prepare an IoT hub
 
-You need an Azure IoT hub in your Azure subscription to complete the steps in this article. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../articles/iot-hub/iot-hub-create-using-cli.md).
+You need an Azure IoT hub in your Azure subscription to complete the steps in this article. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 If you're using the Azure CLI locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure Cloud Shell, you're signed in automatically.
 
-If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later; the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+If you're using the Azure CLI locally, the `az` version should be **2.8.0** or later; the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
 
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your instance:
 
@@ -33,10 +33,4 @@ Run the following command to create the device identity in your IoT hub. Replace
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Run the following command to get the _device connection string_ for the device you just registered. Make a note of this connection string, you use it later in this quickstart:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
