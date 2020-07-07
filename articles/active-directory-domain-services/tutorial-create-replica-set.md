@@ -17,12 +17,14 @@ ms.author: iainfou
 
 # Tutorial: Create and use replica sets for resiliency or geolocation in Azure Active Directory Domain Services (preview)
 
-To improve the resiliency of an Azure Active Directory Domain Services (Azure AD DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Azure AD DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets provides geographical disaster recover for a managed domain. You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
+To improve the resiliency of an Azure Active Directory Domain Services (Azure AD DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Azure AD DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets provides geographical disaster recover for a managed domain.
+
+You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure virtual network peering
+> * Understand the virtual network requirements
 > * Create a replica set in a different geographic region
 > * Delete a replica set
 
@@ -65,7 +67,11 @@ Before you can use replica sets in Azure AD DS, review the following Azure virtu
 
 ## Create a replica set
 
-Let's create an additional replica set for an existing managed domain. To create an additional replica set, complete the following steps:
+When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created to apply the domain configuration. Additional replica sets share the same namespace and configuration. Configuration changes, or user and credentials updates, are applied to all replica sets in the managed domain using AD DS replication. Each replica set has its own domain controllers and resources to provide healthy managed domain services.
+
+Let's create an additional replica set for an existing managed domain. In this tutorial, create the additional replica in a geographically different region to the initial replica set for the managed domain.
+
+To create an additional replica set, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
@@ -85,11 +91,13 @@ Let's create an additional replica set for an existing managed domain. To create
 
     ![Example screenshot to create a replica set in the Azure portal](./media/tutorial-create-replica-set/create-replica-set.png)
 
-1. When ready, select **Save**. The process to create the replica set takes some time as the resources are created in the destination region and the managed domain itself is then replicated using AD DS replication.
+1. When ready, select **Save**.
 
-    The replica set shows as *Provisioning* as deployment continues, as shown in the following example screenshot. When complete, the replica set shows as *Running*.
+The process to create the replica set takes some time as the resources are created in the destination region. The managed domain itself is then replicated using AD DS replication.
 
-    ![Example screenshot of replica set deployment status in the Azure portal](./media/tutorial-create-replica-set/replica-set-provisioning.png)
+The replica set reports as *Provisioning* as deployment continues, as shown in the following example screenshot. When complete, the replica set shows as *Running*.
+
+![Example screenshot of replica set deployment status in the Azure portal](./media/tutorial-create-replica-set/replica-set-provisioning.png)
 
 ## Delete a replica set
 
@@ -113,7 +121,10 @@ In this tutorial, you learned how to:
 > * Create a replica set in a different geographic region
 > * Delete a replica set
 
-For more conceptual information about replica sets in Azure AD DS, see [Replica sets concepts and features][concepts-replica-sets].
+For more conceptual information, learn how replica sets work in Azure AD DS.
+
+> [!div class="nextstepaction"]
+> [Replica sets concepts and features][concepts-replica-sets]
 
 <!-- INTERNAL LINKS -->
 [replica-sets]: concepts-replica-sets.md
