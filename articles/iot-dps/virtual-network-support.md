@@ -84,15 +84,16 @@ To set up a private endpoint, follow these steps:
 
     ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    For information on the **Connect to an Azure resource by resource ID or alias**, see the [Request a private endpoint](#request-a-private-endpoint) section in this article.
-
-
     | Field | Value |
     | :---- | :-----|
     | **Subscription**        | Choose the Azure subscription that contains the DPS resource that your private endpoint will point to.  |
     | **Resource type**       | Choose **Microsoft.Devices/ProvisioningServices**. |
     | **Resource**            | Select the DPS resource that the private endpoint will map to. |
     | **Target sub-resource** | Select **iotDps**. |
+
+    > [!TIP]
+    > Information on the **Connect to an Azure resource by resource ID or alias** setting is provided in the [Request a private endpoint](#request-a-private-endpoint) section in this article.
+
 
     Click **Next : Configuration** to configure the VNET for the private endpoint.
 
@@ -107,7 +108,7 @@ To set up a private endpoint, follow these steps:
 
 ## Request a private endpoint
 
-You can request a private endpoint to a DPS resource that you do not own. In order to make this request, you need the resource owner to supply you with the resource ID or alias. 
+You can request a private endpoint to a DPS resource by resource ID. In order to make this request, you need the resource owner to supply you with the resource ID. 
 
 1. The resource ID is provided on to the properties tab for DPS resource as shown below.
 
@@ -116,13 +117,13 @@ You can request a private endpoint to a DPS resource that you do not own. In ord
     > [!CAUTION]
     > Be aware that the resource ID does contain the subscription ID. 
 
-2. Once you have the resource ID or alias, follow the steps above in [Set up a private endpoint](#set-up-a-private-endpoint) to step 3 on the _Create a private endpoint Resource_ page. Click **Connect to an Azure resource by resource ID or alias** and enter the following information 
+2. Once you have the resource ID, follow the steps above in [Set up a private endpoint](#set-up-a-private-endpoint) to step 3 on the _Create a private endpoint Resource_ page. Click **Connect to an Azure resource by resource ID or alias** and enter the information in the following table. 
 
     | Field | Value |
     | :---- | :-----|
-    | Resource ID or alias | Enter the resource ID of alias provided by the owner of the DPS resource. |
-    | Target sub-resource | Enter **iotDps** |
-    | Request message | Enter a request message for the DPS resource owner.<br>For example, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **Resource ID or alias** | Enter the resource ID for the DPS resource. |
+    | **Target sub-resource** | Enter **iotDps** |
+    | **Request message** | Enter a request message for the DPS resource owner.<br>For example, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     Click **Next : Configuration** to configure the VNET for the private endpoint.
 
