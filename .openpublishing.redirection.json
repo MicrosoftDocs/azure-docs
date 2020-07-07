@@ -23032,6 +23032,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/app-sign-in-risk.md",
+      "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-risk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
       "redirect_document_id": false

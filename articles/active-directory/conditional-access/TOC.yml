@@ -8,8 +8,6 @@
   items:
   - name: Require terms of use to be accepted
     href: require-tou.md
-  - name: Block access when a session risk is detected
-    href: app-sign-in-risk.md
 - name: Tutorials
   items:
   - name: Require Azure Multi-Factor Authentication
