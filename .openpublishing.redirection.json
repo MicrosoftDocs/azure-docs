@@ -56528,6 +56528,11 @@
       "source_path": "articles/load-balancer/load-balancer-configure-ha-ports.md",
       "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/change-name-or-logo-portal.md",
+      "redirect_url": "/azure/active-directory/manage-apps/add-application-portal-configure",
+      "redirect_document_id": false
     }
   ]
 }
