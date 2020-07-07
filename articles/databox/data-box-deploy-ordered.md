@@ -146,11 +146,22 @@ You will see the following output:
     SerializationVersion           1.1.0.1
     WSManStackVersion              3.0
 ```
+
 If your version is lower than 6.2.4, you will need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, go [here](https://github.com/PowerShell/PowerShell/releases). For detailed instructions about the latest Windows PowerShell release, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-#### Install Azure PowerShell Az module
+#### Install Azure PowerShell Az and Az.DataBox module
 
-Install the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+1. Install the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+2. Then install Az.DataBox using the command `Install-Module -Name Az.DataBox`.
+
+```azurepowershell
+PS C:\PowerShell\Modules> Install-Module -Name Az.DataBox
+PS C:\PowerShell\Modules> Get-InstalledModule -Name "Az.DataBox"
+
+Version              Name                                Repository           Description
+-------              ----                                ----------           -----------
+0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
+```
 
 ### Use Azure Cloud Shell
 
@@ -164,7 +175,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 Open up a Windows PowerShell command window and sign in to Azure with the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) command:
 
-```azurecli
+```azurepowershell
 PS C:\Windows> Connect-AzAccount
 ```
 
@@ -364,7 +375,48 @@ Do the following steps using Azure CLI to order a device:
 
 Do the following steps using Azure CLI to order a device:
 
-1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the parameter settings used for `az databox job create`:
+1. Before you create the import order you need to get your storage account and save the storage account object in a variable.
+
+   ```azurepowershell
+    $storAcct = Get-AzStorageAccount -Name "gptestaccount0520" -ResourceGroup "GDPTest"
+   ```
+   
+2. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the PowerShell command to create the Data Box order. The following table shows the parameter settings used for [New-AzDataBoxJob](powershell/module/az.databox/New-AzDataBoxJob).
+
+    | Setting (parameter) | Description |  Sample value |
+    |---|---|---|
+    |ResourceGroupName| Use an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+    |Name| The name of the order you are creating. | "mydataboxorder"|
+    |ContactName| The name associated with the shipping address. | "Gus Poland"|
+    |PhoneNumber| The phone number of the person or business that will receive the order.| "14255551234"
+    |Location| The nearest Azure region to you that will be shipping your device.| "WestUS"|
+    |DataBoxType| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
+    |EmailId| The email addresses associated with the order.| "gusp@contoso.com" |
+    |StreetAddress1| The street address to where the order will be shipped. | "15700 NE 39th St" |
+    |StreetAddress2| The secondary address information, such as apartment number or building number. | "Bld 123" |
+    |StreetAddress3| The tertiary address information. | |
+    |City| The city that the device will be shipped to. | "Redmond" |
+    |StateOrProvinceCode| The state where the device will be shipped.| "WA" |
+    |CountryCode| The country that the device will be shipped. | "United States" |
+    |PostalCode| The zip code or postal code associated with the shipping address.| "98052"|
+    |CompanyName| The name of your company you work for.| "Contoso, LTD" |
+    |StorageAccountResourceId| The Azure Storage account from where you want to import data.| "mystorageaccount"|
+    |ExpectedDataSizeInTeraBytes | | |
+ 
+3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
+
+   ```azurepowershell
+    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "gptestaccount0520"
+    PS> New-AzDataBoxJob -Location "WestUS" -StreetAddress1 "15700 NE 39th St" -PostalCode 94107 -City "Redmond" -StateOrProvinceCode "WA" -CountryCode "US" -EmailId "gusp@contoso.com" -PhoneNumber 4255551234 -ContactName '"Gus Poland"' -StorageAccount $storAcct.id -DataBoxType DataBox -ResourceGroupName "GDPTest" -Name "myDataBoxOrderPSTest"
+   ```
+
+   Here is the output from running the command:
+
+   ```output
+    jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+    ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               GDPTest
+   ```
 
 ---
 
@@ -472,6 +524,37 @@ The following table shows the parameter information for `az databox job list`:
                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    PS C:\WINDOWS\system32>
    ```
+# [Azure PowerShell](#tab/azure-ps)
+
+### Track a single order
+
+To get tracking information about a single, existing Azure Data Box order, run [Get-AzDataBoxJob](https://docs.microsoft.com//powershell/module/az.databox/Get-AzDataBoxJob). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
+
+   ```azurecli
+    Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
+   ```
+
+   The following table shows the parameter information for `Get-AzDataBoxJob`:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |ResourceGroup [Required]| The name of the resource group associated with the order. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |Name [Required]| The name of the order to be displayed. | "mydataboxorder"|
+   |ResourceId| The ID of the resource group associated with the order |  |
+
+   Here's an example of the command with output:
+
+   ```azurecli
+    PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
+   ```
+
+   Here is the output from running the command:
+
+   ```output
+   jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+   ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+   myDataBoxOrderPSTest DataBox              DeviceOrdered      7/7/2020 12:37:16 AM  WestUS               myResourceGroup
+   ```
 
 ---
 
@@ -558,6 +641,72 @@ Here's an example of the command with output:
    ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    command ran in 1.142 seconds.
+   PS C:\Windows>
+   ```
+
+# [Azure PowerShell](#tab/azure-ps)
+
+### Cancel an order
+
+To cancel an Azure Data Box order, run [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). You are required to specify your reason for canceling the order.
+
+```azurepowershell
+Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
+```
+
+The following table shows the parameter information for `Stop-AzDataBoxJob`:
+
+| Parameter | Description |  Sample value |
+|---|---|---|
+|ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+|Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
+|Reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
+
+Here's an example of the command with output:
+
+   ```azurepowershell
+   PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+                                               -Name "myDataBoxOrderPSTest" \
+                                               -Reason "I entered erroneous information and had to cancel."
+   ```
+
+   Here is the output from running the command:
+
+   ```output
+   Confirm
+   "Cancelling Databox Job "myDataBoxOrderPSTest
+   [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+   ```
+
+### Delete an order
+
+If you have canceled an Azure Data Box order, you can run [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) to delete the order.
+
+   ```azurecli
+   Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
+   ```
+
+   The following table shows the parameter information for `Remove-AzDataBoxJob`:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
+   |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
+
+Here's an example of the command with output:
+
+   ```azurepowershell
+   PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+                                      -Name "mydataboxtest3"
+   ```
+
+   Here is the output from running the command:
+
+   ```output
+   Confirm
+   "Removing Databox Job "mydataboxtest3
+   [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
    PS C:\Windows>
    ```
 
