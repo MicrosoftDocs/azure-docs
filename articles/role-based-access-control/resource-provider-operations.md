@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/06/2020
+ms.date: 07/07/2020
 ---
 
 # Azure resource providers operations
