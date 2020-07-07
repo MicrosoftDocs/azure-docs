@@ -15,11 +15,16 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 ## Functions
 
 The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
-  
-|||||
-|-|-|-|-|
-|[ST_DISTANCE](sql-query-st-distance.md)|[ST_INTERSECTS](sql-query-st-intersects.md)|[ST_ISVALID](sql-query-st-isvalid.md)|
-|[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)|[ST_WITHIN](sql-query-st-within.md)||||
+
+* [ST_DISTANCE](sql-query-st-distance.md)
+* [ST_INTERSECTS](sql-query-st-intersects.md)
+* [ST_ISVALID](sql-query-st-isvalid.md)
+* [ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)
+* [ST_WITHIN](sql-query-st-within.md)
+
+
+
+
   
 
 ## Next steps

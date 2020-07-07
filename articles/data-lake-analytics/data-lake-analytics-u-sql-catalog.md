@@ -18,7 +18,7 @@ In the previous U-SQL script, you repeated the use of EXTRACT to read from the s
 
 The following script creates a TVF called `Searchlog()` in the default database and schema:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -49,7 +49,7 @@ END;
 
 The following script shows you how to use the TVF that was defined in the previous script:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -70,7 +70,7 @@ If you have a single query expression, instead of a TVF you can use a U-SQL VIEW
 
 The following script creates a view called `SearchlogView` in the default database and schema:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -87,7 +87,7 @@ USING Extractors.Tsv();
 
 The following script demonstrates the use of the defined view:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -107,7 +107,7 @@ As with relational database tables, with U-SQL you can create a table with a pre
 
 Create a database and two tables by using the following script:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -141,7 +141,7 @@ You can query tables, such as those created in the previous script, in the same 
 
 To read from the tables, modify the transform script that you used previously:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

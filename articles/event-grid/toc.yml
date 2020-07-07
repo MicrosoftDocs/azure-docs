@@ -180,9 +180,11 @@
       href: geo-disaster-recovery.md      
   - name: Security 
     items: 
-    - name: Authentication
+    - name: Authenticate event delivery to event handlers
       href: security-authentication.md
-    - name: Authorization 
+    - name: Authenticate publishing clients
+      href: security-authenticate-publishing-clients.md
+    - name: Authorize access to Event Grid resources 
       href: security-authorization.md
     - name: Network security
       href: network-security.md
@@ -202,6 +204,8 @@
       href: create-view-manage-system-topics-cli.md
     - name: Azure Resource Manager template
       href: create-view-manage-system-topics-arm.md      
+  - name: Get access keys for topics or domains
+    href: get-access-keys.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Subscribe to Auth0 events
@@ -242,10 +246,14 @@
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors
       href: troubleshoot-errors.md
+    - name: Troubleshoot network connectivity issues
+      href: troubleshoot-network-connectivity.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
-    - name: View metrics and create alerts
+    - name: View metrics
       href: monitor-event-delivery.md
+    - name: Create alerts
+      href: set-alerts.md      
 - name: Reference
   items:
   - name: Azure CLI

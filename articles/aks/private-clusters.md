@@ -96,7 +96,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 
 ## Limitations 
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
-* Availability Zones are currently supported for certain regions, see the beginning of this document 
+* [Availability Zones][availability-zones] are currently supported for certain regions. 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
@@ -117,3 +117,4 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

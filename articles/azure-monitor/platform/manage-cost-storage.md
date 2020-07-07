@@ -192,7 +192,7 @@ Each workspace has its daily cap applied on a different hour of the day. The res
 Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. (Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level.) A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 > [!WARNING]
-> The daily cap does not stop the collection of data from Azure Sentinal or Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
+> The daily cap does not stop the collection of data from Azure Sentinel or Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
 
 ### Identify what daily data limit to define
 

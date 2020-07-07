@@ -65,7 +65,7 @@ Now select your target platform architecture. In the Visual Studio toolbar, find
 
 ### Set up audio capture
 
-Then allow the project to capture audio input:
+Allow the project to capture audio input:
 
 1. In **Solution Explorer**, double-click **Package.appxmanifest** to open the package application manifest.
 

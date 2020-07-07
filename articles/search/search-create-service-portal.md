@@ -8,7 +8,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
+ms.date: 06/24/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
@@ -20,6 +20,14 @@ In this article, learn how to create a resource in the [Azure portal](https://po
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help with getting started, see [Manage Azure Cognitive Search with PowerShell](search-manage-powershell.md).
+
+## Before you start
+
+The following service properties are fixed for the lifetime of the service and changing them requires a new service. As you create a service, think about how you will use it:
+
+* name (review [these suggestions](#name-the-service) for service names)
+* tier (Free, Basic, Standard [affects billing](search-sku-tier.md) and sets an upward limit on capacity)
+* region (choose a location that has related services. For integration with Cognitive Services or Azure Machine Learning, co-locating services in the same region is a requirement)
 
 ## Subscribe (free or paid)
 

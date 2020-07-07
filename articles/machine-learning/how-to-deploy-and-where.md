@@ -541,6 +541,10 @@ You can use the following compute targets, or compute resources, to host your we
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
+> [!NOTE]
+> * ACI is suitable only for small models <1GB in size. 
+> * We recommend to use single node AKS for dev-test of larger models.
+
 ### Define your deployment configuration
 
 Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.

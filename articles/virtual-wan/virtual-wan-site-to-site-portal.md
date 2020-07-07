@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -23,7 +23,7 @@ In this tutorial you learn how to:
 > * Connect a VPN site to a hub
 > * Connect a VNet to a hub
 > * Download a configuration file
-> * View your virtual WAN
+> * Configure your VPN gateway
 
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
@@ -69,7 +69,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 ## <a name="site"></a>Create a site
 
-You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
+You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into Azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -245,11 +245,20 @@ If you need instructions to configure your device, you can use the instructions 
 * A new Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can use both policy based and route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>View your virtual WAN
+## <a name="gateway-config"></a>Configure your VPN gateway
 
-1. Navigate to the virtual WAN.
-2. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub health summary, connection status, and bytes in and out.
-3. In the Hubs and connections section, you can view hub status, VPN sites, etc. You can click on a specific hub name and navigate to the VPN Site for additional details.
+You can view and configure your VPN gateway settings at any time by selecting **View/Configure**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+On the **Edit VPN Gateway** page, you can see the following settings:
+
+* VPN Gateway Public IP address (assigned by Azure)
+* VPN Gateway Private IP address (assigned by Azure)
+* VPN Gateway Default BGP IP address (assigned by Azure)
+* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## Next steps
 

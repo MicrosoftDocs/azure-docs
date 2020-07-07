@@ -40,6 +40,8 @@ Similarly, you can use the `az eventgrid domain create` command to create a doma
 In the previous section, you learned how to enable a system-managed identity while you created a topic or a domain. In this section, you learn how to enable a system-managed identity for an existing topic or domain. 
 
 ### Use the Azure portal
+The following procedure shows you how to enable system-managed identity for a topic. The steps for enabling an identity for a domain are similar. 
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Search for **event grid topics** in the search bar at the top.
 3. Select the **topic** for which you want to enable the managed identity. 

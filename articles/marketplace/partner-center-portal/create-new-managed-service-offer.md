@@ -12,7 +12,7 @@ ms.date: 05/19/2020
 
 # Create a Managed Service offer
 
-Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) to publish a Managed Service offer.
 
@@ -133,9 +133,9 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide your offer's logo in four pixel sizes:
 
-- **Small** (40 x 40)
+- **Small** (48 x 48)
 - **Medium** (90 x 90)
-- **Large** (115 x 115)
+- **Large** (216 x 216)
 - **Wide** (255 x 115)
 
 Follow these guidelines for your logos:
@@ -157,7 +157,7 @@ You can optionally add up to five videos that demonstrate your offer. These vide
 
 #### Additional marketplace listing resources
 
-- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 

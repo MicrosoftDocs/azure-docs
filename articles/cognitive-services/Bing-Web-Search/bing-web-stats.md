@@ -18,7 +18,7 @@ ms.custom: seodec2018
 Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
 
 > [!IMPORTANT]
-> * Bing Statistics is not available with free trial subscriptions, or resources on the free `F0` pricing tier.
+> * Bing Statistics is not available with resources on the free `F0` pricing tier.
 > * You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
 > * Enabling Bing Statistics increases your subscription rate slightly. See [pricing](https://aka.ms/bingstatisticspricing) for details.
 

@@ -5,7 +5,7 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ---
 # Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions

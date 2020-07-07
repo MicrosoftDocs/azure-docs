@@ -5,8 +5,8 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
-ms.topic: how-to
-ms.date: 02/19/2020
+ms.topic: conceptual
+ms.date: 06/25/2020
 ms.author: alzam
 
 ---
@@ -22,34 +22,22 @@ When connecting to your VNet, you can use certificate-based authentication or RA
 
 ## <a name="enable-authentication"></a>6. Enable authentication on the gateway
 
-In this step, you enable Azure AD authentication on the VPN gateway.
+In this step, you will enable Azure AD authentication on the VPN gateway.
 
-1. Enable Azure AD authentication on the VPN gateway by running the following commands. Be sure to modify the commands to reflect your own environment:
+1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type** then fill in the information under the **Azure Active Directory** section.
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "application ID from previous section" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
-    ```
+    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+
     > [!NOTE]
-    > Do not use the Azure VPN client's application ID in the commands above: It will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.
+    > Do not use the Azure VPN client's application ID: It will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.
 
-2. Create and download the profile by running the following commands. Change the -ResourcGroupName and -Name values to match your own.
+2. Create and download the profile by clicking on the **Download VPN client** link.
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+3. Extract the downloaded zip file.
 
-3. After running the commands, you see a result similar to the one below. Copy the result URL to your browser to download the profile zip file.
+4. Browse to the unzipped “AzureVPN” folder.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/profile.png)
-
-4. Extract the downloaded zip file.
-
-5. Browse to the unzipped “AzureVPN” folder.
-
-6. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
+5. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
 
 ## Next steps
 

@@ -23,7 +23,6 @@ ms.date: 06/24/2020
 
 Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
-* Obtain information about your service and contents in the **Overview** home page.
 * Check storage using the mid-page **Usage** link.
 * Check query volumes and latency using the mid-page **Monitoring** link, and whether requests were throttled.
 * Manage access using the **Keys** page to the left.
@@ -38,7 +37,8 @@ Azure Cognitive Search leverages other Azure services for deeper monitoring and 
 Several aspects of a search service are determined when the service is provisioned and cannot be changed later:
 
 * Service name (you cannot rename a service)
-* Maximum replica and partition counts (determined by the tier)
+* Service location (you cannot currently move an intact service to another region)
+* Maximum replica and partition counts (determined by the tier, Basic or Standard)
 
 If you started with Basic with its maximum of one partition, and you now need more partitions, you will need to [create a new service](search-create-service-portal.md) at a higher tier and recreate your content on the new service. 
 

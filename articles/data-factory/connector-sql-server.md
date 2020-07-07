@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
+ms.date: 06/28/2020
 ---
 
 # Copy data to and from SQL Server by using Azure Data Factory
@@ -35,7 +35,7 @@ You can copy data from a SQL Server database to any supported sink data store. O
 
 Specifically, this SQL Server connector supports:
 
-- SQL Server versions 2016, 2014, 2012, 2008 R2, 2008, and 2005.
+- SQL Server version 2005 and above.
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during copy. 

@@ -128,6 +128,8 @@ For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL
 
 ## Create a container using .NET SDK
 
+If you encounter timeout exception when creating a collection, do a read operation to validate if the collection was created successfully. The read operation throws an exception until the collection create operation is successful. For the list of status codes supported by the create operation see the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article.
+
 ### <a id="dotnet-sql-graph"></a>SQL API and Gremlin API
 
 ```csharp
