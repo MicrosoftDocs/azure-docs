@@ -693,54 +693,55 @@ The following table shows the parameter information for `Stop-AzDataBoxJob`:
 |ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
 |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
 |Reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
+|Force | Forces the cmdlet to run without user confirmation. | |
 
 Here's an example of the command with output:
 
-   ```azurepowershell
-   PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
-                                               -Name "myDataBoxOrderPSTest" \
-                                               -Reason "I entered erroneous information and had to cancel."
-   ```
+```azurepowershell
+PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+                                             -Name "myDataBoxOrderPSTest" \
+                                             -Reason "I entered erroneous information and had to cancel."
+```
 
-   Here is the output from running the command:
+Here is the output from running the command:
 
-   ```output
-   Confirm
-   "Cancelling Databox Job "myDataBoxOrderPSTest
-   [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-   ```
+```output
+Confirm
+"Cancelling Databox Job "myDataBoxOrderPSTest
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
 
 ### Delete an order
 
 If you have canceled an Azure Data Box order, you can run [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) to delete the order.
 
-   ```azurecli
-   Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
-   ```
+```azurepowershell
+Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
+```
 
-   The following table shows the parameter information for `Remove-AzDataBoxJob`:
+The following table shows the parameter information for `Remove-AzDataBoxJob`:
 
-   | Parameter | Description |  Sample value |
-   |---|---|---|
-   |ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
-   |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
-   |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
+| Parameter | Description |  Sample value |
+|---|---|---|
+|ResourceGroup [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+|Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
+|Force | Forces the cmdlet to run without user confirmation. | |
 
 Here's an example of the command with output:
 
-   ```azurepowershell
-   PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
-                                      -Name "mydataboxtest3"
-   ```
+```azurepowershell
+PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+                                    -Name "mydataboxtest3"
+```
 
-   Here is the output from running the command:
+Here is the output from running the command:
 
-   ```output
-   Confirm
-   "Removing Databox Job "mydataboxtest3
-   [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-   PS C:\Windows>
-   ```
+```output
+Confirm
+"Removing Databox Job "mydataboxtest3
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\Windows>
+```
 
 ---
 
