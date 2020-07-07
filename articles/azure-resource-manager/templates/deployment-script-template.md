@@ -69,10 +69,10 @@ The deployment script resource is only available in the regions where Azure Cont
 
   ---
 
-- **Azure PowerShell** or **Azure CLI**. For a list of supported Azure PowerShell versions, see [here](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list); for a list of supported Azure CLI versions, see [here](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+- **Azure PowerShell** or **Azure CLI**. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
     >[!IMPORTANT]
-    > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest). If an un-supported version is used, the error message list the supported versions.
+    > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). If an un-supported version is used, the error message list the supported versions.
 
     You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
 
