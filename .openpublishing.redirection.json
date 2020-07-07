@@ -28603,7 +28603,7 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-setup.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-service.md",
+      "redirect_url": "/azure/storage/common/storage-import-export-tool-setup-v1",
       "redirect_document_id": true
     },
     {
