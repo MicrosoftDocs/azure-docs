@@ -149,7 +149,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [Role Based Access Control (RBAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) to configure additional security groups for your clusters.
+Configure [Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 

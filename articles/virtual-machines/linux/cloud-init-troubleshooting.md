@@ -5,7 +5,7 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -23,13 +23,13 @@ Some examples, of issues with provisioning:
 - Networking is not set up correctly
 - Swap file or partition failures
 
-This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [How cloud-init works](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [cloud-init deep dive](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
 
 ## Step 1: Test the deployment without customData
 
 Cloud-init can accept customData, that is passed to it, when the VM is created. First you should ensure this is not causing any issues with deployments. Try to provisioning the VM without passing in any configuration. If you find the VM fails to provision, continue with the steps below, if you find the configuration you are passing is not being applied go [step 4](). 
 
-## Step 2: Review image requirements are satisfied
+## Step 2: Review image requirements
 The primary cause of VM provisioning failure is the OS image doesn't satisfy the prerequisites for running on Azure. Make sure your images are properly prepared before attempting to provision them in Azure. 
 
 
@@ -55,22 +55,16 @@ While the VM is running, you will need the logs from the VM to understand why pr
 
 - [Enable Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
 
-- [Manually attach and mount the OS disk](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) to a running vm to extract logs- Azure VM Repair
-
-Collect these logs:
+- [Run AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk, which will allow you to collect these logs:
 ```bash
+/var/log/cloud-init*
 /var/log/waagent*
 /var/log/syslog*
 /var/log/rsyslog*
 /var/log/messages*
 /var/log/kern*
 /var/log/dmesg*
-/var/log/dpkg*
-/var/log/yum*
-/var/log/cloud-init*
 /var/log/boot*
-/var/log/auth*
-/var/log/secure*
 ```
 To start initial troubleshooting, start with the cloud-init logs, and understand where the failure occurred, then use the other logs to deep dive, and provide additional insights. 
 * /var/log/cloud-init.log
@@ -134,4 +128,4 @@ Not every failure in cloud-init results in a fatal provisioning failure. For exa
 
 ## Next steps
 
-If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) for more information. 
+If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) for more information. 
