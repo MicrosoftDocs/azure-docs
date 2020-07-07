@@ -7,10 +7,16 @@
        href: what-is-application-management.md
   - name: Quickstarts
     items:
-    - name: View your enterprise applications
+    - name: View your apps
       href: view-applications-portal.md
-    - name: Add a cloud app from the gallery
+    - name: Add an app
       href: add-application-portal.md
+    - name: Configure an app
+      href: add-application-portal-configure.md
+    - name: Set up single sign-on
+      href: add-application-portal-setup-sso.md
+    - name: Delete an app
+      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)

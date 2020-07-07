@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/06/2020
 ---
 
 # Move operation support for resources
@@ -21,7 +21,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.AppPlatform](#microsoftappplatform)
-> - [Microsoft.AppService](#microsoftappservice)
+> - [MICROSOFT.APPSERVICE](#microsoftappservice)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -33,7 +33,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [MICROSOFT.BIZTALKSERVICES](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
@@ -51,25 +51,26 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [MICROSOFT.CONTENTMODERATOR](#microsoftcontentmoderator)
+> - [MICROSOFT.CORTANAANALYTICS](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CostManagementExports](#microsoftcostmanagementexports)
-> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [MICROSOFT.CUSTOMERINSIGHTS](#microsoftcustomerinsights)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataConnect](#microsoftdataconnect)
-> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [MICROSOFT.DATACONNECT](#microsoftdataconnect)
+> - [MICROSOFT.DATAEXCHANGE](#microsoftdataexchange)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLake](#microsoftdatalake)
+> - [MICROSOFT.DATALAKE](#microsoftdatalake)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
@@ -93,7 +94,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Genomics](#microsoftgenomics)
+> - [MICROSOFT.GENOMICS](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
@@ -112,17 +113,17 @@ Jump to a resource provider namespace:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [MICROSOFT.LOCATIONBASEDSERVICES](#microsoftlocationbasedservices)
+> - [MICROSOFT.LOCATIONSERVICES](#microsoftlocationservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [MICROSOFT.MACHINELEARNINGCOMPUTE](#microsoftmachinelearningcompute)
+> - [MICROSOFT.MACHINELEARNINGEXPERIMENTATION](#microsoftmachinelearningexperimentation)
+> - [MICROSOFT.MACHINELEARNINGMODELMANAGEMENT](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
+> - [MICROSOFT.MANAGEDNETWORK](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
@@ -130,7 +131,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
+> - [MICROSOFT.MICROSERVICES4SPRING](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
@@ -160,24 +161,24 @@ Jump to a resource provider namespace:
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.SerialConsole](#microsoftserialconsole)
-> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [MICROSOFT.SERVERMANAGEMENT](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Services](#microsoftservices)
+> - [MICROSOFT.SERVICES](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [MICROSOFT.STORAGECACHE](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [MICROSOFT.STORAGESYNCDEV](#microsoftstoragesyncdev)
+> - [MICROSOFT.STORAGESYNCINT](#microsoftstoragesyncint)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [MICROSOFT.STREAMANALYTICSEXPLORER](#microsoftstreamanalyticsexplorer)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
 > - [Microsoft.Synapse](#microsoftsynapse)
@@ -211,11 +212,12 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | azureadmetrics | No | No |
 > | diagnosticsettings | No | No |
 > | diagnosticsettingscategories | No | No |
 > | operations | No | No |
-> | privatelinkforazuread | Yes | Yes |
-> | tenants | Yes | Yes |
+> | privatelinkforazuread | No | No |
+> | tenants | No | No |
 
 ## Microsoft.Addons
 
@@ -259,14 +261,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | actionrules | Yes | Yes |
+> | actionrules | No | No |
 > | alerts | No | No |
 > | alertslist | No | No |
 > | alertsmetadata | No | No |
 > | alertssummary | No | No |
 > | alertssummarylist | No | No |
 > | operations | No | No |
-> | smartdetectoralertrules | Yes | Yes |
+> | smartdetectoralertrules | No | No |
 > | smartgroups | No | No |
 
 ## Microsoft.AnalysisServices
@@ -279,7 +281,7 @@ Jump to a resource provider namespace:
 > | locations / operationresults | No | No |
 > | locations / operationstatuses | No | No |
 > | operations | No | No |
-> | servers | Yes | Yes |
+> | servers | No | No |
 
 ## Microsoft.ApiManagement
 
@@ -303,7 +305,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
-> | configurationstores | Yes | Yes |
+> | configurationstores | No | No |
 > | configurationstores / eventgridfilters | No | No |
 > | locations | No | No |
 > | locations / operationsstatus | No | No |
@@ -319,11 +321,11 @@ Jump to a resource provider namespace:
 > | locations / operationresults | No | No |
 > | locations / operationstatus | No | No |
 > | operations | No | No |
-> | spring | Yes | Yes |
+> | spring | No | No |
 > | spring / apps | No | No |
 > | spring / apps / deployments | No | No |
 
-## Microsoft.AppService
+## MICROSOFT.APPSERVICE
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -340,7 +342,10 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | attestationproviders | Yes | Yes |
+> | attestationproviders | No | No |
+> | defaultproviders | No | No |
+> | locations | No | No |
+> | locations / defaultprovider | No | No |
 > | operations | No | No |
 
 ## Microsoft.Authorization
@@ -374,18 +379,20 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Yes | Yes |
-> | automationaccounts / configurations | Yes | Yes |
+> | automationaccounts / configurations | No | No |
 > | automationaccounts / jobs | No | No |
 > | automationaccounts / privateendpointconnectionproxies | No | No |
 > | automationaccounts / privateendpointconnections | No | No |
 > | automationaccounts / privatelinkresources | No | No |
-> | automationaccounts / runbooks | Yes | Yes |
+> | automationaccounts / runbooks | No | No |
 > | automationaccounts / softwareupdateconfigurations | No | No |
 > | automationaccounts / webhooks | No | No |
 > | operations | No | No |
 
 > [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account.
+> Runbooks must exist in the same resource group as the Automation account.
+>
+> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.AVS
 
@@ -396,7 +403,7 @@ Jump to a resource provider namespace:
 > | locations / checkquotaavailability | No | No |
 > | locations / checktrialavailability | No | No |
 > | operations | No | No |
-> | privateclouds | Yes | Yes |
+> | privateclouds | No | No |
 > | privateclouds / clusters | No | No |
 
 ## Microsoft.AzureActiveDirectory
@@ -407,6 +414,7 @@ Jump to a resource provider namespace:
 > | b2cdirectories | Yes | Yes |
 > | b2ctenants | No | No |
 > | checknameavailability | No | No |
+> | guestusages | Yes | Yes |
 > | operations | No | No |
 
 ## Microsoft.AzureData
@@ -414,13 +422,13 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datacontrollers | No | No |
-> | hybriddatamanagers | No | No |
+> | datacontrollers | Yes | Yes |
+> | hybriddatamanagers | Yes | Yes |
 > | operations | No | No |
-> | postgresinstances | No | No |
-> | sqlinstances | No | No |
-> | sqlmanagedinstances | No | No |
-> | sqlserverinstances | No | No |
+> | postgresinstances | Yes | Yes |
+> | sqlinstances | Yes | Yes |
+> | sqlmanagedinstances | Yes | Yes |
+> | sqlserverinstances | Yes | Yes |
 > | sqlserverregistrations | Yes | Yes |
 > | sqlserverregistrations / sqlservers | No | No |
 
@@ -430,8 +438,9 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cloudmanifestfiles | No | No |
+> | edgesubscriptions | No | No |
 > | operations | No | No |
-> | registrations | Yes | Yes |
+> | registrations | No | No |
 > | registrations / customersubscriptions | No | No |
 > | registrations / products | No | No |
 
@@ -509,8 +518,15 @@ Jump to a resource provider namespace:
 > | billingaccounts / customers / transactions | No | No |
 > | billingaccounts / customers / transfers | No | No |
 > | billingaccounts / departments | No | No |
+> | billingaccounts / departments / billingpermissions | No | No |
+> | billingaccounts / departments / billingroleassignments | No | No |
+> | billingaccounts / departments / billingroledefinitions | No | No |
 > | billingaccounts / enrollmentaccounts | No | No |
+> | billingaccounts / enrollmentaccounts / billingpermissions | No | No |
+> | billingaccounts / enrollmentaccounts / billingroleassignments | No | No |
+> | billingaccounts / enrollmentaccounts / billingroledefinitions | No | No |
 > | billingaccounts / invoices | No | No |
+> | billingaccounts / invoices / transactions | No | No |
 > | billingaccounts / invoicesections | No | No |
 > | billingaccounts / invoicesections / billingsubscriptionmoveoperations | No | No |
 > | billingaccounts / invoicesections / billingsubscriptions | No | No |
@@ -561,7 +577,7 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | updatecommunicationpreference | No | No |
 
-## Microsoft.BizTalkServices
+## MICROSOFT.BIZTALKSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -610,7 +626,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | botservices | Yes | Yes |
+> | botservices | No | No |
 > | botservices / channels | No | No |
 > | botservices / connections | No | No |
 > | checknameavailability | No | No |
@@ -630,7 +646,7 @@ Jump to a resource provider namespace:
 > | redis | Yes | Yes |
 > | redis / eventgridfilters | No | No |
 > | redis / privatelinkresources | No | No |
-> | redisenterprise | No | No |
+> | redisenterprise | Yes | Yes |
 
 > [!IMPORTANT]
 > If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md).
@@ -673,7 +689,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallmanagedrulesets | No | No |
-> | cdnwebapplicationfirewallpolicies | Yes | Yes |
+> | cdnwebapplicationfirewallpolicies | No | No |
 > | checknameavailability | No | No |
 > | checkresourceusage | No | No |
 > | edgenodes | No | No |
@@ -685,7 +701,7 @@ Jump to a resource provider namespace:
 > | operationresults / profileresults / endpointresults / originresults | No | No |
 > | operations | No | No |
 > | profiles | Yes | Yes |
-> | profiles / endpoints | Yes | Yes |
+> | profiles / endpoints | No | No |
 > | profiles / endpoints / customdomains | No | No |
 > | profiles / endpoints / origingroups | No | No |
 > | profiles / endpoints / origins | No | No |
@@ -718,7 +734,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | capabilities | No | No |
 > | checkdomainnameavailability | No | No |
-> | domainnames | Yes | No |
+> | domainnames | No | No |
 > | domainnames / capabilities | No | No |
 > | domainnames / internalloadbalancers | No | No |
 > | domainnames / servicecertificates | No | No |
@@ -734,7 +750,7 @@ Jump to a resource provider namespace:
 > | quotas | No | No |
 > | resourcetypes | No | No |
 > | validatesubscriptionmoveavailability | No | No |
-> | virtualmachines | Yes | No |
+> | virtualmachines | No | No |
 > | virtualmachines / diagnosticsettings | No | No |
 > | virtualmachines / metricdefinitions | No | No |
 > | virtualmachines / metrics | No | No |
@@ -786,7 +802,7 @@ Jump to a resource provider namespace:
 > | osplatformimages | No | No |
 > | publicimages | No | No |
 > | quotas | No | No |
-> | storageaccounts | Yes | No |
+> | storageaccounts | No | No |
 > | storageaccounts / blobservices | No | No |
 > | storageaccounts / fileservices | No | No |
 > | storageaccounts / metricdefinitions | No | No |
@@ -818,7 +834,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Yes | Yes |
+> | accounts | No | No |
 > | checkdomainavailability | No | No |
 > | locations | No | No |
 > | locations / checkskuavailability | No | No |
@@ -841,6 +857,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Yes | Yes |
+> | cloudservices | No | No |
 > | diskaccesses | No | No |
 > | diskencryptionsets | No | No |
 > | disks | Yes | Yes |
@@ -871,10 +888,11 @@ Jump to a resource provider namespace:
 > | sharedvmimages / versions | No | No |
 > | snapshots | Yes | Yes |
 > | sshpublickeys | No | No |
+> | swiftlets | No | No |
 > | virtualmachines | Yes | Yes |
 > | virtualmachines / extensions | Yes | Yes |
 > | virtualmachines / metricdefinitions | No | No |
-> | virtualmachines / runcommands | No | No |
+> | virtualmachines / runcommands | Yes | Yes |
 > | virtualmachinescalesets | Yes | Yes |
 > | virtualmachinescalesets / extensions | No | No |
 > | virtualmachinescalesets / networkinterfaces | No | No |
@@ -884,6 +902,13 @@ Jump to a resource provider namespace:
 
 > [!IMPORTANT]
 > See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
+
+## Microsoft.ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | cachenodes | No | No |
 
 ## Microsoft.Consumption
 
@@ -943,12 +968,12 @@ Jump to a resource provider namespace:
 > | locations / setupauth | No | No |
 > | operations | No | No |
 > | registries | Yes | Yes |
-> | registries / agentpools | Yes | Yes |
+> | registries / agentpools | No | No |
 > | registries / agentpools / listqueuestatus | No | No |
 > | registries / builds | No | No |
 > | registries / builds / cancel | No | No |
 > | registries / builds / getloglink | No | No |
-> | registries / buildtasks | Yes | Yes |
+> | registries / buildtasks | No | No |
 > | registries / buildtasks / listsourcerepositoryproperties | No | No |
 > | registries / buildtasks / steps | No | No |
 > | registries / buildtasks / steps / listbuildarguments | No | No |
@@ -971,7 +996,7 @@ Jump to a resource provider namespace:
 > | registries / queuebuild | No | No |
 > | registries / regeneratecredential | No | No |
 > | registries / regeneratecredentials | No | No |
-> | registries / replications | Yes | Yes |
+> | registries / replications | No | No |
 > | registries / runs | No | No |
 > | registries / runs / cancel | No | No |
 > | registries / runs / listlogsasurl | No | No |
@@ -979,11 +1004,11 @@ Jump to a resource provider namespace:
 > | registries / scopemaps | No | No |
 > | registries / taskruns | No | No |
 > | registries / taskruns / listdetails | No | No |
-> | registries / tasks | Yes | Yes |
+> | registries / tasks | No | No |
 > | registries / tasks / listdetails | No | No |
 > | registries / tokens | No | No |
 > | registries / updatepolicies | No | No |
-> | registries / webhooks | Yes | Yes |
+> | registries / webhooks | No | No |
 > | registries / webhooks / getcallbackconfig | No | No |
 > | registries / webhooks / listevents | No | No |
 > | registries / webhooks / ping | No | No |
@@ -1003,14 +1028,14 @@ Jump to a resource provider namespace:
 > | openshiftmanagedclusters | No | No |
 > | operations | No | No |
 
-## Microsoft.ContentModerator
+## MICROSOFT.CONTENTMODERATOR
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applications | No | No |
 
-## Microsoft.CortanaAnalytics
+## MICROSOFT.CORTANAANALYTICS
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1026,7 +1051,8 @@ Jump to a resource provider namespace:
 > | billingaccounts | No | No |
 > | budgets | No | No |
 > | cloudconnectors | No | No |
-> | connectors | Yes | Yes |
+> | connectors | No | No |
+> | costallocationrules | No | No |
 > | departments | No | No |
 > | dimensions | No | No |
 > | enrollmentaccounts | No | No |
@@ -1058,7 +1084,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | operations | No | No |
 
-## Microsoft.CustomerInsights
+## MICROSOFT.CUSTOMERINSIGHTS
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1082,7 +1108,7 @@ Jump to a resource provider namespace:
 > | locations | No | No |
 > | locations / operationstatuses | No | No |
 > | operations | No | No |
-> | resourceproviders | Yes | Yes |
+> | resourceproviders | No | No |
 
 ## Microsoft.DataBox
 
@@ -1127,7 +1153,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | catalogs | Yes | Yes |
+> | catalogs | No | No |
 > | checknameavailability | No | No |
 > | datacatalogs | No | No |
 > | locations | No | No |
@@ -1135,14 +1161,14 @@ Jump to a resource provider namespace:
 > | locations / operationresults | No | No |
 > | operations | No | No |
 
-## Microsoft.DataConnect
+## MICROSOFT.DATACONNECT
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectionmanagers | No | No |
 
-## Microsoft.DataExchange
+## MICROSOFT.DATAEXCHANGE
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1157,7 +1183,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | checkazuredatafactorynameavailability | No | No |
 > | checkdatafactorynameavailability | No | No |
-> | datafactories | Yes | Yes |
+> | datafactories | No | No |
 > | datafactories / diagnosticsettings | No | No |
 > | datafactories / metricdefinitions | No | No |
 > | datafactoryschema | No | No |
@@ -1168,7 +1194,7 @@ Jump to a resource provider namespace:
 > | locations / getfeaturevalue | No | No |
 > | operations | No | No |
 
-## Microsoft.DataLake
+## MICROSOFT.DATALAKE
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1180,7 +1206,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Yes | Yes |
+> | accounts | No | No |
 > | accounts / datalakestoreaccounts | No | No |
 > | accounts / storageaccounts | No | No |
 > | accounts / storageaccounts / containers | No | No |
@@ -1197,7 +1223,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Yes | Yes |
+> | accounts | No | No |
 > | accounts / eventgridfilters | No | No |
 > | accounts / firewallrules | No | No |
 > | locations | No | No |
@@ -1230,6 +1256,7 @@ Jump to a resource provider namespace:
 > | backupvaults | No | No |
 > | locations | No | No |
 > | operations | No | No |
+> | resourceoperationgatekeepers | No | No |
 
 ## Microsoft.DataShare
 
@@ -1363,30 +1390,30 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | artifactsources | Yes | Yes |
+> | artifactsources | No | No |
 > | operationresults | No | No |
 > | operations | No | No |
-> | rollouts | Yes | Yes |
-> | servicetopologies | Yes | Yes |
-> | servicetopologies / services | Yes | Yes |
-> | servicetopologies / services / serviceunits | Yes | Yes |
-> | steps | Yes | Yes |
+> | rollouts | No | No |
+> | servicetopologies | No | No |
+> | servicetopologies / services | No | No |
+> | servicetopologies / services / serviceunits | No | No |
+> | steps | No | No |
 
 ## Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | Yes | Yes |
+> | applicationgroups | No | No |
 > | applicationgroups / applications | No | No |
 > | applicationgroups / desktops | No | No |
 > | applicationgroups / startmenuitems | No | No |
-> | hostpools | Yes | Yes |
+> | hostpools | No | No |
 > | hostpools / sessionhosts | No | No |
 > | hostpools / sessionhosts / usersessions | No | No |
 > | hostpools / usersessions | No | No |
 > | operations | No | No |
-> | workspaces | Yes | Yes |
+> | workspaces | No | No |
 
 ## Microsoft.Devices
 
@@ -1395,8 +1422,8 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
 > | checkprovisioningservicenameavailability | No | No |
-> | elasticpools | No | No |
-> | elasticpools / iothubtenants | No | No |
+> | elasticpools | Yes | Yes |
+> | elasticpools / iothubtenants | Yes | Yes |
 > | iothubs | Yes | Yes |
 > | iothubs / eventgridfilters | No | No |
 > | iothubs / securitysettings | No | No |
@@ -1410,14 +1437,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | pipelines | Yes | Yes |
+> | pipelines | No | No |
 
 ## Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | controllers | Yes | Yes |
+> | controllers | No | No |
 > | controllers / listconnectiondetails | No | No |
 > | locations | No | No |
 > | locations / checkcontainerhostmapping | No | No |
@@ -1430,14 +1457,14 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labcenters | No | No |
-> | labs | Yes | No |
-> | labs / environments | Yes | Yes |
-> | labs / servicerunners | Yes | Yes |
-> | labs / virtualmachines | Yes | No |
+> | labs | No | No |
+> | labs / environments | No | No |
+> | labs / servicerunners | No | No |
+> | labs / virtualmachines | No | No |
 > | locations | No | No |
 > | locations / operations | No | No |
 > | operations | No | No |
-> | schedules | Yes | Yes |
+> | schedules | No | No |
 
 ## Microsoft.DigitalTwins
 
@@ -1445,8 +1472,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | digitaltwinsinstances | No | No |
+> | digitaltwinsinstances / endpoints | No | No |
 > | digitaltwinsinstances / operationresults | No | No |
 > | locations | No | No |
+> | locations / checknameavailability | No | No |
 > | operations | No | No |
 
 ## Microsoft.DocumentDB
@@ -1485,14 +1514,14 @@ Jump to a resource provider namespace:
 > | locations | No | No |
 > | locations / operationresults | No | No |
 > | operations | No | No |
-> | services | Yes | Yes |
+> | services | No | No |
 
 ## Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domains | Yes | Yes |
+> | domains | No | No |
 > | domains / topics | No | No |
 > | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | extensiontopics | No | No |
@@ -1504,14 +1533,14 @@ Jump to a resource provider namespace:
 > | operationresults | No | No |
 > | operations | No | No |
 > | operationsstatus | No | No |
-> | partnernamespaces | Yes | Yes |
+> | partnernamespaces | No | No |
 > | partnernamespaces / eventchannels | No | No |
 > | partnerregistrations | No | No |
-> | partnertopics | Yes | Yes |
+> | partnertopics | No | No |
 > | partnertopics / eventsubscriptions | No | No |
-> | systemtopics | Yes | Yes |
+> | systemtopics | No | No |
 > | systemtopics / eventsubscriptions | No | No |
-> | topics | Yes | Yes |
+> | topics | No | No |
 > | topictypes | No | No |
 
 ## Microsoft.EventHub
@@ -1522,10 +1551,10 @@ Jump to a resource provider namespace:
 > | availableclusterregions | No | No |
 > | checknameavailability | No | No |
 > | checknamespaceavailability | No | No |
-> | clusters | Yes | Yes |
+> | clusters | No | No |
 > | locations | No | No |
 > | locations / deletevirtualnetworkorsubnets | No | No |
-> | namespaces | Yes | Yes |
+> | namespaces | No | No |
 > | namespaces / authorizationrules | No | No |
 > | namespaces / disasterrecoveryconfigs | No | No |
 > | namespaces / disasterrecoveryconfigs / checknameavailability | No | No |
@@ -1550,7 +1579,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | namespaces | Yes | Yes |
+> | namespaces | No | No |
 
 ## Microsoft.Features
 
@@ -1563,7 +1592,7 @@ Jump to a resource provider namespace:
 > | providers | No | No |
 > | subscriptionfeatureregistrations | No | No |
 
-## Microsoft.Genomics
+## MICROSOFT.GENOMICS
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1593,7 +1622,7 @@ Jump to a resource provider namespace:
 > | locations / operations | No | No |
 > | locations / operationsstatus | No | No |
 > | operations | No | No |
-> | sapmonitors | Yes | Yes |
+> | sapmonitors | No | No |
 
 ## Microsoft.HardwareSecurityModules
 
@@ -1635,7 +1664,7 @@ Jump to a resource provider namespace:
 > | locations | No | No |
 > | locations / operationresults | No | No |
 > | operations | No | No |
-> | services | Yes | Yes |
+> | services | No | No |
 > | services / privateendpointconnections | No | No |
 > | services / privatelinkresources | No | No |
 
@@ -1647,7 +1676,7 @@ Jump to a resource provider namespace:
 > | locations | No | No |
 > | locations / operationresults | No | No |
 > | locations / operationstatus | No | No |
-> | machines | Yes | Yes |
+> | machines | No | No |
 > | machines / extensions | Yes | Yes |
 > | operations | No | No |
 
@@ -1656,7 +1685,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Yes | Yes |
+> | datamanagers | No | No |
 > | operations | No | No |
 
 ## Microsoft.HybridNetwork
@@ -1695,7 +1724,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | actiongroups | Yes | Yes |
+> | actiongroups | No | No |
 > | activitylogalerts | No | No |
 > | alertrules | Yes | Yes |
 > | autoscalesettings | Yes | Yes |
@@ -1744,8 +1773,8 @@ Jump to a resource provider namespace:
 > | vminsightsonboardingstatuses | No | No |
 > | webtests | Yes | Yes |
 > | webtests / gettestresultfile | No | No |
-> | workbooks | Yes | Yes |
-> | workbooktemplates | Yes | Yes |
+> | workbooks | No | No |
+> | workbooktemplates | No | No |
 
 > [!IMPORTANT]
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
@@ -1758,7 +1787,7 @@ Jump to a resource provider namespace:
 > | apptemplates | No | No |
 > | checknameavailability | No | No |
 > | checksubdomainavailability | No | No |
-> | iotapps | Yes | Yes |
+> | iotapps | No | No |
 > | operations | No | No |
 
 ## Microsoft.IoTSpaces
@@ -1766,8 +1795,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Yes | Yes |
-> | graph | Yes | Yes |
+> | checknameavailability | No | No |
+> | graph | No | No |
 > | operations | No | No |
 
 ## Microsoft.KeyVault
@@ -1777,7 +1806,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
 > | deletedvaults | No | No |
-> | hsmpools | No | No |
+> | hsmpools | Yes | Yes |
 > | locations | No | No |
 > | locations / deletedvaults | No | No |
 > | locations / deletevirtualnetworkorsubnets | No | No |
@@ -1797,7 +1826,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | connectedclusters | Yes | Yes |
+> | connectedclusters | No | No |
 > | locations | No | No |
 > | locations / operationstatuses | No | No |
 > | operations | No | No |
@@ -1815,7 +1844,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | Yes | Yes |
+> | clusters | No | No |
 > | clusters / attacheddatabaseconfigurations | No | No |
 > | clusters / databases | No | No |
 > | clusters / databases / dataconnections | No | No |
@@ -1838,14 +1867,14 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | users | No | No |
 
-## Microsoft.LocationBasedServices
+## MICROSOFT.LOCATIONBASEDSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | No | No |
 
-## Microsoft.LocationServices
+## MICROSOFT.LOCATIONSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1859,8 +1888,8 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | No | No |
 > | integrationaccounts | Yes | Yes |
-> | integrationserviceenvironments | Yes | No |
-> | integrationserviceenvironments / managedapis | Yes | No |
+> | integrationserviceenvironments | No | No |
+> | integrationserviceenvironments / managedapis | No | No |
 > | isolatedenvironments | No | No |
 > | locations | No | No |
 > | locations / workflows | No | No |
@@ -1877,17 +1906,17 @@ Jump to a resource provider namespace:
 > | locations / operations | No | No |
 > | locations / operationsstatus | No | No |
 > | operations | No | No |
-> | webservices | Yes | No |
-> | workspaces | Yes | Yes |
+> | webservices | No | No |
+> | workspaces | No | No |
 
-## Microsoft.MachineLearningCompute
+## MICROSOFT.MACHINELEARNINGCOMPUTE
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | operationalizationclusters | No | No |
 
-## Microsoft.MachineLearningExperimentation
+## MICROSOFT.MACHINELEARNINGEXPERIMENTATION
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1899,7 +1928,7 @@ Jump to a resource provider namespace:
 > | teamaccounts / workspaces | No | No |
 > | teamaccounts / workspaces / projects | No | No |
 
-## Microsoft.MachineLearningModelManagement
+## MICROSOFT.MACHINELEARNINGMODELMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1930,7 +1959,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | applyupdates | No | No |
 > | configurationassignments | No | No |
-> | maintenanceconfigurations | Yes | Yes |
+> | maintenanceconfigurations | No | No |
 > | updates | No | No |
 
 ## Microsoft.ManagedIdentity
@@ -1942,7 +1971,7 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | userassignedidentities | No | No |
 
-## Microsoft.ManagedNetwork
+## MICROSOFT.MANAGEDNETWORK
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -1984,9 +2013,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Yes | Yes |
+> | accounts | No | No |
 > | accounts / eventgridfilters | No | No |
-> | accounts / privateatlases | Yes | Yes |
+> | accounts / privateatlases | No | No |
 > | operations | No | No |
 
 ## Microsoft.Marketplace
@@ -2041,25 +2070,25 @@ Jump to a resource provider namespace:
 > | checknameavailability | No | No |
 > | locations | No | No |
 > | locations / checknameavailability | No | No |
-> | mediaservices | Yes | Yes |
+> | mediaservices | No | No |
 > | mediaservices / accountfilters | No | No |
 > | mediaservices / assets | No | No |
 > | mediaservices / assets / assetfilters | No | No |
 > | mediaservices / contentkeypolicies | No | No |
 > | mediaservices / eventgridfilters | No | No |
 > | mediaservices / liveeventoperations | No | No |
-> | mediaservices / liveevents | Yes | Yes |
+> | mediaservices / liveevents | No | No |
 > | mediaservices / liveevents / liveoutputs | No | No |
 > | mediaservices / liveoutputoperations | No | No |
 > | mediaservices / streamingendpointoperations | No | No |
-> | mediaservices / streamingendpoints | Yes | Yes |
+> | mediaservices / streamingendpoints | No | No |
 > | mediaservices / streaminglocators | No | No |
 > | mediaservices / streamingpolicies | No | No |
 > | mediaservices / transforms | No | No |
 > | mediaservices / transforms / jobs | No | No |
 > | operations | No | No |
 
-## Microsoft.Microservices4Spring
+## MICROSOFT.MICROSERVICES4SPRING
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -2090,8 +2119,8 @@ Jump to a resource provider namespace:
 > | locations / checknameavailability | No | No |
 > | objectunderstandingaccounts | No | No |
 > | operations | No | No |
-> | remoterenderingaccounts | Yes | Yes |
-> | spatialanchorsaccounts | Yes | Yes |
+> | remoterenderingaccounts | No | No |
+> | spatialanchorsaccounts | No | No |
 
 ## Microsoft.NetApp
 
@@ -2118,19 +2147,19 @@ Jump to a resource provider namespace:
 > | applicationgatewayavailablewafrulesets | No | No |
 > | applicationgateways | No | No |
 > | applicationgatewaywebapplicationfirewallpolicies | No | No |
-> | applicationsecuritygroups | Yes | Yes |
+> | applicationsecuritygroups | No | No |
 > | azurefirewallfqdntags | No | No |
 > | azurefirewalls | No | No |
 > | bastionhosts | No | No |
 > | bgpservicecommunities | No | No |
 > | checkfrontdoornameavailability | No | No |
 > | checktrafficmanagernameavailability | No | No |
-> | connections | Yes | Yes |
-> | ddoscustompolicies | Yes | Yes |
+> | connections | No | No |
+> | ddoscustompolicies | No | No |
 > | ddosprotectionplans | No | No |
 > | dnsoperationresults | No | No |
 > | dnsoperationstatuses | No | No |
-> | dnszones | Yes | Yes |
+> | dnszones | No | No |
 > | dnszones / a | No | No |
 > | dnszones / aaaa | No | No |
 > | dnszones / all | No | No |
@@ -2146,7 +2175,7 @@ Jump to a resource provider namespace:
 > | expressroutecircuits | No | No |
 > | expressroutegateways | No | No |
 > | expressrouteserviceproviders | No | No |
-> | firewallpolicies | Yes | Yes |
+> | firewallpolicies | No | No |
 > | frontdooroperationresults | No | No |
 > | frontdoors | No | No |
 > | frontdoors / frontendendpoints | No | No |
@@ -2154,10 +2183,10 @@ Jump to a resource provider namespace:
 > | frontdoorwebapplicationfirewallpolicies | No | No |
 > | getdnsresourcereference | No | No |
 > | internalnotify | No | No |
-> | ipallocations | Yes | Yes |
-> | ipgroups | Yes | Yes |
+> | ipallocations | No | No |
+> | ipgroups | No | No |
 > | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
-> | localnetworkgateways | Yes | Yes |
+> | localnetworkgateways | No | No |
 > | locations | No | No |
 > | locations / autoapprovedprivatelinkservices | No | No |
 > | locations / availabledelegations | No | No |
@@ -2181,12 +2210,12 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | locations / validateresourceownership | No | No |
 > | locations / virtualnetworkavailableendpointservices | No | No |
-> | natgateways | Yes | Yes |
+> | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
-> | networkintentpolicies | Yes | Yes |
-> | networkinterfaces | Yes | Yes |
+> | networkintentpolicies | No | No |
+> | networkinterfaces | No | No |
 > | networkprofiles | No | No |
-> | networksecuritygroups | Yes | Yes |
+> | networksecuritygroups | No | No |
 > | networkwatchers | Yes | No |
 > | networkwatchers / connectionmonitors | Yes | No |
 > | networkwatchers / flowlogs | Yes | No |
@@ -2195,7 +2224,7 @@ Jump to a resource provider namespace:
 > | p2svpngateways | No | No |
 > | privatednsoperationresults | No | No |
 > | privatednsoperationstatuses | No | No |
-> | privatednszones | Yes | Yes |
+> | privatednszones | No | No |
 > | privatednszones / a | No | No |
 > | privatednszones / aaaa | No | No |
 > | privatednszones / all | No | No |
@@ -2205,26 +2234,26 @@ Jump to a resource provider namespace:
 > | privatednszones / soa | No | No |
 > | privatednszones / srv | No | No |
 > | privatednszones / txt | No | No |
-> | privatednszones / virtualnetworklinks | Yes | Yes |
+> | privatednszones / virtualnetworklinks | No | No |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | Yes | Yes |
+> | privateendpoints | No | No |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
-> | publicipprefixes | Yes | Yes |
+> | publicipprefixes | No | No |
 > | routefilters | No | No |
-> | routetables | Yes | Yes |
-> | securitypartnerproviders | Yes | Yes |
-> | serviceendpointpolicies | Yes | Yes |
+> | routetables | No | No |
+> | securitypartnerproviders | No | No |
+> | serviceendpointpolicies | No | No |
 > | trafficmanagergeographichierarchies | No | No |
-> | trafficmanagerprofiles | Yes | Yes |
+> | trafficmanagerprofiles | No | No |
 > | trafficmanagerprofiles / heatmaps | No | No |
 > | trafficmanagerusermetricskeys | No | No |
 > | virtualhubs | No | No |
-> | virtualnetworkgateways | Yes | Yes |
-> | virtualnetworks | Yes | Yes |
+> | virtualnetworkgateways | No | No |
+> | virtualnetworks | No | No |
 > | virtualnetworktaps | No | No |
-> | virtualrouters | Yes | Yes |
+> | virtualrouters | No | No |
 > | virtualwans | No | No |
 > | vpngateways (Virtual WAN) | No | No |
 > | vpnserverconfigurations | No | No |
@@ -2240,8 +2269,8 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
 > | checknamespaceavailability | No | No |
-> | namespaces | Yes | Yes |
-> | namespaces / notificationhubs | Yes | Yes |
+> | namespaces | No | No |
+> | namespaces / notificationhubs | No | No |
 > | operationresults | No | No |
 > | operations | No | No |
 
@@ -2250,7 +2279,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | osnamespaces | Yes | Yes |
+> | osnamespaces | No | No |
 
 ## Microsoft.OffAzure
 
@@ -2268,7 +2297,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | No | No |
+> | clusters | Yes | Yes |
 > | deletedworkspaces | No | No |
 > | linktargets | No | No |
 > | locations | No | No |
@@ -2294,10 +2323,10 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managementassociations | No | No |
-> | managementconfigurations | Yes | Yes |
+> | managementconfigurations | No | No |
 > | operations | No | No |
-> | solutions | Yes | Yes |
-> | views | Yes | Yes |
+> | solutions | No | No |
+> | views | No | No |
 
 ## Microsoft.Peering
 
@@ -2333,7 +2362,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | consoles | No | No |
-> | dashboards | Yes | Yes |
+> | dashboards | No | No |
 > | locations | No | No |
 > | locations / consoles | No | No |
 > | locations / usersettings | No | No |
@@ -2347,7 +2376,11 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | locations | No | No |
 > | locations / checknameavailability | No | No |
-> | workspacecollections | Yes | Yes |
+> | operations | No | No |
+> | privatelinkservicesforpowerbi | No | No |
+> | privatelinkservicesforpowerbi / operationresults | No | No |
+> | tenants | No | No |
+> | workspacecollections | No | No |
 
 ## Microsoft.PowerBIDedicated
 
@@ -2384,6 +2417,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | availableaccounts | No | No |
 > | providerregistrations | No | No |
+> | providerregistrations / defaultrollouts | No | No |
 > | providerregistrations / resourcetyperegistrations | No | No |
 > | rollouts | No | No |
 
@@ -2440,7 +2474,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
-> | namespaces | Yes | Yes |
+> | namespaces | No | No |
 > | namespaces / authorizationrules | No | No |
 > | namespaces / hybridconnections | No | No |
 > | namespaces / hybridconnections / authorizationrules | No | No |
@@ -2516,7 +2550,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applications | Yes | No |
+> | applications | No | No |
 > | checkmoderneligibility | No | No |
 > | checknameavailability | No | No |
 > | operationresults | No | No |
@@ -2545,12 +2579,13 @@ Jump to a resource provider namespace:
 > | adaptivenetworkhardenings | No | No |
 > | advancedthreatprotectionsettings | No | No |
 > | alerts | No | No |
+> | alertssuppressionrules | No | No |
 > | allowedconnections | No | No |
 > | applicationwhitelistings | No | No |
 > | assessmentmetadata | No | No |
 > | assessments | No | No |
 > | autodismissalertsrules | No | No |
-> | automations | Yes | Yes |
+> | automations | No | No |
 > | autoprovisioningsettings | No | No |
 > | complianceresults | No | No |
 > | compliances | No | No |
@@ -2559,10 +2594,12 @@ Jump to a resource provider namespace:
 > | discoveredsecuritysolutions | No | No |
 > | externalsecuritysolutions | No | No |
 > | informationprotectionpolicies | No | No |
-> | iotsecuritysolutions | Yes | Yes |
+> | iotsecuritysolutions | No | No |
 > | iotsecuritysolutions / analyticsmodels | No | No |
 > | iotsecuritysolutions / analyticsmodels / aggregatedalerts | No | No |
 > | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | No | No |
+> | iotsecuritysolutions / iotalerts | No | No |
+> | iotsecuritysolutions / iotalerttypes | No | No |
 > | jitnetworkaccesspolicies | No | No |
 > | locations | No | No |
 > | locations / alerts | No | No |
@@ -2581,6 +2618,10 @@ Jump to a resource provider namespace:
 > | regulatorycompliancestandards | No | No |
 > | regulatorycompliancestandards / regulatorycompliancecontrols | No | No |
 > | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | No | No |
+> | securescorecontroldefinitions | No | No |
+> | securescorecontrols | No | No |
+> | securescores | No | No |
+> | securescores / securescorecontrols | No | No |
 > | securitycontacts | No | No |
 > | securitysolutions | No | No |
 > | securitysolutionsreferencedata | No | No |
@@ -2624,7 +2665,7 @@ Jump to a resource provider namespace:
 > | locations / consoleservices | No | No |
 > | operations | No | No |
 
-## Microsoft.ServerManagement
+## MICROSOFT.SERVERMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -2641,7 +2682,7 @@ Jump to a resource provider namespace:
 > | checknamespaceavailability | No | No |
 > | locations | No | No |
 > | locations / deletevirtualnetworkorsubnets | No | No |
-> | namespaces | Yes | Yes |
+> | namespaces | No | No |
 > | namespaces / authorizationrules | No | No |
 > | namespaces / disasterrecoveryconfigs | No | No |
 > | namespaces / disasterrecoveryconfigs / checknameavailability | No | No |
@@ -2663,7 +2704,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applications | No | No |
-> | clusters | Yes | Yes |
+> | clusters | No | No |
 > | clusters / applications | No | No |
 > | containergroups | No | No |
 > | containergroupsets | No | No |
@@ -2684,21 +2725,21 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | applications | Yes | Yes |
+> | applications | No | No |
 > | containergroups | No | No |
-> | gateways | Yes | Yes |
+> | gateways | No | No |
 > | locations | No | No |
 > | locations / applicationoperations | No | No |
 > | locations / gatewayoperations | No | No |
 > | locations / networkoperations | No | No |
 > | locations / secretoperations | No | No |
 > | locations / volumeoperations | No | No |
-> | networks | Yes | Yes |
+> | networks | No | No |
 > | operations | No | No |
-> | secrets | Yes | Yes |
-> | volumes | Yes | Yes |
+> | secrets | No | No |
+> | volumes | No | No |
 
-## Microsoft.Services
+## MICROSOFT.SERVICES
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -2846,25 +2887,21 @@ Jump to a resource provider namespace:
 > | managedinstances / tdecertificates | No | No |
 > | managedinstances / vulnerabilityassessments | No | No |
 > | operations | No | No |
-> | servers | Yes | Yes |
+> | servers | No | No |
 > | servers / administratoroperationresults | No | No |
 > | servers / administrators | No | No |
 > | servers / advisors | No | No |
 > | servers / aggregateddatabasemetrics | No | No |
-> | servers / auditingpolicies | No | No |
 > | servers / auditingsettings | No | No |
 > | servers / automatictuning | No | No |
 > | servers / communicationlinks | No | No |
-> | servers / connectionpolicies | No | No |
-> | servers / databases | Yes | Yes |
+> | servers / databases | No | No |
 > | servers / databases / advisors | No | No |
-> | servers / databases / auditingpolicies | No | No |
 > | servers / databases / auditingsettings | No | No |
 > | servers / databases / auditrecords | No | No |
 > | servers / databases / automatictuning | No | No |
 > | servers / databases / backuplongtermretentionpolicies | No | No |
 > | servers / databases / backupshorttermretentionpolicies | No | No |
-> | servers / databases / connectionpolicies | No | No |
 > | servers / databases / datamaskingpolicies | No | No |
 > | servers / databases / datamaskingpolicies / rules | No | No |
 > | servers / databases / extensions | No | No |
@@ -2887,7 +2924,7 @@ Jump to a resource provider namespace:
 > | servers / disasterrecoveryconfiguration | No | No |
 > | servers / dnsaliases | No | No |
 > | servers / elasticpoolestimates | No | No |
-> | servers / elasticpools | Yes | Yes |
+> | servers / elasticpools | No | No |
 > | servers / elasticpools / advisors | No | No |
 > | servers / elasticpools / metricdefinitions | No | No |
 > | servers / elasticpools / metrics | No | No |
@@ -2896,8 +2933,8 @@ Jump to a resource provider namespace:
 > | servers / failovergroups | No | No |
 > | servers / import | No | No |
 > | servers / importexportoperationresults | No | No |
-> | servers / jobaccounts | Yes | Yes |
-> | servers / jobagents | Yes | Yes |
+> | servers / jobaccounts | No | No |
+> | servers / jobagents | No | No |
 > | servers / jobagents / jobs | No | No |
 > | servers / jobagents / jobs / executions | No | No |
 > | servers / jobagents / jobs / steps | No | No |
@@ -2913,7 +2950,7 @@ Jump to a resource provider namespace:
 > | servers / usages | No | No |
 > | servers / virtualnetworkrules | No | No |
 > | servers / vulnerabilityassessments | No | No |
-> | virtualclusters | Yes | Yes |
+> | virtualclusters | No | No |
 
 > [!IMPORTANT]
 > A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
@@ -2956,7 +2993,7 @@ Jump to a resource provider namespace:
 > | storageaccounts / tableservices | No | No |
 > | usages | No | No |
 
-## Microsoft.StorageCache
+## MICROSOFT.STORAGECACHE
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -2974,21 +3011,21 @@ Jump to a resource provider namespace:
 > | locations / operations | No | No |
 > | locations / workflows | No | No |
 > | operations | No | No |
-> | storagesyncservices | Yes | Yes |
+> | storagesyncservices | No | No |
 > | storagesyncservices / registeredservers | No | No |
 > | storagesyncservices / syncgroups | No | No |
 > | storagesyncservices / syncgroups / cloudendpoints | No | No |
 > | storagesyncservices / syncgroups / serverendpoints | No | No |
 > | storagesyncservices / workflows | No | No |
 
-## Microsoft.StorageSyncDev
+## MICROSOFT.STORAGESYNCDEV
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | No | No |
 
-## Microsoft.StorageSyncInt
+## MICROSOFT.STORAGESYNCINT
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -3008,7 +3045,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | clusters | No | No |
+> | clusters | Yes | Yes |
 > | locations | No | No |
 > | locations / quotas | No | No |
 > | operations | No | No |
@@ -3017,7 +3054,7 @@ Jump to a resource provider namespace:
 > [!IMPORTANT]
 > Stream Analytics jobs can't be moved when in running state.
 
-## Microsoft.StreamAnalyticsExplorer
+## MICROSOFT.STREAMANALYTICSEXPLORER
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -3063,21 +3100,22 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
 > | operations | No | No |
-> | workspaces | Yes | Yes |
-> | workspaces / bigdatapools | Yes | Yes |
+> | privatelinkhubs | No | No |
+> | workspaces | No | No |
+> | workspaces / bigdatapools | No | No |
 > | workspaces / operationresults | No | No |
 > | workspaces / operationstatuses | No | No |
-> | workspaces / sqlpools | Yes | Yes |
+> | workspaces / sqlpools | No | No |
 
 ## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | environments | Yes | Yes |
+> | environments | No | No |
 > | environments / accesspolicies | No | No |
-> | environments / eventsources | Yes | Yes |
-> | environments / referencedatasets | Yes | Yes |
+> | environments / eventsources | No | No |
+> | environments / referencedatasets | No | No |
 > | operations | No | No |
 
 ## Microsoft.Token
@@ -3085,7 +3123,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | stores | Yes | Yes |
+> | stores | No | No |
 > | stores / accesspolicies | No | No |
 > | stores / services | No | No |
 > | stores / services / tokens | No | No |
@@ -3176,7 +3214,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | No | No |
 > | billingmeters | No | No |
-> | certificates | No | Yes |
+> | certificates | No | No |
 > | checknameavailability | No | No |
 > | connectiongateways | Yes | Yes |
 > | connections | Yes | Yes |
@@ -3191,7 +3229,7 @@ Jump to a resource provider namespace:
 > | ishostingenvironmentnameavailable | No | No |
 > | ishostnameavailable | No | No |
 > | isusernameavailable | No | No |
-> | kubeenvironments | Yes | Yes |
+> | kubeenvironments | No | No |
 > | listsitesassignedtohostname | No | No |
 > | locations | No | No |
 > | locations / apioperations | No | No |
@@ -3216,8 +3254,8 @@ Jump to a resource provider namespace:
 > | sites / eventgridfilters | No | No |
 > | sites / hostnamebindings | No | No |
 > | sites / networkconfig | No | No |
-> | sites / premieraddons | Yes | Yes |
-> | sites / slots | Yes | Yes |
+> | sites / premieraddons | No | No |
+> | sites / slots | No | No |
 > | sites / slots / eventgridfilters | No | No |
 > | sites / slots / hostnamebindings | No | No |
 > | sites / slots / networkconfig | No | No |

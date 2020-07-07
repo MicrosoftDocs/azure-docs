@@ -57,4 +57,4 @@ When you list your application with the Azure Active Directory Application Galle
 
 ## Next Steps
 
-[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[List your application in the Azure AD Application Gallery](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)
