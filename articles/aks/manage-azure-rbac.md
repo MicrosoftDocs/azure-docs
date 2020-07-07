@@ -137,7 +137,7 @@ AKS_ID=$(az aks show -g MyResourceGroup -n MyManagedCluster --query id -o tsv)
 az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-where `<AAD-ENTITY-ID>` could be a username (for example, testuser@mytenant.com) or even the ClientID of a service principal.
+where `<AAD-ENTITY-ID>` could be a username (for example, user@contoso.com) or even the ClientID of a service principal.
 
 You can also create role assignments scoped to a specific **namespace** within the cluster:
 
