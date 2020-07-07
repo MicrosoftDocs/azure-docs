@@ -44,7 +44,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
     Azure Backup mounts the local recovery point, and uses it as a recovery volume.
 
-7. On the next pane, specify the destination for the recovered System State files and click **Browse** to open Windows Explorer and find the files and folders you want. The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
+7. On the next pane, specify the destination for the recovered System State files. Then click **Browse** to open Windows Explorer and find the files and folders you want. The option, **Create copies so that you have both versions**, creates copies of individual files in an existing System State file archive instead of creating the copy of the entire System State archive.
 
     ![Recovery options](./media/backup-azure-restore-system-state/recover-as-files.png)
 
@@ -64,7 +64,7 @@ The terminology used in these steps includes:
 
 * *Source machine* – The original machine from which the backup was taken and which is currently unavailable.
 * *Target machine* – The machine to which the data is being recovered.
-* *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered. <br/>
+* *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered.
 
 > [!NOTE]
 > Backups taken from one machine cannot be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
@@ -136,9 +136,20 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 1. For the location of the System State Recovery, select **Original Location**, and click **Next**.
 
+    ![Locaton for System State Recovery](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
+
+    >[!NOTE]
+    >If you are performing a restore of a domain controller backup don't select “Perform an authoritative restore of Active Directory files” unless you explicitly intend to do an authoritative restore.
+
 1. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
 
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+
+    >[!NOTE]
+    >Do not select the **Automatically reboot the server** option if you are performing the restore in DSRM mode.
+
+1. After you've successfully completed a restore,  you need to restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
+1. Reboot the server.
 
 ## Special considerations for System State recovery on a domain controller
 
@@ -153,7 +164,24 @@ System State backup includes Active Directory data. Use the following steps to r
     ```
 
 1. [Apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
-1. Follow the steps [here](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) to use Windows Server Backup cmdlets to recover AD DS.
+1. To recover Active Directory as part of a system state restore, use the [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) command.
+
+    You'll need the version identifier of the backup you wish to use. You can get a list of version identifiers by running this command:
+
+    ```cmd
+    wbadmin get versions -backuptarget <servername\sharename>
+    ```
+
+    You then use that version identifier to run the restore.
+
+    For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 A.M., which is stored on the shared resource `\\servername\share` for `server01`, type:
+
+    ```cmd
+    wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
+    ```
+
+1. After you've successfully completed a restore, you should restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
+1. Reboot the server.
 
 ## Troubleshoot failed System State restore
 
