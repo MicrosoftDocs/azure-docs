@@ -118,6 +118,5 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> TODOlinkToNextDocInTOCHere
+Recipe: [Use the Cogntivice Services for Big Data for wind turbine Anomaly Detection](../anomaly_detection.md)
 
