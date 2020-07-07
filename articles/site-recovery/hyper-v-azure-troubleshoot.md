@@ -23,7 +23,7 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
-   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
+   - [Learn about](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) basic WMI testing.
    - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
    - [Troubleshoot](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
@@ -61,7 +61,7 @@ Network bandwidth limitations can impact replication. Troubleshoot issues as fol
 3. After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
 4. Check [data churn limitations](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). If you see high data churn on a VM, do the following:
    - Check if your VM is marked for resynchronization.
-   - Follow [these steps](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) to investigate the source of the churn.
+   - Follow [these steps](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) to investigate the source of the churn.
    - Churn can occur when the HRL log files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs on which the issue occurs.
    - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
@@ -165,4 +165,3 @@ These tools can help with advanced troubleshooting:
 
 -	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -	For Hyper-V without VMM, [download this tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), and run it on the Hyper-V host to collect the logs.
-

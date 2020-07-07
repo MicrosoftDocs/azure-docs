@@ -16,7 +16,7 @@ This article describes how to enable disaster recovery of Azure VMs running stor
 >Only crash consistent recovery points are supported for storage spaces direct clusters.
 >
 
-[Storage spaces direct (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is software-defined storage, which provides a way to create [guest clusters](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) on Azure.  A guest cluster in Microsoft Azure is a failover cluster comprised of IaaS VMs. It allows hosted VM workloads to fail over across guest clusters, achieving higher availability SLA for applications, than a single Azure VM can provide. It is useful in scenarios where a VM hosts a critical application like SQL or scale-out file server.
+[Storage spaces direct (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is software-defined storage, which provides a way to create [guest clusters](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) on Azure.  A guest cluster in Microsoft Azure is a failover cluster comprised of IaaS VMs. It allows hosted VM workloads to fail over across guest clusters, achieving higher availability SLA for applications, than a single Azure VM can provide. It is useful in scenarios where a VM hosts a critical application like SQL or scale-out file server.
 
 ## Disaster recovery with storage spaces direct
 
