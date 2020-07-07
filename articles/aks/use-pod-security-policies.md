@@ -8,11 +8,13 @@ ms.date: 06/30/2020
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
+<!--
 > [!WARNING]
 > **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
 > It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
 
 **This document and feature are set for deprecation.**
+-->
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
