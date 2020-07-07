@@ -24,13 +24,13 @@ Customers will be notified via email and in the Azure portal well in advance of 
 
 ### August 2020
 
-The following gateways are currently in the process of being migrated:
+New SQL Gateways are being added to the following regions:
 
-- Australia East
-- Canada Central
-- North Europe
-- West US 2
+- Australia East : 13.70.112.9
+- Canada Central : 52.246.152.0, 20.38.144.1 
+- West US 2 : 40.78.240.8
 
+These SQL Gateways shall start accepting customer traffic on 10 August 2020. 
 
 # [Completed](#tab/completed-ip)
 
@@ -55,11 +55,12 @@ The following gateway migrations are complete:
 
 ## Impact of this change
 
-The traffic migration will change the public IP address that DNS resolves for your database in Azure SQL Database.
-You will be impacted if you have:
+Traffic migration may change the public IP address that DNS resolves for your database in Azure SQL Database.
+You may be impacted if you:
 
 - Hard coded the IP address for any particular gateway in your on-premises firewall
-- Any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the gateway IP addresses
+- Have any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the gateway IP addresses
+- Use the [zone redundant configuration](high-availability-sla.md#zone-redundant-configuration) for your database
 
 You will not be impacted if you have:
 
