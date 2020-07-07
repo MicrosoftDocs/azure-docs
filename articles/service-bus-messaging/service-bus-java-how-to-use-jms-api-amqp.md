@@ -57,7 +57,7 @@ To utilize all the preview features available on Azure Service Bus Premium tier 
 
 ### Standard tier - JMS 1.1 over AMQP
 
-To utilize the JMS features supported by Service Bus Standard tier (see [What JMS features are supported?](#what-jms-features-are-supported-?)) utilize the below libraries -
+To utilize the JMS features supported by Service Bus Standard tier (see [What JMS features are supported?](service-bus-java-how-to-use-jms-api-amqp.md#what-jms-features-are-supported)) utilize the below libraries -
 
 * [Geronimo JMS 1.1 spec](https://search.maven.org/artifact/org.apache.geronimo.specs/geronimo-jms_1.1_spec)
 * [Qpid JMS Client](https://search.maven.org/artifact/org.apache.qpid/qpid-jms-client)
@@ -142,7 +142,7 @@ To connect with Azure Service Bus using JMS clients, you need the **ConnectionSt
 
 Once the `Session` or `JMSContext` has been instantiated, your application can leverage the JMS APIs to perform both management and data operations.
 
-Please refer to the list of [supported JMS features](#what-jms-features-are-supported-?) for both Standard and Premium tier.
+Please refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-api-amqp.md#what-jms-features-are-supported) for both Standard and Premium tier.
 
 
 ## JMS Topics vs. Service Bus Topics
@@ -165,7 +165,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 For more information on Azure Service Bus and details about Java Message Service (JMS) entities check out the links below - 
 * [Service Bus - Queues, Topics and Subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#Java-Message-Service-(JMS)-Entities-(Preview))
+* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-entities-preview)
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
