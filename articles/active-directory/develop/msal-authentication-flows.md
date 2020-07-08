@@ -10,10 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/03/2020
+ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
 # Customer intent: As an application developer, I want to learn about the authentication flows supported by MSAL.
 ---
 
@@ -48,16 +47,16 @@ Depending on how your client application is built, it can use one or more of the
 
 ### Interactive and non-interactive authentication
 
-MSAL supports both interactive and non-interactive token acquisition for several of these flows.
+Several of these flows support both interactive and non-interactive token acquisition.
 
-  - **Interactive** means that the user is prompted for input, such as with a login page.
-  - **Non-interactive**, or *silent*, authentication attempts to acquire a token without prompting the user for input, such as from the token cache or through the use of a refresh token.
+  - **Interactive** means that the user can be prompted for input. For example, prompting the user to login, perform multi-factor authentication (MFA), or to grant additional consent to resources.
+  - **Non-interactive**, or *silent*, authentication attempts to acquire a token in a way in which the login server *cannot* prompt the user for additional information.
 
-Your MSAL-based application should first attempt to acquire a token **silently**, and then interactively only if the non-interactive method fails. For more information about this pattern, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
+Your MSAL-based application should first attempt to acquire a token *silently*, and then interactively only if the non-interactive method fails. For more information about this pattern, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
 
 ## Authorization code
 
-MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md) flow. This flow can be used in apps that are installed on a device to gain access to protected resources like web APIs. This allows you to add sign-in and API access to your mobile and desktop apps.
+The [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md) can be used in apps that are installed on a device to gain access to protected resources like web APIs. This allows you to add sign-in and API access to your mobile and desktop apps.
 
 When users sign in to web applications (websites), the web application receives an authorization code. The authorization code is redeemed to acquire a token to call web APIs.
 
@@ -76,7 +75,7 @@ In the preceding diagram, the application:
 
 ## Client credentials
 
-MSAL supports the [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md). This flow allows you to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts.
+The [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md) allows you to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts.
 
 The client credentials grant flow permits a web service (a confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a website. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
@@ -108,7 +107,7 @@ These client credentials need to be:
 
 ## Device code
 
-MSAL supports the [OAuth 2 device code flow](v2-oauth2-device-code.md) which allows users to sign in to input-constrained devices like smart TVs, IoT devices, and printers. Interactive authentication with Azure AD requires a web browser. Where the device or operating system doesn't provide a web browser, the device code flow lets the user use another device like a computer or mobile phone to sign in interactively.
+The [OAuth 2 device code flow](v2-oauth2-device-code.md) allows users to sign in to input-constrained devices like smart TVs, IoT devices, and printers. Interactive authentication with Azure AD requires a web browser. Where the device or operating system doesn't provide a web browser, the device code flow lets the user use another device like a computer or mobile phone to sign in interactively.
 
 By using the device code flow, the application obtains tokens through a two-step process designed for these devices and operating systems. Examples of such applications include those running on IoT devices and command-line interface (CLI) tools.
 
@@ -128,7 +127,7 @@ In the preceding diagram:
 
 ## Implicit grant
 
-MSAL supports the [OAuth 2 implicit grant](v2-oauth2-implicit-grant-flow.md) flow. This flow allows the app to get tokens from the Microsoft identity platform without performing a back-end server credential exchange. This flow allows the app to sign in the user, maintain a session, and get tokens for other web APIs, all within the client JavaScript code.
+The [OAuth 2 implicit grant](v2-oauth2-implicit-grant-flow.md) flow allows the app to get tokens from the Microsoft identity platform without performing a back-end server credential exchange. This flow allows the app to sign in the user, maintain a session, and get tokens for other web APIs, all within the client JavaScript code.
 
 ![Diagram of implicit grant flow](media/msal-authentication-flows/implicit-grant.svg)
 
@@ -140,7 +139,7 @@ Tokens issued via the implicit flow mode have a **length limitation** because th
 
 ## On-behalf-of
 
-MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf-of-flow.md). This flow is used when an application invokes a service or web API that in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform *on behalf of* the user.
+The [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf-of-flow.md) flow is used when an application invokes a service or web API that in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform *on behalf of* the user.
 
 ![Diagram of on-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png)
 
@@ -153,7 +152,7 @@ In the preceding diagram:
 
 ## Username/password
 
-MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-ropc.md) (ROPC), which allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
+The [OAuth 2 resource owner password credentials](v2-oauth-ropc.md) (ROPC) grant allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
 
 ![Diagram of the username/password flow](media/msal-authentication-flows/username-password.png)
 
