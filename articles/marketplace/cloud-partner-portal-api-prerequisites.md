@@ -1,12 +1,10 @@
 ---
 title: API Prerequisites - Azure Marketplace
 description: Prerequisites for using the Cloud Partner Portal APIs.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
 ---
 
 

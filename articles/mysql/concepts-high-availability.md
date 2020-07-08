@@ -23,7 +23,7 @@ Internally in Azure, a gateway is used to redirect the connections to the new in
 ## Scaling up or down
 Similar to the HA model, when an Azure Database for MySQL is scaled up or down, a new server instance with the specified size is created. The existing data storage is detached from the original instance, and attached to the new instance.
 
-During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance. 
+During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance.
 
 ## Next steps
 - Learn about [handling transient connectivity errors](concepts-connectivity.md)
