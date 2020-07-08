@@ -652,6 +652,8 @@
       items:
       - name: Multi-protocol access
         href: data-lake-storage-multi-protocol-access.md
+      - name: NFS 3.0 protocol support
+        href: network-file-system-protocol-support.md
       - name: Supported Blob storage features
         href: data-lake-storage-supported-blob-storage-features.md
       - name: Supported Azure services
