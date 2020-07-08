@@ -1,8 +1,6 @@
 ---
 title: Commercial marketplace analytics FAQ & terminology - Partner Center 
 description: Get answers to commonly asked questions about commercial marketplace analytics in Partner Center. This article includes a data dictionary for analytics terminology.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

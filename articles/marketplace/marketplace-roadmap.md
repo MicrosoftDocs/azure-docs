@@ -1,8 +1,6 @@
 ---
 title: Microsoft commercial marketplace release resources
 description: Learn about new and upcoming features, releases, and other updates for the commercial marketplace
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -1,12 +1,10 @@
 ---
 title: Publish an integrated solution - Microsoft commercial marketplace
 description: Learn requirements and steps for publishing integrated solutions to Microsoft AppSource and Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.author: dsindona
 
 ---
 # Publish an integrated solution

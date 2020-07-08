@@ -209,6 +209,7 @@
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
+        "articles/marketplace/**/*.md": "dsindona",
         "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
@@ -418,7 +419,7 @@
         "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
-		  "articles/remote-rendering/**/*.md": "jlyons"
+		    "articles/remote-rendering/**/*.md": "jlyons"
       },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
@@ -524,9 +525,9 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/managed-applications/**/*.md": "tomfitz",
         "articles/azure-resource-manager/custom-providers/**/*.md": "tomfitz",
-	"articles/machine-learning/*.md": "jmartens",
-	"articles/machine-learning/studio/*.md": "jmartens",
-  "articles/dev-spaces/**/*.md": "zarhoads",
+        "articles/machine-learning/*.md": "jmartens",
+        "articles/machine-learning/studio/*.md": "jmartens",
+        "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/service-bus-messaging/*.md": "aschhab",        
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
@@ -542,6 +543,7 @@
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/*.md": "juliako",
         "articles/media-services/**/*.md": "juliako",
+        "articles/marketplace/**/*.md": "dsindona",
         "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
@@ -592,7 +594,8 @@
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/media-services/*.md": "media-services",
         "articles/media-services/**/*.md": "media-services",
-        "articles/azure-government/**/*.md": "azure-government"
+        "articles/azure-government/**/*.md": "azure-government",
+        "articles/marketplace/**/*.md": "marketplace"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -710,8 +713,6 @@
         "articles/service-bus-messaging/*.md": "Azure Service Bus",                
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
-        "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
-        "articles/synapse-anlytics/**/*.yml": "Azure Synapse Analytics",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",

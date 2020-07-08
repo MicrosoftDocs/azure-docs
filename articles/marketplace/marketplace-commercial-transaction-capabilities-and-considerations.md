@@ -1,12 +1,10 @@
 ---
 title: Microsoft commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.author: dsindona
 
 ---
 # Commercial marketplace transact capabilities

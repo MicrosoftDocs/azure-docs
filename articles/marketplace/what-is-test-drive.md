@@ -1,12 +1,10 @@
 ---
 title: What is a test drive? Microsoft commercial marketplace
 description: Explanation of Marketplace test drive feature
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
 ---
 
 # What is a test drive?

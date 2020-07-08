@@ -1,12 +1,12 @@
 ---
 title: Azure Marketplace offer and service listing requirements
 description: This article explains requirements and guidelines for listing new offers and services on Azure Marketplace.  
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/22/2020
-ms.author: dsindona
 ---
 
 # Azure Marketplace listing guidelines
