@@ -13,10 +13,8 @@
     href: quickstart-explore-tsi.md
 - name: Tutorials
   items:
-  - name: Azure Time Series Insights Gen 2
-    items:
-    - name: Set up a TSI environment
-      href: tutorials-set-up-tsi-environment.md
+  - name: Set up a Time Series Insights Gen2 environment
+    href: tutorials-set-up-tsi-environment.md
 - name: Concepts
   items:
   - name: Azure Time Series Insights Gen1
@@ -61,7 +59,7 @@
         href: concepts-ux-panels.md
     - name: Breaking Changes
       items:
-      - name: Changes to Support Long Data Type
+      - name: Adding support for long data type
         href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage 
         href: ingestion-rules-update.md
@@ -85,7 +83,7 @@
     href: time-series-insights-how-to-add-an-event-source-iothub.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
-  - name: Azure Time Series Insights Gen 1
+  - name: Azure Time Series Insights Gen1
     items:
     - name: Explore Time Series Insights
       href: time-series-quickstart.md
@@ -107,7 +105,7 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-diagnose-and-solve-problems.md
-  - name: Azure Time Series Insights Gen 2
+  - name: Azure Time Series Insights Gen2
     items:
     - name: Best practices
       items:

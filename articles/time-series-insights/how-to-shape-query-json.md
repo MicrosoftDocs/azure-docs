@@ -13,7 +13,7 @@ ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Azure Time Series Insights queries when I use APIs.
 ---
 
-# Shape JSON to maximize query performance in your Gen 1 environment
+# Shape JSON to maximize query performance in your Gen1 environment
 
 This article provides guidance on how to shape JSON to maximize the efficiency of your Azure Time Series Insights queries.
 

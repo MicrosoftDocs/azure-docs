@@ -10,10 +10,10 @@ ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: seodec18~~~~
+ms.custom: seodec18
 ---
 
-# Create a reference data set for your Azure Time Series Insights Gen 1 environment using the Azure portal
+# Create a reference data set for your Azure Time Series Insights Gen1 environment using the Azure portal
 
 This article describes how to add a reference data set to your Azure Time Series Insights environment. Reference data is useful to join to your source data to augment the values.
 

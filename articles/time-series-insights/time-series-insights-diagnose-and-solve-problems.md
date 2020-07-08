@@ -13,7 +13,7 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Diagnose and solve issues in your Azure Time Series Insights Gen 1 environment
+# Diagnose and solve issues in your Azure Time Series Insights Gen1 environment
 
 This article describes issues that you might encounter in your Azure Time Series Insights environment. The article offers potential causes and solutions for resolution.
 
