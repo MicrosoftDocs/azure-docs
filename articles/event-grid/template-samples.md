@@ -1,17 +1,10 @@
 ---
 title: Azure Resource Manager template samples - Event Grid | Microsoft Docs
 description: This article provides a list of Azure Resource Manager template samples for Azure Event Grid on GitHub.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
+
 # Azure Resource Manager templates for Event Grid
 
 For the JSON syntax and properties to use in a template, see [Microsoft.EventGrid resource types](/azure/templates/microsoft.eventgrid/allversions). The following table includes links to Azure Resource Manager templates for Event Grid.

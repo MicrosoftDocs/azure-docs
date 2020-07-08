@@ -1,14 +1,10 @@
 ---
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
+
 # Track asynchronous Azure operations
 Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.  
 

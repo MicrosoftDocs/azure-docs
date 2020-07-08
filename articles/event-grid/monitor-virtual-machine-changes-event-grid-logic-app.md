@@ -1,14 +1,14 @@
 ---
 title: Monitor virtual machines changes - Azure Event Grid & Logic Apps
 description: Check for changes in virtual machines (VMs) by using Azure Event Grid and Logic Apps
-services: logic-apps
-ms.service: logic-apps
+services: logic-apps, event-grid
+ms.service: logic-apps, event-grid
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 07/07/2020
 ---
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
