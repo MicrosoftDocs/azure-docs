@@ -4,7 +4,7 @@ description: The information you provide on the Co-sell tab of your offer will b
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis
+author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
 ---

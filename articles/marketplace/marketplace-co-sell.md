@@ -4,7 +4,7 @@ description: The Microsoft Partner Center co-sell program for partners can help 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis
+author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/19/2020
 ---
