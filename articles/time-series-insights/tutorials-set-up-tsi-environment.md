@@ -150,23 +150,23 @@ Now that you've deployed your Azure Time Series Insights Gen2 environment, begin
 
    [![Device simulation web application consent.](media/v2-update-provision/sawa-signin-consent.png)](media/v2-update-provision/sawa-signin-consent.png#lightbox)
 
-1. Select **+ New simulation**. After the **Simulation setup** page loads, enter the required parameters.
+1. Select **+ New simulation**. 
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Name** | Enter a unique name for a simulator. |
-    | **Description** | Enter a definition. |
-    | **Simulation duration** | Set to **Run indefinitely**. |
-    | **Device model** | Click + **Add a device type** <br />**Name**: Enter **Elevator**. <br />**Amount**: Enter **3**. <br /> Leave the remaining default values |
-    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
+    1. After the **Simulation setup** page loads, enter the required parameters.
 
-    [![Configure parameters and launch.](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
+        | Parameter | Action |
+        | --- | --- |
+        | **Name** | Enter a unique name for a simulator. |
+        | **Description** | Enter a definition. |
+        | **Simulation duration** | Set to **Run indefinitely**. |
+        | **Device model** | Click + **Add a device type** <br />**Name**: Enter **Elevator**. <br />**Amount**: Enter **3**. <br /> Leave the remaining default values |
+        | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    Select **Start simulation**.
+        [![Configure parameters and launch.](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
 
-    In the device simulation dashboard, **Active devices** and **Total messages** are displayed.
+    1. Select **Start simulation**. In the device simulation dashboard, **Active devices** and **Total messages** are displayed.
 
-    [![Azure IoT simulation dashboard.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
+        [![Azure IoT simulation dashboard.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
 ## Analyze data
 
