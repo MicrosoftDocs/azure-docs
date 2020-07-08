@@ -32,12 +32,12 @@ In this article you learn how to:
 
 Verify that you have met the following criteria:
 
-1. You have a Network Virtual Appliance (NVA). This is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
-2. You have a private IP assigned to the NVA network interface. 
-3. The NVA cannot be deployed in the virtual hub. It must be deployed in a separate VNet. For this article, the NVA VNet is referred to as the 'DMZ VNet'.
-4. The ‘DMZ VNet’ may have one or many virtual networks connected to it. In this article, this VNet is referred to as ‘Indirect spoke VNet’. These VNets can be connected to the DMZ VNet using VNet peering.
-5. Verify that you have 2 VNets already created. These will be used as spoke VNets. For this article, the VNet spoke address spaces are 10.0.2.0/24 and 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
-6. Ensure there are no virtual network gateways in any VNets.
+* You have a Network Virtual Appliance (NVA). This is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
+* You have a private IP assigned to the NVA network interface. 
+* The NVA cannot be deployed in the virtual hub. It must be deployed in a separate VNet. For this article, the NVA VNet is referred to as the 'DMZ VNet'.
+* The ‘DMZ VNet’ may have one or many virtual networks connected to it. In this article, this VNet is referred to as ‘Indirect spoke VNet’. These VNets can be connected to the DMZ VNet using VNet peering.
+* Verify that you have 2 VNets already created. These will be used as spoke VNets. For this article, the VNet spoke address spaces are 10.0.2.0/24 and 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
+* Ensure there are no virtual network gateways in any VNets.
 
 ## <a name="signin"></a>1. Sign in
 
