@@ -5,6 +5,8 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Securit
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/15/2020
 ---
 

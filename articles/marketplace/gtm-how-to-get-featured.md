@@ -4,8 +4,9 @@ description: Go-To-Market Services - This section describes how to get a listing
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-
 ---
 
 # How to get featured in AppSource and Azure Marketplace

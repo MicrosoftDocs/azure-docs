@@ -4,6 +4,8 @@ description: An overview of the commercial marketplace for Microsoft partners wh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/12/2020
 ---
 
