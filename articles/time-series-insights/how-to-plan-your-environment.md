@@ -41,7 +41,7 @@ As part of the provisioning process, you specify whether you want to enable a wa
 Queries on warm store are free, while queries on cold store incur costs. It's important to understand your query patterns and plan your warm store configuration accordingly. We recommend that interactive analytics on the most recent data reside in your warm store and pattern analysis and long-term trends reside in cold.
 
 > [!NOTE]
-> To read more about how to query your warm data, read the [API Reference](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> To read more about how to query your warm data, read the [API Reference](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 To start, you need three additional items:
 

@@ -142,49 +142,49 @@
       - name: Model Settings
         items:
         - name: Overview
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings/get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get
         - name: Update
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings/update
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update
       - name: Query
         items:
         - name: Overview
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query
         - name: Execute
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute
         - name: Get Availability
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability
         - name: Get Event Schema
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema
       - name: Time Series Hierarchies
         items:
         - name: Overview
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies
         - name: Execute Batch
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/get
       - name: Time Series Instances
         items:
         - name: Overview
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances
         - name: Execute Batch
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/get
         - name: Search
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search
         - name: Suggest
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest
       - name: Time Series Types
         items:
         - name: Overview
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes
         - name: Execute Batch
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/get
     - name: Data Access Gen1
       items:
       - name: Overview
