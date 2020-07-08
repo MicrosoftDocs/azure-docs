@@ -432,6 +432,8 @@ You can also use Azure Pipelines to build your dependencies and publish using co
 
 ### Remote build
 
+When using remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use remote build when developing Python apps on Windows. If your project has custom dependencies, you can [use remote build with extra index URL](#remote-build-with-extra-index-url). 
+ 
 Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
 
 ```bash
@@ -441,8 +443,6 @@ func azure functionapp publish <APP_NAME>
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default.
-
-Use remote build when developing Python apps on Windows. 
 
 ### Local build
 
@@ -460,16 +460,15 @@ We don't recommend using local builds when developing locally on Windows.
 
 ### Custom dependencies
 
-When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The build method depends on the accessibility of the custom packages.
+When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The build method depends on how you build the project.
 
-#### Publicly accessible packages
+#### Remote build with extra index URL
 
-When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create and app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` using the `--extra-index-url` option.  
+When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` using the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
 
-#### Packages not publicly accessible
+You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
 
-> [!NOTE]  
-> This method requires you to have Docker running locally.
+#### Install local packages
 
 If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
