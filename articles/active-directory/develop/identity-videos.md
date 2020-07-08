@@ -73,7 +73,7 @@ ___
         7 - <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">If you use MSAL, what essential protocol concepts should you know? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:51)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/aad-basics-14.jpg" alt="Video thumbnail"> </a>
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
     :::column-end:::
