@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Server-side encryption of Azure managed disks
+# Server-side encryption of Azure Disk Storage
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments.
 
