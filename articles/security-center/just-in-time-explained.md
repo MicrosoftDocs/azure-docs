@@ -21,7 +21,9 @@ To learn how to apply JIT to your VMs using the Azure Portal (either Security Ce
 
 ## The risk
 
-All of your internet-facing virtual machines are potential targets for an attack. Threat actors actively hunt accessible machines. The ultimate prize they're seeking is an open management port, like RDP or SSH, to gain access to a VM. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
+Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
+
+
 
 ## Why just-in-time (JIT) virtual machine (VM) access is the solution 
 
