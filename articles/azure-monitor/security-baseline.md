@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,11 +28,20 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12394).
 
-**Guidance**: &lt;-------NEED Additional links-------&gt;
+**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.
 
-Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If you are using Log Analytics workspaces, configure network isolation by limiting public access for ingestion and queries.  Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet preventing need of computers to be connected to internet.
+You can enable Azure Private Link to allow access Azure SaaS Services (for example, Azure Monitor) and Azure hosted customer/partner services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
-Connect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
+To allow traffic to reach Azure Monitor, use the "AzureMonitor" service tags to allow inbound and outbound traffic through Network Security Groups. To allow Availability Monitoring test traffic to reach Azure Monitor, use the "ApplicationInsightsAvailability" service tag to all inbound traffic through Network Security Groups.
+
+Virtual network rules enable Azure Monitor to only accept communications that are sent from selected subnets inside a virtual network.
+
+Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet preventing need of computers to be connected to internet. 
+
+How to set up Private Link for Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security
+
+Connect computers without internet access by using the Log Analytics gateway in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/gateway
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -44,9 +53,8 @@ Connect computers without internet access by using the Log Analytics gateway in 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12395).
 
-**Guidance**: &lt;-------NEED Additional links-------&gt;
-
-Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If you are using Log Analytics workspace, Log Analytics Gateway, Azure Monitor agents, use Azure Security Center and follow network protection recommendations to help secure your network resources hosting these services in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations. 
+**Guidance**: 
+Microsoft manages the underlying infrastructure for Azure Monitor. You should  follow network protection recommendations to help secure your network resources hosting these services in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations. 
 Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements
 
 Connect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
@@ -62,7 +70,16 @@ How to Enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/ne
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12396).
 
-**Guidance**: Not applicable; Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.
+**Guidance**: Not applicable; Azure Monitor is part of the Azure core services and cannot be deployed as a service separately. Azure Monitor components, including the Application Insights SDK may be deployed with your resources, and this may impact the security posture of those resources.
+
+Instructions for Application Insights monitoring of web applications are available in the following links.
+
+How to add exceptions for CDN endpoints for corporations: https://docs.microsoft.com/azure/azure-monitor/app/javascript-sdk-load-failure#add-exceptions-for-cdn-endpoints-for-corporations
+
+How to host the SDK on your own CDN:https://docs.microsoft.com/azure/azure-monitor/app/javascript-sdk-load-failure#host-the-sdk-on-your-own-cdn
+
+How to use NPM packages to embed the Application Insight SDK: https://docs.microsoft.com/azure/azure-monitor/app/javascript-sdk-load-failure#use-npm-packages-to-embed-the-application-insight-sdk
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -126,10 +143,18 @@ Azure Marketplace: https://azuremarketplace.microsoft.com/marketplace/?term=Fire
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12401).
 
-**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If using Azure Monitor gateway or agents, use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. You may also use Application Security Groups to help simplify complex security configuration. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. 
-Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirementsConnect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
+**Guidance**: You can enable Azure Private Link to allow access Azure SaaS Services (for example, Azure Monitor) and Azure hosted customer/partner services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
-Understand and use Service Tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview Understand and use Application Security Groups: https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups
+To allow traffic to reach Azure Monitor, use the "AzureMonitor" service tags to allow inbound and outbound traffic through Network Security Groups. To allow Availability Monitoring test traffic to reach Azure Monitor, use the "ApplicationInsightsAvailability" service tag to all inbound traffic through Network Security Groups.
+
+Virtual network rules enable Azure Monitor to only accept communications that are sent from selected subnets inside a virtual network.
+
+How to set up Private Link for Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security
+
+Understand and use Service Tags: 
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview 
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -140,7 +165,25 @@ Understand and use Service Tags: https://docs.microsoft.com/azure/virtual-networ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12402).
 
-**Guidance**: Define and implement standard security configurations for network resources with Azure Policy. You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Policy samples for networking: https://docs.microsoft.com/azure/governance/policy/samples/#network How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If you are using Azure Monitor gateway or agents, define and implement standard security configurations for network resources with Azure Policy. 
+
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. 
+
+Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements
+
+Connect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
+
+How to configure and manage Azure Policy: 
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
+
+Azure Policy samples for networking: 
+
+https://docs.microsoft.com/azure/governance/policy/samples/#network 
+
+How to create an Azure Blueprint: 
+
+https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center monitoring**: Not applicable
 
