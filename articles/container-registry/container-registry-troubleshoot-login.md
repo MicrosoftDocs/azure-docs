@@ -21,7 +21,7 @@ This article helps you troubleshoot common problems when logging into an Azure c
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
 * The credentials aren't authorized for push or pull operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
-* The credentials are expired - [solution](#check-that-credentials-aren't-expired)
+* The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
 If you don't resolve your problem here, see [Next steps](#next-steps) for other options.
 
@@ -51,7 +51,7 @@ If using an Azure service such as Azure Kubernetes Service or Azure DevOps to ac
 
 Related links:
 
-* [Authentication overview](container-registry-authentication.md#authentication-overview)
+* [Authentication overview](container-registry-authentication.md#authentication-options)
 * [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 * [Login with service principal](container-registry-auth-service-principal.md)
 * [Login with managed identity](container-registry-authentication-managed-identity.md)
