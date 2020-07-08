@@ -187,7 +187,8 @@ If you use a video player other than Azure Media Player, you must manually manip
     <video id="vid1" width="640" height="360" controls autoplay preload>
        <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
        Your browser does not support the video tag.
-    </video>    
+    </video>
+    ```
 
 2. Embed the Cognitive Insights widget.
 3. Implement communication for your player by listening to the "message" event. For example:
