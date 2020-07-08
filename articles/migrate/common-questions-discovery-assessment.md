@@ -171,8 +171,8 @@ For agent-based dependency visualization:
 
 ## What operating systems does MMA support?
 
-- View the list of [Windows operating systems that MMA supports](/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-- View the list of [Linux operating systems that MMA supports](/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
+- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
 
 ## Can I visualize dependencies for more than one hour?
 
@@ -182,7 +182,7 @@ For agentless visualization, you can view the dependency map of a single server 
 
 ## Can I visualize dependencies for groups of more than 10 VMs?
 
-You can [visualize dependencies](/azure/migrate/how-to-create-group-dependencies) for groups that have up to 10 VMs. If you have a group that has more than 10 VMs, we recommend that you split the group into smaller groups, and then visualize the dependencies.
+You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) for groups that have up to 10 VMs. If you have a group that has more than 10 VMs, we recommend that you split the group into smaller groups, and then visualize the dependencies.
 
 ## Next steps
 

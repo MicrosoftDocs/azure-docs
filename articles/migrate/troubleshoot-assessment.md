@@ -149,7 +149,7 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Supported operating systems
 
-- **MMS agent**: Review the supported [Windows](/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
+- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems), and [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for > hour
@@ -160,7 +160,7 @@ With agent-based dependency analysis, Although Azure Migrate allows you to go ba
 
 ## Visualized dependencies for > 10 machines
 
-In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
 
 
 ## Machines show "Install agent"
