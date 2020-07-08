@@ -160,7 +160,9 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md                    
+      href: content-key-policy-concept.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
