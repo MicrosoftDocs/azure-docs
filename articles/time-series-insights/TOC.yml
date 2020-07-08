@@ -65,8 +65,6 @@
         href: concepts-ux-panels.md
     - name: Breaking Changes
       items:
-      - name: Adding support for long data type
-        href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage 
         href: ingestion-rules-update.md
   - name: Develop
