@@ -1,12 +1,12 @@
 ---
 title: Publishing guide for Azure applications solution template offers - Azure Marketplace
 description: This article describes the requirements for publishing solution templates on Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-ms.author: dsindona
 ---
 
 # Publishing guide for Azure applications solution template offers
