@@ -1,8 +1,6 @@
 ---
 title: SaaS offer creation checklist in Microsoft commercial marketplace
 description: The details you can provide in the SaaS offer creation process in Partner Center. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

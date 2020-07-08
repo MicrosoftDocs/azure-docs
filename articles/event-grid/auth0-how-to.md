@@ -1,13 +1,8 @@
 ---
 title: How to send events from Auth0 to Azure using Azure Event Grid
 description: How to end events from Auth0 to Azure services with Azure Event Grid.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Integrate Azure Event Grid with Auth0

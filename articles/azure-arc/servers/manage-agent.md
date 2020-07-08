@@ -41,7 +41,7 @@ The agent can be upgraded following a variety of methods to support your softwar
 > * To upgrade the agent, you must have *Administrator* permissions.
 > * To upgrade manually, you must first download and copy the Installer package to a folder on the target server, or from a shared network folder. 
 
-If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
 #### To upgrade using the Setup Wizard
 
