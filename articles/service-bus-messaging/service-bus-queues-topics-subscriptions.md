@@ -95,7 +95,7 @@ TemporaryQueue createTemporaryQueue()
 
 Just like Temporary Queues, Temporary Topics exist to enable publish/subscribe through a temporary entity that exists for the lifetime of the application.
 
-To create a temporary topic, utilize the below emthods in the `JMSContext` class -
+To create a temporary topic, utilize the below methods in the `JMSContext` class -
 
 ```java
 TemporaryTopic createTemporaryTopic()
