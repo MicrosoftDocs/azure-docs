@@ -856,7 +856,7 @@
     - name: Encryption
       items:
       - name: Enable end-to-end encryption
-        href: ../disks-enable-end-to-end-encryption.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        href: disks-enable-end-to-end-encryption.md
       - name: Enable customer-managed keys - PowerShell
         href: disks-enable-customer-managed-keys-powershell.md
       - name: Enable customer-managed keys - Portal

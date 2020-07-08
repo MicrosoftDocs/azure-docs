@@ -1,19 +1,14 @@
 ---
-title: Enable end-to-end encryption for Azure managed disks
-description: How to enable end-to-end encryption on Azure managed disks.
-author: roygara
-ms.service: virtual-machines
-ms.topic: how-to
-ms.date: 07/07/2020
-ms.author: rogarana
-ms.subservice: disks
-ms.custom: references_regions
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: roygara
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 07/07/2020
+ ms.author: rogarana
+ ms.custom: include file
 ---
-
-# Enable end-to-end encryption (preview)
-
-Azure Disk Storage offers end-to-end encryption (preview) for managed disks, allowing you to have double encryption at rest and in transit. This article contains scripts that will deployFor conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](linux/disk-encryption.md#end-to-end-encryption)
-
 ## Restrictions
 
 1.	End-to-end encryption is currently available only in the USCentralEUAP region.
@@ -48,7 +43,7 @@ You must enable the feature on your subscription before you can enable end-to-en
 
 Once you've enabled the feature, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
 
-[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 ## Enable end to end encryption
 
