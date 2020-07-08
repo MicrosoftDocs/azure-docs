@@ -77,7 +77,7 @@ If your app runs in an App Service deployment where **PremiumV2** isn't availabl
 - Create a **new** resource group, and then create a **new** app and App Service plan in the **new** resource group, choosing your desired Azure region during the creation process.  You **must** select the **PremiumV2** plan at the time the new app service plan is created.  This ensures the combination of resource group, App Service plan, and Azure region will result in the App Service plan being created in an App Service deployment that supports **PremiumV2**.  Then redeploy your application code into the newly created app and app service plan. If desired you can subsequently scale the App Service plan down from **PremiumV2** to save costs, and you will still be able to successfully scale back up again in the future using **PremiumV2**.
 - If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new app service plan that uses **PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Screenshot showing how to clone your app.](media/app-service-configure-premium-tier/clone-app.png)
 
     In the **Clone app** page, you can create an App Service plan using **PremiumV2** in the region you want, and specify the app settings and configuration that you want to clone.
 
