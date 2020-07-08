@@ -87,7 +87,9 @@ DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee mess
 
 To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf', and look at the 'options' line, for example:
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 The resolv.conf file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
 
