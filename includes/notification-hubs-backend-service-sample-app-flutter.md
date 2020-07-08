@@ -55,6 +55,11 @@
     </application>
     ```
 
+1. Open the app-level **build.gradle** file (**android** > **app** > **build.gradle**), then update the *compileSdkVersion* (from the **android** section) to use API **29**. Then, update the *minSdkVersion* and *targetSdkVersion* values (from the **defaultConfig** section), to **26** and **29** respectively.
+
+    > [!NOTE]
+    > Only those devices running **API level 26 and above** are supported for the purposes of this tutorial however you can extend it to support devices running older versions.
+
 1. **Control** + **Click** on the **ios** folder, then choose **Open in Xcode**.
 
 1. In **Xcode**, click on **Runner** (the **xcodeproj** at the top, not the folder). Then, select the **Runner** target and select the **General** tab. With the **All** build configuration selected, update the **Bundle Identifier** to `com.<your_organization>.PushDemo`.
@@ -75,16 +80,6 @@
 
       http: ^0.12.1
       flutter_secure_storage: ^3.3.3
-    ```
-
-1. In **android** > **app** > **build.gradle** update **minSdkVersion** to **18**, as is required by the recently installed **flutter_secure_storage** package.
-
-    ```yaml
-    defaultConfig {
-        ...
-        minSdkVersion 18
-        ...
-    }
     ```
 
 1. In **Terminal**, change directory to the **ios** folder (for your Flutter project). Then, execute the [**pod install**](https://guides.cocoapods.org/using/getting-started.html#installation) command to install new pods (required by the [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) package).

@@ -16,13 +16,6 @@
 
 1. Switch the **Project** view to **Android**.
 
-1. Open the app-level **build.gradle** file (**Gradle Scripts** > **build.gradle (Module: app)**), then update the *compileSdkVersion* (from the **android** section) to use API **29**. Then, update the *minSdkVersion* and *targetSdkVersion* values (from the **defaultConfig** section), to **26** and **29** respectively.
-
-    > [!NOTE]
-    > Only those devices running **API level 26 and above** are supported for the purposes of this tutorial however you can extend it to support devices running older versions.
-
-1. Save the changes, then click on the **Sync Now** button (from the toolbar prompt) or **Sync Project with Gradle Files**.
-
 1. Open **AndroidManifest.xml**, then add the **INTERNET** and **READ_PHONE_STATE** permissions after the **application** element before the closing **</manifest>** tag.
 
     ```xml
