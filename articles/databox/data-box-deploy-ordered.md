@@ -378,7 +378,7 @@ Do the following steps using Azure CLI to order a device:
 1. Before you create the import order you need to get your storage account and save the storage account object in a variable.
 
    ```azurepowershell
-    $storAcct = Get-AzStorageAccount -Name "gptestaccount0520" -ResourceGroup "GDPTest"
+    $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
    
 2. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the PowerShell command to create the Data Box order. The following table shows the parameter settings used for [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
@@ -405,8 +405,8 @@ Do the following steps using Azure CLI to order a device:
 3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
    ```azurepowershell
-    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "gptestaccount0520"
-    PS> New-AzDataBoxJob -Location "WestUS" -StreetAddress1 "15700 NE 39th St" -PostalCode 94107 -City "Redmond" -StateOrProvinceCode "WA" -CountryCode "US" -EmailId "gusp@contoso.com" -PhoneNumber 4255551234 -ContactName '"Gus Poland"' -StorageAccount $storAcct.id -DataBoxType DataBox -ResourceGroupName "GDPTest" -Name "myDataBoxOrderPSTest"
+    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
+    PS> New-AzDataBoxJob -Location "WestUS" -StreetAddress1 "15700 NE 39th St" -PostalCode 94107 -City "Redmond" -StateOrProvinceCode "WA" -CountryCode "US" -EmailId "gusp@contoso.com" -PhoneNumber 4255551234 -ContactName '"Gus Poland"' -StorageAccount $storAcct.id -DataBoxType DataBox -ResourceGroupName "myresourcegroup" -Name "myDataBoxOrderPSTest"
    ```
 
    Here is the output from running the command:
@@ -414,7 +414,7 @@ Do the following steps using Azure CLI to order a device:
    ```output
     jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
     ----------------     -------------------- ------------------ --------------------- -------------------- -------------
-    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               GDPTest
+    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               myresourcegroup
    ```
 
 ---
