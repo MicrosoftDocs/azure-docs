@@ -19,7 +19,7 @@
       href: tutorials-set-up-tsi-environment.md
 - name: Concepts
   items:
-  - name: Azure Time Series Insights Gen 1
+  - name: Azure Time Series Insights Gen1
     items:
     - name: About Time Series Insights
       href: time-series-insights-overview.md
@@ -29,7 +29,7 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
-  - name: Azure Time Series Insights Gen 2
+  - name: Azure Time Series Insights Gen2
     items:
     - name: Data access control
       items:
