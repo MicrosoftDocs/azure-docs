@@ -493,6 +493,12 @@
     import 'package:push_demo/main_page.dart';
     ```
 
+1. Declare a variable to store reference to an instance of **NotificationActionService** and initialize it.
+
+    ```dart
+    final notificationActionService = NotificationActionService();
+    ```
+
 1. Add functions to handle the display of an alert when an action is triggered.
 
     ```dart
