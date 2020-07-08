@@ -124,7 +124,7 @@ This problem might occur if your environment doesn't have a Time Series Model hi
 
 This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
 
-[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/pbi-unabletoconnect.png#lightbox)
+[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again. 
 
