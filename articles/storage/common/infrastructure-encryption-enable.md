@@ -15,9 +15,9 @@ ms.subservice: common
 
 # Create a storage account with infrastructure encryption enabled for double encryption of data
 
-Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or an encryption key may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
 
-Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key VAult. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key. For more information about key management with Azure Storage encryption, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
+Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key. For more information about key management with Azure Storage encryption, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
 To doubly encrypt your data, you must first create a storage account that is configured for infrastructure encryption. This article describes how to create a storage account that enables infrastructure encryption.
 
@@ -61,7 +61,7 @@ N/A
 
 ### Check the status of your registration
 
-To check the status of your registration for Queue or Table storage, use PowerShell or Azure CLI.
+To check the status of your registration for infrastructure encryption, use PowerShell or Azure CLI.
 
 # [PowerShell](#tab/powershell)
 
@@ -115,9 +115,9 @@ N/A
 
 ## Create a storage account with infrastructure encryption enabled
 
-You must configure a new storage account to use infrastructure encryption at the time that you create the storage account. The infrastructure encryption configuration cannot be changed after the account is created.
+You must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled after the account has already been created.
 
-The storage account must be of type general-purpose v2. You can create the storage account and configure it to enable double encryption with infrastructure encryption by using either PowerShell, Azure CLI or an Azure Resource Manager template.
+The storage account must be of type general-purpose v2. You can create the storage account and configure it to enable infrastructure encryption by using either PowerShell, Azure CLI or an Azure Resource Manager template.
 
 # [PowerShell](#tab/powershell)
 
@@ -125,7 +125,7 @@ To use PowerShell to create a storage account with infrastructure encryption ena
 
 Next, create a general-purpose v2 storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Include the `-RequireInfrastructureEncryption` option to enable infrastructure encryption.
 
-The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption of data. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -142,7 +142,7 @@ To use Azure CLI to create a storage account that has infrastructure encryption 
 
 Next, create a general-purpose v2 storage account by calling the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command and include the `--require-infrastructure-encryption option` to enable infrastructure encryption.
 
-The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption. Remember to replace the placeholder values in brackets with your own values:
+The following example shows how to create a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption of data. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage account create \
@@ -156,7 +156,7 @@ az storage account create \
 
 # [Template](#tab/template)
 
-The following JSON example creates a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and that enables infrastructure encryption for the account for double encryption. Remember to replace the placeholder values in angle brackets with your own values:
+The following JSON example creates a general-purpose v2 storage account that is configured for read-access geo-redundant storage (RA-GRS) and has infrastructure encryption enabled for double encryption of data. Remember to replace the placeholder values in brackets with your own values:
 
 ```json
 "resources": [
@@ -194,7 +194,7 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 # [PowerShell](#tab/powershell)
 
-To verify that infrastructure encryption is enabled for a storage account, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Look for the `RequireInfrastructureEncryption` field within the `Encryption` property and verify that it is set to `True`.
+To verify that infrastructure encryption is enabled for a storage account, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command. This command returns a set of storage account properties and their values. Retrieve the `RequireInfrastructureEncryption` field within the `Encryption` property and verify that it is set to `True`.
 
 The following example retrieves the value of the `RequireInfrastructureEncryption` property. Remember to replace the placeholder values in angle brackets with your own values:
 
