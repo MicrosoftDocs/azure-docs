@@ -30,7 +30,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 ![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
 
- For pipeline debug runs, about one minute of cluster set-up time in your overall performance calculations is required for a warm cluster. If you're initializing the default Azure Integration Runtime, the spin up time may take about 5 minutes.
+ For pipeline debug runs, about one minute of cluster set-up time in your overall performance calculations is required for a warm cluster. If you're initializing the default Azure Integration Runtime, the spin up time may take about 4 minutes.
 
 ## Increasing compute size in Azure Integration Runtime
 
@@ -50,7 +50,7 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 ### Decrease cluster compute start-up time with TTL
 
-There is a property in the Azure IR under Data Flow Properties that will allow you to stand-up a pool of cluster compute resources for your factory. With this pool, you can sequentially submit data flow activities for execution. Once the pool is established, each subsequent job will take 1-2 minutes for the on-demand Spark cluster to execute your job. The initial set-up of the resource pool will take around 6 minutes. Specify the amount of time that you wish to maintain the resource pool in the time-to-live (TTL) setting.
+There is a property in the Azure IR under Data Flow Properties that will allow you to stand-up a pool of cluster compute resources for your factory. With this pool, you can sequentially submit data flow activities for execution. Once the pool is established, each subsequent job will take 1-2 minutes for the on-demand Spark cluster to execute your job. The initial set-up of the resource pool will take around 4 minutes. Specify the amount of time that you wish to maintain the resource pool in the time-to-live (TTL) setting.
 
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse Synapse
 
@@ -140,7 +140,7 @@ By using wildcarding, your pipeline will only contain one Data Flow activity. Th
 
 The pipeline For Each in parallel mode will spawn multiple clusters by spinning-up job clusters for every executed data flow activity. This can cause Azure service throttling with high numbers of concurrent executions. However, use of Execute Data Flow inside of a For Each with Sequential set in the pipeline will avoid throttling and resource exhaustion. This will force Data Factory to execute each of your files against a data flow sequentially.
 
-It is recommended that if you use For Each with a data flow in sequence, that you utilize the TTL setting in the Azure Integration Runtime. This is because each file will incur a full 5 minute cluster startup time inside of your iterator.
+It is recommended that if you use For Each with a data flow in sequence, that you utilize the TTL setting in the Azure Integration Runtime. This is because each file will incur a full 4 minute cluster startup time inside of your iterator.
 
 ### Optimizing for CosmosDB
 

@@ -89,5 +89,5 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 ## Next steps
 
-- Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
+- Review [networking guidance](./azure-to-azure-about-networking.md) for Azure VM disaster recovery.
 - [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.
