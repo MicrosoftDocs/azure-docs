@@ -4,7 +4,7 @@ description: The Virtual Machine Scale Sets security baseline provides procedura
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
