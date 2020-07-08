@@ -11,24 +11,11 @@
 ---
 ## Restrictions
 
-1.	End-to-end encryption is currently available only in the USCentralEUAP region.
-1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/virtual machine scale sets.
-1.	You have to deallocate your existing VMs to enable the encryption.
-1.	You can enable the encryption for existing virtual machine scale set. However, only new VMs created after enabling the encryption are automatically encrypted.
+[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](virtual-machines-disks-encryption-at-host-restrictions.md)]
 
 ### Supported VM sizes
 
-Only the following VM sizes currently support end-to-end encryption:
-
-|Type  |Supported  |Not supported  |
-|---------|---------|---------|
-|General purpose     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
-|Compute optimized     |         |         |
-|Memory optimized     | Ev3, Eav4        | DSv2, Esv3, M, Mv2, Easv4        |
-|Storage optimized     |         | Ls, Lsv2 (NVMe disks not encrypted)        |
-|GPU     | NC, NV        | NCv2, NCv3, ND, NVv3, NVv4, NDv2 (preview)        |
-|High performance compute     | H        | HB, HC, HBv2        |
-|Previous generations     | F, A, D, L, G        | DS, GS, Fs, NVv2        |
+[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
 ## Prerequisites
 

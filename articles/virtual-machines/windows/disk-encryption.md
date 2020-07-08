@@ -53,6 +53,14 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 For more information on the encryption at VM host see [Enable encryption at VM host](disks-enable-end-to-end-encryption.md)
 
+### Limitations
+
+[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
+
+#### Supported VM sizes
+
+[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+
 ## Double encryption at rest
 
 High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation , or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys 
