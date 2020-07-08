@@ -105,12 +105,8 @@
       items:
       - name: Add a cloud app
         items:
-        - name: Add a gallery app
-          href: add-gallery-app.md
         - name: Add a non-gallery app
           href: add-non-gallery-app.md
-        - name: Change the app name or logo
-          href: change-name-or-logo-portal.md
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on

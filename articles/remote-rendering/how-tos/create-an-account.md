@@ -23,13 +23,13 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions) below.
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
 
 ### Account regions
-
-More information coming soon.
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
