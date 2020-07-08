@@ -395,28 +395,40 @@ Do the following steps using Azure PowerShell to order a device:
 
     | Setting (parameter) | Description |  Sample value |
     |---|---|---|
-    |ResourceGroupName| Use an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
-    |Name| The name of the order you are creating. | "mydataboxorder"|
-    |ContactName| The name associated with the shipping address. | "Gus Poland"|
-    |PhoneNumber| The phone number of the person or business that will receive the order.| "14255551234"
-    |Location| The nearest Azure region to you that will be shipping your device.| "WestUS"|
-    |DataBoxType| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
-    |EmailId| The email addresses associated with the order.| "gusp@contoso.com" |
-    |StreetAddress1| The street address to where the order will be shipped. | "15700 NE 39th St" |
+    |ResourceGroupName [Required]| Use an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+    |Name [Required]| The name of the order you are creating. | "mydataboxorder"|
+    |ContactName [Required]| The name associated with the shipping address. | "Gus Poland"|
+    |PhoneNumber [Required]| The phone number of the person or business that will receive the order.| "14255551234"
+    |Location [Required]| The nearest Azure region to you that will be shipping your device.| "WestUS"|
+    |DataBoxType [Required]| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
+    |EmailId [Required]| The email addresses associated with the order.| "gusp@contoso.com" |
+    |StreetAddress1 [Required]| The street address to where the order will be shipped. | "15700 NE 39th St" |
     |StreetAddress2| The secondary address information, such as apartment number or building number. | "Bld 123" |
     |StreetAddress3| The tertiary address information. | |
-    |City| The city that the device will be shipped to. | "Redmond" |
-    |StateOrProvinceCode| The state where the device will be shipped.| "WA" |
-    |CountryCode| The country that the device will be shipped. | "United States" |
-    |PostalCode| The zip code or postal code associated with the shipping address.| "98052"|
+    |City [Required]| The city that the device will be shipped to. | "Redmond" |
+    |StateOrProvinceCode [Required]| The state where the device will be shipped.| "WA" |
+    |CountryCode [Required]| The country that the device will be shipped. | "United States" |
+    |PostalCode [Required]| The zip code or postal code associated with the shipping address.| "98052"|
     |CompanyName| The name of your company you work for.| "Contoso, LTD" |
-    |StorageAccountResourceId| The Azure Storage account ID from where you want to import data.| <AzStorageAccount>.id |
+    |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| <AzStorageAccount>.id |
 
 3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
-    PS> New-AzDataBoxJob -Location "WestUS" -StreetAddress1 "15700 NE 39th St" -PostalCode 94107 -City "Redmond" -StateOrProvinceCode "WA" -CountryCode "US" -EmailId "gusp@contoso.com" -PhoneNumber 4255551234 -ContactName '"Gus Poland"' -StorageAccount $storAcct.id -DataBoxType DataBox -ResourceGroupName "myresourcegroup" -Name "myDataBoxOrderPSTest"
+    PS> New-AzDataBoxJob -Location "WestUS" \
+                         -StreetAddress1 "15700 NE 39th St" \
+                         -PostalCode 94107 \
+                         -City "Redmond" \
+                         -StateOrProvinceCode "WA" \
+                         -CountryCode "US" \
+                         -EmailId "gusp@contoso.com" \
+                         -PhoneNumber 4255551234 \
+                         -ContactName "Gus Poland" \
+                         -StorageAccount $storAcct.id \
+                         -DataBoxType DataBox \
+                         -ResourceGroupName "myresourcegroup" \
+                         -Name "myDataBoxOrderPSTest"
    ```
 
    Here is the output from running the command:
