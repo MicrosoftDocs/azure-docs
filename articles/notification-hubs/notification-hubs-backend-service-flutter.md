@@ -1,17 +1,17 @@
 ---
-title: Send push notifications to React Native apps using Azure Notification Hubs via a backend service | Microsoft Docs
-description: Learn how to push notifications to React Native apps that use Azure Notification Hubs via a backend service. 
-author: alexeystrakh
+title: Send push notifications to Flutter apps using Azure Notification Hubs via a backend service | Microsoft Docs
+description: Learn how to push notifications to Flutter apps that use Azure Notification Hubs via a backend service. 
+author: mikeparker104
 
 ms.service: notification-hubs
 ms.topic: tutorial
-ms.date: 06/11/2020
-ms.author: alstrakh
+ms.date: 07/07/2020
+ms.author: miparker
 ---
 
-# Tutorial: Send push notifications to React Native apps using Azure Notification Hubs via a backend service  
+# Tutorial: Send push notifications to Flutter apps using Azure Notification Hubs via a backend service  
 
-[![Download Sample](./media/notification-hubs-backend-service-react-native/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
+[![Download Sample](./media/notification-hubs-backend-service-flutter/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
 
 > [!div class="op_single_selector"]
 >
@@ -19,7 +19,7 @@ ms.author: alstrakh
 > * [Flutter](notification-hubs-backend-service-flutter.md)
 > * [React Native](notification-hubs-backend-service-react-native.md)
 
-In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [React Native](https://reactnative.dev/) application targeting **Android** and **iOS**.  
+In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [Flutter](https://flutter.dev) application targeting **Android** and **iOS**.  
 
 [!INCLUDE [Notification Hubs Backend Service Introduction](../../includes/notification-hubs-backend-service-introduction.md)]
 
@@ -29,7 +29,7 @@ This tutorial takes you through the following steps:
 >
 > * [Set up Push Notification Services and Azure Notification Hubs.](#set-up-push-notification-services-and-azure-notification-hub)
 > * [Create an ASP.NET Core Web API backend application.](#create-an-aspnet-core-web-api-backend-application)
-> * [Create a cross-platform React Native application.](#create-a-cross-platform-react-native-application)
+> * [Create a cross-platform Flutter application.](#create-a-cross-platform-flutter-application)
 > * [Configure the native Android project for push notifications.](#configure-the-native-android-project-for-push-notifications)
 > * [Configure the native iOS project for push notifications.](#configure-the-native-ios-project-for-push-notifications)
 > * [Test the solution.](#test-the-solution)
@@ -39,7 +39,9 @@ This tutorial takes you through the following steps:
 To follow along, you require:
 
 * An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
-* A Mac with [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed (or a PC running [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Mobile Development with .NET** workload).
+* The [Flutter](https://flutter.dev/docs/get-started/install) toolkit (along with its prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com) with the [Flutter and Dart plugins](https://flutter.dev/docs/get-started/editor?tab=vscode) installed.
+* [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#installation) installed for managing library dependencies.
 * The ability to run the app on either **Android** (physical or emulator devices) or **iOS** (physical devices only).
 
 For Android, you must have:
@@ -57,13 +59,14 @@ For iOS, you must have:
 
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
-* [Apple Developer Portal](https://developer.apple.com)
-* [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
-* [Google Firebase Console](https://console.firebase.google.com/u/0/)
+* [Apple Developer Portal](https://developer.apple.com).
+* [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1).
+* [Google Firebase Console](https://console.firebase.google.com/u/0/).
 * [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
-* [React Native](https://reactnative.dev/docs/getting-started).
+* [Flutter](https://flutter.dev) and [Dart](https://dart.dev) for cross-platform development.
+* [Kotlin](https://kotlinlang.org) and [Swift](https://developer.apple.com/swift) for Android and iOS native development.
 
-The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Visual Studio Code](https://code.visualstudio.com/download) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
+The steps provided are specific to [macOS](https://developer.apple.com/macos). It's possible to follow along on [Windows](https://www.microsoft.com/windows) by skipping the **iOS** aspects.
 
 ## Set up Push Notification Services and Azure Notification Hub
 
@@ -81,25 +84,25 @@ In this section, you set up **[Firebase Cloud Messaging (FCM)](https://firebase.
 
 ## Create an ASP.NET Core Web API backend application
 
-In this section, you create the [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) and the sending of notifications to the React Native mobile app.
+In this section, you create the [ASP.NET Core Web API](https://dotnet.microsoft.com/apps/aspnet/apis) backend to handle [device registration](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-registration-management#what-is-device-registration) and the sending of notifications to the Flutter mobile app.
 
 [!INCLUDE [Create an ASP.NET Core Web API backend application](../../includes/notification-hubs-backend-service-web-api.md)]
 
-## Create a cross-platform React Native application
+## Create a cross-platform Flutter application
 
-In this section, you build a [React Native](https://reactnative.dev/) mobile application implementing push notifications in a cross-platform manner.
+In this section, you build a [Flutter](https://flutter.dev) mobile application implementing push notifications in a cross-platform manner.
 
 [!INCLUDE [Sample application generic overview](../../includes/notification-hubs-backend-service-sample-app-overview.md)]
 
-[!INCLUDE [Create React Native application](../../includes/notification-hubs-backend-service-sample-app-reactnative.md)]
+[!INCLUDE [Create Flutter application](../../includes/notification-hubs-backend-service-sample-app-flutter.md)]
 
 ## Configure the native Android project for push notifications
 
-[!INCLUDE [Configure the native Android project](../../includes/notification-hubs-backend-service-configure-reactnative-android.md)]
+[!INCLUDE [Configure the native Android project](../../includes/notification-hubs-backend-service-configure-flutter-android.md)]
 
 ## Configure the native iOS project for push notifications
 
-[!INCLUDE [Configure the native iOS project](../../includes/notification-hubs-backend-service-configure-reactnative-ios.md)]
+[!INCLUDE [Configure the native iOS project](../../includes/notification-hubs-backend-service-configure-flutter-ios.md)]
 
 ## Test the solution
 
@@ -109,7 +112,7 @@ You can now test sending notifications via the backend service.
 
 ## Next steps
 
-You should now have a basic React Native app connected to a notification hub via a backend service and can send and receive notifications.
+You should now have a basic Flutter app connected to a notification hub via a backend service and can send and receive notifications.
 
 [!INCLUDE [Next steps](../../includes/notification-hubs-backend-service-next-steps.md)]
 
@@ -120,9 +123,8 @@ You should now have a basic React Native app connected to a notification hub via
 ## Related links
 
 * [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
-* [Installing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
-* [Installing Visual Studio Code](https://code.visualstudio.com/download)
-* [Setting up the React Native development environment](https://reactnative.dev/docs/environment-setup)
+* [Installing Flutter on macOS](https://flutter.dev/docs/get-started/install/macos)
+* [Installing Flutter on Windows](https://flutter.dev/docs/get-started/install/windows)
 * [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 * [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
 * [Register with application backend](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
