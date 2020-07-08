@@ -28,7 +28,7 @@ To generate an SDK, you will need:
 
 Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create the SDK.
 
-### Create the SDK with AutoRest 
+## Create the SDK with AutoRest 
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
 ```cmd/sh
@@ -62,7 +62,7 @@ Here are the steps:
 4. Find the folder where you generated the SDK, and select the files at the root level
 5. Press "Ok"
 6. Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
-7. Name the folder "Models"
+7. Name the folder *Models*
 8. Right-select the *Models* folder in Solutions Explorer and select *Add > Existing Item...*
 9. Select the files in the *Models* folder of the generated SDK and press "Ok"
 
