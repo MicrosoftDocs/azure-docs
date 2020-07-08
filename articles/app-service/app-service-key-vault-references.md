@@ -69,7 +69,7 @@ To use a Key Vault reference for an application setting, set the reference as th
 
 When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example psuedo-template for a function app might look like the following:
+An example pseudo-template for a function app might look like the following:
 
 ```json
 {

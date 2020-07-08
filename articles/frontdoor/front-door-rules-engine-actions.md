@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door 
+description: This article provides a list of the various actions you can do with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -19,7 +19,7 @@ ms.author: mebeatty
 
 In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and actions. This article provides detailed descriptions of the actions you can use in AFD Rules Engine.
 
-An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions, only one of which may be a route configuration override action (forward or redirect). 
+An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions, only one of which may be a route configuration override action (forward or redirect).
 
 The following actions are available to use in Azure Front Door rules engine.  
 

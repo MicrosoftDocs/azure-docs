@@ -12,8 +12,8 @@ and repeatable at enterprise scale. Two of the predominant approaches to managin
 in the cloud are:
 
 - Infrastructure as Code: The practice of treating the content that defines your environments,
-  everything from Resource Manager templates to Azure Policy definitions to Azure Blueprints, as
-  source code.
+  everything from Azure Resource Manager templates (ARM templates) to Azure Policy definitions to
+  Azure Blueprints, as source code.
 - DevOps: The union of people, process, and products to enable continuous delivery of value to our
   end users.
 
@@ -24,7 +24,7 @@ be the extent of policies involvement with Infrastructure as Code or DevOps.
 The validation step should also be a component of other continuous integration or continuous
 deployment workflows. Examples include deploying an application environment or virtual
 infrastructure. By making Azure Policy validation an early component of the build and deployment
-process the application and operations teams discover if their changes are non-complaint, long
+process the application and operations teams discover if their changes are non-compliant, long
 before it's too late and they're attempting to deploy in production.
 
 ## Workflow overview
@@ -162,8 +162,8 @@ resources.
 
 The general workflow for Policy as Code is for developing and deploying policies and initiatives to
 an environment at scale. However, policy evaluation should be part of the deployment process for any
-workflow that deploys or creates resources in Azure, such as deploying applications or running
-Resource Manager templates to create infrastructure.
+workflow that deploys or creates resources in Azure, such as deploying applications or running ARM
+templates to create infrastructure.
 
 In these cases, after the application or infrastructure deployment is done to a test subscription or
 resource group, policy evaluation should be done for that scope checking validation of all existing

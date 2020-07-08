@@ -35,6 +35,11 @@ To learn how to set up certificate security in a cluster for a standalone Window
 
 ### Node-to-node Windows security
 
+> [!NOTE]
+> Windows authentication is based on Kerberos. NTLM is not supported as an authentication type.
+>
+> Whenever possible, use X.509 certificate authentication for Service Fabric clusters.
+
 To learn how to set up Windows security for a standalone Windows Server cluster, see [Secure a standalone cluster on Windows by using Windows security](service-fabric-windows-cluster-windows-security.md).
 
 ## Client-to-node security
@@ -43,7 +48,7 @@ Client-to-node security authenticates clients and helps secure communication bet
 
 ![Diagram of client-to-node communication][Client-to-Node]
 
-Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx).
+Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx), though the recommendation is to use X.509 certificate authentication whenever possible.
 
 ### Client-to-node certificate security
 

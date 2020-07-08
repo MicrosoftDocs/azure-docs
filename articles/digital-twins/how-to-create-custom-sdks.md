@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Create custom SDKs for Azure Digital Twins with AutoRest
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Right now, the only published  data plane SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
 

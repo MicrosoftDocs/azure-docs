@@ -54,8 +54,8 @@ Copy activity execution details and performance characteristics are also returne
 | filesWritten | The number of files written/committed to the file-based sink. | Int64 value (no unit) |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int64 value (no unit) |
 | sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the Copy activity run. | Int64 value (no unit) |
-| rowsRead | Number of rows read from the source (not applicable for binary copy). | Int64 value (no unit) |
-| rowsCopied | Number of rows copied to sink (not applicable for binary copy). | Int64 value (no unit) |
+| rowsRead | Number of rows read from the source. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings. | Int64 value (no unit) |
+| rowsCopied | Number of rows copied to sink. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings.  | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows that were skipped. You can enable incompatible rows to be skipped by setting `enableSkipIncompatibleRow` to true. | Int64 value (no unit) |
 | copyDuration | Duration of the copy run. | Int32 value, in seconds |
 | throughput | Rate of data transfer. | Floating point number, in KBps |

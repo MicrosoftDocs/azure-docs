@@ -6,7 +6,7 @@ author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ---

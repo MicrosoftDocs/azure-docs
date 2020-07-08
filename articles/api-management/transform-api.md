@@ -78,8 +78,10 @@ The original response should look like this:
 
 7. Modify your **\<outbound>** code to look like this:
 
-       <set-header name="X-Powered-By" exists-action="delete" />
-       <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
+   <set-header name="X-Powered-By" exists-action="delete" />
+   <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
 
    ![Policies](./media/transform-api/set-policy.png)
 
@@ -108,11 +110,8 @@ To see the original response:
 2.  Select **All operations**.
 3.  On the top of the screen, select **Design** tab.
 4.  In the **Outbound processing** section, click the **</>** icon.
-5.  Position the cursor inside the **&lt;outbound&gt;** element and click **Insert policy** button at the top right corner.
-6.  In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
-7.  Modify your **find-and-replace** code (in the **\<outbound\>** element) to replace the URL to match your APIM gateway. For example:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Position the cursor inside the **&lt;outbound&gt;** element and click **Show snippets** button at the top right corner.
+6.  In the right window, under **Transformation policies**, click **Mask URLs in content**.
 
 ## Protect an API by adding rate limit policy (throttling)
 
@@ -128,31 +127,35 @@ This section shows how to add protection for your backend API by configuring rat
 6.  In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
 7.  Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
 
-        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
 
 ## Test the transformations
 
 At this point if you look at the code in the code editor, your policies look like this:
 
-    <policies>
-        <inbound>
-            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-            <base />
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <set-header name="X-Powered-By" exists-action="delete" />
-            <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-            <base />
-        </outbound>
-        <on-error>
-            <base />
-        </on-error>
-    </policies>
+   ```
+   <policies>
+      <inbound>
+        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+        <base />
+      </inbound>
+      <backend>
+        <base />
+      </backend>
+      <outbound>
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
+        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <base />
+      </outbound>
+      <on-error>
+        <base />
+      </on-error>
+   </policies>
+   ```
 
 The rest of this section tests policy transformations that you set in this article.
 

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a twin model
+title: Manage custom models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Manage Azure Digital Twins models
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
@@ -256,4 +253,4 @@ Models can also be managed using the Azure Digital Twins CLI. The commands can b
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage digital twins](how-to-manage-twin.md)

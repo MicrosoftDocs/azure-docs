@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -24,7 +24,7 @@ To get started, you'll need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-* A [trial account](https://www.twilio.com/try-twilio) at Trusona
+* A [trial account](https://www.trusona.com/aadb2c) at Trusona
 
 ## Scenario description
 

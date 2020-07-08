@@ -1,7 +1,7 @@
 ---
 title: Add language analyzers to string fields
 titleSuffix: Azure Cognitive Search
-description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Cognitive Search.
+description: Multi-lingual lexical analysis for non-English queries and indexes in Azure Cognitive Search.
 
 author: HeidiSteen
 manager: nitinme

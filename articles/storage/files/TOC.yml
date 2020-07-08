@@ -147,7 +147,7 @@
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Authenticate
     items:
-    - name: Enable on-premises authentication and authorization
+    - name: Enable on-premises AD DS authentication and authorization
       items:
       - name: AD DS overview
         href: storage-files-identity-auth-active-directory-enable.md
