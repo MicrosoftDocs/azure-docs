@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 07/03/2020
 ---
 
 # SSL/TLS connectivity in Azure Database for MySQL
@@ -41,10 +41,9 @@ Azure Database for MySQL provides the ability to enforce the TLS version for the
 For example, setting the value of minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
 > [!Note] 
-> Azure Database for MySQL defaults to TLS being disabled for all new servers.
+> By default, Azure Database for PostgreSQL does not enforce a minimum TLS version (the setting `TLSEnforcementDisabled`).
 >
-> Currently the TLS versions supported by Azure Database for MySQL are TLS 1.0, 1.1, and 1.2. Once enforced to a specific Minimum TLS version, you cannot
-> change it to disabled.
+> Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
 To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
 
