@@ -6,7 +6,7 @@ author: MikeRys
 ms.author: mrys
 ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2019
 ---
 # Disaster recovery guidance for Azure Data Lake Analytics
