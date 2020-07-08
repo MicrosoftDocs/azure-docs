@@ -217,3 +217,4 @@ Now that you've learned about device modeling, here are some additional resource
 - [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
 - [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [Model components](./concepts-components.md)
