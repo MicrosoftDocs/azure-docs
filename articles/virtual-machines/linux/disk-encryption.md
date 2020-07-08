@@ -33,6 +33,16 @@ By default, managed disks use platform-managed encryption keys. As of June 10, 2
 
 [!INCLUDE [virtual-machines-managed-disks-description-customer-managed-keys](../../../includes/virtual-machines-managed-disks-description-customer-managed-keys.md)]
 
+#### Restrictions
+
+For now, customer-managed keys have the following restrictions:
+
+- If this feature is enabled for your disk, you cannot disable it.
+    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
+[!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+> [!IMPORTANT]
+> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 ## Encryption at VM host 
 
@@ -48,20 +58,6 @@ Customers sets a new property Type for an instance of DiskEncryptionSet with val
 
 The feature is currently available in GA only in westus2, eastus, southcentralus, usgoveast, usgovsw regions. For more information on the double encryption at rest see [Enable double encryption at rest](disks-enable-end-to-end-encryption.md)
 
-#### Supported regions
-
-[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
-
-#### Restrictions
-
-For now, customer-managed keys have the following restrictions:
-
-- If this feature is enabled for your disk, you cannot disable it.
-    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
-[!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
-
-> [!IMPORTANT]
-> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 ## Server-side encryption versus Azure disk encryption
 
