@@ -51,12 +51,12 @@ Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizi
 
 | Action | Description |
 | ------ | ----------- |
-|**[Printed text from images](concept-recognizing-text.md#text-from-images)**|Extract text from images in JPG, PNG, BMP, and TIFF formats.|
-|**[Printed text from documents](concept-recognizing-text.md#text-from-documents)**|Extract text from digital and scanned PDF documents.|
-|**[Handwritten text in English](concept-recognizing-text.md#handwritten-text-in-english)**|Extract handwritten text from English only.|
-|**[Printed text in several languages](concept-recognizing-text.md#printed-text-in-supported-languages)**|Recognize text in several languages including the latest Read support for English and Latin languages.|
-|**[Support for mixed languages](concept-recognizing-text.md#mixed-languages-support)**|Extract text regardless of multiple languages in the same image or document with the new Read operations.|
-|**[Available for on-premises](concept-recognizing-text.md#deploy-on-premises)**|Deploy on-premises with the new Read Docker container (preview).|
+|**Printed text from images**|Extract text from images in JPG, PNG, BMP, and TIFF formats.|
+|**Printed text from documents**|Extract text from digital and scanned PDF documents.|
+|**Handwritten text in English**|Extract handwritten text from English only.|
+|**Printed text in several languages**|Recognize text in several languages including the latest Read support for English and Latin languages.|
+|**Support for mixed languages**|Extract text regardless of multiple languages in the same image or document with the new Read operations.|
+|**Available for on-premises**|Deploy on-premises with the new Read Docker container (preview).|
 
 ## Moderate content in images
 
