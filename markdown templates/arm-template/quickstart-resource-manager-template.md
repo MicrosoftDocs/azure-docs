@@ -20,15 +20,21 @@ Remove all the comments from this template before your article is pushed to GitH
 
 # Quickstart: The H1 heading must include the words ARM template
 
+<!-- 
+First paragraph: Include a sentence that uses Azure Resource Manager template (ARM template) for the first occurrence about the template. For example:
+-->
+
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create \<service>.
+
+
 <!--
-The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
+Second paragraph: Use the following include file. This include file is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content. You might need to change the file path of the include file depending on your content structure. 
+.-->
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 <!-- 
-The final paragraph explains that readers who are experienced with ARM templates can continue to the deployment.
-
-For information about the button image and how to create the template's URI, see the section "Deploy the template" for Portal.
+Final paragraph: Explains that readers who are experienced with ARM templates can continue to the deployment. For information about the button image and how to create the template's URI, see "Deploy the template" for Portal.
 -->
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.

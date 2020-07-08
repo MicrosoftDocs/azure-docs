@@ -333,6 +333,8 @@
         href: clickup-productivity-platform-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: CloudCords
+        href: cloudcords-tutorial.md
       - name: Cloudmore
         href: cloudmore-tutorial.md
       - name: CloudPassage
@@ -1058,6 +1060,8 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
+      - name: MVISION Cloud Azure AD SSO Configuration
+        href: skyhighnetworks-tutorial.md
       - name: MyAryaka
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
@@ -1410,6 +1414,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendSafely
+        href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
       - name: Sequr
@@ -1464,8 +1470,6 @@
         href: skills-workflow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
-      - name: Skyhigh Networks
-        href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
       - name: Single Sign-on for Skytap
@@ -1668,6 +1672,8 @@
         href: veritas-tutorial.md
       - name: Verkada Command
         href: verkada-command-tutorial.md
+      - name: Verme
+        href: verme-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)

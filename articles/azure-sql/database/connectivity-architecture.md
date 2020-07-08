@@ -72,10 +72,10 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | --- | --- |
 | Australia Central    | 20.36.105.0 |
 | Australia Central2   | 20.36.113.0 |
-| Australia East       | 13.75.149.87, 40.79.161.1 |
+| Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia South East | 191.239.192.109, 13.73.109.251 |
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
-| Canada Central       | 40.85.224.249      |
+| Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Canada East          | 40.86.226.166      |
 | Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | China East           | 139.219.130.35     |
@@ -96,7 +96,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Korea Central        | 52.231.32.42       |
 | Korea South          | 52.231.200.86      |
 | North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1 |
+| North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Norway East          | 51.120.96.0        |
 | Norway West          | 51.120.216.0       |
 | South Africa North   | 102.133.152.0      |
@@ -112,7 +112,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | West Central US      | 13.78.145.25       |
 | West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | West US              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| West US 2            | 13.66.226.202      |
+| West US 2            | 13.66.226.202, 40.78.240.8  |
 |                      |                    |
 
 ## Next steps
