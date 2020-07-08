@@ -128,7 +128,7 @@ The unique floating endpoint licensing of Ekran System clients is automated to s
 
 FabulaTech seamlessly integrates with Windows Virtual Desktop clients. Once installed, FabulaTech software automatically starts working when you establish a connection with a remote desktop.
 
-When a user signs in to their virtual desktop, the FabulaTech sofltware creates a virtual device. For example, you can create a virtual webcam, scanner, or fingerprint reader. Any apps running in a remote session can access the virtual device as if it was a physical device. You can configure the virtual device in Windows Virtual Desktop with the System Tray Icon menu, which means you can also use this solution on thin clients. On top of that, all communication happens over the existing remote desktop connection, which means the firewall is set up for you. Everything works right out of the box.
+When a user signs in to their virtual desktop, the FabulaTech software creates a virtual device. For example, you can create a virtual webcam, scanner, or fingerprint reader. Any apps running in a remote session can access the virtual device as if it was a physical device. You can configure the virtual device in Windows Virtual Desktop with the System Tray Icon menu, which means you can also use this solution on thin clients. On top of that, all communication happens over the existing remote desktop connection, which means the firewall is set up for you. Everything works right out of the box.
 
 - [Go to the partner website](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
