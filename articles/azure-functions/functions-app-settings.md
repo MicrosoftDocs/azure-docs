@@ -184,13 +184,13 @@ The language worker runtime to load in the function app.  This will correspond t
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in a publicly available package index.   
+The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.   
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#publicly-accessible-packages) in the Python developer reference.
+To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
 ## SCALE\_CONTROLLER\_LOGGING\_ENABLE
 
