@@ -41,10 +41,14 @@
     href: ../../automation/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Azure Policy security baseline
+    href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Backup security baseline
     href: ../../backup/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
+  - name: Cognitive Services security baseline
+    href: ../../cognitive-services/security-baseline.md
   - name: Container Instances security baseline
     href: ../../container-instances/security-baseline.md
   - name: Container Registry security baseline
@@ -53,7 +57,7 @@
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
     href: ../fundamentals/customer-lockbox-security-baseline.md  
-  - name: Databox security baseline
+  - name: Data Box security baseline
     href: ../../databox/security-baseline.md
   - name: Data Explorer security baseline
     href: /azure/data-explorer/security-baseline
@@ -87,3 +91,5 @@
     href: ../../stream-analytics/security-baseline.md
   - name: Storage security baseline
     href: ../../storage/common/security-baseline.md
+  - name: Synapse Analytics security baseline
+    href: ../../synapse-analytics/security-baseline.md
