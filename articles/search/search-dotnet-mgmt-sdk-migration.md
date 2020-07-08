@@ -52,7 +52,7 @@ Version 3.0 adds private endpoint protection by restricting access to IP ranges,
 
 ### Breaking changes
 
-You can no longer [Get Admin Keys](https://docs.microsoft.com/est/api/searchmanagement/adminkeys/get) with a GET request. It  must be a POST. [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) has been been a POST call for the last several releases, so it should not be a breaking change in this release, but for any script or code that retrieves keys, be sure to check that only POST is used.
+You can no longer use GET on a [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) request. In previous releases you could use either GET or POST, in this release and in all releases moving forward, only POST is supported. 
 
 ## Upgrade to 2.0
 
