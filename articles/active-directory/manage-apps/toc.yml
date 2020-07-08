@@ -5,7 +5,7 @@
     items:
      - name: What is application management?
        href: what-is-application-management.md
-     - name: What is single sign-on?
+     - name: What is single sign-on (SSO)?
        href: what-is-single-sign-on.md
   - name: Quickstarts
     items:
