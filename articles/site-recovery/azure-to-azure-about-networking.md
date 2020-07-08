@@ -119,6 +119,6 @@ You can create a network service endpoint in your virtual network for "Storage" 
 You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
 
 ## Next steps
-- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
+- Start protecting your workloads by [replicating Azure virtual machines](./azure-to-azure-quickstart.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
 - Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
