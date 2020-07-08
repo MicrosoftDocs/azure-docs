@@ -61,16 +61,19 @@ The headers values for events delivered in the CloudEvents schema and the Event 
 
 ## Configure Event Grid for CloudEvents
 
-You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
+You can use Event Grid for both input and output of events in CloudEvents schema. Below table captures the possible transformations:
+
+ Event Grid Resource | Input schema       | Delivery Schema
+|---------------------|-------------------|---------------------
+| System Topics       | Event Grid Schema | Event Grid Schema or CloudEvent Schema
+| User Topics/Domains | Event Grid Schema | Event Grid Schema
+| User Topics/Domains | CloudEvent Schema | CloudEvent Schema
+| User Topics/Domains | Custom Schema     | Custom Schema OR Event Grid Schema OR CloudEvent Schema
+| PartnerTopics       | CloudEvent Schema | CloudEvent Schema
 
 
-| Input schema       | Output schema
-|--------------------|---------------------
-| CloudEvents format | CloudEvents format
-| Event Grid format  | CloudEvents format
-| Event Grid format  | Event Grid format
-
-For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
+For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. 
+For more information, see [Event Grid security and authentication](security-authentication.md).
 
 ### Input schema
 
