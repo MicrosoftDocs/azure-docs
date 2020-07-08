@@ -29,10 +29,10 @@ Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com
 ## Prerequisites
 
 * Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Have or create an [Azure Time Series Insights Gen 2 environment](time-series-insights-update-how-to-manage.md)
+* Have or create an [Azure Time Series Insights Gen2 environment](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> The Power BI connector is presently supported in Azure Time Series Insights Gen 2 environments configured with **Warm Store**.
+> The Power BI connector is presently supported in Azure Time Series Insights Gen2 environments configured with **Warm Store**.
 
 ## Connect data from Azure Time Series Insights to Power BI
 
@@ -47,10 +47,10 @@ To connect your Azure Time Series Insights environment to Power BI, follow these
 
 To get started:
 
-1. Open the Azure Time Series Insights Gen 2 Explorer and curate your data.
+1. Open the Azure Time Series Insights Gen2 Explorer and curate your data.
 1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and select **Connect to Power BI**.
 
-    [![Azure Time Series Insights Gen 2 Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Azure Time Series Insights Gen2 Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Set your parameters inside this tab:
 
@@ -145,4 +145,4 @@ The interface will now reflect the desired changes you applied.
 
 * Learn more about [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Read about [Azure Time Series Insights Gen 1 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Azure Time Series Insights Gen 2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Read about [Azure Time Series Insights Gen 1 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

@@ -119,8 +119,6 @@
         href: how-to-diagnose-troubleshoot.md
     - name: Ingress
       items:
-      - name: How to shape JSON
-        href: how-to-shape-json.md
       - name: How to select a TSID
         href: how-to-select-tsid.md
     - name: Model
@@ -137,7 +135,7 @@
     items:
     - name: Rest APIs Overview
       href: https://docs.microsoft.com/rest/api/time-series-insights/
-    - name: Data Access Gen 1
+    - name: Data Access Gen1
       items:
       - name: Overview
         href: https://docs.microsoft.com/rest/api/time-series-insights/ga
@@ -151,7 +149,7 @@
           href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
         href: https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api
-    - name: Data Access Gen 2
+    - name: Data Access Gen2
       items:
       - name: Overview
         href: https://docs.microsoft.com/rest/api/time-series-insights/preview
