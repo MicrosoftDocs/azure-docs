@@ -59,11 +59,11 @@ When you back up an object stored in key vault (secret, key, or certificate) the
 5. Select 'Download Backup'
 
     ![Image](../media/backup-2.png)
-
+    
 6. Click the 'Download' Button.
 
     ![Image](../media/backup-3.png)
-
+    
 7. Store the encrypted blob in a secure location.
 
 ### Restore
@@ -74,7 +74,7 @@ When you back up an object stored in key vault (secret, key, or certificate) the
 4. Select 'Restore Backup'
 
     ![Image](../media/backup-4.png)
-
+    
 5. Browse to the location where you stored the encrypted blob.
 6. Select "Ok".
 
