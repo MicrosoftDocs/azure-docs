@@ -27,6 +27,7 @@
   expanded: true
 - name: Tutorials
   items:
+  - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
