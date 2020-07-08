@@ -21,14 +21,14 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a form processing AI model
 > * Train your model
-> * Publish your model to Azure PowerApps or Flow
+> * Publish your model to use in Azure Power Apps or Power Automate
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * A set of at least five forms of the same type to use for training/testing data. See [Build a training data set](./build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
 
-## Sign in to AI Builder
+## Create a form processing project
+
 1. Go to [Power Apps](https://make.powerapps.com/) or [Power Automate](https://flow.microsoft.com/signin), and sign in with your organization account.
 1. In the left pane, select **AI Builder** > **Build**.
 1. Select the **Form Processing** card.
@@ -47,7 +47,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > - PDF documents longer than 50 pages
 > - Fillable PDFs
 >
-> For more information about requirements for input documents, see [input requirements](./input-requirements).
+> For more information about requirements for input documents, see [input requirements](./overview.md#input-requirements.md).
 
 ### Upload your documents
 
@@ -68,7 +68,7 @@ During the analysis step, AI Builder examines the documents that you uploaded an
 When the analysis has finished, select the thumbnail to open the field selection experience.
 
 > [!IMPORTANT]
-> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./input-requirements.md).
+> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./overview.md#input-requirements.md).
 
 ## Select your form fields
 
@@ -85,7 +85,7 @@ On the field selection page, you choose the fields that matter to you:
 > [!div class="mx-imgBorder"]
 > ![add documents page](./media/tutorial-aibuilder/select-fields-page.png)
 
-## Train and validate your model
+## Train your model
 
 1. Select **Next** to check your selected form fields. If everything looks good, select **Train** to train your model.
 
@@ -115,7 +115,7 @@ If you're happy with your model, select **Publish**  to publish it. When publish
 > [!div class="mx-imgBorder"]
 > ![add documents page](./media/tutorial-aibuilder/model-page.png)
 
-After you've published your form processing model, you can use it in a [PowerApps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+After you've published your form processing model, you can use it in a [Power Apps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 
 ## Next steps
 
