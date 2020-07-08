@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -44,6 +44,20 @@ As a Windows Virtual Desktop approved provider, VMware can help customers that w
 10ZiG's world-market leadership in Thin and Zero Client endpoint devices and management software for virtual desktops is exemplified by how they work for their customers. Its Thin Client hardware comes with thoughtfully constructed benefit features and options designed to ensure customers receive the right Client devices based on their needs. 10ZiG customizes its devices to fit into customer environments with Windows-based and Linux-based Clients that provide the best possible performance in virtual desktops, both inside and outside the cloud.
 
 - [Go to the partner website](https://www.10zig.com/).
+
+## Automai
+
+![Automai logo](./media/partners/automai.png)
+
+You can use Automai's robotic automation platform to test key business processes in a Windows Virtual Desktop environment before your deployment goes live.
+
+With Automai's ScenarioBuilder tool and GUI-based workflow engine, IT teams can record real end-user workflows and automatically translate them into scripts. Automai then uses bots running processes from individual desktops to emulate end-user activity in a simulation and report the results. This greatly simplifies testing processes so that IT admins can stress-test even the most complex scenarios.
+
+Once you're ready for launch, you can use all the workflow scripts you created for load testing to continuously monitor performance in production. Automai's bots can do more than just availability monitoring. The bots can also test end-user workflows from key locations, taking screenshots and collecting error reports in real time. This leads to a more proactive than reactive approach to bug fixes for Windows Virtual Desktop applications.
+
+Automai lets you use the same scripts for performance testing, functional testing, performance monitoring, and even robotic process autimation, all on one platform.
+
+- [Go to the partner website](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## Cloudhouse
 
@@ -107,6 +121,16 @@ The unique floating endpoint licensing of Ekran System clients is automated to s
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Go to the partner page](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## FabulaTech
+
+![FabulaTech logo](./media/partners/fabulatech.png)
+
+FabulaTech seamlessly integrates with Windows Virtual Desktop clients. Once installed, FabulaTech software automatically starts working when you establish a connection with a remote desktop.
+
+When a user signs in to their virtual desktop, the FabulaTech sofltware creates a virtual device. For example, you can create a virtual webcam, scanner, or fingerprint reader. Any apps running in a remote session can access the virtual device as if it was a physical device. You can configure the virtual device in Windows Virtual Desktop with the System Tray Icon menu, which means you can also use this solution on thin clients. On top of that, all communication happens over the existing remote desktop connection, which means the firewall is set up for you. Everything works right out of the box.
+
+- [Go to the partner website](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## Flexxible IT
 
