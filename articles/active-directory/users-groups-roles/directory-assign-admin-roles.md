@@ -460,7 +460,7 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to Sharepoint and Onedrive resources.
+> This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to SharePoint and OneDrive resources.
 
 ### [Skype for Business / Lync Administrator](#lync-service-administrator-permissions)
 
@@ -489,7 +489,7 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 
 Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
-| | |
+| Category | Permissions |
 | --- | --- |
 |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets<p>Update password expiration policies|
 |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
