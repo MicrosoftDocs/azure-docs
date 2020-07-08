@@ -62,10 +62,10 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        6 - <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">What aspects of using protocols does MSAL libraries make easier? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -132,13 +132,13 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        5 - <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:45)
+        7 - <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:45)
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        6 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID, access, refresh, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
+        8 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID, access, refresh, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
@@ -246,6 +246,20 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=ZJirt7eTVw8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank">What are App Application Permissions vs Delegated Permissions? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">What is Microsoft identity platform OpenID Connect certified? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
