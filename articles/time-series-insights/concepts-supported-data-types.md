@@ -37,6 +37,6 @@ You may send complex types such as objects and arrays as part of your event payl
 
 * Read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored. 
 
-* Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
+* Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)
 
 * Learn about [event sources](concepts-streaming-ingestion-event-sources.md) to ingest streaming data.
