@@ -81,7 +81,7 @@ To create an Azure Time Series Insights Gen2 environment:
 
 ## Manage the environment
 
-You can manage your Azure Time Series Insights Gen2 environment by using the Azure portal. There a few key differences  between a PAYG Azure Time Series Insights Gen2 environment and the generally available S1 or S2 environments to bear in mind when you manage your environment through the Azure portal:
+You can manage your Azure Time Series Insights Gen2 environment by using the Azure portal. There a few key differences  between an Azure Time Series Insights Gen2 environment and an Azure Time Series Insights Gen1 environment to bear in mind when you manage your environment through the Azure portal:
 
 * The Azure portal Gen2 **Overview**  blade has the following changes:
 
@@ -91,9 +91,9 @@ You can manage your Azure Time Series Insights Gen2 environment by using the Azu
   * The displayed URL directs you to the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
   * Your Azure Storage account name is listed.
 
-* The Azure portal's **Configure** blade is removed in Azure Time Series Insights Gen2 because PAYG environments aren't configurable. However, you can use **Storage Configuration** to configure the newly introduced warm store.
+* The Azure portal's **Configure** blade is removed in Azure Time Series Insights Gen2 because Gen2 environments aren't configurable. However, you can use **Storage Configuration** to configure the newly introduced warm store.
 
-* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data isn't part of PAYG environments.
+* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data isn't part of Gen2 environments.
 
 [![Azure Time Series Insights Gen2 environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
