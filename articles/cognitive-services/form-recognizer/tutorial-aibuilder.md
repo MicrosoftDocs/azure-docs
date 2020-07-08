@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a document scanner app with AI Builder - Form Recognizer"
+title: "Tutorial: Create a form processing app with AI Builder - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial
 author: PatrickFarley
@@ -12,7 +12,7 @@ ms.date: 07/01/2020
 ms.author: pafarley
 ---
 
-# Tutorial: Create a document scanner app with AI Builder
+# Tutorial: Create a form-processing app with AI Builder
 
 [AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
