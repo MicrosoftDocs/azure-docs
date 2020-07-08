@@ -91,6 +91,22 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 'brand' when running AutoML on local compute or Azure Databricks cluster**
+
+    If a new environment was created after 10 June 2020 using SDK 1.7.0 or lower, training may fail with the above error due to an update in the py-cpuinfo package. (Environments created on or before 10 June 2020 are unaffected, as well as experiments run on remote compute as cached training images are used.) To work around this issue, either of the two following steps can be taken:
+    
+    1. Update the SDK version to 1.8.0 or higher (this will also downgrade py-cpuinfo to 5.0.0):
+    
+    ```Python
+    pip install --upgrade azureml-sdk[automl]
+    ```
+    
+    2. Downgrade the installed version of py-cpuinfo to 5.0.0:
+    
+    ```Python
+    pip install py-cpuinfo==5.0.0
+    ```
   
 * **Error message: Cannot uninstall 'PyYAML'**
 
