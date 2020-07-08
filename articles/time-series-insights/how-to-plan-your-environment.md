@@ -1,6 +1,6 @@
 ﻿---
-title: 'Plan your Gen 2 environment - Azure Time Series Insights | Microsoft Docs'
-description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Gen 2 environment.
+title: 'Plan your Gen2 environment - Azure Time Series Insights | Microsoft Docs'
+description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Gen2 environment.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -12,15 +12,15 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Plan your Azure Time Series Insights Gen 2 environment
+# Plan your Azure Time Series Insights Gen2 environment
 
-This article describes best practices to plan and get started quickly by using Azure Time Series Insights Gen 2.
+This article describes best practices to plan and get started quickly by using Azure Time Series Insights Gen2.
 
 ## Best practices for planning and preparation
 
 Best practices surrounding planning for and preparing your environment are described further in the following articles:
 
-* What you get when you [provision a Azure Time Series Insights Gen 2 environment](#the-gen-2-environment).
+* What you get when you [provision a Azure Time Series Insights Gen2 environment](#the-gen2-environment).
 * What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
 * What the new [Time Series Model is](#understand-the-time-series-model), and how to build your own.
 * How to [send events efficiently in JSON](#shape-your-events).
@@ -28,12 +28,12 @@ Best practices surrounding planning for and preparing your environment are descr
 
 Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, read [Azure Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Gen 2 environment
+## The Gen2 environment
 
-When you provision a Azure Time Series Insights Gen 2 environment, you create two Azure resources:
+When you provision a Azure Time Series Insights Gen2 environment, you create two Azure resources:
 
 
-* An Azure Time Series Insights Gen 2 environment
+* An Azure Time Series Insights Gen2 environment
 * An Azure Storage account
 
 As part of the provisioning process, you specify whether you want to enable a warm store. Warm store provides you with a tiered query experience. When enabled, you must specify a retention period between 7 and 30 days. Queries executed within the warm store retention period generally provide faster response times. When a query spans over the warm store retention period, it's served from cold store.
@@ -41,7 +41,7 @@ As part of the provisioning process, you specify whether you want to enable a wa
 Queries on warm store are free, while queries on cold store incur costs. It's important to understand your query patterns and plan your warm store configuration accordingly. We recommend that interactive analytics on the most recent data reside in your warm store and pattern analysis and long-term trends reside in cold.
 
 > [!NOTE]
-> To read more about how to query your warm data, read the [API Reference](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> To read more about how to query your warm data, read the [API Reference](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 To start, you need three additional items:
 
@@ -49,9 +49,9 @@ To start, you need three additional items:
 * An [event source connected to Time Series Insights](./concepts-streaming-ingestion-event-sources.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
-## Review Gen 2 limits
+## Review Gen2 limits
 
-[!INCLUDE [Review Azure Time Series Insights Gen 2 limits](../../includes/time-series-insights-preview-limits.md)]
+[!INCLUDE [Review Azure Time Series Insights Gen2 limits](../../includes/time-series-insights-preview-limits.md)]
 
 ## Configure Time Series IDs and Timestamp properties
 
@@ -94,6 +94,6 @@ For more information, read [Shape events](./time-series-insights-send-events.md#
 
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen 2.
-- Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen 2.
-- Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen 2.
+- Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
+- Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
+- Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.

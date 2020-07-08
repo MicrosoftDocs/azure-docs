@@ -1,6 +1,6 @@
 ﻿---
-title: 'Diagnose and troubleshoot a Gen 2 environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Gen 2 environment.
+title: 'Diagnose and troubleshoot a Gen2 environment - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Gen2 environment.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -12,19 +12,19 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Diagnose and troubleshoot an Azure Time Series Insights Gen 2 environment
+# Diagnose and troubleshoot an Azure Time Series Insights Gen2 environment
 
-This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Gen 2 environment. The article also describes potential causes and solutions for each problem.
+This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Gen2 environment. The article also describes potential causes and solutions for each problem.
 
-## Problem: I can't find my environment in the Gen 2 Explorer
+## Problem: I can't find my environment in the Gen2 Explorer
 
 This problem might occur if you don't have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, go to the **Data Access Policies** section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
   [![Verify data access policies.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
-## Problem: No data is seen in the Gen 2 Explorer
+## Problem: No data is seen in the Gen2 Explorer
 
-There are several common reasons why your data might not appear in the [Azure Time Series Insights Gen 2 Explorer](https://insights.timeseries.azure.com/preview).
+There are several common reasons why your data might not appear in the [Azure Time Series Insights Gen2 Explorer](https://insights.timeseries.azure.com/preview).
 
 - Your event source might not be receiving data.
 
@@ -70,11 +70,11 @@ You might be sending data without the Time Series ID.
 
 ## Problem: Data was showing, but now ingestion has stopped
 
-- Your event source key may have been regenerate and your Gen 2 environment needs the new event source key.
+- Your event source key may have been regenerate and your Gen2 environment needs the new event source key.
 
 This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub. 
 
-To update your Time Series Insights Gen 2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+To update your Time Series Insights Gen2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
 
    [![Update key.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
@@ -89,7 +89,7 @@ Ensure that the name and value conform to the following rules:
 * The Timestamp property name is case sensitive.
 * The Timestamp property value that comes from your event source as a JSON string has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `"2008-04-12T12:53Z"`.
 
-The easiest way to ensure that your Timestamp property name is captured and working properly is to use the Time Series Insights Gen 2 Explorer. Within the Time Series Insights Gen 2 Explorer, use the chart to select a period of time after you provided the Timestamp property name. Right-click the selection, and select the **explore events** option. The first column header is your Timestamp property name. It should have `($ts)` next to the word `Timestamp`, rather than:
+The easiest way to ensure that your Timestamp property name is captured and working properly is to use the Time Series Insights Gen2 Explorer. Within the Time Series Insights Gen2 Explorer, use the chart to select a period of time after you provided the Timestamp property name. Right-click the selection, and select the **explore events** option. The first column header is your Timestamp property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
 * `(abc)`, which indicates that Time Series Insights reads the data values as strings.
 * The **calendar** icon, which indicates that Time Series Insights reads the data value as datetime.
@@ -106,7 +106,7 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Gen 2 Explorer, read [Visualize data in the Explorer](./time-series-insights-update-explorer.md).
+   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Gen2 Explorer, read [Visualize data in the Explorer](./time-series-insights-update-explorer.md).
 
    [![No events in environment.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -114,11 +114,19 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 
    Users need contributor-level access to edit and view their Time Series Model. To verify the current access levels and grant additional access, go to the **Data Access Policies** section on your Time Series Insights resource in the Azure portal.
 
-## Problem: All my instances in the Gen 2 Explorer lack a parent
+## Problem: All my instances in the Gen2 Explorer lack a parent
 
 This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
+
+## Problem: Power BI Connector shows "Unable to Connect"
+
+This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
+
+[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+
+* Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again. 
 
 ## Next steps
 
@@ -126,4 +134,4 @@ This problem might occur if your environment doesn't have a Time Series Model hi
 
 - Learn about [supported JSON shapes](./how-to-shape-query-json.md).
 
-- Review [planning and limits](./time-series-insights-update-plan.md) in Azure Time Series Insights Gen 2.
+- Review [planning and limits](./time-series-insights-update-plan.md) in Azure Time Series Insights Gen2.

@@ -14,7 +14,7 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Monitor and mitigate throttling to reduce latency in Azure Time Series Insights Gen 1
+# Monitor and mitigate throttling to reduce latency in Azure Time Series Insights Gen1
 
 When the amount of incoming data exceeds your environment's configuration, you may experience latency or throttling in Azure Time Series Insights.
 

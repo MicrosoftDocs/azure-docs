@@ -77,7 +77,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
-   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample on how to query data from a Gen 1 environment, read [Query data using C#](time-series-insights-query-data-csharp.md).
+   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample on how to query data from a Gen1 environment, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -88,7 +88,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 ## Common headers and parameters
 
-This section describes common HTTP request headers and parameters used to make queries against the Azure Time Series Insights Gen 1 and Gen 2 APIs. API-specific requirements are covered in greater detail in the [Azure Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
+This section describes common HTTP request headers and parameters used to make queries against the Azure Time Series Insights Gen1 and Gen2 APIs. API-specific requirements are covered in greater detail in the [Azure Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
 > [!TIP]
 > Read the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/) to learn more about how to consume REST APIs, make HTTP requests, and handle HTTP responses.
@@ -139,21 +139,25 @@ Required URL query string parameters depend on API version.
 
 | Release | Possible API version values |
 | --- |  --- |
-| Gen 1 | `api-version=2016-12-12`|
-| Gen 2 - Preview | `api-version=2018-11-01-preview` |
+| Gen1 | `api-version=2016-12-12`|
+| Gen2 | `api-version=2020-07-31` and `api-version=2018-11-01-preview`|
+
+> [!IMPORTANT]
+>
+> The `api-version=2018-11-01-preview` version will be deprecated soon. We recommend users to switch onto the newer version. 
 
 Optional URL query string parameters include setting a timeout for HTTP request execution times.
 
 | Optional query parameter | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen 1 |
-| `storeType=<storeType>` | For Gen 2 environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Gen 2 |
+| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | Gen1 |
+| `storeType=<storeType>` | For Gen2 environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Gen2 |
 
 ## Next steps
 
-* For sample code that calls the Gen 1 Azure Time Series Insights API, read [Query Gen 1 data using C#](./time-series-insights-query-data-csharp.md).
+* For sample code that calls the Gen1 Azure Time Series Insights API, read [Query Gen1 data using C#](./time-series-insights-query-data-csharp.md).
 
-* For sample code that calls the Gen 2 Azure Time Series Insights API code samples, read [Query Gen 2 data using C#](./time-series-insights-update-query-data-csharp.md).
+* For sample code that calls the Gen2 Azure Time Series Insights API code samples, read [Query Gen2 data using C#](./time-series-insights-update-query-data-csharp.md).
 
 * For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 

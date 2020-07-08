@@ -12,7 +12,7 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Configuring retention in Azure Time Series Insights Gen 1
+# Configuring retention in Azure Time Series Insights Gen1
 
 This article describes how to configure **Data retention time** and **Storage limit exceeded behavior** in Azure Time Series Insights.
 

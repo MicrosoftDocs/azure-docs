@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
 ---
 
-# Tutorial: Create an Azure Time Series Insights Gen 1 environment
+# Tutorial: Create an Azure Time Series Insights Gen1 environment
 
 This tutorial guides you through the process of creating an Azure Time Series Insights environment that's populated with data from simulated devices. In this tutorial, you learn how to:
 

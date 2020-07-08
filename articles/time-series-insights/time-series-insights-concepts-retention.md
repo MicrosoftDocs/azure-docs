@@ -9,11 +9,11 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
-# Understand data retention in Azure Time Series Insights Gen 1
+# Understand data retention in Azure Time Series Insights Gen1
 
 This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
