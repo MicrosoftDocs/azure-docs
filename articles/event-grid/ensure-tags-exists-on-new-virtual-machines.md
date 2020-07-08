@@ -5,7 +5,7 @@ keywords: automation, runbook, teams, event grid, virtual machine, VM
 services: automation,event-grid
 author: eamonoreilly
 
-ms.service: automation,event-grid
+ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 07/07/2020
