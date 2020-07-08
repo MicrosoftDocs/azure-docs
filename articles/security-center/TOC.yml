@@ -56,16 +56,16 @@
   items:
   - name: Secure score, recommendations, and policies
     items:
-   - name: Secure score
-     href: secure-score-security-controls.md
-   - name: Overview of security recommendations
-     href: security-center-recommendations.md
-   - name: Overview of security policies
-     href: tutorial-security-policy.md
-   - name: The built-in security policies
-     href: security-center-policy-definitions.md 
-   - name: Use recommendations to enhance security
-     href: security-center-using-recommendations.md
+    - name: Secure score
+      href: secure-score-security-controls.md
+    - name: Overview of security recommendations
+      href: security-center-recommendations.md
+    - name: Overview of security policies
+      href: tutorial-security-policy.md
+    - name: Built-in security policies
+      href: security-center-policy-definitions.md 
+    - name: Use recommendations to enhance security
+      href: security-center-using-recommendations.md
   - name: Threat protection and security alerts
     items:
     - name: Threat protection in Azure Security Center
