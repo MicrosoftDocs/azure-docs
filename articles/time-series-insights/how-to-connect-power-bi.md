@@ -146,5 +146,3 @@ The interface will now reflect the desired changes you applied.
 * Read about [Power BI connector concepts](https://docs.microsoft.com/power-bi/desktop-query-overview) for Azure Time Series Insights.
 
 * Learn more about [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
-
-* Read about [Azure Time Series Insights Gen 1 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
