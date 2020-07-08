@@ -21,7 +21,7 @@ The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) re
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
 
 ## Create relationships
 
@@ -61,7 +61,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-For more information on the helper class `BasicRelationship`, see [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+For more information on the helper class `BasicRelationship`, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## List relationships
 
@@ -300,7 +300,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## Manage relationships with CLI
 
-Twins and their relationships can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Twins and their relationships can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 

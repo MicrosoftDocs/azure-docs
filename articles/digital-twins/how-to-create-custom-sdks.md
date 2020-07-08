@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create custom SDKs for Azure Digital Twins with AutoRest
 
-Right now, the only published  data plane SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
+Right now, the only published  data plane SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
 
 ## Set up the SDK
 
