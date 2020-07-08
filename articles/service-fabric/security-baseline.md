@@ -4,7 +4,7 @@ description: The Service Fabric security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -121,6 +121,10 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-loggin
 
 How to enable Network Watcher:
 https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+
+Use traffic analytics to visualize NSG flow logs:
+https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -313,10 +317,11 @@ Set up Azure Monitor logs for monitoring containers in Azure Service Fabric:
 https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers
 
 How to deploy the Log Analystics agent onto your nodes:
-https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent 
 
 How to configure Log Analytics Workspace Retention Period:
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
+
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -744,6 +749,15 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 **Guidance**: Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. 
 Understand encryption at rest in Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest  How to configure customer managed encryption keys: https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
+Enable disk encryption for Azure Service Fabric cluster nodes in Windows:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-windows
+
+Enable disk encryption for Azure Service Fabric cluster nodes in Linux:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-linux
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -769,15 +783,16 @@ Understand encryption at rest in Azure: https://docs.microsoft.com/azure/securit
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24125).
 
-**Guidance**: Implement a third-party vulnerability management solution.
+**Guidance**: Regularly run the Service Fabric Fault Analysis Service and Chaos services to simulate faults throughout the cluster to assess the robustness and reliability of your services.
 
-Optionally, if you have a Rapid7, Qualys, or any other vulnerability management platform subscription, you may use script actions to install vulnerability assessment agents on your Azure HDInsight cluster nodes and manage the nodes through the respective portal.
+Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure virtual machines and container images. Use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning. 
 
-How to Install Rapid7 Agent Manually:
-https://insightvm.help.rapid7.com/docs/install
+Introduction to Service Fabric Fault Analysis Service:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview
 
-How to install Qualys Agent Manually:
-https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
+Induce controlled Chaos in Service Fabric clusters:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaosHow to implement Azure Security Center vulnerability assessment recommendations: https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
+
 
 
 **Azure Security Center monitoring**: N/A
@@ -789,12 +804,25 @@ https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24126).
 
-**Guidance**: Automatic system updates have been enabled for cluster node images, however you must periodically reboot cluster nodes to ensure updates are applied. The Patch Orchestration Application (POA) is recommended for configuration-based OS patch scheduling.
+**Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster. 
 
-Microsoft to maintain and update base Azure Service Fabric cluster node images.
+Alternately, to test OS patches first before going to
+production, use the manual trigger for OS image upgrades of your scale set. Note that the manual trigger option doesn't provide  built-in rollback. Monitor OS patches using Update Management from Azure Automation. 
 
-How to configure the OS patching schedule for Service Fabric clusters:
-https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application
+Patch management for Service Fabric cluster nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration
+
+Automatic OS image upgrades with Azure virtual machine scale sets:
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
+
+How to bring VMs up-to-date with the latest scale set model:
+
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model
+
+Azure Automation Update Management overview:
+https://docs.microsoft.com/azure/automation/automation-update-management
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -805,10 +833,16 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestrati
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24127).
 
-**Guidance**: Use the Patch Orchestration Application (POA) to patch your Azure Service Fabric clusters without any downtime. Newly created clusters will always have the latest available updates, including the most recent security patches.
+**Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster. Patch Orchestration Application (POA) is an alternative solution that is intended for Service Fabric clusters hosted outside of Azure. POA can be used with Azure clusters, with some additional hosting overhead.
 
-How to configure the OS patching schedule for Service Fabric clusters:
-https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application
+Patch management for Service Fabric cluster nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration
+
+Automatic OS image upgrades with Azure virtual machine scale sets:
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
+
+How to configure the OS patching schedule for Service Fabric clusters: https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application
+
 
 
 **Azure Security Center monitoring**: N/A
@@ -820,7 +854,7 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestrati
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24128).
 
-**Guidance**: Implement a third-party vulnerability management solution which has the ability to compare vulnerability scans over time. If you have a Rapid7 or Qualys subscription, you may use that vendor's portal to view and compare back-to-back vulnerability scans.
+**Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you may pivot into the selected solution's portal to view historical scan data.
 
 **Azure Security Center monitoring**: N/A
 
@@ -960,11 +994,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24138).
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-
-Not allowed resource types
-
-Allowed resource types
+**Guidance**: Use Azure Policy to restrict which services you can provision in your environment. 
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -1104,7 +1134,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24148).
 
-**Guidance**: Not applicable; custom images not applicable to Azure Service Fabric.
+**Guidance**: If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images. Understand RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles Understand RBAC for Container Registry: https://docs.microsoft.com/azure/container-registry/container-registry-roles How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center monitoring**: N/A
 
@@ -1195,7 +1225,7 @@ https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-referenc
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24154).
 
-**Guidance**: Managed identities can be used in Azure-deployed Service Fabric clusters, and only for applications deployed as Azure resources.
+**Guidance**: Managed identities can be used in Azure-deployed Service Fabric clusters, and for applications deployed as Azure resources. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 Using Managed identities for Azure with Service Fabric:
 
@@ -1212,8 +1242,13 @@ https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity
 
 **Guidance**: If using any code related to your Azure Service Fabric deployment, you may implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-How to setup Credential Scanner:
-https://secdevtools.azurewebsites.net/helpcredscan.html
+Use Azure Key Vault to rotate Service Fabric cluster certificates automatically.
+
+How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcredscan.html
+
+Certificate management in Service Fabric clusters:
+https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#certificate-rotation
+
 
 
 **Azure Security Center monitoring**: Not applicable
