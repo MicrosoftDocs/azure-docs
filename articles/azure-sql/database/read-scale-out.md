@@ -119,9 +119,9 @@ If a long-running query on a read-only replica causes this kind of blocking, it 
 
 ## Enable and disable read scale-out
 
-Read scale-out is enabled by default on Premium, Business Critical and Hyperscale service tiers. Read scale-out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read scale-out is automatically disabled on Hyperscale databases configured with 0 replicas.
+Read scale-out is enabled by default on Premium, Business Critical, and Hyperscale service tiers. Read scale-out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read scale-out is automatically disabled on Hyperscale databases configured with zero replicas.
 
-You can disable and re-enable read scale-out on single databases and elastic pool databases in Premium or Business Critical service tier using the following methods.
+You can disable and re-enable read scale-out on single databases and elastic pool databases in the Premium or Business Critical service tiers using the following methods.
 
 > [!NOTE]
 > The ability to disable read scale-out is provided for backward compatibility.
@@ -173,9 +173,9 @@ Body: {
 
 For more information, see [Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
-## Using TempDB on read-only replica
+## Using TempDB on a read-only replica
 
-The TempDB database is not replicated to the read-only replicas. Each replica has its own version of TempDB database that is created when the replica is created. It ensures that TempDB is updateable and can be modified during your query execution. If your read-only workload depends on using TempDB objects, you should create these objects as part of your query script.
+The TempDB database is not replicated to the read-only replicas. Each replica has its own version of TempDB database that is created when the replica is created. This ensures that TempDB is updateable and can be modified during your query execution. If your read-only workload depends on using TempDB objects, you should create these objects as part of your query script.
 
 ## Using read scale-out with geo-replicated databases
 
