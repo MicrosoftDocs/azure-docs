@@ -6,7 +6,7 @@ author: roygara
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
@@ -40,13 +40,7 @@ ms.subservice: disks
 1.    Create an instance of a DiskEncryptionSet. 
     
     ```azurecli
-    New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
-        -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksdoubleencryptionpreview/master/CreateDiskEncryptionSetForDoubleEncryption.json" `
-        -diskEncryptionSetName $diskEncryptionSetName `
-        -keyVaultId "subscriptions/yourSubscriptionID/resourceGroups/yourResourceGroupName/providers/Microsoft.KeyVault/vaults/yourKeyVaultName" `
-        -keyVaultKeyUrl "https://yourKeyVaultName.vault.azure.net/keys/yourKeyName/yourKeyVaultID" `
-        -encryptionType "EncryptionAtRestWithPlatformAndCustomerKeys" `
-        -region "CentralUSEUAP"
+    az group deployment create -g $rgName --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" --parameters "diskEncryptionSetName=$diskEncryptionSetName" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
     ```
 
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
