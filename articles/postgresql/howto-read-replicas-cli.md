@@ -4,7 +4,7 @@ description: Learn how to manage read replicas in Azure Database for PostgreSQL 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/09/2020
 ---
 
