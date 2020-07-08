@@ -44,7 +44,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Product capability:** Identity Security & Protection
  
 
-We are making the following changes to the MFA email notifications for both cloud MFA and MFA server:
+We are making the following changes to the MFA email notifications for MFA:
 
 E-mail notifications will be sent from the following address: azure-noreply@microsoft.com and msonlineservicesteam@microsoftonline.com. We're updating the content of fraud alert emails to better indicate the required steps to unblock uses.
 
