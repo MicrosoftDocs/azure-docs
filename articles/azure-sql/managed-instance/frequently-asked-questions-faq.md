@@ -113,19 +113,6 @@ If your workload consists of lots of small transactions, consider switching the 
 
 Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-general-purpose-business-critical.md).
 
-## Backup storage cost 
-
-**Is the backup storage deducted from my SQL Managed Instance storage?**
-
-No, backup storage is not deducted from your SQL Managed Instance storage space. The backup storage is independent from the instance storage space and it is not limited in size. Backup storage is limited by the time period to retain the backup of your instance databases, configurable from 7 to 35 days. For details, see [Automated backups](../database/automated-backups-overview.md).
-
-## Track billing
-
-**Is there a way to track my billing cost for SQL Managed Instance?**
-
-You can do so using the [Azure Cost Management solution](/azure/cost-management/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
-
-Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`. 
   
 ## Networking requirements 
 
@@ -302,11 +289,50 @@ Yes, you don't need to decrypt your database to restore it to SQL Managed Instan
 
 Once you make the encryption protector available to SQL Managed Instance, you can proceed with the standard database restore procedure.
 
-## Migrate from SQL Database 
+## Purchasing models and benefits
 
-**How can I migrate from Azure SQL Database to SQL Managed Instance?**
+**What purchasing models are available for SQL Managed Instance?**
 
-SQL Managed Instance offers the same performance levels per compute and storage size as Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in SQL Managed Instance, you can migrate your data by using export/import (BACPAC) functionality.
+SQL Managed Instance offers [vCore-based purchasing model](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model).
+
+**What cost benefits are available for SQL Managed Instance?**
+
+You can save costs with the Azure SQL benefits in the following ways:
+-	Maximize existing investments in on-premises licenses and save up to 55 percent with [Azure Hybrid Benefit](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
+-	Commit to a reservation for compute resources and save up to 33 percent with [Reserved Instance Benefit](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combine this with Azure Hybrid benefit for savings up to 82 percent. 
+-	Save up to 55 percent versus list prices with [Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) that offers discounted rates for your ongoing development and testing workloads.
+
+**Who is eligible for Reserved Instance benefit?**
+
+To be eligible for reserved Instance benefit, your subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For more information about reservations, see [Reserved Instance Benefit](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+
+**Is it possible to cancel, exchange or refund reservations?**
+
+You can cancel, exchange or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+
+## Billing for Managed Instance and backup storage
+
+**What are the SQL Managed Instance pricing options?**
+
+To explore Managed Instance pricing options, see [Pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+**How can I track billing cost for my managed instance?**
+
+You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
+
+Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`.
+
+**How much automated backups cost?**
+
+You get the equal amount of free backup storage space as the reserved data storage space purchased, regardless of the backup retention period set. If your backup storage consumption is within the allocated free backup storage space, automated backups on managed instance will have no additional cost for you, therefore will be free of charge. Exceeding the use of backup storage above the free space will result in costs of about $0.20 - $0.24 per GB/month in US regions, or see the pricing page for details for your region. For more details, see [Backup storage consumption explained](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
+
+**How can I monitor billing cost for my backup storage consumption?**
+
+You can monitor cost for backup storage via Azure Portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+
+**How can I optimize my backup storage costs on the managed instance?**
+
+To optimize your backup storage costs, see [Fine backup tuning on SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
 ## Password policy 
 
