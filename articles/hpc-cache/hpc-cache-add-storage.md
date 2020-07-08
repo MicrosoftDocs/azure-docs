@@ -264,7 +264,6 @@ az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-n
 Output:
 ```azurecli
 
-```
 {- Finished ..
   "clfs": null,
   "id": "/subscriptions/<subscriptionID>/resourceGroups/hpc-cache-group/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
