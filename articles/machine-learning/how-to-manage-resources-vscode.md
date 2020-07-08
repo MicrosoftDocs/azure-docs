@@ -287,11 +287,8 @@ To create a run configuration in the extension:
     1. Choose or create a new environment.
     1. Type the name of the script you want to run or press **Enter** to browser for the script on your local computer.
     1. (Optional) Chose whether you want to create a data reference for your training run. Doing so will prompt you to define a dataset in your run configuration.
-
         1. Select from one of your registered datasets to link to the run configuration
-
             A configuration file for your dataset opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
-
     1. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ### Edit run configuration
