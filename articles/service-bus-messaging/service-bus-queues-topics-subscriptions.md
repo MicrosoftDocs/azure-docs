@@ -1,21 +1,13 @@
 ---
 title: Azure Service Bus messaging - queues, topics, and subscriptions
 description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Service Bus queues, topics, and subscriptions
 
-Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
+Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
 
 The messaging entities that form the core of the messaging capabilities in Service Bus are queues, topics and subscriptions, and rules/actions.
 
@@ -64,6 +56,148 @@ In many scenarios, messages that have specific characteristics must be processed
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
+
+## Java message service (JMS) 2.0 entities (Preview)
+
+Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below entities.
+
+### Queues
+
+Queues in JMS are semantically comparable with the traditional Service Bus queues discussed above.
+
+To create a Queue, utilize the below methods in the `JMSContext` class -
+
+```java
+Queue createQueue(String queueName)
+```
+
+### Topics
+
+Topics in JMS are semantically comparable with the traditional Service Bus topics discussed above.
+
+To create a Topic, utilize the below methods in the `JMSContext` class -
+
+```java
+Topic createTopic(String topicName)
+```
+
+### Temporary queues
+
+When a client application requires a temporary entity that exists for the lifetime of the application, it can use Temporary queues. These are utilized in the [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) pattern.
+
+To create a temporary queue, utilize the below methods in the `JMSContext` class -
+
+```java
+TemporaryQueue createTemporaryQueue()
+```
+
+### Temporary topics
+
+Just like Temporary Queues, Temporary Topics exist to enable publish/subscribe through a temporary entity that exists for the lifetime of the application.
+
+To create a temporary topic, utilize the below methods in the `JMSContext` class -
+
+```java
+TemporaryTopic createTemporaryTopic()
+```
+
+### Java message service (JMS) subscriptions
+
+While, these are semantically similar to the Subscriptions described above (i.e. exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable** and **Non-durable** attributes for a given subscription.
+
+> [!NOTE]
+> The below subscriptions are available in Azure Service Bus Premium tier for Preview for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+>
+> For the Public preview, these subscriptions cannot be created using the Azure portal.
+>
+
+#### Shared durable subscriptions
+
+A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription at all times.
+
+Since this is a shared subscription, any application that is authenticated to receive from Service Bus can receive from the subscription.
+
+To create a shared durable subscription, use the below methods on the `JMSContext` class -
+
+```java
+JMSConsumer createSharedDurableConsumer(Topic topic, String name)
+
+JMSConsumer createSharedDurableConsumer(Topic topic, String name, String messageSelector)
+```
+
+The shared durable subscription continues to exist unless deleted using the `unsubscribe` method on the `JMSContext` class.
+
+```java
+void unsubscribe(String name)
+```
+
+#### Unshared durable subscriptions
+
+Just like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively  consuming from the subscription at all times.
+
+However, since this is an unshared subscription, only the application that created the subscription can receive from it.
+
+To create an unshared durable subscription, use the below methods from `JMSContext` class - 
+
+```java
+JMSConsumer createDurableConsumer(Topic topic, String name)
+
+JMSConsumer createDurableConsumer(Topic topic, String name, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> The `noLocal` feature is currently unsupported and ignored.
+>
+
+The unshared durable subscription continues to exist unless deleted using the `unsubscribe` method on the `JMSContext` class.
+
+```java
+void unsubscribe(String name)
+```
+
+#### Shared non-durable subscriptions
+
+A shared non-durable subscription is used when multiple client applications need to receive and process messages from a single subscription, only until they are actively consuming/receiving from it.
+
+Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there are no active consumers on it.
+
+To create a shared non-durable subscription, create a `JmsConsumer` as shown in the below methods from the `JMSContext` class -
+
+```java
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
+
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, String messageSelector)
+```
+
+The shared non-durable subscription continues to exist until there are active consumers receiving from it.
+
+#### Unshared non-durable subscriptions
+
+An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, i.e. the client that created the subscription.
+
+Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there is no active consumer on it.
+
+To create an unshared non-durable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext class - 
+
+```java
+JMSConsumer createConsumer(Destination destination)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> The `noLocal` feature is currently unsupported and ignored.
+>
+
+The unshared non-durable subscription continues to exist until there is an active consumer receiving from it.
+
+#### Message selectors
+
+Just like **Filters and Actions** exist for regular Service Bus subscriptions, **Message Selectors** exist for JMS Subscriptions.
+
+Message selectors can be set up on each of the JMS subscriptions and exist as a filter condition on the message header properties. Only messages with header properties matching the message selector expression are delivered. A value of null or an empty string indicates that there is no message selector for the JMS Subscription/Consumer.
 
 ## Next steps
 

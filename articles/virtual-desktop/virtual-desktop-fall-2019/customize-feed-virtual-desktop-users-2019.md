@@ -32,14 +32,18 @@ To retrieve a list of published RemoteApps for an app group, run the following P
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremoteapp.png)
 
 To assign a friendly name to a RemoteApp, run the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremoteapp.png)
 
 ## Customize the display name for a Remote Desktop
 
@@ -50,14 +54,18 @@ To retrieve the remote desktop resource, run the following PowerShell cmdlet:
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremotedesktop.png)
 
 To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremotedesktop.png)
 
 ## Next steps
 

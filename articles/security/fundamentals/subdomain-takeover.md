@@ -50,11 +50,11 @@ A common scenario for a subdomain takeover:
 
 
 
-## The risks of dangling DNS records
+## The risks of subdomain takeover
 
-When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS zone. If it hasn't been deleted, it's a “dangling DNS” record and a security risk.
+When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS zone. If it hasn't been deleted, it's a “dangling DNS” record and creates the possibility for subdomain takeover.
 
-The risk to the organization is that it enables a threat actor to take control of the associated DNS name to host a malicious website or service. This malicious website on the organization's subdomain can result in:
+Dangling DNS entries make it possible for threat actors to take control of the associated DNS name to host a malicious website or service. Malicious pages and services on an organization's subdomain can result in:
 
 - **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, as well as the brand damage and loss of trust.
 
@@ -62,7 +62,7 @@ The risk to the organization is that it enables a threat actor to take control o
 
 - **Phishing campaigns** - Authentic-looking subdomains can be used in phishing campaigns. This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
 
-- **Further risks** - Escalate into other classic attacks such as XSS, CSRF, CORS bypass, and more.
+- **Further risks** - Malicious sites can be used to escalate into other classic attacks such as XSS, CSRF, CORS bypass, and more.
 
 
 
@@ -75,7 +75,7 @@ The preventative measures available to you today are listed below.
 
 ### Use Azure DNS alias records
 
-By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) feature can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
+By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
 
 - Azure Front Door
 - Traffic Manager profiles
@@ -92,7 +92,7 @@ If you have resources that can be protected from subdomain takeover with alias r
 
 When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain that is, take it over. 
 
-These records don't prevent someone from creating the Azure App Service with the same name as is in your CNAME entry, but they won't be able to receive traffic, or control the content, because they can't prove ownership of the domain name.
+These records don't prevent someone from creating the Azure App Service with the same name that's in your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
 [Learn more](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) about how to map an existing custom DNS name to Azure App Service.
 
@@ -108,7 +108,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Put "Remove DNS entry" on the list of required checks when decommissioning a service.
 
-    - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
+    - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. A delete lock serves as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
 
 - **Create procedures for discovery:**
 

@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # How is the new Azure Digital Twins different from the previous version (2018)?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous version have carried through to the new service in public preview now, many of the interfaces and implementation details have changed to make the service more flexible and accessible. These changes were motivated by customer feedback.
 

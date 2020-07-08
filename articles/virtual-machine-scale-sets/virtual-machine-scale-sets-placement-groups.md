@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 11/9/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -28,6 +28,7 @@ To decide whether your application can make effective use of large scale sets, c
 - Scale sets created from Azure Marketplace images can scale up to 1,000 VMs.
 - Scale sets created from custom images (VM images you create and upload yourself) can currently scale up to 600 VMs.
 - Large scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts. 
+- Large scale (SPG=false) does not support InfiniBand networking
 - Layer-4 load balancing with scale sets composed of multiple placement groups requires [Azure Load Balancer Standard SKU](../load-balancer/load-balancer-standard-overview.md). The Load Balancer Standard SKU provides additional benefits, such as the ability to load balance between multiple scale sets. Standard SKU also requires that the scale set has a Network Security Group associated with it, otherwise NAT pools don't work correctly. If you need to use the Azure Load Balancer Basic SKU, make sure the scale set is configured to use a single placement group, which is the default setting.
 - Layer-7 load balancing with the Azure Application Gateway is supported for all scale sets.
 - A scale set is defined with a single subnet - make sure your subnet has an address space large enough for all the VMs you need. By default a scale set overprovisions (creates extra VMs at deployment time or when scaling out, which you are not charged for) to improve deployment reliability and performance. Allow for an address space 20% greater than the number of VMs you plan to scale to.
@@ -37,7 +38,7 @@ To decide whether your application can make effective use of large scale sets, c
 ## Creating a large scale set
 When you create a scale set in the Azure portal, just specify the *Instance count* value of up to 1,000. If it is more than 100 instances, *Enable scaling beyond 100 instances* will be set to *Yes*, which will allow it to scale to multiple placement groups. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![This image shows the instances blade of the Azure Portal. Options to select the Instance Count and Instance size are available.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 You can create a large virtual machine scale set using the [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ command. This command sets intelligent defaults such as subnet size based on the _instance-count_ argument:
 

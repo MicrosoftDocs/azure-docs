@@ -1,20 +1,9 @@
 ---
 title: Orchestrate implementation of Azure DevTest Labs
 description: This article provides guidance for orchestrating implementation of Azure DevTest Labs in your organization. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-
 ---
 
 # Orchestrate the implementation of Azure DevTest Labs

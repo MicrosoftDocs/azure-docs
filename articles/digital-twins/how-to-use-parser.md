@@ -8,7 +8,6 @@ ms.author: cschorm # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,9 +17,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # DTDL client-side parser library
 
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
-
-[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-based Digital Twins Definition language (DTDL). For cases where it is useful to parse your models, a DTDL parsing library is provided on NuGet.org as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
+[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). For cases where it is useful to parse your models, a DTDL parsing library is provided on NuGet.org as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
 This library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](how-to-use-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
 
@@ -71,7 +68,7 @@ For more information about this sample, see the source code or run `DTDLValidato
 
 ## Use the parser library in code
 
-You can also use the parser library directly to validate models yourself.
+You can also use the parser library directly, for things like validating models in your own application or for generating dynamic, model-driven UI, dashboards, and reports.
 
 To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
 
@@ -173,4 +170,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## Next steps
 
 Once you are done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
-* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage custom models](how-to-manage-model.md)

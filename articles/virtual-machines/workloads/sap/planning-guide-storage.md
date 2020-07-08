@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -31,7 +31,23 @@ Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, an
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
 
-How these resiliency options are applied to the Azure storage types used for SAP is described in the next sections.
+### Azure managed disks
+
+Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+
+Related to resiliency, this example demonstrates the advantage of managed disks:
+
+- You are deploying your two DBMS VMs for your SAP system in an Azure availability set 
+- As Azure deploys the VMs, the disk with the OS image will be placed in a different storage cluster. This avoids that both VMs get impacted by an issue of a single Azure storage cluster
+- As you create new managed disks that you assign to these VMs to store the data and log files of your database, these new disks for the two VMs are also deployed in separate storage clusters, so, that none of disks of the first VM are sharing storage clusters with the disks of the second VM
+
+Deploying without managed disks in customer defined storage accounts, disk allocation is arbitrary and has no awareness of the fact that VMs are deployed within an AvSet for resiliency purposes.
+
+> [!NOTE]
+> Out of this reason and several other improvements that are exclusively available through managed disks, we require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files) need to use Azure managed disks for the base VHD/OS disks, data disks that contain SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups are not necessarily required to be managed disks.
+
+> [!NOTE]
+> Azure managed disks provide local redundancy (LRS) only. 
 
 
 ## Storage scenarios with SAP workloads
@@ -65,6 +81,7 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
+
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 <sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
@@ -77,11 +94,25 @@ Characteristics you can expect from the different storage types list like:
 | Latency Writes | high | medium to high  | low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
 | HANA supported | no | no | yes<sup>1</sup> | yes | yes |
 | Disk snapshots possible | yes | yes | yes | no | yes |
+| Allocation of disks on different storage clusters when using availability sets | through managed disks | through managed disks | through managed disks | disk type not supported with VMs deployed through availability sets | no<sup>3</sup> |
+| Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
+| Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
+| Geo redundancy | not for managed disks | not for managed disks | no | no | no |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
+
+<sup>3</sup> Creation of different ANF capacity pools does not guarantee deployment of capacity pools onto different storage units
+
+
+> [!IMPORTANT]
+> To achieve less than 1 millisecond I/O latency using Azure NetApp Files (ANF), you need to work with Microsoft to arrange the correct placement between your VMs and the NFS shares based on ANF. So far there is no mechanism in place that provides an automatic proximity between a VM deployed and the NFS volumes hosted on ANF. Given the different setup of the different Azure regions, the network latency added could push the I/O latency beyond 1 millisecond if the VM and the NFS share are not allocated in proximity.
+
+
+> [!IMPORTANT]
+> None of the currently offered Azure block storage based managed disks, or Azure NetApp Files offer any zonal or geographical redundancy. As a result, you need to make sure that your high availability and disaster recovery architectures are not relying on any type of Azure native storage replication for these managed disks, NFS or SMB shares.
 
 
 ## Azure premium storage
@@ -95,8 +126,7 @@ This type of storage is targeting DBMS workloads, storage traffic that requires 
 Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
-- The IOPS per GiB is not tracking
--  linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
+- The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
 - The I/O throughput for this storage is not linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780KB/GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28KB/GiB
 - The IOPS and throughput SLAs cannot be changed without changing the capacity of the disk
 
@@ -318,7 +348,7 @@ As limitations, you can note that:
 - With ANF, the traffic to the shared volumes is consuming the VM's network bandwidth and not storage bandwidth
 - With large NFS volumes in the double digit TiB capacity space, the throughput accessing such a volume out of a single VM is going to plateau based on limits of Linux for a single session interacting with the shared volume. 
 
-As you up-size Azure VMs in the lifecycle of a SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could make sense to adjust the storage configuration to the new capabilities of the Azure VM. 
+As you up-size Azure VMs in the lifecycle of an SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could make sense to adjust the storage configuration to the new capabilities of the Azure VM. 
 
 
 ## Striping or not striping

@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: kanshiG   
 ms.author: govindk
-ms.date: 05/10/2020
+ms.date: 06/25/2020
 
 ---
 
@@ -13,7 +13,7 @@ ms.date: 05/10/2020
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
 
-The **Normalized RU Consumption** metric is used to see how well saturated the replicas are with regard to the request units consumption across the partition key ranges. Azure Cosmos DB distributes the throughput equally across all the physical partitions. This metric provides a per second view of the maximum throughput utilization within a replica set. By using this metric, if you see high percentage of request units utilization, you should increase the throughput to meet the needs of your workload.
+The **Normalized RU Consumption** metric is used to see how well saturated the replicas are with regard to the request units consumption across the partition key ranges. Azure Cosmos DB distributes the throughput equally across all the physical partitions. This metric provides a per second view of the maximum throughput utilization within a replica set. Use this metric to calculate the RU/s usage across partitions for given container. By using this metric, if you see high percentage of request units utilization, you should increase the throughput to meet the needs of your workload.
 
 ## What to expect and do when normalized RU/s is higher
 

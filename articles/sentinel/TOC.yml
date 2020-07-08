@@ -38,7 +38,7 @@
       items:
       - name: AWS CloudTrail
         href: connect-aws.md
-      - name: Azure AD
+      - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft 365
         href: connect-office-365.md
@@ -68,6 +68,8 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
+      - name: Alcide kAudit
+        href: connect-alcide-kaudit.md
       - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
@@ -78,6 +80,8 @@
         href: connect-f5-big-ip.md
       - name: Forcepoint DLP
         href: connect-forcepoint-dlp.md 
+      - name: Perimeter 81 logs
+        href: connect-perimeter-81-logs.md
       - name: Squadra Technologies secRMM
         href: connect-squadra-secrmm.md
       - name: Symantec ICDX
@@ -94,6 +98,8 @@
         - name: STEP 2 Configure your security solution
           href: connect-cef-solution-config.md
           items:  
+          - name: AI Vectra Detect
+            href: connect-ai-vectra-detect.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -144,13 +150,13 @@
   - name: Useful resources
     href: resources.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/
+    href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   
 
     

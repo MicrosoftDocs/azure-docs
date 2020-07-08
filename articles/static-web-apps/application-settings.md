@@ -100,9 +100,11 @@ The Azure portal provides an interface for creating, updating and deleting appli
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps configuration view":::
 
-1. Enter a **Name** and **Value**
+1. Enter a **Name** and **Value**.
 
-1. Click **OK**
+1. Click **OK**.
+
+1. Click **Save**.
 
 ### Using the Azure CLI
 
@@ -151,7 +153,7 @@ The Azure CLI command requires a number of values specific to your account to ru
 
 Application settings are available to view through the Azure CLI.
 
-1. From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
+- From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"

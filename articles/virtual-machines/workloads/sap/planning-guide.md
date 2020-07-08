@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -540,16 +540,9 @@ Within a storage account, you have a type of a folder concept called 'containers
 
 Within Azure, a disk/VHD name follows the following naming connection that needs to provide a unique name for the VHD within Azure:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 The string above needs to uniquely identify the disk/VHD that is stored on Azure Storage.
-
-
-#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
-
-Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the availability set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
-
-We recommend to you use Azure managed disks, because they simplify the deployment and management of your virtual machines.
 
 
 #### Azure persisted storage types
@@ -970,7 +963,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   ```
 
 * Downloading a VHD  
-  Once the SAP system is stopped and the VM is shut down, you can use the PowerShell cmdlet Save-AzVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD, which you can find in the 'storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+  Once the SAP system is stopped and the VM is shut down, you can use the PowerShell cmdlet `Save-AzVhd` on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD, which you can find in the 'storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
   Then you can leverage the command by defining the parameter SourceUri as the URL of the VHD to download and the LocalFilePath as the physical location of the VHD (including its name). The command could look like:
 
@@ -991,7 +984,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   ```
 
 * Downloading a VHD   
-  Once the SAP system is stopped and the VM is shut down, you can use the Azure CLI command _azure storage blob download_ on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD, which you can find in the 'Storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+  Once the SAP system is stopped and the VM is shut down, you can use the Azure CLI command `_azure storage blob download_` on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD, which you can find in the 'Storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
   Then you can leverage the command by defining the parameters blob and container of the VHD to download and the destination as the physical target location of the VHD (including its name). The command could look like:
 
@@ -1009,7 +1002,7 @@ An SAP system or even a dedicated DBMS server supporting an SAP application laye
 
 Data disks can be stored as VHD files in an Azure Storage Account and can be directly attached to a virtual machine or be used as an image. In this case, the VHD is copied to another location before being attached to the virtual machine. The full name of the VHD file in Azure must be unique within Azure. As mentioned earlier already, the name is kind of a three-part name that looks like:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Data disks can also be Managed Disks. In this case, the Managed Disk is used to create a new Managed Disk before being attached to the virtual machine. The name of the Managed Disk must be unique within a resource group.
 
@@ -1953,7 +1946,7 @@ The architecture for SAP HA on Linux on Azure is basically the same as for Windo
 
 SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not critical and can be enabled by adding this parameter:
 
-    Autostart = 1
+`Autostart = 1`
 
 Into the start profile of the SAP ABAP and/or Java instance.
 

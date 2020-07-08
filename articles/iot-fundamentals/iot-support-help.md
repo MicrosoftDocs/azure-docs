@@ -6,7 +6,7 @@ ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 1/23/2020
+ms.date: 6/10/2020
 
 ---
 

@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/16/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
