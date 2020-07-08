@@ -119,8 +119,9 @@
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
-    href: load-balancer-multiple-ip.md
     items:
+    - name: Portal
+      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
