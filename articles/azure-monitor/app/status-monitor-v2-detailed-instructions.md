@@ -84,7 +84,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
     
     You'll receive this prompt if NuGet isn't set up:
 
-    ```console
+    ```output
     NuGet provider is required to continue
     PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. 
     The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
@@ -103,7 +103,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
     You'll receive this prompt if PowerShell Gallery isn't trusted:
 
-    ```console
+    ```output
     Untrusted repository
     You are installing the modules from an untrusted repository. 
     If you trust this repository, change its InstallationPolicy value 

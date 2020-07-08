@@ -92,17 +92,20 @@ Click the **x** in the **Remove** column to delete the computer group.  Click th
 ## Using a computer group in a log query
 You use a Computer group created from a log query in a query by treating its alias as a function, typically with the following syntax:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
 
 ```kusto
-`ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
 ```
 
 The following query would return UpdateSummary records for only computers in Domain Computers.
