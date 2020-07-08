@@ -434,34 +434,6 @@ Download a registered environment by using the following command.
 az ml environment download -n myenv -d downloaddir
 ```
 
-## Troubleshooting
-
-The following sections provide guidance on how to resolve common user issues. 
-
-#### Environment name cannot start with the prefix AzureML
-
-This message typically arises when a user tries to register or submit a run with an environment that begins with this prefix but can appear in other circumstances:
-
-* Executing notebook cells in an incorrect order
-* Using a curated environment to instantiate an Estimator (the environment should be renamed)
-* InferenceConfig relies on environment name at instantiation and may disregard any future changes to the environment 
-
-#### ResolvePackageNotFound
-
-If this error arises, first reproduce it locally by using the [`build_local()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. Then follow these steps:
-* Check conda channels in your environment. Recent conda refactoring deleted many packages from default channels and moved them to the anaconda channel.
-* Ensure the package of your specified version exists in one of the conda [channels](https://repo.anaconda.com/pkgs) ([linux-64](https://repo.anaconda.com/pkgs/main/linux-64/))
-* If it is a pip dependency, check if the package and its version exist on [PyPi](https://pypi.org/project/)
-
-#### FileNotFoundError
-
-This error indicates that specified dependencies in the user environment cannot be located which causes Conda to fail. Please follow the same steps detailed in ResolvePackageNotFound.
-
-#### build_local() failure
-
-Please add conda to the $Path.
-
-
 ## Next steps
 
 * To use a managed compute target to train a model, see [Tutorial: Train a model](tutorial-train-models-with-aml.md).
