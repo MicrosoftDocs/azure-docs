@@ -58,6 +58,7 @@ You may also use *“coalesce($event.propertyValue.Double, toDouble($event.prope
 
 *Previous Variable Definition:*
 
+```JSON
     "PropertyValueVariable": {
 
         "kind": "numeric",
@@ -73,9 +74,11 @@ You may also use *“coalesce($event.propertyValue.Double, toDouble($event.prope
         "aggregation": {
 
             "tsx": "avg($value)"
+```
 
 *New Variable Definition:*
 
+```JSON
     "PropertyValueVariable ": {
 
         "kind": "numeric",
@@ -91,6 +94,7 @@ You may also use *“coalesce($event.propertyValue.Double, toDouble($event.prope
         "aggregation": {
 
             "tsx": "avg($value)"
+```
 
 You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
@@ -119,6 +123,7 @@ Categorical variables still require the value to be of an integer type. The Data
 
 *Previous Variable Definition:*
 
+```JSON
     "PropertyValueVariable_Long": {
 
         "kind": "categorical",
@@ -153,9 +158,11 @@ Categorical variables still require the value to be of an integer type. The Data
         }
 
     }
+```
 
 *New Variable Definition:*
 
+```JSON
     "PropertyValueVariable_Long": {
 
         "kind": "categorical",
@@ -190,6 +197,7 @@ Categorical variables still require the value to be of an integer type. The Data
         }
 
     }
+```
 
 Categorical variables still require the value to be of an integer type. The DataType of all the arguments in coalesce() must be of type Long in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 

@@ -20,7 +20,7 @@ This article describes best practices to plan and get started quickly by using A
 
 Best practices surrounding planning for and preparing your environment are described further in the following articles:
 
-* What you get when you [provision a Azure Time Series Insights Gen2 environment](#the-gen-2-environment).
+* What you get when you [provision a Azure Time Series Insights Gen2 environment](#the-gen2-environment).
 * What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
 * What the new [Time Series Model is](#understand-the-time-series-model), and how to build your own.
 * How to [send events efficiently in JSON](#shape-your-events).

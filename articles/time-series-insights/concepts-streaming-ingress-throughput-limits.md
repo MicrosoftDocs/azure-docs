@@ -26,7 +26,7 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 *  **Number of devices** × **Event emission frequency** × **Size of each event**.
 
-By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](concepts-streaming-throughput-limitations.md#hub-partitions-and-per-partition-limits).
+By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
 
 > [!TIP]
 >

@@ -180,4 +180,4 @@ The configuration and payload above will produce three columns and one event
 
 ## Next steps
 
-* Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
+* Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)

@@ -38,7 +38,7 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 * Configure your Azure Time Series Insights Gen2 environment and your IoT Hub and/or Event Hubs in the same Azure region. Although it is possible to configure an event sources in a separate region, this scenario is not supported and we cannot guarantee high availability.
 
-* Do not go beyond your environment's [throughput rate limit](concepts-streaming-throughput-limitations.md) or per partition limit.
+* Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
 * Configure a lag [alert](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
@@ -79,7 +79,7 @@ The time zone offset should be formatted as one of the following:
 
 * Read the [JSON Flattening and Escaping Rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored. 
 
-* Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
+* Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)
 
 
 
