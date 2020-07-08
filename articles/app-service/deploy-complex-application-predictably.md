@@ -186,7 +186,7 @@ The **Deploy to Azure** button is great, but it allows you to deploy the resourc
 3. In **Select Azure Template**, select **Blank Template** and click **OK**.
 4. Drag azuredeploy.json into the **Template** folder of your new project.
    
-   ![Shows the result of dragginf the azuredeploy.json file into the Template folder of your project.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![Shows the result of dragging the azuredeploy.json file into the Template folder of your project.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. From Solution Explorer, open the copied azuredeploy.json.
 6. Just for the sake of the demonstration, let’s add some standard Application Insight resources to our JSON file, by clicking **Add Resource**. If you’re just interested in deploying the JSON file, skip to the deploy steps.
    
@@ -237,7 +237,7 @@ Your steps in this section mainly accomplished the following:
 
 The last step is easily done by a PowerShell cmdlet. To see what Visual Studio did when it deployed your application, open Scripts\Deploy-AzureResourceGroup.ps1. There’s a lot of code there, but I’m just going to highlight all the pertinent code you need to deploy the template file with the parameter file.
 
-![Screenshot of the script that shows the pertinent code that you need to deploy the template file with the parameter file.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
+![Shows the pertinent code in the script that you need use to deploy the template file with the parameter file.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
 The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the action. All this should demonstrate to you that, with the help of tooling, it is relatively straightforward to deploy your cloud application predictably. Every time you run the cmdlet on the same template with the same parameter file, you’re going to get the same result.
 
