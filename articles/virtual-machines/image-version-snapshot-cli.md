@@ -122,3 +122,5 @@ If you want to include data disks in the image, then you need to include both th
 ## Next steps
 
 Create a VM from a [specialized image version](vm-specialized-image-version-cli.md).
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
