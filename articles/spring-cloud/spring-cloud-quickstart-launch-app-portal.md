@@ -116,9 +116,9 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 3. Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
-```azurecli
-az extension add --name spring-cloud
-```
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
 
 4. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
