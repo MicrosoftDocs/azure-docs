@@ -8,7 +8,7 @@ ms.author: guyhay
 
 ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
 ---
 # Manage Azure Data Lake Analytics using Account Policies
