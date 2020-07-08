@@ -33,9 +33,7 @@ The following snippet shows the format for the requirements file. The PyPi packa
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 

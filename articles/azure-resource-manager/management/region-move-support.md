@@ -251,7 +251,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | clusters | No <br/><br/> The Azure Batch AI service is [retired](https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
+> | clusters | No <br/><br/> The Azure Batch AI service is [retired](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | jobs | No | 
 > | workspaces | No | 
@@ -1006,7 +1006,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | vaults | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) in the target region. | 
+> | vaults | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region. | 
 
 
 ## Microsoft.Relay
