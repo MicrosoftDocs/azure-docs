@@ -16,7 +16,7 @@ If you happened to accidentally delete your app in Azure App Service, you can re
 >
 
 > [!NOTE]
-> Undelete functionality is not supported for consumption plan.
+> Undelete functionality is not supported for the Consumption plan.
 >
 
 ## Re-register App Service resource provider
