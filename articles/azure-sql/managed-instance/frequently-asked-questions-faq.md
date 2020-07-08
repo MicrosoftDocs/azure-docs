@@ -173,7 +173,11 @@ SQL Managed Instance case studies:
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Managed Instance, there's also a Forrester study: [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## DNS refresh 
+## DNS
+
+**Can I configure a custom DNS for SQL Managed Instance?**
+
+Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Can I do DNS refresh?**
 
