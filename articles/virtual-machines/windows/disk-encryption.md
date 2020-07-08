@@ -12,28 +12,14 @@ ms.custom: references_regions
 
 # Server-side encryption of Azure Disk Storage
 
-Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments.
+Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on Azure managed disks (OS and data disks) at rest by default when persisting it to the cloud. 
 
 Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
 Server-side encryption does not impact the performance of managed disks and there is no additional cost. 
 
 > [!NOTE]
-> Temporary disks are not managed disks and are not encrypted by SSE unless you enable end-to-end encryption; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
-
-## End-to-end encryption (preview)
-
-When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the disk cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
-
-### Encryption at rest
-
-With server-side encryption, you have the option to enable double encryption at rest for disks, snapshots, and images. If necessary for auditing or compliance needs, you can query the `Encryption.Type` property of your managed disk to find the current encryption status. You are not billed for double encryption at rest with every disk transaction.
-
-Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
-
-### Encryption in transit
-
-Customers can enable the second layer of encryption for data-in-transit for OS and Data Disks by setting a new VM property EncryptionAtHost to True. The data-in-transit is encrypted with either CMK or PMK depending on the encryption type set on OS and Data Disks. For example, if a disk is encrypted with EncryptionAtRestWithCustomerKey then data-in-transit for the disk is encrypted with the Customer Key and if a disk is encrypted with EncryptionAtRestWithPlatformKey then data-in-transit for the disk is encrypted with the Platform Key. 
+> Temporary disks are not managed disks and are not encrypted by SSE unless you enable encryption at host.
 
 ## About encryption key management
 
@@ -60,6 +46,20 @@ For now, customer-managed keys have the following restrictions:
 - If this feature is enabled for your disk, you cannot disable it.
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+## Encryption at host (preview)
+
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on disk data flows encrypted to Storage service. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+
+For more information on the encryption at VM host see [Enable encryption at VM host](disks-enable-end-to-end-encryption.md)
+
+## Double encryption at rest
+
+High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation , or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys 
+
+Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
+
+For more information on the double encryption at rest see [Enable double encryption at rest](disks-enable-end-to-end-encryption.md)
 
 ## Server-side encryption versus Azure disk encryption
 
