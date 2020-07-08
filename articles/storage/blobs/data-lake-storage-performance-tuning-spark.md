@@ -74,8 +74,8 @@ Memory constraint = (total YARN memory / executor memory) / # of apps
 
 **Calculate CPU constraint** - The CPU constraint is calculated as the total virtual cores divided by the number of cores per executor.  There are 2 virtual cores for each physical core.  Similar to the memory constraint, we have to divide by the number of apps.
 
-virtual cores = (nodes in cluster * # of physical cores in node * 2)\
-CPU constraint = (total virtual cores / # of cores per executor) / # of apps
+- virtual cores = (nodes in cluster * # of physical cores in node * 2)
+- CPU constraint = (total virtual cores / # of cores per executor) / # of apps
 
 **Set num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint. 
 
@@ -99,28 +99,28 @@ executor-cores = 4
 
 **Step 4: Determine amount of YARN memory in cluster** – We navigate to Ambari to find out that each D4v2 has 25GB of YARN memory.  Since there are 8 nodes, the available YARN memory is multiplied by 8.
 
-Total YARN memory = nodes * YARN memory* per node\
-Total YARN memory = 8 nodes * 25GB = 200GB
+- Total YARN memory = nodes * YARN memory* per node
+- Total YARN memory = 8 nodes * 25GB = 200GB
 
 **Step 5: Calculate num-executors** – The num-executors parameter is determined by taking the minimum of the memory constraint and the CPU constraint divided by the # of apps running on Spark.    
 
 **Calculate memory constraint** – The memory constraint is calculated as the total YARN memory divided by the memory per executor.
 
-Memory constraint = (total YARN memory / executor memory) / # of apps\
-Memory constraint = (200GB / 6GB) / 2\
-Memory constraint = 16 (rounded)
+- Memory constraint = (total YARN memory / executor memory) / # of apps
+- Memory constraint = (200GB / 6GB) / 2
+- Memory constraint = 16 (rounded)
 
 **Calculate CPU constraint** - The CPU constraint is calculated as the total yarn cores divided by the number of cores per executor.
 
-YARN cores = nodes in cluster * # of cores per node * 2\
-YARN cores = 8 nodes * 8 cores per D14 * 2 = 128\
-CPU constraint = (total YARN cores / # of cores per executor) / # of apps\
-CPU constraint = (128 / 4) / 2\
-CPU constraint = 16
+- YARN cores = nodes in cluster * # of cores per node * 2
+- YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
+- CPU constraint = (total YARN cores / # of cores per executor) / # of apps
+- CPU constraint = (128 / 4) / 2
+- CPU constraint = 16
 
 **Set num-executors**
 
-num-executors = Min (memory constraint, CPU constraint)\
-num-executors = Min (16, 16)\
-num-executors = 16
+- num-executors = Min (memory constraint, CPU constraint)
+- num-executors = Min (16, 16)
+- num-executors = 16
 

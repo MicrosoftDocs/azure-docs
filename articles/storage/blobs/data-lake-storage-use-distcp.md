@@ -80,7 +80,7 @@ Here's some guidance that you can use.
 
 * **Step 2: Calculate the number of mappers** - The value of **m** is equal to the quotient of total YARN memory divided by the YARN container size. The YARN container size information is available in the Ambari portal as well. Navigate to YARN and view the Configs tab. The YARN container size is displayed in this window. The equation to arrive at the number of mappers (**m**) is
 
-m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (number of nodes * YARN memory for each node) / YARN container size
 
 **Example**
 

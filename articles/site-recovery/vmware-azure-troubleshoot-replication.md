@@ -90,16 +90,16 @@ To resolve the issue, use the following steps to verify the network connectivity
    - InMage Scout Application Service
 4. On the Source Machine, examine the logs at the location for error details:
 
-    *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents.log*
+    *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 
 ### Process server with no heartbeat [error 806]
 In case there is no heartbeat from the Process Server (PS), check that:
 1. PS VM is up and running
 2. Check following logs on the PS for error details:
 
-    *C:\ProgramData\ASR\home\svsystems\eventmanager*.log*\
+    *C:\ProgramData\ASR\home\svsystems\eventmanager\*.log*\
     and\
-    *C:\ProgramData\ASR\home\svsystems\monitor_protection*.log*
+    *C:\ProgramData\ASR\home\svsystems\monitor_protection\*.log*
 
 ### Master target server with no heartbeat [error 78022]
 
@@ -112,7 +112,7 @@ To resolve the issue, use the following steps to verify the service status:
     - Verify that the svagents service is running. If it is running, restart the service
     - Check the logs at the location for error details:
 
-        *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents.log*
+        *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
    ```
    cmd
@@ -153,9 +153,7 @@ To troubleshoot further, Check the files on the source machine to get the exact 
 How to locate the errors in the file?
 Search for the string "vacpError"  by opening the vacp.log file in an editor
 
-```output
-Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
-```
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 In the above example **2147754994** is the error code that tells you about the failure as shown below
 
