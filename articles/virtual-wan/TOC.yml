@@ -56,7 +56,7 @@
         href: scenario-route-through-nva.md
       - name: Route through NVA - custom (Preview)
         href: scenario-route-through-nvas-custom.md
-      - name: Azure Firewall - Interhub
+      - name: Azure Firewall - Interhub (Preview)
         href: scenario-route-between-hubs-firewall.md
       - name: Azure Firewall - custom
         href: scenario-route-between-vnets-firewall.md
@@ -116,6 +116,12 @@
       href: how-to-virtual-hub-routing.md
     - name: How to view virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: Route traffic from a virtual hub to an NVA (legacy)
+      items:
+        - name: Azure portal
+          href: virtual-wan-route-table-nva-portal.md
+        - name: Azure PowerShell
+          href: virtual-wan-route-table-nva.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub

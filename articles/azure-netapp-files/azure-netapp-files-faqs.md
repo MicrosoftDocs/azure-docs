@@ -178,17 +178,20 @@ For a 320 MB directory, the number of blocks is 655360, with each block size bei
 
 Examples:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## Data migration and protection FAQs
 

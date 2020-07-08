@@ -307,11 +307,16 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
+```console
         dotnet build
+```
 
 1. After the build successfully completes, run the following command to run the web app locally:
 
+```console
         dotnet run
+```
+
 1. Open a browser window, and go to the URL shown in the `dotnet run` output.
 
     ![Launching quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-before.png)

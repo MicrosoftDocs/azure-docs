@@ -9,7 +9,7 @@ ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18"

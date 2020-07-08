@@ -85,7 +85,6 @@ Copy and paste the following .json into the file.
 		"type": "Array",
 		"metadata": {
 			"description": "The list of extensions that will be denied.",
-			"strongType": "type",
 			"displayName": "Denied extension"
 		}
 	}

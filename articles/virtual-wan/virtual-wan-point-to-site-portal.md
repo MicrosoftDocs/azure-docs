@@ -7,7 +7,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 06/29/2020
 ms.author: alzam
 
 ---

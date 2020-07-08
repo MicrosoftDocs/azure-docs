@@ -40,8 +40,8 @@ principal. Then, grant the Azure Blueprints the _Owner_ role through the
 [Portal](../../../role-based-access-control/role-assignments-portal.md),
 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md),
 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md),
-[REST API](../../../role-based-access-control/role-assignments-rest.md), or a
-[Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
+[REST API](../../../role-based-access-control/role-assignments-rest.md), or an
+[Azure Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
 
 The Azure Blueprints service doesn't directly deploy the resources.
 

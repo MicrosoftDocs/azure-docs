@@ -24,18 +24,14 @@ For example, consider a system where an Azure HPC Cache instance is being used t
 
 The template data is stored in a datacenter, and the information needed for this job is stored in these subdirectories:
 
-```
-/goldline/templates/acme2017/sku798
-/goldline/templates/acme2017/sku980
-```
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980*
 
 The datacenter storage system exposes these exports:
 
-```
-/
-/goldline
-/goldline/templates
-```
+* */*
+* */goldline*
+* */goldline/templates*
 
 The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 

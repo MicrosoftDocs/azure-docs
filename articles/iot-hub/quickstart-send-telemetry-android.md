@@ -75,9 +75,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Send simulated telemetry
 
-1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
-
-        \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
+1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository: *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with the device connection string you made a note of earlier.
 

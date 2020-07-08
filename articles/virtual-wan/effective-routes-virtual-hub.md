@@ -6,13 +6,17 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 ---
 
 # View virtual hub effective routes
 
-You can view all of the routes of your Virtual WAN hub in the Azure portal. This article walks you through the steps to view effective routes. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+You can view all routes of your Virtual WAN hub in the Azure portal. This article walks you through the steps to view effective routes. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> On the Azure portal, some of these features may still be rolling out and not available until week of August 3rd. 
+>
 
 ## <a name="routing"></a>Select connections or route tables
 
@@ -46,7 +50,7 @@ Use the scroll bar at the bottom of the table to view the "AS Path".
 
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.2.0.0/24| VPN_S2S_Gateway |/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw|/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
+| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
 **Considerations:**
 

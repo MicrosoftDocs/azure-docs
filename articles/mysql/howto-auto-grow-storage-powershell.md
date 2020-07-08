@@ -4,7 +4,7 @@ description: This article describes how you can enable auto grow storage using P
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
 ---
 # Auto grow storage in Azure Database for MySQL server using PowerShell

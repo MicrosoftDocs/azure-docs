@@ -19,7 +19,7 @@ This article provides a quick guide to help build your migration plan to Azure w
 
 ## Define the goals of cloud migration
 
-Before building out a migration plan, it is important to understand and evaluate the [motivation](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/motivations) to move to the cloud that can help produce more successful business outcomes. As the [Cloud Adoption Framework for Azure](https://docs.microsoft.com/azure/cloud-adoption-framework) explains, there could be different triggers and migration approaches suitable for your business:  
+Before building out a migration plan, it is important to understand and evaluate the [motivation](/azure/cloud-adoption-framework/strategy/motivations) to move to the cloud that can help produce more successful business outcomes. As the [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework) explains, there could be different triggers and migration approaches suitable for your business:  
 
 **Critical business events** | **Migration outcome**
 --- | ---
@@ -78,7 +78,7 @@ Export the Azure VM assessment report and filter by the following readiness cate
 
 - **Readiness unknown**: Azure Migrate is unable to determine the readiness of the machine because of insufficient metadata
 
-Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Databases or Azure SQL Database managed instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
+Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Database or Azure SQL Managed Instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
 
  ![Database assessments](./media/concepts-migration-planning/database-assessment-portal.png)
 
@@ -142,7 +142,7 @@ Before finalizing your migration plan, ensure that these key migration considera
 
 - Review the recommended Azure permissions, and your server/database access roles and permissions model needed for the migration.
 
-- Prepare your organization and ensure workforce alignment to the digital transformation. A solid training foundation is important for successful organizational change. Check out the free training available on [Microsoft Learn](https://docs.microsoft.com/learn/azure/?ocid=CM_Discovery_Checklist_PDF), including courses on Azure fundamentals, solution architecture, and security. Encourage your team to explore [Azure certification](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF) as well.  
+- Prepare your organization and ensure workforce alignment to the digital transformation. A solid training foundation is important for successful organizational change. Check out the free training available on [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), including courses on Azure fundamentals, solution architecture, and security. Encourage your team to explore [Azure certification](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF) as well.  
 
 - Get support for your implementation if required. Many organizations opt for outside help to support their cloud migration. To move to Azure quickly and confidently with personalized assistance, consider an [Azure Expert Managed Service Provider](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF) or [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
@@ -159,6 +159,6 @@ Once you are ready to migrate, use Azure Migrate’s *Server Migration tool* and
 
 ## Next steps
 
-- Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
 - [Get started](https://youtu.be/wFfq3YPxYHE) with Azure Migrate.
 - Create an assessment for [VMware VMs](tutorial-assess-vmware.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).

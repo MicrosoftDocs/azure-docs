@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 
 ---
@@ -20,6 +20,10 @@ To configure routing, see [How to configure virtual hub routing](how-to-virtual-
 ## <a name="concepts"></a>Routing concepts
 
 The following sections describe the key concepts in virtual hub routing.
+
+> [!NOTE]
+> Some of these new concepts for hub route table, association, propagation and static routes in a virtual network connection may still be rolling out and expected to complete in week of Aug 3rd.
+>
 
 ### <a name="hub-route"></a>Hub route table
 
@@ -55,6 +59,17 @@ A **None route table** is also available for each virtual hub. Propagating to th
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
 Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
+
+## <a name="route"></a>Route tables in Basic and Standard virtual WANs prior to the feature set of Association and Propagation
+
+Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
+
+* **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
+
+To use  new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal)
+
+* **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
+To use the new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## Next steps
 
