@@ -54,7 +54,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
-* **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
+* **Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
