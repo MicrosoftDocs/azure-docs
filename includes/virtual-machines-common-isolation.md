@@ -10,9 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be 
-
-recated when the hardware generation is retired.
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired.
 
 Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance. 
 
