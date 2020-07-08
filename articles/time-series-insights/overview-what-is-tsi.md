@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 is designed for ad hoc data exploration and oper
 
 Learn more about Azure Time Series Insights Gen2.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2020/BOD132/player]
 
 ## Definition of IoT data
 
