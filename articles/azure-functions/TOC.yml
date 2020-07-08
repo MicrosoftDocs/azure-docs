@@ -55,6 +55,7 @@
       href: machine-learning-pytorch.md
     - name: Create a custom Linux image
       href: functions-create-function-linux-custom-image.md
+      displayName: container, docker
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -252,7 +253,7 @@
           href: run-functions-from-deployment-package.md
         - name: Functions in Kubernetes
           href: functions-kubernetes-keda.md
-          displayName: keda
+          displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
         - name: On-premises functions
@@ -500,6 +501,8 @@
   items:
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-functions
+    - name: Architecture guidance
+      herf: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
