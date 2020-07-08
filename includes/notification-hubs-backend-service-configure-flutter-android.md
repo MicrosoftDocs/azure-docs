@@ -318,7 +318,7 @@
     >
     > Once again, take care to replace **<your_organization>** with your own organization wherever it is used.
 
-1. In **AndroidManifest.xml** (**app** > **src** > **main**), add the **PushNotificationsFirebaseMessagingService** to the bottom of the **application** element with the `com/google.firebase.MESSAGING_EVENT` intent filter.
+1. In **AndroidManifest.xml** (**app** > **src** > **main**), add the **PushNotificationsFirebaseMessagingService** to the bottom of the **application** element with the `com.google.firebase.MESSAGING_EVENT` intent filter.
 
     ```xml
     <manifest>
