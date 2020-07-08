@@ -17,11 +17,11 @@
     href: cognitive-services-apis-create-account.md
   - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
-  - name: Diagnostic logging
-    href: diagnostic-logging.md
-  - name: ARM template
+  - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: resource-manager-template.md
+  - name: Diagnostic logging
+    href: diagnostic-logging.md
 - name: Samples
   items:
   - name: Azure Policy built-ins
@@ -36,6 +36,8 @@
     href: ./encryption/cognitive-services-encryption-keys-portal.md
   - name: Authenticate requests to Cognitive Services
     href: authentication.md
+  - name: Security baseline
+    href: security-baseline.md
 - name: Container support
   items:
   - name: Container support

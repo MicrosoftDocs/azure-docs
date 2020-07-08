@@ -34,7 +34,30 @@ Cloud tiering does not depend on the NTFS feature for tracking last access time.
 
 <a id="tiering-minimum-file-size"></a>
 ### What is the minimum file size for a file to tier?
-For agent versions 9.x and newer, the minimum file size for a file to tier is based on the file system cluster size (double the file system cluster size). For example, if the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. For agent versions 8.x and older, the minimum file size for a file to tier is 64KB.
+
+For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
+
+|Volume cluster size (Bytes) |Files of this size or larger can be tiered  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) and larger    | 64 KB   |
+
+All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file (up to the next multiple of the cluster size).
+
+Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume. 
+
+|Volume size    |Windows Server 2012R2 and newer |
+|---------------|---------------|
+|7 MB – 16 TB   | 4 KB          |
+|16TB – 32 TB   | 8 KB          |
+|32TB – 64 TB   | 16 KB         |
+|64TB – 128 TB  | 32 KB         |
+|128TB – 256 TB | 64 KB         |
+|> 256 TB       | Not supported |
+
+It is possible that upon creation of the volume, you manually formatted the volume with a different cluster (allocation unit) size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### How does the volume free space tiering policy work?
@@ -77,7 +100,11 @@ Keeping more data local means lower egress costs as fewer files will be recalled
 
 <a id="how-long-until-my-files-tier"></a>
 ### I've added a new server endpoint. How long until my files on this server tier?
-In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happen once an hour. On older agents, tiering can take up to 24 hours to happen.
+
+Whether or not files need to be tiered per set policies is evaluated once an hour. You can encounter two situations when a new server endpoint is created:
+
+1. When you add a new server endpoint, then often files exist in that server location. They need to be uploaded first, before cloud tiering can begin. The volume free space policy will not begin its work until initial upload of all files has finished. However, the optional date policy will begin to work on an individual file basis, as soon as a file has been uploaded. The one-hour interval applies here as well. 
+2. When you add a new server endpoint, it is possible that you connect an empty server location to an Azure file share with your data in it. Whether that is for a second server or during a disaster recovery situation. If you choose to download the namespace and recall content during initial download to your server, then after the namespace comes down, files will be recalled based on the last modified timestamp. Only as many files will be recalled as fit within the volume free space policy and the optional date policy.
 
 <a id="is-my-file-tiered"></a>
 ### How can I tell whether a file has been tiered?

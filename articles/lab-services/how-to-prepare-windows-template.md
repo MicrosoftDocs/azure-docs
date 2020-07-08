@@ -1,17 +1,12 @@
 ---
 title: Guide to setting up a Windows template machine | Microsoft Docs
 description: Generic steps to prepare a Windows template machine in Lab Services.  These steps include setting Windows Update schedule, installing OneDrive, and installing Office.
-services: lab-services
-documentationcenter: na
 author: EMaher
-manager: 
-editor: ''
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 06/26/2020
 ms.author: enewman
 ---
+
 # Guide to setting up a Windows template machine in Azure Lab Services
 
 If you're setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.

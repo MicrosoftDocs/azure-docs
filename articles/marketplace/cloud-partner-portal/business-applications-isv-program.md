@@ -1,12 +1,12 @@
 ---
 title: Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
 description: Here's how to onboard to the Business Applications ISV Connect Program.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthp
+ms.author: parthp
 ms.date: 7/12/2019
-ms.author: dsindona
 ---
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
@@ -38,7 +38,7 @@ If you've already published Dynamics CE or Dynamics Ops offers, most likely your
 1. Sign in to your **Publisher Profile** page in [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, select the banner prompting you to activate your Partner Center account.
 
-For more information, see [Account migration from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+For more information, see [Account migration from Cloud Partner Portal to Partner Center](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## Accept the Business Applications ISV Program addendum
 
@@ -83,7 +83,7 @@ After you've completed the steps above, your existing Dynamics CE and Dynamics O
 The final step for enrollment in the Business Applications ISV Connect program is recertifying your existing applications.
 
 1. [Follow these steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to recertify your application to AppSource.
-2. [Create and publish a new offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). This offer will be an entirely new offer, and doesn't replace an existing one.
+2. [Create and publish a new offer](../partner-center-portal/create-new-customer-engagement-offer.md). This offer will be an entirely new offer, and doesn't replace an existing one.
 
 ## Further info
 

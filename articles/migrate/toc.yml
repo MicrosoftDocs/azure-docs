@@ -86,8 +86,10 @@
     href: hyper-v-migration-architecture.md
   - name: VMware agent-based migration architecture
     href: agent-based-migration-architecture.md
-  - name: Assessments overview
+  - name: Azure VM Assessments overview
     href: concepts-assessment-calculation.md
+  - name: AVS Assessments overview
+    href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
   - name: Dependency analysis overview
@@ -124,8 +126,10 @@
     href: how-to-create-group-machine-dependencies.md
   - name: Analyze machine dependencies (agentless)
     href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Create an assessment
+  - name: Create an Azure VM assessment
     href: how-to-create-assessment.md
+  - name: Create an AVS assessment
+    href: how-to-create-azure-vmware-solution-assessment.md
   - name: Assess a SQL Server database
     href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment

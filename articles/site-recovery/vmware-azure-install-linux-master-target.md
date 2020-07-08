@@ -277,7 +277,7 @@ Use the following steps to create a retention disk:
 
     Example: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
 	
 
 2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.

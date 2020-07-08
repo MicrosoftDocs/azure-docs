@@ -12,6 +12,13 @@
   items:
   - name: Monitor Azure resource
     href: learn/quick-monitor-azure-resource.md
+  - name: Send Activity log to a workspace
+    items: 
+    - name: Azure portal
+      href: learn/quick-collect-activity-log-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: learn/quick-collect-activity-log-arm.md
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
@@ -382,6 +389,8 @@
         href: log-query/unify-app-resource-data.md
     - name: Examples and guidance
       items:
+      - name: Example queries
+        href: log-query/saved-queries.md
       - name: Log query examples
         href: log-query/examples.md
       - name: Smart analytics examples
@@ -455,7 +464,7 @@
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
       - name: Troubleshoot log alerts
-        href: platform/alert-log-troubleshoot.md
+        href: platform/alerts-troubleshoot-log.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -506,6 +515,8 @@
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
       href: platform/alerts-troubleshoot.md
+    - name: Alerts and region moves
+      href: platform/alerts-resource-move.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -1116,6 +1127,8 @@
         href: learn/tutorial-logs-dashboards.md
       - name: Dashboard using application data
         href: learn/tutorial-app-dashboards.md
+      - name: Upgrading Log Analytics Dashboards
+        href: log-query/dashboard-upgrade.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Custom data collection and analysis
@@ -1191,6 +1204,10 @@
       href: app/custom-endpoints.md
     - name: Azure Functions
       href: app/azure-functions-supported-features.md 
+    - name: Release notes
+      items:
+      - name: Web app extension
+        href: app/web-app-extension-release-notes.md
     - name: Data model
       items:
       - name: Overview

@@ -1,8 +1,8 @@
 ---
 title: Enable private site access to Azure Functions
 description: Learn to set up Azure virtual network private site access for Azure Functions.
-author: mcollier
-ms.author: mcollier
+author: craigshoemaker
+ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020

@@ -4,7 +4,7 @@ description: Configure a web API to be used in a user flow.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 
 ms.author: mimart

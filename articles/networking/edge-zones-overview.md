@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
 
 ---
@@ -71,7 +71,9 @@ Typical use cases include:
 
 Edge Zones will be offered in partnership with the following operators:
 
-- AT&T (Atlanta, Dallas, and Los Angeles)
+- AT&T (Atlanta, Dallas, and Los Angeles) 
+
+[Contact the Edge Zone team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones
 

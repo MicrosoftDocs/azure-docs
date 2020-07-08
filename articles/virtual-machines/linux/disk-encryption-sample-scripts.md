@@ -316,7 +316,7 @@ To configure encryption to work with Azure, do the following steps:
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
-### CentOS 7 and RHEL 8.1
+### CentOS 7 and RHEL 7
 
 To configure encryption during the distribution installation, do the following steps:
 1. Select **Encrypt my data** when you partition disks.
