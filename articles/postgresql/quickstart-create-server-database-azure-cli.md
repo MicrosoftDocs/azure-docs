@@ -30,7 +30,7 @@ You'll need to log in to your account using the [az login](https://docs.microsof
 az login
 ```
 
-Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)
+Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -56,12 +56,12 @@ resource-group | myresourcegroup | Provide the name of the Azure resource group.
 location | westus | The Azure location for the server.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter. For more information , see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/)
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11. 
 >- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
->- SSL is enabled by default on your server. For more infroamtion on SSL , see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
+>- SSL is enabled by default on your server. For more infroamtion on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
 ## Configure a server-level firewall rule 
 By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server. 
