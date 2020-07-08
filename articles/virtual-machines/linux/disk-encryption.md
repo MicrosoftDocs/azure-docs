@@ -22,7 +22,7 @@ Server-side encryption does not impact the performance of managed disks and ther
 > [!NOTE]
 > Temporary disks are not managed disks and are not encrypted by SSE unless you enable end-to-end encryption; for more information on temporary disks, see [Managed disks overview: disk roles](managed-disks-overview.md#disk-roles).
 
-## End-to-end encryption
+## End-to-end encryption (preview)
 
 When you enable end-to-end encryption, you get: additional encryption on data-in-transit, encryption on the disk cache of all attached disks, and encryption of the temporary disk. This encryption can be managed either by the platform or through customer-managed keys.
 
