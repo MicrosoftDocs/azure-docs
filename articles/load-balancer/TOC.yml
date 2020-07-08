@@ -15,16 +15,18 @@
   - name: Create Load Balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
   - name: Create Load Balancer - ARM template
-    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
+  - name: Create an internal Load Balancer - Portal
+    href: tutorial-load-balancer-standard-internal-portal.md
+  - name: Create an internal Load Balancer - Azure CLI
+    href: load-balancer-get-started-ilb-arm-cli.md
+  - name: Create an internal Load Balancer - Azure PowerShell
+    href: load-balancer-get-started-ilb-arm-ps.md
+  - name: Create an internal Load Balancer - ARM template
+    href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance internet traffic to VMs
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: Load balance internal traffic to VMs
-    href: tutorial-load-balancer-standard-internal-portal.md
-  - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
@@ -102,17 +104,6 @@
       href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
-      displayName: ARM
-  - name: Create an internal Load Balancer
-    items:
-    - name: Portal
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Azure Resource Manager template
-      href: load-balancer-get-started-ilb-arm-template.md
       displayName: ARM
   - name: Configure TCP idle timeout for Load Balancer
     href: load-balancer-tcp-idle-timeout.md
