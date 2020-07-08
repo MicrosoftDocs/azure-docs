@@ -10,7 +10,9 @@
  ms.custom: include file
 ---
 
-Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired.
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be 
+
+recated when the hardware generation is retired.
 
 Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance. 
 
@@ -42,7 +44,7 @@ As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 m
 ## FAQ
 ### Q: Is the size going to get retired or only "isolation" feature is?
 **A**: If the virtual machine size does not have the "i" subscript than only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
-If the virtual machine size includes "i" subscript than the size is going to get retired. There will always be a similar non-isolated size with same price and performace. e.g. for Standard_E64is_v3 the non-isolated size is Standard_E64s_v3.
+If the virtual machine size includes "i" subscript than the size is going to get retired.
 
 ### Q: Is there a downtime when my vm lands on a non-isolated hardware?
 **A**: If there is no need of isolation, no action is needed and there will be no downtime.
@@ -51,7 +53,7 @@ If the virtual machine size includes "i" subscript than the size is going to get
 **A**: No
 
 ### Q: When are the other isolated sizes going to retire?
-**A**: We will provide reminders 12 months in advance of the official decommissioning of the isolted size.
+**A**: We will provide reminders 12 months in advance of the official deprecation of the isolted size.
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
