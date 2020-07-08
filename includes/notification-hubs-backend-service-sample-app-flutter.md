@@ -433,7 +433,7 @@
     final notificationRegistrationService = NotificationRegistrationService(Config.backendServiceEndpoint, Config.apiKey);
     ```
 
-1. Implement the event handlers for the **Register** and **Deregister** buttons **onPressed** events. Call the corresponding **Register**/**Deregister** methods then show an alert to indicate the result.
+1. At the **_MainPageState** class, implement the event handlers for the **Register** and **Deregister** buttons **onPressed** events. Call the corresponding **Register**/**Deregister** methods then show an alert to indicate the result.
 
     ```dart
     void registerButtonClicked() async {
