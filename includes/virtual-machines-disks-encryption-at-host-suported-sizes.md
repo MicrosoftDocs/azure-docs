@@ -9,9 +9,9 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Only the following VM sizes currently support end-to-end encryption:
+All the latest generation of VM sizes support encryption at host:
 
-|Type  |Supported  |Not supported  |
+|Type  |Not Supported  |Supported  |
 |---------|---------|---------|
 |General purpose     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
 |Compute optimized     |         |         |
