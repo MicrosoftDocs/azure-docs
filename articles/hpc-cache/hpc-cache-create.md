@@ -99,7 +99,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-<!-->> [!TIP]
+<!-- > [!TIP]
 > Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) to access the command line interface, install the hpc-cache extension, and log in before using the Azure CLI commands in this section. -->
 
 > [!NOTE]
