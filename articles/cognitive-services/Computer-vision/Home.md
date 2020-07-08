@@ -49,15 +49,6 @@ You can analyze images to provide insights about their visual features and chara
 
 Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizing-text.md) capabilities. You can use the new Read API to extract printed and handwritten text from images and documents. It uses the latest models and works with text on a variety of surfaces and backgrounds. These inclue receipts, posters, business cards, letters, and whiteboards. The two OCR APIs support extracting printed text in [several languages](./language-support.md).
 
-| Action | Description |
-| ------ | ----------- |
-|**Printed text from images**|Extract text from images in JPG, PNG, BMP, and TIFF formats.|
-|**Printed text from documents**|Extract text from digital and scanned PDF documents.|
-|**Handwritten text in English**|Extract handwritten text from English only.|
-|**Printed text in several languages**|Recognize text in several languages including the latest Read support for English and Latin languages.|
-|**Support for mixed languages**|Extract text regardless of multiple languages in the same image or document with the new Read operations.|
-|**Available for on-premises**|Deploy on-premises with the new Read Docker container (preview).|
-
 ## Moderate content in images
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
