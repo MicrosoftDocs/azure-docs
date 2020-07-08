@@ -18,8 +18,7 @@ ms.author: sudbalas
 
 This document will show you how to perform a backup of the individual secrets, keys, and certificates stored in your key vault. This backup is intended to provide you with an offline copy of all your secrets in the unlikely event that you lose access to your key vault.
 
-> [!NOTE]
-> Key Vault automatically provides several features to maintain availability and prevent data loss. This backup should only be attempted if there is a critical business justification to maintain a backup of your secrets. Backing up secrets in your key vault may introduce additional operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
+Key Vault automatically provides several features to maintain availability and prevent data loss. This backup should only be attempted if there is a critical business justification to maintain a backup of your secrets. Backing up secrets in your key vault may introduce additional operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
 
 Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention needed from a user. For more information please see the following link. [Azure Key Vault Disaster Recovery](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
 
@@ -27,8 +26,7 @@ Key Vault protects against accidental and malicious deletion of your secrets thr
 
 ## Limitations
 
-> [!NOTE]
-> Azure Key Vault does not currently support a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to perform an automated backup of a key vault will not be supported by Microsoft or the Azure Key Vault Team.
+Azure Key Vault does not currently support a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to perform an automated backup of a key vault will not be supported by Microsoft or the Azure Key Vault Team.
 
 Attempting to use the commands shown in the document below to create custom automation may result in errors.
 
