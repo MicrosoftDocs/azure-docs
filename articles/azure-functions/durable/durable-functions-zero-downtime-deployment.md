@@ -17,9 +17,6 @@ To prevent these failures from happening, you have two options:
 - Delay your deployment until all running orchestration instances have completed.
 - Make sure that any running orchestration instances use the existing versions of your functions. 
 
-> [!NOTE]
-> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
-
 The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
 
 | Strategy |  When to use | Pros | Cons |
