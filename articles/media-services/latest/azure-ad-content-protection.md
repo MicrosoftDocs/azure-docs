@@ -5,7 +5,6 @@ services: media-services
 documentationcenter: ''
 author: willzhan
 manager: femila
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -81,16 +80,16 @@ The Single-Page App (SPA) used in this tutorial takes into account challenges to
 
 ## Understand the subsystem design
 
-The design of the subsystem is shown in the following diagram.  It has 3 layers:
+The design of the subsystem is shown in the following diagram.  It has three layers:
 
-1. Back-office layer (in black) for configuring the content key policy and publishing content for streaming
-1. Public endpoints (in blue) that are player/customer-facing endpoints providing authentication, authorization, DRM license, and encrypted content
-1. Player app (in light blue) which integrates all components and
-    1. handles user authentication via Azure AD.
-    1. handles access_token acquisition from Azure AD.
-    1. receives manifest and encrypted content from AMS/CDN.
-    1. acquires DRM license from Azure Media Services.
-    1. handles content decryption, decode, and display.
+* Back-office layer (in black) for configuring the content key policy and publishing content for streaming
+* Public endpoints (in blue) that are player/customer-facing endpoints providing authentication, authorization, DRM license, and encrypted content
+* Player app (in light blue) which integrates all components and
+    * handles user authentication via Azure AD.
+    * handles access_token acquisition from Azure AD.
+    * receives manifest and encrypted content from AMS/CDN.
+    * acquires DRM license from Azure Media Services.
+    * handles content decryption, decode, and display.
 
 ![screen for parsing JWT tokens](media/aad-ams-content-protection/subsystem.svg)
 
@@ -135,7 +134,7 @@ The screen for testing protected content with different combinations of DRM/AES 
 > [!NOTE]
 > From here forward, it is assumed that you have logged in to the Azure portal and have at least one Azure AD tenant.
 
-Choose an Azure AD tenant to use for our end-to-end sample. You have 2 options:
+Choose an Azure AD tenant to use for our end-to-end sample. You have two options:
 
 1. An existing Azure AD tenant. Any Azure subscription must have one Azure AD tenant, but an Azure AD tenant can be used by multiple Azure subscriptions.
 1. A new Azure AD tenant that is *not* used by any Azure subscription. If you choose the new tenant option, the media service account and the sample player app must be in an Azure subscription that uses a separate Azure AD tenant. This provides some flexibility. For example, you could use your own Azure AD tenant but also the customer’s media service account in the customer’s Azure subscription.
@@ -242,16 +241,16 @@ Change the `ida_AADOpenIdDiscoveryDocument`, `ida_audience`, and `ida_issuer` va
 1. Select the AAD tenant you used earlier, click on **App registrations** in the menu, then click on the **Endpoints** link.
 1. Select and copy the value of the **OpenIdConnect metadata document** field and paste it into the code as the `ida_AADOpenIdDiscoveryDocument` value.
 1. The `ida_audience` value is the Application (client) ID of the registered app *LicenseDeliveryResource2*.
-1. The `ida_issuer`value is the URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Replace [*tenant id*] with your tenant ID.
+1. The `ida_issuer`value is the URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Replace [*tenant_id*] with your tenant ID.
 
 ## Set up the sample player app
 
 If you haven't done so already, clone or download the app from the source repo: [https://github.com/Azure-Samples/media-services-content-protection-azure-ad](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
-You have 2 options to set up the player app:
+You have two options to set up the player app:
 
-1. Minimal customization (only replacing some constant string values such as client_id, tenant_id, and streaming URL), but you must use Visual Studio Code and Node.js.
-1. If you prefer to use another IDE and web platform such as ASP.NET Core, you can put the web page files, JavaScript files, and CSS file into your project since the player app itself does not use any server-side code.
+* Minimal customization (only replacing some constant string values such as client_id, tenant_id, and streaming URL), but you must use Visual Studio Code and Node.js.
+* If you prefer to use another IDE and web platform such as ASP.NET Core, you can put the web page files, JavaScript files, and CSS file into your project since the player app itself does not use any server-side code.
 
 ### Option 1
 
@@ -284,7 +283,7 @@ To test locally:
 1. Enter `npm start` at the command prompt. (If npm doesn't start, try changing the directory to `npmweb` by entering `cd npmweb` at the command prompt.)
 1. Use a browser to browse to `http://localhost:3000`.
 
-Depending on the browser you use, pick the correct combination of DRM/AES vs Streaming Protocol vs Container Format to test after sign-in (`access_token` acquisition). If you are testing in Safari on macOS, check the Redirect API option since Safari does not allow popups. Most other browsers allow both popups and redirect options.
+Depending on the browser you use, pick the correct combination of DRM/AES vs Streaming Protocol vs Container Format to test after sign in (`access_token` acquisition). If you are testing in Safari on macOS, check the Redirect API option since Safari does not allow popups. Most other browsers allow both popups and redirect options.
 
 ### Option 2
 
@@ -307,18 +306,18 @@ Now that you've completed the tutorial and have a working subsystem, you can try
 
 ### Role-Based Access Control (RBAC) for license delivery via Azure AD group membership
 
-So far, the system allows any user who can log in to get a valid license and play the protected content.
+So far, the system allows any user who can sign in to get a valid license and play the protected content.
 
 It is a common customer requirement that a subset of authenticated users is allowed to watch content while others are not, for example, a customer who offers basic and premium subscriptions for its video content. Their customers, who paid for a basic subscription should not be able to watch content which requires a premium subscription. Below are the additional steps required to meet this requirement:
 
-#### Setup in the Azure AD tenant
+#### Set up the Azure AD tenant
 
 1. Set up two accounts in your tenant. They could be named *premium_user* and *basic_user*;
 1. Create a user group and call it *PremiumGroup*.
 1. Add the *premium_user* to the *PremiumGroup* as a member, but do not add the *basic_user* to the group.
 1. Take note of the **Object ID** of the *PremiumGroup*.
 
-#### Setup in Media Services account
+#### Set up the Media Services account
 
 Modify `ContentKeyPolicyRestriction` (as shown in the section above in the  Setup in Media Service Account), by adding a claim named *groups*, where `ida_EntitledGroupObjectId` has the object ID of *PremiumGroup* as its value:
 
@@ -339,7 +338,7 @@ The *groups* claim is a member of a [Restricted Claim Set](https://docs.microsof
 #### Test
 
 1. Sign in with the *premium_user* account. You should be able to play the protected content.
-1. Sign in in with the *basic_user* account. You should get an error indicating the video is encrypted but there is no key to decrypt it. If you view the Events, errors, and downloads with the dropdown at the bottom of the player diagnostic overlay, the error message should indicate license acquire failure due to the missing claim value for groups claim in the JWT issued by Azure AD token endpoint.
+1. Sign in with the *basic_user* account. You should get an error indicating the video is encrypted but there is no key to decrypt it. If you view the Events, errors, and downloads with the dropdown at the bottom of the player diagnostic overlay, the error message should indicate license acquire failure due to the missing claim value for groups claim in the JWT issued by Azure AD token endpoint.
 
 ### Supporting multiple media service accounts (across multiple subscriptions)
 
