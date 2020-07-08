@@ -98,13 +98,13 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     
     1. Update the SDK version to 1.8.0 or higher (this will also downgrade py-cpuinfo to 5.0.0):
     
-    ```Python
+    ```bash
     pip install --upgrade azureml-sdk[automl]
     ```
     
     2. Downgrade the installed version of py-cpuinfo to 5.0.0:
     
-    ```Python
+    ```bash
     pip install py-cpuinfo==5.0.0
     ```
   
