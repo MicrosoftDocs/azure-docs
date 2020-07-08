@@ -1,5 +1,5 @@
 ---
-title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
+title: What is Azure single sign-on (SSO)?
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
 author: kenwith
@@ -14,7 +14,7 @@ ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
 ---
 
-# Single sign-on to applications in Azure Active Directory
+# What is single sign-on (SSO)?
 
 Single sign-on (SSO) adds security and convenience when users sign-on to applications in Azure Active Directory (Azure AD). This article describes the single sign-on methods, and helps you choose the most appropriate SSO method when configuring your applications.
 
@@ -94,8 +94,8 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Microsoft Edge on Windows 10 Anniversary Edition or later
 - Microsoft Edge for iOS and Android
 - Intune Managed Browser
-- Chrome on Windows 7 or later, and on MacOS X or later
-- Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+- Chrome on Windows 7 or later, and on macOS X or later
+- Firefox 26.0 or later on Windows XP SP2 or later, and on macOS X 10.6 or later
 
 To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
