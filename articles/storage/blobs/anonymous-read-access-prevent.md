@@ -60,7 +60,7 @@ You can also configure an alert rule to notify you when a certain number of anon
 
 Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which containers are receiving anonymous requests.
 
-To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](monitor-storage.md).
+To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../common/monitor-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -82,7 +82,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](monitor-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](../common/monitor-storage-reference.md#resource-logs-preview).
 
 #### Query logs for anonymous requests
 
@@ -98,10 +98,59 @@ StorageBlobLogs
 
 You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md).
 
+## Remediate anonymous public access
 
+After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to limit or prevent public access. If some containers in your storage account may need to be available for public access, then you can configure the public access setting for each container in your storage account. This option provides the most granular control over public access. For more information, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+ 
+For enhanced security, you can disable public access for an entire storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable or disable public read access for a storage account](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
 
+If your scenario requires that certain containers be available for public access, it may be advisable to group those containers into storage accounts that are reserved for public access. You can then disable public access for any other storage accounts.
 
+### Verify that public access to a blob is not permitted
 
+To verify that public access to a specific blob is denied, you can attempt to download the blob via its URL. If the download succeeds, then the blob is still publicly available. If the blob is not publicly accessible because public access has been disabled for the storage account, then you will see an error message indicating that public access is not permitted on this storage account.
+
+The following example shows how to use PowerShell to attempt to download a blob via its URL. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+$url = "<absolute-url-to-blob>"
+$downloadTo = "<file-path-for-download>"
+Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
+```
+
+### Verify that modifying the container's public access setting is not permitted
+
+To verify that a container's public access setting cannot be modified after public access is disabled for the storage account, you can attempt to modify the setting. Changing the container's public access setting will fail if public access is disabled for the storage account.
+
+The following example shows how to use PowerShell to attempt to change a container's public access setting. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$containerName = "<container-name>"
+
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
+```
+
+### Verify that creating a container with public access enabled is not permitted
+
+If public access is disabled for the storage account, then you will not be able to create a new container with public access enabled. To verify, you can attempt to create a container with public access enabled.
+
+The following example shows how to use PowerShell to attempt to create a container with public access enabled. Remember to replace the placeholder values in brackets with your own values:
+ 
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$containerName = "<container-name>"
+
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
+```
 
 ## Next steps
 

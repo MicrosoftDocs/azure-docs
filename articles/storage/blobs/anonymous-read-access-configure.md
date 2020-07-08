@@ -30,7 +30,8 @@ This article describes how to configure anonymous public read access for a conta
 
 By default, public access is enabled for a storage account. Disabling public access prevents all anonymous access to containers and blobs in that account. For improved security, Microsoft recommends that you disable public access for your storage accounts unless your scenario requires that users access blob resources anonymously.
 
-Disabling public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
+> [!WARNING]
+> Disabling public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
 
 To enable or disable public access for a storage account, use the Azure portal or Azure CLI.
 
@@ -82,7 +83,7 @@ az resource show \
 
 ## Check the public access setting for a storage account
 
-To determine the minimum required TLS version that is configured for a storage account, check the Azure Resource Manager **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
+To check the public access setting for a storage account, check the Azure Resource Manager **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
 
 ### Check the public access setting for a single storage account
 
@@ -101,7 +102,7 @@ az resource show \
 
 To check the public access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the minimum TLS version for each account:
+Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the value of the **allowBlobPublicAccess** property for each account:
 
 ```kusto
 resources
@@ -113,13 +114,13 @@ resources
 
 ## Set the public access level for a container
 
-To grant anonymous users read access to a container and its blobs, first enable public access for the storage account, then set the container's public access level. You can configure a container with the following permissions:
+To grant anonymous users read access to a container and its blobs, first enable public access for the storage account, then set the container's public access level. If public access is disabled for the storage account, you will not be able to configure public access for a container.
+
+When public access is enabled for a storage account, you can configure a container with the following permissions:
 
 - **No public read access:** The container and its blobs can be accessed only with an authorized request. This option is the default for all new containers.
 - **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available anonymously. Anonymous clients cannot enumerate the blobs within the container.
 - **Public read access for container and its blobs:** Container and blob data can be read by anonymous request, except for container permission settings and container metadata. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
-
-You can set a container's public access level only if public access is enabled for the storage account. If public access is disabled for the storage account, changing the public access level for a container is not permitted.
 
 You cannot change the public access level for an individual blob. Public access level is set only at the container level.
 
@@ -162,7 +163,7 @@ When public access is disabled for the storage account, a container's public acc
 
 ## Check the container public access setting
 
-To check the public access setting for a single container, 
+To check the public access setting for one or more containers, you can use the Azure portal, PowerShell, Azure CLI, one of the Azure Storage client libraries, or the Azure Storage resource provider. The following sections offer a few examples.  
 
 ### Check the public access setting for a single container
 
@@ -182,7 +183,7 @@ az storage container show-permission \
 
 It is possible to check which containers in one or more storage accounts are configured for public access by listing the containers and checking the public access setting. This approach is a practical option when a storage account does not contain a large number of containers, or when you are checking the setting across a small number of storage accounts. However, performance may suffer if you attempt to enumerate a large number of containers.
 
-The following example uses PowerShell to get the public access setting for all containers in a storage account.
+The following example uses PowerShell to get the public access setting for all containers in a storage account. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 $rgName = "<resource-group>"
@@ -196,5 +197,6 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 ## Next steps
 
+- [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md)
 - [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
 - [Authorizing access to Azure Storage](../common/storage-auth.md)
