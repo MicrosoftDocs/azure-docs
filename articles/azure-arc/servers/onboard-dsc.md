@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # How to install the Connected Machine agent using Windows PowerShell DSC
 
-Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
@@ -69,7 +69,7 @@ The following are the parameters you pass to the PowerShell script to use.
 
 1. In a PowerShell console, navigate to the folder where you saved the `.ps1` file.
 
-2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -83,7 +83,7 @@ After you install the agent and configure it to connect to Azure Arc for servers
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
+The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 
