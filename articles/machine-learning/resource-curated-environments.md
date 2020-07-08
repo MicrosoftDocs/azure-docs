@@ -579,7 +579,7 @@ dependencies:
   - mkl==2018.0.3
   - horovod==0.16.1
 
-### AzureML-PyTorch-1.1-CPU
+### AzureML-PyTorch 1.1 CPU
 
 packages channels:
 - conda-forge
