@@ -1,6 +1,6 @@
 ---
-title: 'Plan your Gen 1 environment - Azure Time Series Insights | Microsoft Docs'
-description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights Gen 1 environment.
+title: 'Plan your Gen1 environment - Azure Time Series Insights | Microsoft Docs'
+description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights Gen1 environment.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
-# Plan your Azure Time Series Insights Gen 1 environment
+# Plan your Azure Time Series Insights Gen1 environment
 
-This article describes how to plan your Azure Time Series Insights Gen 1 environment based on your expected ingress rate and your data retention requirements.
+This article describes how to plan your Azure Time Series Insights Gen1 environment based on your expected ingress rate and your data retention requirements.
 
 ## Video
 
@@ -53,7 +53,7 @@ Azure Time Series Insights has two modes:
 You can adjust retention and toggle between the two modes on the environment's configuration page in the Azure portal.
 
 > [!IMPORTANT]
-> You can configure a maximum of 400 days of data retention in your Azure Time Series Insights Gen 1 environment.
+> You can configure a maximum of 400 days of data retention in your Azure Time Series Insights Gen1 environment.
 
 ### Configure data retention
 
@@ -70,7 +70,7 @@ You can adjust retention and toggle between the two modes on the environment's c
 
 ## Ingress capacity
 
-[!INCLUDE [Azure Time Series Insights Gen 1 limits](../../includes/time-series-insights-ga-limits.md)]
+[!INCLUDE [Azure Time Series Insights Gen1 limits](../../includes/time-series-insights-ga-limits.md)]
 
 ### Environment planning
 
