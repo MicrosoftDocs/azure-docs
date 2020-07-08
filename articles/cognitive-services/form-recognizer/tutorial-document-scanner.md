@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Create a document scanner app with AI Builder
 
-[AI Builder](https://docs.microsoft.com/en-us/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
+[AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
 In this tutorial, you learn how to:
 
@@ -47,7 +47,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > - PDF documents longer than 50 pages
 > - Fillable PDFs
 >
-> For more information about requirements for input documents, see [Requirements and limitations](form-processing-model-requirements.md).
+> For more information about requirements for input documents, see [input requirements](./input-requirements).
 
 ### Upload your documents
 
@@ -68,7 +68,7 @@ During the analysis step, AI Builder examines the documents that you uploaded an
 When the analysis has finished, select the thumbnail to open the field selection experience.
 
 > [!IMPORTANT]
-> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./input-requirements).
+> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./input-requirements.md).
 
 ## Select your form fields
 
@@ -115,11 +115,11 @@ If you're happy with your model, select **Publish**  to publish it. When publish
 > [!div class="mx-imgBorder"]
 > ![add documents page](./media/tutorial-aibuilder/model-page.png)
 
-After you've published your form processing model, you can use it in a [PowerApps canvas app](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow).
+After you've published your form processing model, you can use it in a [PowerApps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 
 ## Next steps
 
 Follow the AI Builder documentation for using a form-processing model.
 
-* [Use the form-processor component in Power Apps](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
-* [Use a form-processing model in Power Automate](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
+* [Use the form-processor component in Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
+* [Use a form-processing model in Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
