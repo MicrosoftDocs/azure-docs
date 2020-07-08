@@ -28,10 +28,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
-* [macOS](https://www.apple.com/macos)
-* [Git](https://git-scm.com/)
-* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk)
-* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+* [macOS](https://www.apple.com/macos).
+* [Git](https://git-scm.com/).
+* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
+* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## Configure authentication credentials
 
@@ -51,7 +51,7 @@ Don't commit this change into source control because it contains secrets that sh
 
 ## Start the Immersive Reader with sample content
 
-In Xcode, select **Ctrl-R** to run the project.
+In Xcode, select **Ctrl+R** to run the project.
 
 ## Next steps
 
