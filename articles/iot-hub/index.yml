@@ -89,6 +89,18 @@ landingContent:
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
           url: ../iot-pnp/howto-install-iot-explorer.md
+ - title: Using IoT Security certificates
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Control access to IoT Hub
+           url: iot-hub-devguide-security.md
+         - text: Device Authentication using X.509 CA certs
+           url: iot-hub-x509ca-overview.md
+         - text: X.509 security with IoT Hub
+           url: iot-hub-security-x509-get-started.md
+         - text: X.509 CA cert security concepts
+           url: iot-hub-x509ca-concept.md
  - title: Use Azure CLI for Iot Hub
    linkLists:
      - linkListType: reference
@@ -105,15 +117,3 @@ landingContent:
            url: tutorial-routing-config-message-routing-cli.md
          - text: Send telemetry and monitor
            url: quickstart-send-telemetry-cli.md
- - title: Using IoT Security certificates
-   linkLists:
-     - linkListType: concept
-       links:
-         - text: Control access to IoT Hub
-           url: iot-hub-devguide-security.md
-         - text: Device Authentication using X.509 CA certs
-           url: iot-hub-x509ca-overview.md
-         - text: X.509 security with IoT Hub
-           url: iot-hub-security-x509-get-started.md
-         - text: X.509 CA cert security concepts
-           url: iot-hub-x509ca-concept.md
