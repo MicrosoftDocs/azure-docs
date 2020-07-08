@@ -137,7 +137,8 @@ In the following example, all data under the subfolder *NoaaIsdFlorida/2019* is 
 
 In the **Schema** settings, specify the timestamp column from a virtual or real column in the specified dataset:
 
-![Timestamp](./media/how-to-monitor-datasets/timestamp.png)
+:::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Set the timestamp":::
+
 
 ## Create dataset monitors
 
