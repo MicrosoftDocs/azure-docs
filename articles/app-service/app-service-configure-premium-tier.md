@@ -39,7 +39,7 @@ When configuring the App Service plan in the <a href="https://portal.azure.com" 
 
 Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > If you don't see **P1V2**, **P2V2**, and **P3V2** as options, or if the options are greyed out, then **PremiumV2** likely isn't available in the underlying App Service deployment that contains the App Service plan. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
@@ -54,15 +54,15 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open
 
 In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Screenshot showing how to scale up your app service plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click **Apply**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 If your operation finishes successfully, your app's overview page shows that it's now in a **PremiumV2** tier.
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Screenshot showing the PremiumV2 pricing tier on your app's overview page.](media/app-service-configure-premium-tier/finished.png)
 
 ### If you get an error
 
