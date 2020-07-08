@@ -29,6 +29,16 @@ The JSON file that defines the DCM uses the [Digital Twin Definition Language (D
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
 
+## View raw data
+
+IoT Central lets you view the raw data that a device sends to an application. This view is useful for troubleshooting issues with the payload sent from a device. To view the raw data a device is sending:
+
+1. Navigate to the device from the **Devices** page.
+
+1. Select the **Raw data** tab.
+
+
+
 ## Telemetry
 
 ### Primitive types
@@ -859,7 +869,7 @@ The device should send the following JSON payload to IoT Central after it proces
 
 ## Commands
 
-## Synchronous command types
+### Synchronous command types
 
 The following snippet from a DCM shows the definition of a synchronous command that has no parameters and that doesn't expect the device to return anything:
 
