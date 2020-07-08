@@ -24,7 +24,7 @@ Right now, the only published  data plane SDK for interacting with the Azure Dig
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) entitled *digitaltwins.json*, and its accompanying folder of examples.
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
 ```cmd/sh
