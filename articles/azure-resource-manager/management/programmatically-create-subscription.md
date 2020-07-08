@@ -350,7 +350,7 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 ### Prerequisites
 
-You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
+You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 

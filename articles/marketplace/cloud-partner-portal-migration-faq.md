@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center - Microsoft commercial marketplace
 description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/29/2020
+author: anbene
 ms.author: mingshen
+ms.date: 06/29/2020
 ---
 
 # Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center

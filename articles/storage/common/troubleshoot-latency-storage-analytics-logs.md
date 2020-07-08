@@ -88,7 +88,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
    * Client Latency = End-to-End Latency – Server-Latency
 
-          * Example: 8453 – 391 = 8062ms
+        Example: 8453 – 391 = 8062ms
 
    The following table provides information about the high latency OperationType and RequestStatus results:
 

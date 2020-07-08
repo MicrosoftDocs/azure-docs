@@ -161,6 +161,25 @@ Error | Possible causes | Recommended actions
 --- | --- | ---
 The current operation failed due to an internal service error "Resource not provisioned in service stamp". Please retry the operation after some time. (ID: 230006) | The protected server was renamed. | <li> Rename the server back to the original name as registered with the vault. <br> <li> Re-register the server to the vault with the new name.
 
+## Job could not be started as another job was in progress
+
+If you notice a warning message in the **MARS console** > **Job history**, saying “Job could not be started as another job was in progress”, then this could be because of a duplicate instance of the job triggered by the Task Scheduler.
+
+![Job could not be started as another job was in progress](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+To resolve this issue:
+
+1. Launch the Task Scheduler snap-in by typing *taskschd.msc* in the Run window
+1. In the left pane, navigate to **Task Scheduler Library** -> **Microsoft** -> **OnlineBackup**.
+1. For each task in this library, double-click on the task to open properties and perform the following steps:
+    1. Switch to the **Settings** tab.
+
+         ![Settings tab](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Change the option for **If the task is already running, then the following rule applies**. Choose **Do not start a new instance**.
+
+         ![Change the rule to do not start new instance](./media/backup-azure-mars-troubleshoot/change-rule.png)
+
 ## Troubleshoot restore problems
 
 Azure Backup might not successfully mount the recovery volume, even after several minutes. And you might receive error messages during the process. To begin recovering normally, take these steps:
