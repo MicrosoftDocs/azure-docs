@@ -12,9 +12,9 @@
 ## Restrictions
 
 1.	End-to-end encryption is currently available only in the USCentralEUAP region.
-1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/VMSSes.
+1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/virtual machine scale sets.
 1.	You have to deallocate your existing VMs to enable the encryption.
-1.	You can enable the encryption for existing VMSS. However, only new VMs created after enabling the encryption are automatically encrypted.
+1.	You can enable the encryption for existing virtual machine scale set. However, only new VMs created after enabling the encryption are automatically encrypted.
 
 ### Supported VM sizes
 
@@ -32,7 +32,7 @@ Only the following VM sizes currently support end-to-end encryption:
 
 ## Prerequisites
 
-You must enable the feature on your subscription before you can enable end-to-end encryption for your VM/VMSS.
+You must enable the feature on your subscription before you can enable end-to-end encryption for your VM/virtual machine scale set.
 
 - Use the following command to register the feature for your subscription:
  `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"` 
@@ -57,9 +57,9 @@ Currently, you must use the API in order to enable end-to-end encryption. Using 
 
 Alternatively, you may use the following scripts that will create VMs using end-to-end encryption, for you.
 
-### Disks encrypted with customer managed keys with server-side encryption
+### Disks encrypted with customer-managed keys with server-side encryption
 
-The following script creates a VM using end-to-end encryption on VMs that are using customer-managed keys with server side encryption:
+The following script creates a VM using end-to-end encryption on VMs that are using customer-managed keys with server-side encryption:
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<yoursubscriptionID>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
@@ -76,7 +76,7 @@ New-AzResourceGroupDeployment -ResourceGroupName yourResourceGroupName `
 
 ### Disks encrypted with platform-managed keys with server-side encryption
 
-The following script creates a VM with disks using end-to-end encryption on VMs that have been configured to use platform-managed keys with server side encryption:
+The following script creates a VM with disks using end-to-end encryption on VMs that have been configured to use platform-managed keys with server-side encryption:
 
 ```PowerShell
 $password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
