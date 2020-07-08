@@ -188,7 +188,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
     Yes. For more information, see [Create a VM with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Do generation 2 VMs support Secure Boot or vTPM in Azure? 
-    Generation 2 VMs support Secure Boot and vTPM when using on premise hyper-V but not in Azure. This is also true for generation 1 VMs in Azure. 
+    Both generation 1 and generation 2 VMs in Azure do not support Secure Boot or vTPM. 
     
 * **Is VHDX supported on generation 2?**  
     No, generation 2 VMs support only VHD.
