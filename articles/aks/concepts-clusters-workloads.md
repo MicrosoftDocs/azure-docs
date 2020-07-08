@@ -34,7 +34,7 @@ A Kubernetes cluster is divided into two components:
 
 ## Control plane
 
-When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster.
+When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster. The control plane and its resources reside only on the region where you created the cluster.
 
 The control plane includes the following core Kubernetes components:
 
