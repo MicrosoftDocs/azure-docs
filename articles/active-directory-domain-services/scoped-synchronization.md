@@ -48,7 +48,7 @@ To enable scoped synchronization in the Azure portal, complete the following ste
 
 Changing the scope of synchronization causes the managed domain to resynchronize all data. Objects that are no longer required in the managed domain are deleted, and resynchronization may take some time to complete.
 
-## Modify scoped synchronization using the Azure portal
+## Modify scoped synchronization
 
 To modify the list of groups whose users should be synchronized to the managed domain, complete the following steps:
 
@@ -60,7 +60,7 @@ To modify the list of groups whose users should be synchronized to the managed d
 
 Changing the scope of synchronization causes the managed domain to resynchronize all data. Objects that are no longer required in the managed domain are deleted, and resynchronization may take some time to complete.
 
-## Disable scoped synchronization using the Azure portal
+## Disable scoped synchronization
 
 To disable group-based scoped synchronization for a managed domain, complete the following steps:
 
