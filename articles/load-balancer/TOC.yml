@@ -88,7 +88,7 @@
       href: upgrade-InternalBasic-To-PublicStandard.md
   - name: Configure outbound rules
     items:
-    - name: Azure portal
+    - name: Portal
       href: configure-load-balancer-outbound-portal.md
     - name: Azure CLI
       href: configure-load-balancer-outbound-cli.md
@@ -105,7 +105,7 @@
       displayName: ARM
   - name: Create an internal Load Balancer
     items:
-    - name: Azure portal
+    - name: Portal
       href: tutorial-load-balancer-standard-internal-portal.md
     - name: Azure CLI
       href: load-balancer-get-started-ilb-arm-cli.md
