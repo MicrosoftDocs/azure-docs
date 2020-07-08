@@ -91,14 +91,14 @@ You can configure the behavior of your hosted UI by clicking **Additional Config
 ### Web search configurations
 
 - Web results enabled: Determines if web search is enabled (you will see a Web tab at the top of the page)
-- Enable autosuggest : Determines if custom autosuggest is enabled (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) for additional cost).
+- Enable autosuggest: Determines if custom autosuggest is enabled (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) for additional cost).
 - Web results per page: Number of web search results to display at a time (the maximum is 50 results per page).
 - Image caption: Determines if images are displayed with search results.
 
 The following configurations are shown if you click **Show advanced configurations**:
 
 - Highlight words: Determines if results are displayed with search terms in bold.
-- Link target:  Determines if the webpage opens in a new browser tab (Blank) or the same browser tab (self) when the user clicks a search result.
+- Link target: Determines if the webpage opens in a new browser tab (Blank) or the same browser tab (self) when the user clicks a search result.
 
 ### Image search configurations
 
@@ -107,7 +107,7 @@ The following configurations are shown if you click **Show advanced configuratio
 
 The following configuration is shown if you click **Show advanced configurations**.  
   
-- Enable filters: Adds filters that the user can use to filter the images that Bing returns. For example, the user can filter the results for only animated GIFs.|
+- Enable filters: Adds filters that the user can use to filter the images that Bing returns. For example, the user can filter the results for only animated GIFs.
 
 ### Video search configurations
 
