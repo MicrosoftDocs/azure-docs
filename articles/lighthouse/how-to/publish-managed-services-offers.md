@@ -1,13 +1,13 @@
 ---
 title: Publish a Managed Service offer to Azure Marketplace
-description: Learn how to publish a Managed Service offer that onboards customers to Azure delegated resource management.
+description: Learn how to publish a Managed Service offer that onboards customers to Azure Lighthouse.
 ms.date: 05/04/2020
 ms.topic: how-to
 ---
 
 # Publish a Managed Service offer to Azure Marketplace
 
-In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer will then delegate  subscriptions or resource groups, allowing you to manage them through [Azure Lighthouse](../overview.md).
 
 ## Publishing requirements
 
@@ -18,7 +18,7 @@ Per the [Managed Service offer certification requirements](/legal/marketplace/ce
 Your Microsoft Partner Network (MPN) ID will be [automatically associated](../../billing/billing-partner-admin-link-started.md) with the offers you publish to track your impact across customer engagements.
 
 > [!NOTE]
-> If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure delegated resource management](onboard-customer.md).
+> If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Lighthouse](onboard-customer.md).
 
 ## Create your offer
 
@@ -26,7 +26,7 @@ For detailed instructions about how to create your offer, including all of the i
 
 To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](/legal/marketplace/certification-policies), particularly the [Managed Services](/legal/marketplace/certification-policies#700-managed-services) section.
 
-Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded for Azure delegated resource management](#the-customer-onboarding-process).
+Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded to Azure Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
 > Each plan in a Managed Service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate [private plan](../../marketplace/private-offers.md) that is exclusive to each customer.
@@ -39,7 +39,7 @@ You can [publish an updated version of your offer](../..//marketplace/partner-ce
 
 ## The customer onboarding process
 
-After a customer adds your offer, they'll be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources), which will then be onboarded for Azure delegated resource management. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
+After a customer adds your offer, they'll be able to [delegate one or more specific subscriptions or resource groups](view-manage-service-providers.md#delegate-resources), which will then be onboarded to Azure Lighthouse. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section of the [**Service providers**](view-manage-service-providers.md) page in the Azure portal.
 
 > [!IMPORTANT]
 > Delegation must be done by a non-guest account in the customer's tenant which has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

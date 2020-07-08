@@ -4913,6 +4913,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/use-vs-code-to-create-template.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
       "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false

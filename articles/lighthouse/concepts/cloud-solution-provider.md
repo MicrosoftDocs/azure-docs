@@ -1,7 +1,7 @@
 ---
 title: Cloud Solution Provider program considerations
 description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
-ms.date: 12/18/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
 ---
 
@@ -22,9 +22,9 @@ With AOBO, any user with the [Admin Agent](/partner-center/permissions-overview#
 
 ## Azure delegated resource management
 
-Using Azure delegated resource management, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improve security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
+Using Azure Lighthouse, you can assign different groups to different customers or roles, as shown in the following diagram. Because users will have the appropriate level of access through Azure delegated resource management, you can reduce the number of users who have the Admin Agent role (and thus have full AOBO access). This helps improve security by limiting unnecessary access to your customers’ resources. It also gives you more flexibility to manage multiple customers at scale.
 
-Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
+Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
 
 ![Tenant management using AOBO and Azure delegated resource management](../media/csp-2.jpg)
 
@@ -36,5 +36,5 @@ Onboarding a subscription that you created through the CSP program follows the s
 ## Next steps
 
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
-- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn how to [onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md).
 - Learn about the [Cloud Solution Provider program](/partner-center/csp-overview).
