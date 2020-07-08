@@ -7,7 +7,7 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 # Analyze Website logs using Azure Data Lake Analytics
