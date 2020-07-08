@@ -30,7 +30,7 @@ The second step is to call the [Get Results](https://westcentralus.dev.cognitive
 
 If necessary, Read corrects the rotation of the recognized page by returning the rotational offset in degrees about the horizontal image axis, as seen in the following illustration.
 
-![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works-svg)
+![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
 ### Sample OCR output
 
