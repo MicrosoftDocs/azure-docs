@@ -38,7 +38,7 @@ npm install -g autorest@2.0.4413
 To run AutoRest against the Azure Digital Twins Swagger file, follow these steps:
 1. Copy the Azure Digital Twins Swagger file and its accompanying folder of examples into a working directory.
 2. Use a command prompt window to switch to that working directory.
-3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `--python`, `--java`, `--go`, etc. (You can find the full list of options in the [AutoRest README]((https://github.com/Azure/autorest)).)
+3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `--python`, `--java`, `--go`, etc. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
