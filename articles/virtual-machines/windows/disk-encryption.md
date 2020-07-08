@@ -71,11 +71,8 @@ For now, customer-managed keys have the following restrictions:
 
 ## Next steps
 
-- [Enable end-to-end encryption](../disks-enable-end-to-end-encryption.md)
+- [Enable end-to-end encryption](disks-enable-end-to-end-encryption.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys - managed disks](disks-enable-customer-managed-keys-portal.md)
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
-- [Replicate machines with customer-managed keys enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
-- [Set up disaster recovery of VMware VMs to Azure with PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
-- [Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
