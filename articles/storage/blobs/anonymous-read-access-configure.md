@@ -83,7 +83,7 @@ az resource show \
 
 ## Check the public access setting for a storage account
 
-To check the public access setting for a storage account, check the Azure Resource Manager **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
+To check the public access setting for a storage account, get the value of the **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
 
 ### Check the public access setting for a single storage account
 
