@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Server-side encryption of Azure managed disks
