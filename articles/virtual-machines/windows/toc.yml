@@ -351,9 +351,9 @@
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Cloud adoption framework
-    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Architecture center
-    href: https://docs.microsoft.com/en-us/azure/architecture/
+    href: https://docs.microsoft.com/azure/architecture/
   - name: Infrastructure example
     href: infrastructure-example.md
 - name: How-to guides

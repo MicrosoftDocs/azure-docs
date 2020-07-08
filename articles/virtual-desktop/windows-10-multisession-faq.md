@@ -56,7 +56,7 @@ The Azure gallery has several releases, including Windows 10 Enterprise multi-se
  
 ## Which Windows 10 Enterprise multi-session versions are supported?
 
-Windows 10 Enterprise multi-session, versions 1809 and later are supported and are available in the Azure gallery. These releases follow the same support life-cycle policy as Windows 10 Enterprise, which means the spring release is supported for 18 months and the fall release for 30 months.
+Windows 10 Enterprise multi-session, versions 1809 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows 10 Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
  
 ## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 

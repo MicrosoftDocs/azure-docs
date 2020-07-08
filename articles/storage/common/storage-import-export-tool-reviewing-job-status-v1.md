@@ -4,7 +4,7 @@ description: Learn how to use the log files created when the import or export jo
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common

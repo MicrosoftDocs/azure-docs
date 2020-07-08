@@ -1,13 +1,13 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ---
 
 # Monitor delegation changes in your managing tenant
 
-As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), or when previously delegated resources are removed.
+As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure Lighthouse](../overview.md), or when previously delegated resources are removed.
 
 In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
 
@@ -39,7 +39,7 @@ Because this is a broad level of access, we recommend that you assign this role 
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 Use one of the following methods to make the root scope assignments.
@@ -68,7 +68,7 @@ After you've created your service principal account and assigned the Monitoring 
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant. 
 
-[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
+[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID
@@ -153,5 +153,5 @@ else
 
 ## Next steps
 
-- Learn how to onboard customers to [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+- Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).

@@ -47,7 +47,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
        - If the resource group created by Site Recovery already exists, it is reused.
        - You can customize the resource group settings.
        - The location of the target resource group can be any Azure region, except the region in which the source VMs are hosted.
-   - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region with an "asr" suffix in the name. This is mapped to your source network, and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
+   - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region with an "asr" suffix in the name. This is mapped to your source network, and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
    - **Target storage accounts (source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it is reused.
    - **Replica-managed disks (source VM uses managed disks)**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
    - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location. This storage account should be Standard.
@@ -114,8 +114,9 @@ You can modify the default target settings used by Site Recovery.
 6. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
->During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 >
+> - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
+> - If a recovery point has not been generated in last 60 minutes, the replication health of the virtual machine will become critical.
 
 ## Next steps
 

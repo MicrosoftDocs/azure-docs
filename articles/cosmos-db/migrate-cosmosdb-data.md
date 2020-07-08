@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 
 ---
@@ -41,7 +41,7 @@ The custom tool uses the bulk executor library and supports scaling out across m
 The following image describes the migration process using this custom tool. The tool is running on a set of virtual machines, and each virtual machine queries the tracking collection in Azure Cosmos DB to acquire a lease on one of the source data partitions. Once this is done, the source data partition is read by the tool and ingested into Azure Cosmos DB by using the bulk executor library. Next, the tracking collection is updated to record the progress of data ingestion and any errors encountered. After a data partition is processed, the tool attempts to query for the next available source partition. It continues to process the next source partition until all the data is migrated. The source code for the tool is available [here](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
-![Migration Tool Setup](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Migration Tool Setup" border="false":::
  
 
  
@@ -142,7 +142,7 @@ Once the migration is completed, you can validate that the document count in Azu
 Although you can follow this guide to successfully migrate large datasets to Azure Cosmos DB, for large scale migrations, it is recommended that you reach out the Azure Cosmos DB product team to validate the data modelling and a general architecture review. Based on your dataset and workload, the product team can also suggest other performance and cost optimizations that could be applicable to you. 
 To contact the Azure Cosmos DB team for assistance with large scale migrations, you can open a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype as shown below.
 
-![Migration Support Topic](./media/migrate-cosmosdb-data/supporttopic.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Migration Support Topic":::
 
 
 ## Next steps

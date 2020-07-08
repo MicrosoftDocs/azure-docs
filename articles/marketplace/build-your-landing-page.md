@@ -1,13 +1,12 @@
 ---
 title: Build your landing page in the Azure Marketplace | Azure
 description: Learn how to create a landing page in the Azure Marketplace and Microsoft AppSource, for app and service publishers.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-ms.author: dsindona
-
 ---
 
 # Build your landing page

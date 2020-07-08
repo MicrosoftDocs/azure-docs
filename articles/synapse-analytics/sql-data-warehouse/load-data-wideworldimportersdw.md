@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan

@@ -1,18 +1,8 @@
 ---
 title: Azure PowerShell Samples for Azure Lab Services | Microsoft Docs
 description: Azure PowerShell Samples - Scripts to help you manage labs in Azure Lab Services
-services: lab-services
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
+ms.date: 06/26/2020
 ---
 
 # Azure PowerShell samples for Azure Lab Services

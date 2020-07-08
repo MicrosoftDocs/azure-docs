@@ -24,6 +24,8 @@ Azure Backup provides the following diagnostics events. Each event provides deta
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
+If you are using the [legacy event](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, you are recommended to switch to using the above events at the earliest.
+
 For more information, see [Data model for Azure Backup diagnostics events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
 
 Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.

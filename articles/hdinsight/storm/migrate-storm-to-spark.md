@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
 ---
 # Migrate Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
