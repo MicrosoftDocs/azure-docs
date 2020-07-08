@@ -198,6 +198,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-- [What is Azure App Service on Linux?](overview#app-service-on-linux.md)
+- [What is Azure App Service on Linux?](overview.md#app-service-on-linux)
 - [Set up staging environments in Azure App Service](deploy-staging-slots.md)
 - [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)

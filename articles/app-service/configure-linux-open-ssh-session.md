@@ -25,7 +25,7 @@ You can also connect to the container directly from your local development machi
 
 ## Use SSH support with custom Docker images
 
-See [Configure SSH in a custom container](configure-custom-container.md#enable-ssh).
+See [Configure SSH in a custom container](containers/configure-custom-container.md#enable-ssh).
 
 ## Open SSH session from remote shell
 
@@ -114,7 +114,7 @@ You can post questions and concerns on the [Azure forum](https://docs.microsoft.
 For more information on Web App for Containers, see:
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
-* [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
-* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
+* [How to use a custom Docker image for Web App for Containers](containers/quickstart-docker-go.md)
+* [Using .NET Core in Azure App Service on Linux](containers/quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ](faq-app-service-linux.md)

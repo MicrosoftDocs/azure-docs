@@ -345,7 +345,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 # [Linux](#tab/linux)
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ---
 
@@ -358,7 +358,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 # [Linux](#tab/linux)
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 ---
 
@@ -645,7 +645,7 @@ To stop log streaming at anytime, type `Ctrl`+`C`.
 
 # [Linux](#tab/linux)
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
 ---
 

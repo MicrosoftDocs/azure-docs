@@ -191,7 +191,7 @@ Run the following command to specify the database connection details as app sett
 az webapp config appsettings set --name <app-name> --resource-group <app-resource-group> --settings DJANGO_ENV="production" DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="root@<postgresql-name>" DBPASS="Pollsdb1" DBNAME="pollsdb"
 ```
 
-For information on how your code accesses these app settings, see [Access environment variables](how-to-configure-python.md#access-environment-variables).
+For information on how your code accesses these app settings, see [Access environment variables](containers/how-to-configure-python.md#access-environment-variables).
 
 ### Run database migrations
 
@@ -227,7 +227,7 @@ Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net/admin
 
 Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net* again to see the poll question and answer the question.
 
-App Service detects a Django project in your repository by looking for a *wsgi.py* file in each subdirectory, which `manage.py startproject` creates by default. When App Service finds the file, it loads the Django web app. For more information on how App Service loads Python apps, see [Configure built-in Python image](how-to-configure-python.md).
+App Service detects a Django project in your repository by looking for a *wsgi.py* file in each subdirectory, which `manage.py startproject` creates by default. When App Service finds the file, it loads the Django web app. For more information on how App Service loads Python apps, see [Configure built-in Python image](containers/how-to-configure-python.md).
 
 **Congratulations!** You're running a Python (Django) web app in Azure App Service for Linux.
 
@@ -430,4 +430,4 @@ Go to the next tutorial to learn how to map a custom DNS name to your app:
 Or check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure Python app](how-to-configure-python.md)
+> [Configure Python app](containers/how-to-configure-python.md)

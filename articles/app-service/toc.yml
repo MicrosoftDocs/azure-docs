@@ -4,8 +4,6 @@
   items:
   - name: About Web Apps
     href: overview.md
-  - name: About App Service on Linux
-    href: containers/app-service-linux-intro.md
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
@@ -134,6 +132,8 @@
       href: configure-language-php.md
     - name: Configure Java
       href: configure-language-java.md
+    - name: Configure Ruby
+      href: configure-language-ruby.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
     - name: Configure Azure Storage (container)

@@ -11,8 +11,6 @@ metadata:
   ms.date: 02/26/2020
 
 landingContent:
-  - title: About App Service on Linux
-    linkLists:
   - title: Get started
     linkLists:
       - linkListType: quickstart

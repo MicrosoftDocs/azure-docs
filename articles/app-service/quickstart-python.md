@@ -34,7 +34,7 @@ Then go into that folder:
 cd python-docs-hello-world
 ```
 
-The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
+The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](containers/how-to-configure-python.md).
 
 ## Run the sample
 
@@ -226,7 +226,7 @@ az group delete -n <resource-group-name>
 > [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](how-to-configure-python.md)
+> [Configure Python app](containers/how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](tutorial-custom-docker-image.md)
+> [Tutorial: Run Python app in custom container](containers/tutorial-custom-docker-image.md)

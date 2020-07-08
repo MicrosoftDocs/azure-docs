@@ -1,13 +1,5 @@
 - name: App Service on Linux Documentation
   href: index.yml
-- name: Overview
-  items:
-  - name: About Web Apps
-    href: ../overview.md
-  - name: About App Service on Linux
-    href: app-service-linux-intro.md
-  - name: Compare hosting options
-    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
@@ -47,8 +39,6 @@
       href: configure-language-java.md
     - name: Configure Python
       href: how-to-configure-python.md
-    - name: Configure Ruby
-      href: configure-language-ruby.md
     - name: Configure custom container
       href: configure-custom-container.md
     - name: Serve content with Storage

@@ -105,7 +105,7 @@ landingContent:
           - text: Migrate a legacy app to Azure in a Windows container
             url: app-service-web-tutorial-windows-containers-custom-fonts.md
           - text: Run a Docker Compose app
-            url: quickstart-multi-container.md
+            url: tutorial-multi-container-app.md
       - linkListType: how-to-guide
         links:
           - text: CI/CD to a custom container

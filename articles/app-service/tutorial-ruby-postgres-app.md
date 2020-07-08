@@ -129,7 +129,7 @@ az postgres up --resource-group myResourceGroup --location westeurope --server-n
 
 This command may take a while because it's doing the following:
 
-- Creates a [resource group](../../azure-resource-manager/management/overview.md#terminology) called `myResourceGroup`, if it doesn't exist. Every Azure resource needs to be in one of these. `--resource-group` is optional.
+- Creates a [resource group](../azure-resource-manager/management/overview.md#terminology) called `myResourceGroup`, if it doesn't exist. Every Azure resource needs to be in one of these. `--resource-group` is optional.
 - Creates a Postgres server with the administrative user.
 - Creates a `sampledb` database.
 - Allows access from your local IP address.

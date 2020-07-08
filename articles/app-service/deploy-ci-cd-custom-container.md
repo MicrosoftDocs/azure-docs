@@ -52,8 +52,8 @@ Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://d
 ## Next steps
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-* [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
+* [Create a .NET Core web app in App Service on Linux](containers/quickstart-dotnetcore.md)
 * [Create a Ruby web app in App Service on Linux](quickstart-ruby.md)
-* [Deploy a Docker web app in Web App for Containers](quickstart-docker-go.md)
+* [Deploy a Docker web app in Web App for Containers](containers/quickstart-docker-go.md)
 * [App Service on Linux FAQ](faq-app-service-linux.md)
-* [Manage Web App for Containers using Azure CLI](./app-service-linux-cli.md)
+* [Manage Web App for Containers using Azure CLI](containers/app-service-linux-cli.md)
