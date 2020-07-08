@@ -151,6 +151,8 @@ If your version is lower than 6.2.4, you will need to upgrade your version of Wi
 
 #### Install Azure PowerShell Az and Az.DataBox module
 
+You will need to install the Azure PowerShell modules to use Azure PowerShell to order an Azure Data Box. To install the Azure PowerShell modules:
+
 1. Install the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 2. Then install Az.DataBox using the command `Install-Module -Name Az.DataBox`.
 
