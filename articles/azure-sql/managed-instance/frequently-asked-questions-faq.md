@@ -127,21 +127,64 @@ You can do so using the [Azure Cost Management solution](/azure/cost-management/
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`. 
   
-## Inbound NSG rules
+## Networking requirements 
+
+**What are the current inbound/outbound NSG constraints on the Managed Instance subnet?**
+
+The required NSG and UDR rules are documented [here](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration), and automatically set by the service.
+Please keep in mind that these rules are just the ones we need for maintaining the service. To connect to managed instance and use different features you will need to set additional, feature specific rules, that you need to maintain.
 
 **How can I set inbound NSG rules on management ports?**
 
-The SQL Managed Instance control plane maintains NSG rules that protect management ports.
+SQL Managed Instance is responsible for setting rules on management ports. This is achieved through functionality named [service-aided subnet configuration](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+This is to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
-Here is what management ports are used for:
+**Can I get the source IP ranges that are used for the inbound management traffic?**
 
-Ports 9000 and 9003 are used by Azure Service Fabric infrastructure. The Service Fabric primary role is to keep the virtual cluster healthy and keep the goal state in terms of the number of component replicas.
+Yes. You could analyze traffic coming through your networks security group by [configuring Network Watcher flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
-Ports 1438, 1440, and 1452 are used by the node agent. The node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
+**Can I set NSG to control access to the data endpoint (port 1433)?**
 
-In addition to NSG rules, the built-in firewall protects the instance on the network layer. On the application layer, communication is protected with the certificates.
+Yes. After a Managed Instance is provisioned you can set NSG that controls inbound access to the port 1433. It is advised to narrow its IP range as much as possible.
 
-For more information and to learn how to verify the built-in firewall, see [Azure SQL Managed Instance built-in firewall](management-endpoint-verify-built-in-firewall.md).
+**Can I set the NVA or on-premises firewall to filter the outbound management traffic based on FQDNs?**
+
+No. This is not supported for several reasons:
+-	Routing traffic that represent response to inbound management request would be asymmetric and could not work.
+-	Routing traffic that goes to storage would be affected by throughput constraints and latency so this way we won’t be able to provide expected service quality and availability.
+-	Based on experience, these configurations are error prone and not supportable.
+
+**Can I set the NVA or firewall for the outbound non-management traffic?**
+
+Yes. The simplest way to achieve this is to add 0/0 rule to a UDR associated with managed instance subnet to route traffic through NVA.
+ 
+**How many IP addresses do I need for a Managed Instance?**
+
+Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). To determine VNet subnet size for SQL Managed Instance, see [Determine required subnet size and range for Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+
+**What if there are not enough IP addresses for performing instance update operation?**
+
+In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+
+**Do I need an empty subnet to create a Managed Instance?**
+
+No. You can use either an empty subnet or a subnet that already contains Managed Instance(s). 
+
+**Can I change the subnet address range?**
+
+Not if there are Managed Instances inside. This is an Azure networking infrastructure limitation. You are only allowed to [add additional address space to an empty subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+
+**Can I move my managed instance to another subnet?**
+
+No. This is a current Managed Instance design limitation. However, you can provision a new instance in another subnet and manually back up and restore data between the old and the new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+
+**Do I need an empty virtual network to create a Managed Instance?**
+
+This is not required. You can either [Create a virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) or [Configure an existing virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+
+**Can I place a Managed Instance with other services in a subnet?**
+
+No. Currently we do not support placing Managed Instance in a subnet that already contains other resource types.
 
 
 ## Mitigate data exfiltration risks  
