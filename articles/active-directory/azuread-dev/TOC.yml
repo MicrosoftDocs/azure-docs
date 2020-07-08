@@ -8,6 +8,8 @@
   items:
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
+  - name: Evolution of Microsoft identity platform
+    href: about-microsoft-identity-platform.md
   - name: Application types
     items:
     - name: Types of applications

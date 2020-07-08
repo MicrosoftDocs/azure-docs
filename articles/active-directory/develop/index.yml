@@ -5,7 +5,7 @@ summary: Microsoft identity platform allows developers to build applications tha
 
 metadata:
    ms.topic: landing-page
-   ms.date: 06/22/2019
+   ms.date: 07/09/2020
    author: CelesteDG
    ms.author: celested
    ms.service: active-directory
@@ -17,14 +17,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft identity platform (v2.0)
+          - text: Microsoft identity platform
             url: v2-overview.md
-          - text: Evolution of Microsoft identity platform
-            url: about-microsoft-identity-platform.md
           - text: Migrate apps to MSAL
             url: msal-migration.md
-          - text: Azure Active Directory for developers (v1.0)
-            url: ../azuread-dev/v1-overview.md
       - linkListType: concept
         links:
           - text: Authentication basics

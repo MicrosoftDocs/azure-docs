@@ -35,11 +35,7 @@ With Microsoft identity platform, you can write code once and reach any user. Yo
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. 
-
-Watch a [Microsoft identity platform video](identity-videos.md) to learn the basics. 
-
-Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
+Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you—each scenario path has a quickstart and an overview to help get you up and running:
 
 - [Build a single-page app](scenario-spa-overview.md)
 - [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)
@@ -50,11 +46,11 @@ Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you�
 - [Build a daemon app](scenario-daemon-overview.md)
 - [Build a mobile app](scenario-mobile-overview.md)
 
-The following chart outlines common authentication app scenarios – use it as a reference when integrating the Microsoft identity platform with your app.
+The following image outlines common authentication app scenarios – use it as a reference when integrating the Microsoft identity platform with your app.
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## Next steps
+## Authentication concepts
 
 If you’d like to learn more about core authentication concepts, we recommend you start with these topics:
 
@@ -65,15 +61,9 @@ If you’d like to learn more about core authentication concepts, we recommend y
 - [Permissions and consent](v2-permissions-and-consent.md)
 - [ID tokens](id-tokens.md) and [access tokens](access-tokens.md)
 
-Build a data-rich application that calls [Microsoft Graph](https://docs.microsoft.com/graph/overview).
+## Other identity options
 
-When you’re ready to launch your app into a **production environment**, review these best practices:
+If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](../../active-directory-b2c/overview.md).
 
-- [Enable logging](msal-logging.md) in your application.
-- Enable telemetry in your application.
-- Enable [proxies and customize HTTP clients](msal-net-provide-httpclient.md).
-- Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
-
-## Learn more
-
-If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+> [!TIP]
+> Looking for **Azure Active Directory (Azure AD) developer platform (v1.0)** documentation? We've moved it here: [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
