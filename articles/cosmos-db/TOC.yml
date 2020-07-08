@@ -123,7 +123,7 @@
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Create a synthetic partition key
+      - name: Synthetic partition key
         href: synthetic-partition-keys.md
     - name: Provisioned throughput
       items:
