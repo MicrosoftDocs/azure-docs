@@ -68,7 +68,7 @@
       href: security-center-using-recommendations.md
   - name: Threat protection and security alerts
     items:
-    - name: Threat protection in Azure Security Center
+    - name: Overview of threat protection in security center
       href: threat-protection.md
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
@@ -80,6 +80,8 @@
       href: security-center-alerts-cloud-smart.md
   - name: Data security
     href: security-center-data-security.md
+  - name: Just-in-time VM access
+    href: just-in-time-explained.md
   - name: Cross-tenant management
     href: security-center-cross-tenant-management.md
   - name: Container security

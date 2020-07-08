@@ -1,6 +1,6 @@
 ---
-title: Just-in-time virtual machine access in Azure Security Center | Microsoft Docs
-description: This document demonstrates how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines.
+title: Understanding just-in-time virtual machine access in Azure Security Center
+description: This document explains how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines
 services: security-center
 author: memildin
 manager: rkarlin
@@ -24,7 +24,7 @@ Your legitimate users also use these ports, so it's not practical to keep them c
 
 To solve this dilemma, Azure Security Center offers JIT. With JIT, you can lock down the inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-When just-in-time is enabled, Security Center uses [network security group](../articles/virtual-network/security-overview.md#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
+When just-in-time is enabled, Security Center uses [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 ## How does Security Center identify VMs that should have JIT applied?
 
@@ -41,7 +41,7 @@ When Security Center finds a machine that can benefit from JIT, it adds that mac
 
 When just-in-time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just-in-time solution.
 
-When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../articles/role-based-access-control/role-assignments-portal.md) permissions for that VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) and Azure Firewall to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
+When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) permissions for that VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) and Azure Firewall to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
 
  > [!NOTE]
  > If a JIT access request is approved for a VM behind an Azure Firewall, Security Center automatically changes both the NSG and firewall policy rules. For the amount of time that was specified, the rules allow inbound traffic to the selected ports and requested source IP addresses or ranges. After the time is over, Security Center restores the firewall and NSG rules to their previous states.
