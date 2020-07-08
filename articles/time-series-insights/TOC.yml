@@ -31,10 +31,6 @@
       href: time-series-insights-concepts-retention.md
   - name: Azure Time Series Insights Gen2
     items:
-    - name: Data access control
-      items:
-      - name: Access policies
-        href: concepts-access-policies.md
     - name: Ingress & storage
       items:
       - name: Ingestion overview
@@ -65,6 +61,8 @@
         href: concepts-ux-panels.md
     - name: Breaking Changes
       items:
+      - name: Changes to Support Long Data Type
+        href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage 
         href: ingestion-rules-update.md
   - name: Develop
@@ -80,7 +78,7 @@
 - name: How-to guides
   items:
   - name: Grant data access
-    href: time-series-insights-data-access.md
+    href: concepts-access-policies.md
   - name: Connect to Event Hubs
     href: time-series-insights-how-to-add-an-event-source-eventhub.md
   - name: Connect to IoT Hub
