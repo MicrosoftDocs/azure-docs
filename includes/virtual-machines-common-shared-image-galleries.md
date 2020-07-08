@@ -4,14 +4,14 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/16/2020
+ ms.date: 07/08/2020
  ms.author: akjosh
  ms.custom: include file
 ---
 
-Shared Image Gallery is a service that helps you build structure and organization around your managed images. Shared Image Galleries provide:
+Shared Image Gallery is a service that helps you build structure and organization around your images. Shared Image Galleries provide:
 
-- Managed global replication of images.
+- Global replication of images.
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Premium storage support (Premium_LRS).
@@ -28,7 +28,7 @@ The Shared Image Gallery feature has multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Image source** | This is a resource that can be used to create an **image version** in an image gallery. An image source can be an existing Azure VM that is either [generalized or specialized](#generalized-and-specialized-images), a managed image, a snapshot, or an image version in another image gallery. |
+| **Image source** | This is a resource that can be used to create an **image version** in an image gallery. An image source can be an existing Azure VM that is either [generalized or specialized](#generalized-and-specialized-images), a managed image, a snapshot, a VHD or an image version in another image gallery. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
 | **Image definition** | Image definitions are created within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
@@ -63,7 +63,7 @@ The following are other parameters that can be set on your image definition so t
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 * Hyper-V generation - you can specify whether the image was created from a gen 1 or gen 2 Hyper-V VHD.
-* Purchase plan information for Marketplace images - `-PurchasePlanPublisher `, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage).
+* Purchase plan information for Marketplace images - `-PurchasePlanPublisher `, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
 
 ## Generalized and specialized images
 
@@ -242,13 +242,7 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 ### Can I create an image version from a specialized disk?
 
-Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the portal, PowerShell, or API. 
-
-
-Use [PowerShell to create an image of a specialized VM](../articles/virtual-machines/image-version-vm-powershell.md).
-
-Use the portal to create a [Windows](../articles/virtual-machines/linux/shared-images-portal.md) or [Linux] (../articles/virtual-machines/linux/shared-images-portal.md) image. 
-
+Yes, can create a VM from a specialized image using the [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md), or API. 
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 
