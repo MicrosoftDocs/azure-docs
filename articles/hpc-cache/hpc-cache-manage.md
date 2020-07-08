@@ -56,7 +56,8 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
-The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.<!-- To skip flushing data, include the option ``--no-wait``.-->
+The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.
+<!-- To skip flushing data, include the option ``--no-wait``. -->
 
 When the action is complete, the cache status changes to **Stopped**.
 
