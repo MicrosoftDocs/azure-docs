@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Create a document scanner app with AI Builder
 
-[AI Builder](https://docs.microsoft.com/en-us/ai-builder/overview) is a Power Platform capability that allows you to easily automate processes and predict outcomes to help improve business performance. You can use AI Builder form processing to create AI models that use machine learning technology to identify and extract key-value pairs and table data from form documents.
+[AI Builder](https://docs.microsoft.com/en-us/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-* A set of at least five forms of the same type to use for training/testing data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
+* A set of at least five forms of the same type to use for training/testing data. See [Build a training data set](./build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2128080).
 
 ## Sign in to AI Builder
 1. Go to [Power Apps](https://make.powerapps.com/) or [Power Automate](https://flow.microsoft.com/signin), and sign in with your organization account.
@@ -98,16 +98,15 @@ The Details page allows you to test your model before you publish or use it:
 
 1. On the Details page, select **Quick test**.
 2. You can either drag and drop a document or select **Upload from my device** to upload your test file. The quick-test should only take a few seconds before displaying the results.
-3. You can select **Start over** to run another test or **Close** if you are finished.
+3. You can select **Start over** to run another test or **Close** if you're finished.
 
 ### Troubleshooting tips
 
-If your test results aren't satisfactory, try the following:
+If you're getting bad results or low confidence scores for certain fields, try the following tips:
 
-- Use forms with different values in each field.
-- When you create a new form-processing model, upload documents with the same layout where each document is a separate instance. For example, you might have invoices from the same provider, but each uploaded invoice is from a different month.
-- If you're getting bad results or low confidence scores for certain fields, create a new form-processing model and upload more documents. The more documents you tag, the more AI Builder will learn how to better recognize the fields.
-- You can optimize PDF files by using the Print > Print to PDF option to select certain pages within your document.
+- Retrain using forms with different values in each field.
+- Retrain using a larger set of training documents. The more documents you tag, the more AI Builder will learn how to better recognize the fields.
+- You can optimize PDF files by selecting only certain pages to train with. Use the **Print** > **Print to PDF** option to select certain pages within your document.
 
 ## Publish your model
 
