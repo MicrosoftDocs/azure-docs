@@ -1,6 +1,6 @@
 ﻿---
-title: 'Querying Data - Azure Time Series Insights Gen 2 | Microsoft Docs'
-description: Data querying concepts and REST API overview in Azure Time Series Insights Gen 2.
+title: 'Querying Data - Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Data querying concepts and REST API overview in Azure Time Series Insights Gen2.
 author: shreyasharmamsft
 ms.author: shresha
 manager: dpalled
@@ -8,23 +8,23 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
-# Querying Data from Azure Time Series Insights Gen 2
+# Querying Data from Azure Time Series Insights Gen2
 
-Azure Time Series Insights enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
-Three primary API categories are available in Azure Time Series Insights:
+Three primary API categories are available in Azure Time Series Insights Gen2 :
 
-* **Environment APIs**: These APIs enable queries on the Azure Time Series Insights environment itself. These can be used to gather the list of environments the caller has access to and environment metadata.
+* **Environment APIs**: These APIs enable queries on the Azure Time Series Insights Gen2 environment itself. These can be used to gather the list of environments the caller has access to and environment metadata.
 * **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete (CRUD) operations on metadata stored in the Time Series Model of the environment. These can be used to access and edit the instances, types, and hierarchies.
 * **Time Series Query (TSQ) APIs**: Enables retrieval of telemetry or events data as it's recorded from the source provider and enables performant computations and aggregations on the data using advanced scalar and aggregate functions.
 
-Azure Time Series Insights uses a rich string-based expression language, [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax), for expressing calculations in [Time Series Variables](./concepts-variables.md).
+Azure Time Series Insights Gen2 uses a rich string-based expression language, [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax), for expressing calculations in [Time Series Variables](./concepts-variables.md).
 
-## Azure Time Series Insights APIs overview
+## Azure Time Series Insights Gen2 APIs overview
 
 The following core APIs are supported.
 
@@ -51,7 +51,10 @@ Most of these APIs support batch execution operation to enable batch CRUD operat
 
 These APIs are available across both stores (Warm and Cold) in our multilayered storage solution. Query URL parameters are used to specify the [store type](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) the query should execute on:
 
-* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): Enables query and retrieval of raw events and the associated event timestamps as they're recorded in Azure Time Series Insights from the source provider. This API allows retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete response dataset for the selected input. 
+* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): Enables query and retrieval of raw events and the associated event timestamps as they're recorded in Azure Time Series Insights Gen2 from the source provider. This API allows retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete response dataset for the selected input. 
+
+> [!IMPORTANT]
+> * As part of the [upcoming changes to JSON flattening and escaping rules](https://docs.microsoft.com/azure/time-series-insights/ingestion-rules-update), arrays will be stored as **Dynamic** type. Payload properties stored as this type are **ONLY accessible through the Get Events API**.
 
 * [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): Enables query and retrieval of computed values and the associated event timestamps by applying calculations defined by variables on raw events. These variables can be defined in either the Time Series Model or provided inline in the query. This API supports pagination to retrieve the complete response dataset for the selected input. 
 
@@ -64,4 +67,4 @@ These APIs are available across both stores (Warm and Cold) in our multilayered 
 ## Next steps
 
 - Read more about different variables that can be defined in the [Time Series Model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-- Read more about how to query data from the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+- Read more about how to query data from the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
