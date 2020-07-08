@@ -75,13 +75,13 @@ Azure Time Series Insights stores copies of your data as follows:
 
 * The second, repartitioned copy is grouped by Time Series IDs and resides in the `PT=TsId` folder:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_NAME>.parquet`
 
 The timestamp in the blob names in the `PT=Time` folder correspond to the arrival time of the data to Azure Time Series Insights and not the timestamp of the events.
 
 Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, some events might be present in multiple blobs. The naming of the blobs in this folder is not guaranteed to remain the same. 
 
-In general, if you need to access data directly via Parquet files, use the `PT=Time` folder.  Future functionality will enable efficient access to the `PT=Tsid` folder. 
+In general, if you need to access data directly via Parquet files, use the `PT=Time` folder.  Future functionality will enable efficient access to the `PT=TsId` folder. 
 
 > [!NOTE]
 >
