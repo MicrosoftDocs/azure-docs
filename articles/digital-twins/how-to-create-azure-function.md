@@ -210,7 +210,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 ### Assign access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see *[Concepts: Security for Azure Digital Twins solutions](concepts-security.md)* for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 To assign a role, you need the **resource ID** of the Azure Digital Twins instance you have created. If you did not record it earlier when you created your instance, you can retrieve it using this command:
 

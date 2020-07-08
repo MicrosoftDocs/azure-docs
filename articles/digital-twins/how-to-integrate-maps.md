@@ -45,7 +45,7 @@ First, you'll create a route in Azure Digital Twins to forward all twin update e
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [*Azure Digital Twins tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: *Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
 
 This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
 
