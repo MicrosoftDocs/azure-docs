@@ -141,7 +141,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
-     !Customize settings page[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Customize settings page](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 

@@ -1,6 +1,6 @@
 ---
 title: Connect Windows security event data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Windows security event data to Azure Sentinel.
+description: Learn to use the Security Events connector to stream all security events from your Windows systems to your Azure Sentinel workspace. 
 services: sentinel
 documentationcenter: na
 author: yelevin

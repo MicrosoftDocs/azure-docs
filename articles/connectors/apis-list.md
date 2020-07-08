@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/11/2020
 ---
 
 # Connectors for Azure Logic Apps
@@ -248,6 +248,12 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 >
 > For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
+<a name="block-connections"></a>
+
+## Block creating connections
+
+If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can [block the capability to create those connections](../logic-apps/block-connections-connectors.md) for specific connectors in logic app workflows by using [Azure Policy](../governance/policy/overview.md). For more information, see [Block connections created by specific connectors in Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
 ## Next steps
 
 * View the [full connector list](https://docs.microsoft.com/connectors)
@@ -480,4 +486,3 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
-

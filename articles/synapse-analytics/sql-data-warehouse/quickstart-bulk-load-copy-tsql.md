@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
-ms.date: 04/08/2020
+ms.subservice: sql-dw 
+ms.date: 06/18/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -30,6 +30,34 @@ In this quickstart, you'll bulk load data into your SQL pool using the simple an
 ## Prerequisites
 
 This quickstart assumes you already have a SQL pool. If a SQL pool hasn't been created, use the [Create and Connect - portal](create-data-warehouse-portal.md) quickstart.
+
+## Set up the required permissions
+
+```sql
+-- List the permissions for your user
+select  princ.name
+,       princ.type_desc
+,       perm.permission_name
+,       perm.state_desc
+,       perm.class_desc
+,       object_name(perm.major_id)
+from    sys.database_principals princ
+left join
+        sys.database_permissions perm
+on      perm.grantee_principal_id = princ.principal_id
+where name = '<yourusername>';
+
+--Make sure your user has the permissions to CREATE tables in the [dbo] schema
+GRANT CREATE TABLE TO <yourusername>;
+GRANT ALTER ON SCHEMA::dbo TO <yourusername>;
+
+--Make sure your user has ADMINISTER DATABASE BULK OPERATIONS permissions
+GRANT ADMINISTER DATABASE BULK OPERATIONS TO <yourusername>
+
+--Make sure your user has INSERT permissions on the target table
+GRANT INSERT ON <yourtable> TO <yourusername>
+
+```
 
 ## Create the target table
 

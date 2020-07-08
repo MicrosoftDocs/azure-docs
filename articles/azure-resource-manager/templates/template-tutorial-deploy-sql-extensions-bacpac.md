@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with the Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
+* Visual Studio Code with the Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the server administrator account. Here's a sample you can use to generate a password:
 
     ```console
@@ -40,7 +40,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../../azure-sql/database/database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export a database from Azure SQL Database to a BACPAC file](../../azure-sql/database/database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 The BACPAC file must be stored in an Azure Storage account before it can be imported by using an ARM template. The following PowerShell script prepares the BACPAC file with these steps:
 
@@ -107,8 +107,8 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
     There are two resources defined in the template:
 
-   * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. See the [template reference](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. See the [template reference](/azure/templates/microsoft.sql/servers/databases).
 
         It's helpful to get some basic understanding of the template before you customize it.
 1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
@@ -189,9 +189,9 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
         ![Template with SQL Database extension](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
+        To understand the resource definition, see the [SQL Database extension reference](/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
 
-        * **dependsOn**: The extension resource must be created after the SQL database has been created.
+        * **dependsOn**: The extension resource must be created after the database has been created.
         * **storageKeyType**: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
         * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If the storage key type is `SharedAccessKey`, it must be preceded with a "?".
         * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
@@ -236,7 +236,7 @@ Use a generated password. See [Prerequisites](#prerequisites).
 
 To access the server from your client computer, you need to add an additional firewall rule. For more information, see [Create and manage IP firewall rules](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
-In the Azure portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You'll see two tables imported into the database.
+In the Azure portal, select the database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You'll see two tables imported into the database.
 
 ![Query editor (preview)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 

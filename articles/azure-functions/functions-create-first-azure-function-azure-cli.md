@@ -388,6 +388,11 @@ Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the param
 
 > [!TIP]
 > To view near real-time logs for a published function app, use the [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
+>
+> Run the following command to open the live metrics stream in a browser.
+>   ```
+>   func azure functionapp logstream <APP_NAME> --browser
+>   ```
 
 ## Clean up resources
 

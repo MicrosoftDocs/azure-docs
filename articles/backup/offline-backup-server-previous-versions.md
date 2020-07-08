@@ -52,7 +52,7 @@ Ensure that the following prerequisites are met before you start the offline bac
     | United States | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file.
+* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file. In the storage account, create a new blob container which will be used as the destination.
 
   ![Create a storage account with Resource Manager development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -75,13 +75,13 @@ Ensure that the following prerequisites are met before you start the offline bac
 
     If an application already exists, this executable asks you to manually upload the certificate to the application in the tenant. Follow the steps in [this section](#manually-upload-an-offline-backup-certificate) to upload the certificate manually to the application.
 
-* The *AzureOfflineBackup.exe* tool generates an *OfflineApplicationParams.xml* file. Copy this file to the server with MABS or DPM.
+* The *AzureOfflineBackupCertGen.exe* tool generates an *OfflineApplicationParams.xml* file. Copy this file to the server with MABS or DPM.
 * Install the [latest MARS Agent](https://aka.ms/azurebackup_agent) on the DPM instance or the Azure Backup server.
 * Register the server to Azure.
 * Run the following command:
 
     ```cmd
-    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname to be used for offline backup>
     ```
 
 * The previous command creates the file `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`.
@@ -98,7 +98,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
 
 1. Select the application. Under **Manage** on the left pane, go to **Certificates & secrets**.
 1. Check for preexisting certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
-1. Select the **Manage computer certificate application** > **Personal** tab. Look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. From **Start** – **Run**, type *Certlm.msc*. In the **Certificates - Local Computer** window, select the **Certificates – Local Computer** > **Personal** tab. Look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 1. Select the certificate, right-click **All Tasks**, and then select **Export**, without a private key, in the .cer format.
 1. Go to the Azure offline backup application in the Azure portal.
 1. Select **Manage** > **Certificates & secrets** > **Upload certificate**. Upload the certificate exported in the previous step.

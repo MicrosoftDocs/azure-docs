@@ -103,11 +103,10 @@ To configure Azure AD single sign-on with itslearning, perform the following ste
 
 	a. In the **Sign on URL** text box, type the URL:
 	
-	| |
-	|--|
-	| `https://www.itslearning.com/index.aspx`|
-	| `https://us1.itslearning.com/index.aspx`|
-	| |
+    ```http
+    https://www.itslearning.com/index.aspx
+    https://us1.itslearning.com/index.aspx
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
     `urn:mace:saml2v2.no:services:com.itslearning`

@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door 
+description: This article provides a list of the various match conditions available with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -17,9 +17,9 @@ ms.author: mebeatty
 
 # Azure Front Door Rules Engine Match Conditions
 
-In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine. 
+In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine.
 
-The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted below as "space-separated"), the "OR" operator is assumed. 
+The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted below as "space-separated"), the "OR" operator is assumed.
 
 For example, you can use a match condition to:
 

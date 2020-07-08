@@ -35,7 +35,7 @@ Disable application proxy | Application administrator |
 Download connector service | Application administrator | 
 Read all configuration | Application administrator | 
 
-## B2C
+## External Identities/B2C
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -44,11 +44,11 @@ Create B2C applications | Global Administrator |
 Create enterprise applications | Cloud Application Administrator | Application Administrator
 Create, read, update, and delete B2C policies | B2C IEF Policy Administrator | 
 Create, read, update, and delete identity providers | External Identity Provider Administrator | 
-Create, read, update, and delete password reset user flows | B2C User Flow Administrator | 
-Create, read, update, and delete profile editing user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-in user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-up user flow |B2C User Flow Administrator | 
-Create, read, update, and delete user attributes | B2C User Flow Attribute Administrator | 
+Create, read, update, and delete password reset user flows | External ID User Flow Administrator | 
+Create, read, update, and delete profile editing user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-in user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-up user flow |External ID User Flow Administrator | 
+Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator | 
 Create, read, update, and delete users | User Administrator
 Read all configuration | Global reader | 
 Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 

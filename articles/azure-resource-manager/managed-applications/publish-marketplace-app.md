@@ -168,6 +168,6 @@ After you fill out all the sections, select **Publish** to start the process tha
 
 ## Next steps
 
-* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](publish-service-catalog-app.md).

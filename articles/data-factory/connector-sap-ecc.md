@@ -143,7 +143,7 @@ The following properties are supported in the copy activity's `source` section:
 |:--- |:--- |:--- |
 | `type` | The `type` property of the copy activity's `source` section must be set to `SapEccSource`. | Yes |
 | `query` | The OData query options to filter the data. For example:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>The SAP ECC connector copies data from the combined URL:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| `httpRequestTimeout` | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:05:00** (5 minutes). | No |
+| `httpRequestTimeout` | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 ### Example
 

@@ -172,6 +172,11 @@ All container images in your registry (Azure Container Registry) are encrypted a
 
 To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace or encrypt the default instance that gets created at the time of workspace provisioning.
 
+> [!IMPORTANT]
+> Azure Machine Learning requires the admin account be enabled on your Azure Container Registry. By default, this setting is disabled when you create a container registry. For information on enabling the admin account, see [Admin account](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
+
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 
 * [Create a workspace for Azure Machine Learning with Azure CLI](how-to-manage-workspace-cli.md).

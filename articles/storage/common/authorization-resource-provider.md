@@ -32,7 +32,7 @@ Every Azure subscription has an associated Azure Active Directory that manages u
 
 When you assign an RBAC role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an RBAC role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-For more information about RBAC, see [What is role-based access control (RBAC) for Azure resources?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Built-in roles for management operations
 
@@ -73,5 +73,5 @@ For more information about Azure deployment models, see [Resource Manager and cl
 ## Next steps
 
 - [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview)
-- [What is role-based access control (RBAC) for Azure resources?](../../role-based-access-control/overview.md)
+- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Scalability targets for the Azure Storage resource provider](scalability-targets-resource-provider.md)

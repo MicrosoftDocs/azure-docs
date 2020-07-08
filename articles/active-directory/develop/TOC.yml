@@ -376,6 +376,11 @@
         displayName: shared device mode, firstline worker, frontline worker, flw
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+      - name: Scopes for web API accepting v1.0 tokens
+        href: msal-v1-app-scopes.md
+      - name: Migrate apps from ADAL to MSAL
+        href: msal-migration.md
+        displayName: migration
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -471,6 +476,34 @@
       href: /azure/active-directory/app-provisioning/scim-graph-scenarios
     - name: Automate configuration using MS Graph
       href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+  - name: Azure portal help articles
+    items:
+    - name: Token lifetime defaults for a custom-developed application
+      href: registration-config-change-token-lifetime-how-to.md
+    - name: Discover endpoints
+      href: registration-config-how-to.md
+    - name: Select permissions for a given API
+      href: perms-for-given-api.md
+    - name: Authentication protocols
+      href: active-directory-authentication-protocols.md
+    - name: Differences between delegated and application permissions
+      href: delegated-and-app-perms.md
+    - name: How application consent works
+      href: consent-framework-links.md
+    - name: Find a specific API needed for a custom-developed application
+      href: api-find-an-api-how-to.md
+    - name: App registration reference
+      href: active-directory-v2-registration-portal.md
+    - name: Azure portal registration fields for custom-developed apps
+      href: registration-config-specific-application-property-how-to.md
+    - name: Configure a new multitenant application
+      href: setup-multi-tenant-app.md
+    - name: Add a multitenant application to the Azure AD application gallery
+      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+    - name: Integrating with Azure Active Directory
+      href: active-directory-how-to-integrate.md
+    - name: Configure single sign-on for an application
+      href: registration-config-sso-how-to.md
 - name: How-to guides
   items:
   - name: Authentication

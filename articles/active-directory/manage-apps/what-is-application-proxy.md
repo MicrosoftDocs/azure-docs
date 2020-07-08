@@ -12,7 +12,6 @@ ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -84,7 +83,7 @@ There are several ways to configure an application for single sign-on and the me
 * Web applications
 * Web APIs that you want to expose to rich applications on different devices
 * Applications hosted behind a Remote Desktop Gateway
-* Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
+* Rich client apps that are integrated with the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 App Proxy works with apps that use the following native authentication protocol:
 

@@ -180,7 +180,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabic | `ar` | Arabic `Arab` | <--> | Latin `Latn` |
-|Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
+| Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Latin `Latn` |
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
@@ -192,7 +192,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
