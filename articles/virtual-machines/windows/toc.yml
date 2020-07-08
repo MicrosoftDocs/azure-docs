@@ -508,6 +508,8 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
+    - name: Purchase plan information
+      href: marketplace-images.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
     - name: Capture VM to image

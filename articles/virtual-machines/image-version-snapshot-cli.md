@@ -14,7 +14,7 @@ ms.reviewer: akjosh
 
 # Create an image from a VHD or snapshot in a Shared Image Gallery using the Azure CLI
 
-If you have an existing snapshot or VHD that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the VHD or snapshot. Once you have tested your new image, you can delete the source VHD or snapshpt. You can also create an image from a VHD or snapshot in a Shared Image Gallery using the [Azure PowerShell](image-version-snapshot-powershell.md).
+If you have an existing snapshot or VHD that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the VHD or snapshot. Once you have tested your new image, you can delete the source VHD or snapshot. You can also create an image from a VHD or snapshot in a Shared Image Gallery using the [Azure PowerShell](image-version-snapshot-powershell.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
