@@ -748,7 +748,7 @@
         href: ../data-factory/copy-activity-data-consistency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Format and compression support (legacy)
         href: ../data-factory/supported-file-formats-and-compression-codecs-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-   - name: Transform data
+    - name: Transform data
       href: ../data-factory/transform-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       items:
       - name: Azure Function Activity
