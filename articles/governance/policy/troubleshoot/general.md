@@ -27,8 +27,8 @@ The location of error details depends on the action that causes the error.
 
 #### Issue
 
-Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Resource Manager
-properties.
+Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Azure Resource
+Manager properties.
 
 #### Cause
 
@@ -122,7 +122,7 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[Activity log](../../../azure-monitor/platform/activity-log-view.md). Use this information to get
+[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this information to get
 more details to understand the resource restrictions and adjust the resource properties in your
 request to match allowed values.
 
@@ -132,9 +132,9 @@ request to match allowed values.
 
 #### Issue
 
-Azure Policy supports a number of Resource Manager template functions and functions that are only
-available in a policy definition. Resource Manager processes these functions as part of a deployment
-instead of as part of a policy definition.
+Azure Policy supports a number of Azure Resource Manager template (ARM template) functions and
+functions that are only available in a policy definition. Resource Manager processes these functions
+as part of a deployment instead of as part of a policy definition.
 
 #### Cause
 

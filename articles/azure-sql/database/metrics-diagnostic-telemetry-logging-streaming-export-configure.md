@@ -2,7 +2,7 @@
 title: Configure streaming export of metrics and resource logs
 description: Learn how to configure streaming export of metrics and resource logs, including intelligent diagnostic analysis from Azure SQL Database and Azure SQL Managed Instance to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -128,9 +128,9 @@ To enable streaming of diagnostic telemetry for an elastic pool resource, follow
 > [!IMPORTANT]
 > In addition to configuring diagnostic telemetry for an elastic pool, you also need to configure diagnostic telemetry for each database in the elastic pool.
 
-### Single and pooled databases in Azure SQL Database
+### Databases in Azure SQL Database
 
-You can set up a single or pooled database resource to collect the following diagnostic telemetry:
+You can set up a database resource to collect the following diagnostic telemetry:
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |

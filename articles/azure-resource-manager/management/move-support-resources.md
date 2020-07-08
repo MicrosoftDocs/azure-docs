@@ -386,6 +386,8 @@ Jump to a resource provider namespace:
 
 > [!IMPORTANT]
 > Runbooks must exist in the same resource group as the Automation Account.
+>
+> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.AVS
 
