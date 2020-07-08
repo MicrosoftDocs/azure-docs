@@ -75,4 +75,4 @@ The app inventory is exported and downloaded in Excel format. The **Application 
 ## Next steps
 
 - [Create an assessment](how-to-create-assessment.md) for discovered servers.
-- Assess SQL Server databases using [Azure Migrate:Database Assessment](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Assess SQL Server databases using [Azure Migrate:Database Assessment](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

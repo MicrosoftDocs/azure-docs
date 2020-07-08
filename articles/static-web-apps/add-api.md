@@ -67,20 +67,20 @@ Visual Studio Code generates an Azure Functions project with an HTTP triggered f
 
 Your app now has a project structure similar to the following example.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
 Next, you'll change the `GetMessage` function to return a message to the front-end.
 

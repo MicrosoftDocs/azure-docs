@@ -17,12 +17,15 @@ PostgreSQL uses multiversion concurrency control (MVCC) to allow greater databas
 A vacuum job can be triggered manually or automatically. More dead tuples exist when the database experiences heavy update or delete operations. Fewer dead tuples exist when the database is idle. You need to vacuum more frequently when the database load is heavy, which makes running vacuum jobs *manually* inconvenient.
 
 Autovacuum can be configured and benefits from tuning. The default values that PostgreSQL ships with try to ensure the product works on all kinds of devices. These devices include Raspberry Pis. The ideal configuration values depend on the:
+
 - Total resources available, such as SKU and storage size.
 - Resource usage.
 - Individual object characteristics.
 
 ## Autovacuum benefits
+
 If you don't vacuum from time to time, the dead tuples that accumulate can result in:
+
 - Data bloat, such as larger databases and tables.
 - Larger suboptimal indexes.
 - Increased I/O.
@@ -53,6 +56,7 @@ autovacuum_max_workers|Specifies the maximum number of autovacuum processes, oth
 To override the settings for individual tables, change the table storage parameters. 
 
 ## Autovacuum cost
+
 Here are the "costs" of running a vacuum operation:
 
 - The data pages that the vacuum runs on are locked.
@@ -61,6 +65,7 @@ Here are the "costs" of running a vacuum operation:
 As a result, don't run vacuum jobs either too frequently or too infrequently. A vacuum job needs to adapt to the workload. Test all autovacuum parameter changes because of the tradeoffs of each one.
 
 ## Autovacuum start trigger
+
 Autovacuum is triggered when the number of dead tuples exceeds autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Here, reltuples is a constant.
 
 Cleanup from autovacuum must keep up with the database load. Otherwise, you might run out of storage and experience a general slowdown in queries. Amortized over time, the rate at which a vacuum operation cleans up dead tuples should equal the rate at which dead tuples are created.
@@ -88,7 +93,9 @@ The autovacuum_max_workers parameter determines the maximum number of autovacuum
 With PostgreSQL, you can set these parameters at the table level or instance level. Today, you can set these parameters at the table level only in Azure Database for PostgreSQL.
 
 ## Optimize autovacuum per table
+
 You can configure all the previous configuration parameters per table. Here's an example:
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ​ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -99,7 +106,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum is a per-table synchronous process. The larger percentage of dead tuples that a table has, the higher the "cost" to autovacuum. You can split tables that have a high rate of updates and deletes into multiple tables. Splitting tables helps to parallelize autovacuum and reduce the "cost" to complete autovacuum on one table. You also can increase the number of parallel autovacuum workers to ensure that workers are liberally scheduled.
 
 ## Next steps
+
 To learn more about how to use and tune autovacuum, see the following PostgreSQL documentation:
 
- - [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+- [Chapter 18, Server configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
+- [Chapter 24, Routine database maintenance tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
