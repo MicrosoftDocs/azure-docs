@@ -21,6 +21,10 @@ To configure routing, see [How to configure virtual hub routing](how-to-virtual-
 
 The following sections describe the key concepts in virtual hub routing.
 
+> [!NOTE]
+> Some of these new concepts for hub route table, association, propagation and static routes in a virtual network connection may still be rolling out and expected to complete in week of Aug 3rd.
+>
+
 ### <a name="hub-route"></a>Hub route table
 
 A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associated or propagates to a route table
@@ -55,10 +59,6 @@ A **None route table** is also available for each virtual hub. Propagating to th
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
 Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
-
-> [!NOTE]
-> Some of these new concepts for association, propagation and static routes in a virtual network connection may still be rolling out and expected to complete in week of Aug 3rd.
->
 
 ## <a name="route"></a>Route tables in Basic and Standard virtual WANs prior to the feature set of Association and Propagation
 
