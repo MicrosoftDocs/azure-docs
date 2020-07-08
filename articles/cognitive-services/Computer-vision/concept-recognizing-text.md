@@ -22,7 +22,7 @@ Microsoft's Computer Vision API includes Optical Character Recognition (OCR) cap
 
 Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Microsoft’s latest OCR technology that extracts printed text (seven languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from in-the-wild text-heavy images and multi-page PDF documents with mixed languages. It supports detecting printed and handwritten text (English only) in the same image or document. Refer to the full list of [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) page.
 
-### How it works
+### How OCR works
 
 The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports text-heavy documents up to 2000 pages, and therefore executes asynchronously. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation ID. 
 
@@ -30,7 +30,7 @@ The second step is to call the [Get Results](https://westcentralus.dev.cognitive
 
 If necessary, Read corrects the rotation of the recognized page by returning the rotational offset in degrees about the horizontal image axis, as seen in the following illustration.
 
-![An image being rotated and its text being read and delineated](./Images/vision-overview-ocr-read.png)
+![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works-svg)
 
 ### Sample OCR output
 
