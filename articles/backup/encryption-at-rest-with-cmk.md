@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/08/2020
 ---
 
-# Encryption at rest using customer-managed keys
+# Encryption of at rest backup data using customer-managed keys
 
 Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which is enabled by default. Your keys that are used for encrypting the backup data must be stored in Azure Key Vault.
 
