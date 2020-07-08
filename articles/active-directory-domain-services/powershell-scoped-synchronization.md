@@ -21,6 +21,18 @@ By default, all users and groups from an Azure AD directory are synchronized to 
 
 This article shows you how to create a managed domain that uses scoped synchronization and then change or disable the set of scoped users using Azure AD PowerShell. You can also [complete these steps using the Azure portal][scoped-sync].
 
+## Before you begin
+
+To complete this article, you need the following resources and privileges:
+
+* An active Azure subscription.
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
+* You need *global administrator* privileges in your Azure AD tenant to change the Azure AD DS synchronization scope.
+
 ## Scoped synchronization overview
 
 By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few users need to access the managed domain, you can synchronize only those user accounts. This scoped synchronization is group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain.
@@ -201,6 +213,9 @@ To learn more about the synchronization process, see [Understand synchronization
 <!-- INTERNAL LINKS -->
 [scoped-sync]: scoped-synchronization.md
 [concepts-sync]: synchronization.md
+[tutorial-create-instance]: tutorial-create-instance.md
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 
 <!-- EXTERNAL LINKS -->
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
