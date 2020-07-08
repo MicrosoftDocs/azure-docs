@@ -29,17 +29,23 @@ Let's suppose you'd like to get an email when a specific event occurs. Applicati
 
 Alerts can be set on [custom metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 or:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 Because alerts have two states, you have to send a low value when you consider the alert to have ended:
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 Create a chart in [metric explorer](../../azure-monitor/platform/metrics-charts.md) to see your alarm:
 
@@ -127,9 +133,9 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 ### ASP.NET Classic applications
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### Other applications
