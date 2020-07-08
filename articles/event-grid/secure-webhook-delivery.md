@@ -1,13 +1,8 @@
 ---
 title: Secure WebHook delivery with Azure AD in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Publish events to Azure Active Directory protected endpoints
