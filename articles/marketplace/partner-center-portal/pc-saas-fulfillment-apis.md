@@ -1,12 +1,10 @@
 ---
 title: SaaS fulfillment APIs in Microsoft commercial marketplace 
 description: An introduction to the fulfillment APIs that enable you to integrate your SaaS offers in Microsoft AppSource and Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: dsindona
 ---
 
 # SaaS fulfillment APIs in Microsoft commercial marketplace

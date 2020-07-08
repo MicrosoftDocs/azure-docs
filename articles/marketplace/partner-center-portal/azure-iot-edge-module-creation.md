@@ -1,11 +1,11 @@
 ---
 title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
 description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/17/2020
 ---
 
