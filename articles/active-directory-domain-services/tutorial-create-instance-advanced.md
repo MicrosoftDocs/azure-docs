@@ -157,7 +157,7 @@ The wizard automatically creates the *AAD DC Administrators* group in your Azure
 
 ## Configure synchronization
 
-Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize *all* users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
+Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. You can change the synchronize scope now, or once the managed domain is deployed. For more information, see [Azure AD Domain Services scoped synchronization][scoped-sync].
 
 1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
 
