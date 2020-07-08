@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/07/2020
 ms.author: robinsh
 ms.custom:  [amqp, mqtt]
 ---
