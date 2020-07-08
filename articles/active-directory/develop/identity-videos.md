@@ -65,7 +65,7 @@ ___
         6 - <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">What aspects of using protocols does MSAL libraries make easier? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:52)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
+        <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
