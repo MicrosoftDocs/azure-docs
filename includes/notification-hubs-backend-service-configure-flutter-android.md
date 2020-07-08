@@ -419,11 +419,15 @@
     > [!NOTE]
     > Since the **LaunchMode** for **MainActivity** is set to **SingleTop**, an **Intent** will be sent to the existing **Activity** instance via the **onNewIntent** function rather than the **onCreate** function and so you must handle an incoming **Intent** in both **onCreate** and **onNewIntent** functions.
 
-1. In **onCreate**, set the **deviceInstallationService** to a new instance of **DeviceInstallationService**.
+1. Override the **onCreate** function, set the **deviceInstallationService** to a new instance of **DeviceInstallationService**.
 
     ```kotlin
-    flutterEngine?.let {
-        deviceInstallationService = DeviceInstallationService(context, it)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        flutterEngine?.let {
+            deviceInstallationService = DeviceInstallationService(context, it)
+        }
     }
     ```
 
