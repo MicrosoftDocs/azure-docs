@@ -48,7 +48,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
    If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
-   * [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md)
+   * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
