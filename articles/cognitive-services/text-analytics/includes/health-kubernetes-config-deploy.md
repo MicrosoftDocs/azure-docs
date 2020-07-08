@@ -97,7 +97,7 @@ ms.author: aahi
     kubectl apply -f textAnalyticsHealth.yaml
     ```
 
-    After the command successfully applies the deployment configuration, a message appears similar to the following output:
+    It will take a few minutes for the deployment to finish. Wait until it completes before moving on. After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
     ```output
     deployment.apps "textAnalyticsHealth" created
