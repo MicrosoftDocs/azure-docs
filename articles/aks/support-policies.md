@@ -49,7 +49,7 @@ Because worker nodes are sensitive, Microsoft takes great care to limit their ba
 Microsoft provides technical support for the following:
 
 > [!NOTE]
-> Any cluster actions taken by Microsoft support are made with user consent under a built-in Kubernetes ["edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) role of the name `aks-support-rolebinding`. With this role AKS support is enabled to edit cluster configuration and resources to troubleshoot and diagnose cluster issues, but the role can not modify permissions nor create roles or role bindings. Role access is only enabled under active support tickets with just-in-time (JIT) access.
+> Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
 
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
