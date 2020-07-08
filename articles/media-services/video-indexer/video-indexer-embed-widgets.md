@@ -56,7 +56,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 |`accessToken`<sup>*</sup> | String | Provides access to videos that are only in the account that's used to embed the widget.<br> The Editor widget requires the `accessToken` parameter. |
 |`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`. |
 |`locale` | A short language code | Controls the insights language. The default value is `en`.<br/>Example: `language=de`. |
-|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` paramete.| 
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
@@ -64,7 +64,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 This section discusses embedding the public and private content into apps.
 
-The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` paramete. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Sharing a link for the **Player** or **Insights** widget will include the access token and grant the read-only permissions to your account.
