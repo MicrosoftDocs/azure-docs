@@ -32,7 +32,9 @@ Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com
 * Have or create an [Azure Time Series Insights Gen2 environment](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> The Power BI connector is presently supported in Azure Time Series Insights Gen2 environments configured with **Warm Store**.
+>
+> * The connector is presently supported in Azure Time Series Insights Gen2 environments configured with **Warm Store only**.
+> * If you have guest access to the Azure Time Series Insights Gen2 environment from another Azure AD Tenant, you will not be able to access the connector. Read about the [environment access policies](./concepts-access-policies.md).
 
 ## Connect data from Azure Time Series Insights to Power BI
 
