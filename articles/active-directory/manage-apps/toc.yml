@@ -5,6 +5,8 @@
     items:
      - name: What is application management?
        href: what-is-application-management.md
+     - name: What is single sign-on?
+       href: what-is-single-sign-on.md
   - name: Quickstarts
     items:
     - name: View your apps
@@ -48,8 +50,6 @@
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
         items:  
-        - name: What is single sign-on
-          href: what-is-single-sign-on.md
         - name: Enable SSO for your multi-tenant application 
           href: isv-sso-content.md
         - name: Create an Azure tenant for multi-tenant application
