@@ -1,12 +1,12 @@
 ---
 title: Publishing guide by offer type - Microsoft commercial marketplace
 description: This article describes the offer types that are available in the Microsoft commercial marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
 ---
 
 # Publishing guide by offer type

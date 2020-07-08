@@ -25,9 +25,8 @@ To share or receive data from an Azure data store, user needs at least the follo
 
 Below is a summary of the roles assigned to Data Share resource's managed identity:
 
-| |  |  |
-|---|---|---|
 |**Data Store Type**|**Data Provider Source Data Store**|**Data Consumer Target Data Store**|
+|---|---|---|
 |Azure Blob Storage| Storage Blob Data Reader | Storage Blob Data Contributor
 |Azure Data Lake Gen1 | Owner | Not Supported
 |Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor
@@ -37,9 +36,8 @@ Below is a summary of the roles assigned to Data Share resource's managed identi
 
 For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Below is a summary of the permission required by the SQL user.
 
-| |  |  |
-|---|---|---|
 |**SQL Database Type**|**Data Provider SQL User Permission**|**Data Consumer SQL User Permission**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (formerly SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -98,4 +96,3 @@ To view Azure Data Share invitation for the first time in your Azure tenant, you
 ## Next steps
 
 - Learn more about roles in Azure - [Understand role definitions](../role-based-access-control/role-definitions.md)
-

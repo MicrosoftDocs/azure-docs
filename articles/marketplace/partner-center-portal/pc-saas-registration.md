@@ -1,12 +1,10 @@
 ---
 title: Register a SaaS application - Azure Marketplace 
 description: Learn how to use the Azure portal to register a SaaS application and receive an Azure Active Directory security token.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.author: dsindona
 ---
 
 # Register a SaaS application
