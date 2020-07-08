@@ -127,21 +127,103 @@ You can do so using the [Azure Cost Management solution](/azure/cost-management/
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`. 
   
-## Inbound NSG rules
+## Networking requirements 
+
+**What are the current inbound/outbound NSG constraints on the Managed Instance subnet?**
+
+The required NSG and UDR rules are documented [here](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration), and automatically set by the service.
+Please keep in mind that these rules are just the ones we need for maintaining the service. To connect to managed instance and use different features you will need to set additional, feature specific rules, that you need to maintain.
 
 **How can I set inbound NSG rules on management ports?**
 
-The SQL Managed Instance control plane maintains NSG rules that protect management ports.
+SQL Managed Instance is responsible for setting rules on management ports. This is achieved through functionality named [service-aided subnet configuration](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+This is to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
-Here is what management ports are used for:
+**Can I get the source IP ranges that are used for the inbound management traffic?**
 
-Ports 9000 and 9003 are used by Azure Service Fabric infrastructure. The Service Fabric primary role is to keep the virtual cluster healthy and keep the goal state in terms of the number of component replicas.
+Yes. You could analyze traffic coming through your networks security group by [configuring Network Watcher flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
-Ports 1438, 1440, and 1452 are used by the node agent. The node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
+**Can I set NSG to control access to the data endpoint (port 1433)?**
 
-In addition to NSG rules, the built-in firewall protects the instance on the network layer. On the application layer, communication is protected with the certificates.
+Yes. After a Managed Instance is provisioned you can set NSG that controls inbound access to the port 1433. It is advised to narrow its IP range as much as possible.
 
-For more information and to learn how to verify the built-in firewall, see [Azure SQL Managed Instance built-in firewall](management-endpoint-verify-built-in-firewall.md).
+**Can I set the NVA or on-premises firewall to filter the outbound management traffic based on FQDNs?**
+
+No. This is not supported for several reasons:
+-	Routing traffic that represent response to inbound management request would be asymmetric and could not work.
+-	Routing traffic that goes to storage would be affected by throughput constraints and latency so this way we won’t be able to provide expected service quality and availability.
+-	Based on experience, these configurations are error prone and not supportable.
+
+**Can I set the NVA or firewall for the outbound non-management traffic?**
+
+Yes. The simplest way to achieve this is to add 0/0 rule to a UDR associated with managed instance subnet to route traffic through NVA.
+ 
+**How many IP addresses do I need for a Managed Instance?**
+
+Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). To determine VNet subnet size for SQL Managed Instance, see [Determine required subnet size and range for Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+
+**What if there are not enough IP addresses for performing instance update operation?**
+
+In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+
+**Do I need an empty subnet to create a Managed Instance?**
+
+No. You can use either an empty subnet or a subnet that already contains Managed Instance(s). 
+
+**Can I change the subnet address range?**
+
+Not if there are Managed Instances inside. This is an Azure networking infrastructure limitation. You are only allowed to [add additional address space to an empty subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+
+**Can I move my managed instance to another subnet?**
+
+No. This is a current Managed Instance design limitation. However, you can provision a new instance in another subnet and manually back up and restore data between the old and the new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+
+**Do I need an empty virtual network to create a Managed Instance?**
+
+This is not required. You can either [Create a virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) or [Configure an existing virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+
+**Can I place a Managed Instance with other services in a subnet?**
+
+No. Currently we do not support placing Managed Instance in a subnet that already contains other resource types.
+
+## Connectivity 
+
+**Can I connect to my managed instance using IP address?**
+
+No, this is not supported. A Managed Instance's host name maps to the load balancer in front of the Managed Instance's virtual cluster. As one virtual cluster can host multiple Managed Instances, a connection cannot be routed to the proper Managed Instance without specifying its name.
+For more information on SQL Managed Instance virtual cluster architecture, see [Virtual cluster connectivity architecture](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Can a managed instance have a static IP address?**
+
+This is currently not supported.
+
+In rare but necessary situations, we might need to do an online migration of a managed instance to a new virtual cluster. If needed, this migration is because of changes in our technology stack aimed to improve security and reliability of the service. Migrating to a new virtual cluster results in changing the IP address that is mapped to the managed instance host name. The managed instance service doesn't claim static IP address support and reserves the right to change it without notice as a part of regular maintenance cycles.
+
+For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
+
+**Does Managed Instance have a public endpoint?**
+
+Yes. Managed Instance has a public endpoint that is by default used only for service management, but a customer may enable it for data access as well. For more details, see [Use SQL Managed Instance with public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). To configure public endpoint, go to [Configure public endpoint in SQL Managed Instance](public-endpoint-configure.md).
+
+**How does Managed Instance control access to the public endpoint?**
+
+Managed Instance controls access to the public endpoint at both the network and application level.
+
+Management and deployment services connect to a managed instance by using a [management endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) that maps to an external load balancer. Traffic is routed to the nodes only if it's received on a predefined set of ports that only the managed instance's management components use. A built-in firewall on the nodes is set up to allow traffic only from Microsoft IP ranges. Certificates mutually authenticate all communication between management components and the management plane. For more details, see [Connectivity architecture for SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Could I use the public endpoint to access the data in Managed Instance databases?**
+
+Yes. The customer will need to enable public endpoint data access from [Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) / ARM and configure NSG to lock down access to the data port (port number 3342). For more information, see [Configure public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) and [Use Azure SQL Managed Instance securely with public endpoint](public-endpoint-overview.md). 
+
+**Can I specify a custom port for SQL data endpoint(s)?**
+
+No, this option is not available.  For private data endpoint, Managed Instance uses default port number 1433 and for public data endpoint, Managed Instance uses default port number 3342.
+
+**What is the recommended way to connect Managed Instances placed in different regions?**
+
+Express Route circuit peering is the preferred way to do that. This is not to be mixed with the cross-region virtual network peering that is not supported due to internal load balancer related [constraint](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+
+If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 
 ## Mitigate data exfiltration risks  
@@ -173,7 +255,11 @@ SQL Managed Instance case studies:
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Managed Instance, there's also a Forrester study: [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## DNS refresh 
+## DNS
+
+**Can I configure a custom DNS for SQL Managed Instance?**
+
+Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Can I do DNS refresh?**
 
@@ -186,20 +272,6 @@ DNS configuration is eventually refreshed:
 
 As a workaround, downgrade SQL Managed Instance to 4 vCores and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
 
-
-## IP address
-
-**Can I connect to SQL Managed Instance using an IP address?**
-
-Connecting to SQL Managed Instance using an IP address is not supported. The SQL Managed Instance host name maps to a load balancer in front of the SQL Managed Instance virtual cluster. As one virtual cluster could host multiple managed instances, connections cannot be routed to the proper managed instance without specifying the name explicitly.
-
-For more information on SQL Managed Instance virtual cluster architecture, see [Virtual cluster connectivity architecture](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**Can SQL Managed Instance have a static IP address?**
-
-In rare but necessary situations, we might need to do an online migration of SQL Managed Instance to a new virtual cluster. If needed, this migration is because of changes in our technology stack aimed to improve security and reliability of the service. Migrating to a new virtual cluster results in changing the IP address that is mapped to the SQL Managed Instance host name. The SQL Managed Instance service doesn't claim static IP address support and reserves the right to change it without notice as a part of regular maintenance cycles.
-
-For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
 
 ## Change time zone
 
@@ -273,3 +345,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (replace 'test' with desired login name and adjust policy and expiration values)
+
+## Azure feedback and support
+
+**Where can I leave my ideas for SQL Managed Instance improvements?**
+
+You can vote for a new Managed Instance feature or put a new improvement idea on voting on [SQL Managed Instance Feedback Forum](https://feedback.azure.com/forums/915676-sql-managed-instance). This way you can contribute to the product development and help us prioritize our potential improvements.
+
+**How can I create Azure support request?**
+
+To learn how to create Azure support request, see [How to create Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+

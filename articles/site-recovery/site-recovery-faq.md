@@ -17,11 +17,16 @@ This article summarizes frequently asked questions about Azure Site Recovery. Fo
 ## General
 
 ### What does Site Recovery do?
+
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 ### Can I protect a virtual machine that has a Docker disk?
 
 No, this is an unsupported scenario.
+
+### What does Site Recovery do to ensure data integrity?
+
+There are various measures taken by Site Recovery to ensure data integrity. A secure connection is established between all services by using the HTTPS protocol. This makes sure that any malware or outside entities can't tamper the data. Another measure taken is using checksums. The data transfer between source and target is executed by computing checksums of data between them. This ensures that the transferred data is consistent.
 
 ## Service providers
 
