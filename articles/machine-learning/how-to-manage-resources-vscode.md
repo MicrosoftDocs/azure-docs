@@ -16,7 +16,7 @@ ms.date: 07/08/2020
 
 Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
-![AML VS Code Extension](media/how-to-manage-resources-vscode/aml-vscode-extension.png)
+![AML VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
 ## Prerequisites
 
@@ -50,8 +50,8 @@ Alternative methods to create a workspace include:
 1. Expand the subscription node that contains your workspace.
 1. Right-click the workspace you want to remove.
 1. Select whether you want to remove:
-    1. *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
-    1. *With associated resources*:. This option deletes the workspace **and** all resources associated with it.
+    - *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
+    - *With associated resources*: This option deletes the workspace **and** all resources associated with it.
 
 ## Datastores
 
@@ -82,9 +82,9 @@ For more information, see [datastores](concept-data.md#datastores).
 1. Expand your workspace node.
 1. Expand the **Datastores** node inside your workspace.
 1. Select the datastore you want to:
-    1. Set as default. Whenever you run experiments, this is the datastore that will be used.
-    1. Inspect read-only settings.
-    1. Modify. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
+    - *Set as default*. Whenever you run experiments, this is the datastore that will be used.
+    - *Inspect read-only settings*.
+    - *Modify*. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
 
 ## Datasets
 
@@ -219,7 +219,7 @@ As you're running your experiment, you may want to see its progress. To track th
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the experiment node you want to track progress for.
-1. Right-click the run and select **View Run in Azure Portal**.
+1. Right-click the run and select **View Run in Azure portal**.
 1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
 
 ### Download run logs & outputs
@@ -230,8 +230,8 @@ Once a run is complete, you may want to download the logs and assets such as the
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the experiment node you want to track progress for.
 1. Right-click the run:
-    1. To download the outputs, select **Download outputs**.
-    1. To download the logs, select **Download logs**.
+    - To download the outputs, select **Download outputs**.
+    - To download the logs, select **Download logs**.
 
 ### View run metadata
 
@@ -340,7 +340,7 @@ For more information, see [models](concept-azure-machine-learning-architecture.m
 
 ## Endpoints
 
-The VS Code extension supports the following following deployment targets:
+The VS Code extension supports the following deployment targets:
 
 - Azure Container Instances
 - Azure Kubernetes Service
@@ -381,9 +381,9 @@ In addition to creating and deleting deployments, you can view and edit settings
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Endpoints** node inside your workspace.
 1. Right-click the deployment you want to manage:
-    1. To edit settings, select **Edit service**.
+    - To edit settings, select **Edit service**.
         1. A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
-    1. To view deployment configuration settings, select **View service properties**.
+    - To view deployment configuration settings, select **View service properties**.
 
 ## Next steps
 

@@ -50,7 +50,7 @@ You can interact with your workspace in the following ways:
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
-+ Azure Machine Learning VS Code Extension (how-to-manage-resources-vscode.md#workspaces)
++ [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 ## Machine learning with a workspace
 
