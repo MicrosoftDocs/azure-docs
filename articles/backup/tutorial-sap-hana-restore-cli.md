@@ -104,7 +104,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 The response to the above query will be a recovery config object that looks something like this:
 
 ```output
-"{\"restore_mode\": \"OriginalLocation\", \"container_uri\": \" VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \", \"item_uri\": \"SAPHanaDatabase;hxe;hxe\", \"recovery_point_id\": \"DefaultRangeRecoveryPoint\", \"log_point_in_time\": \"28-11-2019-09:53:00\", \"item_type\": \"SAPHana\", \"source_resource_id\": \"/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm\", \"database_name\": null, \"container_id\": null, \"alternate_directory_paths\": null}"
+{"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
 Now, to restore the database run the [az restore restore-azurewl](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we will enter the above json output that is saved to a file named *recoveryconfig.json*.
@@ -145,7 +145,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 The response to the above query will be a recovery config object that looks as follows:
 
 ```output
-"{\"restore_mode\": \"OriginalLocation\", \"container_uri\": \" VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \", \"item_uri\": \"SAPHanaDatabase;hxe;hxe\", \"recovery_point_id\": \"DefaultRangeRecoveryPoint\", \"log_point_in_time\": \"28-11-2019-09:53:00\", \"item_type\": \"SAPHana\", \"source_resource_id\": \"/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm\", \"database_name\": null, \"container_id\": null, \"alternate_directory_paths\": null}"
+{"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
 Now, to restore the database run the [az restore restore-azurewl](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we will enter the above json output that is saved to a file named *recoveryconfig.json*.
@@ -166,6 +166,177 @@ Name                                  Resource
 ```
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+## Restore as files
+
+To restore the backup data as files instead of a database, we'll use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can either be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
+
+For this tutorial, we'll choose the previous point-in-time `28-11-2019-09:53:00` to restore to, and the location to dump backup files as `/home/saphana/restoreasfiles` on the same SAP HANA server. You can provide this restore point in either of the following formats: **dd-mm-yyyy** or **dd-mm-yyyy-hh:mm:ss**. To choose a valid point-in-time to restore to, use the [az backup recoverypoint show-log-chain](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet, which lists the intervals of unbroken log chain backups.
+
+Using the restore point name above and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](https://docs.microsoft.com/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
+
+* **--target-container-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
+* **--rp-name** This is used to assign a name
+
+```azurecli-interactive
+az backup recoveryconfig show --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --container-name VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \
+    --item-name saphanadatabase;hxe;hxe \
+    --restore-mode RestoreAsFiles \
+    --log-point-in-time 28-11-2019-09:53:00 \
+    --rp-name DefaultRangeRecoveryPoint \
+    --target-container-name VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \
+    --filepath /home/saphana/restoreasfiles \
+    --output json
+```
+
+The response to the query above will be a recovery config object that looks as follows:
+
+```output
+{
+  "alternate_directory_paths": null,
+  "container_id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SAPHANA;hanamachine",
+  "container_uri": "VMAppContainer;compute;saphana;hanamachine",
+  "database_name": null,
+  "filepath": "/home/",
+  "item_type": "SAPHana",
+  "item_uri": "SAPHanaDatabase;hxe;hxe",
+  "log_point_in_time": "04-07-2020-09:53:00",
+  "recovery_mode": "FileRecovery",
+  "recovery_point_id": "DefaultRangeRecoveryPoint",
+  "restore_mode": "AlternateLocation",
+  "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanamachine"
+}
+```
+
+Now, to restore the database as files run the [az restore restore-azurewl](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdlet. To use this command, we'll enter the json output above which is saved to a file named *recoveryconfig.json*.
+
+```azurecli-interactive
+az backup restore restore-azurewl --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --restore-config recoveryconfig.json \
+    --output json
+```
+
+The output will look like this:
+
+```output
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/SAPHANARESOURCEGROUP/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupJobs/608e737e-c001-47ca-8c37-57d909c8a704",
+  "location": null,
+  "name": "608e737e-c001-47ca-8c37-57d909c8a704",
+  "properties": {
+    "actionsInfo": [
+      "Cancellable"
+    ],
+    "activityId": "7ddd3c3a-c0eb-11ea-a5f8-54ee75ec272a",
+    "backupManagementType": "AzureWorkload",
+    "duration": "0:00:01.781847",
+    "endTime": null,
+    "entityFriendlyName": "HXE [hxehost]",
+    "errorDetails": null,
+    "extendedInfo": {
+      "dynamicErrorMessage": null,
+      "propertyBag": {
+        "Job Type": "Restore as files"
+      },
+      "tasksList": [
+        {
+          "status": "InProgress",
+          "taskId": "Transfer data from vault"
+        }
+      ]
+    },
+    "jobType": "AzureWorkloadJob",
+    "operation": "Restore",
+    "startTime": "2020-07-08T07:20:29.336434+00:00",
+    "status": "InProgress",
+    "workloadType": "SAPHanaDatabase"
+  },
+  "resourceGroup": "saphanaResourceGroup",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupJobs"
+}
+```
+
+The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+The files that are dumped onto the target container are:
+
+* Database backup files
+* Catalog files
+* JSON metadata files (for each backup file that is involved)
+
+Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
+
+>[!NOTE]
+>To restore the database backup files on an Azure file share mounted on the target registered VM, make sure that root account has read/ write permissions on the Azure file share.
+
+Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full and differential backups, and the other folder named `Log` contains the log backups.
+
+Move these restored files to the SAP HANA server where you want to restore them as a database. Then follow these steps to restore the database:
+
+1. Set permissions on the folder / directory where the backup files are stored using the following command:
+
+    ```bash
+    chown -R <SID>adm:sapsys <directory>
+    ```
+
+1. Run the next set of commands as `<SID>adm`
+
+    ```bash
+    su - <sid>adm
+    ```
+
+1. Generate the catalog file for restore. Extract the **BackupId** from the JSON metadata file for the full backup, which will be used later in the restore operation. Make sure that the full and log backups are in different folders and delete the catalog files and JSON metadata files in these folders.
+
+    ```bash
+    hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
+    ```
+
+    In the above command:
+
+    * `<DataFileDir>` - the folder that contains the full backups
+    * `<LogFilesDir>` - the folder that contains the log backups
+    * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed
+
+1. Restore using the newly generated catalog file through HANA Studio or run the HDBSQL restore query with this newly generated catalog. HDBSQL queries are listed below:
+
+    * To restore to a point in time:
+
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database.
+
+        Then run the following command to restore the database:
+
+        ```hdbsql
+        RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
+        ```
+
+        * `<DatabaseName>` - Name of the new database or existing database that you want to restore
+        * `<Timestamp>` - Exact timestamp of the Point in time restore
+        * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need to be specified for restores done on the same HANA server from where the backup is taken.
+        * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step C**
+        * `<DataFileDir>` - the folder that contains the full backups
+        * `<LogFilesDir>` - the folder that contains the log backups
+        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
+
+    * To restore to a particular full or differential backup:
+
+        If you're creating a new restored database, run the HDBSQL command to create a new database `<DatabaseName>` and then stop the database for restore. However, if you're only restoring an existing database, run the HDBSQL command to stop the database:
+
+        ```hdbsql
+        RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
+        ```
+
+        * `<DatabaseName>` - the name of the new database or existing database that you want to restore
+        * `<Timestamp>` - the exact timestamp of the Point in time restore
+        * `<DatabaseName@HostName>` - the name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>`  option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it need not be specified for restores done on the same HANA server from where the backup is taken.
+        * `<PathToGeneratedCatalogInStep3>` - the path to the catalog file generated in **Step C**
+        * `<DataFileDir>` - the folder that contains the full backups
+        * `<LogFilesDir>` - the folder that contains the log backups
+        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
 
 ## Next steps
 
