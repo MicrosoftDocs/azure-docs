@@ -30,7 +30,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) and use platform-specific package managers or npm for installation.
++ [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) and use platform-specific package managers or npm for installation.
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
@@ -41,9 +41,9 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 >[!IMPORTANT]
 >You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Azure Functions Core Tools.  
 
-### <a name="v2"></a>Version 2.x and 3.x
+### <a name="v2"></a>Version 3.x and 2.x
 
-Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
@@ -53,26 +53,26 @@ Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Install [Node.js], which includes npm.
-    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
     - For version 3.x of the tools, only Node.js 10 and later versions are supported.
+    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
 
 1. Install the Core Tools package:
 
-    ##### v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools
-    ```
-
-    ##### v3.x
+    ##### v3.x (recommended)
 
     ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
+    ##### v2.x
+
+    ```cmd
+    npm install -g azure-functions-core-tools@2
+    ```
+
    It may take a few minutes for npm to download and install the Core Tools package.
 
-1. If you don't plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
 
 # [macOS](#tab/macos)
 
@@ -82,14 +82,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install the Core Tools package:
 
-    ##### v2.x
-
-    ```bash
-    brew tap azure/functions
-    brew install azure-functions-core-tools
-    ```
-
-    ##### v3.x
+    ##### v3.x (recommended)
 
     ```bash
     brew tap azure/functions
@@ -97,6 +90,15 @@ The following steps use Homebrew to install the Core Tools on macOS.
     # if upgrading on a machine that has 2.x installed
     brew link --overwrite azure-functions-core-tools@3
     ```
+    
+    ##### v2.x
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@2
+    ```
+    
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
 # [Linux](#tab/linux)
 
@@ -143,19 +145,19 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. Install the Core Tools package:
 
-    ##### v2.x
-
+    ##### v3.x (recommended)
     ```bash
-    sudo apt-get install azure-functions-core-tools
-    ```
-
-    ##### v3.x
-
-    ```bash
+    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
+    
+    ##### v2.x
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-2
+    ```
 
-1. If you don't plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
 
 ---
 
@@ -163,7 +165,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-Version 2.x/3.x requires you to select a default language for your project when it is initialized. All functions added use default language templates. In version 1.x, you specify the language each time you create a function.
+Version 3.x/2.x requires you to select a default language for your project when it is initialized. In version 3.x/2.x, all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -172,7 +174,7 @@ func init MyFunctionProj
 ```
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
-In version 2.x/3.x, when you run the command you must choose a runtime for your project. 
+In version 3.x/2.x, when you run the command you must choose a runtime for your project. 
 
 <pre>
 Select a worker runtime:
@@ -195,21 +197,21 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init` supports the following options, which are version 2.x/3.x-only, unless otherwise noted:
+`func init` supports the following options, which are version 3.x/2.x-only, unless otherwise noted:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--worker-runtime`** | Sets the runtime framework. Valid values are `dotnet`, `node`, `python`, `powershell`. For Java, use [Maven](functions-reference-java.md#create-java-functions). |
-| **`--language`** | Initializes a language specific project. Currently supported when `--worker-runtime` set to `node`. Options are - `typescript` and `javascript` |
-| **`--csx`** | Uses CSX .NET functions. Valid for `dotnet` worker-runtime only. |
+| **`--csx`** | Creates .NET functions as C# script, which is the version 1.x behavior. Valid only with `--worker-runtime dotnet`. |
 | **`--docker`** | Creates a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
 | **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in local.settings.json. Use this option when you plan to publish an existing project to a custom Linux container. |
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
-| **`--source-control`** | Runs git init. Default is false. |
+| **`--language`** | Initializes a language specific project. Currently supported when `--worker-runtime` set to `node`. Options are `typescript` and `javascript`. You can also use `--worker-runtime javascript` or `--worker-runtime typescript`.  |
 | **`--managed-dependencies`**  | Installs managed dependencies. Currently, only the PowerShell worker runtime supports this functionality. |
-
+| **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
+| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions).When not set, you're prompted to choose your runtime during initialization. |
+|
 > [!IMPORTANT]
-> By default, version 2.x and above of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
+> By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -267,7 +269,7 @@ To create a function, run the following command:
 func new
 ```
 
-In version 2.x/3.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
+In version 3.x/2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
 
 <pre>
 Select a language: Select a template:
@@ -297,10 +299,11 @@ You can also specify these options in the command using the following arguments:
 
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and above, do not use this option or choose a language that matches the worker runtime. |
+| **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
+| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, do not use this option or choose a language that matches the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
 | **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
-| **`--csx`** | (Version 2.x and above) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
+
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
@@ -507,7 +510,7 @@ The following publish options apply for all versions:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 
-The following publish options are only supported in version 2.x and above:
+The following publish options are supported only for version 2.x and later versions:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |

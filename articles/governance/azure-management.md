@@ -1,10 +1,10 @@
 ---
 title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
-ms.date: 05/22/2020
+ms.date: 07/06/2020
 ms.topic: overview
 ---
-# Overview of Management services in Azure
+# What are the Azure Management areas?
 
 Governance in Azure is one aspect of Azure Management. This article covers the different areas of
 management for deploying and maintaining your resources in Azure.
@@ -85,3 +85,10 @@ suitability of on-premises virtual machines to Azure. Azure Site Recovery migrat
 Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database
 Migration](../dms/dms-overview.md) assists you in migrating database sources to Azure Data
 platforms.
+
+## Next Steps
+
+To learn more about Azure Governance, see these articles:
+
+- See the [Azure Governance hub](./index.yml).
+- See [Governance in the Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/)

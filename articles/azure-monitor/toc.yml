@@ -1204,6 +1204,10 @@
       href: app/custom-endpoints.md
     - name: Azure Functions
       href: app/azure-functions-supported-features.md 
+    - name: Release notes
+      items:
+      - name: Web app extension
+        href: app/web-app-extension-release-notes.md
     - name: Data model
       items:
       - name: Overview

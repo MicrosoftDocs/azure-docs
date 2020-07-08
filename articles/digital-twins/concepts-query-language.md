@@ -23,7 +23,7 @@ To submit a query to the service from a client app, you will use the Azure Digit
 
 ## Query language features
 
-Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
+Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, in a query language similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
 Here are the operations available in Azure Digital Twins Query Store language:
 * Get twins by digital twins' properties.

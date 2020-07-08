@@ -103,6 +103,8 @@
       displayName: ARM
   - name: Configure internal Load Balancer
     items:
+    - name: Azure portal
+      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Azure CLI
       href: load-balancer-get-started-ilb-arm-cli.md
     - name: Azure PowerShell
@@ -121,8 +123,6 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-  - name: Configure High Availability Ports for Internal Load Balancer
-    href: load-balancer-configure-ha-ports.md
   - name: Move across regions
     items:
     - name: External load balancer - Portal
