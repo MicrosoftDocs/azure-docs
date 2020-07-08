@@ -138,10 +138,10 @@ ___
         <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        8 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID, access, refresh, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
+        8 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID tokens, access tokens, refresh tokens, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
