@@ -24,7 +24,7 @@ This quickstart shows how to use [Azure CLI](https://docs.microsoft.com/cli/azur
 ## Prerequisites
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)command. Note the **id** property  which refers to **Subscritpion ID** for your azure account. 
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property  which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
