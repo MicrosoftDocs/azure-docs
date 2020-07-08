@@ -1,5 +1,5 @@
 ---
-title: End-to-End Content Protection using Azure AD
+title: End-to-End content protection using Azure AD
 description: This article teaches you how to protect your content with Azure Media Services and Azure Active Directory
 services: media-services
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 07/1/2020
 ms.author: inhenkel
 ---
 
-# Tutorial: End-to-End Content Protection using Azure AD
+# Tutorial: End-to-End content protection using Azure AD
 
 With this tutorial and the provided player sample, you can set up an end-to-end media content protection subsystem on Azure Media Services (AMS) and Azure Active Directory (AAD) to stream media content with all AMS supported DRM/AES-128, streaming protocols, codec, and container formats. The sample is generic enough for secure access to any REST API protected by OAuth 2 through Authorization Code Flow with Proof Key for Code Exchange (PKCE). (Azure Media Services license delivery service is just one of them.) It also works for Microsoft Graph API or any custom developed REST API secured with OAuth 2 Authorization Code Flow. This is the companion document to the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -54,15 +54,14 @@ It is optional but recommended that you are familiar with the following concepts
 
 ### Prerequisite code and installations
 
-1. The sample code. Download the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
-1. An installation of Visual Studio Code. Download Visual Studio Code here [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
-1. An installation of Node.js. Download Node.js here [https://nodejs.org](https://nodejs.org). NPM comes with the install.
-1. An [Azure subscription](https://azure.microsoft.com/free/).
-1. An Azure Media Services (AMS) account.
-1. @azure/msal-browser v2.0, one of the members in [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK family for different client platforms
-1. The latest version of [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(included in sample.)
-
-1. FPS credentials from Apple if you want to include FairPlay DRM and the application certificate hosted with CORS that is accessible via client-side JavaScript.
+* The sample code. Download the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
+* An installation of Visual Studio Code. Download Visual Studio Code here [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
+* An installation of Node.js. Download Node.js here [https://nodejs.org](https://nodejs.org). NPM comes with the install.
+* An [Azure subscription](https://azure.microsoft.com/free/).
+* An Azure Media Services (AMS) account.
+* @azure/msal-browser v2.0, one of the members in [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK family for different client platforms
+* The latest version of [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(included in sample.)
+* FPS credentials from Apple if you want to include FairPlay DRM and the application certificate hosted with CORS that is accessible via client-side JavaScript.
 
 > [!IMPORTANT]
 > This tutorial uses .NET to create the content key policy restriction.  If you are not a .NET developer, but want to try Node.js to connect to Azure Media Services, read [Connect to Media Services v3 API - Node.js](configure-connect-nodejs-howto.md). There is also a Node.js module available to handle key rollover automatically, see Node.js [passport-ad module](https://github.com/AzureAD/passport-azure-ad).
@@ -73,16 +72,16 @@ A few challenges are presented in designing the subsystem. It has multiple movin
 
 The Single-Page App (SPA) used in this tutorial takes into account challenges to authentication requirements and the restrictions that follow. It uses:
 
-1. Azure AD v2 endpoints as Azure AD developer platform (v1 endpoints) are changing to Microsoft Identity Platform (v2 endpoints).
-1. Authorization Code Flow because OAuth 2 implicit grant flow has been deprecated.
-1. An app that is subject to the following constraints:
-    1. A public client can't hide the client secret.  Authorization Code Flow alone requires hiding the client secret, so Authorization Code Flow with PKCE is used.
-    1. A browser-based app that is subject to a browser security sandbox (CORS/preflight constraint).
-    1. A browser-based app using modern JavaScript that is subject to JavaScript security constraints (custom header accessibility, correlation-id).
+* Azure AD v2 endpoints as Azure AD developer platform (v1 endpoints) are changing to Microsoft Identity Platform (v2 endpoints).
+* Authorization Code Flow because OAuth 2 implicit grant flow has been deprecated.
+* An app that is subject to the following constraints:
+    * A public client can't hide the client secret.  Authorization Code Flow alone requires hiding the client secret, so Authorization Code Flow with PKCE is used.
+    * A browser-based app that is subject to a browser security sandbox (CORS/preflight constraint).
+    * A browser-based app using modern JavaScript that is subject to JavaScript security constraints (custom header accessibility, correlation-id).
 
 ## Understand the subsystem design
 
-The design of the subsystem is shown in the following diagram.  It has three layers:
+The design of the subsystem is shown in the following diagram.  It has 3 layers:
 
 1. Back-office layer (in black) for configuring the content key policy and publishing content for streaming
 1. Public endpoints (in blue) that are player/customer-facing endpoints providing authentication, authorization, DRM license, and encrypted content
@@ -108,14 +107,14 @@ The player app is a Single-page application (SPA), developed in Visual Studio Co
 
 The SPA player app completes the following actions:
 
-1. User authentication for users native to the tenant, and guest users from other AAD tenants or MSA accounts. Users can choose to sign in through either a browser popup or redirect (for browsers not allowing popups such as Safari).
-1. Acquisition of `access_token` through Authorization Code Flow with PKCE.
-1. Renewal of `access_token` (tokens issued by AAD are valid for 1 hour), for which `refresh_token` is also acquired.
-1. Parsing JWT tokens (both `access_token` and `id_token`) for test/inspection.
-1. Acquisition of DRM licenses for all three DRMs or AES-128 content key.
-1. Streaming of content under various combinations of DRM vs Streaming Protocol vs Container Format. The correct format string is generated for each combination.
-1. Decryption, decode, and display.
-1. Microsoft Graph API calls for troubleshooting purposes. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
+* User authentication for users native to the tenant, and guest users from other AAD tenants or MSA accounts. Users can choose to sign in through either a browser popup or redirect (for browsers not allowing popups such as Safari).
+* Acquisition of `access_token` through Authorization Code Flow with PKCE.
+* Renewal of `access_token` (tokens issued by AAD are valid for 1 hour), for which `refresh_token` is also acquired.
+* Parsing JWT tokens (both `access_token` and `id_token`) for test/inspection.
+* Acquisition of DRM licenses for all three DRMs or AES-128 content key.
+* Streaming of content under various combinations of DRM vs Streaming Protocol vs Container Format. The correct format string is generated for each combination.
+* Decryption, decode, and display.
+* Microsoft Graph API calls for troubleshooting purposes. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
 The screen for sign-in, token acquisition, token renewal, and token display:
 
@@ -136,7 +135,7 @@ The screen for testing protected content with different combinations of DRM/AES 
 > [!NOTE]
 > From here forward, it is assumed that you have logged in to the Azure portal and have at least one Azure AD tenant.
 
-Choose an Azure AD tenant to use for our end-to-end sample. You have two options:
+Choose an Azure AD tenant to use for our end-to-end sample. You have 2 options:
 
 1. An existing Azure AD tenant. Any Azure subscription must have one Azure AD tenant, but an Azure AD tenant can be used by multiple Azure subscriptions.
 1. A new Azure AD tenant that is *not* used by any Azure subscription. If you choose the new tenant option, the media service account and the sample player app must be in an Azure subscription that uses a separate Azure AD tenant. This provides some flexibility. For example, you could use your own Azure AD tenant but also the customer’s media service account in the customer’s Azure subscription.
@@ -205,7 +204,7 @@ Choose an Azure AD tenant to use for our end-to-end sample. You have two options
 1. Click **Save**.
 1. Finally to verify that your configuration is correct, select **Authentication**.  The Authentication view will appear. Your client application will be listed as a Single Page App (SPA), the redirect URI will be listed, and the grant type will be Authorization Code Flow with PKCE.
 
-### Set up the media services account content key policy and streaming policies
+### Set up the Media Services account content key policy and streaming policies
 
 **This section assumes that you are a .NET developer and are familiar with using the AMS v3 API.**
 
@@ -249,7 +248,7 @@ Change the `ida_AADOpenIdDiscoveryDocument`, `ida_audience`, and `ida_issuer` va
 
 If you haven't done so already, clone or download the app from the source repo: [https://github.com/Azure-Samples/media-services-content-protection-azure-ad](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
-You have two options to set up the player app:
+You have 2 options to set up the player app:
 
 1. Minimal customization (only replacing some constant string values such as client_id, tenant_id, and streaming URL), but you must use Visual Studio Code and Node.js.
 1. If you prefer to use another IDE and web platform such as ASP.NET Core, you can put the web page files, JavaScript files, and CSS file into your project since the player app itself does not use any server-side code.
@@ -306,7 +305,7 @@ If you plan to use another IDE/web platform and/or a webserver such as IIS runni
 
 Now that you've completed the tutorial and have a working subsystem, you can try modifying it for the following customer scenarios:
 
-### Role-Based Access Control (RBAC) for license delivery via AAD group membership
+### Role-Based Access Control (RBAC) for license delivery via Azure AD group membership
 
 So far, the system allows any user who can log in to get a valid license and play the protected content.
 
@@ -319,7 +318,7 @@ It is a common customer requirement that a subset of authenticated users is allo
 1. Add the *premium_user* to the *PremiumGroup* as a member, but do not add the *basic_user* to the group.
 1. Take note of the **Object ID** of the *PremiumGroup*.
 
-#### Setup in Media Services Account
+#### Setup in Media Services account
 
 Modify `ContentKeyPolicyRestriction` (as shown in the section above in the  Setup in Media Service Account), by adding a claim named *groups*, where `ida_EntitledGroupObjectId` has the object ID of *PremiumGroup* as its value:
 
@@ -342,7 +341,7 @@ The *groups* claim is a member of a [Restricted Claim Set](https://docs.microsof
 1. Sign in with the *premium_user* account. You should be able to play the protected content.
 1. Sign in in with the *basic_user* account. You should get an error indicating the video is encrypted but there is no key to decrypt it. If you view the Events, errors, and downloads with the dropdown at the bottom of the player diagnostic overlay, the error message should indicate license acquire failure due to the missing claim value for groups claim in the JWT issued by Azure AD token endpoint.
 
-### Supporting Multiple Media service Account (across Multiple Subscriptions)
+### Supporting multiple media service accounts (across multiple subscriptions)
 
 A customer may have multiple media service accounts across either a single or multiple Azure subscriptions. For example, a customer may have one media service account as production primary, another one as secondary/backup, and another for dev/test.
 
@@ -370,10 +369,9 @@ Your sample solution may be set up in a Microsoft tenant with Microsoft subscrip
 ## Clean up resources
 
 > [!WARNING]
-If you're not going to continue to use this application, delete the resources you created while following this tutorial. Otherwise, you will be charged for them.
+> If you're not going to continue to use this application, delete the resources you created while following this tutorial. Otherwise, you will be charged for them.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
 > [Quickstart: Encrypt content](encrypt-content-quickstart.md)
