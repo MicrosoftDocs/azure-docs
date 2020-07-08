@@ -4,7 +4,7 @@ description: The Azure Database for PostgreSQL - Hyperscale security baseline pr
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -652,7 +652,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 **Guidance**:  
 At least once a day, Azure Database for PostgreSQL Hyperscale (Citus) takes snapshot backups of data files and the database transaction log. The backups allow you to restore a server to any point in time within the retention period. (The retention period is currently 35 days for all clusters.) All backups are encrypted using AES 256-bit encryption. The PostgreSQL Hyperscale (Citus) offering uses Microsoft managed keys for encryption.
 
-Understand encryption for Azure PosgreSQL - Hyperscale (Citus) backups: https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup
+Understand encryption for Azure PostgreSQL - Hyperscale (Citus) backups: https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup
 
 
 
