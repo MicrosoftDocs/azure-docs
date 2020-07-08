@@ -1,6 +1,6 @@
 ﻿---
-title: 'Time Series Model - Azure Time Series Insights Gen 2 | Microsoft Docs'
-description: Learn about Time Series Model in Azure Time Series Insights Gen 2.
+title: 'Time Series Model - Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Learn about Time Series Model in Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
-# Time Series Model in Azure Time Series Insights Gen 2
+# Time Series Model in Azure Time Series Insights Gen2
 
-This article describes Time Series Model, the capabilities, and how to start building and updating your own models in the Azure Time Series Insights Gen 2 environment.
+This article describes Time Series Model, the capabilities, and how to start building and updating your own models in the Azure Time Series Insights Gen2 environment.
 
 > [!TIP]
 >
 > * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
-> * Learn [how to work with Time Series Model](time-series-insights-update-how-to-tsm.md) using the Azure Time Series Insights Explorer.
+> * Learn [how to work with Time Series Model](time-series-insights-update-how-to-tsm.md) using the Azure Time Series Insights Gen2 Explorer.
 
 ## Summary
 
@@ -52,7 +52,7 @@ These limitations revealed the importance of smart data aggregation and visualiz
 
 ### Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Azure Time Series Insights Gen 2. It helps you:
+With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Azure Time Series Insights Gen2. It helps you:
 
 * Author and manage computations or formulas leveraging scalar functions, aggregate operations, and so on.
 * Define parent-child relationships to enable navigation, search, and reference.
@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Gen 2 Explorer](time-series-insights-update-how-to-tsm.md). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-how-to-tsm.md). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## Time Series Model instances
 
@@ -82,7 +82,7 @@ Instances have descriptive information associated with them called *instance pro
 
 *Instance fields* are a collection of descriptive information that can include values for hierarchy levels, as well as manufacturer, operator, and so on.
 
-After an event source is configured for the Azure Time Series Insights environment, instances are automatically discovered and created in a time series model. The instances can be created or updated via the Azure Time Series Insights Explorer by using Time Series Model queries.
+After an event source is configured for the Azure Time Series Insights Gen2 environment, instances are automatically discovered and created in a time series model. The instances can be created or updated via the Azure Time Series Insights Gen2 Explorer by using Time Series Model queries.
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) provides several live instance examples.
 
@@ -130,7 +130,7 @@ Instances have the following JSON representation:
 
 Time Series Model *hierarchies* organize instances by specifying property names and their relationships.
 
-You can configure multiple hierarchies in a given Azure Time Series Insights environment. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
+You can configure multiple hierarchies in a given Azure Time Series Insights Gen2 environment. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) displays a standard instance and type hierarchy.
 
@@ -211,7 +211,7 @@ Given the instance fields used in the previous definition and several time serie
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | None of "building", "floor", or "room" is set. |
 
-Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
+Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
 The others are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 
@@ -260,7 +260,7 @@ Types conform to the following JSON example:
         "Interpolated Speed": {
           "kind": "numeric",
           "value": {
-              "tsx": "$event.[speed].Double"
+              "tsx": "$event['Speed-Sensor'].Double"
           },
           "filter": null,
           "interpolation": {
@@ -270,7 +270,7 @@ Types conform to the following JSON example:
               }
           },
           "aggregation": {
-              "tsx": "left($value)"
+              "tsx": "right($value)"
           }
         }
       }
@@ -286,4 +286,4 @@ Time Series Model types can have many variables that specify formula and computa
 
 - Explore the formulas and computations you can create with [Time Series Model variables](./concepts-variables.md)
 
-- Learn about [querying data](concepts-query-overview.md) in Azure Time Series Insights Gen 2
+- Learn about [querying data](concepts-query-overview.md) in Azure Time Series Insights Gen2

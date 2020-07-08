@@ -1,14 +1,14 @@
 ---
-title: 'Model variables - Azure Time Series Insights | Microsoft Docs'
+title: 'Model variables - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Model variables'
 author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ---
 
-# Model variables
+# Time Series Model variables
 
 This article describes the Time Series Model variables that specify formula and computation rules on events.
 
@@ -29,7 +29,7 @@ The following table displays which properties are relevant for each variable kin
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
 | Variable value | Telemetry values used for computation coming from the device or sensors or transformed by using Time Series Expressions. Numeric kind variables must be of the type *Double*.|
 | Variable interpolation | Interpolation specifies how to reconstruct a signal by using existing data. *Step* and *Linear* interpolation options are available for numeric variables. |
-| Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count*, *First*, *Last* and time-weighted (*Avg*, *Min*, *Max*, *Sum*, *Left*) operators. |
+| Variable aggregation | Perform computations through the supported [aggregation functions](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#aggregation-expressions) for Numeric kind variables. |
 
 Variables conform to the following JSON example:
 
@@ -37,7 +37,7 @@ Variables conform to the following JSON example:
 "Interpolated Speed": {
   "kind": "numeric",
   "value": {
-    "tsx": "$event.[speed].Double"
+    "tsx": "$event['Speed-Sensor'].Double"
   },
   "filter": null,
   "interpolation": {
@@ -47,7 +47,7 @@ Variables conform to the following JSON example:
     }
   },
   "aggregation": {
-    "tsx": "left($value)"
+    "tsx": "right($value)"
   }
 }
 ```
@@ -68,7 +68,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "$event.Status.Long" 
 },
   "interpolation": {
     "kind": "step",
@@ -97,16 +97,16 @@ Variables conform to the following JSON example:
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
-| Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count*, *First*, *Last*. |
+| Variable aggregation | Perform computations through the supported [aggregation functions](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#aggregation-expressions) for Aggregate kind variables. |
 
 Variables conform to the following JSON example:
 
 ```JSON
-"Aggregate Speed": {
+"Speed Range": {
   "kind": "aggregate",
   "filter": null,
   "aggregation": {
-    "tsx": "avg($event.Speed.Double)"
+    "tsx": "max($event.Speed.Double) - min($event.Speed.Double)"
   }
 }
 ```
