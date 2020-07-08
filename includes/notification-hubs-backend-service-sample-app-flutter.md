@@ -115,7 +115,11 @@
     void main() => runApp(MaterialApp(home: MainPage(), navigatorKey: navigatorKey));
     ```
 
-1. Build and run the app on each target platform to test the templated app runs on your device(s).
+1. In **Terminal**, build and run the app on each target platform to test the templated app runs on your device(s). Make sure that supported devices are connected:
+
+    ```bash
+    flutter run
+    ```
 
 ### Implement the cross-platform components
 
