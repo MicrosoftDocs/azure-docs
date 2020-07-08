@@ -367,7 +367,7 @@ The filter above will remove `-` `(` `)` `+` `.` and spaces from the input.
 
 Tokenizers split text into tokens and discard some characters, such as punctuation, along the way. In many cases, the goal of tokenization is to split a sentence into individual words.
 
-For this scenario, we'll use a keyword tokenizer, `keyword_v2`, because we want to capture the phone number as a single term. Note that this isn't the only way to solve this problem. See the [alternate approaches](#Alternate) section below.
+For this scenario, we'll use a keyword tokenizer, `keyword_v2`, because we want to capture the phone number as a single term. Note that this isn't the only way to solve this problem. See the [Alternate approaches](#Alternate) section below.
 
 Keyword tokenizers always output the same text it was given as a single term.
 
@@ -519,7 +519,7 @@ With this change, you're all set. Recreate the index, index the data, and test t
 
 <a name="Alternate"></a>
 
-## Alternate Approaches
+## Alternate approaches
 
 The analyzer above was designed to maximize the flexibility for search. However, it does so at the cost of storing many potentially unimportant terms in the index.
 
