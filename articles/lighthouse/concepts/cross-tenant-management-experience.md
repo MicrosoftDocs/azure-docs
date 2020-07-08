@@ -43,7 +43,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Arc for servers (preview)](../../azure-arc/servers/overview.md):
 
-- [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/quickstart-onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
+- [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
 - Manage connected machines using Azure constructs, such as Azure Policy and tagging
 
 [Azure Automation](../../automation/index.yml):
