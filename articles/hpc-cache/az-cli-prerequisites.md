@@ -4,7 +4,7 @@ description: Setup steps before you can use Azure CLI to create or modify an Azu
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
 ---
 
@@ -30,7 +30,7 @@ Azure HPC Cache functions are not part of the main code base, so you also must i
 
    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a locally installed version of the CLI.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 

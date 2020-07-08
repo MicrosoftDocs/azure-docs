@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
 ---
 
@@ -97,8 +97,10 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 ## Create the cache with Azure CLI
 
-> [!TIP]
-> Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) to access the command line interface, install the hpc-cache extension, and log in before using the Azure CLI commands in this section.
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+<!-->> [!TIP]
+> Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) to access the command line interface, install the hpc-cache extension, and log in before using the Azure CLI commands in this section. -->
 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.

@@ -252,14 +252,19 @@ Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/h
 
   Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-Example command and output:
+Example command:
 
 ```azurecli
 
 az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-name "doc-cache0629" \
     --name nfsd1 --nfs3-target 10.0.0.4 --nfs3-usage-model WRITE_WORKLOAD_15 \
     --junction namespace-path="/nfs1/data1" nfs-export="/datadisk1" target-path=""
+```
 
+Output:
+```azurecli
+
+```
 {- Finished ..
   "clfs": null,
   "id": "/subscriptions/<subscriptionID>/resourceGroups/hpc-cache-group/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
