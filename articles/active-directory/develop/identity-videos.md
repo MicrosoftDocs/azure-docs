@@ -130,6 +130,20 @@ ___
         <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        5 - <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (1:45)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        6 - <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID, access, refresh, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a> (2:10)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
 
 <!-- IMAGES -->
 [auth-fund-01-img]: ./media/identity-videos/aad-auth-fund-01.jpg
@@ -266,16 +280,5 @@ ___
     :::column-end:::
     :::column:::
         <!-- BLANK VIDEO CELL -->
-    :::column-end:::
-:::row-end:::
-
-## One Dev Question series (65 videos)
-
-Learn about the Microsoft Azure identity platform in the One Dev Question series. Hear answers to developer questions with topics such as "how are authorization requests connected to access tokens and refresh tokens"?
-___
-
-:::row:::
-    :::column:::
-        <a href="https://www.youtube.com/playlist?list=PLLasX02E8BPCkCMbNDPT-hUfNsnP_RSBm" target="_blank"> <img src="./media/identity-videos/one-dev-question-azure-series.jpg" alt="Video series thumbnail"> </a>
     :::column-end:::
 :::row-end:::
