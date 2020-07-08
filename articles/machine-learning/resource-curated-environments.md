@@ -22,10 +22,10 @@ This article lists the curated environments in Azure Machine Learning, and the p
 ## Azure AutoML
 
 - [AzureML AutoML](#azureml-automl)
-- [AzureML AutoML GPU]
-- [AzureML AutoML DNN]
-- [AzureML AutoML DNN GPU]
-- [Azure AutoML DNN Vision GPU]
+- [AzureML AutoML GPU](#azureml-automl-gpu)
+- [AzureML AutoML DNN](#azureml-automl-dnn)
+- [AzureML AutoML DNN GPU](#azureml-automl-dnn-gpu)
+- [Azure AutoML DNN Vision GPU](#azureml-automl-dnn-vision-gpu)
 
 ### AzureML AutoML
 
@@ -183,6 +183,18 @@ dependencies:
 
 ## Azure ML Designer
 
+- [AzureML Designer](#azureml-designer)
+- [AzureML Designer CV](#azureml-designer-cv)
+- [AzureML Designer CV Transform](#azureml-designer-cv-transform)
+- [AzureML Designer IO](#azureml-designer-io)
+- [AzureML Designer NLP](#azureml-designer-nlp)
+- [AzureML Designer PyTorch](#azureml-designer-pytorch)
+- [AzureML Designer PyTorch Train](#azureml-designer-pytorch-train)
+- [AzureML Designer R](#azureml-designer-r)
+- [AzureML Designer Recommender](#azureml-designer-recommender)
+- [AzureML Designer Score](#azureml-designer-score)
+- [AzureML Designer Transform](#azureml-designer-transform)
+
 ### AzureML Designer
 
 packages channels:
@@ -196,7 +208,7 @@ dependencies:
   - https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz#egg=en_core_web_sm
   - spacy==2.1.7
 
-### AzureML-Designer-CV
+### AzureML Designer CV
 
 packages channels:
 - defaults
@@ -395,7 +407,22 @@ dependencies:
 - scikit-learn
 - matplotlib
 
+## AzureML VowpalWabbit 8.8.0
+
+packages channels:
+- conda-forge
+
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-core==1.8.0
+  - azureml-defaults==1.8.0
+  - azureml-dataprep[fuse,pandas]
+
 ## Dask
+
+- [AzureML Dask CPU](#azureml-dask-cpu)
+- [AzureML Dask GPU](#azureml-dask-gpu)
 
 ### AzureML Dask CPU
 
@@ -449,6 +476,9 @@ dependencies:
 
 ## Chainer
 
+- [AzureML Chainer 5.1.0 CPU](#azureml-chainer-510-cpu)
+- [AzureML Chainer 5.1.0 GPU](#azureml-chainer-510-gpu)
+
 ### AzureML Chainer 5.1.0 CPU
 
 packages channels:
@@ -499,6 +529,19 @@ dependencies:
   - azureml-train-core==1.8.0
 
 ## PyTorch
+
+- [AzureML PyTorch 1.0 CPU](#azureml-pytorch-10-cpu)
+- [AzureML PyTorch 1.0 GPU](#azureml-pytorch-10-gpu)
+- [AzureML PyTorch 1.1 CPU](#azureml-pytorch-11-cpu)
+- [AzureML PyTorch 1.1 GPU](#azureml-pytorch-11-gpu)
+- [AzureML PyTorch 1.2 CPU](#azureml-pytorch-12-cpu)
+- [AzureML PyTorch 1.2 GPU](#azureml-pytorch-12-gpu)
+- [AzureML PyTorch 1.3 CPU](#azureml-pytorch-13-cpu)
+- [AzureML PyTorch 1.3 GPU](#azureml-pytorch-13-gpu)
+- [AzureML PyTorch 1.4 CPU](#azureml-pytorch-14-cpu)
+- [AzureML PyTorch 1.4 GPU](#azureml-pytorch-14-gpu)
+- [AzureML PyTorch 1.5 CPU](#azureml-pytorch-15-cpu)
+- [AzureML PyTorch 1.5 GPU](#azureml-pytorch-15-gpu)
 
 ### AzureML PyTorch 1.0 CPU
 
@@ -757,6 +800,17 @@ dependencies:
 
 ## TensorFlow
 
+- [Azure ML TensorFlow 1.10 CPU](#azureml-tensorflow-110-cpu)
+- [Azure ML TensorFlow 1.10 GPU](#azureml-tensorflow-110-gpu)
+- [Azure ML TensorFlow 1.12 CPU](#azureml-tensorflow-112-cpu)
+- [Azure ML TensorFlow 1.12 GPU](#azureml-tensorflow-112-gpu)
+- [Azure ML TensorFlow 1.13 CPU](#azureml-tensorflow-113-cpu)
+- [Azure ML TensorFlow 1.13 GPU](#azureml-tensorflow-113-gpu)
+- [Azure ML TensorFlow 2.0 CPU](#azureml-tensorflow-20-cpu)
+- [Azure ML TensorFlow 2.0 GPU](#azureml-tensorflow-20-gpu)
+- [Azure ML TensorFlow 2.1 CPU](#azureml-tensorflow-21-cpu)
+- [Azure ML TensorFlow 2.1 GPU](#azureml-tensorflow-21-gpu)
+
 ### AzureML TensorFlow 1.10 CPU
 
 packages channels:
@@ -917,14 +971,3 @@ dependencies:
   - tensorflow-gpu==2.1.0
   - horovod==0.19.1
 
-## AzureML VowpalWabbit 8.8.0
-
-packages channels:
-- conda-forge
-
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-core==1.8.0
-  - azureml-defaults==1.8.0
-  - azureml-dataprep[fuse,pandas]
