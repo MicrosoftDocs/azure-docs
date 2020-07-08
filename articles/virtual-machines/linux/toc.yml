@@ -546,7 +546,7 @@
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Purchase plan information
-      href: marketplace-images.md
+      href: ../marketplace-images.md
     - name: Capture VM to managed image
       href: capture-image.md
     - name: Build image with Packer
