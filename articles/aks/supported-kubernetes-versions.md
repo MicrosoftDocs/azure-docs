@@ -66,7 +66,7 @@ When a new minor version is introduced, the oldest minor version and patch relea
 1.13.f
 ```
 
-And AKS releases 1.16.*, this means that the 1.13.* versions (all 1.13 versions) will be removed and are will out of support in 30 days.
+And AKS releases 1.16.*, this means that the 1.13.* versions (all 1.13 versions) will be removed and will be out of support in 30 days.
 
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
@@ -123,14 +123,15 @@ az aks get-versions --location eastus --output table
 ## AKS Kubernetes Release Calendar
 
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
-|---|---|---|---|---|
-| 1.14  | Mar-25-19  | Apr 19   | Aug 19  | 1.17 GA
-| 1.15  | Jun-19-19  | Sept 19  | Dec 19  | 1.18 GA
-| 1.16  | Sep-19-19  | Jan 19   | Mar 20  | 1.19 GA
-| 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA
-| 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA
-| 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA
-| 1.20  | *Nov 20     | *Dec 21   | *Jan 21  | 1.23 GA
+|--------------|-------------------|--------------|---------|-------------|
+| 1.14  | Mar-25-19  | Apr 19   | Aug 19  | 1.17 GA |
+| 1.15  | Jun-19-19  | Sept 19  | Dec 19  | 1.18 GA |
+| 1.16  | Sep-19-19  | Jan 19   | Mar 20  | 1.19 GA | 
+| 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
+| 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
+| 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
+| 1.20  | *Nov 20    | *Dec 21   | *Jan 21  | 1.23 GA | 
+
 \* Pending Upstream release date confirmation.
 
 ## FAQ
