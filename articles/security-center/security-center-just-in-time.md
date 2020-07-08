@@ -31,12 +31,11 @@ For a full explanation about how JIT works and the underlying logic, see [Just-i
 
 
 
-## Configure JIT VM access
+
+
+## Configure JIT VM access <a name="jit-configure"></a>
 
 You can configure a JIT policy on a VM using the Azure portal (in Security Center or Azure Virtual Machines) or programmatically.
-
-
-
 
 ### [Security Center](#tab/jit-config-asc)
 
@@ -196,6 +195,8 @@ Learn more at [Jit Network Access Policies](https://docs.microsoft.com/rest/api/
 You can request access to a JIT-enabled VM from the Azure portal (in Security Center or Azure Virtual Machines) or programmatically.
 
 ### [Security Center](#tab/jit-request-asc)
+
+![Requesting JIT access from Security Center](./media/security-center-just-in-time/jit-request-asc.gif)
 
 ### Request JIT access via Security Center
 
