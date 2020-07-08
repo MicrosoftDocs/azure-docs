@@ -4,7 +4,7 @@ description: The Security Center security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/08/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -23,100 +23,49 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Protect Azure resources within virtual networks
+### 1.1: Document traffic configuration rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
+
+Use resource tags for network security groups and other resources like servers on your networks that are configured to send security logs to Azure Security Center. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network. 
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
+
+Data collection in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+
+Firewall requirements for using the Log Analytics agent: https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements
+
+How to create and use tags: 
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags How to create an Azure Virtual Network: 
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal How to filter network traffic with network security group rules: 
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 1.1: Protect Azure resources within virtual networks
+### 1.1: Document traffic configuration rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](None.).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
 
-**Azure Security Center monitoring**: Not applicable
+Use resource tags for network security groups and other resources like servers on your networks that are configured to send security logs to Azure Security Center. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network. 
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
 
-**Responsibility**: Customer
+Data collection in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
+Firewall requirements for using the Log Analytics agent: https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13652).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.3: Protect critical web applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13653).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.4: Deny communications with known-malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13654).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.5: Record network packets
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13655).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13656).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.7: Manage traffic to web applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13657).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.8: Minimize complexity and administrative overhead of network security rules
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13658).
-
-**Guidance**: Not applicable to Security Center.
+How to create and use tags: 
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags How to create an Azure Virtual Network: 
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal How to filter network traffic with network security group rules: 
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -127,7 +76,15 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13659).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
+
+You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to new subscriptions to deploy Security Center configurations and related networking resources consistently and securely.
+
+Data collection in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+
+Firewall requirements for using the Log Analytics agent: https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements
+
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Policy samples for networking: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#networkHow to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -138,7 +95,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13661).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Use Azure Activity log to monitor resource configurations and detect changes for network resource related to your Azure Security Center resources. Create alerts in Azure Monitor to notify you when changes to critical resources take place.
+How to view and retrieve Azure Activity log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
+How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -148,34 +107,23 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
-### 2.1: Use approved time synchronization sources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](None.).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 2.1: Use approved time synchronization sources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](None.).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 2.2: Configure central security log management
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13663).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: 
+Aggregate security data generated by Azure Security Center and its connected sources using a central Log Analytics workspace. 
+
+Configure Security Center's data collection to send security data and events from your connected Azure compute resources to a central Log Analytics workspace. In addition to data collection, use the continuous export feature to stream security alerts and recommendations generated by Security Center to your central Log Analytics workspace. In Azure Monitor, you can query and perform analytics on the security data generated from Security Center and your connected Azure resources. 
+Alternatively, you can send data produced by Security Center to Azure Sentinel or a third-party SIEM.
+
+Export security alerts and recommendations: https://docs.microsoft.com/azure/security-center/continuous-export
+
+Data collection in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard How to collect platform logs and metrics with Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings How to collect Azure Virtual Machine internal host logs with Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+How to get started with Azure Monitor and third-party SIEM integration: https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -186,18 +134,10 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13664).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Enable the continuous export feature to stream security alerts and recommendations generated by Azure Security Center to a central Log Analytics workspace. Azure Monitor Activity logs are automatically available, these logs contain all write operations for your resource like Azure Security Center including what operations were made, who started the operation, and when they occurred. Send your Azure Activity logs to a Log Analytics workspace for log consolidation and increased retention.
+How to collect platform logs and metrics with Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings Understand logging and different log types in Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 2.4: Collect security logs from operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13665).
-
-**Guidance**: Not applicable to Security Center.
+Send Activity logs to a Log Analytics workspace: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -208,7 +148,8 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13666).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
+Change the data retention period in Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period How to configure retention policy for Azure Storage account logs: https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -219,7 +160,10 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13667).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Analyze and monitor logs produced by Azure Security Center and its connected sources for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
+Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard Getting started with Log Analytics queries:
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -230,29 +174,21 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13668).
 
-**Guidance**: Not applicable to Security Center. However, Security Center helps to implement this control. Security Center advanced threat protection to detect and interrupt anomalous activities related to suspicious use of sign-in attempts and accounts. Security Center detects threats for cloud-based applications, virtual machines, and other supported Azure resources.
+**Guidance**: Configure Azure Monitor log alerts to query for unwanted or anomalous activities that are recorded by your activity log or the data produced by Azure Security Center. Set up Action Groups so that your organization is notified and can take action if a log alert is initiated for anomalous activity. Use Security Center workflow automation feature to trigger logic apps on security alerts and recommendations. Security Center workflows can be used to notify users for incident response, or take actions to remediate resources based on the alert information.
 
-**Azure Security Center monitoring**: Not applicable
+Alternatively, you can enable and on-board data related to and produced by Azure Security Center to Azure Sentinel. Azure Sentinel supports playbooks that allow for automated threat responses to security-related issues.
 
-**Responsibility**: Customer
+Azure Security Center workflow automation: https://docs.microsoft.com/azure/security-center/workflow-automation
 
-### 2.8: Centralize anti-malware logging
+How to manage alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13669).
+How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Guidance**: Not applicable to Security Center.
+Set up automated threat responses in Azure Sentinel: https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook
 
-**Azure Security Center monitoring**: Not applicable
+Log alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log
 
-**Responsibility**: Customer
 
-### 2.9: Enable DNS query logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13670).
-
-**Guidance**: Not applicable to Security Center.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -284,23 +220,15 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13673).
-
-**Guidance**: Not applicable to Security Center.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13674).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts for the Azure Platform or specific to the Azure Security Center offering. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts in Azure Active Directory. Security Center also has a built-in role for 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations, ensure you review and reconcile any users who have this role assignment on a regular basis.Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:- There should be more than one owner assigned to your subscription- Deprecated accounts with owner permissions should be removed from your subscription- External accounts with owner permissions should be removed from your subscription
+Permissions in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-permissions
+
+How to use Azure Security Center to monitor identity and access (Preview): https://docs.microsoft.com/azure/security-center/security-center-identity-accessHow to use Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -311,7 +239,8 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13675).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations.
+Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -322,7 +251,8 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13676).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Enable Azure Active Directory MFA for accessing Azure Security Center and the Azure portal, follow any Security Center identity and access recommendations. 
+How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted How to monitor identity and access within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -333,7 +263,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13677).
 
-**Guidance**: Not applicable to Security Center.
+**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.​
+Understand secure, Azure-managed workstations: https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation​
+
+How to enable Azure AD MFA: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted​
+
 
 **Azure Security Center monitoring**: Not applicable
 
