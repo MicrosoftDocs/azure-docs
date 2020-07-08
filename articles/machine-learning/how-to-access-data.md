@@ -90,7 +90,7 @@ After datastore creation, this validation is only performed for methods that req
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
 > [!IMPORTANT]
-> If your storage account is in a virtual network, only creation of datastores **via the SDK** is supported.
+> If you plan to create a datastore for storage accounts that are in a virtual network, see the Access data in a virtual network section.
 
 You can find the information that you need to populate the `register_azure_*()` method on the [Azure portal](https://portal.azure.com).
 
@@ -182,14 +182,14 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Create a new datastore in a few steps in Azure Machine Learning studio:
 
 > [!IMPORTANT]
-> If your storage account is in a virtual network, only creation of datastores [via the SDK](#python-sdk) is supported. 
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy] (how-to-enable-virtual-network.md#machine-learning-studio) to ensure the appropriate configuration steps are applied. 
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure storage type and authentication type.
   
-You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. 
+You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as, the account name, container, and file share name. 
 
 * For authentication items, like account key or SAS token, go to **Access keys** on the **Settings** pane. 
 
@@ -198,7 +198,7 @@ You can find the information that you need to populate the form on the  [Azure p
 > [!IMPORTANT]
 > For security reasons, you may need to change your access keys for an Azure Storage account (account key or SAS token). When doing so be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to sync your updated credentials with [these steps](how-to-change-storage-access-key.md). 
 
-The following example demonstrates what the form looks like when you create an Azure blob datastore: 
+The following example demonstrates what the form looks like when you create an **Azure blob datastore**: 
     
 ![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
 
@@ -296,6 +296,11 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 | [Azure IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy models to IoT Edge devices. |
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
+
+
+## Access data in a virtual network
+
+If your storage is behind a virtual network, you must perform additional configuration steps for your workspace and datastore to access your data. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 

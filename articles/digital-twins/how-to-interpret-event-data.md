@@ -226,12 +226,11 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipId": "building_to_floor",
+    "$relationshipId": "device_to_device",
     "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
 

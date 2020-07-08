@@ -82,19 +82,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Reply URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://microsoft.hyperanna.com/userservice/auth/saml` |
-	| `https://anna.hyperanna.com/userservice/auth/saml` |
+    ```http
+    https://microsoft.hyperanna.com/userservice/auth/saml
+    https://anna.hyperanna.com/userservice/auth/saml
+    ```
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://microsoft.hyperanna.com/` |
-	| `https://anna.hyperanna.com/` |
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
+    ```
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

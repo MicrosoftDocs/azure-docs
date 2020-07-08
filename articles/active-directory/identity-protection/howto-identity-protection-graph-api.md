@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/18/2019
+ms.date: 06/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,113 +27,56 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Act
 
 There are four steps to accessing Identity Protection data through Microsoft Graph:
 
-1. Retrieve your domain name.
-2. Create a new app registration. 
-3. Use this secret and a few other pieces of information to authenticate to Microsoft Graph, where you receive an authentication token. 
-4. Use this token to make requests to the API endpoint and get Identity Protection data back.
+- [Retrieve your domain name](#retrieve-your-domain-name)
+- [Create a new app registration](#create-a-new-app-registration)
+- [Configure API permissions](#configure-api-permissions)
+- [Configure a valid credential](#configure-a-valid-credential)
 
-Before you get started, you’ll need:
+### Retrieve your domain name 
 
-* Administrator privileges to create the application in Azure AD
-* The name of your tenant's domain (for example, contoso.onmicrosoft.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+1. Browse to **Azure Active Directory** > **Custom domain names**. 
+1. Take note of the `.onmicrosoft.com` domain, you will need this information in a later step.
 
-## Retrieve your domain name 
+### Create a new app registration
 
-1. [Sign in](https://portal.azure.com) to your Azure portal as an administrator. 
-1. On the left navigation pane, click **Active Directory**. 
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/41.png)
-
-1. In the **Manage** section, click **Properties**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/42.png)
-
-1. Copy your domain name.
-
-## Create a new app registration
-
-1. On the **Active Directory** page, in the **Manage** section, click **App registrations**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/42.png)
-
-1. In the menu on the top, click **New application registration**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/43.png)
-
-1. On the **Create** page,  perform the following steps:
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/44.png)
-
-   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API Application).
-
-   1. As **Type**, select **Web Application And / Or Web API**.
-
-   1. In the **Sign-on URL** textbox, type `http://localhost`.
-
-   1. Click **Create**.
-1. To open the **Settings** page, in the applications list, click your newly created app registration. 
+1. In the Azure portal, browse to **Azure Active Directory** > **App registrations**.
+1. Select **New registration**.
+1. On the **Create** page, perform the following steps:
+   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API).
+   1. Under **Supported account types**, select the type of accounts that will use the APIs.
+   1. Select **Register**.
 1. Copy the **Application ID**.
 
-## Grant your application permission to use the API
+### Configure API permissions
 
-1. On the **Settings** page, click **Required permissions**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/15.png)
-
-1. On the **Required permissions** page, in the toolbar on the top, click **Add**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/16.png)
-
+1. From the **Application** you created, select **API permissions**.
+1. On the **Configured permissions** page, in the toolbar on the top, click **Add a permission**.
 1. On the **Add API access** page, click **Select an API**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/17.png)
-
 1. On the **Select an API** page, select **Microsoft Graph**, and then click **Select**.
+1. On the **Request API permissions** page: 
+   1. Select **Application permissions**.
+   1. Select the checkboxes next to `IdentityRiskEvent.Read.All` and `IdentityRiskyUser.Read.All`.
+   1. Select **Add permissions**.
+1. Select **Grant admin consent for domain** 
 
-   ![Creating an application](./media/howto-identity-protection-graph-api/18.png)
+### Configure a valid credential
 
-1. On the **Add API access** page, click **Select permissions**.
+1. From the **Application** you created, select **Certificates & secrets**.
+1. Under **Client secrets**, select **New client secret**.
+   1. Give the client secret a **Description** and set the expiration time period according to your organizational policies.
+   1. Select **Add**.
 
-   ![Creating an application](./media/howto-identity-protection-graph-api/19.png)
-
-1. On the **Enable Access** page, click **Read all identity risk information**, and then click **Select**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/20.png)
-
-1. On the **Add API access** page, click **Done**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/21.png)
-
-1. On the **Required Permissions** page, click **Grant Permissions**, and then click **Yes**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/22.png)
-
-## Get an access key
-
-1. On the **Settings** page, click **Keys**.
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/23.png)
-
-1. On the **Keys** page, perform the following steps:
-
-   ![Creating an application](./media/howto-identity-protection-graph-api/24.png)
-
-   1. In the **Key description** textbox, type a description (for example, *Azure AD Risk Detection*).
-   1. As **Duration**, select **In 1 year**.
-   1. Click **Save**.
-   1. Copy the key value, and then paste it into a safe location.   
-   
    > [!NOTE]
    > If you lose this key, you will have to return to this section and create a new key. Keep this key a secret: anyone who has it can access your data.
-   > 
 
 ## Authenticate to Microsoft Graph and query the Identity Risk Detections API
 
 At this point, you should have:
 
 - The name of your tenant's domain
-- The client ID 
-- The key 
+- The Application (client) ID 
+- The client secret or certificate 
 
 To authenticate, send a post request to `https://login.microsoft.com` with the following parameters in the body:
 
@@ -142,7 +85,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 - client_id: \<your client ID\>
 - client_secret: \<your key\>
 
-If successful, this returns an authentication token.  
+If successful, this request returns an authentication token.  
 To call the API, create a header with the following parameter:
 
 ```
@@ -151,9 +94,11 @@ To call the API, create a header with the following parameter:
 
 When authenticating, you can find the token type and access token in the returned token.
 
-Send this header as a request to the following API URL: `https://graph.microsoft.com/beta/identityRiskEvents`
+Send this header as a request to the following API URL: `https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
 The response, if successful, is a collection of identity risk detections and associated data in the OData JSON format, which can be parsed and handled as you see fit.
+
+### Sample
 
 Here’s sample code for authenticating and calling the API using PowerShell.  
 Just add your client ID, the secret key, and the tenant domain.
@@ -174,7 +119,7 @@ Just add your client ID, the secret key, and the tenant domain.
     if ($oauth.access_token -ne $null) {
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        $url = "https://graph.microsoft.com/beta/identityRiskEvents"
+        $url = "https://graph.microsoft.com/v1.0/identityProtection/riskDetections"
         Write-Output $url
 
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)

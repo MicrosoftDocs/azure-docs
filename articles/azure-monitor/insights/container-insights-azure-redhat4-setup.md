@@ -2,7 +2,7 @@
 title: Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring for a Kubernetes cluster with Azure Monitor that's hosted on Azure Red Hat OpenShift version 4 or later.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/30/2020
 ---
 
 # Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers
@@ -34,6 +34,10 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift v4.x as
 
 - The [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command-line tool
 
+- A [Log Analytics workspace](../platform/design-logs-deployment.md).
+
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+
 - To enable and access the features in Azure Monitor for containers, you need to have, at minimum, an Azure *Contributor* role in the Azure subscription and a [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
 
 - To view the monitoring data, you need to have [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
@@ -50,17 +54,27 @@ To enable monitoring for an Azure Red Hat OpenShift version 4 or later cluster t
 
 1. Download and save to a local folder the script that configures your cluster with the monitoring add-in by running the following command:
 
-    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aroV4/onboarding_azuremonitor_for_containers.sh.`
+    `curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script`
 
-1. To identify the *kube-context* of your cluster, after a successful *oc login* to your cluster, run the following command:
+1. To identify the *kubeContext* of your cluster, run the following commands
 
-    `kubectl config current-context`
-    
+    ```
+    adminUserName=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv)
+    adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
+    apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
+    oc login $apiServer -u $adminUserName -p $adminPassword
+    # openshift project name for azure monitor for containers
+    openshiftProjectName="azure-monitor-for-containers"
+    oc new-project $openshiftProjectName
+    # get the kube config context
+    kubeContext=$(oc config current-context)
+    ```
+
 1. Copy the value for later use.
 
 ### Integrate with an existing workspace
 
-In this section, you enable monitoring of your cluster using the Bash script you downloaded earlier. To integrate with an existing Log Analytics workspace, start by identifying the full resource ID of your Log Analytics workspace that's required for the `workspaceResourceId` parameter, and then run the command to enable the monitoring add-in against the specified workspace. 
+In this section, you enable monitoring of your cluster using the Bash script you downloaded earlier. To integrate with an existing Log Analytics workspace, start by identifying the full resource ID of your Log Analytics workspace that's required for the `logAnalyticsWorkspaceResourceId` parameter, and then run the command to enable the monitoring add-in against the specified workspace.
 
 If you don't have a workspace to specify, you can skip to the [Integrate with the default workspace](#integrate-with-the-default-workspace) section and let the script create a new workspace for you.
 
@@ -94,45 +108,54 @@ If you don't have a workspace to specify, you can skip to the [Integrate with th
 
 1. In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **ID**.
 
-1. To enable monitoring, run the following command. Replace the values for the `azureAroV4ResourceId` and `workspaceResourceId` parameters. 
+1. To enable monitoring, run the following command. Replace the values for the `azureAroV4ClusterResourceId`, `logAnalyticsWorkspaceResourceId`, and `kubeContext` parameters.
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <workspaceResourceId>`
+    ```bash
+    export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export kubeContext="<kubeContext name of your ARO v4 cluster>"  
+    ```
 
     Example:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4 /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+    `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
 After you've enabled monitoring, it might take about 15 minutes before you can view the health metrics for the cluster.
 
 ### Integrate with the default workspace
 
-In this section, you enable monitoring for your Azure Red Hat OpenShift v4.x cluster by using the Bash script that you downloaded. 
+In this section, you enable monitoring for your Azure Red Hat OpenShift v4.x cluster by using the Bash script that you downloaded.
 
-In this example, you're not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription, if one doesn't already exist in the region. 
+In this example, you're not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription, if one doesn't already exist in the region.
 
 The default workspace that's created is in the format of *DefaultWorkspace-\<GUID>-\<Region>*.  
 
-`bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
+Replace the values for the `azureAroV4ClusterResourceId` and `kubeContext` parameters.
+
+```bash
+export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export kubeContext="<kubeContext name of your ARO v4 cluster>"
+```
 
 For example:
 
-`bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
+`bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
-### From the Azure portal
+### Enable monitoring from the Azure portal
 
-The multi-cluster view in Azure Monitor for containers highlights your Azure Red Hat OpenShift clusters that don't have monitoring enabled under the **Non-monitored clusters** tab. The **Enable** option next to your cluster doesn't initiate onboarding of monitoring from the portal. You're redirected to this article to enable monitoring manually by following the steps that were outlined earlier in this article.
+The multi-cluster view in Azure Monitor for containers highlights your Azure Red Hat OpenShift clusters that don't have monitoring enabled under the **Unmonitored clusters** tab. The **Enable** option next to your cluster doesn't initiate onboarding of monitoring from the portal. You're redirected to this article to enable monitoring manually by following the steps that were outlined earlier in this article.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the left pane or from the home page, select **Azure Monitor**. 
+1. On the left pane or from the home page, select **Azure Monitor**.
 
 1. In the **Insights** section, select **Containers**.
 
-1. On the **Monitor - containers** page, select **Non-monitored clusters**.
+1. On the **Monitor - containers** page, select **Unmonitored clusters**.
 
-1. In the list of non-monitored clusters, select the cluster, and then select **Enable**. 
+1. In the list of non-monitored clusters, select the cluster, and then select **Enable**.
 
     You can identify the results in the list by looking for the **ARO** value in the **Cluster Type** column. After you select **Enable**, you're redirected to this article.
 

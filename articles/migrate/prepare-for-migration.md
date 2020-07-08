@@ -89,7 +89,7 @@ By default, Azure VMs are assigned drive D to use as temporary storage.
 
 - This drive assignment causes all other attached storage drive assignments to increment by one letter.
 - For example, if your on-premises installation uses a data disk that is assigned to drive D for application installations, the assignment for this drive increments to drive E after you migrate the VM to Azure. 
-- To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll:
+- To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll**:
 
 Configure this setting manually as follows:
 
