@@ -44,7 +44,7 @@ For now, customer-managed keys have the following restrictions:
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-## Encryption at VM host (preview)
+## Encryption at VM host
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on disk data flows encrypted to Storage service. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
@@ -69,7 +69,7 @@ Customers sets a new property Type for an instance of DiskEncryptionSet with val
 
 ## Next steps
 
-- [Enable encryption at host (preview)](disks-enable-encryption-at-host.md)
+- [Enable encryption at host](disks-enable-encryption-at-host.md)
 - [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
 - [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](../windows/disks-enable-customer-managed-keys-powershell.md)

@@ -47,7 +47,7 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## Encryption at host (preview)
+## Encryption at host
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on disk data flows encrypted to Storage service. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
@@ -75,7 +75,7 @@ Customers sets a new property Type for an instance of DiskEncryptionSet with val
 
 ## Next steps
 
-- [Enable encryption at host (preview)](disks-enable-encryption-at-host.md)
+- [Enable encryption at host](disks-enable-encryption-at-host.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys - managed disks](disks-enable-customer-managed-keys-portal.md)
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
