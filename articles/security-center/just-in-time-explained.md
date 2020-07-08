@@ -14,6 +14,13 @@ ms.author: memildin
 
 # The threat of open management ports on a virtual machine
 
+This page explains the principles behind Azure Security Center's just-in-time (JIT) VM access feature and the logic behind the recommendation.
+
+To learn how to apply JIT to your VMs using the Azure Portal (either Security Center or Azure Virtual Machines) or programatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
+
+
+## The risk
+
 All of your internet-facing virtual machines are potential targets for an attack. Threat actors actively hunt accessible machines. The ultimate prize they're seeking is an open management port, like RDP or SSH, to gain access to a VM. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
 ## Why just-in-time (JIT) virtual machine (VM) access is the solution 
