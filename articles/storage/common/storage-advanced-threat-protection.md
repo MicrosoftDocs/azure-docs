@@ -23,7 +23,7 @@ The service ingests resource logs of read, write, and delete requests to Blob st
 
 ## Availability
 
-Advanced threat protection for Azure Storage is currently available for Blob storage, Azure Files (preview), and Azure Data Lake Storage Gen2 (preview). Account types that support advanced threat protection include general-purpose v2, block blob, and Blob storage accounts. Advanced threat protection is available in all public clouds and US government clouds, but not in other sovereign or Azure government cloud regions.
+Advanced threat protection for Azure Storage is currently available for Blob storage, Azure Files (preview), and Azure Data Lake Storage Gen2 (preview). Account types that support advanced threat protection include general-purpose v2, block blob, and Blob storage accounts. Advanced threat protection is available in all public clouds and US government clouds, but not in other sovereign or Azure Government cloud regions.
 
 Accounts with hierarchical namespaces enabled for Data Lake Storage support transactions using both the Azure Blob storage APIs and the Data Lake Storage APIs. Azure file shares support transactions over SMB.
 
