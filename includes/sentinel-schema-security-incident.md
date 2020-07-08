@@ -34,7 +34,7 @@ ms.custom: include file
 | **ModifiedBy** | string | User or system that modified the incident |
 | **Owner** | dynamic |  |
 | **RelatedAnalyticRuleIds** | dynamic | Rules from which the incident's alerts were triggered |
-| **Severity** | string | *Severity of the incident (High/Medium/Low/Informational)* |
+| **Severity** | string | Severity of the incident (High/Medium/Low/Informational) |
 | **SourceSystem** | string | Constant ('Azure') |
 | **Status** | string |  |
 | **TenantId** | string |  |
