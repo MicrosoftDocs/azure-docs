@@ -83,9 +83,9 @@ Update the code with details of your IoT hub and device before you build and run
 
 To view the sample code in Visual Studio, open the *MQTTWin32.sln* solution file in the *IoTMQTTSample\src\Windows* folder.
 
-In **Solution Explorer**, right-click on the **PnPMQTTWin32** project and select **Set as Startup Project**.
+In **Solution Explorer**, right-click on the **TelemetryMQTTWin32** project and select **Set as Startup Project**.
 
-In the **PnPMQTTWin32** project, open the **PnPMQTTWin32.cpp** source file. Update the connection information definitions with the device details you made a note of previously. Replace the token string placeholder for the:
+In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source file. Update the connection information definitions with the device details you made a note of previously. Replace the token string placeholder for the:
 
 * `IOTHUBNAME` identifier with the name of the IoT hub you created.
 * `DEVICEID` identifier with the name of the device you created.
@@ -94,27 +94,15 @@ In the **PnPMQTTWin32** project, open the **PnPMQTTWin32.cpp** source file. Upda
 > [!NOTE]
 > By default a shared access signature is only valid for 60 minutes.
 
+### Modify code to use IoT Plug and Play conventions
+
+Modify the code to use IoT Plug and Play conventions when it sends telemetry to your IoT hub.
+
 Before you build and run the sample, review the key features of sample code:
 
 ### Certificate file
 
 The client uses the `IoTHubRootCA_Baltimore.pem` root certificate file to verify the identity of the IoT hub it connects to.
-
-### MQTT topics
-
-The following definitions are for the MQTT topics the device uses to send information to the IoT hub:
-
-* The `DEVICE_CAPABILITIES_MESSAGE` defines the topic the device uses to report the interfaces it implements.
-* The `DEVICETWIN_PATCH_MESSAGE` defines the topic the device uses to report property updates to the IoT hub.
-* The `DEVICE_TELEMETRY_MESSAGE` defines the topic the device uses to send telemetry to your IoT hub.
-
-### Messages
-
-The `publish_next_packet` function shows how to build the messages sent to the different MQTT topics. For example:
-
-* The message sent to the `DEVICE_CAPABILITIES_MESSAGE` topic lists the four interfaces the device implements: `ModelInformation`, `SDKInformation`, `DeviceInformation`, and `built_in_sensors`.
-* The message sent to the `DEVICETWIN_PATCH_MESSAGE` topic includes properties defined in the `SDKInformation` and `DeviceInformation` interfaces.
-* The message sent to the `DEVICE_TELEMETRY_MESSAGE` topic includes the temperature telemetry.
 
 ### Main loop
 
@@ -122,7 +110,7 @@ The `main` method first initializes the Eclipse Mosquitto library and sets up so
 
 ## Build and run sample code
 
-To build the project, right-click on the **PnPMQTTWin32** project in **Solution Explorer** and select **Build**.
+To build the project, right-click on the **TelemetryMQTTWin32** project in **Solution Explorer** and select **Build**.
 
 If it's not already running, launch the **Azure IoT explorer** tool. In the list of devices, click on the device you added to the hub. In the menu on the left-hand side, select **Telemetry**, and then **Start**. The status changes to **Receiving events**.
 
@@ -134,20 +122,11 @@ Using certificate: IoTHubRootCA_Baltimore.pem
 Setting up options OK
 Connecting...
 Connect returned OK
+Publishing....
+Publish returned OK
 Entering Mosquitto Loop...
 Connect callback returned result: No error.
-
-Publishing device capabilities....
-Publish returned OK
-Publish OK. mid=1
-
-Publishing device twin properties....
-Publish returned OK
-Publish OK. mid=2
-
-Publishing device telemetry....
-Publish returned OK
-Publish OK. mid=3
+Publish OK. Now disconnecting the client.
 ```
 
 In the **Azure IoT explorer** tool, you see a message on the **Telemetry** page that looks like the following JSON snippet:
@@ -164,13 +143,13 @@ In the **Azure IoT explorer** tool, you see a message on the **Telemetry** page 
 }
 ```
 
-On the **Device twin** page, you see the properties the device sent. On the **IoT Plug and Play components** page, you see a list of the interfaces the device says it supports.
+On the **IoT Plug and Play components** page, you see a list of the interfaces the device says it supports.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 
-In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how Azure IoT Plug and Play, see:
+In this tutorial, you learned how to connect a device that uses the IoT Plug and Play conventions to an IoT hub. The device uses an an MQTT library instead of an Azure IoT SDK. To learn more about IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)
