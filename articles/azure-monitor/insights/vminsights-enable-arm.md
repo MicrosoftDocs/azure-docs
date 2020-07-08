@@ -29,7 +29,7 @@ We have created example Azure Resource Manager templates for onboarding your vir
 >The template needs to be deployed in the same resource group as the VM or VMSS being enabled.
 
 
-The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. Don't modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file, you can deploy it by using the following methods described later in this article.
+The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. 
 
 The download file contains the following templates for different scenarios:
 
@@ -42,21 +42,18 @@ The download file contains the following templates for different scenarios:
 >[!NOTE]
 >If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
 
-
-
-# [CLI](#tab/CLI2)
-
-```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
-```
-
-# [PowerShell](#tab/PowerShell2)
+## Deploy templates
+The templates can be deployed using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) including the following examples using PowerShell and CLI.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
 ```
 
----
+
+```azurecli
+az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+```
+
 
 
 ## Next steps

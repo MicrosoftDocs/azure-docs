@@ -12,6 +12,9 @@ ms.date: 07/07/2020
 # Enable Azure Monitor for VMs for a hybrid virtual machine
 This article describes how to enable Azure Monitor for VMs for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
+> [!IMPORTANT]
+> The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](/azure-arc/servers/overview.md) so that the VMs can be enabled for Azure Monitor for VMs using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
