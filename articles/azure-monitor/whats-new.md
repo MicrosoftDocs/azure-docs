@@ -33,7 +33,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Monitor Node.js services with Azure Application Insights](app/nodejs.md) - Multiple updates including migrating from pervious versions and SDK Configuration
 - [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added section on configuring Azure Monitor exporters.
 - [Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights](app/codeless-overview.md) - New article.
-- [Troubleshooting SDK load failure for JavaScript web applications - Azure Application Insights](app/javascript-sdk-load-failure.md) - New article.
+- [Troubleshooting SDK load failure for JavaScript web applications](app/javascript-sdk-load-failure.md) - New article.
 
 ### Containers
 - [How to stop monitoring your hybrid Kubernetes cluster](insights/container-insights-optout-hybrid.md) - Added section for Arc enabled Kubernetes.
