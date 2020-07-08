@@ -39,7 +39,7 @@
   - name: Connect to Synapse Link for Cosmos DB
     href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
-  items:
+   items:
   # - name: Get started
   #   href: get-started.md
   - name: Run Apache Spark applications for Spark pools
@@ -197,6 +197,7 @@
     - name: Development
       items:
       - name: Libraries 
+        items:
         - name: Add and manage libraries
           href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Runtime language and library support
