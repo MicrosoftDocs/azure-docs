@@ -317,6 +317,6 @@ ___
         <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">What are the differences between v1 and v2 authentication? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg.jpg" alt="Video thumbnail"> </a>
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
