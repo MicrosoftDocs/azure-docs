@@ -122,7 +122,7 @@ This problem might occur if your environment doesn't have a Time Series Model hi
 
 ## Problem: Power BI Connector shows "Unable to Connect"
 
-This problem might occur if you are not using the latest version of the Power Bi Connector in Power BI Desktop.
+This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
 
 [![Unparented instances will display a warning.](media/preview-troubleshoot/pbi-unabletoconnect.png)](media/preview-troubleshoot/pbi-unabletoconnect.png#lightbox)
 
