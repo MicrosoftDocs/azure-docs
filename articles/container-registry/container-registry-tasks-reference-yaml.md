@@ -2,7 +2,7 @@
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 07/08/2020
 ---
 
 # ACR Tasks reference: YAML
@@ -13,7 +13,7 @@ This article contains reference for creating multi-step task YAML files for ACR 
 
 ## acr-task.yaml file format
 
-ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit or base image update. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
+ACR Tasks supports multi-step task declaration in standard YAML syntax. You define a task's steps in a YAML file. You can then run the task manually by passing the file to the [az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] that's triggered automatically on a Git commit, a base image update, or a schedule. Although this article refers to `acr-task.yaml` as the file containing the steps, ACR Tasks supports any valid filename with a [supported extension](#supported-task-filename-extensions).
 
 The top-level `acr-task.yaml` primitives are **task properties**, **step types**, and **step properties**:
 
@@ -75,9 +75,10 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
 | `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
 | `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `/workspace` |
-| `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | None |
-| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | None |
-| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. | None |
+| `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | Yes | None |
+| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. No | None |
+| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. No | None |
+| `volumes` | [volume, volume, ...] | Yes | Array of [volume](#volume) objects. Specifies volumes with source content to mount to a step. | No | None |
 
 ### secret
 
@@ -99,7 +100,16 @@ The network object has the following properties.
 | `driver` | string | Yes | The driver to manage the network. | None |
 | `ipv6` | bool | Yes | Whether IPv6 networking is enabled. | `false` |
 | `skipCreation` | bool | Yes | Whether to skip network creation. | `false` |
-| `isDefault` | bool | Yes | Whether the network is a default network provided with Azure Container Registry | `false` |
+| `isDefault` | bool | Yes | Whether the network is a default network provided with Azure Container Registry. | `false` |
+
+### volume
+
+The volume object has the following properties.
+
+| Property | Type | Optional | Description | Default value |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | string | No | The name of the volume to mount. Can contain only alphanumeric characters, '-', and '_'. | None |
+| `secret` | map[string]string | No	| Each key of the map is the name of a file created and populated in the volume. Each value is the string version of the secret. Secret values must be Base64 encoded. | None |
 
 ## Task step types
 
@@ -273,6 +283,7 @@ The `cmd` step type supports the following properties:
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
+| `volumeMounts` |[volumeMount, volumeMount, ...]	| Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
 
@@ -374,6 +385,7 @@ Each step type supports several properties appropriate for its type. The followi
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
+| `volumeMount` | string |	No	| The volume name to mount. Must exactly match name from volumes property.	| None |
 | `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `/workspace` |
 
 ### Examples: Task step properties
@@ -433,6 +445,38 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel-dependent.yaml -->
 [!code-yml[task](~/acr-tasks/when-parallel-dependent.yaml)]
+
+#### Example: volumes
+
+The `volumes` property allows volumes and their secret contents to be specified for the task. Inside each step, an optional `volumeMounts` property lists all the volumes and corresponding container paths to mount into the container at that step. Secrets are mounted as files at each container's path.
+
+Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+<!--[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+
+```yml
+# This template demonstrates mounting a custom volume into a container at a CMD step
+secrets:
+  - id: sampleSecret
+    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
+
+volumes:
+  - name: mysecrets
+    secret:
+      mysecret1: {{.Secrets.sampleSecret | b64enc}}
+      mysecret2: {{.Values.mysecret | b64enc}}
+
+steps:
+  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
+    volumeMounts:
+      - name: mysecrets
+        mountPath: /run/test
+```
 
 ## Run variables
 
