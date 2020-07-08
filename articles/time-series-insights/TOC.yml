@@ -117,7 +117,7 @@
         href: how-to-provision-manage.md
       - name: How to diagnose & troubleshoot
         href: how-to-diagnose-troubleshoot.md
-    - name: Ingress
+    - name: Ingress & storage
       items:
       - name: How to select a TSID
         href: how-to-select-tsid.md
