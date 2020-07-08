@@ -945,8 +945,8 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable end-to-end encryption
-        href: disks-enable-end-to-end-encryption.md
+      - name: Enable encryption at host
+        href: disks-enable-encryption-at-host.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal
