@@ -9698,11 +9698,11 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md",
-      "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app",
+      "redirect_url": "/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/app-service-web-tutorial-dotnet-sqldatabase.md",
+      "source_path": "articles/app-service/app-service-web-tutorial-dotnetcore-sqldatabase.md",
       "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app",
       "redirect_document_id": false
     },

@@ -138,4 +138,4 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 > [Configure a custom container](configure-custom-container.md)
 
 <!--Image references-->
-[1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
+[1]: ../media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
