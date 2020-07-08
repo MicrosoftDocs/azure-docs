@@ -21,22 +21,22 @@ landingContent:
             url: v2-overview.md
           - text: Evolution of Microsoft identity platform
             url: about-microsoft-identity-platform.md
+          - text: Migrate apps to MSAL
+            url: msal-migration.md
           - text: Azure Active Directory for developers (v1.0)
             url: ../azuread-dev/v1-overview.md
       - linkListType: concept
         links:
           - text: Authentication basics
             url: authentication-scenarios.md
-          - text: Videos covering basic concepts
-            url: identity-videos.md
           - text: Authentication flows and app scenarios
             url: authentication-flows-app-scenarios.md
           - text: Best practices and recommendations
             url: identity-platform-integration-checklist.md
-      - linkListType: learn
+      - linkListType: video
         links:
-          - text: One Dev Minute - Microsoft identity platform
-            url: https://youtu.be/y_fgJAatVhk
+          - text: "Series: Identity platform for developers"
+            url: identity-videos.md
   - title: Build a single-page app
     linkLists:
       - linkListType: get-started
@@ -45,13 +45,17 @@ landingContent:
             url: scenario-spa-overview.md
       - linkListType: quickstart
         links:
-          - text: JavaScript
+          - text: JavaScript - Auth code
+            url: quickstart-v2-javascript-auth-code.md
+          - text: JavaScript - Implicit
             url: quickstart-v2-javascript.md
           - text: Angular
             url: quickstart-v2-angular.md
       - linkListType: tutorial
         links:
-          - text: JavaScript
+          - text: JavaScript - Auth code
+            url: tutorial-v2-javascript-auth-code.md
+          - text: JavaScript - Implicit
             url: tutorial-v2-javascript-spa.md
       - linkListType: download
         links:

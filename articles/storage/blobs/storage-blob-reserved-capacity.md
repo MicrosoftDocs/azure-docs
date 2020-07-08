@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -31,7 +31,7 @@ You can purchase Azure Storage reserved capacity in units of 100 TB and 1 PB per
 
 Azure Storage reserved capacity is available for a single subscription or for multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context.
 
-When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription. A reservation cannot be split across multiple subscriptions.
+When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
 
 An Azure Storage reservation covers only the amount of data that is stored in a subscription or shared resource group. Early deletion, operations, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of at the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
 
@@ -80,7 +80,7 @@ Follow these steps to purchase reserved capacity:
    |**Subscription**  | The subscription that's used to pay for the Azure Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
    | **Region** | The region where the reservation is in effect. |
    | **Access tier** | The access tier where the for which the reservation is in effect. Options include *Hot*, *Cool*, or *Archive*. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md). |
-   | **Redundancy** | The redundancy option for the reservation. Options include *LRS*, *ZRS*, *GRS*, and *RA-GZRS*. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md). |
+   | **Redundancy** | The redundancy option for the reservation. Options include *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*, and *RA-GZRS*. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md). |
    | **Billing frequency** | Indicates how often the account is billed for the reservation. Options include *Monthly* or *Upfront*. |
    | **Size** | The region where the reservation is in effect. |
    |**Term**  | One year or three years.   |

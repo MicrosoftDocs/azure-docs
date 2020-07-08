@@ -4,7 +4,7 @@ description: This article describes how you can restart an Azure Database for Ma
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 

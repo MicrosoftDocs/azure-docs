@@ -18,43 +18,6 @@ ms.date: 02/13/2020
 ms.author: juergent
 
 ---
-
-
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
-[2694118]:https://launchpad.support.sap.com/#/notes/2694118
-
-
-[db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
-
-[sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
-[rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
-[rhel-ha-admin]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index
-[rhel-ha-ref]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index
-[rhel-azr-supp]:https://access.redhat.com/articles/3131341
-[rhel-azr-inst]:https://access.redhat.com/articles/3252491
-[rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
-
-[dbms-guide]:dbms-guide.md
-[deployment-guide]:deployment-guide.md
-[planning-guide]:planning-guide.md
-[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist
-
-
-
 # High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
 
 IBM Db2 for Linux, UNIX, and Windows (LUW) in [high availability and disaster recovery (HADR) configuration](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consists of one node that runs a primary database instance and at least one node that runs a secondary database instance. Changes to the primary database instance are replicated to a secondary database instance synchronously or asynchronously, depending on your configuration. 
@@ -861,3 +824,36 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 ## Next steps
 - [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr]
+
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[2694118]:https://launchpad.support.sap.com/#/notes/2694118
+
+
+[db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
+[db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
+[dbms-db2]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm
+
+[sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
+[rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
+[rhel-ha-admin]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index
+[rhel-ha-ref]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index
+[rhel-azr-supp]:https://access.redhat.com/articles/3131341
+[rhel-azr-inst]:https://access.redhat.com/articles/3252491
+[rhel-db2-supp]:https://access.redhat.com/articles/3144221
+[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
+[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
+[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
+[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
+
+[dbms-guide]:dbms-guide.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+[azr-sap-plancheck]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist

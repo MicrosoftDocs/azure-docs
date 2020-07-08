@@ -4,24 +4,19 @@ description: This article describes how to configure authentication and authoriz
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+ms.author: shresha
+manager: dpalled
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
 
 This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Time Series Insights environment.
-
-> [!IMPORTANT]
-> Azure Time Series Insights supports both of the following authentication libraries:
-> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## Service principal
 
@@ -76,9 +71,9 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 ### Client app initialization
 
-* Developers may use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) or [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) to authenticate with Azure Time Series Insights.
+* Developers may use the [Microsoft Authentication Library (MSAL) to authenticate with Azure Time Series Insights.
 
-* For example, to authenticate using ADAL:
+* To authenticate using ADAL:
 
    1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
@@ -88,7 +83,10 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
-* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) and see our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
+> [!IMPORTANT]
+> If you are using [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+
+    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## Common headers and parameters
 
@@ -114,7 +112,7 @@ Required request headers are described below.
 
 > [!IMPORTANT]
 > The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
-> * Your [Postman](https://www.getpostman.com/) **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * Your [Postman](https://www.getpostman.com/) **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/` is valid but `https://api.timeseries.azure.com` is not.
 
 Optional request headers are described below.
@@ -156,10 +154,10 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 ## Next steps
 
-- For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
+* For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
 
-- For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
+* For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
+* For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 
-- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+* Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

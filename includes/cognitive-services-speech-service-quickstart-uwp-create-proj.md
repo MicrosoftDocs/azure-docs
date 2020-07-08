@@ -65,7 +65,7 @@ Now select your target platform architecture. In the Visual Studio toolbar, find
 
 ### Set up audio capture
 
-Then allow the project to capture audio input:
+Allow the project to capture audio input:
 
 1. In **Solution Explorer**, double-click **Package.appxmanifest** to open the package application manifest.
 
@@ -99,4 +99,4 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. In the **Preview Changes** dialog box, select **OK**.
 
-1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`.
+1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins, and when installation is complete, the **Output** pane displays a message similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.12.1' to helloworld`.

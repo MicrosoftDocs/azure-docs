@@ -5,7 +5,7 @@ description: Learn how to use the Azure portal to create an application gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc

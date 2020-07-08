@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Azure Disk Encryption scenarios on Windows VMs
 
-Azure Disk Encryption for Windows virtual machines (VMs) uses the Bitlocker feature of Windows to provide full disk encryption of the OS disk and data disk. Additionally, it provides encryption of the ephemeral resource disk when the VolumeType parameter is All.
+Azure Disk Encryption for Windows virtual machines (VMs) uses the BitLocker feature of Windows to provide full disk encryption of the OS disk and data disk. Additionally, it provides encryption of the temporary disk when the VolumeType parameter is All.
 
 Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
@@ -163,7 +163,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or [through the Azure portal](attach-managed-disk-portal.md). 
 
 ### Enable encryption on a newly added disk with Azure PowerShell
- When using Powershell to encrypt a new disk for Windows VMs, a new sequence version should be specified. The sequence version has to be unique. The script below generates a GUID for the sequence version. In some cases, a newly added data disk might be encrypted automatically by the Azure Disk Encryption extension. Auto encryption usually occurs when the VM reboots after the new disk comes online. This is typically caused because "All" was specified for the volume type when disk encryption previously ran on the VM. If auto encryption occurs on a newly added data disk, we recommend running the Set-AzVmDiskEncryptionExtension cmdlet again with new sequence version. If your new data disk is auto encrypted and you do not wish to be encrypted, decrypt all drives first then re-encrypt with a new sequence version specifying OS for the volume type. 
+ When using PowerShell to encrypt a new disk for Windows VMs, a new sequence version should be specified. The sequence version has to be unique. The script below generates a GUID for the sequence version. In some cases, a newly added data disk might be encrypted automatically by the Azure Disk Encryption extension. Auto encryption usually occurs when the VM reboots after the new disk comes online. This is typically caused because "All" was specified for the volume type when disk encryption previously ran on the VM. If auto encryption occurs on a newly added data disk, we recommend running the Set-AzVmDiskEncryptionExtension cmdlet again with new sequence version. If your new data disk is auto encrypted and you do not wish to be encrypted, decrypt all drives first then re-encrypt with a new sequence version specifying OS for the volume type. 
   
  
 
@@ -206,7 +206,7 @@ You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ### Enable encryption on a newly added disk with Azure CLI
- The Azure CLI command will automatically provide a new sequence version for you when you run the command to enable encryption. The example uses "All" for the volume-type parameter. You may need to change the volume-type parameter to OS if you're only encrypting the OS disk. In contrast to Powershell syntax, the CLI does not require the user to provide a unique sequence version when enabling encryption. The CLI automatically generates and uses its own unique sequence version value.   
+ The Azure CLI command will automatically provide a new sequence version for you when you run the command to enable encryption. The example uses "All" for the volume-type parameter. You may need to change the volume-type parameter to OS if you're only encrypting the OS disk. In contrast to PowerShell syntax, the CLI does not require the user to provide a unique sequence version when enabling encryption. The CLI automatically generates and uses its own unique sequence version value.   
 
 -  **Encrypt a running VM:**
 
@@ -222,22 +222,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Disable encryption
-You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn't work as expected. Disable encryption on all disks instead.
-
-- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Disable encryption with a Resource Manager template:** 
-
-    1. Click **Deploy to Azure** from the [Disable disk encryption on running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) template.
-    2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
-    3.  Click **Purchase** to disable disk encryption on a running Windows VM. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## Unsupported scenarios
 
@@ -253,9 +238,11 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VMs to another subscription.
+- Moving an encrypted VMs to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
+- M-series VMs with Write Accelerator disks.
 
 ## Next steps
 

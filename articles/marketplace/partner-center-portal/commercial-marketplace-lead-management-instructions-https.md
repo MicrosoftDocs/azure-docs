@@ -1,20 +1,22 @@
 ---
-title: Microsoft commercial marketplace lead management with HTTPS
-description: Configure Microsoft commercial marketplace lead management for an HTTPS endpoint.
-author: qianw211
+title: Lead management with an HTTPS endpoint - Microsoft commercial marketplace
+description: Learn how to use Power Automate and an HTTPS endpoint to manage leads from Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
-# Configure lead management by using an HTTPS endpoint
+# Use an HTTPS endpoint to manage commercial marketplace leads
+
+If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use an HTTPS endpoint in [Power Automate](https://powerapps.microsoft.com/automate-processes/) to handle these leads. With an HTTPS endpoint, commercial marketplace leads can be sent out as an email notification or they can be written to a CRM system supported by Power Automate.
+
+This article explains how to create a new flow in Power Automate to generate the HTTP POST URL that you'll use to configure leads in Partner Center. It also includes steps to test your flow with [Postman](https://www.getpostman.com/downloads/).
 
 >[!NOTE]
->The Power Automate connector used in these instructions requires a paid subscription to Power Automate. Make sure you account for this before you follow the instructions in this article.
-
-If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use an HTTPS endpoint in Power Automate to handle these leads. With an HTTPS endpoint, these leads can be sent out as an email notification or they can be written to a CRM system supported by Power Automate. The instructions in this article walk you through the basic process to create a new flow by using Power Automate, which generates the HTTP POST URL that you'll enter into the publishing portal for the **Lead Management** > **HTTPS Endpoint URL** field. Also included are instructions on how to test your flow with the help of a tool called [Postman](https://www.getpostman.com/downloads/), which is available online.
+>The Power Automate connector used in these instructions requires a paid subscription to Power Automate. Make sure you account for this before you configure this flow.
 
 ## Create a flow by using Power Automate
 
@@ -22,22 +24,24 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 1. Sign in, and select **My flows** in the menu.
 
-1. Select **+ Automated--from blank**.
+    ![Sign in My flows](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. Under **+ New**, select **+ Instant—from blank**.
 
-1. In the **Build an automated flow** window, select **Skip**. 
+    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-1. In the **Search connectors and triggers** field, enter **request** to find the request connector.
-1. Under **Triggers**, select **When a HTTP request is received**. 
+    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Triggers menu](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Click the flow step to expand it.
 
-1. In the **When a HTTP request is received** window, copy and paste the following JSON schema into the **Request Body JSON Schema** text box. This schema is used by Microsoft to contain your lead data.
+    ![Expand the flow step](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Request Body JSON Schema text box](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Use one of the following methods to configure the **Request Body JSON Schema**:
+
+    - Copy the JSON schema into the **Request Body JSON Schema** text box.
+    - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the JSON example. Select **Done** to create the schema.
 
     **JSON schema**
 
@@ -98,6 +102,26 @@ If your customer relationship management (CRM) system isn't explicitly supported
     }
     ```
 
+    **JSON example**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
 
@@ -152,7 +176,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 ### Testing
 
-You can test that everything works as expected by using a tool called [Postman](https://app.getpostman.com/app/download/win64), which can be downloaded online. This tool is available for Windows. 
+You can test your configuration with [Postman](https://app.getpostman.com/app/download/win64). An online download of Postman is available for Windows. 
 
 1. Start Postman, and select **New** > **Request** to set up your test tool. 
 
@@ -196,10 +220,19 @@ You can test that everything works as expected by using a tool called [Postman](
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps.
 
-1. Go to the **Offer setup** page for your offer.
-1. Select **Connect** under the **Lead Management** section.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. Select your offer, and go to the **Offer setup** tab.
+
+1. Under the **Customer leads** section, select **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Customer leads":::
+
 1. In the **Connection details** pop-up window, select **HTTPS Endpoint** for the **Lead Destination**. Paste the HTTP POST URL from the flow you created by following earlier steps into the **HTTPS endpoint URL** field.
+    ![Connection details Contact email](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. Under **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
+
 1. Select **OK**.
 
 To make sure you have successfully connected to a lead destination, select the **Validate** button. If successful, you'll have a test lead in the lead destination.
@@ -208,10 +241,3 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the flow. The leads get routed to the CRM system or email address you configured.
-
-![Lead management Connect button](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Connection details Lead destination](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Connection details Contact email](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-

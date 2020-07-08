@@ -1,7 +1,7 @@
 ---
 title: Authenticate Azure Batch services with Azure Active Directory
 description: Batch supports Azure AD for authentication from the Batch service. Learn how to authenticate in one of two ways.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
 ---
@@ -15,7 +15,7 @@ When using Azure AD authentication with Azure Batch, you can authenticate in one
 - By using **integrated authentication** to authenticate a user that is interacting with the application. An application using integrated authentication gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
 - By using a **service principal** to authenticate an unattended application. A service principal defines the policy and permissions for an application in order to represent the application when accessing resources at runtime.
 
-To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
+To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml).
 
 ## Endpoints for authentication
 
@@ -58,7 +58,7 @@ After you've registered your application, you'll see the application ID:
 
 ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-scenarios.md).
+For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## Get the tenant ID for your Active Directory
 
@@ -408,13 +408,13 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 ```python
     batch_client = BatchServiceClient(
     credentials,
-    base_url=BATCH_ACCOUNT_URL
+    batch_url=BATCH_ACCOUNT_URL
 )
 ```
 
 ## Next steps
 
-- To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+- To learn more about Azure AD, see the [Azure Active Directory Documentation](../active-directory/index.yml). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
 - To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
 
@@ -423,7 +423,7 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 - For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) sample.
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [azure_portal]: https://portal.azure.com

@@ -82,17 +82,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com` |
-	| `https://app.cloudlock.com` |
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
-	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
 	> [!NOTE]
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [The Cloud Security Fabric Client support team](mailto:support@cloudlock.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

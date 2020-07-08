@@ -315,8 +315,8 @@ This table lists the affected message types, any variants, and the document vers
 | Message type or variant |  Description | Document version number (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Health Care Information Status Notification | 005010X212 |
-| 837_I | Health Care Claim Dental | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Health Care Claim Institutional | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Health Care Claim Institutional | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Health Care Claim Dental | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Health Care Claim Professional | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 

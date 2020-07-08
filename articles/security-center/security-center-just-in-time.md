@@ -208,7 +208,7 @@ Run the following in PowerShell to accomplish this:
 1.    Assign a variable that holds the just-in-time VM access policy for a VM:
 
         $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
              protocol="\*";
@@ -236,7 +236,7 @@ Run the following in PowerShell:
 1.    Configure the VM request access properties
 
         $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2018-09-17T17:00:00.3658798Z";

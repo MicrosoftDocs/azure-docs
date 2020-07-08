@@ -10,7 +10,7 @@ ms.date: 04/30/2020
 
 This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application.
 
-The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications.
+The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications. If you are using the [Worker Service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 ## Supported scenarios
 
@@ -24,7 +24,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> If you are using ASP.NET Core 3.X along with Application Insights, please use the [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) version or higher. This is the only version that supports ASP.NET Core 3.X.
+> ASP.NET Core 3.X requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
-1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
+1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
     The following code sample shows the changes to be added to your project's `.csproj` file.
 
@@ -105,7 +105,9 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key for applications deployed to Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` is typically used in [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), but can also be used in all places where this SDK is supported. (If you are doing codeless web app monitoring, this format is required if you aren't using connection strings.)
+
+    In lieu of setting instrumentation keys you can now also use [Connection Strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net).
 
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
@@ -219,7 +221,7 @@ For more information, see [Configure adaptive sampling for ASP.NET Core applicat
 
 ### Adding TelemetryInitializers
 
-Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to enrich telemetry with additional information.
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
@@ -276,7 +278,7 @@ Application Insights uses telemetry modules to automatically collect useful tele
 The following automatic-collection modules are enabled by default. These modules are responsible for automatically collecting telemetry. You can disable or configure them to alter their default behavior.
 
 * `RequestTrackingTelemetryModule` - Collects RequestTelemetry from incoming web requests.
-* `DependencyTrackingTelemetryModule` - Collects DependencyTelemetry from outgoing http calls and sql calls.
+* `DependencyTrackingTelemetryModule` - Collects [DependencyTelemetry](./asp-net-dependencies.md) from outgoing http calls and sql calls.
 * `PerformanceCollectorModule` - Collects Windows PerformanceCounters.
 * `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
 * `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are sent as custom metrics), about Azure App Service environment where application is hosted.
@@ -324,7 +326,7 @@ option to disable any of the default modules.
 
 ### Configuring a telemetry channel
 
-The default channel is `ServerTelemetryChannel`. You can override it as the following example shows.
+The default [telemetry channel](./telemetry-channels.md) is `ServerTelemetryChannel`. You can override it as the following example shows.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -393,7 +395,7 @@ public class HomeController : Controller
     }
 ```
 
-For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/).
+For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](./get-metric.md).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 

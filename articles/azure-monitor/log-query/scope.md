@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
+ms.date: 05/01/2020
 
 ---
 
@@ -21,6 +21,9 @@ The scope is always displayed at the top left of the Log Analytics window. An ic
 ![Scope](media/scope/scope.png)
 
 The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it. The following table lists the different types of scope used and different details for each.
+
+> [!IMPORTANT]
+> If you are using APM 2.1, then Application Insights applications are stored in a Log Analytics workspace with all other log data, and the Application Insights scope is not available. If you select **Logs** from the Application Insights menu, then it acts the same as the **Other Azure resources** scope, and only the data fro that application in the Application Insights tables is available.
 
 | Query scope | Records in scope | How to select | Changing Scope |
 |:---|:---|:---|:---|

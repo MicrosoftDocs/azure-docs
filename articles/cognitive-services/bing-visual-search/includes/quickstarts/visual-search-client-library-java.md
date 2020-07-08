@@ -21,13 +21,13 @@ Use the Bing Visual Search client library for Java to:
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
+After you get a key from your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
 ### Create a new Gradle project
 

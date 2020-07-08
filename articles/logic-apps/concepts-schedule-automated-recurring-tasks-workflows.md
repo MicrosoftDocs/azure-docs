@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
+ms.date: 03/25/2020
 ---
 
 # Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps
@@ -43,13 +43,13 @@ This article describes the capabilities for the Schedule built-in triggers and a
 
 ## Schedule triggers
 
-You can start your logic app workflow by using the Recurrence trigger or Sliding Window trigger, which isn't associated with any specific service or system, for example, Office 365 Outlook or SQL Server. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, and hours for both triggers, or the number of days, weeks, or months for the Recurrence trigger. You can also set the start date and time as well as the time zone. Each time that a trigger fires, Logic Apps creates and runs a new workflow instance for your logic app.
+You can start your logic app workflow by using the Recurrence trigger or Sliding Window trigger, which isn't associated with any specific service or system. These triggers start and run your workflow based on your specified recurrence where you select the interval and frequency, such as the number of seconds, minutes, hours, days, weeks, or months. You can also set the start date and time as well as the time zone. Each time that a trigger fires, Logic Apps creates and runs a new workflow instance for your logic app.
 
 Here are the differences between these triggers:
 
-* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If recurrences are missed, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval. You can specify a start date and time as well as the time zone. If you select "Day", you can specify hours of the day and minutes of the hour, for example, every day at 2:30. If you select "Week", you can also select days of the week, such as Wednesday and Saturday. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If recurrences are missed, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval. You can specify a start date and time as well as the time zone. If you select "Day", you can specify hours of the day and minutes of the hour, for example, every day at 2:30. If you select "Week", you can also select days of the week, such as Wednesday and Saturday. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If recurrences are missed, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't have options to specify days, weeks, and months, hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
+* **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If recurrences are missed, for example, due to disruptions or disabled workflows, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't support advanced schedules, for example, specific hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

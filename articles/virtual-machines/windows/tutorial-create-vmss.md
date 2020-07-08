@@ -1,15 +1,15 @@
-﻿---
+---
 title: "Tutorial: Create a Windows virtual machine scale set"
 description: Learn how to use Azure PowerShell to create and deploy a highly available application on Windows VMs using a virtual machine scale set
-author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
 ms.date: 11/30/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
-#Customer intent: As an IT administrator, I want to learn about autoscaling VMs in Azure so that I can deploy a highly-available and scalable infrastructure.
 ---
 
 # Tutorial: Create a virtual machine scale set and deploy a highly available app on Windows with Azure PowerShell

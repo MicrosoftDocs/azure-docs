@@ -25,7 +25,17 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Windows will run on the extension supported extension OSs, for more information, see this [Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Windows will run on the extension supported extension OSs;
+### Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### Script Location
 
@@ -51,6 +61,7 @@ If your script is on a local server, then you may still need additional firewall
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
 * Custom Script Extension will run under the LocalSystem Account
+* If you plan to use the *storageAccountName* and *storageAccountKey* properties, these properties must be collocated in *protectedSettings*.
 
 ## Extension schema
 

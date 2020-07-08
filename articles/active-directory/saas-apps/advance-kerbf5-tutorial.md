@@ -283,7 +283,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| Session | Attribute |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.assertionIssueInstant	| `<ID>` |

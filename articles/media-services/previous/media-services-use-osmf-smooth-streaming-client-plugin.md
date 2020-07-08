@@ -325,7 +325,7 @@ package
 }
 
 ## Strobe Media  Playback with the SS ODMF Dynamic Plugin
-The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
+The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
 
 1. Browse the [Strobe Media Playback setup page](http://osmf.org/dev/2.0gm/setup.html). 
 2. Set the src to a Smooth Streaming source, (e.g. http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 

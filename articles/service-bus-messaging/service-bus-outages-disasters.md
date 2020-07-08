@@ -1,16 +1,8 @@
 ---
 title: Insulate Azure Service Bus applications against outages and disasters
 description: This articles provides techniques to protect applications against a potential Azure Service Bus outage.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Best practices for insulating applications against Service Bus outages and disasters
@@ -93,7 +85,7 @@ To learn more about disaster recovery, see these articles:
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
-[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure SQL Database Business Continuity]:../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
 
 [1]: ./media/service-bus-outages-disasters/az.png

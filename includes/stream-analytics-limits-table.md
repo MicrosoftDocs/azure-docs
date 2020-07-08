@@ -8,4 +8,5 @@
 | Maximum number of streaming units per job |192 |There's a hard limit of 192 streaming units per Stream Analytics job. |
 | Maximum number of jobs per region |1,500 |Each subscription can have up to 1,500 jobs per geographical region. |
 | Reference data blob MB | 300 | Reference data blobs can't be larger than 300 MB each. |
+| Maximum number of characters in a query | 512000 | There's a hard limit of 512k characters in an Azure Stream Analytics job query.|
 

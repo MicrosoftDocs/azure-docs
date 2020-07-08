@@ -34,7 +34,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Float single sign-on (SSO) enabled subscription.
+* A Float subscription. If you don't have a subscription, you can get a [free account](https://app.float.com/join?).
 
 ## Scenario description
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL in the pattern `https://<hostname>.float.com/login`.
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Replace <hostname> with your Float hostname. Contact [Float Client support team](mailto:support@float.com) if you are unsure. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Float application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -97,9 +97,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Float application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.userprincipalname |
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| email | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Float SSO
 
-To configure single sign-on on **Float** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Float support team](mailto:support@float.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Float** side, visit the Float Team Settings section and select Configure from the Authentication module. Paste the Azure AD Login URL in the SAML 2.0 Endpoint URL field, paste the Azure AD Indentifier in the Identity Provider Issuer URL field, paste the full text from the downloaded **Certificate (Base64)** in the X.509 Certificate field, and Save.
 
 ### Create Float test user
 
-In this section, you create a user called Britta Simon in Float. Work with [Float support team](mailto:support@float.com) to add the users in the Float platform. Users must be created and activated before you use single sign-on.
+In this section, create a user called Britta Simon in Float. Add the user from the People section or Team Settings Guest section, and grant them an access right. Users must be created and accept the invitation before you use single sign-on.
 
 ## Test SSO 
 

@@ -75,7 +75,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### Async replication
 
-Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a master node and at least one replica. Data is copied from the master to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because this replication is guaranteed to be instantaneous. For example, if the master goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new master.
+Any Azure Cache for Redis instance in the Standard or Premium tier is configured with a master node and at least one replica. Data is copied from the master to a replica asynchronously by using a background process. The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because this replication is not guaranteed to be instantaneous. For example, if the master goes down *after* a client writes a key to it, but *before* the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new master.
 
 ## Major or complete loss of keys
 

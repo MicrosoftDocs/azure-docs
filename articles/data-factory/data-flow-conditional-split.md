@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
+ms.date: 05/21/2020
 ---
 
 # Conditional split transformation in mapping data flow
@@ -15,6 +15,8 @@ ms.date: 10/16/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The conditional split transformation routes data rows to different streams based on matching conditions. The conditional split transformation is similar to a CASE decision structure in a programming language. The transformation evaluates expressions, and based on the results, directs the data row to the specified stream.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
 
 ## Configuration
 

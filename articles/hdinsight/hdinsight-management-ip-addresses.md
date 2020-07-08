@@ -77,7 +77,7 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 
 For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-For more information, see the [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic) section.
+For more information, see [Control network traffic](./control-network-traffic.md).
 
 If you're using user-defined routes (UDRs), you should specify a route and allow outbound traffic from the virtual network to the above IPs with the next hop set to "Internet".
 

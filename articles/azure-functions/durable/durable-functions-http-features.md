@@ -136,7 +136,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context){
     const url = context.df.getInput();
-    const response = context.df.callHttp("GET", url)
+    const response = yield context.df.callHttp("GET", url)
 
     if (response.statusCode >= 400) {
         // handling of error codes goes here
