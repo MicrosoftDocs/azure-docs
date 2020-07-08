@@ -144,7 +144,7 @@ When working with Azure Time Series Insights Gen2 you first will select a time s
 > [!TIP]
 > A portion of the timeline is highlighted in an amber or orange color to indicate the span of data that is available in warm store.
 
-The following web controls are available in the Azure Time Series Insights Gen2 update for selecting your working time span. 
+The following web controls are available in Azure Time Series Insights Gen2 for selecting your working time span. 
 
   [![Exploration well control](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
