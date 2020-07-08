@@ -17,16 +17,6 @@
     href: tutorials-set-up-tsi-environment.md
 - name: Concepts
   items:
-  - name: Azure Time Series Insights Gen1
-    items:
-    - name: About Time Series Insights
-      href: time-series-insights-overview.md
-    - name: Plan your environment
-      href: time-series-insights-environment-planning.md
-    - name: Visualize data in the explorer
-      href: time-series-insights-explorer.md
-    - name: Understand data retention
-      href: time-series-insights-concepts-retention.md
   - name: Azure Time Series Insights Gen2
     items:
     - name: Ingress & storage
@@ -63,6 +53,16 @@
         href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage 
         href: ingestion-rules-update.md
+  - name: Azure Time Series Insights Gen1
+    items:
+    - name: About Time Series Insights
+      href: time-series-insights-overview.md
+    - name: Plan your environment
+      href: time-series-insights-environment-planning.md
+    - name: Visualize data in the explorer
+      href: time-series-insights-explorer.md
+    - name: Understand data retention
+      href: time-series-insights-concepts-retention.md
   - name: Develop
     items:
     - name: Authenticate and authorize
@@ -83,28 +83,6 @@
     href: time-series-insights-how-to-add-an-event-source-iothub.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
-  - name: Azure Time Series Insights Gen1
-    items:
-    - name: Explore Time Series Insights
-      href: time-series-quickstart.md
-    - name: Create and populate an environment 
-      href: tutorial-create-populate-tsi-environment.md
-    - name: Create an environment in Azure Portal
-      href: time-series-insights-get-started.md
-    - name: Configure data retention
-      href: time-series-insights-how-to-configure-retention.md
-    - name: Create a reference data set
-      href: time-series-insights-add-reference-data-set.md
-    - name: Send events
-      href: time-series-insights-send-events.md
-    - name: Scale your environment
-      href: time-series-insights-how-to-scale-your-environment.md
-    - name: Shape JSON for ingress and queries
-      href: how-to-shape-query-json.md
-    - name: Mitigate throttling
-      href: time-series-insights-environment-mitigate-latency.md
-    - name: Diagnose and troubleshoot
-      href: time-series-insights-diagnose-and-solve-problems.md
   - name: Azure Time Series Insights Gen2
     items:
     - name: Best practices
@@ -129,26 +107,34 @@
       items:
       - name: How to connect to Power BI
         href: how-to-connect-power-bi.md
+  - name: Azure Time Series Insights Gen1
+    items:
+    - name: Explore Time Series Insights
+      href: time-series-quickstart.md
+    - name: Create and populate an environment 
+      href: tutorial-create-populate-tsi-environment.md
+    - name: Create an environment in Azure Portal
+      href: time-series-insights-get-started.md
+    - name: Configure data retention
+      href: time-series-insights-how-to-configure-retention.md
+    - name: Create a reference data set
+      href: time-series-insights-add-reference-data-set.md
+    - name: Send events
+      href: time-series-insights-send-events.md
+    - name: Scale your environment
+      href: time-series-insights-how-to-scale-your-environment.md
+    - name: Shape JSON for ingress and queries
+      href: how-to-shape-query-json.md
+    - name: Mitigate throttling
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: Diagnose and troubleshoot
+      href: time-series-insights-diagnose-and-solve-problems.md
 - name: Reference
   items:
   - name: Time Series Insights 
     items:
     - name: Rest APIs Overview
       href: https://docs.microsoft.com/rest/api/time-series-insights/
-    - name: Data Access Gen1
-      items:
-      - name: Overview
-        href: https://docs.microsoft.com/rest/api/time-series-insights/ga
-      - name: Query
-        items:
-        - name: Query
-          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query
-        - name: API
-          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api
-        - name: Syntax
-          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax
-      - name: Reference Data API
-        href: https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api
     - name: Data Access Gen2
       items:
       - name: Overview
@@ -199,6 +185,20 @@
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch
         - name: Get
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get
+    - name: Data Access Gen1
+      items:
+      - name: Overview
+        href: https://docs.microsoft.com/rest/api/time-series-insights/ga
+      - name: Query
+        items:
+        - name: Query
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query
+        - name: API
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api
+        - name: Syntax
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax
+      - name: Reference Data API
+        href: https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api
   - name: Client SDK
     items:
     - name: JavaScript Client SDK
