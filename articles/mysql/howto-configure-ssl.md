@@ -4,7 +4,7 @@ description: Instructions for how to properly configure Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/7/2020
 ms.custom: tracking-python
 ---

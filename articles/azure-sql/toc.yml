@@ -643,6 +643,9 @@
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -879,6 +882,9 @@
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=managed-instance
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -1022,8 +1028,6 @@
             items: 
             - name: Create DNN for FCI
               href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: Feature interoperability with DNN 
-              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
             - name: FCI DNN & SQL Server features
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: Configure connectivity
