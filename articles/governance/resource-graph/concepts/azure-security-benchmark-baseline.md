@@ -26,7 +26,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 **Guidance**: Azure Resource Graph provides access to resource types and properties based on role-based access controls (RBAC). Audit and review the access granted to security principals (users, groups, and service accounts) on a regular basis to make sure that queries return results for the appropriate resources.
 
-* [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resourcegraph)
+* [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 * [How to use Azure Identity Access Reviews](../../../active-directory/governance/access-reviews-overview.md)
 
@@ -43,7 +43,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 **Guidance**: Use role-based access control (RBAC) to control access to data and resources. To use Azure Resource Graph, you must also have appropriate access to the resources you want to query. This access should be scoped to read only and be only granted to required personnel.
 
-* [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resourcegraph)
+* [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 * [How to configure RBAC in Azure](../../../role-based-access-control/role-assignments-rest.md)
 
@@ -58,7 +58,8 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 ### 6.1: Use automated asset discovery solution
 
-**Guidance**: Use Azure Resource Graph to query and discover all supported resources within your subscriptions, management groups, and tenants. Ensure you have appropriate permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: 
+Use Azure Resource Graph to query and discover all supported resources within your subscriptions, management groups, and tenants. Ensure you have appropriate permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 * [How to create queries with Azure Resource Graph](../first-query-portal.md)
 
