@@ -66,7 +66,7 @@
 
 1. Close **Xcode** and return to **Visual Studio Code**.
 
-1. Back in **Visual Studio Code**, add the [http](https://pub.dev/packages/http) and [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) **Dart packages** as dependencies. Then, save the file and click **Get Packages** when prompted to do so.
+1. Back in **Visual Studio Code**, open **pubspec.yaml**, add the [http](https://pub.dev/packages/http) and [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) **Dart packages** as dependencies. Then, save the file and click **Get Packages** when prompted to do so.
 
     ```yaml
     dependencies:
