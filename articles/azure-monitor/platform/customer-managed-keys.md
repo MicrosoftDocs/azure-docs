@@ -483,7 +483,7 @@ When you configure to [Bring Your Own Storage](https://docs.microsoft.com/azure/
 
 **Configure BYOS for saved-searches queries**
 
-Associate storage account for *Query* to your workspace to save *saved-searches* in your storage account. 
+Associate storage account for *Query* to your workspace -- *saved-searches* queries are saved in your storage account. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -510,7 +510,7 @@ After the configuration, any new *saved search* query will be saved in your stor
 
 **Configure BYOS for log-alerts queries**
 
-Associate storage account for *Alerts* to your workspace to save *log-alerts* in your storage account.  
+Associate storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
