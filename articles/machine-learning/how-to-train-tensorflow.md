@@ -141,6 +141,11 @@ The TensorFlow estimator is implemented through the generic [`estimator`](https:
 
 If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
+
+> [!WARNING]
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, do not include it in the source directory. Instead, access your data using a  [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py). The storage limit for experiment snapshots is 300 MB and/or 2000 files.
+
+
 ```python
 script_params = {
     '--data-folder': dataset.as_named_input('mnist').as_mount(),

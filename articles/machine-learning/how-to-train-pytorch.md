@@ -145,6 +145,9 @@ estimator = PyTorch(source_directory=project_folder,
                     pip_packages=['pillow==5.4.1'])
 ```
 
+> [!WARNING]
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, do not include it in the source directory. Instead, access your data using a  [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py). The storage limit for experiment snapshots is 300 MB and/or 2000 files.
+
 For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 ## Submit a run
