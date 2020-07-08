@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Set up a Gen 2 environment - Azure Time Series Insights | Microsoft Docs'
-description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Gen 2.'
+title: 'Tutorial: Set up a Gen2 environment - Azure Time Series Insights Gen2| Microsoft Docs'
+description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Gen2.'
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-# Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights Gen 2 environment so that I can use Azure Time Series Insights queries to understand device behavior. 
+# Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
 ---
 
-# Tutorial: Set up an Azure Time Series Insights Gen 2 environment
+# Tutorial: Set up an Azure Time Series Insights Gen2 environment
 
-This tutorial guides you through the process of creating an Azure Time Series Insights Gen 2 *pay-as-you-go* (PAYG) environment.
+This tutorial guides you through the process of creating an Azure Time Series Insights Gen2 *pay-as-you-go* (PAYG) environment.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create an Azure Time Series Insights Gen 2 environment.
-> * Connect the Azure Time Series Insights Gen 2 environment to an IoT Hub.
-> * Run a solution accelerator sample to stream data into the Azure Time Series Insights Gen 2 environment.
+> * Create an Azure Time Series Insights Gen2 environment.
+> * Connect the Azure Time Series Insights Gen2 environment to an IoT Hub.
+> * Run a solution accelerator sample to stream data into the Azure Time Series Insights Gen2 environment.
 > * Perform basic analysis on the data.
 > * Define a Time Series Model type and hierarchy, and associate it with your instances.
 
@@ -49,9 +49,9 @@ In this section, you will create three simulated devices that send data to an Az
    Parameter|Description
    ---|---
    **Deployment name** | This unique value is used to create a new resource group. The listed Azure resources are created and assigned to the resource group.
-   **Azure subscription** | Specify the same subscription that was used to create your Azure Time Series Insights environment in the previous section.
+   **Azure subscription** | Specify the same subscription that was used to create your Azure Time Series Insights Gen2 environment in the previous section.
    **Deployment options** | Select **Provision new IoT Hub** to create a new IoT hub specific to this tutorial.
-   **Azure location** | Specify the same region that was used to create your Azure Time Series Insights environment in the previous section.
+   **Azure location** | Specify the same region that was used to create your Azure Time Series Insights Gen2 environment in the previous section.
 
    When you're finished, select **Create** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
 
@@ -68,9 +68,9 @@ In this section, you will create three simulated devices that send data to an Az
 
    [![Device simulation resources.](media/v2-update-provision/tsi-device-sim-solution-resources.png)](media/v2-update-provision/tsi-device-sim-solution-resources.png#lightbox)
 
-## Create a Azure Time Series Insights Gen 2 environment
+## Create an Azure Time Series Insights Gen2 environment
 
-This section describes how to create an Azure Time Series Insights Gen 2 environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
+This section describes how to create an Azure Time Series Insights Gen2 environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account. 
 1. Select **+ Create a resource** in the upper left. 
@@ -82,11 +82,11 @@ This section describes how to create an Azure Time Series Insights Gen 2 environ
 
     | Parameter | Action |
     | --- | ---|
-    | **Environment name** | Enter a unique name for the Azure Time Series Insights Gen 2 environment. |
-    | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Gen 2 environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
-    | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Gen 2 environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
-    | **Location** | Select a data center region for your Azure Time Series Insights Gen 2 environment. To avoid additional latency, it's best to create your Azure Time Series Insights Gen 2 environment in the same region as your IoT hub created by the device simulator. |
-    | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Gen 2 product. |
+    | **Environment name** | Enter a unique name for the Azure Time Series Insights Gen2 environment. |
+    | **Subscription** | Enter the subscription where you want to create the Azure Time Series Insights Gen2 environment. A best practice is to use the same subscription as the rest of the IoT resources that are created by the device simulator. |
+    | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Gen2 environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
+    | **Location** | Select a data center region for your Azure Time Series Insights Gen2 environment. To avoid additional latency, it's best to create your Azure Time Series Insights Gen2 environment in the same region as your IoT hub created by the device simulator. |
+    | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Gen2 product. |
     | **Property name** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
     |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable this setting. |
@@ -109,8 +109,8 @@ This section describes how to create an Azure Time Series Insights Gen 2 environ
    | **Subscription** | Select the subscription that you used for the device simulator. |
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
-   | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Gen 2. |
-   | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Azure Time Series Insights defaults to. |
+   | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Gen2. |
+   | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Azure Time Series Insights Gen2 defaults to. |
 
    Select **Review + Create**.
 
@@ -124,13 +124,13 @@ This section describes how to create an Azure Time Series Insights Gen 2 environ
 
     [![Notification that deployment is complete.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
-1. You have access to your Azure Time Series Insights Gen 2 environment by default if you are an owner of the Azure subscription. Verify that you have access:
+1. You have access to your Azure Time Series Insights Gen2 environment by default if you are an owner of the Azure subscription. Verify that you have access:
 
-   1. Search for your resource group, and then select your newly created Azure Time Series Insights Gen 2 environment. 
+   1. Search for your resource group, and then select your newly created Azure Time Series Insights Gen2 environment. 
 
       [![Select and view your environment.](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
-   1. On the Azure Time Series Insights Gen 2 page, select **Data Access Policies**:
+   1. On the Azure Time Series Insights Gen2 page, select **Data Access Policies**:
 
       [![Verify data access policies.](media/v2-update-provision/tsi-data-access-panel.png)](media/v2-update-provision/tsi-data-access-panel.png#lightbox)
 
@@ -140,7 +140,7 @@ This section describes how to create an Azure Time Series Insights Gen 2 environ
 
 ## Stream data
 
-Now that you've deployed your Azure Time Series Insights environment, begin streaming data for analysis.
+Now that you've deployed your Azure Time Series Insights Gen2 environment, begin streaming data for analysis.
 
 1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Select your "Device Solution" and then **Go to your solution accelerator** to launch your deployed solution.
 
@@ -170,13 +170,13 @@ Now that you've deployed your Azure Time Series Insights environment, begin stre
 
 ## Analyze data
 
-In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Gen 2 Explorer](./time-series-insights-update-explorer.md).
+In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
 
-1. Go to your Azure Time Series Insights Gen 2 Explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
+1. Go to your Azure Time Series Insights Gen2 Explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
-    [![The Azure Time Series Insights Gen 2 Explorer URL.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
+    [![The Azure Time Series Insights Gen2 Explorer URL.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. In the Azure Time Series Insights Explorer, a bar spanning the top of the screen will appear. This is your availability picker. Ensure that you have at least two 2 m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
+1. In the Azure Time Series Insights Gen2 Explorer, a bar spanning the top of the screen will appear. This is your availability picker. Ensure that you have at least two 2 m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
 
 1. **Time Series Instances** will be displayed on the left-hand side.
 
@@ -196,7 +196,7 @@ In this section, you perform basic analytics on your time series data by using t
 
     [![Set the time range to the last 30 minute.](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png)](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png#lightbox)
 
-    The solution accelerator's progress over the **Last 30 minutes** is now displayed in the Azure Time Series Insights Explorer.
+    The solution accelerator's progress over the **Last 30 minutes** is now displayed in the Azure Time Series Insights Gen2 Explorer.
 
 ## Define and apply a model
 
@@ -223,7 +223,7 @@ In this section, you apply a model to structure your data. To complete the model
     | --- | --- |
     | **Name** | Enter **Avg Temperature**. |
     | **Kind** | Select **Numeric** |
-    | **Value** | Select from preset: Select **temperature (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen 2 starts receiving events.|
+    | **Value** | Select from preset: Select **temperature (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
     | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
     Select **Apply**. Then, **+ Add Variable** again, and set the following values:
@@ -232,7 +232,7 @@ In this section, you apply a model to structure your data. To complete the model
     | --- | --- |
     | **Name** | Enter **Avg Vibration**. |
     | **Kind** | Select **Numeric** |
-    | **Value** | Select from preset: Select **vibration (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen 2 starts receiving events.|
+    | **Value** | Select from preset: Select **vibration (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
     | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
     Select **Apply**. Then, **+ Add Variable** again, and set the following values for the third and final variable:
@@ -241,7 +241,7 @@ In this section, you apply a model to structure your data. To complete the model
     | --- | --- |
     | **Name** | Enter **Floor**. |
     | **Kind** | Select **Categorical** |
-    | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen 2 starts receiving events.|
+    | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
     | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
     | **Default Category** | Enter **Unknown** |
 
@@ -329,7 +329,7 @@ In this section, you apply a model to structure your data. To complete the model
 
 Now that you've completed the tutorial, clean up the resources you created:
 
-1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights Gen2 resource group.
 1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
@@ -337,30 +337,30 @@ Now that you've completed the tutorial, clean up the resources you created:
 In this tutorial, you learned how to:  
 
 * Create and use a device simulation accelerator.
-* Create an Azure Time Series Insights Gen 2 PAYG environment.
-* Connect the Azure Time Series Insights Gen 2 environment to an iot hub.
-* Run a solution accelerator sample to stream data to the Azure Time Series Insights Gen 2 environment.
+* Create an Azure Time Series Insights Gen2 PAYG environment.
+* Connect the Azure Time Series Insights Gen2 environment to an iot hub.
+* Run a solution accelerator sample to stream data to the Azure Time Series Insights Gen2 environment.
 * Perform a basic analysis of the data.
 * Define a Time Series Model type and hierarchy, and associate them with your instances.
 
-Now that you know how to create your own Azure Time Series Insights Gen 2 environment, learn more about the key concepts in Azure Time Series Insights.
+Now that you know how to create your own Azure Time Series Insights Gen2 environment, learn more about the key concepts in Azure Time Series Insights Gen2.
 
-Read about Azure Time Series Insights ingestion::
-
-> [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen 2 data ingestion overview](./concepts-ingestion-overview.md)
-
-Read about Azure Time Series Insights storage::
+Read about Azure Time Series Insights Gen2 ingestion:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen 2 data storage](./concepts-storage.md)
+> [Azure Time Series Insights Gen2 data ingestion overview](./concepts-ingestion-overview.md)
+
+Read about Azure Time Series Insights Gen2 storage:
+
+> [!div class="nextstepaction"]
+> [Azure Time Series Insights Gen2 data storage](./concepts-storage.md)
 
 Learn more about Time Series Models:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen 2 data modeling](./concepts-model-overview.md)
+> [Azure Time Series Insights Gen2 data modeling](./concepts-model-overview.md)
 
-Learn more about Connect your environment to Power BI
+Learn more about connecting your environment to Power BI:
 
 > [!div class="nextstepaction"]
-> [Visualize data from Azure Time Series Insights in Power BI](./how-to-connect-power-bi.md)
+> [Visualize data from Azure Time Series Insights Gen2 in Power BI](./how-to-connect-power-bi.md)

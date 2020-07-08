@@ -13,10 +13,6 @@
     href: quickstart-explore-tsi.md
 - name: Tutorials
   items:
-  - name: Azure Time Series Insights Gen 1
-    items:
-    - name: Create a Time Series Insights environment
-      href: tutorial-create-populate-tsi-environment.md
   - name: Azure Time Series Insights Gen 2
     items:
     - name: Set up a TSI environment
@@ -95,9 +91,11 @@
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Azure Time Series Insights Gen 1
     items:
-    - name: Explore Time Series Insights Gen1
+    - name: Explore Time Series Insights
       href: time-series-quickstart.md
-    - name: Create an environment
+    - name: Create and populate an environment 
+      href: tutorial-create-populate-tsi-environment.md
+    - name: Create an environment in Azure Portal
       href: time-series-insights-get-started.md
     - name: Configure data retention
       href: time-series-insights-how-to-configure-retention.md
