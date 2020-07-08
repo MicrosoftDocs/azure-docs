@@ -103,7 +103,7 @@
 1. Implement the **DeviceInstallationService** using the following code.
 
     ```kotlin
-    package com.<your_organization>.pushdemo
+    package com.<your_organization>.pushdemo.services
 
     import android.annotation.SuppressLint
     import android.content.Context
