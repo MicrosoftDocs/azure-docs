@@ -43,7 +43,7 @@
       href: tutorial-python-postgresql-app.md
     - name: Java with Spring Data
       href: tutorial-java-spring-cosmosdb.md
-  - name: App with DB
+  - name: Custom containers
     items:
     - name: Customize Windows (container)
       href: app-service-web-tutorial-windows-containers-custom-fonts.md
