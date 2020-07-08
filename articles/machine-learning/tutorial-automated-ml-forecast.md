@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
+ms.date: 07/10/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -38,7 +38,7 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Get started in Azure Machine Learning studio
 
-For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -129,21 +129,21 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
 
-    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
+1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect Autodetect and type 14 in the field. 
 
-  
-        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
-        ------|---------|---
-        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
-        Automatic featurization| Enables preprocessing. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-        Explain best model (preview)| Automatically shows explainability on the best model created by automated ML.| Enable
-        Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-        Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast horizon**_: length of time into the future you want to predict <br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
-        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
-        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
-        
-        Select **Save**.
+1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
+
+    Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
+    ------|---------|---
+    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
+    Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
+    Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
+    Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast horizon**_: length of time into the future you want to predict <br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+    Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
+    Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
+    Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
+    
+    Select **Save**.
 
 ## Run experiment
 
@@ -160,7 +160,7 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following example navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
 ![Run detail](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -170,11 +170,15 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
-Once the run is complete, navigate back to the **Run detail** page and select the **Models** tab.
+Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
 
-In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
+In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
 
-1. Select the **Deploy best model** button in the bottom-left corner.
+We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
+
+1. Select **StackEnsemble** to open the model specific page.
+
+1. Select the **Deploy** button located in the top left area of the screen.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -190,8 +194,7 @@ In this experiment context, **StackEnsemble** is considered the best model, base
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen stated that the deployment was started successfully. The progress of the deployment can be found  
-    in the **Recommended model** pane under **Deploy status**.
+    A green success message appears at the top of the **Run** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 
