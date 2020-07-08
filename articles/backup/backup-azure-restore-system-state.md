@@ -136,10 +136,12 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 1. For the location of the System State Recovery, select **Original Location**, and click **Next**.
 
-    ![Locaton for System State Recovery](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
+    If you're restoring a domain controller, you'll see the following additional option:
+
+    ![Location for System State Recovery](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
 
     >[!NOTE]
-    >If you are performing a restore of a domain controller backup don't select “Perform an authoritative restore of Active Directory files” unless you explicitly intend to do an authoritative restore.
+    >Only select “Perform an authoritative restore of Active Directory files” if you explicitly intend to do an authoritative restore of all Active Directory data.
 
 1. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
 
@@ -153,7 +155,12 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 ## Special considerations for System State recovery on a domain controller
 
-System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
+System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state. This type of restore can be done in two scenarios:
+
+* Restoring all Active Directory data when there are no functioning domain controllers left in the forest
+* Restoring a portion of the Active Directory data when those objects have been deleted or corrupted
+
+This article will only be discussing the first scenario, which calls for a nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder.  If you need to perform the second scenario (where the domain controllers are still functional but you need to restore particular AD objects), see [these instructions](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
 
 1. Follow the steps here to [Recover System State files to an alternate server](#recover-system-state-files-to-an-alternate-server).
 1. Use the following commands to reboot your server in *Directory Services Repair Mode*. In an elevated command prompt:
@@ -168,7 +175,7 @@ System State backup includes Active Directory data. Use the following steps to r
     * Follow the instructions above to [apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
 
         >[!NOTE]
-        >If you choose this method, in step 9 above, make sure to select **Perform an authoritative restore of Active Directory files**.
+        >If you are restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
 
     * Use the [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 
@@ -180,7 +187,7 @@ System State backup includes Active Directory data. Use the following steps to r
 
         You then use that version identifier to run the restore.
 
-        For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 AM, which is stored on the shared resource `\\servername\share` for `server01`, type:
+        For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the sysvol folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 AM, which is stored on the shared resource `\\servername\share` for `server01`, type:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
