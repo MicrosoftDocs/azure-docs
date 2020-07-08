@@ -256,7 +256,7 @@ To plan for self-service group membership, determine if you'll allow all users i
 
 Azure AD provides [reports that offer technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Work with your business and technical application owners to assume ownership of these reports and to consume them on a regular basis. The following table provides some examples of typical reporting scenarios.
 
-|   | Manage risk| Increase productivity| Governance and compliance |
+| Example | Manage risk| Increase productivity| Governance and compliance |
 |  - |- | - | - |
 | Report types|  Application permissions and usage| Account provisioning activity| Review who is accessing the applications |
 | Potential actions| Audit access; revoke permissions| Remediate any provisioning errors| Revoke access |

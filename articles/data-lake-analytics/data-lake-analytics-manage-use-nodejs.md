@@ -7,7 +7,7 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js

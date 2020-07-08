@@ -1,25 +1,14 @@
 ---
-title: Monitor Azure Event Grid message delivery
-description: This article describes how to use the Azure portal to see the status of the delivery of Azure Event Grid messages.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
+title: View Azure Event Grid metrics and set alerts
+description: This article describes how to use the Azure portal to view metrics for Azure Event Grid topics and subscriptions, and create alerts on them. 
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Monitor Event Grid message delivery 
+This article describes how to use the portal to see metrics for Event Grid topics and subscriptions, and create alerts on them. 
 
-This article describes how to use the portal to see the status of event deliveries.
-
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook doesn't acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event.
-
-For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).
-
-## Delivery metrics
+## Metrics
 
 The portal displays metrics for the status of delivering event messages.
 
@@ -60,6 +49,10 @@ You can create charts with supported metrics by using the **Metrics** tab of the
 
 To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
 
+For example, see the metrics chart for the **Published Events** metric.
+
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Published events metric":::
+
 
 ## View subscription metrics
 1. Navigate to the **Event Grid Topic** page by following steps from the previous section. 
@@ -96,14 +89,8 @@ You can create charts with supported metrics by using the **Metrics** tab of the
 To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
 
 
-## Set alerts
-You can set alerts on the topic and domain level metrics for custom topics and event domains. On the **Event Grid Topic** page for your topic, select **Alerts** from the left had resource menu in order to view, manage, and create alert rules. [Learn more about Azure Monitor Alerts](../azure-monitor/platform/alerts-overview.md)
-
-:::image type="content" source="./media/monitor-event-delivery/select-alerts.png" alt-text="Alerts page":::
-![View event metrics]()
-
 ## Next steps
+See the following articles:
 
-* For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+- To learn how to create alerts on metrics and activity log operations, see [Set alerts](set-alerts.md).
+- For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).

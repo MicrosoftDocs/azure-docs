@@ -19,7 +19,8 @@ The Azure Instance Metadata Service (IMDS) provides information about currently 
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
 Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
-Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
+Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
+It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
 ## Security
 
@@ -41,7 +42,7 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
 ```
 
 **Response**
@@ -176,7 +177,7 @@ API | Default Data Format | Other Formats
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
@@ -200,7 +201,7 @@ When no version is specified, an error is returned with a list of the newest sup
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance
 ```
 
 **Response**
@@ -267,7 +268,7 @@ As a service provider, you may require to track the number of VMs running your s
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Response**
@@ -286,7 +287,7 @@ You can query this data directly via the Instance Metadata Service.
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 **Response**
@@ -302,7 +303,7 @@ As a service provider, you may get a support call where you would like to know m
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
 ```
 
 **Response**
@@ -402,7 +403,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Response**
@@ -441,7 +442,7 @@ macAddress | VM mac address | 2017-04-02
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
 ```
 
 **Response**
@@ -480,7 +481,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 #### Sample 2: Retrieving public IP address
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 ## Storage Metadata
@@ -536,7 +537,7 @@ The following example shows how to query the VM's storage information.
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
 ```
 
 **Response**
@@ -608,7 +609,7 @@ Tags may have been applied to your Azure VM to logically organize them into a ta
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
 **Response**
@@ -622,7 +623,7 @@ The `tags` field is a string with the tags delimited by semicolons. This output 
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
 ```
 
 **Response**
@@ -656,7 +657,7 @@ Part of the scenario served by Instance Metadata Service is to provide guarantee
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
 > [!NOTE]
@@ -695,7 +696,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```

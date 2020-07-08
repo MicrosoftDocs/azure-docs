@@ -51,6 +51,14 @@ Refer to the following list to configure managed identity for Azure App Service 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### Azure Arc enabled Kubernetes
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Not available | Not available | Not available | 
+| User assigned | Not available | Not available | Not available | Not available |
+
+Azure Arc enabled Kubernetes currently [supports system assigned identity](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
 
 ### Azure Blueprints
 

@@ -27,7 +27,7 @@ To run this sample, you will need the following:
 
 * Visual Studio 2017 or 2019.  Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
 
-* Either a [Microsoft account](https://www.outlook.com) or [ Office 365 Developer Program](/office/developer-program/office-365-developer-program)
+* Either a [Microsoft account](https://www.outlook.com) or [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
 
 ## Download or clone this sample
 

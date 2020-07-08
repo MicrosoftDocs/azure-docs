@@ -6,9 +6,9 @@ metadata:
   description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks Preview service.
   ms.service: azure-notebooks
   ms.topic: landing-page
-  author: jasonwhowell
-  ms.author: jasonh
-  ms.date: 12/26/2019
+  author: JoshuaPartlow
+  ms.author: joshuapa
+  ms.date: 06/17/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -52,6 +52,8 @@ landingContent:
             url: quickstart-migrate-local-jupyter-notebook.md
           - text: Create a project with a custom environment
             url: quickstart-create-jupyter-notebook-project-environment.md
+          - text: Export your project
+            url: quickstart-export-jupyter-notebook-project.md
   # Card
   - title: Top tasks for Azure Notebooks
     linkLists:

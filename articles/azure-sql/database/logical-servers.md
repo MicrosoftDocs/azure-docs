@@ -49,7 +49,7 @@ You can create the resource group for a server ahead of time or while creating t
 
 To create a server (without a database, elastic pool, or data warehouse database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical SQL server) form.
 
-### Create a blank or sample SQL database in Azure SQL Database
+### Create a blank or sample database in Azure SQL Database
 
 To create a database in SQL Database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the resource group and server ahead of time or while creating the database itself. You can create a blank database or create a sample database based on Adventure Works LT.
 
@@ -144,7 +144,7 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies database or elastic pool. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modifies a data warehouse database in Azure Synapse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifies a data warehouse database in Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for a database. If logged on to the master database for a server, returns information on all databases. For Azure Synapse, you must be connected to the master database.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there is no activity in the database.|

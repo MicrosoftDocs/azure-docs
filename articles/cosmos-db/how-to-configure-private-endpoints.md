@@ -3,7 +3,7 @@ title: Configure Azure Private Link for an Azure Cosmos account
 description: Learn how to set up Azure Private Link to access an Azure Cosmos account by using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: thweiss
 ---
@@ -26,7 +26,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 
 1. Select **Private Endpoint Connections** from the list of settings, and then select **Private endpoint**:
 
-   ![Selections for create a private endpoint in the Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selections for create a private endpoint in the Azure portal":::
 
 1. In the **Create a private endpoint - Basics** pane, enter or select the following details:
 
@@ -89,7 +89,7 @@ After the private endpoint is provisioned, you can query the IP addresses. To vi
 1. Search for the private endpoint that you created earlier. In this case, it's **cdbPrivateEndpoint3**.
 1. Select the **Overview** tab to see the DNS settings and IP addresses.
 
-![Private IP addresses in the Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Private IP addresses in the Azure portal":::
 
 Multiple IP addresses are created per private endpoint:
 
@@ -402,7 +402,7 @@ For those accounts, you must create one private endpoint for each API type. The 
 
 After the template is deployed successfully, you can see an output similar to what the following image shows. The `provisioningState` value is `Succeeded` if the private endpoints are set up correctly.
 
-![Deployment output for the Resource Manager template](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Deployment output for the Resource Manager template":::
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 

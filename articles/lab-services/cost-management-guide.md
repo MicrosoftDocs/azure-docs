@@ -1,13 +1,10 @@
 ---
 title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
-services: lab-services
 author: rbest
-
 ms.author: rbest
-ms.date: 05/09/2020
+ms.date: 06/26/2020
 ms.topic: article
-ms.service: lab-services
 ---
 
 # Cost management for Azure Lab Services

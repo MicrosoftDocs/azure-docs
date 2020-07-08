@@ -2,12 +2,9 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ---
 
 # Troubleshoot Update Management issues
@@ -15,9 +12,9 @@ manager: carmonm
 This article discusses issues that you might run into when deploying the Update Management feature on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
 >[!NOTE]
->If you run into problems when deploying Update Management on a VM, check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## Scenario: You receive the error "Failed to enable the Update solution"
+## <a name="failed-to-enable-error"></a>Scenario: You receive the error "Failed to enable the Update solution"
 
 ### Issue
 
@@ -43,9 +40,7 @@ This error can occur for the following reasons:
 
 * Go to [Network configuration](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
 
-* Go to [Network configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
-
-* Check for scope configuration problems. [Scope configuration](../automation-scope-configurations-update-management.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in the Update Management portal, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Check for scope configuration problems. [Scope configuration](../automation-scope-configurations-update-management.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in Update Management, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remove the worker configuration by following the steps in [Remove the Hybrid Runbook Worker from an on-premises Windows computer](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove the Hybrid Runbook Worker from an on-premises Linux computer](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

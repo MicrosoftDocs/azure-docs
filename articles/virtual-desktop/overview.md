@@ -108,7 +108,7 @@ The following table lists optional URLs that your Azure virtual machines can hav
 |*.events.data.microsoft.com|443|Telemetry Service|None|
 |www.msftconnecttest.com|443|Detects if the OS is connected to the internet|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Sign in to Microsoft Online Services, Office 365|None|
+|login.windows.net|443|Sign in to Microsoft Online Services, Microsoft 365|None|
 |*.sfx.ms|443|Updates for OneDrive client software|None|
 |*.digicert.com|443|Certificate revocation check|None|
 

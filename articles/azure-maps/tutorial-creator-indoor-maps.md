@@ -69,7 +69,6 @@ The Data Upload API is a long running transaction that implements the pattern de
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
@@ -105,6 +104,8 @@ The Data Upload API is a long running transaction that implements the pattern de
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
 

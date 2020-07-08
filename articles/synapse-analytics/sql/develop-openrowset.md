@@ -5,7 +5,7 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -110,9 +110,11 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net/path/file   |
+| Azure Blob Storage         | wasb   | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net /path/file   |
+| Azure Data Lake Store Gen2 | abfss  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -173,7 +175,7 @@ ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 FIRSTROW = 'first_row' 
 

@@ -4,7 +4,7 @@ description: This article presents an overview of Azure Cosmos DB indexing capab
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande

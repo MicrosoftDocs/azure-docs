@@ -50,6 +50,7 @@ You can interact with your workspace in the following ways:
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 ## Machine learning with a workspace
 
@@ -67,13 +68,13 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Create a workspace        | **&check;**     | | **&check;** | **&check;** |
-| Manage workspace access    | **&check;**   || |  **&check;**    |
-| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     |
-| Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Create a Notebook VM |   | **&check;** | |     |
+| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | CLI        | VS Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Manage workspace access    | **&check;**   || |  **&check;**    ||
+| Upgrade to Enterprise edition    | **&check;** | **&check;**  | |     ||
+| Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Create a Notebook VM |   | **&check;** | |     ||
 
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
@@ -87,7 +88,7 @@ There are multiple ways to create a workspace:
 * Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
-* If you work in Visual Studio Code, use the [VS Code extension](tutorial-setup-vscode-extension.md).
+* If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > The workspace name is case-insensitive.
