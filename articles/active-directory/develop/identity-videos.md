@@ -268,3 +268,14 @@ ___
         <!-- BLANK VIDEO CELL -->
     :::column-end:::
 :::row-end:::
+
+## One Dev Question series (65 videos)
+
+Learn about the Microsoft Azure identity platform in the One Dev Question series. Hear answers to developer questions with topics such as "how are authorization requests connected to access tokens and refresh tokens"?
+___
+
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/playlist?list=PLLasX02E8BPCkCMbNDPT-hUfNsnP_RSBm" target="_blank"> <img src="./media/identity-videos/one-dev-question-azure-series.jpg" alt="Video series thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
