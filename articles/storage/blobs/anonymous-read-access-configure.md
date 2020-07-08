@@ -33,7 +33,7 @@ By default, public access is enabled for a storage account. Disabling public acc
 > [!WARNING]
 > Disabling public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
 
-To enable or disable public access for a storage account, use the Azure portal or Azure CLI.
+To enable or disable public access for a storage account, use the Azure portal or Azure CLI to configure the account's **blobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -84,6 +84,8 @@ az resource show \
 ## Check the public access setting for a storage account
 
 To check the public access setting for a storage account, get the value of the **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
+
+The **allowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account defaults to permitting public access when the property value is null.
 
 ### Check the public access setting for a single storage account
 

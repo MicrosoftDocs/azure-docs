@@ -72,7 +72,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
 1. In the Monitoring section, select **Diagnostic settings (preview)**.
-1. Select **Blob** to log requests to Blob storage.
+1. Select **Blob** to log requests made against Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
 1. Under **Category details**, in the **log** section, choose which types of requests to log. All anonymous requests will be read requests, so select **StorageRead** to capture anonymous requests.
@@ -101,10 +101,10 @@ You can also configure an alert rule based on this query to notify you about ano
 ## Remediate anonymous public access
 
 After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to limit or prevent public access. If some containers in your storage account may need to be available for public access, then you can configure the public access setting for each container in your storage account. This option provides the most granular control over public access. For more information, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
- 
+
 For enhanced security, you can disable public access for an entire storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable or disable public read access for a storage account](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
 
-If your scenario requires that certain containers be available for public access, it may be advisable to group those containers into storage accounts that are reserved for public access. You can then disable public access for any other storage accounts.
+If your scenario requires that certain containers are available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disable public access for any other storage accounts.
 
 ### Verify that public access to a blob is not permitted
 
