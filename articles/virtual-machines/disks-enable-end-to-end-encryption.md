@@ -10,9 +10,9 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable end-to-end encryption
+# Enable end-to-end encryption (preview)
 
-Azure Disk Storage offers end-to-end encryption for managed disks, allowing you to have double encryption at rest and in transit. This article contains scripts that will deployFor conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](linux/disk-encryption.md#end-to-end-encryption)
+Azure Disk Storage offers end-to-end encryption (preview) for managed disks, allowing you to have double encryption at rest and in transit. This article contains scripts that will deployFor conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](linux/disk-encryption.md#end-to-end-encryption)
 
 ## Restrictions
 
