@@ -37,13 +37,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Start Android Studio, and open the project from the **immersive-reader-sdk/js/samples/quickstart-java-android** directory (Java) or the **immersive-reader-sdk/js/samples/quickstart-kotlin** directory (Kotlin).
 
 1. Create a file named **env** inside the **/assets** folder. Add the following names and values, and supply values as appropriate. Don't commit this file into source control because it contains secrets that shouldn't be made public.
-
-```text
-TENANT_ID=<YOUR_TENANT_ID>
-CLIENT_ID=<YOUR_CLIENT_ID>
-CLIENT_SECRET=<YOUR_CLIENT_SECRET>
-SUBDOMAIN=<YOUR_SUBDOMAIN>
-```
+    
+    ```text
+    TENANT_ID=<YOUR_TENANT_ID>
+    CLIENT_ID=<YOUR_CLIENT_ID>
+    CLIENT_SECRET=<YOUR_CLIENT_SECRET>
+    SUBDOMAIN=<YOUR_SUBDOMAIN>
+    ```
 
 ## Start the Immersive Reader with sample content
 

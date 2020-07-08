@@ -40,12 +40,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. In the **Run** view, select the **Arguments** tab.
 1. In the **Environment Variables** section, add the following names and values. Supply the values given when you created your Immersive Reader resource.
 
-```text
-TENANT_ID=<YOUR_TENANT_ID>
-CLIENT_ID=<YOUR_CLIENT_ID>
-CLIENT_SECRET<YOUR_CLIENT_SECRET>
-SUBDOMAIN=<YOUR_SUBDOMAIN>
-```
+    ```text
+    TENANT_ID=<YOUR_TENANT_ID>
+    CLIENT_ID=<YOUR_CLIENT_ID>
+    CLIENT_SECRET<YOUR_CLIENT_SECRET>
+    SUBDOMAIN=<YOUR_SUBDOMAIN>
+    ```
 
 Don't commit this change into source control because it contains secrets that shouldn't be made public.
 
