@@ -17,17 +17,18 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+  ```azurecli-interactive
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  ```
 
 * In the created Azure Key Vault, create the key that will be used for the data encryption of the Azure Database for MySQL.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+  ```azurecli-interactive
+  az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+  ```
 
 * In order to use an existing key vault, it must have the following properties to use as a customer-managed key:
+
   * [Soft delete](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
@@ -49,17 +50,17 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
 1. There are two ways of getting the managed identity for your Azure Database for MySQL.
 
-    ### Create an new Azure Database for MySQL server with a managed identity.
+   ### Create an new Azure Database for MySQL server with a managed identity.
 
-    ```azurecli-interactive
-    az mysql server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server create --name -g <resource_group> --location <locations> --storage-size size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> -geo-redundant-backup <Enabled/Disabled>  --assign-identity
+   ```
 
-    ### Update an existing the Azure Database for MySQL server to get a managed identity.
+   ### Update an existing the Azure Database for MySQL server to get a managed identity.
 
-    ```azurecli-interactive
-    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server update --name  <server name>  -g <resource_group> --assign-identity
+   ```
 
 2. Set the **Key permissions** (**Get**, **Wrap**, **Unwrap**) for the **Principal**, which is the name of the MySQL server.
 
@@ -100,7 +101,7 @@ az mysql server key create –name  <server name> -g <resource_group> --kid <key
 az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
 ```
 
-Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Key url: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 
@@ -111,7 +112,7 @@ az mysql server key list --name  <server name>  -g <resource_group>
 ### Drop the key being used
 
 ```azurecli-interactive
-az mysql server key delete -g <resource_group> --kid <key url> 
+az mysql server key delete -g <resource_group> --kid <key url>
 ```
 
 ## Using an Azure Resource Manager template to enable data encryption
@@ -126,6 +127,7 @@ Use one of the pre-created Azure Resource Manager templates to provision the ser
 This Azure Resource Manager template creates an Azure Database for MySQL server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
 
 ### For an existing server
+
 Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for MySQL servers.
 
 * Pass the Resource ID of the Azure Key Vault key that you copied earlier under the `Uri` property in the properties object.

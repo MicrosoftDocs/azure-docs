@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: cherylmc
 
 ---
@@ -18,7 +18,7 @@ A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, 
 For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Some of these capabilities may still be rolling out and expected to complete in week of Aug 3rd.
+> Some of these capabilities may still be rolling out. This is expected to complete by August 3rd.
 >
 
 ## <a name="create-table"></a>Create a route table

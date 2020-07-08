@@ -15,6 +15,12 @@ ms.author: cherylmc
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
+> [!NOTE]
+> Some of the routing capabilities may still be rolling out. If the rollout has not yet happened in your region, please use the steps in these versions of the articles in the meantime:
+>* [Azure portal article](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell article](virtual-wan-route-table-nva.md)
+>
+
 ## <a name="architecture"></a>Scenario architecture
 
 In **Figure 1**, there are two hubs; **Hub 1** and **Hub 2**.
