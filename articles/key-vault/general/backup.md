@@ -53,16 +53,16 @@ When you back up an object stored in key vault (secret, key, or certificate) the
 2. Select your key vault.
 3. Navigate to the object (secret, key, or certificate) you want to back up.
 
-  ![Image](../media/akvbackup1.png)
+  ![Image](../media/backup-1.png)
 
 4. Select the object.
 5. Select 'Download Backup'
 
-  ![Image](../media/akvbackup2.png)
+  ![Image](../media/backup-2.png)
 
 6. Click the 'Download' Button.
 
-  ![Image](../media/akvbackup3.png)
+  ![Image](../media/backup-3.png)
 
 7. Store the encrypted blob in a secure location.
 
@@ -73,7 +73,7 @@ When you back up an object stored in key vault (secret, key, or certificate) the
 3. Navigate to the type of object (secret, key, or certificate) you want to restore.
 4. Select 'Restore Backup'
 
-  ![Image](../media/akvbackup4.png)
+  ![Image](../media/backup-4.png)
 
 5. Browse to the location where you stored the encrypted blob.
 6. Select "Ok".
