@@ -4,6 +4,8 @@ description: Learn about your support options in Partner Center, including how t
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
 ---
 

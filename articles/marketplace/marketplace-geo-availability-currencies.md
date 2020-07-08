@@ -4,8 +4,9 @@ description: The geographic availability and currency support for transactions i
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/29/2020
-
 ---
 # Geographic availability and currency support for commercial marketplace
 

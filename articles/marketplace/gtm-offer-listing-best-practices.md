@@ -4,8 +4,8 @@ description: Learn about go-to-market listing best practices for your Microsoft 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
 ---
 
