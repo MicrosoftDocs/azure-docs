@@ -39,7 +39,7 @@ Azure Database for MariaDB provides the ability to enforce the TLS version for t
 For example, setting the value of Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
 > [!Note] 
-> By default, Azure Database for PostgreSQL does not enforce a minimum TLS version (the setting `TLSEnforcementDisabled`).
+> By default, Azure Database for MariaDB does not enforce a minimum TLS version (the setting `TLSEnforcementDisabled`).
 >
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
