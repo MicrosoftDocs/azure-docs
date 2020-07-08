@@ -57,7 +57,7 @@ To get started, use PowerShell commands to register the `AllowNFSV3` feature wit
    ```powershell
    Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
    ```
-   
+
 ## Verify that the feature is registered 
 
 After you register the NFS 3.0 protocol feature with your subscription, the registration must be approved. This can take up to an hour. 
@@ -68,6 +68,19 @@ To verify that the feature is registered with your subscription, use the followi
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
+
+## Create an Azure Virtual Network (VNet)
+
+Your storage account must be contained within a VNet. To learn more about VNet and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
+
+If you plan to connect to your storage account by using a Virtual Machine (VM) that is in the same VNet as your storage account, 
+
+If you plan to connect to your Azure storage account from an on-premises computer, you'll have to connect your on-premises network to your virtual network by using one of these tools:
+
+- [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager)
+
+You can connect your on-premises network to a peered virtual network that is in the same region as your storage account by using [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
 
 ## Configure a storage account
 
@@ -93,23 +106,28 @@ As you configure the account, choose these values:
 |Hierarchical namespace|Enabled|Enabled|
 |NFS V3|Enabled|Enabled|
 
-You can accept the default value for all other settings.
+You can accept the default value for all other settings. 
 
-## Create a container
+## Create and mount a container
 
 In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
 
-Create a container by using SDKs or tools.
+You can create a container by using [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container), [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container), [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container), [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container), [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container), [Java](data-lake-storage-directory-file-acl-java.md#create-a-container), [Python](data-lake-storage-directory-file-acl-python.md#create-a-container), [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container), or [REST](https://docs.microsoft.com/rest/api/storageservices/create-container).
 
-|||
+On a computer running Linux, you can mount a container by using the following command.
 
-## Mount a container
+```
+mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:<storage-account-name>/<container-name>  /mnt/test
+```
+
+Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
+
+Replace the `<container-name>` placeholder with the name of your container.
 
 ## Features not yet supported
 
 ## Pricing
 
-## See also
 
 
 
