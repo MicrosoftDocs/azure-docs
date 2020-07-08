@@ -1,8 +1,6 @@
 ---
 title: Downloads dashboard in Microsoft commercial marketplace analytics on Partner Center
 description: Learn how to access download requests for your marketplace offers.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
