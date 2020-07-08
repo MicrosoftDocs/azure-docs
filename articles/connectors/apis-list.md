@@ -46,7 +46,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
-  |   | Description |
+  | Connectors | Description |
   |---|---|
   | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
