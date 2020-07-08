@@ -1,12 +1,10 @@
 ---
 title: Retrieve offers API - Azure Marketplace
 description: API to retrieve a summarized list of offers under a publisher namespace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 04/08/2020
-ms.author: dsindona
 ---
 
 
