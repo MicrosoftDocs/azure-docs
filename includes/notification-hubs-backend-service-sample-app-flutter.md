@@ -77,6 +77,16 @@
       flutter_secure_storage: ^3.3.3
     ```
 
+1. In **android** > **app** > **build.gradle** update **minSdkVersion** to **18**, as is required by the recently installed **flutter_secure_storage** package.
+
+    ```yaml
+    defaultConfig {
+        ...
+        minSdkVersion 18
+        ...
+    }
+    ```
+
 1. In **Terminal**, change directory to the **ios** folder (for your Flutter project). Then, execute the [**pod install**](https://guides.cocoapods.org/using/getting-started.html#installation) command to install new pods (required by the [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) package).
 
 1. **Control** + **Click** on the **lib** folder, then choose **New File** from the menu using *main_page.dart* as the filename. Then, add the following code.
@@ -115,7 +125,7 @@
     void main() => runApp(MaterialApp(home: MainPage(), navigatorKey: navigatorKey));
     ```
 
-1. In **Terminal**, build and run the app on each target platform to test the templated app runs on your device(s). Make sure that supported devices are connected:
+1. In **Terminal**, build and run the app on each target platform to test the templated app runs on your device(s). Make sure that supported devices are connected.
 
     ```bash
     flutter run
