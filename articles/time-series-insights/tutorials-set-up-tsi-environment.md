@@ -92,7 +92,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable this setting. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
-    Select **Next: Event Source**.
+1. Select **Next: Event Source**.
 
    [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
@@ -112,7 +112,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
    | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Gen2. |
    | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Azure Time Series Insights Gen2 defaults to. |
 
-   Select **Review + Create**.
+1. Select **Review + Create**.
 
    [![Configure the created IoT hub as an event source.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
@@ -217,73 +217,74 @@ In this section, you apply a model to structure your data. To complete the model
 
 1. Next, select the **Variables** tab. 
 
-   Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
+    1. Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Name** | Enter **Avg Temperature**. |
-    | **Kind** | Select **Numeric** |
-    | **Value** | Select from preset: Select **temperature (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
-    | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
+        | Parameter | Action |
+        | --- | --- |
+        | **Name** | Enter **Avg Temperature**. |
+        | **Kind** | Select **Numeric** |
+        | **Value** | Select from preset: Select **temperature (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
+        | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
-    Select **Apply**. Then, **+ Add Variable** again, and set the following values:
+    1. Select **Apply**. Then, **+ Add Variable** again, and set the following values:
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Name** | Enter **Avg Vibration**. |
-    | **Kind** | Select **Numeric** |
-    | **Value** | Select from preset: Select **vibration (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
-    | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
+        | Parameter | Action |
+        | --- | --- |
+        | **Name** | Enter **Avg Vibration**. |
+        | **Kind** | Select **Numeric** |
+        | **Value** | Select from preset: Select **vibration (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
+        | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
-    Select **Apply**. Then, **+ Add Variable** again, and set the following values for the third and final variable:
+    1. Select **Apply**. Then, **+ Add Variable** again, and set the following values for the third and final variable:
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Name** | Enter **Floor**. |
-    | **Kind** | Select **Categorical** |
-    | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
-    | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
-    | **Default Category** | Enter **Unknown** |
+        | Parameter | Action |
+        | --- | --- |
+        | **Name** | Enter **Floor**. |
+        | **Kind** | Select **Categorical** |
+        | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
+        | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
+        | **Default Category** | Enter **Unknown** |
 
-    [![Add type variables.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
+        [![Add type variables.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
 
-    Select **Apply**.
+    1. Select **Apply**. 
+    1. Select **Save**. Three variables are created and displayed.
 
-1. Select **Save**. Three variables are created and displayed.
-
-    [![After adding the type, review it in the Model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+        [![After adding the type, review it in the Model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Select the **Hierarchies** tab. Then, select **+ Add**.
    
-   In the **Edit Hierarchy** pane, set the following parameters:
+   1. In the **Edit Hierarchy** pane, set the following parameters:
 
-   | Parameter | Action |
-   | --- | ---|
-   | **Name** | Enter **Location Hierarchy**. |
-   |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
+        | Parameter | Action |
+        | --- | ---|
+        | **Name** | Enter **Location Hierarchy**. |
+        |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
 
-   Select **Save**.
+    1. Select **Save**.
 
-   [![Display your new hierarchy in the Model view.](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
+        [![Display your new hierarchy in the Model view.](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
 
-1. Navigate to **Instances**. Under **Actions** on the far right, and select the pencil icon to edit the first instance with the following values:
+1. Navigate to **Instances**. 
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Type** | Select **Elevator**. |
-    | **Name** | Enter **Elevator 1**|
-    | **Description** | Enter **Instance for Elevator 1** |
+    1. Under **Actions** on the far right, and select the pencil icon to edit the first instance with the following values:
 
-    Navigate to **Instance Fields** and enter the following values:
+        | Parameter | Action |
+        | --- | --- |
+        | **Type** | Select **Elevator**. |
+        | **Name** | Enter **Elevator 1**|
+        | **Description** | Enter **Instance for Elevator 1** |
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Hierarchies** | Select **Location Hierarchy** |
-    | **Country** | Enter **USA** |
-    | **City** | Enter **Seattle** |
-    | **Building** | Enter **Space Needle** |
+    1. Navigate to **Instance Fields** and enter the following values:
 
-    Select **Save**.
+        | Parameter | Action |
+        | --- | --- |
+        | **Hierarchies** | Select **Location Hierarchy** |
+        | **Country** | Enter **USA** |
+        | **City** | Enter **Seattle** |
+        | **Building** | Enter **Space Needle** |
+
+    1. Select **Save**.
 
 1. Repeat the previous step with the other two instances while using the following values:
 
