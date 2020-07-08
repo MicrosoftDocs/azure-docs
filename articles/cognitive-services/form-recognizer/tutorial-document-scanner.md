@@ -47,7 +47,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > - PDF documents longer than 50 pages
 > - Fillable PDFs
 >
-> For more information about requirements for input documents, see [input requirements](./overview.md#input-requirements.md).
+> For more information about requirements for input documents, see [input requirements](./overview.md#input-requirements).
 
 ### Upload your documents
 
@@ -68,7 +68,7 @@ During the analysis step, AI Builder examines the documents that you uploaded an
 When the analysis has finished, select the thumbnail to open the field selection experience.
 
 > [!IMPORTANT]
-> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./overview.md#input-requirements.md).
+> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./overview.md#input-requirements).
 
 ## Select your form fields
 
