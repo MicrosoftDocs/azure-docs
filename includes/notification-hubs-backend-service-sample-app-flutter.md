@@ -112,7 +112,7 @@
 
     final navigatorKey = GlobalKey<NavigatorState>();
 
-    void main() => runApp(MaterialApp(home: MainPage(), navigatorKey: navigatorKey);
+    void main() => runApp(MaterialApp(home: MainPage(), navigatorKey: navigatorKey));
     ```
 
 1. Build and run the app on each target platform to test the templated app runs on your device(s).
