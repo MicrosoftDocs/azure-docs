@@ -79,7 +79,7 @@ To configure multiple workspaces, select the **Workspace configuration** tab in 
 
 When you enable Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
-![Enable single VM in portal](media/vminsights-configure-workspace/enable-vminsights-vm-portal.png)
+![Enable single VM in portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 
 ### Resource Manager template

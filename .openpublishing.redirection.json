@@ -43492,6 +43492,11 @@
       "redirect_document_id": false
     },    
     {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-powershell.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-powershell.md",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal.md",
       "redirect_document_id": false

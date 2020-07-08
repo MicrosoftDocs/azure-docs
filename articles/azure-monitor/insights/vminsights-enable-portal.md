@@ -19,7 +19,7 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). Alternatively, you can create a new workspace during this process.
-- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
+- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 ## Enable Azure Monitor for VMs
 

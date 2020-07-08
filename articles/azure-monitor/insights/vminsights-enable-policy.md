@@ -15,12 +15,12 @@ This article explains how to enable Azure Monitor for VMs for Azure virtual mach
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets or hybrid virtual machine connected with Azure Arc, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md#azure-monitor-for-vms).
+> To use Azure Policy with Azure virtual machine scale sets or hybrid virtual machine connected with Azure Arc, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms).
 
 
 ## Prerequisites
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
-- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
+- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 
 ## Azure Monitor for VMs initiative
@@ -95,7 +95,7 @@ Click on a policy definition to view its details. Scenarios that policy definiti
 
 To create a remediation task to mitigate compliance issues, click **Create Remediation Task**. 
 
-![New remediation task](media/vminsights-enable-at-scale-policy/remediation-task.png)
+![New remediation task](media/vminsights-enable-at-scale-policy/new-remediation-task.png)
 
 Click **Remediate** to create the remediation task and then **Remediate** to start it. You will most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
 

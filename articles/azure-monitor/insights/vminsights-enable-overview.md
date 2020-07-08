@@ -110,7 +110,7 @@ The following are multiple methods for deploying these agents.
 | Method | Description |
 |:---|:---|
 | [Azure portal](vminsights-enable-single-vm.md) | Install both agents on a single virtual machine, virtual machine scale set, or hybrid virtual machines connected with Azure Arc. |
-| [Resource Manager templates](vminsights-enable-at-scale-powershell.md) | Install both agents using any of the supported methods to deploy a Resource Manager template including CLI and PowerShell. |
+| [Resource Manager templates](vminsights-enable-powershell.md) | Install both agents using any of the supported methods to deploy a Resource Manager template including CLI and PowerShell. |
 | [Azure Policy](vminsights-enable-at-scale-policy.md) | Assign  Azure Policy initiative to automatically install the agents when a VM or VMSS is created. |
 | [Manual install](vminsights-enable-hybrid-cloud.md) | Install the agents in the guest operating system on computers hosted outside of Azure including in your datacenter or other cloud environments. |
 

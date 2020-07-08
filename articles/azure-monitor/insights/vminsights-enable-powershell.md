@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor for VMs with PowerShell or templates
+title: Enable Azure Monitor for VMs using PowerShell
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.subservice:
 ms.topic: conceptual
@@ -18,7 +18,7 @@ This article describes how to enable Azure Monitor for VMs on Azure virtual mach
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md).
-- See [Supported operating systems](vminsights-enable-overview#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
+- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
 
 
 ## PowerShell script
