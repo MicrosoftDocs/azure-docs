@@ -153,7 +153,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 For more information on Azure Service Bus and details about Java Message Service (JMS) entities check out the links below - 
 * [Service Bus - Queues, Topics and Subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-entities-preview)
+* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities-preview)
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
