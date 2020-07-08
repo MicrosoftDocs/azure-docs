@@ -117,15 +117,15 @@ The SPA player app completes the following actions:
 
 The screen for sign-in, token acquisition, token renewal, and token display:
 
-![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-aquisition.png)
+![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
 
 The screen for parsing JWT tokens (access_token or id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
 
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
