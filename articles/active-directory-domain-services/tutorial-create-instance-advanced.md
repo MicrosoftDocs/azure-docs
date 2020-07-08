@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create an Azure AD DS managed domain with advanced configuration
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
+title: Tutorial - Create a customized Azure Active Directory Domain Services managed domain | Microsoft Docs
+description: In this tutorial, you learn how to create and configure a customized Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
 author: iainfoulds
 manager: daveba
 
