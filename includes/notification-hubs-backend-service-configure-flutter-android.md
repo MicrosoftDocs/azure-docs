@@ -373,6 +373,7 @@
     import android.os.Bundle
     import com.google.android.gms.tasks.OnCompleteListener
     import com.google.firebase.iid.FirebaseInstanceId
+    import com.<your_organization>.pushdemo.services.DeviceInstallationService
     import com.<your_organization>.pushdemo.services.NotificationActionService
     import com.<your_organization>.pushdemo.services.NotificationRegistrationService
     import io.flutter.embedding.android.FlutterActivity
