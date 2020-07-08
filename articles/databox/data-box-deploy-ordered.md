@@ -382,7 +382,7 @@ Do the following steps using Azure CLI to order a device:
    ```azurepowershell
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
-   
+
 2. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the PowerShell command to create the Data Box order. The following table shows the parameter settings used for [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Setting (parameter) | Description |  Sample value |
@@ -403,7 +403,7 @@ Do the following steps using Azure CLI to order a device:
     |PostalCode| The zip code or postal code associated with the shipping address.| "98052"|
     |CompanyName| The name of your company you work for.| "Contoso, LTD" |
     |StorageAccountResourceId| The Azure Storage account from where you want to import data.| "mystorageaccount"|
- 
+
 3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
    ```azurepowershell
@@ -525,6 +525,7 @@ The following table shows the parameter information for `az databox job list`:
                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest4       MyResGrp         2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    PS C:\WINDOWS\system32>
    ```
+
 # [Azure PowerShell](#tab/azure-ps)
 
 ### Track a single order
@@ -700,8 +701,8 @@ Here's an example of the command with output:
 
 ```azurepowershell
 PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
-                                             -Name "myDataBoxOrderPSTest" \
-                                             -Reason "I entered erroneous information and had to cancel."
+                                            -Name "myDataBoxOrderPSTest" \
+                                            -Reason "I entered erroneous information and had to cancel."
 ```
 
 Here is the output from running the command:
@@ -732,7 +733,7 @@ Here's an example of the command with output:
 
 ```azurepowershell
 PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
-                                    -Name "mydataboxtest3"
+                                   -Name "mydataboxtest3"
 ```
 
 Here is the output from running the command:
