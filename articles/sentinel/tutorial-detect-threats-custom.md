@@ -1,6 +1,6 @@
 ﻿---
-title: Create custom analytic rules to detect suspicious threats with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to Create custom analytic rules to detect suspicious threats with Azure Sentinel.
+title: Create custom analytics rules to detect threats with Azure Sentinel| Microsoft Docs
+description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -17,18 +17,18 @@ ms.date: 07/06/2020
 ms.author: yelevin
 
 ---
-# Tutorial: Create custom analytic rules to detect suspicious threats
+# Tutorial: Create custom analytics rules to detect threats
 
 Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom rules that can search for specific criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.
 
 This tutorial helps you detect threats with Azure Sentinel.
 > [!div class="checklist"]
-> * Create analytic rules
+> * Create analytics rules
 > * Automate threat responses
 
-## Create custom analytic rules
+## Create custom analytics rules
 
-You can create custom analytic rules to help you search for the types of threats and anomalies that are suspicious in your environment. The rule makes sure you are notified right away, so that you can triage, investigate, and remediate the threats.
+You can create custom analytics rules to help you search for the types of threats and anomalies that are suspicious in your environment. The rule makes sure you are notified right away, so that you can triage, investigate, and remediate the threats.
 
 1. In the Azure portal under Azure Sentinel, select **Analytics**.
 
@@ -38,7 +38,7 @@ You can create custom analytic rules to help you search for the types of threats
 
 1. In the **General** tab, provide a unique **Name**, and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
-    ![Start creating a custom analytic rule](media/tutorial-detect-threats-custom/general-tab.png)
+    ![Start creating a custom analytics rule](media/tutorial-detect-threats-custom/general-tab.png)
 
 1. In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics, and then copy and paste it there.
  
