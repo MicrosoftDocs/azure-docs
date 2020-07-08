@@ -46,8 +46,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 We are making the following changes to the MFA email notifications for both cloud MFA and MFA server:
 
-E-mail notifications will be sent from the following address: azure-noreply@microsoft.com.
-We are updating the content of fraud alert emails to better indicate the required steps to unblock uses.
+E-mail notifications will be sent from the following address: azure-noreply@microsoft.com and msonlineservicesteam@microsoftonline.com. We're updating the content of fraud alert emails to better indicate the required steps to unblock uses.
 
 ---
 
