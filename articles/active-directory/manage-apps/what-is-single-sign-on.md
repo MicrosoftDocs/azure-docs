@@ -1,5 +1,5 @@
 ---
-title: What is single sign-on (SSO)?
+title: What is Azure single sign-on (SSO)?
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
 author: kenwith
