@@ -13,7 +13,7 @@ For an overview of the Azure components and services available to monitor Azure 
 
 ## Subscription-level monitoring
 
-At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) collects operational event data in [several categories](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) collects operational event data in [several categories](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
