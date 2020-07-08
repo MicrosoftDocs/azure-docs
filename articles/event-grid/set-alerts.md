@@ -1,17 +1,12 @@
 ---
 title: Set alerts for Azure Event Grid metrics and activity log operations
 description: This article describes how to create alerts on Azure Event Grid metrics and activity log operations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Set alerts on Azure Event Grid metrics and activity logs
-This article describes how to create alerts on Azure Event Grid metrics and activity log operations. 
+This article describes how to create alerts on Azure Event Grid metrics and activity log operations. You can create alerts on both publish and delivery metrics for Azure Event Grid resources (topics and domains). For system topics, [create alerts using the **Metrics** page](#create-alerts-using-the-metrics-page).
 
 ## Create alerts on dead-lettered events
 The following procedure shows you how to create an alert on **dead-lettered events** metric for a custom topic. In this example, an email is sent to the Azure resource group owner when the dead-lettered event count for a topic goes above 10. 
@@ -29,6 +24,9 @@ The following procedure shows you how to create an alert on **dead-lettered even
     2. Select dimensions (optional). 
         
         :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Configure signal logic":::        
+
+        > [!NOTE]
+        > You can select **+** button for **EventSubscriptionName** to specify an event subscription name to filter events. 
     3. Scroll down. In the **Alert logic** section, select an **Operator**, **Aggregation type**, and enter a **Threshold value**, and select **Done**. In this example, an alert is triggered when the total dead lettered events count is greater than 10. 
     
         :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Alert logic":::                
@@ -62,7 +60,7 @@ For example, to create an alert on a delivery failure event, select **Delivery f
 
 
 ## Create alerts using the Metrics page
-You can also create alerts by using the **Metrics** page. The steps are similar. 
+You can also create alerts by using the **Metrics** page. The steps are similar. For system topics, you can only use the **Metrics** page to create alerts, as the **Alerts** page isn't available. 
 
 :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Metrics page - Create alert button":::   
     

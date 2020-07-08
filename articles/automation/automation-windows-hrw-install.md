@@ -26,15 +26,15 @@ If you have a workspace, but it is not linked to your Automation account, enabli
 
    To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
+```
 
    To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
+```
 
 ### Log Analytics agent
 
@@ -181,16 +181,16 @@ Import-Module .\HybridRegistration.psd1
 Now run the `Add-HybridRunbookWorker` cmdlet using the following syntax.
 
 ```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 ```
 
-You can get the information required for the parameters `EndPoint` and `Token` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
+You can get the information required for the parameters `Url` and `Key` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
 ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* For the `EndPoint` parameter, copy the value for **URL**.
+* For the `Url` parameter, copy the value for **URL**.
 
-* For the `Token` parameter, copy the value for **PRIMARY ACCESS KEY**.
+* For the `Key` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
 * For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's added.
 
@@ -213,7 +213,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <primaryAccessKey> -machineName <computerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## Remove a Hybrid Worker group

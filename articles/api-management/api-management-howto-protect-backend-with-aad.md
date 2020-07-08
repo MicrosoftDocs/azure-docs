@@ -219,12 +219,12 @@ Use the [Validate JWT](https://docs.microsoft.com/azure/api-management/api-manag
 
 ## Build an application to call the API
 
-In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code.md).
+In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/sample-v2-code.md).
 
 ## Next steps
 
-- Learn more about [Azure Active Directory and OAuth2.0](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios.md).
+- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 - Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
-- For other ways to secure your back-end service, see [Mutual Certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
-- [Create an API Management service instance](https://docs.microsoft.com/azure/api-management/get-started-create-service-instance).
-- [Manage your first API](https://docs.microsoft.com/azure/api-management/import-and-publish).
+- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+- [Create an API Management service instance](./get-started-create-service-instance.md).
+- [Manage your first API](./import-and-publish.md).

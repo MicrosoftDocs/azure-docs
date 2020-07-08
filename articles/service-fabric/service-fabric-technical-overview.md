@@ -111,7 +111,7 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
 
 **Repair Manager service**: This is an optional system service that allows repair actions to be performed on a cluster in a way that is safe, automatable, and transparent. Repair manager is used in:
 
-   - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
+   - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
    - Carrying out repair actions for [Patch Orchestration Application](service-fabric-patch-orchestration-application.md)
 
 ## Deployment and application models
@@ -164,7 +164,7 @@ Different environments have different levels of support for frameworks and deplo
 
 The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
-| Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
+| Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh Applications | Resource Model (YAML & JSON) | VS 2017 |Not supported |Not supported | Supported - Mesh environment only | Not Supported|
 |Service Fabric Native Applications | Native Application Model (XML) | VS 2017 and VS 2015| Supported|Supported|Supported|Supported|

@@ -4,7 +4,7 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ---

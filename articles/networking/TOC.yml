@@ -4,6 +4,8 @@
     href: networking-overview.md
   - name: Architecture
     items:
+    - name: Azure for network engineers
+      href: azure-for-network-engineers.md
     - name: Virtual Datacenters
       href: /azure/architecture/vdc/networking-virtual-datacenter
     - name: Asymmetric routing with multiple network paths

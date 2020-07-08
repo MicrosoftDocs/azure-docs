@@ -1,20 +1,8 @@
 ---
 title: Azure DevTest Labs usage across multiple labs and subscriptions
 description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: takamath
-
+ms.date: 06/26/2020
 ---
 
 # Report Azure DevTest Labs usage across multiple labs and subscriptions

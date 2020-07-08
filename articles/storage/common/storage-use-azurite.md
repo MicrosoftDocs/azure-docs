@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Use the Azurite emulator for local Azure Storage development and testing (preview)

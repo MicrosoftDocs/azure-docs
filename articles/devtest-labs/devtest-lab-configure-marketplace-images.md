@@ -1,22 +1,10 @@
 ---
 title: Configure Azure Marketplace image settings in Azure DevTest Labs
 description: Configure which Azure Marketplace images can be used when creating a VM in Azure DevTest Labs
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 804c6af2-17e9-4320-af3a-f454bd398379
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Configure Azure Marketplace image settings in Azure DevTest Labs
 DevTest Labs supports creating VMs based on Azure Marketplace images depending
 on how you have configured Azure Marketplace images to be used in your lab. This article

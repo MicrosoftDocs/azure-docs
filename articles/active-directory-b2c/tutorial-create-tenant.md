@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -47,8 +47,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. On the **Create a directory** page, enter the following:
 
-   - **Organization name** - Enter the name of your organization.
-   - **Initial domain name** - Enter a domain name. By default, this name is appended with *.onmicrosoft.com*. You can change this later by adding a domain name that your organization already uses, such as 'contoso.com'.
+   - **Organization name** - Enter a name for your Azure AD B2C tenant.
+   - **Initial domain name** - Enter a domain name for your Azure AD B2C tenant.
    - **Country or region** - Select your country or region from the list. This selection can't be changed later.
    - **Subscription** - Select your subscription from the list.
    - **Resource group** - Select a resource group that will contain the tenant. Or select **Create new**, enter a **Name** for the resource group, select the **Resource group location**, and then select **OK**.
