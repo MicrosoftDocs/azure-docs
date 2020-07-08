@@ -294,6 +294,9 @@ In this section you install the containerized agent for Azure Monitor for contai
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
+>[!NOTE]
+>See the [Obtain workspace ID and key](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-linux#obtain-workspace-id-and-key) for a detailed description of how to get the logAnalyticsWorkspaceId and logAnalyticsWorkspaceKey.
+
 ### Enable the Helm chart using the API Model
 
 You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics workspace where the collected monitoring data is stored. You can find the `WorkspaceGUID` and `WorkspaceKey` using steps 1 and 2 in the previous section.
