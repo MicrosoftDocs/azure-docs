@@ -19,7 +19,13 @@
 
 ## Prerequisites
 
-You must get the feature enabled for your subscriptions before you use the EncryptionAtHost property for your VM/VMSS. Please send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
+You must get the feature enabled for your subscriptions before you use the EncryptionAtHost property for your VM/VMSS. Please send an email to encryptionAtHost@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
+
+### Create an Azure Key Vault and DiskEncryptionSet
+
+Once you've enabled the feature, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
+
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 ## Enable encryption at host for disks attached to VM and VMSS using rest API
 
@@ -29,9 +35,7 @@ You can enable the feature by setting a new property EncryptionAtHost under secu
 
 ## Enable encryption at host for disks attached to a VM with customer managed keys (CMK) via using PowerShell
 
-1. Follow the instructions [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption#setting-up-your-azure-key-vault-and-diskencryptionset) for creating a Key Vault for storing your keys and a DiskEncryptionSet pointing to a key in the Key Vault
-
-2. Create a VM with managed disks using the resource URI of the DiskEncryptionSet created in the step #1 
+Create a VM with managed disks using the resource URI of the DiskEncryptionSet created in the step #1 
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<yoursubscriptionID>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
