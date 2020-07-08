@@ -179,6 +179,10 @@
       href: service-bus-nodejs-how-to-use-queues.md
     - name: Publish and subscribe for messages (legacy azure-sb)
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+  - name: Migrate
+    items:
+    - name: Migrate from ActiveMQ to Azure Service Bus
+      href: migrate-jms-activemq-to-servicebus.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities

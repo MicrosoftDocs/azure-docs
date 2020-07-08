@@ -1,5 +1,5 @@
 ---
-title: Migrate JMS applications from ActiveMQ to Azure Service Bus | Microsoft Docs
+title: Migrate Java Message Service (JMS) applications from ActiveMQ to Azure Service Bus | Microsoft Docs
 description: This article explains how to migrate existing JMS applications that interact with Active MQ to interact with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 07/07/2020
 ms.author: aschhab
 
 ---
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Active MQ to Azure Service Bus
 
-Azure Service Bus supports Java/J2EE and Spring workloads that leverage the Java Message Service (JMS) 2.0 API over the AMQP protocol.
+Azure Service Bus supports Java/J2EE and Spring workloads that utilize the Java Message Service (JMS) 2.0 API over the Advanced Message Queueing Protocol (AMQP) protocol.
 
 This guide describes what you should be aware of when you want to modify an existing Java Message Service (JMS) 2.0 application that interacts with a JMS Broker (specifically Apache ActiveMQ or Amazon MQ) to interact with Azure Service Bus.
 
@@ -50,7 +50,7 @@ The two-tiered nature of Azure Service Bus affords various business continuity c
 
 #### Service upgrades
 
-In the event of Service upgrades and restarts, temporary Queues or Topics will be deleted.
+In case of service bus upgrades and restarts, temporary Queues or Topics will be deleted.
 
 If the application is sensitive to data loss on temporary Queues or Topics, it is recommended to **not** use Temporary Queues or Topics and use durable Queues, Topics and Subscriptions instead.
 
@@ -60,11 +60,11 @@ As part of migrating/modifying your client applications to interact with Azure S
 
 A custom application may be needed to drain the ActiveMQ queues, topics and subscriptions and replay the messages to Service Bus' queues, topics and subscriptions.
 
-#### Authentication and Authorization
+#### Authentication and authorization
 
 Role Based Access Control (RBAC) backed by Azure ActiveDirectory is the preferred authentication mechanism for Azure Service Bus.
 
-However, since RBAC is not currently supported due to lack of claim based authentication support by Apache QPID JMS. This is expected to be supported in the near future.
+However, since RBAC is not currently supported due to lack of claim based authentication support by Apache QPID JMS.
 
 For now, authentication is supported only with SAS keys.
 
@@ -166,7 +166,7 @@ To ensure seamless connectivity with Azure Service Bus, the ***azure-servicebus-
 </dependencies>
 ```
 
-### Application Server Configuration changes
+### Application server configuration changes
 
 This part is custom to the application server that is hosting your client applications connecting to Active MQ.
 
@@ -224,7 +224,7 @@ which can be adapted as below to point to Azure Service Bus
 </Context>
 ```
 
-#### Spring Applications
+#### Spring applications
 
 ##### Update `application.properties` file
 
@@ -282,7 +282,7 @@ connection.start();
 
 Now that you have modified the application to starting sending and receiving messages from Azure Service Bus, you should verify that it works as you expect. Once that is done, you can proceed to further refine and modernize your application stack.
 
-## Next Steps
+## Next steps
 
 Leverage the [Spring Boot Starter for Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Azure Service Bus.
 
