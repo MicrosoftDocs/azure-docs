@@ -46,20 +46,20 @@ On the **Add documents** page, you need to provide sample documents to train you
 > - Check boxes or radio buttons
 > - PDF documents longer than 50 pages
 > - Fillable PDFs
+>
+> For more information about requirements for input documents, see [Requirements and limitations](form-processing-model-requirements.md).
 
 ### Upload your documents
 
 1. Select **Add documents**, select a minimum of five documents, and then select **Upload**.
 1. After the upload is completed, select **Close**.
-1. Select **Analyze**.
-
-For more information about requirements for input documents, see [Requirements and limitations](form-processing-model-requirements.md).
-
-> [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-aibuilder/add-documents-page.png)
+1. Then select **Analyze**.
 
 > [!NOTE] 
 > After you upload these documents, you can still remove some of the documents or upload additional ones.
+
+> [!div class="mx-imgBorder"]
+> ![add documents page](./media/tutorial-aibuilder/add-documents-page.png)
 
 ### Analyze your documents
 
@@ -68,27 +68,30 @@ During the analysis step, AI Builder examines the documents that you uploaded an
 When the analysis has finished, select the thumbnail to open the field selection experience.
 
 > [!IMPORTANT]
-> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [requirements and optimizations tips](tbd).
+> If the analysis failed, it's likely because AI Builder couldn't detect structured text in your documents. Verify that the documents you updated follow the [input requirements](./input-requirements).
 
 ## Select your form fields
 
-To start, choose the fields that matter to you:
+On the field selection page, you choose the fields that matter to you:
 
- 1. Select the detected template card: **\<*Your model name*> form**.
- 1. To select the fields, hover over a rectangle that indicates a detected field in the document, or select them in the right-side pane.
- 1. Select **Edit** next to the selected field if you want to rename fields to align with your needs or normalize the extracted labels.
+1. To select a field, click on a rectangle that indicates a detected field in the document, or select it in the right-side pane.
+1. Click the name of the selected field if you want to rename it to align with your needs or normalize the extracted labels.
 
-    When you hover over a detected field, the following information appears:
+    When you click on a detected field, the following information appears:
 
     - **Field name**: The name of the label for the detected field.
     - **Field value**: The value for the detected field.
-    - **Confidence level**: Confidence score of retrieving this field compared to the trained model.
+
+> [!div class="mx-imgBorder"]
+> ![add documents page](./media/tutorial-aibuilder/select-fields-page.png)
 
 ## Train and validate your model
 
 1. Select **Next** to check your selected form fields. If everything looks good, select **Train** to train your model.
-1. When training completes,  select **Go to Details page** in the **Training complete** screen.
 
+    > [!div class="mx-imgBorder"]
+    > ![add documents page](./media/tutorial-aibuilder/summary-train-page.png)
+1. When training completes,  select **Go to Details page** in the **Training complete** screen.
 ## Quick-test your model
 
 The Details page allows you to test your model before you publish or use it:
@@ -97,27 +100,23 @@ The Details page allows you to test your model before you publish or use it:
 2. You can either drag and drop a document or select **Upload from my device** to upload your test file. The quick-test should only take a few seconds before displaying the results.
 3. You can select **Start over** to run another test or **Close** if you are finished.
 
-## Troubleshooting tips
+### Troubleshooting tips
 
-If you have trouble training your model, try the following:
+If your test results aren't satisfactory, try the following:
 
-- Optimize your data using the guidance in the [Requirements](form-processing-model-requirements.md) topic.
+- Use forms with different values in each field.
+- When you create a new form-processing model, upload documents with the same layout where each document is a separate instance. For example, you might have invoices from the same provider, but each uploaded invoice is from a different month.
 - If you're getting bad results or low confidence scores for certain fields, create a new form-processing model and upload more documents. The more documents you tag, the more AI Builder will learn how to better recognize the fields.
-- Download and test with [sample material](https://go.microsoft.com/fwlink/?linkid=2103171).
+- You can optimize PDF files by using the Print > Print to PDF option to select certain pages within your document.
 
 ## Publish your model
 
-If you're happy with your model, you can select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used.
+If you're happy with your model, select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used.
+
+> [!div class="mx-imgBorder"]
+> ![add documents page](./media/tutorial-aibuilder/model-page.png)
 
 After you've published your form processing model, you can use it in a [PowerApps canvas app](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow).
-
-## Clean up resources
-
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
 
 ## Next steps
 
