@@ -262,6 +262,20 @@ ___
         <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different AAD app types and how do they compare? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">What essential protocol concepts should you know using MSAL? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/aad-basics-14.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
 
 ## Migrate from v1.0 to v2.0
 
@@ -290,9 +304,9 @@ ___
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        <!-- BLANK TITLE CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">What are the differences between v1 and v2 authentication? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
-        <!-- BLANK VIDEO CELL -->
+        <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
