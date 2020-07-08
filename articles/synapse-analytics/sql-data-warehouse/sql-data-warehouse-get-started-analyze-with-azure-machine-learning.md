@@ -26,10 +26,6 @@ tag: azure-Synapse
 
 This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
-> 
-> 
-
 ## Prerequisites
 To step through this tutorial, you need:
 
