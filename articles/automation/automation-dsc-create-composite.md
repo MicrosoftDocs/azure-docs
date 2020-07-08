@@ -44,7 +44,7 @@ has been created to resolve this challenge.
 
 CompositeResource automates the process of creating a new module from your configuration.
 You start by
-[dot sourcing](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/)
+[dot sourcing](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/)
 the configuration script on your workstation (or build server)
 so it is loaded in memory.
 Next, rather than running the configuration to generate a MOF file,

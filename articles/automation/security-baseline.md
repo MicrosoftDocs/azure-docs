@@ -178,7 +178,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 * [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -230,7 +230,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-* [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
+* [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
