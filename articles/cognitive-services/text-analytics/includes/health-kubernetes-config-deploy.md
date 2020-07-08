@@ -12,7 +12,7 @@ ms.author: aahi
 ---
 
 
-### Deploy the Sentiment Analysis container to an AKS cluster
+### Deploy the Text Analytics for health container to an AKS cluster
 
 1. Open the Azure CLI, and sign in to Azure.
 
@@ -122,7 +122,7 @@ ms.author: aahi
     kubectl get services
     ```
 
-    The output for the running status of the *sentiment* service in the pod:
+    The output for the running status of the *textAnalyticsHealth* service in the pod:
 
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
