@@ -59,14 +59,14 @@ admin-password | *secure password* | The password of the administrator user. It 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
->- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11. 
+>- The default PostgreSQL version on your server is 9.6. See all our versions supported [here](https://docs.microsoft.com/en-us/azure/postgresql/concepts-supported-versions).
 >- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
 >- SSL is enabled by default on your server. For more infroamtion on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
 ## Configure a server-level firewall rule 
 By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server. 
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you don't know how to look for your IP, go to [Google](https://google.com) and type in "what is my ip address". You will see your IP in the search results. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from.  If you don't know how to look for your IP, go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
 
 
 ```azurecli-interactive
@@ -114,7 +114,7 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 ```
 
 ## Connect to PostgreSQL database using psql
-Connect to your server using the [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) using [Azure Cloud Shell](../cloud-shell/overview.md) or use psql installed on your local environment. An empty database, 'postgres' is already create with your new PostgreSQL server that you can use to connect with psql as shown below 
+[**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) is popular client used to connect to PostgreSQL servers. You can connect to your server using psql with [Azure Cloud Shell](../cloud-shell/overview.md).Alternatively, you can use psql on your local environment if you have it available. An empty database, 'postgres' is already created with your new PostgreSQL server that you can use to connect with psql as shown below 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -128,7 +128,7 @@ Connect to your server using the [**psql**](https://www.postgresql.org/docs/curr
 
 
 ## Clean up resources
-If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
+If you don't need these resources for another quickstart/tutorial, you can delete them by running the following command: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
