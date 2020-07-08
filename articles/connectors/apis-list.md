@@ -144,7 +144,7 @@ Logic Apps provides built-in actions for structuring and controlling the actions
 
 Evaluate a condition and run different actions based on whether the condition is true or false.
 
-[![Built-in Icon][for-each-icon][<br>**For each**][for-each-doc]
+[![Built-in Icon][for-each-icon]<br>**For each**][for-each-doc]
 Perform the same actions on every item in an array.
 
 [![Built-in Icon][scope-icon]<br>**Scope**][scope-doc]
