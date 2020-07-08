@@ -50,7 +50,7 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 Managed disks support using Private Links to import or export a managed disk internal to your network. Private Links allow you to generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots that you can use to export the data to other regions for regional expansion, disaster recovery, and forensic analysis. You can also use the SAS URI to directly upload a VHD to an empty disk from on-premises. Now you can leverage [Private Links](../articles/private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure VNET. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network.
 
-To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](../articles/virtual-machines/linux/disks-export-import-private-links.md) or [Portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) articles.
+To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) or [Portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) articles.
 
 ### Encryption
 
