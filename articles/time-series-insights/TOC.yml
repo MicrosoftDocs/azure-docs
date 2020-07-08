@@ -113,7 +113,7 @@
       href: time-series-quickstart.md
     - name: Create and populate an environment 
       href: tutorial-create-populate-tsi-environment.md
-    - name: Create an environment in Azure Portal
+    - name: Create an environment in Azure portal
       href: time-series-insights-get-started.md
     - name: Configure data retention
       href: time-series-insights-how-to-configure-retention.md
