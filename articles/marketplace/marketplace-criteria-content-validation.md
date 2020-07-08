@@ -1,12 +1,12 @@
 ---
 title: Azure Marketplace offer and service listing requirements
 description: This article explains requirements and guidelines for listing new offers and services on Azure Marketplace.  
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
 ---
 
 # Azure Marketplace listing guidelines
@@ -23,7 +23,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Listing requirements for all offers
 
-|  | Listing element | Base requirement | Optimal requirement |
+| Number | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Lead destination | Has a lead destination configured.| The One Commercial Partner (OCP) Catalog has the lead destination CRM information that's also listed in the partner solution tab. | 
 | 2 | Offer title | Briefly describes the solution offering. Matches the online promotion of the solution on the partner's website. | Contains key search words. |
@@ -42,15 +42,15 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Trial offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
-|  | List status (call to action) | The link must lead to a customer-led *Trial* experience. | Other calls to action (for example, *Buy Now*) are also available. | 
+| 1 | List status (call to action) | The link must lead to a customer-led *Trial* experience. | Other calls to action (for example, *Buy Now*) are also available. | 
 
 ---
 
 ## SaaS application requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<ul><li>Must consist only of lowercase letters, alphanumeric characters, dashes, or underscores. The title can't be modified after it's published.</li><li>Describes solution offering.</li><li>Matches online promotion of solution on partner's website. | Contains key search words. |
 | 2 | Technical information: Configuration |<ul><li>For software as a service (SaaS) apps, choose whether you want only to list your app or to enable customers to purchase your app through Azure.</li><li>Select the text that you want on your offer's acquisition button: *Free*, *Free Trial*, or *Contact Me*.</li><li>In the pop-up window, select only one applicable product if your app utilizes the technology: Cortana Intelligence, Power BI Solution Templates, or Power Apps. |  |
@@ -68,7 +68,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Container offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement | 
+| Number | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 |1 |Offer settings | <ul><li>Offer ID: Max. 50 characters.</li><li>Publisher ID: Select it from the drop-down list.</li><li>Name: Max. 50 characters. | Mirrors the title style already available in the description. Avoid using long titles. | 
 | 2 | SKUs | The partner selects new SKUs.| The title mirrors the title style already available in the description. Avoid using long titles.  |
@@ -79,7 +79,7 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Consulting offer requirements
 
-|  | Listing element | Base requirement | Optimal requirement |
+| Number | Listing element | Base requirement | Optimal requirement |
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title  |  Must clearly list the service type and duration in the format *Name: Duration Type* (for example, "Offer Engagement: 1-Week Proof-of-Concept").  | <ul><li>Does not repeat publisher name.</li><li>The title mirrors the title style already available in the description. Avoid using long titles. | 
 | 2 | Offer description  |<ul><li>Ensure proper usage of [Microsoft product names](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offers marked as *Price: Estimated* must have a note at either the top or bottom to explain the variability (travel to client, number of servers being migrated, and so on).</li><li>Each offer type has description requirements, as follows: <ul><li>Briefings need at least four or five bullets, with information about topics to be covered.</li><li>All workshops need an agenda.</li><li>All agendas must be broken down by day or by week, depending on the duration of the workshop.</li><li>Assessment, POC, non-training workshops, and implementation offers need deliverables.</li><li>Training workshops don't need deliverables, but they need a more detailed agenda with topics that will be covered.</li></ul></ul> | <ul><li>Any offer has agenda and deliverables.</li><li>Offer includes a paragraph with context about the company providing the service in the top section.</li><li>Offer includes a paragraph about the value of the service itself as a top section. |

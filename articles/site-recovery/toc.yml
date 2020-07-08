@@ -509,7 +509,7 @@
 - name: Related
   items:
   - name: Azure Automation
-    href: /azure/automation/
+    href: ../automation/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -517,7 +517,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-site-recovery.html
+    href: /answers/topics/azure-site-recovery.html
   - name: Learning path
     href: /learn/azure/
   - name: Pricing

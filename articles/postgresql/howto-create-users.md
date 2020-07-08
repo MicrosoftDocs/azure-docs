@@ -4,7 +4,7 @@ description: This article describes how you can create new user accounts to inte
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
 ---
 

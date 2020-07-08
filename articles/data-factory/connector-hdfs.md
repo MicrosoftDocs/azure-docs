@@ -283,17 +283,21 @@ There are two options for setting up the on-premises environment to use Kerberos
 
     The machine must be configured as a member of a workgroup, because a Kerberos realm is different from a Windows domain. You can achieve this configuration by setting the Kerberos realm and adding a KDC server by running the following commands. Replace *REALM.COM* with your own realm name.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```console
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
 	After you run these commands, restart the machine.
 
 2.	Verify the configuration with the `Ksetup` command. The output should be like:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```output
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+    ```
 
 **In your data factory:**
 
@@ -315,45 +319,49 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 1. Edit the KDC configuration in the *krb5.conf* file to let KDC trust the Windows domain by referring to the following configuration template. By default, the configuration is located at */etc/krb5.conf*.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
             
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+    default_realm = REALM.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
             
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+    REALM.COM = {
+     kdc = node.REALM.COM
+     admin_server = node.REALM.COM
+    }
+   AD.COM = {
+    kdc = windc.ad.com
+    admin_server = windc.ad.com
+   }
             
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+    .REALM.COM = REALM.COM
+    REALM.COM = REALM.COM
+    .ad.com = AD.COM
+    ad.com = AD.COM
             
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+    AD.COM = {
+     REALM.COM = .
+    }
+    ```
 
    After you configure the file, restart the KDC service.
 
 2. Prepare a principal named *krbtgt/REALM.COM\@AD.COM* in the KDC server with the following command:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```cmd
+    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```
 
 3. In the *hadoop.security.auth_to_local* HDFS service configuration file, add `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
@@ -361,12 +369,16 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 1.	Run the following `Ksetup` commands to add a realm entry:
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
 2.	Establish trust from the Windows domain to the Kerberos realm. [password] is the password for the principal *krbtgt/REALM.COM\@AD.COM*.
 
-        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```
 
 3.	Select the encryption algorithm that's used in Kerberos.
 
@@ -380,7 +392,9 @@ There are two options for setting up the on-premises environment to use Kerberos
 
     d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
-        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```cmd
+    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```
 
 4.	Create the mapping between the domain account and the Kerberos principal, so that you can use the Kerberos principal in the Windows domain.
 
@@ -398,8 +412,10 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 * Run the following `Ksetup` commands to add a realm entry.
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
 **In your data factory:**
 
