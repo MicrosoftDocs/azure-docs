@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -15,7 +15,7 @@ ms.reviewer: craigg
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory support the following data stores and formats via Copy, Data Flow, Look-up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
+Azure Data Factory support the following data stores and formats via Copy, Data Flow, Lookup, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
 
 ## Supported data stores
 
@@ -25,14 +25,14 @@ Azure Data Factory support the following data stores and formats via Copy, Data 
 
 Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
 
-- [Avro format](../articles/data-factory/format-avro.md)
-- [Binary format](../articles/data-factory/format-binary.md)
-- [Common Data Model format](../articles/data-factory/format-common-data-model.md)
-- [Delimited text format](../articles/data-factory/format-delimited-text.md)
-- [Excel format](../articles/data-factory/format-excel.md)
-- [JSON format](../articles/data-factory/format-json.md)
-- [ORC format](../articles/data-factory/format-orc.md)
-- [Parquet format](../articles/data-factory/format-parquet.md)
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Common Data Model format](format-common-data-model.md)
+- [Delimited text format](format-delimited-text.md)
+- [Excel format](format-excel.md)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
 
 ## Next steps
 
