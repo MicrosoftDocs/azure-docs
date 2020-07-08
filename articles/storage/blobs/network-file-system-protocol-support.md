@@ -95,6 +95,14 @@ As you configure the account, choose these values:
 
 You can accept the default value for all other settings.
 
+## Create a container
+
+In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
+
+Create a container by using SDKs or tools.
+
+|||
+
 ## Mount a container
 
 ## Features not yet supported
