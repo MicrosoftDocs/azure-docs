@@ -110,26 +110,20 @@ To update or uninstall a library:
 > If this setting is unchecked, then you  will have to wait for the current Spark session to end or stop it manually. Once the session has ended, you will need to let the cluster restart. 
 
 
-## Manage a Jar or Python Wheel
+## Manage a Python Wheel
 
 ### Install a custom Wheel file
-Custom built wheel files can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
+Custom built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
 
-The files should be uploaded at the following path: 
+The files should be uploaded to the following path in the storage account's default container: 
 
 ```
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
 ```
 
-### Install a custom Jar file
-Custom built Jar files can be installed on the Apache Spark pool by uploading the Jar files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace.  
+>[!IMPORTANT]
+>Custom packages can be added or modified between sessions. However, you will need to wait for the cluster to die and restart to see the updated package.
 
-The files should be uploaded at the following path: 
-
-```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/scala/
-
-```
 ## Next steps
 
 - Learn more about how to create an Apache Spark pool: [Quickstart: Create an Apache Spark Pool](quickstart-create-apache-spark-pool.md)
