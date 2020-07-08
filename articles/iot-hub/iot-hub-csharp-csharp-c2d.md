@@ -52,7 +52,7 @@ At the end of this tutorial, you run two .NET console apps.
 
 In this section, modify the device app you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) to receive cloud-to-device messages from the IoT hub.
 
-1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
+1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **SimulatedDevice** class.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -150,9 +150,9 @@ In this section, you create a .NET console app that sends cloud-to-device messag
 
 1. In Solutions Explorer, right-click your solution, and select **Set StartUp Projects**.
 
-1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**, then select the **Start** action for **ReadDeviceToCloudMessages**, **SimulatedDevice**, and **SendCloudToDevice**. Select **OK** to save your changes.
+1. In **Common Properties** > **Startup Project**, select **Multiple startup projects**, then select the **Start** action for **SimulatedDevice** and **SendCloudToDevice**. Select **OK** to save your changes.
 
-1. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app.
+1. Press **F5**. Both applications should start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app.
 
    ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -199,7 +199,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+1. Run the apps by pressing **F5**. You should see both applications start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
 
    ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
