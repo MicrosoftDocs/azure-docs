@@ -10,7 +10,7 @@
 
 1. In **Visual Studio Code**, **Control** + **Click** on the **ios** folder, then choose **Open in Xcode**.
 
-1. In **Xcode**, click on **Runner** (the *xcodeproj** at the top, not the folder) then select the **Runner** target, and then **Signing & Capabilities**. With the **All** build configuration selected, choose your Developer account for the **Team**. Ensure the "Automatically manage signing" option is checked and your Signing Certificate and Provisioning Profile are automatically selected.
+1. In **Xcode**, click on **Runner** (the **xcodeproj** at the top, not the folder) then select the **Runner** target, and then **Signing & Capabilities**. With the **All** build configuration selected, choose your Developer account for the **Team**. Ensure the "Automatically manage signing" option is checked and your Signing Certificate and Provisioning Profile are automatically selected.
 
     > [!NOTE]
     > If you don't see the new Provisioning Profile value, try refreshing the profiles for the Signing Identity by selecting **Xcode** > **Preferences** > **Account** then select the **Download Manual Profiles** button to download the profiles.
