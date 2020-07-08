@@ -85,6 +85,8 @@ Under the ellipsis, there are more chart controls to interact with the data.
 
 - **Display Grid:** Your results are available in a table format, enabling you to view the specific value for each data point.
 
+- **Download as CSV:** Your results are available to export as a CSV (Comma-Separated Values) file. The CSV file contains data for each device with results exported using the Interval and Timeframe specified. 
+
 - **Drop a Marker:** 'Drop Marker' control provides a way to anchor certain data points on the chart. It is useful when you are trying to compare data for multiple lines across different time periods.
 
   ![Showing the grid view for your analytics](media/howto-create-analytics/additionalchartcontrols.png)
