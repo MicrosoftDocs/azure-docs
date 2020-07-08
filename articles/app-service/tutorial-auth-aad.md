@@ -95,7 +95,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 # [Linux](#tab/linux)
 
-In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in Azure App Service](app-service-web-get-started-dotnet.md#linux).
+In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in Azure App Service](app-service-web-get-started-dotnet.md?tabs=linux).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
