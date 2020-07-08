@@ -47,7 +47,7 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 
  - The customer-manged key is stored in an Azure Key Vault. 
  - Enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. These features are required to allow for recovery of keys in case of accidental deletion.
- - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md#key-vault-keys).
+ - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 - The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
 ### Assignment of an identity to the Automation account
