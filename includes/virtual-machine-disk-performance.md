@@ -9,7 +9,7 @@
  ms.author: albecker1
  ms.custom: include file
 ---
-# Virtual machine and disk performance
+
 This article helps clarify disk performance and how it works with when you combine Azure Virtual Machines and Azure Disks. It also describes how you can diagnose bottlenecks for your disk IO and the changes you can make to optimize for performance.
 
 # How does disk performance work?

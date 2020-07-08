@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ---
+# Virtual machine and disk performance
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 # Virtual machine uncached vs cached limits
