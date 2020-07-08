@@ -9,15 +9,23 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ---
 
 # Azure Machine Learning Curated Environments
 
+This article lists the curated environments in Azure Machine Learning, and the packages and channels that are pre-installed in them.
+
 > [!NOTE]
-> This list is updated as of June 2020. To get the most recent list, see the [environments article](./how-to-use-environments.md#)
+> This list is updated as of June 2020. Use the Python SDK to get the most updated list. For more information, see the [environments article](./how-to-use-environments.md#use-a-curated-environment).
 
 ## Azure AutoML
+
+- [AzureML AutoML](#azureml-automl)
+- [AzureML AutoML GPU]
+- [AzureML AutoML DNN]
+- [AzureML AutoML DNN GPU]
+- [Azure AutoML DNN Vision GPU]
 
 ### AzureML AutoML
 

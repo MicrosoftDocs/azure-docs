@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/08/2020
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension
@@ -22,28 +22,23 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
-- VS Code Azure Machine Learning Extension. Follow the [AML VS Code extension installation guide](tutorial-setup-vscode-extension.md#install-the-extension) install the extension.
+- VS Code Azure Machine Learning Extension. Follow the [AML VS Code extension installation guide](tutorial-setup-vscode-extension.md#install-the-extension) to install the extension.
 
 All of the processes below assume that you are in the Azure Machine Learning view in Visual Studio Code. To launch the extension, select the **Azure** icon in the VS Code activity bar.
 
 ## Workspaces
 
-Using the VS Code extension, you can:
-
-- Create a workspace
-- Remove a workspace
-
-Learn more about [workspaces](concept-workspace.md)
+For more information, see [workspaces](concept-workspace.md).
 
 ### Create a workspace
 
-1. In the Azure Machine Learning view, right-click your subscription node in the Azure Machine Learning view and select **Create workspace**.
+1. In the Azure Machine Learning view, right-click your subscription node and select **Create workspace**.
 1. In the prompt:
     1. Provide a name for your workspace
     1. Choose your Azure subscription
     1. Choose or create a new resource group to provision the workspace in
     1. Select the location where to provision the workspace.
-    1. Choose between the basic and enterprise edition. Learn more about the different [AML editions](concept-editions.md).
+    1. Choose between the *basic* and *enterprise* edition. Learn more about the different [AML editions](concept-editions.md).
 
 Alternative methods to create a workspace include:
 
@@ -55,15 +50,10 @@ Alternative methods to create a workspace include:
 1. Expand the subscription node that contains your workspace.
 1. Right-click the workspace you want to remove.
 1. Select whether you want to remove:
-    1. *only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
-    1. *with associated resources*:. This option deletes the workspace **and** all resources associated with it.
+    1. *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
+    1. *With associated resources*:. This option deletes the workspace **and** all resources associated with it.
 
 ## Datastores
-
-Using the VS Code extension, you can:
-
-- Create a datastore
-- Manage a datastore
 
 The VS Code extension currently supports datastores of the following types:
 
@@ -72,7 +62,7 @@ The VS Code extension currently supports datastores of the following types:
 
 When you create a workspace, a datastore is created for each of these types.
 
-Learn more about [datastores](concept-data.md#datastores)
+For more information, see [datastores](concept-data.md#datastores).
 
 ### Create a datastore
 
@@ -89,7 +79,7 @@ Learn more about [datastores](concept-data.md#datastores)
 ### Manage a datastore
 
 1. Expand the subscription node that contains your workspace.
-1. Then, expand your workspace node.
+1. Expand your workspace node.
 1. Expand the **Datastores** node inside your workspace.
 1. Select the datastore you want to:
     1. Set as default. Whenever you run experiments, this is the datastore that will be used.
@@ -98,19 +88,12 @@ Learn more about [datastores](concept-data.md#datastores)
 
 ## Datasets
 
-With the VS Code extension you can:
-
-- Create a dataset
-- Version a dataset
-- View dataset configuration properties
-- Unregister a dataset
-
 The extension currently supports the following dataset types:
 
 - *Tabular*: Allows you to materialize data into a DataFrame (Pandas or PySpark).
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
-Learn more about [datasets](concept-data.md#datasets)
+For more information, see [datasets](concept-data.md#datasets)
 
 ### Create dataset
 
@@ -160,13 +143,7 @@ To remove a dataset and all version of it, unregister it. To do so in the VS Cod
 
 ## Environments
 
-In the VS Code extension, you can:
-
-- Create environments
-- View environment configurations
-- Edit environment configurations
-
-Learn more about [environments](concept-environments.md).
+For more information, see [environments](concept-environments.md).
 
 ### Create environment
 
@@ -176,13 +153,11 @@ Learn more about [environments](concept-environments.md).
 1. In the prompt:
     1. Provide a name for your environment
     1. Define your environment configuration:
-
-        - Curated environments: Preconfigured environments in Azure Machine Learning. You can further customize the environment by modifying the `dependencies` property in the JSON file. Learn more about [curated environments](resource-curated-environments.md).
-        - Conda dependencies file: For Anaconda environments, the file containing your environment definition can be provided.
-        - Pip requirements file: For pip environments, the file containing your environment definition can be provided.
-        - Existing Conda environment: This option looks for the conda environments in your local PC and tries to build an environment from the selected environment.
-        - Custom: Define your own channels and dependencies
-
+        - *Curated environments*: Preconfigured environments in Azure Machine Learning. You can further customize the environment by modifying the `dependencies` property in the JSON file. Learn more about [curated environments](resource-curated-environments.md).
+        - *Conda dependencies file*: For Anaconda environments, the file containing your environment definition can be provided.
+        - *Pip requirements file*: For pip environments, the file containing your environment definition can be provided.
+        - *Existing Conda environment*: This option looks for the conda environments in your local PC and tries to build an environment from the selected environment.
+        - *Custom*: Define your own channels and dependencies
     1. A configuration file opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ### View environment configurations
@@ -205,14 +180,7 @@ To edit the dependencies and configurations for a specific environment in the ex
 
 ## Experiments
 
-The VS Code extension allows you to manage your Azure Machine Learning experiments. In the extension, you can:
-
-- Create experiments
-- Run experiments
-- View experiments
-- Track run progress
-- Download run logs and output
-- View run metadata
+For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
 
 ### Create experiment
 
@@ -271,22 +239,12 @@ In the extension, you can inspect metadata such as the run configuration used fo
 
 ## Compute clusters
 
-With the VS Code extension, you can:
-
-- Create compute clusters
-- View compute configuration
-- Edit compute scale settings
-- Delete compute
-- Create run configuration
-- Edit run configuration
-- Delete run configuration
-
 The extension supports the following compute types:
 
-- Azure Machine Learning Compute
+- Azure Machine Learning compute cluster
 - Azure Kubernetes Service
 
-Learn more about [compute targets](concept-compute-target.md#train).
+For more information, see [compute targets](concept-compute-target.md#train).
 
 ### Create compute
 
@@ -352,10 +310,7 @@ To create a run configuration in the extension:
 
 ## Models
 
-- Register a model
-- View model properties
-- Download a model
-- Delete a model
+For more information, see [models](concept-azure-machine-learning-architecture.md#models)
 
 ### Register model
 
@@ -388,16 +343,12 @@ To create a run configuration in the extension:
 
 ## Endpoints
 
-In the VS Code extension, you can:
-
-- Create deployments
-- Delete deployments
-- Manage deployments
-
-You can deploy your model as a web service to the following deployment targets:
+The VS Code extension supports the following following deployment targets:
 
 - Azure Container Instances
 - Azure Kubernetes Service
+
+For more information, see [web service endpoints](concept-azure-machine-learning-architecture.md#web-service-endpoint).
 
 ### Create deployments
 
