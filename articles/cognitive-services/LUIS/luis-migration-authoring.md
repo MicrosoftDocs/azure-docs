@@ -20,7 +20,7 @@ Language Understanding (LUIS) authoring authentication changed from an email acc
 
 ## What is migration?
 
-Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (owners or collaborators) will eventually need to migrate.* 
+Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (owners or collaborators) will eventually need to migrate.*
 
 Migration has to be done from the LUIS portal. If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have coauthors on your applications after migration, but these will be added on the Azure resource level instead of the application level.
 
@@ -76,7 +76,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 3. If any of your apps have collaborators, you're prompted to send them an email that lets them know about the migration. This is an optional step.
 
    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -84,10 +84,10 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
@@ -157,7 +157,7 @@ The **My Apps** list shows the apps migrated to the new authoring resource. Befo
  > [!div class="mx-imgBorder"]
  > ![Boxes for subscription and authoring resource](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. 
+You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal.
 
 If you plan to edit your apps programmatically, you'll need the authoring key values. These values are displayed on the **Manage** > **Azure Resources** page in the LUIS portal. They're also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
 
@@ -242,5 +242,5 @@ If you see the following error, check the [recommended steps if you're a collabo
 
 ## Next steps
 
-* Review [concepts about authoring and runtime keys](luis-concept-keys.md). 
+* Review [concepts about authoring and runtime keys](luis-how-to-azure-subscription.md).
 * Review how to [assign keys](luis-how-to-azure-subscription.md) and [add contributors](luis-how-to-collaborate.md).

@@ -48,10 +48,10 @@ Evaluations of assigned policies and initiatives happen as the result of various
 - A policy or initiative already assigned to a scope is updated. The evaluation cycle and timing for
   this scenario is the same as for a new assignment to a scope.
 
-- A resource is deployed to a scope with an assignment via Resource Manager, REST, Azure CLI, or
-  Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and compliant
-  status information for the individual resource becomes available in the portal and SDKs around 15
-  minutes later. This event doesn't cause an evaluation of other resources.
+- A resource is deployed to a scope with an assignment via Azure Resource Manager, REST, Azure CLI,
+  or Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and
+  compliant status information for the individual resource becomes available in the portal and SDKs
+  around 15 minutes later. This event doesn't cause an evaluation of other resources.
 
 - Standard compliance evaluation cycle. Once every 24 hours, assignments are automatically
   reevaluated. A large policy or initiative of many resources can take time, so there's no
@@ -535,9 +535,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
+If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log-collect.md) tied to
+[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to
 your subscription, you can also view non-compliance results from the evaluation cycle using simple
 Kusto queries and the `AzureActivity` table. With details in Azure Monitor logs, alerts can be
 configured to watch for non-compliance.

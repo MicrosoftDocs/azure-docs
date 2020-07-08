@@ -273,8 +273,6 @@ Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
 
-From the file: troubleshoot-azure-files.md
-
 ## Common Soft Delete Related Errors
 
 ### UserErrorRestoreAFSInSoftDeleteState- This restore point is not available as the snapshot associated with this point is in a File Share that is in soft-deleted state
