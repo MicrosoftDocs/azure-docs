@@ -686,7 +686,7 @@ productDirectory:
         - migration
       url: dms/index.yml
     # Card
-    - title: Azure SQL 
+    - title: Azure SQL
       summary: Modern SQL family for migration and app modernization
       imageSrc:  https://static.docs.com/ui/media/product/azure/sql.svg
       azureCategories:
@@ -1271,7 +1271,7 @@ productDirectory:
         - networking
       url: firewall/index.yml
     # Card
-    - title: Azure Firewall Manager (Preview)
+    - title: Azure Firewall Manager
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
@@ -1461,7 +1461,7 @@ tools:
     # Card
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-      url: https://docs.microsoft.com/azure/javascript/
+      url: https://docs.microsoft.com/azure/developer/javascript/
     # Card
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
@@ -1505,7 +1505,7 @@ additionalContent:
       items:
         # Card
         - title: Azure Government
-          summary: A dedicated cloud for U.S. government agencies and their partners. 
+          summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
         - title: Azure Germany

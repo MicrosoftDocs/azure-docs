@@ -61,7 +61,11 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -221,14 +225,15 @@
     items:
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
       href: database/elastic-pool-overview.md
     - name: Logical SQL servers
       href: database/logical-servers.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+
     - name: Service Tiers
       items: 
       - name: Serverless
@@ -363,46 +368,6 @@
           href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
-
-    - name: Machine Learning Services
-      items:
-      - name: Overview
-        href: database/machine-learning-services-overview.md
-      - name: Key differences
-        href: database/machine-learning-services-differences.md
-      - name: Quickstarts
-        items:
-        - name: Create R scripts
-          href: database/r-script-create-quickstart.md
-        - name: Train and score a model
-          href: database/r-train-score-model-create-quickstart.md
-      - name: Tutorials
-        items:
-        - name: Build a predictive model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/predictive-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/predictive-model-build-compare-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/predictive-model-deploy-tutorial.md
-        - name: Build a clustering model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/clustering-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/clustering-model-build-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/clustering-model-deploy-tutorial.md
-      - name: How to
-        items:
-          - name: Write advanced R functions
-            href: database/machine-learning-services-functions.md
-          - name: Work with R and SQL data
-            href: database/machine-learning-services-data-issues.md
-          - name: Add R packages
-            href: database/machine-learning-services-add-r-packages.md
-
 
     - name: Database sharding
       items:
@@ -689,13 +654,14 @@
     items:
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
@@ -926,92 +892,100 @@
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: Doc changes
+      - name: What's new?
         href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
-      - name: Create SQL VM - Portal
+      - name: Create SQL VM 
+        items: 
+      - name: Portal
         href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
-      - name: Create SQL VM - PowerShell
+      - name: PowerShell
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+      - name: ARM template
+        href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
-      - name: Best practices
-        items:
-        - name: Performance best practices
-          href: virtual-machines/windows/performance-guidelines-best-practices.md
-        - name: Security considerations
-          href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Application patterns
-          href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Business Continuity
         items:
-        - name: High availability options
+        - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-        - name: Always On availability group
-          href: virtual-machines/windows/availability-group-overview.md
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
-        - name: Automated backup for SQL Server 2014
-          href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Automated backup for SQL Server 2016+
-          href: virtual-machines/windows/automated-backup.md
+        - name: Azure Storage for backup
+          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+        - name: Always On availability group
+          href: virtual-machines/windows/availability-group-overview.md
+        - name: Failover cluster instance
+          href: virtual-machines/windows/failover-cluster-instance-overview.md
+      - name: Best practices
+        items:
+        - name: Performance
+          href: virtual-machines/windows/performance-guidelines-best-practices.md
+        - name: Security 
+          href: virtual-machines/windows/security-considerations-best-practices.md
+        - name: Cluster configuration
+          href: virtual-machines/windows/hadr-cluster-best-practices.md
+        - name: Application patterns
+          href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Management
         items:
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
-        - name: With the Azure portal
-          href: virtual-machines/windows/manage-sql-vm-portal.md
         - name: Extend support for SQL 2008 & R2
           href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
-        - name: Connect to a VM
-          href: virtual-machines/windows/ways-to-connect-to-sql.md
-        - name: Configure storage
+    - name: How-to guides
+      items:
+      - name: Connect to SQL Server VM
+        href: virtual-machines/windows/ways-to-connect-to-sql.md
+      - name: Create SQL Server VM
+        items:
+        - name: Use the portal
+          href: virtual-machines/windows/create-sql-vm-portal.md
+        - name: Use Azure PowerShell
+          href: virtual-machines/windows/create-sql-vm-powershell.md
+
+      - name: Manage
+        items: 
+        - name: With the Azure portal
+          href: virtual-machines/windows/manage-sql-vm-portal.md
+        - name: License model
+          displayName: ahb, ahub, payg, change, modify, update
+          href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+        - name: Edition
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Storage
           href: virtual-machines/windows/storage-configuration.md
+        - name: Azure Key Vault Integration
+          href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Register with SQL VM RP
+          displayName: resource provider, registration
+          items:
+          - name: Single VM
+            href: virtual-machines/windows/sql-vm-resource-provider-register.md
+          - name: Bulk register multiple VMs
+            href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
         - name: Automate management tasks
           items:
           - name: Use the SQL Server IaaS Agent Extension
             href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
           - name: Automated Patching
             href: virtual-machines/windows/automated-patching.md
-          - name: Configure Azure Key Vault Integration
-            href: virtual-machines/windows/azure-key-vault-integration-configure.md
-    - name: How-to guides
-      items:
-      - name: Create SQL VM
-        items:
-        - name: Use the portal
-          href: virtual-machines/windows/create-sql-vm-portal.md
-        - name: Use Azure PowerShell
-          href: virtual-machines/windows/create-sql-vm-powershell.md
-      - name: Register with SQL VM RP
-        displayName: resource provider, registration
-        items:
-        - name: Single VM
-          href: virtual-machines/windows/sql-vm-resource-provider-register.md
-        - name: Bulk register multiple VMs
-          href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-      - name: Manage
-        items: 
-        - name: Licensing model
-          displayName: ahb, ahub, payg, change, modify, update
-          href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition
-          displayName: change, modify, update
-          href: virtual-machines/windows/change-sql-server-edition.md
-        - name: Version
-          displayName: change, modify, update
-          href: virtual-machines/windows/change-sql-server-version.md
-        - name: Azure Storage for backup & restore
-          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate
         items:
         - name: SQL Server database to VM
           href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
         - name: VM to a new region
           href: virtual-machines/windows/move-sql-vm-different-region.md
-      - name: Configure High Availability
+      - name: Business continuity
         items:
+        - name: Backup and restore
+          items:
+          - name: Automated backup (SQL 2016+)
+            href: virtual-machines/windows/automated-backup.md
+          - name: Automated backup (SQL 2014)
+            href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
           - name: Azure SQL VM CLI
@@ -1032,12 +1006,29 @@
               href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
             - name: Load balancer - Azure PowerShell
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-        - name: Failover Cluster Instance
+        - name: Failover cluster instance (FCI)
           items:
-          - name: With Storage Spaces Direct
-            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
-          - name: With Premium File Share
-            href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: Prepare VM for FCI 
+            href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
+          - name: Create FCI with
+            items: 
+            - name: Azure shared disks (SQL2019+)
+              href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+            - name: Storage Spaces Direct (Win2016+)
+              href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+            - name: Premium file share (Win2012+)
+              href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: Distributed Network Name (DNN)
+            items: 
+            - name: Create DNN for FCI
+              href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+            - name: FCI DNN & SQL Server features
+              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+        - name: Configure connectivity
+          items:
+          - name: Virtual Network Name (VNN)
+            href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+
     - name: Reference
       items:
       - name: Azure PowerShell

@@ -89,11 +89,13 @@
     - name: DevOps
       items:
       - name: Pipelines
-        href: https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
+        href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Integration
       items:
       - name: Event Grid
         href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Logic Apps
+        href: ../../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Service Bus
         href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Internet of Things
@@ -102,24 +104,34 @@
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
+      - name: Advisor
+        href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Backup
         href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cost Management+Billing
         href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Monitor
+        href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Portal
+        href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
       - name: Resource Graph
         href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Role-based access control (RBAC)
         href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Service Health
+        href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Site Recovery
         href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Networking
       items:
       - name: Application Gateway
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Content Delivery Network
+        href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - Availability Zones
         href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - IP Groups
@@ -210,12 +222,6 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
-- name: Samples
-  items:
-  - name: Azure Quickstart Templates
-    href: https://azure.microsoft.com/resources/templates/
-  - name: Template samples
-    href: template-samples.md
 - name: Concepts
   items:
   - name: Template best practices
@@ -287,16 +293,6 @@
       - name: Outputs
         displayName: iteration,copy
         href: copy-outputs.md
-  - name: Use authoring tools
-    items:
-    - name: VS Code
-      href: use-vs-code-to-create-template.md
-    - name: Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: Update VS deployment script to Az module
-      href: update-visual-studio-deployment-script.md
-    - name: IntelliJ IDEA
-      href: create-templates-use-intellij.md
   - name: Discover template properties
     items:
     - name: Export template
@@ -332,6 +328,8 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
+    - name: View deployment history
+      href: deployment-history.md
   - name: Scoped deployments
     items:
     - name: Subscription
@@ -355,8 +353,14 @@
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
-  - name: View deployment history
-    href: deployment-history.md
+  - name: Use authoring tools
+    items:
+    - name: Visual Studio
+      href: create-visual-studio-deployment-project.md
+    - name: Update VS deployment script to Az module
+      href: update-visual-studio-deployment-script.md
+    - name: IntelliJ IDEA
+      href: create-templates-use-intellij.md
   - name: Troubleshoot deployments
     items:
     - name: Troubleshoot deployment errors
@@ -429,6 +433,8 @@
     href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
+  - name: Azure Quickstart Templates
+    href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator

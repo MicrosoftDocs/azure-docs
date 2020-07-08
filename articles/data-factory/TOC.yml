@@ -583,6 +583,8 @@
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Monitor SSIS with Azure Monitor
+      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime

@@ -71,7 +71,7 @@ For example, the customer canceled the SaaS subscription today at 3 pm. Now is 5
 
 ### Can you get a list of all SaaS subscriptions, including active and unsubscribed subscriptions?
 
-Yes, when you call the [GET Subscriptions List API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#subscription-api) as it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed.
+Yes, when you call the [GET Subscriptions List API](pc-saas-fulfillment-api-v2.md#subscription-apis) as it includes a list of all SaaS subscriptions. The status field in the response for each SaaS subscription captures whether the subscription is active or unsubscribed.
 
 ### Are the start and end dates of SaaS subscription term and overage usage emission connected?
 

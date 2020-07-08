@@ -138,10 +138,10 @@ In the main Power BI screen, begin using the queries created above to visualize 
 
 Add the following fields from the **Invoked Function** to the chart's **Values** field. Use the below screenshot to help build your chart.
 
-    * Value
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* Value
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![An image of the new quick measure screen](../media/tutorials/chart-settings.png)
 
