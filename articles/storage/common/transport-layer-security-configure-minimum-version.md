@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 07/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -79,7 +79,7 @@ StorageBlobLogs
 
 ## Configure the minimum TLS version for an account
 
-To configure the minimum TLS version for a storage account, use the Azure portal or Azure CLI.
+To configure the minimum TLS version for a storage account, use the Azure portal or Azure CLI to set the **minimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](storage-account-overview.md).
 
 # [Portal](#tab/portal)
 
@@ -118,6 +118,8 @@ az resource update \
 ## Check the minimum required TLS version for an account
 
 To determine the minimum required TLS version that is configured for a storage account, check the Azure Resource Manager **minimumTlsVersion** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
+
+The **minimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account defaults to permitting requests sent with TLS version 1.0 or greater if the property value is null.
 
 ### Check the minimum required TLS version for a single storage account
 
