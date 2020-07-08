@@ -1,5 +1,5 @@
 ---
-title: "Recipe: Predictive maintenence with the Cognitive Services for Big Data"
+title: "Recipe: Predictive maintenance with the Cognitive Services for Big Data"
 titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to perform distributed anomaly detection with the Cognitive Services for Big Data
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: marhamil
 ms.custom: tracking-python
 ---
 
-# Recipe: Predictive maintenence with the Cognitive Services for Big Data
+# Recipe: Predictive maintenance with the Cognitive Services for Big Data
 
 This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
@@ -140,7 +140,7 @@ plt.title('RPM Anomalies with Confidence Intervals')
 plt.show()
 ```
 
-If sucessfull, your output will look like this:
+If successful, your output will look like this:
 
 ![Anomaly Detector Plot](../media/anomaly_output.png)
 
