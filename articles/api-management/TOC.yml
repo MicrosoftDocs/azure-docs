@@ -38,9 +38,11 @@
 - name: Samples
   items:
       - name: Policies
-        href: policy-samples.md
+        href: ./policies/index.md
       - name: Azure PowerShell
         href: powershell-samples.md
+      - name: Azure Policy built-ins
+        href: ./policy-samples.md
 - name: Concepts
   items:
       - name: Terminology
@@ -270,8 +272,8 @@
         href: https://aka.ms/apimwish
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
-      - name: MSDN forum
-        href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
+      - name: Microsoft Q&A question page
+        href: https://docs.microsoft.com/answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: API design guidance

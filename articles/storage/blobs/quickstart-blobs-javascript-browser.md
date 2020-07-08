@@ -28,9 +28,9 @@ Azure Blob storage is optimized for storing large amounts of unstructured data. 
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
 * A Visual Studio Code extension for browser debugging, such as:
-    * [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
-    * [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Debugger for Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
+    * [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+    * [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+    * [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
@@ -298,7 +298,7 @@ In this quickstart, you learned how to upload, list, and delete blobs using Java
 For tutorials, samples, quickstarts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript documentation](/azure/javascript/)
+> [Azure for JavaScript documentation](/azure/developer/javascript/)
 
 * To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 * To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

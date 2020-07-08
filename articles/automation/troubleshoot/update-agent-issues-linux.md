@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Linux update agent issues in Azure Automation Update Management
-description: Learn how to troubleshoot and resolve issues with the Linux Windows update agent by using the Update Management solution.
+title: Troubleshooting Linux update agent issues in Azure Automation
+description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -17,7 +17,7 @@ There can be many reasons why your machine isn't showing up as ready (healthy) i
 
 * Ready: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
 * Disconnected: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
-* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
+* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished deployment.
 
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
@@ -65,7 +65,7 @@ This check ensures that the Log Analytics agent for Linux is installed. For inst
 
 ### Log Analytics agent status
 
-This check ensures that the Log Analytics agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook Worker troubleshooting](hybrid-runbook-worker.md#linux).
+This check ensures that the Log Analytics agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux - Troubleshoot Hybrid Runbook Worker issues](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -73,13 +73,13 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### Multihoming
 
-This check determines if the agent is reporting to multiple workspaces. Multihoming isn't supported by Update Management.
+This check determines if the agent is reporting to multiple workspaces. Update Management doesn't support multihoming.
 
 ### Hybrid Runbook Worker
 
-This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work. To learn more, see [The Log Analytics agent for Linux isn't running](hybrid-runbook-worker.md#oms-agent-not-running).
+This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work. To learn more, see [Log Analytics agent for Linux isn't running](hybrid-runbook-worker.md#oms-agent-not-running).
 
-Update Management downloads Hybrid Runbook Worker packages from the operations endpoint. Therefore, if the Hybrid Runbook Worker is not running and the [operations endpoint](#operations-endpoint) fails, the update can fail.
+Update Management downloads Hybrid Runbook Worker packages from the operations endpoint. Therefore, if the Hybrid Runbook Worker is not running and the [operations endpoint](#operations-endpoint) check fails, the update can fail.
 
 ### Hybrid Runbook Worker status
 
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## Next steps
 
-To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+[Troubleshoot Hybrid Runbook Worker issues](hybrid-runbook-worker.md).

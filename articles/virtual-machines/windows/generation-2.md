@@ -123,12 +123,6 @@ For example, use the following PowerShell cmdlet to get a list of the SKUs in th
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which looks like this:
 
 ```powershell
@@ -137,6 +131,14 @@ If you're creating a VM with Windows Server 2012 as the OS, then you will select
 ```
 
 See the [Features and capabilities](#features-and-capabilities) section for a current list of supported Marketplace images.
+
+#### Azure CLI
+
+Alternatively, you can use the Azure CLI to see any available generation 2 images, listed by **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### Managed image or managed disk
 
@@ -185,6 +187,9 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 * **Do generation 2 VMs support accelerated networking?**  
     Yes. For more information, see [Create a VM with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **Do generation 2 VMs support Secure Boot or vTPM in Azure?**
+    Both generation 1 and generation 2 VMs in Azure do not support Secure Boot or vTPM. 
+    
 * **Is VHDX supported on generation 2?**  
     No, generation 2 VMs support only VHD.
 

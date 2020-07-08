@@ -18,7 +18,11 @@ ms.topic: overview
 
 ![Sample model](../media/arr-engine.png)
 
-Untethered devices have limited computational power for rendering complex models. For many applications it would be unacceptable, though, to reduce the visual fidelity in any way.
+Untethered devices have limited computational power for rendering complex models. For many applications it would be unacceptable, though, to reduce the visual fidelity in any way. The following screenshot compares the model at full detail with a model that has been decimated using a common content creation tool:
+
+![Sample model](./media/engine-model-decimated.png)
+
+The reduced model consists of approximately 200,000 triangles (including the detailed inner parts), versus more than 18 million triangles in the original model.
 
 *Remote Rendering* solves this problem by moving the rendering workload to high-end GPUs in the cloud. A cloud-hosted graphics engine renders the image, encodes it as a video stream, and streams that to the target device.
 

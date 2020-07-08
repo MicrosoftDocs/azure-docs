@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/19/2020
 ms.reviewer: sngun
 ---
 
@@ -38,7 +38,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 Using a `FeedIterator`, you can easily process an entire container's change feed at your own pace. Here's an example:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -53,10 +53,10 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 
 ## Consuming a partition key's changes
 
-In some cases, you may only want to process a specific partition key's changes. You can obtain a `FeedIterator` for a specific partition key and process the changes the same way that you can for an entire container:
+In some cases, you may only want to process a specific partition key's changes. You can obtain a `FeedIterator` for a specific partition key and process the changes the same way that you can for an entire container.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -93,7 +93,7 @@ Here's a sample that shows how to read from the beginning of the container's cha
 Machine 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -144,6 +144,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.
+
 ## Comparing with change feed processor
 
 Many scenarios can process the change feed using either the [change feed processor](change-feed-processor.md) or the pull model. The pull model's continuation tokens and the change feed processor's lease container are both "bookmarks" for the last processed item (or batch of items) in the change feed.
@@ -151,13 +153,13 @@ However, you can't convert continuation tokens to a lease container (or vice ver
 
 You should consider using the pull model in these scenarios:
 
-- You want to do a one-time read of the existing data in the change feed
-- You only want to read changes from a particular partition key
-- You don't want a push model and want to consume the change feed at your own pace
+- Reading changes from a particular partition key
+- Controlling the pace at which your client receives changes for processing
+- Doing a one-time read of the existing data in the change feed (for example, to do a data migration)
 
 Here's some key differences between the change feed processor and pull model:
 
-|  | Change feed processor| Pull model |
+|Feature  | Change feed processor| Pull model |
 | --- | --- | --- |
 | Keeping track of current point in processing change feed | Lease (stored in an Azure Cosmos DB container) | Continuation token (stored in memory or manually persisted) |
 | Ability to replay past changes | Yes, with push model | Yes, with pull model|

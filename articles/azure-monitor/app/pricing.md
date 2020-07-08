@@ -16,7 +16,7 @@ ms.reviewer: mbullwin
 
 Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## Pricing model
 
@@ -245,9 +245,11 @@ To set ingestion sampling, go to the  **Pricing** pane:
 
 To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](analytics.md). The query looks like this:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h)
-    | render areachart
+```kusto
+requests | where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h)
+| render areachart
+```
 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records.
 

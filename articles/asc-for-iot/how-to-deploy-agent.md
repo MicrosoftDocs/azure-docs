@@ -40,7 +40,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 
 |     | C-based security agent | C#-based security agent |
 | --- | ----------- | --------- |
-| Open-source | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
+| Open-source | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) |
 | Development language    | C | C# |
 | Supported Windows platforms? | No | Yes |
 | Windows prerequisites | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |

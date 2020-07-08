@@ -3,13 +3,11 @@ title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
 
 ---
@@ -94,6 +92,7 @@ Note - This process, through step 3.1, is a onetime operation.
 -   Also, the user can edit the policy, which is functional at the time of import but, contains defaults where no information was specified at import. Ex. no issuer info  
 
 ### Formats of Import we support
+Azure Key Vault supports .pem and .pfx certificate files for importing Certificates into Key vault.
 We support the following type of Import for PEM file format. A single PEM encoded certificate along with a PKCS#8 encoded, unencrypted key which has the following
 
 -----BEGIN CERTIFICATE-----
@@ -102,7 +101,11 @@ We support the following type of Import for PEM file format. A single PEM encode
 -----BEGIN PRIVATE KEY-----
 -----END PRIVATE KEY-----
 
-On certificate merge we support 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B file. 
+When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in differnt formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format. 
+
+### Formats of Merge CSR we support
+AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA) 
+
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----
 
@@ -124,4 +127,3 @@ We currently don't support EC keys in PEM format.
   (4) - Your chosen CA responds with an X509 Certificate.  
 
   (5) - Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
-

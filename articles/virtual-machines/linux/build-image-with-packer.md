@@ -119,7 +119,7 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 
 
 ## Build Packer image
-If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
+If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install).
 
 Build the image by specifying your Packer template file as follows:
 

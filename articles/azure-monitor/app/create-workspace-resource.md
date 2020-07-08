@@ -4,7 +4,7 @@ description: Learn about the steps required to enable the new Azure Monitor Appl
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/18/2020
 
 ---
 
@@ -36,9 +36,7 @@ Clicking the blue link text will take you to the associated Log Analytics worksp
 
 ## Copy the connection string
 
-The [connection string]() identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
-![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
+The [connection string](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Monitoring configuration
 
@@ -188,6 +186,10 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 Once a workspace-based Application Insights resource has been created, you can modify the associated Log Analytics Workspace.
 
 From within the Application Insights resource pane, select **Properties** > **Change Workspace** > **Log Analytics Workspaces**
+
+## Export telemetry
+
+The legacy continuous export functionality is not supported for workspace-based resources. Instead, select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub.
 
 ## Next steps
 

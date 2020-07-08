@@ -43,7 +43,7 @@ Or you can use the Azure CLI.
 
 ```azurecli
 az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
-tenantId=$(az account show --query tenantId)                               # Get your tenantId
+$tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
@@ -57,4 +57,4 @@ If you are using MSI, you'll also have to update the MSI identity since the old 
 
 ## Next steps
 
-If you have questions about Azure Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Azure Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

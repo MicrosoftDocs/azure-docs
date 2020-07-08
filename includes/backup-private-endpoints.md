@@ -10,5 +10,4 @@ You can now use [Private Endpoints](https://docs.microsoft.com/azure/private-lin
 
 Azure VM backup doesn't require internet connectivity and so doesn't require Private Endpoints to allow network isolation.
 
->[!NOTE]
-> This feature is currently in limited availability, and is available in West Central US, South Central US, West US 2 and East US (availability in other Azure regions to follow). Please fill out [this survey](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) and email us at azbackupnetsec@microsoft.com if you are interested in using Private Endpoints for Azure Backup. The ability to use this feature is subject to approval from the Azure Backup service.
+Read more on private endpoints for Azure Backup [here](https://docs.microsoft.com/azure/backup/private-endpoints).

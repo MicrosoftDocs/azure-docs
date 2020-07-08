@@ -20,13 +20,17 @@ Here are two examples of key names structured into a hierarchy:
 
 * Based on component services
 
+```aspx
         AppName:Service1:ApiEndpoint
         AppName:Service2:ApiEndpoint
+```
 
 * Based on deployment regions
 
+```aspx
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
+```
 
 The use of configuration data within application frameworks might dictate specific naming schemes for key values. For example, Java's Spring Cloud framework defines `Environment` resources that supply settings to a Spring application.  These are parameterized by variables that include *application name* and *profile*. Keys for Spring Cloud-related configuration data typically start with these two elements separated by a delimiter.
 
@@ -52,9 +56,11 @@ Key values in App Configuration can optionally have a label attribute. Labels ar
 
 Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
 
+```aspx
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
+```
 
 ### Version key values
 

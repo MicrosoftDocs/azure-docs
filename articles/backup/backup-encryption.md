@@ -26,7 +26,14 @@ When backing up your Azure Virtual Machines, you can now encrypt your data using
 
 ## Backup of managed disk VMs encrypted using customer-managed keys
 
-Azure Backup also allows you back up your Azure VMs that use your key for server-side encryption. The key used for encrypting the disks is stored in the Azure Key Vault and managed by you. Server-side encryption using customer-managed keys differs from Azure Disk Encryption, since ADE leverages BitLocker (for Windows) and DM-Crypt (for Linux) to perform in-guest encryption, SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. Refer to [Encryption of managed disks with customer managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) for more details.
+Azure Backup also allows you back up your Azure VMs that use your key for [storage service encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). The key used for encrypting the disks is stored in the Azure Key Vault and managed by you. Storage Service Encryption (SSE) using customer-managed keys differs from Azure Disk Encryption, since ADE leverages BitLocker (for Windows) and DM-Crypt (for Linux) to perform in-guest encryption, SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. Refer to [Encryption of managed disks with customer managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) for more details.
+
+## Infrastructure-level encryption for backup data
+
+In addition to encrypting your data in the Recovery Services vault using customer-managed keys, you can also choose to have an additional layer of encryption configured on the storage infrastructure. This infrastructure encryption is managed by the platform and together with encryption at rest using customer-managed keys, it allows two-layer encryption of your backup data. It should be noted that infrastructure encryption can be configured only if you first choose to use your own keys for encryption at rest. Infrastructure encryption uses platform-managed keys for encrypting data.
+
+>[!NOTE]
+>Infrastructure encryption is currently in limited preview and is available in US East, US West2 and US South Central regions only. If you wish to use the feature in any of these regions, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## Backup of VMs encrypted using ADE
 
