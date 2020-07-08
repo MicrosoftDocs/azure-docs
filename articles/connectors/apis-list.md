@@ -46,7 +46,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
-  |   |   |
+  |   | Description |
   |---|---|
   | [**Managed connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
@@ -91,44 +91,117 @@ Logic apps that run in an ISE and their connectors, regardless where those conne
 
 Logic Apps provides built-in triggers and actions so that you can create schedule-based workflows, help your logic apps communicate with other apps and services, control the workflow through your logic apps, and manage or manipulate data.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![API icon][schedule-icon]<br>**Schedule**][schedule-doc] | - Run a logic app on a specified recurrence, ranging from basic to advanced schedules with the [**Recurrence** trigger][schedule-recurrence-doc]. <p>- Run a logic app that needs to handle data in continuous chunks with the [**Sliding Window** trigger][schedule-sliding-window-doc]. <p>- Pause your logic app for a specified duration with the [**Delay** action][schedule-delay-doc]. <p>- Pause your logic app until the specified date and time with the [**Delay until** action][schedule-delay-until-doc]. | [![API icon][batch-icon]<br>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. |
-| [![API icon][http-icon]<br>**HTTP**][http-doc] | Call HTTP or HTTPS endpoints with triggers and actions for HTTP. Other HTTP built-in triggers and actions include [HTTP + Swagger][http-swagger-doc] and [HTTP + Webhook][http-webhook-doc]. | [![API icon][http-request-icon]<br>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. |
-| [![API icon][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | [![API icon][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included.|
-| [![API icon][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc] | Call other logic apps that start with the **Request** trigger. |
-|||||
+[![API icon][schedule-icon]<br>**Schedule**][schedule-doc] 
+
+- Run a logic app on a specified recurrence, ranging from basic to advanced schedules with the [**Recurrence** trigger][schedule-recurrence-doc].
+- Run a logic app that needs to handle data in continuous chunks with the [**Sliding Window** trigger][schedule-sliding-window-doc].
+- Pause your logic app for a specified duration with the [**Delay** action][schedule-delay-doc].
+- Pause your logic app until the specified date and time with the [**Delay until** action][schedule-delay-until-doc].
+
+[![API icon][batch-icon]<br>**Batch**][batch-doc]
+
+- Process messages in batches with the **Batch messages** trigger.
+- Call logic apps that have existing batch triggers with the **Send messages to batch** action.
+
+[![API icon][http-icon]<br>**HTTP**][http-doc]
+
+Call HTTP or HTTPS endpoints with triggers and actions for HTTP. Other HTTP built-in triggers and actions include [HTTP + Swagger][http-swagger-doc] and [HTTP + Webhook][http-webhook-doc].
+
+[![API icon][http-request-icon]<br>**Request**][http-request-doc]
+
+- Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. 
+- Send responses to an app or service with the **Response** action.
+
+[![API icon][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc]
+
+Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management.
+
+[![API icon][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc]
+
+Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included.|
+
+[![API icon][azure-logic-apps-icon]<br>**Azure Logic <br>Apps**][nested-logic-app-doc]
+
+Call other logic apps that start with the **Request** trigger.
 
 ### Run code from logic apps
 
 Logic Apps provides built-in actions for running your own code in your logic app's workflow:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][inline-code-doc] | Add and run JavaScript code snippets from your logic apps. |
-|||||
+[![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc]
+
+Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps.
+
+[![API icon][inline-code-icon]<br>**Inline code**][inline-code-doc]
+
+Add and run JavaScript code snippets from your logic apps.
 
 ### Control workflow
 
 Logic Apps provides built-in actions for structuring and controlling the actions in your logic app's workflow:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Built-in Icon][condition-icon]<br>**Condition**][condition-doc] | Evaluate a condition and run different actions based on whether the condition is true or false. | [![Built-in Icon][for-each-icon]<br>**For each**][for-each-doc] | Perform the same actions on every item in an array. |
-| [![Built-in Icon][scope-icon]<br>**Scope**][scope-doc] | Group actions into *scopes*, which get their own status after the actions in the scope finish running. | [![Built-in Icon][switch-icon]<br>**Switch**][switch-doc] | Group actions into *cases*, which are assigned unique values except for the default case. Run only that case whose assigned value matches the result from an expression, object, or token. If no matches exist, run the default case. |
-| [![Built-in Icon][terminate-icon]<br>**Terminate**][terminate-doc] | Stop an actively running logic app workflow. | [![Built-in Icon][until-icon]<br>**Until**][until-doc] | Repeat actions until the specified condition is true or some state has changed. |
-|||||
+[![Built-in Icon][condition-icon]<br>**Condition**][condition-doc]
+
+Evaluate a condition and run different actions based on whether the condition is true or false.
+
+[![Built-in Icon][for-each-icon][<br>**For each**][for-each-doc]
+Perform the same actions on every item in an array.
+
+[![Built-in Icon][scope-icon]<br>**Scope**][scope-doc]
+
+Group actions into *scopes*, which get their own status after the actions in the scope finish running.
+
+[![Built-in Icon][switch-icon]<br>**Switch**][switch-doc]
+
+Group actions into *cases*, which are assigned unique values except for the default case. Run only that case whose assigned value matches the result from an expression, object, or token. If no matches exist, run the default case.
+
+[![Built-in Icon][terminate-icon]<br>**Terminate**][terminate-doc]
+
+Stop an actively running logic app workflow.
+
+[![Built-in Icon][until-icon]<br>**Until**][until-doc]
+
+Repeat actions until the specified condition is true or some state has changed.
 
 ### Manage or manipulate data
 
 Logic Apps provides built-in actions for working with data outputs and their formats:
 
-|   |   |
-|---|---|
-| [![Built-in Icon][data-operations-icon]<br>**Data Operations**][data-operations-doc] | Perform operations with data: <p>- **Compose**: Create a single output from multiple inputs with various types. <br>- **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects. <br>- **Create HTML table**: Create an HTML table from an array with JSON objects. <br>- **Filter array**: Create an array from items in another array that meet your criteria. <br>- **Join**: Create a string from all items in an array and separate those items with the specified delimiter. <br>- **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow. <br>- **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties. |
-| ![Built-in Icon][date-time-icon]<br>**Date Time** | Perform operations with timestamps: <p>- **Add to time**: Add the specified number of units to a timestamp. <br>- **Convert time zone**: Convert a timestamp from the source time zone to the target time zone. <br>- **Current time**: Return the current timestamp as a string. <br>- **Get future time**: Return the current timestamp plus the specified time units. <br>- **Get past time**: Return the current timestamp minus the specified time units. <br>- **Subtract from time**: Subtract a number of time units from a timestamp. |
-| [![Built-in Icon][variables-icon]<br>**Variables**][variables-doc] | Perform operations with variables: <p>- **Append to array variable**: Insert a value as the last item in an array stored by a variable. <br>- **Append to string variable**: Insert a value as the last character in a string stored by a variable. <br>- **Decrement variable**: Decrease a variable by a constant value. <br>- **Increment variable**: Increase a variable by a constant value. <br>- **Initialize variable**: Create a variable and declare its data type and initial value. <br>- **Set variable**: Assign a different value to an existing variable. |
-|  |  |
+[![Built-in Icon][data-operations-icon]<br>**Data Operations**][data-operations-doc]
+
+Perform operations with data:
+
+- **Compose**: Create a single output from multiple inputs with various types.
+- **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
+- **Create HTML table**: Create an HTML table from an array with JSON objects.
+- **Filter array**: Create an array from items in another array that meet your criteria.
+- **Join**: Create a string from all items in an array and separate those items with the specified delimiter.
+- **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
+- **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
+
+![Built-in Icon][date-time-icon]
+
+**Date Time**
+
+Perform operations with timestamps:
+
+- **Add to time**: Add the specified number of units to a timestamp.
+- **Convert time zone**: Convert a timestamp from the source time zone to the target time zone.
+- **Current time**: Return the current timestamp as a string.
+- **Get future time**: Return the current timestamp plus the specified time units.
+- **Get past time**: Return the current timestamp minus the specified time units.
+- **Subtract from time**: Subtract a number of time units from a timestamp.
+
+[![Built-in Icon][variables-icon]<br>**Variables**][variables-doc]
+
+Perform operations with variables:
+
+- **Append to array variable**: Insert a value as the last item in an array stored by a variable.
+- **Append to string variable**: Insert a value as the last character in a string stored by a variable.
+- **Decrement variable**: Decrease a variable by a constant value.
+- **Increment variable**: Increase a variable by a constant value.
+- **Initialize variable**: Create a variable and declare its data type and initial value.
+- **Set variable**: Assign a different value to an existing variable.
 
 <a name="managed-api-connectors"></a>
 
@@ -136,16 +209,62 @@ Logic Apps provides built-in actions for working with data outputs and their for
 
 Logic Apps provides these popular Standard connectors for automating tasks, processes, and workflows with these services or systems:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![API icon][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps. | [![API icon][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. |
-| [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Connect to your storage account so that you can create and manage blob content. | [![API icon][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
-| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders. | [![API icon][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connect to SharePoint Online so that you can manage files, attachments, folders, and more. | 
-| [![API icon][dynamics-365-icon]<br>**Dynamics 365<br>**][dynamics-365-doc] | Connect to your Dynamics 365 account so that you can create and manage records, items, and more. | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | Connect to your Azure Storage account so that you can create and manage queues and messages |
-| [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | Connect to FTP servers you can access from the internet so that you can work with your files and folders. | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | Connect to your on-premises file share so that you can create and manage files. |
-| [![API icon][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc] | Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider. | [![API icon][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc] | Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change. |
-| [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more. | [![API icon][twitter-icon]<br>**Twitter**][twitter-doc] | Connect to your Twitter account so that you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. |
-|||||
+[![API icon][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc]
+
+Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps.
+
+[![API icon][sql-server-icon]<br>**SQL Server**][sql-server-doc]
+
+Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+
+[![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+
+Connect to your storage account so that you can create and manage blob content.
+
+[![API icon][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc]
+
+Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more.
+
+[![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+
+Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+
+[![API icon][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc]
+
+Connect to SharePoint Online so that you can manage files, attachments, folders, and more.
+
+[![API icon][dynamics-365-icon]<br>**Dynamics 365<br>**][dynamics-365-doc]
+
+Connect to your Dynamics 365 account so that you can create and manage records, items, and more.
+
+[![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
+
+Connect to your Azure Storage account so that you can create and manage queues and messages
+
+[![API icon][ftp-icon]<br>**FTP**][ftp-doc]
+
+Connect to FTP servers you can access from the internet so that you can work with your files and folders.
+
+[![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+
+Connect to your on-premises file share so that you can create and manage files.
+
+[![API icon][azure-event-hubs-icon]<br>**Azure Event Hubs**][azure-event-hubs-doc]
+
+Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+
+[![API icon][azure-event-grid-icon]<br>**Azure Event**<br>**Grid**][azure-event-grid-doc]
+
+Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change.
+
+
+[![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc]
+
+Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
+
+[![API icon][twitter-icon]<br>**Twitter**][twitter-doc]
+
+Connect to your Twitter account so that you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -153,11 +272,25 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 
 Here are some commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-| [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc] | [![API icon][mysql-icon]<br>**MySQL**][mysql-doc] |
-| [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][teradata-icon]<br>**Teradata**][teradata-doc] |
-|||||
+[![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+
+[![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+
+[![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+
+[![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
+
+[![API icon][mysql-icon]<br>**MySQL**][mysql-doc]
+
+[![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+
+[![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+
+[![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+
+[![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+
+[![API icon][teradata-icon]<br>**Teradata**][teradata-doc]
 
 <a name="integration-account-connectors"></a>
 
@@ -165,12 +298,29 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 Logic Apps provides Standard connectors for building business-to-business (B2B) solutions with your logic apps when you create and pay for an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is available through the Enterprise Integration Pack (EIP) in Azure. With this account, you can create and store B2B artifacts such as trading partners, agreements, maps, schemas, certificates, and so on. To use these artifacts, associate your logic apps with your integration account. If you currently use BizTalk Server, these connectors might seem familiar already.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc] |
-| [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc] |
-| [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc] | [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc] |  
-|||||
+[![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc]
+
+[![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc]
+
+[![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc]
+
+[![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc]
+
+[![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc]
+
+[![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc]
+
+[![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc]
+
+[![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc]
+
+[![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc]
+
+[![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc]
+
+[![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc]
+
+[![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc]
 
 <a name="enterprise-connectors"></a>
 
@@ -178,10 +328,11 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 Logic Apps provides these Enterprise connectors for accessing enterprise systems, such as SAP and IBM MQ:
 
-|   |   |   |
-|---|---|---|
-| [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-||||
+[![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+
+[![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+
+[![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
 
 <a name="ise-connectors"></a>
 
@@ -189,14 +340,53 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-[![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
-[![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc] | [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc] | [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
-| [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] |
-| [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API icon][smtp-icon]<br>**SMTP**][smtp-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][x12-icon]<br>**X12**][x12-doc] |
-||||||
+[![API icon][as2-icon]<br>**AS2**][as2-doc]
+
+[![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+
+[![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+
+[![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+
+[![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
+
+[![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
+
+[![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
+
+[![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+
+[![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc]
+
+[![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+
+[![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+
+[![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
+
+[![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
+
+[![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc]
+
+[![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+
+[![API icon][ftp-icon]<br>**FTP**][ftp-doc]
+
+[![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+
+[![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+
+[![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+
+[![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+
+[![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+
+[![API icon][smtp-icon]<br>**SMTP**][smtp-doc]
+
+[![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+
+[![API icon][x12-icon]<br>**X12**][x12-doc]
 
 For more information, see these topics:
 
