@@ -215,4 +215,3 @@ To delete only the newly created server, take the following steps:
 
 > [!div class="nextstepaction"]
 > [Design your first Azure Database for MySQL database](./tutorial-design-database-using-portal.md)
-
