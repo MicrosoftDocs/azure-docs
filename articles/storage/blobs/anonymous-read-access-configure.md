@@ -80,6 +80,37 @@ az resource show \
 > [!NOTE]
 > Disabling public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 
+## Check the public access setting for a storage account
+
+To determine the minimum required TLS version that is configured for a storage account, check the Azure Resource Manager **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
+
+### Check the public access setting for a single storage account
+
+To check the public access setting for a single storage account using Azure CLI, call the [az resource show](/cli/azure/resource#az-resource-show) command and query for the **allowBlobPublicAccess** property:
+
+```azurecli-interactive
+az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query properties.allowBlobPublicAccess \
+    --output tsv
+```
+
+### Check the public access setting for a set of storage accounts
+
+To check the public access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+
+Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the minimum TLS version for each account:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+| order by subscriptionId, resourceGroup, name asc
+```
+
 ## Set the public access level for a container
 
 To grant anonymous users read access to a container and its blobs, first enable public access for the storage account, then set the container's public access level. You can configure a container with the following permissions:
@@ -131,6 +162,7 @@ When public access is disabled for the storage account, a container's public acc
 
 ## Check the container public access setting
 
+To check the public access setting for a single container, 
 
 ### Check the public access setting for a single container
 
@@ -146,10 +178,21 @@ az storage container show-permission \
     --auth-mode key
 ```
 
-### Check the public access setting for a small set of containers
+### Check the public access setting for a set of containers
 
 It is possible to check which containers in one or more storage accounts are configured for public access by listing the containers and checking the public access setting. This approach is a practical option when a storage account does not contain a large number of containers, or when you are checking the setting across a small number of storage accounts. However, performance may suffer if you attempt to enumerate a large number of containers.
 
+The following example uses PowerShell to get the public access setting for all containers in a storage account.
+
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
+```
 
 ## Next steps
 
