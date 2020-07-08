@@ -19,6 +19,8 @@
       href: delete-application-portal.md
   - name: Tutorials
     items:
+    - name: Add an app not listed in the gallery
+      href: add-non-gallery-app.md
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
@@ -103,10 +105,6 @@
     items:
     - name: Cloud apps and single sign-on
       items:
-      - name: Add a cloud app
-        items:
-        - name: Add a non-gallery app
-          href: add-non-gallery-app.md
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on
