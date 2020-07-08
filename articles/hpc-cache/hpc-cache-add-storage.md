@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
 ---
 
