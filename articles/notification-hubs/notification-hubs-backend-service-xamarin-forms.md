@@ -13,6 +13,12 @@ ms.author: miparker
 
 [![Download Sample](./media/notification-hubs-backend-service-xamarin-forms/download.png) Download the sample](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_backend_service)  
 
+> [!div class="op_single_selector"]
+>
+> * [Xamarin.Forms](notification-hubs-backend-service-xamarin-forms.md)
+> * [Flutter](notification-hubs-backend-service-flutter.md)
+> * [React Native](notification-hubs-backend-service-react-native.md)
+
 In this tutorial, you use [Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) to push notifications to a [Xamarin.Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) application targeting **Android** and **iOS**.  
 
 [!INCLUDE [Notification Hubs Backend Service Introduction](../../includes/notification-hubs-backend-service-introduction.md)]
