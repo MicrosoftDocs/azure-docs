@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
-[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
+[!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
 In Cloud Shell, create a tutorial directory and then change to it.
 
@@ -57,7 +57,7 @@ cd multicontainerwordpress
 
 ## Create a resource group
 
-[!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
+[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
 In Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) command.
 
@@ -174,7 +174,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 ```
 
 > [!TIP]
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### Create the WordPress database
@@ -199,7 +199,7 @@ When the database has been created, Cloud Shell shows information similar to the
 
 ### Configure database variables in WordPress
 
-To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](https://www.digicert.com/) is provided in the [custom image](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
+To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](https://www.digicert.com/) is provided in the [custom image](#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
 
 To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
@@ -504,7 +504,7 @@ You'll see output similar to the following example:
 
 You see a log for each container and an additional log for the parent process. Copy the respective `href` value into the browser to view the log.
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 
@@ -520,7 +520,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or, check out other resources:
 

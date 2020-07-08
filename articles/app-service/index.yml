@@ -17,8 +17,6 @@ landingContent:
         links:
           - text: What is App Service?
             url: overview.md
-          - text: App Service on Linux
-            url: /azure/app-service/containers/
           - text: App Service Environments
             url: environment/intro.md
           - text: Compare hosting options
@@ -41,6 +39,10 @@ landingContent:
             url: app-service-web-get-started-php.md
           - text: First Java app
             url: app-service-web-get-started-java.md
+          - text: First Python app
+            url: quickstart-python.md
+          - text: First Ruby app
+            url: quickstart-ruby.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
@@ -55,6 +57,8 @@ landingContent:
         links:
           - text: Enable diagnostic logs
             url: troubleshoot-diagnostic-logs.md
+          - text: Connect to Linux container via SSH
+            url: configure-linux-open-ssh-session.md
           - text: Migrate an active domain to App Service
             url: manage-custom-dns-migrate-domain.md
   - title: CRUD app with database
@@ -64,11 +68,17 @@ landingContent:
           - text: ASP.NET app with SQL Database
             url: app-service-web-tutorial-dotnet-sqldatabase.md
           - text: ASP.NET Core app with SQL Database
-            url: app-service-web-tutorial-dotnetcore-sqldb.md
+            url: tutorial-dotnetcore-sqldb-app.md
           - text: PHP (Laravel) app with Azure MySQL
-            url: app-service-web-tutorial-php-mysql.md
+            url: tutorial-php-mysql-app.md
           - text: Node.js (MEAN.js) app with MongoDB
-            url: app-service-web-tutorial-nodejs-mongodb-app.md
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Java (Spring Boot) app with Cosmos DB
+            url: tutorial-java-spring-cosmosdb.md
+          - text: Python (Django) app with PostgreSQL
+            url: tutorial-python-postgresql-app.md
+          - text: Ruby (Rails) app with PostgreSQL
+            url: tutorial-ruby-postgres-app.md
   - title: Upload your code or content
     linkLists:
       - linkListType: deploy
@@ -84,7 +94,7 @@ landingContent:
           - text: CI/CD with GitHub, BitBucket, etc.
             url: deploy-continuous-deployment.md
 
-  - title: Run containerized Windows apps
+  - title: Run custom containers
     linkLists:
       - linkListType: quickstart
         links:
@@ -94,8 +104,12 @@ landingContent:
         links:
           - text: Migrate a legacy app to Azure in a Windows container
             url: app-service-web-tutorial-windows-containers-custom-fonts.md
+          - text: Run a Docker Compose app
+            url: quickstart-multi-container.md
       - linkListType: how-to-guide
         links:
+          - text: CI/CD to a custom container
+            url: deploy-ci-cd-custom-container.md
           - text: Connect a container to Storage Files
             url: configure-connect-to-azure-storage.md
 
@@ -110,7 +124,7 @@ landingContent:
           - text: Secure resource access with managed identities
             url: app-service-web-tutorial-connect-msi.md
           - text: Authenticate users
-            url: app-service-web-tutorial-auth-aad.md
+            url: tutorial-auth-aad.md
           - text: Host RESTful API with CORS
             url: app-service-web-tutorial-rest-api.md
           - text: Add a CDN to your application

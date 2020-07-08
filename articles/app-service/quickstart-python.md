@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Linux Python app'
-description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
+title: 'Quickstart: Create a Python app'
+description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate, tracking-python
@@ -9,7 +9,7 @@ ms.custom: seo-python-october2019, cli-validate, tracking-python
 
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
@@ -131,7 +131,7 @@ You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 }
 </pre>
 
-[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
+[!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
@@ -141,7 +141,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 ![Run a sample Python app in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
-**Congratulations!** You've deployed your Python app to App Service on Linux.
+**Congratulations!** You've deployed your Python app to App Service.
 
 ## Redeploy updates
 
@@ -223,7 +223,7 @@ az group delete -n <resource-group-name>
 > [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](../../active-directory/develop/quickstart-v2-python-webapp.md)
+> [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](how-to-configure-python.md)

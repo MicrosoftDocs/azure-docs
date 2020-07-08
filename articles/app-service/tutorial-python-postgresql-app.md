@@ -3,12 +3,12 @@ title: 'Tutorial: Deploy Python (Django) with Postgres'
 description: Learn how to create a Python app with a PostgreSQL database and deploy it to Azure App Service on Linux. The tutorial uses a Django sample app for demonstration.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 06/20/2020
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
 ---
 # Tutorial: Deploy a Python (Django) web app with PostgreSQL in Azure App Service
 
-This tutorial shows how to deploy a data-driven Python (Django) web app to [Azure App Service](app-service-linux-intro.md) and connect it to an Azure Database for PostgreSQL database. App Service provides a highly scalable, self-patching web hosting service.
+This tutorial shows how to deploy a data-driven Python (Django) web app to [Azure App Service](overview.md) and connect it to an Azure Database for PostgreSQL database. App Service provides a highly scalable, self-patching web hosting service.
 
 ![Deploy Python Django web app to Azure App Service](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
@@ -27,7 +27,7 @@ You can follow the steps in this article on macOS, Linux, or Windows.
 
 Before you start this tutorial:
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli).
 - Install [Git](https://git-scm.com/).
 - Install [Python 3](https://www.python.org/downloads/).
@@ -110,7 +110,7 @@ az postgres up --resource-group myResourceGroup --location westus2 --server-name
 
 This command may take a while because it's doing the following:
 
-- Creates a [resource group](../../azure-resource-manager/management/overview.md#terminology) called `myResourceGroup`, if it doesn't exist. Every Azure resource needs to be in one of these. `--resource-group` is optional.
+- Creates a [resource group](../azure-resource-manager/management/overview.md#terminology) called `myResourceGroup`, if it doesn't exist. Every Azure resource needs to be in one of these. `--resource-group` is optional.
 - Creates a Postgres server with the administrative user.
 - Creates a `pollsdb` database.
 - Allows access from your local IP address.
@@ -147,8 +147,8 @@ This command may take a while because it's doing the following:
 
 <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
 <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
-- Generates a [resource group](../../azure-resource-manager/management/overview.md#terminology) automatically.
-- Creates the [App Service plan](../overview-hosting-plans.md) *myAppServicePlan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
+- Generates a [resource group](../azure-resource-manager/management/overview.md#terminology) automatically.
+- Creates the [App Service plan](overview-hosting-plans.md) *myAppServicePlan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
 - Creates the App Service app if it doesn't exist.
 - Enables default logging for the app, if not already enabled.
 - Uploads the repository using ZIP deployment with build automation enabled.
@@ -209,8 +209,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install packages
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -427,7 +425,7 @@ In this tutorial, you learned:
 Go to the next tutorial to learn how to map a custom DNS name to your app:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or check out other resources:
 

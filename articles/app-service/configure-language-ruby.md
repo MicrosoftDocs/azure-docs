@@ -2,14 +2,14 @@
 title: Configure Ruby apps - Azure App Service
 description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks. 
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18
 ---
 
 # Configure a Linux Ruby app for Azure App Service
 
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [gems](https://rubygems.org/gems).
+This article describes how [Azure App Service](overview.md) runs Ruby apps in a Linux container, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [gems](https://rubygems.org/gems).
 
 This guide provides key concepts and instructions for Ruby developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](configure-common.md#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -58,7 +58,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## Customize deployment
 
-When you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on, the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
+When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build processes switched on, the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
 
 1. Check if a *Gemfile* exists.
 1. Run `bundle clean`. 
@@ -67,7 +67,7 @@ When you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-ser
 
 ### Use --without flag
 
-To run `bundle install` with the [--without](https://bundler.io/man/bundle-install.1.html) flag, set the `BUNDLE_WITHOUT` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to a comma-separated list of groups. For example, the following command sets it to `development,test`.
+To run `bundle install` with the [--without](https://bundler.io/man/bundle-install.1.html) flag, set the `BUNDLE_WITHOUT` [app setting](configure-common.md#configure-app-settings) to a comma-separated list of groups. For example, the following command sets it to `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
@@ -77,7 +77,7 @@ If this setting is defined, then the deployment engine runs `bundle install` wit
 
 ### Precompile assets
 
-The post-deployment steps don't precompile assets by default. To turn on asset precompilation, set the `ASSETS_PRECOMPILE` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `true`. Then the command `bundle exec rake --trace assets:precompile` is run at the end of the post-deployment steps. For example:
+The post-deployment steps don't precompile assets by default. To turn on asset precompilation, set the `ASSETS_PRECOMPILE` [app setting](configure-common.md#configure-app-settings) to `true`. Then the command `bundle exec rake --trace assets:precompile` is run at the end of the post-deployment steps. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -106,7 +106,7 @@ You can customize the start-up process in the following ways:
 The Rails server in the Ruby container runs in production mode by default, and [assumes that assets are precompiled and are served by your web server](https://guides.rubyonrails.org/asset_pipeline.html#in-production). To serve static assets from the Rails server, you need to do two things:
 
 - **Precompile the assets** - [Precompile the static assets locally](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) and deploy them manually. Or, let the deployment engine handle it instead (see [Precompile assets](#precompile-assets).
-- **Enable serving static files** - To serve static assets from the Ruby container, [set the `RAILS_SERVE_STATIC_FILES` app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `true`. For example:
+- **Enable serving static files** - To serve static assets from the Ruby container, [set the `RAILS_SERVE_STATIC_FILES` app setting](configure-common.md#configure-app-settings) to `true`. For example:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -114,13 +114,13 @@ The Rails server in the Ruby container runs in production mode by default, and [
 
 ### Run in non-production mode
 
-The Rails server runs in production mode by default. To run in development mode, for example, set the `RAILS_ENV` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `development`.
+The Rails server runs in production mode by default. To run in development mode, for example, set the `RAILS_ENV` [app setting](configure-common.md#configure-app-settings) to `development`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-However, this setting alone causes the Rails server to start in development mode, which accepts localhost requests only and isn't accessible outside of the container. To accept remote client requests, set the `APP_COMMAND_LINE` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `rails server -b 0.0.0.0`. This app setting lets you run a custom command in the Ruby container. For example:
+However, this setting alone causes the Rails server to start in development mode, which accepts localhost requests only and isn't accessible outside of the container. To accept remote client requests, set the `APP_COMMAND_LINE` [app setting](configure-common.md#configure-app-settings) to `rails server -b 0.0.0.0`. This app setting lets you run a custom command in the Ruby container. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -128,7 +128,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a> Set secret_key_base manually
 
-To use your own `secret_key_base` value instead of letting App Service generate one for you, set the `SECRET_KEY_BASE` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) with the value you want. For example:
+To use your own `secret_key_base` value instead of letting App Service generate one for you, set the `SECRET_KEY_BASE` [app setting](configure-common.md#configure-app-settings) with the value you want. For example:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -136,13 +136,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
 ## Open SSH session in browser
 
-[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 
@@ -150,4 +150,4 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 > [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](app-service-linux-faq.md)
+> [App Service Linux FAQ](faq-app-service-linux.md)

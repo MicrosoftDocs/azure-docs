@@ -11,17 +11,17 @@ ms.author: msangapu
 ms.custom: seodec18
 
 ---
-# SSH support for Azure App Service on Linux
+# Open an SSH session to a Linux container in Azure App Service
 
 [Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) is commonly used to execute administrative commands remotely from a command-line terminal. App Service on Linux provides SSH support into the app container. 
 
-![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
+![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
 
 ## Open SSH session in browser
 
-[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## Use SSH support with custom Docker images
 
@@ -35,7 +35,7 @@ See [Configure SSH in a custom container](configure-custom-container.md#enable-s
 
 Using TCP tunneling you can create a network connection between your development machine and Web App for Containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
 
-To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
+To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md). 
 
 Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_\<app-name>_ for your app.
 
@@ -62,30 +62,30 @@ ssh root@127.0.0.1 -p <port>
 
 When being prompted, type `yes` to continue connecting. You are then prompted for the password. Use `Docker!`, which was shown to you earlier.
 
-```output
+<pre>
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
-```
+</pre>
 
 Once you're authenticated, you should see the session welcome screen.
 
-```output
+<pre>
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
 /    |    \/    /|  |  /|  | \/\  ___/
-\____|__  /_____ \____/ |__|    \___  >
+\____|__  /_____ \____/ |__|    \___  &gt;
         \/      \/                  \/
 A P P   S E R V I C E   O N   L I N U X
 
 0e690efa93e2:~#
-```
+</pre>
 
 You are now connected to your connector.  
 
 Try running the [top](https://ss64.com/bash/top.html) command. You should be able to see your app's process in the process list. In the example output below, it's the one with `PID 263`.
 
-```output
+<pre>
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738
@@ -105,7 +105,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45736     1 root     Z        0   0%   0   0% [init]
 45737     1 root     Z        0   0%   0   0% [init]
 45738     1 root     Z        0   0%   0   0% [init]
-```
+</pre>
 
 ## Next steps
 
@@ -117,4 +117,4 @@ For more information on Web App for Containers, see:
 * [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)
+* [Azure App Service Web App for Containers FAQ](faq-app-service-linux.md)

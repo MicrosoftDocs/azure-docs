@@ -12,7 +12,7 @@ ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-septe
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
-When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
+When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](overview.md).
 
 ![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from App Service
 > * Add additional instances to scale out the sample app
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -282,7 +282,7 @@ You should see the app running with the remote URL in the address bar:
 
 ## Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
 
 ## Scale out the TODO App
@@ -312,7 +312,7 @@ az group delete --name <your-azure-group-name>
 [Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
 [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
 and
-[App Service Linux](app-service-linux-intro.md).
+[App Service Linux](overview.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 

@@ -32,15 +32,25 @@
   - name: App with DB
     items:
     - name: .NET Core with SQL DB
-      href: app-service-web-tutorial-dotnetcore-sqldb.md
+      href: tutorial-dotnetcore-sqldb-app.md
     - name: .NET Framework with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
-      href: app-service-web-tutorial-php-mysql.md 
+      href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
-      href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: Customize Windows (container)
-    href: app-service-web-tutorial-windows-containers-custom-fonts.md
+      href: tutorial-nodejs-mongodb-app.md
+    - name: Ruby with Postgres
+      href: tutorial-ruby-postgres-app.md 
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
+    - name: Java with Spring Data
+      href: tutorial-java-spring-cosmosdb.md
+  - name: App with DB
+    items:
+    - name: Customize Windows (container)
+      href: app-service-web-tutorial-windows-containers-custom-fonts.md
+    - name: Multi-container app
+      href: tutorial-multi-container-app.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
@@ -52,9 +62,11 @@
   - name: Add CDN
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
-    href: app-service-web-tutorial-auth-aad.md
+    href: tutorial-auth-aad.md
   - name: Send email/tweet
     href: tutorial-send-email.md
+  - name: Troubleshoot errors
+    href: tutorial-troubleshoot-monitor.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -140,6 +152,8 @@
         href: deploy-content-sync.md
       - name: Deploy continuously
         href: deploy-continuous-deployment.md
+      - name: Custom containers CI/CD
+        href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
       - name: Deploy with GitHub Actions
@@ -208,6 +222,8 @@
       href: troubleshoot-diagnostic-logs.md
     - name: Get resource events
       href: get-resource-events.md
+    - name: Open SSH session to Linux container
+      href: configure-linux-open-ssh-session.md
   - name: Manage app
     items:
     - name: Manage the hosting plan

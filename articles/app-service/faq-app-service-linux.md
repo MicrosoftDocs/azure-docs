@@ -57,7 +57,7 @@ Set the **reserved** field of the app service to *true*.
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
-Yes, to set up continuous integration/deployment for Azure Container Registry or DockerHub, by following [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+Yes, to set up continuous integration/deployment for Azure Container Registry or DockerHub, by following [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Do you support staging environments?**
 
@@ -73,7 +73,7 @@ If Git deployment fails to your Linux web app, choose one of the following optio
 
 - Use the Continuous Delivery (Preview) feature: You can store your app's source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) and go to the folder where you want to deploy your code. Run the following code:
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](configure-linux-open-ssh-session.md) and go to the folder where you want to deploy your code. Run the following code:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -198,6 +198,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-- [What is Azure App Service on Linux?](app-service-linux-intro.md)
-- [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
+- [What is Azure App Service on Linux?](overview#app-service-on-linux.md)
+- [Set up staging environments in Azure App Service](deploy-staging-slots.md)
+- [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)

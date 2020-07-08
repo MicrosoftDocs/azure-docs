@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Linux Ruby app'
-description: Get started with Linux apps on Azure App Service by deploying your first Ruby app to a Linux container in App Service.
+title: 'Quickstart: Create a Ruby app'
+description: Get started with Azure App Service by deploying your first Ruby app to a Linux container in App Service.
 keywords: azure app service, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
@@ -8,16 +8,16 @@ ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
 ---
 
-# Create a Ruby on Rails App in App Service on Linux
+# Create a Ruby on Rails App in App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a Ruby on Rails app to Azure App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[Azure App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a Ruby on Rails app to App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
-> The Ruby development stack only supports Ruby on Rails at this time. If you want to use a different platform, such as Sinatra, or if you want to use an [unsupported Ruby version](app-service-linux-intro.md), you need to [run it in a custom container](quickstart-docker-go.md).
+> The Ruby development stack only supports Ruby on Rails at this time. If you want to use a different platform, such as Sinatra, or if you want to use an unsupported Ruby version, you need to [run it in a custom container](quickstart-docker-go.md).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -52,17 +52,17 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 ![Hello World configured](./media/quickstart-ruby/hello-world-updated.png)
 
-[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 Browse to the app to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
@@ -114,7 +114,7 @@ http://<app-name>.azurewebsites.net
 > While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
 >
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 

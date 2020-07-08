@@ -17,7 +17,7 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 ## Enable continuous deployment with ACR
 
-![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
+![Screenshot of ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-02.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the **App Service** option on the left side of the page.
@@ -31,7 +31,7 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 Once Continuous Deployment has been enabled, you can view the newly created webhook on your Azure Container Registry webhooks page.
 
-![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
+![Screenshot of ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 In your Container Registry, click on Webhooks to view the current webhooks.
 
@@ -45,16 +45,15 @@ In your Container Registry, click on Webhooks to view the current webhooks.
 6. Select **Continuous Deployment > On**
 7. Select **Save** to enable continuous deployment.
 
-![Screenshot of app setting](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
+![Screenshot of app setting](./media/deploy-ci-cd-custom-container/ci-cd-docker-02.png)
 
 Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks for Docker Hub</a>.
 
 ## Next steps
 
-* [Introduction to Azure App Service on Linux](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
 * [Create a Ruby web app in App Service on Linux](quickstart-ruby.md)
-* [Deploy a Docker/Go web app in Web App for Containers](quickstart-docker-go.md)
-* [Azure App Service on Linux FAQ](./app-service-linux-faq.md)
+* [Deploy a Docker web app in Web App for Containers](quickstart-docker-go.md)
+* [App Service on Linux FAQ](faq-app-service-linux.md)
 * [Manage Web App for Containers using Azure CLI](./app-service-linux-cli.md)

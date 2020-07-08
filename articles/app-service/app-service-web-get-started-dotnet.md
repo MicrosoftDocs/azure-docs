@@ -144,7 +144,7 @@ In this quickstart, you used Visual Studio to create and deploy an ASP.NET Core 
 Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)

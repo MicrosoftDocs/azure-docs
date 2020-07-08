@@ -15,7 +15,7 @@ ms.date: 06/02/2020
 
 ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries. For information about Linux apps, see [Configure a Linux ASP.NET Core app for Azure App Service](containers/configure-language-dotnetcore.md).
 
-This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](app-service-web-tutorial-dotnetcore-sqldb.md) first.
+This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
 
 ## Show supported .NET Core runtime versions
 
@@ -146,4 +146,4 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core app with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)

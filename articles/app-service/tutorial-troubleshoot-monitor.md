@@ -4,7 +4,7 @@ description: Learn how Azure Monitor and Log Analytics helps you monitor your Ap
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.date: 2/28/2020
+ms.date: 06/20/2020
 
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
@@ -13,11 +13,9 @@ ms.date: 2/28/2020
 > Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 
-This tutorial shows how to troubleshoot an app using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor.
-
-When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 In this tutorial, you learn how to:
 
@@ -28,7 +26,7 @@ In this tutorial, you learn how to:
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -79,7 +77,6 @@ You run the following commands to create diagnostic settings for AppServiceConso
 >
 
 ```bash
-
 resourceID=$(az webapp show -g myResourceGroup -n <app-name> --query id --output tsv)
 
 workspaceID=$(az monitor log-analytics workspace show -g myResourceGroup --workspace-name <workspace-name> --query id --output tsv)
@@ -89,7 +86,6 @@ az monitor diagnostic-settings create --resource $resourceID \
  -n myMonitorLogs \
  --logs '[{"category": "AppServiceConsoleLogs", "enabled": true},
   {"category": "AppServiceHTTPLogs", "enabled": true}]'
-
 ```
 
 ## Troubleshoot the app
@@ -170,11 +166,11 @@ where ResultDescription  contains "error"
 
 In the `ResultDescription` column, you'll see the following error:
 
-```
+<pre>
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-```
+</pre>
 
 ### Join AppServiceHTTPLogs and AppServiceConsoleLogs
 
@@ -200,11 +196,11 @@ myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, Resul
 
 In the `ResultDescription` column, you'll see the following error at the same time as web server errors:
 
-```
+<pre>
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
 (tried to allocate 16384 bytes) in /home/site/wwwroot/process.php on line 20, 
 referer: http://<app-name>.azurewebsites.net/
-```
+</pre>
 
 The message states memory has been exhausted on line 20 of `process.php`. You've now confirmed that the application produced an error during the HTTP 500 error. Let's take a look at the code to identify the problem.
 
@@ -253,7 +249,7 @@ Converting images should not longer produce the HTTP 500 errors.
 
 ![PHP app running in Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 Delete the diagnostic setting with the following command:
 
@@ -268,6 +264,6 @@ What you learned:
 > * Used log queries to identify and troubleshoot web app errors
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)
-* [Troubleshooting Azure App Service in Visual Studio](../troubleshoot-dotnet-visual-studio.md)
+* [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

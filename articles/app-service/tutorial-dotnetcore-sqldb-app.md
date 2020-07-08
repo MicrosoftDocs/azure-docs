@@ -1,41 +1,45 @@
 ---
-title: 'Tutorial: Linux ASP.NET Core with SQL Database' 
-description: Learn how to get a data-driven Linux ASP.NET Core app working in Azure App Service, with connection to SQL Database.
-ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
+title: 'Tutorial: ASP.NET Core with SQL Database' 
+description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
+
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/23/2020
+ms.date: 06/20/2020
 ms.custom: mvc, cli-validate, seodec18
 ---
 
-# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service on Linux
+# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
-> [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
+# [Windows](#tab/windows)
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Windows.
 
-![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+# [Linux](#tab/linux)
+
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
+
+---
+
+![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->
-> * Create a database in Azure SQL Database
+> * Create a SQL Database in Azure
 > * Connect a .NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install .NET Core SDK 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
 
 ## Create local .NET Core app
 
@@ -70,27 +74,30 @@ Navigate to `http://localhost:5000` in a browser. Select the **Create New** link
 
 To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a database in Azure SQL Database
+## Create production SQL Database
 
-In this step, you create a database in [Azure SQL Database](/azure/sql-database/). When your app is deployed to Azure, it uses this database.
+In this step, you create a SQL Database in Azure. When your app is deployed to Azure, it uses this cloud database.
+
+For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-### Create a server in Azure SQL Database
+### Create a SQL Database logical server
 
-In the Cloud Shell, create a [server](../../azure-sql/database/logical-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
+In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command.
 
-Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice.
+Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice. 
+
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-When the server is created, the Azure CLI shows information similar to the following example:
+When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
 
 <pre>
 {
@@ -112,24 +119,25 @@ When the server is created, the Azure CLI shows information similar to the follo
 
 ### Configure a server firewall rule
 
-Create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources.
+Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP]
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md#find-outbound-ips).
+> [!TIP] 
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
+>
 
 In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
-### Create a database in Azure SQL Database
+### Create a database
 
-Create a database with an [S0 performance level](../../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
+Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -165,10 +173,11 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 > [!IMPORTANT]
 > For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
 ### Run database migrations to the production database
 
-Your app currently connects to a local Sqlite database. Now that you configured a database in Azure, recreate the initial migration to target it.
+Your app currently connects to a local Sqlite database. Now that you configured an Azure SQL Database, recreate the initial migration to target it. 
 
 From the repository root, run the following commands. Replace *\<connection-string>* with the connection string you created earlier.
 
@@ -183,8 +192,8 @@ dotnet ef migrations add InitialCreate
 $env:ConnectionStrings:MyDbConnection="<connection-string>"
 # CMD (no quotes)
 set ConnectionStrings:MyDbConnection=<connection-string>
-# Bash
-export ConnectionStrings__MyDbConnection="<connection-string>"
+# Bash (no quotes)
+export ConnectionStrings__MyDbConnection=<connection-string>
 
 # Run migrations
 dotnet ef database update
@@ -200,7 +209,7 @@ dotnet run
 
 Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items. Your app is now reading and writing data to the production database.
 
-Commit your local changes, then commit it into your Git repository.
+Commit your local changes, then commit it into your Git repository. 
 
 ```bash
 git add .
@@ -211,19 +220,35 @@ You're now ready to deploy your code.
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to App Service on Linux.
+In this step, you deploy your SQL Database-connected .NET Core application to App Service.
 
 ### Configure local git deployment
 
-[!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+# [Windows](#tab/windows)
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
+
+# [Linux](#tab/linux)
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+
+---
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
+# [Windows](#tab/windows)
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
+
+# [Linux](#tab/linux)
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
+
+---
 
 ### Configure connection string
 
@@ -239,7 +264,40 @@ To see how the connection string is referenced in your code, see [Configure app 
 
 ### Push to Azure from Git
 
-[!INCLUDE [push-to-azure-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
+# [Windows](#tab/windows)
+
+[!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
+
+<pre>
+Enumerating objects: 268, done.
+Counting objects: 100% (268/268), done.
+Compressing objects: 100% (171/171), done.
+Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
+Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
+remote: Resolving deltas: 100% (95/95), done.
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '64821c3558'.
+remote: Generating deployment script.
+remote: Project file path: .\DotNetCoreSqlDb.csproj
+remote: Generating deployment script for ASP.NET MSBuild16 App
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
+remote: App container will begin restart within 10 seconds.
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+ * [new branch]      master -> master
+</pre>
+
+# [Linux](#tab/linux)
+
+[!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 <pre>
 Enumerating objects: 273, done.
@@ -269,6 +327,8 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
 </pre>
 
+---
+
 ### Browse to the Azure app
 
 Browse to the deployed app using your web browser.
@@ -279,9 +339,9 @@ http://<app-name>.azurewebsites.net
 
 Add a few to-do items.
 
-![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Congratulations!** You're running a data-driven .NET Core app in App Service on Linux.
+**Congratulations!** You're running a data-driven .NET Core app in App Service.
 
 ## Update locally and redeploy
 
@@ -388,8 +448,8 @@ While the ASP.NET Core app runs in Azure App Service, you can get the console lo
 
 The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) with two configuration changes:
 
-* Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-* Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
+- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
 To set the ASP.NET Core [log level](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
 
@@ -399,6 +459,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 > [!NOTE]
 > The project's log level is already set to `Information` in *appsettings.json*.
+> 
 
 To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
 
@@ -414,9 +475,11 @@ For more information on customizing the ASP.NET Core logs, see [Logging in ASP.N
 
 ## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the app you created.
+To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-From the left menu, click **App Services**, then click the name of your Azure app.
+![Select App Services in Azure portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
@@ -424,17 +487,15 @@ By default, the portal shows your app's **Overview** page. This page gives you a
 
 ![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-
 ## Next steps
 
 What you learned:
 
 > [!div class="checklist"]
->
-> * Create a database in Azure SQL Database
+> * Create a SQL Database in Azure
 > * Connect a .NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -444,7 +505,7 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or, check out other resources:
 
