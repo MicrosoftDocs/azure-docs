@@ -388,7 +388,8 @@ Files in the File customizer can be downloaded from Azure Storage using [MSI](ht
 
 ### Windows Update Customizer
 This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -401,6 +402,7 @@ This customizer is built on the [community Windows Update Provisioner](https://p
             }
                ], 
 OS support: Windows
+```
 
 Customize properties:
 - **type**  – WindowsUpdate.

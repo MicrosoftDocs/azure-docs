@@ -4,7 +4,7 @@ description: Learn how to configure Deny Public Network Access using Azure porta
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ---
 
