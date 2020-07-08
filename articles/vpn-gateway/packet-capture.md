@@ -24,6 +24,294 @@ Using 5 tuples filter (source subnet, destination subnet, source port, destinati
 
 You can use only one option per property while running the packet capture.
 
+See below an example of JSON and JSON schema with explanation of each property. If you notice the schema we have filter as an array but for now we will only allow 1 filter and not more than that. In addition to that we allow only a max of 5 captures in parallel per gateway. This can be a gateway wide capture or per connection capture. We do not allow multiple captures on the same connection in parallel, though you can start captures different connections in parallel. Similarly we allow only one capture at a time for a gateway wide capture. :
+
+### Example JSON
+```JSON-interactive
+{
+  "TracingFlags": 11,
+  "MaxPacketBufferSize": 120,
+  "MaxFileSize": 200,
+  "Filters": [
+    {
+      "SourceSubnets": [
+        "20.1.1.0/24"
+      ],
+      "DestinationSubnets": [
+        "10.1.1.0/24"
+      ],
+      "SourcePort": [
+        500
+      ],
+      "DestinationPort": [
+        4500
+      ],
+      "Protocol": [
+        6
+      ],
+      "TcpFlags": 16,
+      "CaptureSingleDirectionTrafficOnly": true
+    }
+  ]
+}
+```
+### JSON schema
+```JSON-interactive
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "description": "The root schema input JSON filter for packet capture",
+    "default": {},
+    "additionalProperties": true,
+    "required": [
+        "TracingFlags",
+        "MaxPacketBufferSize",
+        "MaxFileSize",
+        "Filters"
+    ],
+    "properties": {
+        "TracingFlags": {
+            "$id": "#/properties/TracingFlags",
+            "type": "integer",
+            "title": "The Tracingflags Schema",
+            "description": "These are the tracing flags a customer can pass to define what packets he wants to capture. Supported Bits are  CaptureESP = 1, CaptureIKE = 2, CaptureOVPN = 8. The final value is OR of the bits.",
+            "default": 11,
+            "examples": [
+                11
+            ]
+        },
+        "MaxPacketBufferSize": {
+            "$id": "#/properties/MaxPacketBufferSize",
+            "type": "integer",
+            "title": "The Maxpacketbuffersize Schema",
+            "description": "Max buffer size of each packet. The capture will only contain contents of each packet truncated till this size.",
+            "default": 120,
+            "examples": [
+                120
+            ]
+        },
+        "MaxFileSize": {
+            "$id": "#/properties/MaxFileSize",
+            "type": "integer",
+            "title": "The Maxfilesize Schema",
+            "description": "Max allowed file size for the capture file. It is a circular buffer",
+            "default": 100,
+            "examples": [
+                100
+            ]
+        },
+        "Filters": {
+            "$id": "#/properties/Filters",
+            "type": "array",
+            "title": "The Filters Schema",
+            "description": "An array of filters that can be passed to filter inner ESP traffic only.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "Protocol": [
+                            6.0
+                        ],
+                        "CaptureSingleDirectionTrafficOnly": true,
+                        "SourcePort": [
+                            500.0
+                        ],
+                        "DestinationPort": [
+                            4500.0
+                        ],
+                        "TcpFlags": 16.0,
+                        "SourceSubnets": [
+                            "20.1.1.0/24"
+                        ],
+                        "DestinationSubnets": [
+                            "10.1.1.0/24"
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/Filters/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "SourcePort": [
+                            500.0
+                        ],
+                        "DestinationPort": [
+                            4500.0
+                        ],
+                        "TcpFlags": 16.0,
+                        "SourceSubnets": [
+                            "20.1.1.0/24"
+                        ],
+                        "DestinationSubnets": [
+                            "10.1.1.0/24"
+                        ],
+                        "Protocol": [
+                            6.0
+                        ],
+                        "CaptureSingleDirectionTrafficOnly": true
+                    }
+                ],
+                "additionalProperties": true,
+                "required": [
+                    "SourceSubnets",
+                    "DestinationSubnets",
+                    "SourcePort",
+                    "DestinationPort",
+                    "Protocol",
+                    "TcpFlags",
+                    "CaptureSingleDirectionTrafficOnly"
+                ],
+                "properties": {
+                    "SourceSubnets": {
+                        "$id": "#/properties/Filters/items/properties/SourceSubnets",
+                        "type": "array",
+                        "title": "The Sourcesubnets Schema",
+                        "description": "An array of source subnets that need to match the Source IP address of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                "20.1.1.0/24"
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/SourceSubnets/items",
+                            "type": "string",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "20.1.1.0/24"
+                            ]
+                        }
+                    },
+                    "DestinationSubnets": {
+                        "$id": "#/properties/Filters/items/properties/DestinationSubnets",
+                        "type": "array",
+                        "title": "The Destinationsubnets Schema",
+                        "description": "An array of destination subnets that need to match the Destination IP address of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                "10.1.1.0/24"
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/DestinationSubnets/items",
+                            "type": "string",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "10.1.1.0/24"
+                            ]
+                        }
+                    },
+                    "SourcePort": {
+                        "$id": "#/properties/Filters/items/properties/SourcePort",
+                        "type": "array",
+                        "title": "The Sourceport Schema",
+                        "description": "An array of source ports that need to match the Source port of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                500.0
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/SourcePort/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                500.0
+                            ]
+                        }
+                    },
+                    "DestinationPort": {
+                        "$id": "#/properties/Filters/items/properties/DestinationPort",
+                        "type": "array",
+                        "title": "The Destinationport Schema",
+                        "description": "An array of destination ports that need to match the Destination port of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                4500.0
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/DestinationPort/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                4500.0
+                            ]
+                        }
+                    },
+                    "Protocol": {
+                        "$id": "#/properties/Filters/items/properties/Protocol",
+                        "type": "array",
+                        "title": "The Protocol Schema",
+                        "description": "An array of protocols that need to match the Protocol of a packet. Packet can match any one value in the array of inputs.",
+                        "default": [],
+                        "examples": [
+                            [
+                                6.0
+                            ]
+                        ],
+                        "additionalItems": true,
+                        "items": {
+                            "$id": "#/properties/Filters/items/properties/Protocol/items",
+                            "type": "integer",
+                            "title": "The Items Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                6.0
+                            ]
+                        }
+                    },
+                    "TcpFlags": {
+                        "$id": "#/properties/Filters/items/properties/TcpFlags",
+                        "type": "integer",
+                        "title": "The Tcpflags Schema",
+                        "description": "A list of TCP flags. The TCP flags set on the packet must match any flag in the list of flags provided. FIN = 0x01,SYN = 0x02,RST = 0x04,PSH = 0x08,ACK = 0x10,URG = 0x20,ECE = 0x40,CWR = 0x80. An OR of flags can be provided.",
+                        "default": 0,
+                        "examples": [
+                            16.0
+                        ]
+                    },
+                    "CaptureSingleDirectionTrafficOnly": {
+                        "$id": "#/properties/Filters/items/properties/CaptureSingleDirectionTrafficOnly",
+                        "type": "boolean",
+                        "title": "The Capturesingledirectiontrafficonly Schema",
+                        "description": "A flags which when set captures reverse traffic also.",
+                        "default": false,
+                        "examples": [
+                            true
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ## Setup packet capture using PowerShell
 
 See the examples below for PowerShell commands to start and stop packet captures. For more information on parameter options (such as how to create filter), see this PowerShell [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
