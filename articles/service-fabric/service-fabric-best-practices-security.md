@@ -152,7 +152,7 @@ To give your application access to secrets, include the certificate by adding a 
 ```
 ## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)
 
-To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -212,7 +212,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 These firewall rules complement your allowed outbound Network Security Groups, that would include ServiceFabric and Storage, as allowed destinations from your virtual network.
 
 ## TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure recommends](https://azure.microsoft.com/updates/azuretls12/) all customers complete migration towards solutions that support transport layer security (TLS) 1.2 and to make sure that TLS 1.2 is used by default.
+
+Azure services, including [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), have completed the engineering work to remove dependency on TLS 1.0/1.1 protocols and provide full support to customers that want to have their workloads configured to accept and initiate only TLS 1.2 connections.
+
+Customers should configure their Azure-hosted workloads and on-premises applications interacting with Azure services to use TLS 1.2 by default. Here's how to [configure Service Fabric cluster nodes and applications](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) to use a specific TLS version.
 
 ## Windows Defender 
 

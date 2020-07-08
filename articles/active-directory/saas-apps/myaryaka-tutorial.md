@@ -81,10 +81,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, use one of the following pattern:
 
-    | |
-    |-|
-    | `https://my.aryaka.com/`|
-    | `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`|
+    ```https
+    https://my.aryaka.com/
+    https://kso.aryaka.com/auth/realms/<CUSTOMERID>
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`

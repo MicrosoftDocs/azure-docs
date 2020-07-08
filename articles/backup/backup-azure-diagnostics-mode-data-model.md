@@ -462,6 +462,30 @@ For reasons of backward-compatibility, diagnostics data for Azure Backup Agent a
 
 Refer to the third column 'Description' in the [data model](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
 
+### Modifying your queries to use the V2 schema
+As the V1 schema is on a deprecation path, it is recommended to use only the V2 schema in all your custom queries on Azure Backup diagnostic data. Below is an example of how to update your queries to remove dependency on V1 schema:
+
+1. Identify if your query is using any field that is only applicable to V1 schema. Assume you have a query to list all the backup items and their associated protected servers as follows:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+The above query uses the field ProtectedServerUniqueId_s which is only applicable to V1 schema. The V2 schema equivalent of this field is ProtectedContainerUniqueId_s (refer tables above). The field BackupItemUniqueId_s is applicable even to V2 schema and the same field can be used in this query.
+
+2. Update the query to use the V2 schema field names. It is a recommended practice to use the filter 'where SchemaVersion_s=="V2"' in all your queries, so that only records corresponding to V2 schema are parsed by the query:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
+
 ## Next steps
 
 Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.

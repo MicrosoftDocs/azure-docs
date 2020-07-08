@@ -5,8 +5,8 @@ description: Directly federate with a SAML or WS-Fed identity provider so guests
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 
 ms.author: mimart
 author: msmimart
@@ -17,10 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Direct federation with AD FS and third-party providers for guest users (preview)
-|     |
-| --- |
-| Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+>  Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up direct federation with another organization for B2B collaboration. You can set up direct federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol.
 When you set up direct federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
@@ -219,3 +218,7 @@ To remove direct federation with an identity provider by using PowerShell:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## Next steps
+
+Learn more about the [invitation redemption experience](redemption-experience.md) when external users sign in with various identity providers.

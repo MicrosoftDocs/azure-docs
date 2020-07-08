@@ -1,19 +1,8 @@
 ---
 title: Azure Service Bus - Migrate to Shared Access Signature authorization
 description: Learn about migrating from Azure Active Directory Access Control Service to Shared Access Signature authorization.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Service Bus - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization

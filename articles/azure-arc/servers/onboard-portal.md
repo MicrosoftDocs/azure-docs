@@ -35,6 +35,7 @@ The script to automate the download and installation, and to establish the conne
 
     >[!NOTE]
     >Azure Arc for servers (preview) supports only the following regions:
+    >- EastUS
     >- WestUS2
     >- WestEurope
     >- SoutheastAsia
@@ -61,7 +62,7 @@ You can install the Connected Machine agent manually by running the Windows Inst
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described later in the article. This sets the proxy server system environment variable `https_proxy`.
 
-If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
 For example, run the installation program with the `/?` parameter to review the help and quick reference option. 
 

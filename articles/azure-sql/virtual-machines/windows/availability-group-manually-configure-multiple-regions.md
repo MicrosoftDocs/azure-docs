@@ -4,7 +4,6 @@ description: This article explains how to configure a SQL Server Always On avail
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 

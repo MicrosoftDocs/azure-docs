@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: santhoshsomayajula
 ms.date: 01/29/2020
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.service: azure-portal
 ms.custom: 

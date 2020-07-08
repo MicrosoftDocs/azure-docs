@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Data security
       items:
         - name: Encryption of secure assets
@@ -59,8 +63,12 @@
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
+        - name: Manage DNS record used by Automation
+          href: how-to/automation-region-dns-records.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
+        - name: Connect privately to Automation account
+          href: how-to/private-link-security.md
         - name: Manage role permissions and security
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription

@@ -1,8 +1,6 @@
 ---
 title: Analytics for the Microsoft commercial marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers in Microsoft Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

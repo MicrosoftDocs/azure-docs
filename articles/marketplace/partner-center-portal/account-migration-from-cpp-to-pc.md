@@ -1,8 +1,6 @@
 ---
 title: Migrate accounts from Cloud Partner Portal to Microsoft commercial marketplace
 description: Learn how to migrate your account from Cloud Partner Portal to Partner Center in Microsoft commercial marketplace for Azure
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -68,7 +68,7 @@ To encrypt the SAML response assertion:
 
 The following example shows the Azure AD B2C technical profile encryption section of the metadata:
 
-```XML
+```xml
 <KeyDescriptor use="encryption">
   <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
     <X509Data>
@@ -93,7 +93,7 @@ To read the SAML assertion **NameId** in the **Subject** as a normalized claim, 
 
 SAML assertion: 
 
-```XML
+```xml
 <saml:Subject>
   <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
 	<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
@@ -105,7 +105,7 @@ SAML assertion:
 
 Output claim:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
 ```
 
@@ -116,7 +116,7 @@ The following example shows the claims returned by a SAML identity provider:
 - The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
 - The **last_name** claim is mapped to the **surname** claim.
-- The **displayName** claim without name mapping.
+- The **displayName** claim is mapped to the **name** claim.
 - The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:

@@ -54,6 +54,9 @@ Be sure to select **Save** to apply your scaling settings.
 
 After a few seconds, the changes you made are displayed on the **Overview** page, with more details available in the **Application instances** tab. Scaling doesn't require any code changes or redeployment.
 
+## Upgrade to the Standard tier
+If you are on the Basic tier and constrained by one or more of these [limits](spring-cloud-quotas.md), you can upgrade to the Standard tier. To do this go to the Pricing tier menu by first selecting the Standard tier column and the clicking the **Upgrade** button.
+
 ## Next steps
 
 In this tutorial, you learned how to manually scale your Azure Spring Cloud applications. To learn how to monitor your application, continue to the next tutorial.
