@@ -2,7 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution (AVS)
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 07/16/2020
 ---
 
 # Azure VMware Solution (AVS) Preview networking and interconnectivity concepts
@@ -24,7 +24,7 @@ The two types of AVS private cloud interconnectivity are described in the sectio
 
 ## Azure virtual network interconnectivity
 
-The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It shows the logical, ExpressRoute-based networking between a virtual network in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
+The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It shows the logical, ExpressRoute-based networking between a virtual network in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:  
 - Inbound access to management networks where vCenter server and NSX-T manager are located.
     - Accessible from VMs within your Azure subscription, not from your on-premises systems.
 - Outbound access from VMs to Azure services.
