@@ -4,6 +4,8 @@ description: Learn how to migrate your account from Cloud Partner Portal to Part
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
 ---
 

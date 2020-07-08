@@ -4,8 +4,8 @@ description: Prerequisites for an Azure or Dynamics 365 consulting service offer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/08/2020
 ---
 
