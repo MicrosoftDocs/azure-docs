@@ -155,7 +155,8 @@ Yes, you can use the **Change Properties** option in the MARS agent to adjust th
 
 ### Manage
 
-**Can I recover if I forgot my passphrase?**
+#### Can I recover if I forgot my passphrase?
+
 The Azure Backup agent requires a passphrase (that you provided during registration) to decrypt the backed-up data during restore. Review the scenarios below to understand your options for handling a lost passphrase:
 
 | Original Machine <br> *(source machine where backups were taken)* | Passphrase | Available Options |
@@ -173,7 +174,7 @@ Consider the following conditions:
   * *Different passphrase*, you will not be able to restore your backed-up data.
 * If your original machine is corrupted (preventing you from regenerating the passphrase through the MARS console), but you can restore or access the original scratch folder used by the MARS agent, then you might be able to restore (if you forgot the password). For more assistance, contact Customer Support.
 
-**How do I recover if I lost my original machine (where backups were taken)?**
+#### How do I recover if I lost my original machine (where backups were taken)?
 
 If you have the same passphrase (that you provided during registration) of the original machine, then you can restore the backed-up data to an alternate machine. Review the scenarios below to understand your restore options.
 
@@ -181,6 +182,10 @@ If you have the same passphrase (that you provided during registration) of the o
 | --- | --- | --- |
 | Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Not possible to recover the data or data is not available |
+
+### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
+
+As a safety measure, Azure Backup will preserve the last recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 
@@ -190,7 +195,7 @@ If an ongoing restore job is canceled, the restore process stops. All files rest
 
 * The MARS agent backs up ACLs set on files, folders, and volumes
 * For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
-* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there is no option to skip ACL restore).
+* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there's no option to skip ACL restore).
 
 ## Next steps
 

@@ -80,7 +80,7 @@ The following are the settings that you configure the `azcmagent` command to use
 * `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
 * `resource-name` : (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname is used.
 
-You can learn more about the `azcmagent` command-line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
+You can learn more about the `azcmagent` command-line tool by reviewing the [Azcmagent Reference](./manage-agent.md).
 
 ### Windows installation script
 

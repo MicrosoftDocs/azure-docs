@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Effects of a policy definition"
 description: This Azure Policy pattern provides example of how to use the different effects of a policy definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: effects

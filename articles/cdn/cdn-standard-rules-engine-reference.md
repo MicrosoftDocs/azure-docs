@@ -33,6 +33,13 @@ Each rule can have up to ten match conditions and five actions. Each Azure CDN e
 
 Included in this limit is a default *global rule*. The global rule doesn't have match conditions; actions that are defined in a global rule always triggered.
 
+## Limits and pricing 
+
+Each Azure CDN endpoint can have up to 25 rules. Each rule can have up to ten match conditions and five actions. Pricing for Rules Engine follows the below dimensions: 
+- Rules: $1 per rule per month 
+- Requests Processed: $0.60 per million requets
+- The first 5 rules will remain free
+
 ## Syntax
 
 How special characters are treated in a rule varies based on how different match conditions and actions handle text values. A match condition or action can interpret text in one of the following ways:
