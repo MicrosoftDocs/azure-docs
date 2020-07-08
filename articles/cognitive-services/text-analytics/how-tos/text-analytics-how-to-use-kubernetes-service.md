@@ -50,6 +50,12 @@ This procedure requires several tools that must be installed and run locally. Do
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
+#### [Text Analytics for Health](#tab/health)
+
+[!INCLUDE [Text analytics for health Kubernetes config and deploy steps](../includes/health-kubernetes-config-deploy.md)]
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
+
 ***
 
 ## Next steps
