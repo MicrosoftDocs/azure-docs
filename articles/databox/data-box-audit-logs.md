@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 07/08/2020
 ms.author: alkohli
 ---
 
@@ -53,7 +53,7 @@ The following security log event IDs are collected as security audit logs on you
 
 |Event provider name                   |Event ID collected    |Event description       |
 |--------------------------------------|------------|----------|
-|Microsoft-Windows-Security-Auditing   |4624        |Successful logon |
+|Microsoft-Windows-Security-Auditing   |4624        |Successful logon. |
 |                                      |4625        |An account logon failed. Unknown user name or bad password. |
 |                                     
 
@@ -70,18 +70,18 @@ Here is a table summarizing the various event providers and the corresponding ev
 
 |Event provider name    |Event ID    | Notes |
 |-----------------|-----------------|-------------------|
-|Microsoft-Azure-DataBox-OOBE-Auditing |4624        |Successful logon|
+|Microsoft-Azure-DataBox-OOBE-Auditing |4624        |Successful logon.|
 |                                      |4625        |An account logon failed. Unknown user name or bad password.|
-|                                     |4634        |Log off event|
+|                                     |4634        |Log off event.|
 |                                   |  | |
-|Microsoft-Azure-DataBox-Reprovision-Audit    |65001       |Successful reprovision event|
-|                                                  |65002       |Failed reprovision event|
+|Microsoft-Azure-DataBox-Reprovision-Audit    |65001       |Successful reprovision event.|
+|                                                  |65002       |Failed reprovision event.|
 |                                                  |                 |         |
 |Microsoft-Azure-DataBox-HcsMgmt-Audit        |65003       |Prepare to ship state event     NotStarted,     InProgress,     Failed,     Cancelled,     Succeeded,     ScanCompletedWithIssues,     SucceededWithWarnings          |
 |                                                  |                 |     |
 |Microsoft-Azure-DataBox-IfxAudit    |All |All logs logged with audit log API in code |
 
-Here is an example of the IFX audit log:
+Here is an example of the Instrumentation Framework (IFX) audit log:
 
 |     Task/Job/API                              |     Events logged                                                                                                              | 
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -98,7 +98,7 @@ Here is an example of the IFX audit log:
 |     Password   reset                          |     The events related to successful or failed password reset for local StorSimpleAdmin user are logged. |
 
 
-Apart from the Instrumentation Framework audit logs, chain of custody audit logs are also collected for Data Box. These logs cannot be viewed in realtime but only after the job is completed and data is erased from the Data Box disks.
+Apart from the IFX audit logs, chain of custody audit logs are also collected for Data Box. These logs cannot be viewed in realtime but only after the job is completed and data is erased from the Data Box disks. These logs contain a subset of the information contained in the IFX audit logs.
 
 For more information about the chain of custody audit logs, see [Get chain of custody logs after data erasure](data-box-logs.md#get-chain-of-custody-logs-after-data-erasure).
 
@@ -106,7 +106,7 @@ For more information about the chain of custody audit logs, see [Get chain of cu
 
 ## Access audit logs
 
-These logs are stored in the Geneva Storage Management system in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md). 
+These logs are stored in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md). 
 
 Once the support ticket is filed, Microsoft will download and provide you access to these logs.
 
