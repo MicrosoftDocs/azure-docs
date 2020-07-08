@@ -25,7 +25,7 @@ When launching training runs on a [compute target](how-to-set-up-training-target
 
 Before you can initiate an experiment on a compute target or your local machine, you must ensure that the necessary files are available to that compute target, such as dependency files and data files your code needs to run.
 
-Azure Machine Learning runs training scripts by copying the entire script folder to the target compute context, and then takes a snapshot. If you have sensitive data that you do not want to upload, do not include it in the source directory; access your data using a datastore. The storage limit for experiment snapshots is 300 MB and/or 2000 files.
+Azure Machine Learning runs training scripts by copying the entire script folder to the target compute context, and then takes a snapshot. If you have sensitive data that you do not want to upload, do not include it in the source directory. Instead, access your data using a datastore. The storage limit for experiment snapshots is 300 MB and/or 2000 files.
 
 For this reason, we recommend:
 
