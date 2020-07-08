@@ -105,7 +105,7 @@ In this section, you create a .NET console app that sends cloud-to-device messag
 
    ![Configure a new project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. In Solution Explorer, right-click the new solution, and then select **Manage NuGet Packages**.
+1. In Solution Explorer, right-click the new project, and then select **Manage NuGet Packages**.
 
 1. In **Manage NuGet Packages**, select **Browse**, and then search for and select **Microsoft.Azure.Devices**. Select  **Install**.
 
