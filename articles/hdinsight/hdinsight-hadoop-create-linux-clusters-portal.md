@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/13/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/27/2020
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -58,6 +58,9 @@ Select **Next: Storage >>** to advance to the next tab.
 
 ## Storage
 
+> [!WARNING] 
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) using Azure Active Directory.
+
 ![HDInsight create cluster storage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creating a new cluster in the Azure portal - storage")
 
 ### Primary storage
@@ -89,7 +92,7 @@ From the **Security + networking** tab, provide the following information:
 |Property |Description |
 |---|---|
 |Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Optional: Select a TLS version from the drop-down list. For more information, see [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Optional: Select a TLS version from the drop-down list. For more information, see [Transport Layer Security](./transport-layer-security.md).|
 |Virtual network|Optional: Select an existing virtual network and subnet from the drop-down list. For information, see [Plan a virtual network deployment for Azure HDInsight clusters](hdinsight-plan-virtual-network-deployment.md). The article includes specific configuration requirements for the virtual network.|
 |Disk encryption settings|Optional: Select the check box to use encryption. For more information, see [Customer-managed key disk encryption](./disk-encryption.md).|
 |Kafka REST proxy|This setting is only available for cluster type Kafka. For more information, see [Using a REST proxy](./kafka/rest-proxy.md).|
@@ -136,11 +139,6 @@ Some of the icons in the window are explained as follows:
 |SSH + Cluster login|Provides information needed to access the cluster by using SSH.|
 |Delete|Deletes the HDInsight cluster.|
 
-## Customize clusters
-
-* [Customize HDInsight clusters by using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-* [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md)
-
 ## Delete the cluster
 
 See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
@@ -155,5 +153,4 @@ You've successfully created an HDInsight cluster. Now learn how to work with you
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Create a standalone application by using Scala](spark/apache-spark-create-standalone-application.md)
+* [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md)

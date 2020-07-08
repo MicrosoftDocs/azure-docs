@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
@@ -25,8 +25,8 @@ You can allow users in your organization to access their LinkedIn connections wi
 > Exceptions:
 >
 > * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Office 365 operated by 21Vianet in China.
-> * The setting is off by default for tenants provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
-> * The setting is off by default for tenants provisioned in France.
+> * The setting is off by default for Azure AD organizations provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
+> * The setting is off by default for organizations provisioned in France.
 >
 > Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user's access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 

@@ -43,7 +43,7 @@ To restrict access to an order, you can:
 - Assign a role at an order level. The user only has those permissions as defined by the roles to interact with that specific Data Box order only and nothing else.
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
-For more information on suggested RBAC use, see [Best practices for RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+For more information on suggested RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## Track the order
 

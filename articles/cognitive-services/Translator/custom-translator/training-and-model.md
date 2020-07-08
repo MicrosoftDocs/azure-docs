@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 #Customer intent: As a Custom Translator user, I want to concept of a model and training, so that I can efficiently use training, tuning and testing datasets the helps me build a translation model.
 ---
@@ -25,7 +25,7 @@ If only training data is provided when queuing a training, Custom Translator wil
 
 Documents included in training set are used by the Custom Translator as the basis for building your model. During training execution, sentences that are present in these documents are aligned (or paired). You can take liberties in composing your set of training documents. You can include documents that you believe are of tangential relevance in one model. Again exclude them in another to see the impact in [BLEU (Bilingual Evaluation Understudy) score](what-is-bleu-score.md). As long as you keep the tuning set and test set constant, feel free to experiment with the composition of the training set. This approach  is an effective way to modify the quality of your translation system.
 
-You can run multiple trainings within a project and compare the [BLEU scores](what-is-bleu-score.md) across all training runs. When you are running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the [“Testing”](how-to-view-system-test-results.md) tab.
+You can run multiple trainings within a project and compare the [BLEU scores](what-is-bleu-score.md) across all training runs. When you are running multiple trainings for comparison, ensure same tuning/ test data is specified each time. Also make sure to also inspect the results manually in the ["Testing"](how-to-view-system-test-results.md) tab.
 
 ## Tuning document type for Custom Translator
 

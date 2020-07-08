@@ -1,8 +1,8 @@
-﻿---
+---
 title: Template with dependent resources
 description: Learn how to create an Azure Resource Manager template with multiple resources, and how to deploy it using the Azure portal
 author: mumian
-ms.date: 04/10/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -18,7 +18,7 @@ In this tutorial, you create a storage account, a virtual machine, a virtual net
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a QuickStart template
+> * Open a Quickstart template
 > * Explore the template
 > * Deploy the template
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
@@ -39,7 +39,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -91,11 +91,11 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code Azure Resource Manager templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. The dependsOn element enables you to define one resource as a dependent on one or more resources.  This resource depends on one other resource:
+    The dependsOn element enables you to define one resource as a dependent on one or more resources. This resource depends on one other resource:
 
     * `Microsoft.Network/networkSecurityGroups`
 
-1. Expand the fifty resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
+1. Expand the fifth resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
@@ -113,9 +113,33 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
-1. Follow the instructions in [Deploy the template](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud Shell and upload the revised template.
+1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
+
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
+
+    ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved earlier. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
 
 1. Run the following PowerShell script to deploy the template.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
@@ -136,19 +160,7 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Run the following PowerShell command to list the newly created virtual machine:
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $resourceGroupName = "${projectName}rg"
-    $vmName = "SimpleWinVM"
-
-    Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
-    
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
+    ---
 
 1. RDP to the virtual machine to verify the virtual machine has been created successfully.
 
@@ -158,7 +170,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name. You'll see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

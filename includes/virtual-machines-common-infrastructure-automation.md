@@ -95,8 +95,8 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/terraform/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/terraform/terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](/azure/developer/terraform/getting-started-cloud-shell).
+- [Create an Azure infrastructure with Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
 ## Azure Automation
@@ -120,7 +120,7 @@ Learn more about:
 
 
 ## Jenkins
-[Jenkins](https://www.jenkins.io) is a continuous integration server that helps deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
+[Jenkins](https://jenkins.io) is a continuous integration server that helps deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
 
 Learn how to:
 

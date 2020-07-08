@@ -46,17 +46,17 @@ Here's the binding data in the *function.json* file:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -91,17 +91,17 @@ Here's the binding data in the *function.json* file:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -191,19 +191,19 @@ Here's the binding data in the *function.json* file:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ]
 }
@@ -232,19 +232,19 @@ Here's the binding data in the *function.json* file:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ],
 "disabled": false

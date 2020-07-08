@@ -1,5 +1,5 @@
 ---
-title: Get support for the Commercial Marketplace portal in Partner Center
+title: Get support for the commercial marketplace portal in Partner Center
 description: Learn about your support options in Partner Center, including how to file a support request.
 author: qianw211
 ms.author: dsindona 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/07/2020
 ---
 
-# Support for the Commercial Marketplace program in Partner Center
+# Support for the commercial marketplace program in Partner Center
 
 Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team: 
 

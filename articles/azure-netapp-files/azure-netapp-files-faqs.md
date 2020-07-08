@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -41,6 +41,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 > [!NOTE] 
 > Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
 
+### Can I set or select my own IP address for an Azure NetApp Files volume?  
+
+No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+ 
 ## Security FAQs
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
@@ -116,6 +120,10 @@ Root squashing is currently not supported.
 
 ## SMB FAQs
 
+### Which SMB versions are supported by Azure NetApp Files?
+
+Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0).    
+
 ### Is an Active Directory connection required for SMB access? 
 
 Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) for details. 
@@ -164,23 +172,26 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
 
 For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
 
 Examples:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## Data migration and protection FAQs
 
@@ -225,5 +236,5 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)

@@ -35,7 +35,7 @@ This article provides information about both scenarios: using the DSC extension 
 ## Prerequisites
 
 - **Local machine**: To interact with the Azure VM extension, you must use either the Azure portal or the Azure PowerShell SDK.
-- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
 ## Terms and concepts
 
@@ -100,7 +100,7 @@ The **Get-AzVMDscExtension** cmdlet retrieves the DSC extension status of a spec
 
 The **Get-AzVMDscExtensionStatus** cmdlet retrieves the status of the DSC configuration that's enacted by the DSC extension handler. This action can be performed on a single VM or on a group of VMs.
 
-The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler. 
+The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler.
 
 Important information about Resource Manager DSC extension cmdlets:
 
@@ -186,7 +186,7 @@ The portal collects the following input:
 
 - **Configuration Arguments**: If the configuration function takes arguments, enter them here in the format **argumentName1=value1,argumentName2=value2**. This format is a different format in which configuration arguments are accepted in PowerShell cmdlets or Resource Manager templates.
 
-- **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
+- **Configuration Data PSD1 File**: Your configuration requires a configuration data file in .psd1, use this field to select the data file and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
 - **WMF Version**: Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to latest installs the most recent version of WMF. Currently, the only possible values for this property are 4.0, 5.0, 5.1, and latest. These possible values are subject to updates. The default value is **latest**.
 

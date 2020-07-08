@@ -9,7 +9,7 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
 ---
@@ -30,7 +30,7 @@ The **Organizations** page of the **My Account** portal helps you to manage the 
 
 ## View your organizations
 
-1. Sign in to your work or school account, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
+1. Sign in to your work or school account, and then go to the **My Account** (https://myaccount.microsoft.com/) page.
 
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 

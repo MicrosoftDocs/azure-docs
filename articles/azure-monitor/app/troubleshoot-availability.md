@@ -4,7 +4,7 @@ description: Troubleshoot web tests in Azure Application Insights. Get alerts if
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/19/2019
+ms.date: 04/28/2020
 
 ms.reviewer: sdash
 ---
@@ -63,6 +63,10 @@ Check the classic alerts configuration to confirm your email is directly listed,
 ### I did not receive the webhook notification?
 
 Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) for more information.
+
+### I am getting  403 Forbidden errors, what does this mean?
+
+This error indicates that you need to add firewall exceptions to allow the availability agents to test your target url. For a full list of agent IP addresses to allow, consult the [IP exception article](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 ### Intermittent test failure with a protocol violation error?
 

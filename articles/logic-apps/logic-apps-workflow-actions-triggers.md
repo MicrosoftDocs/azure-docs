@@ -3,9 +3,9 @@ title: Schema reference for trigger and action types
 description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 06/10/2020
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -68,7 +68,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a "202" asynchronous pattern or by returning an array. | 
+| [**HTTP**](#http-trigger) | Checks or *polls* any endpoint. This endpoint must conform to a specific trigger contract either by using a `202` asynchronous pattern or by returning an array. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Creates a callable endpoint for your logic app but calls the specified URL to register or unregister. |
 | [**Recurrence**](#recurrence-trigger) | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running your workflow. | 
 | [**Request**](#request-trigger)  | Creates a callable endpoint for your logic app and is also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
@@ -219,15 +219,15 @@ This trigger sends a subscription request to an endpoint by using a [Microsoft-m
 |-------|------|-------------| 
 | <*connection-name*> | String | The name for the connection to the managed API that the workflow uses | 
 | <*body-content*> | JSON Object | Any message content to send as payload to the managed API | 
-|||| 
+||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*max-runs*> | Integer | By default, workflow instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| Value | Type | Description |
+|-------|------|-------------|
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| <*max-runs*> | Integer | By default, workflow instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
@@ -264,7 +264,7 @@ This trigger definition subscribes to the Office 365 Outlook API, provides a cal
 
 ### HTTP trigger
 
-This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs.
+This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs. For more information, see [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -321,23 +321,21 @@ This trigger sends a request to the specified HTTP or HTTPS endpoint based on th
 *Outputs*
 
 | Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the response | 
-| body | JSON Object | The body from the response | 
-| status code | Integer | The status code from the response | 
-|||| 
+|---------|------|-------------|
+| `headers` | JSON Object | The headers from the response |
+| `body` | JSON Object | The body from the response |
+| `status code` | Integer | The status code from the response |
+||||
 
 *Requirements for incoming requests*
 
-To work well with your logic app, the endpoint must 
-conform to a specific trigger pattern or contract, 
-and recognize these properties:  
-  
-| Response | Required | Description | 
-|----------|----------|-------------| 
-| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
-| Retry-after header | No | The number of seconds until your logic app polls the endpoint again | 
-| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
+To work well with your logic app, the endpoint must conform to a specific trigger pattern or contract, and recognize these response properties:
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. |
+| Retry-after header | No | The number of seconds until your logic app polls the endpoint again |
+| Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. |
 |||| 
 
 *Example behaviors for different requests*
@@ -1208,7 +1206,7 @@ This action definition calls the previously created "GetProductID" function:
 
 ### HTTP action
 
-This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs.
+This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs. For more information, see [Call service endpoints over HTTP or HTTPS from Azure Logic Apps](../connectors/connectors-native-http.md).
 
 ```json
 "HTTP": {
@@ -2404,7 +2402,7 @@ You can change the default behavior for triggers and actions with the `operation
 
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#asynchronous-patterns). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
+| `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
 | `OptimizedForHighThroughput` | String | Change the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) on the number of action executions per 5 minutes to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>To set this option, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
@@ -2668,14 +2666,52 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 1. Drag the **Degree of Parallelism** slider to the number `1`.
 
-<a name="asynchronous-patterns"></a>
+<a name="disable-asynchronous-pattern"></a>
 
-### Run actions synchronously
+### Run actions in a synchronous operation pattern
 
-By default, all HTTP-based actions follow the standard asynchronous operation pattern. This pattern specifies that when an HTTP-based action sends a request to the specified endpoint, the remote server sends back a "202 ACCEPTED" response. This reply means the server accepted the request for processing. The Logic Apps engine keeps checking the URL specified by the response's location header until processing stops, which is any non-202 response.
+By default, the HTTP action and APIConnection actions in Azure Logic Apps follow the standard [*asynchronous operation pattern*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. The asynchronous pattern specifies that after an action calls or sends a request to the specified endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
-However, requests have a timeout limit, so for long-running actions, you can disable the asynchronous behavior by adding and setting 
-the `operationOptions` property to `DisableAsyncPattern` under the action's inputs.
+* In the Logic App Designer, the HTTP action, APIConnection actions, and Response action have the **Asynchronous Pattern** setting. When enabled, this setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action. To find this setting, follow these steps:
+
+  1. On the HTTP action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+
+  1. Find the **Asynchronous Pattern** setting.
+
+     !["Asynchronous Pattern" setting](./media/logic-apps-workflow-actions-triggers/asynchronous-pattern-setting.png)
+
+* In the action's underlying JavaScript Object Notation (JSON) definition, the HTTP action and APIConnection actions implicitly follow the asynchronous operation pattern.
+
+In some scenarios, you might want an action to follow the synchronous pattern instead. For example, when you use the HTTP action, you might want to:
+
+* [Avoid HTTP timeouts for long-running tasks](../connectors/connectors-native-http.md#avoid-http-timeouts)
+* [Disable checking location headers](../connectors/connectors-native-http.md#disable-location-header-check)
+
+In these cases, you can make an action run synchronously by using these options:
+
+* Replace the polling version of that action with a webhook version, if available.
+
+* Disable the action's asynchronous behavior by following either option:
+
+  * In the Logic App Designer, [turn off the **Asynchronous Pattern** setting](#turn-off-asynchronous-pattern-setting).
+
+  * In the action's underlying JSON definition, [add the `"DisableAsyncPattern"` operation option](#add-disable-async-pattern-option).
+
+<a name="turn-off-asynchronous-pattern-setting"></a>
+
+#### Turn off **Asynchronous Pattern** setting
+
+1. In the Logic App Designer, on the action's title bar, select the ellipses (**...**) button, which opens the action's settings.
+
+1. Find the **Asynchronous Pattern** setting, turn the setting to **Off** if enabled, and select **Done**.
+
+   ![Turn off "Asynchronous Pattern" setting](./media/logic-apps-workflow-actions-triggers/disable-asynchronous-pattern-setting.png)
+
+<a name="add-disable-async-pattern-option"></a>
+
+#### Disable asynchronous pattern in action's JSON definition
+
+In the action's underlying JSON definition, add and set the ["operationOptions" property](#operation-options) to `"DisableAsyncPattern"` under the action's `"inputs"` section, for example:
 
 ```json
 "<some-long-running-action>": {
@@ -2685,8 +2721,6 @@ the `operationOptions` property to `DisableAsyncPattern` under the action's inpu
    "runAfter": {}
 }
 ```
-
-For more information, see [Operation options](#operation-options).
 
 <a name="run-high-throughput-mode"></a>
 

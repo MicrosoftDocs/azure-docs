@@ -31,6 +31,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 
     ```python
     from azure.storage.blob import BlockBlobService
+    import pandas as pd
     import tables
 
     STORAGEACCOUNTNAME= <storage_account_name>
@@ -44,7 +45,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
     blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
     t2=time.time()
-    print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+    print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
     ```
 
 1. Read the data into a pandas DataFrame from the downloaded file.

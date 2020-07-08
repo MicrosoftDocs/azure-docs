@@ -16,7 +16,7 @@ ms.author: iainfou
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
 
-[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain an Azure AD DS managed domain. If a service principal is deleted, functionality in the Azure AD DS managed domain is impacted.
+[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain an Azure Active Directory Domain Services (Azure AD DS) managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
 
 This article helps you troubleshoot and resolve service principal-related configuration alerts.
 
@@ -26,7 +26,7 @@ This article helps you troubleshoot and resolve service principal-related config
 
 *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
-If a required service principal is deleted, the Azure platform can't perform automated management tasks. The Azure AD DS managed domain may not correctly apply updates or take backups.
+If a required service principal is deleted, the Azure platform can't perform automated management tasks. The managed domain may not correctly apply updates or take backups.
 
 ### Check for missing service principals
 
@@ -60,18 +60,18 @@ If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Az
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
+The managed domain's health automatically updates itself within two hours and removes the alert.
 
 ### Re-register the Microsoft AAD namespace
 
 If application ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*, or *d87dcbc6-a371-462e-88e3-28ad15ec4e64* is missing from your Azure AD directory, complete the following steps to re-register the *Microsoft.AAD* resource provider:
 
 1. In the Azure portal, search for and select **Subscriptions**.
-1. Choose the subscription associated with your Azure AD DS managed domain.
+1. Choose the subscription associated with your managed domain.
 1. From the left-hand navigation, choose **Resource Providers**.
 1. Search for *Microsoft.AAD*, then select **Re-register**.
 
-The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
+The managed domain's health automatically updates itself within two hours and removes the alert.
 
 ## Alert AADDS105: Password synchronization application is out of date
 
@@ -98,10 +98,10 @@ To recreate the Azure AD application used for credential synchronization, use Az
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-After you delete both applications, the Azure platform automatically recreates them and tries to resume password synchronization. The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
+After you delete both applications, the Azure platform automatically recreates them and tries to resume password synchronization. The managed domain's health automatically updates itself within two hours and removes the alert.
 
 ## Next steps
 

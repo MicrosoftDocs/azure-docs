@@ -65,6 +65,9 @@ For troubleshooting network issues, refer to the [Troubleshooting Guide](../reso
 The following software must be installed:
 
 * The latest version of **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+  * **Desktop development with C++**
+  * **Universal Windows Platform (UWP) development**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
 * Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).

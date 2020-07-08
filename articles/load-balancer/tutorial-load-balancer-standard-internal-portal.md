@@ -175,6 +175,8 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    - **Backend pool**: Select **MyBackendPool**.
    - **Health probe**: Select **MyHealthProbe**. 
    
+To configure [High Availability Ports](load-balancer-ha-ports-overview.md) by using the Azure portal, select the **HA Ports** check box. When selected, the related port and protocol configuration is automatically populated. 
+
 1. Select **OK**.
    
    ![Add a load balancer rule](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
@@ -35,6 +35,10 @@ The scheduler is responsible for two tasks:
 * **Maintenance tasks**. Renew keys and certificates for Password reset and Device Registration Service (DRS). Purge old entries in the operations log.
 
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example, if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
+
+>[!IMPORTANT]
+>You will need to make sure that a synchronization cycle is run at least once every 7 days. Failure to do so may cause synchronization issues which will require you to run a full synchronization to resolve.
+
 
 ## Scheduler configuration
 To see your current configuration settings, go to PowerShell and run `Get-ADSyncScheduler`. It shows you something like this picture:

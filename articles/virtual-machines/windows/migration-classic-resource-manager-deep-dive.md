@@ -1,19 +1,11 @@
 ---
 title: Classic to Azure Resource Manager migration technical deep dive
 description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 1ee40d32-a5e8-42a2-97d0-3232fd3cbb98
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari REST API
@@ -18,7 +18,7 @@ Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop 
 
 ## What is Apache Ambari
 
-[Apache Ambari](https://ambari.apache.org) simplifies the management and monitoring of Hadoop clusters by providing an easy to use web UI backed by its [REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari is provided by default with Linux-based HDInsight clusters.
+Apache Ambari simplifies the management and monitoring of Hadoop clusters by providing an easy to use web UI backed by its [REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari is provided by default with Linux-based HDInsight clusters.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop 
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* Windows PowerShell.  Or you can use [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  Or you can use Bash.
 
 ## Base Uniform Resource Identifier for Ambari Rest API
 
@@ -359,7 +359,9 @@ This example returns a JSON document containing the current configuration for th
 2. Edit `newconfig.json`.  
    Open the `newconfig.json` document and modify/add values in the `properties` object. The following example changes the value of `"livy.server.csrf_protection.enabled"` from `"true"` to `"false"`.
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     Save the file once you're done making modifications.
 

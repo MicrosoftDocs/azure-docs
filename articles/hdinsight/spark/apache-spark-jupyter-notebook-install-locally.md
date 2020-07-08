@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020, tracking-python
+ms.date: 04/23/2020
 ---
 
 # Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
@@ -177,5 +177,5 @@ Reasons to install Jupyter on your computer and then connect it to an Apache Spa
 ## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark with BI: Analyze Apache Spark data using Power BI in HDInsight](apache-spark-use-bi-tools.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+* [Kernels for Jupyter notebook on Apache Spark](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

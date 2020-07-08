@@ -5,7 +5,6 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
@@ -34,9 +33,7 @@ The following snippet shows the format for the requirements file. The PyPi packa
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 
@@ -47,6 +44,16 @@ The UI for adding libraries is in the **Additional settings** tab of the **Creat
 Upload the environment configuration file using the file selector in the **Packages** section of the page.
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Add Python libraries")
+
+### Verifying installed libraries
+
+To verify if the correct versions of the correct libraries are installed run the following code
+
+```python
+import pip #needed to use the pip functions
+for i in pip.get_installed_distributions(local_only=True):
+    print(i)
+```
 
 ## Next steps
 

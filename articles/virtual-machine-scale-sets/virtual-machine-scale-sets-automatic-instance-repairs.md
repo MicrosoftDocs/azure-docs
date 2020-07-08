@@ -2,15 +2,13 @@
 title: Automatic instance repairs with Azure virtual machine scale sets
 description: Learn how to configure automatic repairs policy for VM instances in a scale set
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
@@ -87,6 +85,8 @@ If the [terminate notification](./virtual-machine-scale-sets-terminate-notificat
 
 For enabling automatic repairs policy while creating a new scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. For newly created scale sets, any instance repairs are performed only after waiting for the duration of grace period. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the virtual machine scale set model.
 
+You can also use this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) to deploy a virtual machine scale set with load balancer health probe and automatic instance repairs enabled with a grace period of 30 minutes.
+
 ### Azure portal
  
 The following steps enabling automatic repairs policy when creating a new scale set.
@@ -148,7 +148,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 The above example uses an existing load balancer and health probe for monitoring application health status of instances. If you prefer to use an application health extension for monitoring instead, you can create a scale set, configure the application health extension and then enable the automatic instance repairs policy using the *az vmss update*, as explained in the next section.
@@ -211,7 +211,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## Viewing and updating the service state of automatic instance repairs policy

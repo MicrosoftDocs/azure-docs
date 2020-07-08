@@ -36,7 +36,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2019](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) version 16.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Obtain a certificate or create a self-signed development certificate
@@ -123,7 +123,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
+                        listenOptions.UseHttps(FindMatchingCertificateBySubject());
                         listenOptions.NoDelay = true;
                     });
                 })
@@ -153,11 +153,11 @@ Be aware that in the case of local deployment to `localhost` it's preferable to 
 ```csharp
 private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
-	using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
-	{
-		store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
-		var certCollection = store.Certificates;
-		var matchingCerts = new X509Certificate2Collection();
+    using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
+    {
+        store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
+        var certCollection = store.Certificates;
+        var matchingCerts = new X509Certificate2Collection();
     
     foreach (var enumeratedCert in certCollection)
     {
@@ -169,13 +169,13 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
         }
     }
 
-		if (matchingCerts.Count == 0)
+        if (matchingCerts.Count == 0)
     {
         throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
     }
-		
-		return matchingCerts[0];
-	}
+        
+        return matchingCerts[0];
+    }
 }
 
 
@@ -277,12 +277,12 @@ if ($cert -eq $null)
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
 
-	    $permission=$userGroup,"Full","Allow"
-	    $accessRule=new-object System.Security.AccessControl.FileSystemAccessRule $permission
-	    $acl.AddAccessRule($accessRule)
-	    Set-Acl $fullPath $acl
+        $permission=$userGroup,"Full","Allow"
+        $accessRule=new-object System.Security.AccessControl.FileSystemAccessRule $permission
+        $acl.AddAccessRule($accessRule)
+        Set-Acl $fullPath $acl
 
-	    Write-Output "Permissions were added"
+        Write-Output "Permissions were added"
 
         return $true;
     }
@@ -395,7 +395,7 @@ $slb | Set-AzLoadBalancer
 
 Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solution Explorer, right-click on **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), or select another cluster.  Click **Publish** to publish the application to the remote cluster.
 
-When the application deploys, open a web browser and navigate to [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
+When the application deploys, open a web browser and navigate to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
 ![Voting application][image3]
 

@@ -59,7 +59,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Initial replication method](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server machine) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
+    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server computer) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
 
     Once the initial backup is complete, the rest of the backups are incremental backups on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
@@ -67,7 +67,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
+    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
 
 10. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 

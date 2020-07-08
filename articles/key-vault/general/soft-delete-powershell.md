@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # How to use Key Vault soft-delete with PowerShell
 
-Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
+Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
 - Support for recoverable deletion of a key vault
 - Support for recoverable deletion of key vault objects; keys, secrets, and, certificates
@@ -50,7 +50,7 @@ For more information on permissions and access control, see [Secure your key vau
 You enable "soft-delete" to allow recovery of a deleted key vault, or objects stored in a key vault.
 
 > [!IMPORTANT]
-> Enabling 'soft delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
+> Enabling 'soft-delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
 
 ### Existing key vault
 
@@ -262,17 +262,17 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 ## Enabling Purge Protection
 
-When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed. The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
-You can enable purge protection only if soft-delete is also enabled. 
+You can enable purge protection only if soft-delete is also enabled. Disabling purge protection isn't supported at this time. 
 
-To turn on both soft delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+To turn on both soft-delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-To add purge protection to an existing vault (that already has soft delete enabled), use the [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), and [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+To add purge protection to an existing vault (that already has soft-delete enabled), use the [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), and [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"

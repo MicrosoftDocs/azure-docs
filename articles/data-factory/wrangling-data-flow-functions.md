@@ -11,9 +11,12 @@ ms.date: 11/01/2019
 
 # Transformation functions in wrangling data flow
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Wrangling data flow in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale. Wrangling data flow integrates with [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) and makes Power Query M functions available for data wrangling via spark execution. 
+
+> [!NOTE]
+> Wrangling data flow is currently avilable in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you'll be prompted with the following error message if a function isn't supported:
 

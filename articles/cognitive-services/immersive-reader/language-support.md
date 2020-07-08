@@ -28,16 +28,16 @@ This article lists supported human languages for Immersive Reader features.
 | Catalan | ca-ES |
 | Chinese | zh |
 | Chinese (China) | zh-CN |
-| Chinese (Hong Kong) | zh-HK |
-| Chinese (Macao) | zh-MO |
+| Chinese (Hong Kong SAR) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
 | Chinese Simplified | zh-Hans |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
 | Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
@@ -130,16 +130,16 @@ This article lists supported human languages for Immersive Reader features.
 | Catalan | ca-ES |
 | Chinese | zh |
 | Chinese (China) | zh-CN |
-| Chinese (Hong Kong) | zh-HK |
-| Chinese (Macao) | zh-MO |
+| Chinese (Hong Kong SAR) | zh-HK |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinese (Taiwan) | zh-TW |
 | Chinese Simplified | zh-Hans |
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
 | Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |
@@ -262,8 +262,8 @@ This article lists supported human languages for Immersive Reader features.
 | Chinese Simplified (China) | zh-Hans-CN |
 | Chinese Simplified (Singapore) | zh-Hans-SG |
 | Chinese Traditional | zh-Hant-CN |
-| Chinese Traditional (Hong Kong) | zh-Hant-HK |
-| Chinese Traditional (Macao) | zh-Hant-MO |
+| Chinese Traditional (Hong Kong SAR) | zh-Hant-HK |
+| Chinese Traditional (Macao SAR) | zh-Hant-MO |
 | Chinese Traditional (Taiwan) | zh-Hant-TW |
 | Croatian | hr |
 | Croatian (Croatia) | hr-HR |

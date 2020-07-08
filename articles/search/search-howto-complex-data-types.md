@@ -23,7 +23,7 @@ Azure Cognitive Search natively supports complex types and collections. These ty
 To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
 
 > [!Note]
-> Support for complex types is generally available in `api-version=2019-05-06`. 
+> Support for complex types became generally available starting in `api-version=2019-05-06`. 
 >
 > If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration-version-9.md).
 

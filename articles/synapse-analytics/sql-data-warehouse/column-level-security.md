@@ -6,14 +6,13 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 02/05/2020
+ms.subservice: sql-dw 
+ms.date: 04/19/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ---
-
 # Column-level Security
 
 Column-Level Security allows customers to control access to table columns based on the user's execution context or group membership.
@@ -29,7 +28,7 @@ You could implement column-level security with the [GRANT](/sql/t-sql/statements
 
 ## Syntax
 
-```sql
+```syntaxsql
 GRANT <permission> [ ,...n ] ON
     [ OBJECT :: ][ schema_name ]. object_name [ ( column [ ,...n ] ) ]
     TO <database_principal> [ ,...n ]
@@ -72,8 +71,8 @@ Queries executed as `TestUser` will fail if they include the SSN column:
 ```sql
 SELECT * FROM Membership;
 
-Msg 230, Level 14, State 1, Line 12
-The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
+-- Msg 230, Level 14, State 1, Line 12
+-- The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
 ## Use Cases

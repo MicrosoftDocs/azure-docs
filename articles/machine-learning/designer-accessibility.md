@@ -9,6 +9,7 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
+ms.custom: designer
 ---
 
 # Use a keyboard to use Azure Machine Learning designer (preview)

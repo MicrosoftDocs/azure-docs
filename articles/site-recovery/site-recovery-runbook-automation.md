@@ -52,6 +52,9 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 | RoleName |The name of the Azure VM. |
 | RecoveryPointId|The timestamp for the VM recovery. |
 
+>[!Note]
+>The value for variable 'FailoverDirection' will be 'PrimaryToSecondary' in case of failover and 'SecondaryToPrimary' in case of failback.
+
 The following example shows a context variable:
 
 ```
