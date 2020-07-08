@@ -10,13 +10,13 @@
  ms.custom: include file
 ---
 1. Does not support ultra disks.
-1.	Currently available in GA only in westus, westus2, eastus, eastus2, southcentralus, usgoveast, usgovsw regions.
-1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/virtual machine scale sets.
-1.	You have to deallocate your existing VMs to enable the encryption.
-1.	You can enable the encryption for existing virtual machine scale set. However, only new VMs created after enabling the encryption are encrypted.
+1. Currently available in GA only in westus, westus2, eastus, eastus2, southcentralus, usgoveast, usgovsw regions.
+1. You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/virtual machine scale sets.
+1. You have to deallocate your existing VMs to enable the encryption.
+1. You can enable the encryption for existing virtual machine scale set. However, only new VMs created after enabling the encryption are encrypted.
 1. Legacy VM Sizes are not supported. You can find the list of supported VM sizes by:
 
-   a. Calling the [Resource Skus API](https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) and checking that the   EncryptionAtHostSupported capability is set to True
+   a. Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the   EncryptionAtHostSupported capability is set to True
    ```json
         {
          "resourceType": "virtualMachines",
@@ -35,7 +35,7 @@
          ]
        }
     ```   
-   b. Calling the [Get-AzComputeResourceSku](https://docs.microsoft.com/en-us/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet 
+   b. Calling the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet 
     ```powershell
     $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
 
