@@ -99,15 +99,15 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 
     ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Enter `cmd` to create a channel that has a CMD instance.
+1. Enter `cmd` to create a channel that has a CMD instance.
 
-1.    Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
+1. Enter `ch -si 1` or press `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
 
-1.    Press **Enter**, and then enter sign-in credentials with administrative permissions.
+1. Press **Enter**, and then enter sign-in credentials with administrative permissions.
 
-1.    After you've entered valid credentials, the CMD instance opens.
+1. After you've entered valid credentials, the CMD instance opens.
 
-1.    To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
+1. To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
 
     ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
