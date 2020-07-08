@@ -320,3 +320,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (replace 'test' with desired login name and adjust policy and expiration values)
+
+## Azure feedback and support
+
+**Where can I leave my ideas for SQL Managed Instance improvements?**
+
+You can vote for a new Managed Instance feature or put a new improvement idea on voting on [SQL Managed Instance Feedback Forum](https://feedback.azure.com/forums/915676-sql-managed-instance). This way you can contribute to the product development and help us prioritize our potential improvements.
+
+**How can I create Azure support request?**
+
+To learn how to create Azure support request, see [How to create Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+
