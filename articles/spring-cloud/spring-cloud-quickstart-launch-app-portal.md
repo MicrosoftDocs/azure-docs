@@ -135,10 +135,12 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 az extension add --name spring-cloud
 ```
 
-    ```azurecli
-    az spring-cloud app create -n gateway
-    az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
-    ```
+Using the Spring Cloud extension, create the app:
+
+```azurecli
+az spring-cloud app create -n gateway
+az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
+```
 
 5. Following the same pattern, create the `account-service` and `auth-service` applications and deploy their JAR files.
 
