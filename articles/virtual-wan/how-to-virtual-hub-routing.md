@@ -17,6 +17,10 @@ A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, 
 
 For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
+> [!NOTE]
+> Some of these capabilities may still be rolling out and expected to complete in week of Aug 3rd.
+>
+
 ## <a name="create-table"></a>Create a route table
 
 1. In the Azure portal, navigate to the virtual hub.
