@@ -112,42 +112,42 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
       {
         "@search.action": "upload",  
         "id": "1",
-        "phone_number": "425-555-2311"
+        "phone_number": "425-555-0100"
       },
       {
         "@search.action": "upload",  
         "id": "2",
-        "phone_number": "(321) 555-5784"
+        "phone_number": "(321) 555-0199"
       },
       {  
         "@search.action": "upload",  
         "id": "3",
-        "phone_number": "+1 425-555-2311"
+        "phone_number": "+1 425-555-0100"
       },
       {  
         "@search.action": "upload",  
         "id": "4",  
-        "phone_number": "+1 (321) 555-5784"
+        "phone_number": "+1 (321) 555-0199"
       },
       {
         "@search.action": "upload",  
         "id": "5",
-        "phone_number": "4255552311"
+        "phone_number": "4255550100"
       },
       {
         "@search.action": "upload",  
         "id": "6",
-        "phone_number": "13215555784"
+        "phone_number": "13215550199"
       },
       {
         "@search.action": "upload",  
         "id": "7",
-        "phone_number": "425 555 2311"
+        "phone_number": "425 555 0100"
       },
       {
         "@search.action": "upload",  
         "id": "8",
-        "phone_number": "321.555.5784"
+        "phone_number": "321.555.0199"
       }
     ]  
   }
@@ -157,12 +157,12 @@ With the data in the index, we're ready to start searching.
 
 ### Search
 
-To make the search intuitive, it's best to not expect users to format queries in a specific way. A user could search for `(425) 555-2311` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample queries to see how they perform.
+To make the search intuitive, it's best to not expect users to format queries in a specific way. A user could search for `(425) 555-0100` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample queries to see how they perform.
 
-We start by searching `(425) 555-2311`:
+We start by searching `(425) 555-0100`:
 
 ```http
-GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=(425) 555-2311
+GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=(425) 555-0100
   Content-Type: application/json
   api-key: <YOUR-ADMIN-API-KEY>  
 ```
@@ -174,32 +174,32 @@ This query returns **three out of four expected results** but also returns **two
     "value": [
         {
             "@search.score": 0.05634898,
-            "phone_number": "+1 425-555-2311"
+            "phone_number": "+1 425-555-0100"
         },
         {
             "@search.score": 0.05634898,
-            "phone_number": "425 555 2311"
+            "phone_number": "425 555 0100"
         },
         {
             "@search.score": 0.05634898,
-            "phone_number": "425-555-2311"
+            "phone_number": "425-555-0100"
         },
         {
             "@search.score": 0.020766128,
-            "phone_number": "(321) 555-5784"
+            "phone_number": "(321) 555-0199"
         },
         {
             "@search.score": 0.020766128,
-            "phone_number": "+1 (321) 555-5784"
+            "phone_number": "+1 (321) 555-0199"
         }
     ]
 }
 ```
 
-Next, let's search a number without any formatting `425555311`
+Next, let's search a number without any formatting `4255550100`
 
 ```http
-GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=425555311
+GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=4255550100
   api-key: <YOUR-ADMIN-API-KEY>
 ```
 
@@ -210,7 +210,7 @@ This query does even worse, only returning **one of four correct matches**.
     "value": [
         {
             "@search.score": 0.6015292,
-            "phone_number": "4255552311"
+            "phone_number": "4255550100"
         }
     ]
 }
@@ -265,7 +265,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-	  "text": "(425) 555-2311",
+	  "text": "(425) 555-0100",
 	  "analyzer": "standard.lucene"
   }
 ```
@@ -288,7 +288,7 @@ The API then returns a list of the tokens extracted from the text. You can see t
             "position": 1
         },
         {
-            "token": "2311",
+            "token": "0100",
             "startOffset": 10,
             "endOffset": 14,
             "position": 2
@@ -297,11 +297,11 @@ The API then returns a list of the tokens extracted from the text. You can see t
 }
 ```
 
-Conversely, the phone number `4255552311` formatted without any punctuation is tokenized into a single token.
+Conversely, the phone number `4255550100` formatted without any punctuation is tokenized into a single token.
 
 ```json
 {
-  "text": "4255552311",
+  "text": "4255550100",
   "analyzer": "standard.lucene"
 }
 ```
@@ -310,7 +310,7 @@ Conversely, the phone number `4255552311` formatted without any punctuation is t
 {
     "tokens": [
         {
-            "token": "4255552311",
+            "token": "4255550100",
             "startOffset": 0,
             "endOffset": 10,
             "position": 0
@@ -321,7 +321,7 @@ Conversely, the phone number `4255552311` formatted without any punctuation is t
 
 Keep in mind that both query terms and the indexed documents are analyzed. Thinking back to the search results from the previous step, we can start to see why those results were returned.
 
-In the first query, the incorrect phone numbers were returned because one of their terms, `555`, matched one of the terms we searched. In the second query, only the one number was returned because it was the only record that had a term matching `4255552311`.
+In the first query, the incorrect phone numbers were returned because one of their terms, `555`, matched one of the terms we searched. In the second query, only the one number was returned because it was the only record that had a term matching `4255550100`.
 
 ## 5 - Build a custom analyzer
 
@@ -358,8 +358,8 @@ The filter above will remove `-` `(` `)` `+` `.` and spaces from the input.
 
 |Input|Output|  
 |-|-|  
-|`(321) 555-5784`|`3215555784`|  
-|`321.555.5784`|`3215555784`|
+|`(321) 555-0199`|`3215550199`|  
+|`321.555.0199`|`3215550199`|
 
 <a name="Tokenizers"></a>
 
@@ -374,7 +374,7 @@ Keyword tokenizers always output the same text it was given as a single term.
 |Input|Output|  
 |-|-|  
 |`The dog swims.`|`[The dog swims.]`|  
-|`3215555784`|`[3215555784]`|
+|`3215550199`|`[3215550199]`|
 
 <a name="TokenFilters"></a>
 
@@ -406,7 +406,7 @@ For the phone analyzer, we set `minGram` to `3` because that is the shortest sub
 |Input|Output|  
 |-|-|  
 |`[12345]`|`[123, 1234, 12345, 234, 2345, 345]`|  
-|`[3215555784]`|`[321, 3215, 32155, 321555, 3215555, 32155557, 321555578, 3215555784, 215, 2155, 21555, 215555, ... ]`|
+|`[3215550199]`|`[321, 3215, 32155, 321555, 3215550, 32155501, 321555019, 3215550199, 215, 2155, 21555, 215550, ... ]`|
 
 ### Analyzer
 
@@ -431,7 +431,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 |Input|Output|  
 |-|-|  
 |`12345`|`[123, 1234, 12345, 234, 2345, 345]`|  
-|`(321) 555-5784`|`[321, 3215, 32155, 321555, 3215555, 32155557, 321555578, 3215555784, 215, 2155, 21555, 215555, ... ]`|
+|`(321) 555-0199`|`[321, 3215, 32155, 321555, 3215550, 32155501, 321555019, 3215550199, 215, 2155, 21555, 215550, ... ]`|
 
 Notice that any of the tokens in the output can now be searched. If our query includes any of those tokens, the phone number will be returned.
 
@@ -447,7 +447,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-firs
   api-key: <YOUR-ADMIN-API-KEY>  
 
   {
-    "text": "+1 (321) 555-5784",
+    "text": "+1 (321) 555-0199",
     "analyzer": "phone_analyzer"
   }
 ```
@@ -525,7 +525,7 @@ The analyzer above was designed to maximize the flexibility for search. However,
 
 The example below shows a different analyzer that can also be used for this task. 
 
-The analyzer works well except for input data such as `14255552311` that makes it difficult to logically chunk the phone number. For example, the analyzer wouldn't be able to separate the country code, `1`, from the area code, `425`. This discrepancy would lead to the number above not being returned if a user didn't include a country code in their search.
+The analyzer works well except for input data such as `14255550100` that makes it difficult to logically chunk the phone number. For example, the analyzer wouldn't be able to separate the country code, `1`, from the area code, `425`. This discrepancy would lead to the number above not being returned if a user didn't include a country code in their search.
 
 ```json
 "analyzers": [
@@ -560,7 +560,7 @@ You can see in the example below that the phone number is split into the chunks 
 
 |Input|Output|  
 |-|-|  
-|`(321) 555-5784`|`[321, 555, 5784, 321555, 5555784, 3215555784]`|
+|`(321) 555-0199`|`[321, 555, 0199, 321555, 5550199, 3215550199]`|
 
 Depending on your requirements, this may be a more efficient approach to the problem.
 
