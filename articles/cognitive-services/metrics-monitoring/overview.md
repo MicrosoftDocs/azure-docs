@@ -1,30 +1,37 @@
 ---
 title: What is Metrics Monitoring
-description: What is Metrics Monitoring
-ms.date: 07/07/2020
-ms.topic: conceptual
+titleSuffix: Azure Cognitive Services
+description: What is Metrics Monitoring?
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: bing-web-search
+ms.topic: overview
+ms.date: 07/08/2020
 ms.author: aahi
+ms.custom: seodec2018
 ---
 
 # What is Project Monitoring? 
 
-Metrics Monitoring is a scalable real-time time series monitoring, alerting, and root cause analysis platform.
+Metrics Monitoring is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. 
 
-![Gualala_overview](media/gualala_overview.png "Gualala Overview")
+Metrics monitoring can ingest multi-dimensional data from multiple data stores, orchestrate the model building & customization, identify anomalies, correlate them, and build root cause analysis in an automatic and scalable way. The key capabilities are exposed through RESTful APIs (application programming interfaces) and developers can easily build solutions without the heavy lifting of data engineering and building ML (Machine Learning) pipeline. This would significantly reduce the cost of building a solution and reduce the customer's time to market. 
 
-The Project "Gualala" is a new Cognitive Service that uses time series based decision AI to predict next maintenance cycle of various equipment and devices, identify and assist trouble shooting the incidents of online services, and monitor the business health by automating the slice and dice of business metrics like revenue, page views… Project "Gualala" provides developers an out-of-box smart monitoring pipeline which makes it much easier to build an enterprise grade solution. Through a set of APIs handling data ingestion, anomaly detection, diagnostics and feedback, developers can maximize the productivity by focusing on business problems and user experience instead of knowledge machine learning, and sophisticated distributed data engineering.
+scalable real-time time series monitoring, alerting, and root cause analysis platform.
 
-Project "Gualala" makes it easy to ingest multi-dimensional metrics data from many data stores, orchestrate the model building & customization, identify anomalies, correlate them, and build root cause analysis in an automatic and scalable way. The key capabilities are exposed through RESTful APIs (application programming interfaces) and developers can easily build solutions without the heavy lifting of data engineering and building ML (Machine Learning) pipeline. This would significantly reduce the cost of building a solution and reduce the customer's time to market. 
+:::image type="content" source="media/metrics-monitoring-overview.png" alt-text="Metrics Monitoring overview":::
 
-Check out this short video:
-[ ![What_is_project_Gualala?](media/gualala.png "What is Project 'Gualala'?") ](https://microsoftapc.sharepoint.com/teams/AnomalyDetectorPremiumV2release/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x012000CBAAD346371D2749881CD64F8EFDDCA6&id=%2Fteams%2FAnomalyDetectorPremiumV2release%2FShared%20Documents%2FGeneral%2FVideos%2FWhat%20is%20Project%20Gualala%2Emp4&parent=%2Fteams%2FAnomalyDetectorPremiumV2release%2FShared%20Documents%2FGeneral%2FVideos)
+
+<!--Check out this short video:
+[ ![What_is_project_Gualala?](media/gualala.png "What is Project 'Gualala'?") ](https://microsoftapc.sharepoint.com/teams/AnomalyDetectorPremiumV2release/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x012000CBAAD346371D2749881CD64F8EFDDCA6&id=%2Fteams%2FAnomalyDetectorPremiumV2release%2FShared%20Documents%2FGeneral%2FVideos%2FWhat%20is%20Project%20Gualala%2Emp4&parent=%2Fteams%2FAnomalyDetectorPremiumV2release%2FShared%20Documents%2FGeneral%2FVideos) -->
 
 ## Scenarios
-![Gualala_Scenarios](media/gualala_overview_scenarios.png "Gualala Scenarios")
+
+:::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Monitoring overview scenarios":::
 
 ## Features
-
-Project "Gualala" makes solution building much easier with following capabilities:
 
 ### Simplicity
 

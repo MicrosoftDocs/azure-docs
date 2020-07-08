@@ -1,14 +1,22 @@
 ---
-title: Build your first Metrics monitor on the web
-description: Laern how to build your first Metrics monitor on the web
-ms.date: 07/07/2020
-ms.topic: conceptual
+title: "Quickstart: build your first metrics monitor" 
+titleSuffix: Azure Cognitive Services
+description: Learn how to build your first metrics monitor. 
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: metrics-monitoring
+ms.topic: quickstart
+ms.date: 07/08/2020
 ms.author: aahi
 ---
 
 # Quickstart: Build your first Metrics monitor on the web
 
-Project "Gualala" provides a web UI to help customers quickly onboard their own data and take use of capabilities on anomaly detection, diagnostics...You may access the web portal at: **https://{resource-name}.azurewebsites.net**. This {resource-name} is the Name you set when creating your Project "Gualala" resource.
+Metrics Monitoring provides a web UI to help you onboard your data and begin using the service. 
+
+You may access the web portal at: **https://{resource-name}.azurewebsites.net**. This {resource-name} is the Name you set when creating your Project "Gualala" resource.
 
 Click into the URL, you're ready to use portal as the interface to interact with your metrics, by onboarding data, setting up detecting configurations, viewing time series visualization, exploring on diagnostics insights and also subscribing anomalies for alerting. It's more of a POC purpose, and getting first monitor ready by several simple clicks. This document will only take SQL Database as one example to guide you through the process of building your first monitor and key steps/configurations. More details could be got through additional links provided.
 
