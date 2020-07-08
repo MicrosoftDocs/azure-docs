@@ -1,12 +1,10 @@
 ---
 title: Lead management from Microsoft commercial marketplace
 description: Learn about generating and receiving customer leads from your Microsoft AppSource and Azure Marketplace offers
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Customer leads from your commercial marketplace offer

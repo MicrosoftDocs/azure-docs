@@ -1,12 +1,12 @@
 ---
 title: Offer listing best practices - Microsoft commercial marketplace
 description: Learn about go-to-market listing best practices for your Microsoft AppSource and Azure Marketplace offers.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 07/06/2020
-ms.author: dsindona
 ---
 
 # Offer listing best practices

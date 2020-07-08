@@ -1,8 +1,6 @@
 ---
 title: Create a Dynamics 365 for Customer Engagement & PowerApps offer in the Microsoft commercial marketplace
 description: How to create a new Dynamics 365 for Customer Engagement & PowerApps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program in Partner Center. 
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -1,12 +1,10 @@
 ---
 title: Azure applications managed application offer publishing guide - Azure Marketplace
 description: This article describes the requirements for publishing a managed application in Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.author: dsindona
 
 ---
 

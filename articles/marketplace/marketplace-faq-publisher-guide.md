@@ -2,12 +2,10 @@
 
 title: Microsoft commercial marketplace publisher FAQ 
 description: Get answers to common questions about Azure Marketplace and Microsoft AppSource.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: dsindona
 ---
 
 # Common questions about Microsoft commercial marketplace

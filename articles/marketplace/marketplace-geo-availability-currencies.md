@@ -1,12 +1,10 @@
 ---
 title: Geographic availability and currency support for Microsoft commercial marketplace
 description: The geographic availability and currency support for transactions in the commercial marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.author: dsindona
 
 ---
 # Geographic availability and currency support for commercial marketplace

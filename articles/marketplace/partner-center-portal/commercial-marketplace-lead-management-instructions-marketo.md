@@ -1,8 +1,6 @@
 ---
 title: Lead management in Marketo - Microsoft commercial marketplace
 description: Learn how to use a Marketo CRM system to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211 
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
