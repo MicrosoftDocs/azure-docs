@@ -88,7 +88,7 @@ For a reference of fields available in Azure Storage logs in Azure Monitor, see 
 
 Azure Storage logs in Azure Monitor include the type of authorization that was used to make a request to a storage account. In your log query, filter on the **AuthenticationType** property to view anonymous requests.
 
-To retrieve logs for the last 7 days and determine how many anonymous requests were made against Blob storage, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
+To retrieve logs for the last 7 days for anonymous requests against Blob storage, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
 
 ```kusto
 StorageBlobLogs
@@ -96,15 +96,12 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-
-
-
-The following is an example of how to check with Log Analytics query:
+You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md).
 
 
 
 
-When public access is enabled for a container, the container or blobs in the container can be accessed anonymously. The authentication type is captured as Anonymous in both Storage metrics and Storage logs. You can detect active public access cases by looking at metrics and logs.
+
 
 ## Next steps
 

@@ -112,11 +112,9 @@ When public access is disabled for the storage account, a container's public acc
 
 # [Azure CLI](#tab/azure-cli)
 
-To get the public access level for one or more containers with Azure CLI, call the [az storage container show permission](/cli/azure/storage/container#az-storage-container-show-permission) command. To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command.
+To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-Authorize these operations by passing in your account key, a connection string, or a shared access signature (SAS). The [Get Container ACL](/rest/api/storageservices/get-container-acl) operation that returns a container's public access level and the [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets public access level do not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
-
-The following example sets the public access setting for the storage account to enable anonymous access to the container and its blobs, then reads the setting. Remember to replace the placeholder values in brackets with your own values:
+The following example sets the public access setting for a container to enable anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -125,8 +123,22 @@ az storage container set-permission \
     --public-access container \
     --account-key <account-key> \
     --auth-mode key
+```
+
+When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs indicating that public access is not permitted on the storage account.
+
+---
+
+## Check the container public access setting
 
 
+### Check the public access setting for a single container
+
+To get the public access level for one or more containers with Azure CLI, call the [az storage container show permission](/cli/azure/storage/container#az-storage-container-show-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Get Container ACL](/rest/api/storageservices/get-container-acl) operation that returns a container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+
+The following example reads the public access setting for a container. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
 az storage container show-permission \
     --name <container-name> \
     --account-name <account-name> \
@@ -134,9 +146,10 @@ az storage container show-permission \
     --auth-mode key
 ```
 
-When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs indicating that public access is not permitted on the storage account.
+### Check the public access setting for a small set of containers
 
----
+It is possible to check which containers in one or more storage accounts are configured for public access by listing the containers and checking the public access setting. This approach is a practical option when a storage account does not contain a large number of containers, or when you are checking the setting across a small number of storage accounts. However, performance may suffer if you attempt to enumerate a large number of containers.
+
 
 ## Next steps
 
