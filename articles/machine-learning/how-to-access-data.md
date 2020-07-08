@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 06/29/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.

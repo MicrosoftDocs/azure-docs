@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
 ---
 # Set up and use compute targets for model training 

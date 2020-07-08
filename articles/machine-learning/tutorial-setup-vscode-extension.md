@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 06/29/2020
+ms.date: 07/08/2020
 #Customer intent: As a professional data scientist, I want to Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 ---
 

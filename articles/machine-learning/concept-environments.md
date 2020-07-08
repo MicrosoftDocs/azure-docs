@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 06/29/2020
+ms.date: 07/08/2020
 ---
 
 # What are Azure Machine Learning environments?
