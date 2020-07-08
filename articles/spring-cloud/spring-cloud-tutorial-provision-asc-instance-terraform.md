@@ -31,7 +31,7 @@ This tutorial creates an Azure Spring Cloud instance using Terraform. The proced
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open the Azure Cloud Shell.
+1. Open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java#use-azure-cloud-shell).
 
 1. Start the Cloud Shell editor:
 
@@ -88,7 +88,7 @@ In this section, you use several Terraform commands to run the configuration.
     terraform apply plan.out
     ```
 
-1. To verify the results within the Azure portal, browse to the new resource group. The new Azure Cosmos DB instance shows in the new resource group.
+1. To verify the results within the Azure portal, browse to the new resource group. The new **Azure Cosmos DB instance** shows in the new resource group.
 
 ## Update configuration to config logs and metrics
 
