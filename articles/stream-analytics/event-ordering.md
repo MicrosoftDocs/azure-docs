@@ -5,7 +5,7 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
 ---
 # Configuring event ordering policies for Azure Stream Analytics
