@@ -48,7 +48,7 @@ For now, customer-managed keys have the following restrictions:
 
 When you enable encryption at host, the data stored on the VM host are encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with PMK. The cache of OS and data disks is encrypted at rest with PMK or CMK depending on the encryption type set on disk data flows encrypted to Storage service. For example, if a disk is encrypted with CMK the cache for the disk is encrypted with CMK and if a disk is encrypted with PMK then the cache for the disk is encrypted with PMK.
 
-The feature is currently available in GA only in westus, westus2, eastus, eastus2, southcentralus, usgoveast, usgovsw regions. For more information on the encryption at VM host see [Enable encryption at VM host](disks-enable-end-to-end-encryption.md)
+For more information on the encryption at VM host see [Enable encryption at VM host](disks-enable-end-to-end-encryption.md)
 
 ## Double encryption at rest
 
@@ -56,7 +56,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
 
-The feature is currently available in GA only in westus2, eastus, southcentralus, usgoveast, usgovsw regions. For more information on the double encryption at rest see [Enable double encryption at rest](disks-enable-end-to-end-encryption.md)
+For more information on the double encryption at rest see [Enable double encryption at rest](disks-enable-end-to-end-encryption.md)
 
 
 ## Server-side encryption versus Azure disk encryption
