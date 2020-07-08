@@ -188,6 +188,8 @@ The following JSON example creates a general-purpose v2 storage account that is 
 ],
 ```
 
+---
+
 ## Verify that infrastructure encryption is enabled
 
 # [PowerShell](#tab/powershell)
