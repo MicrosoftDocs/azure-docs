@@ -335,7 +335,17 @@
     </manifest>
     ```
 
-1. Back in **DeviceInstallationService**, update the placeholder text *Placeholder_Get_Value_From_FirebaseMessagingService_Implementation* to get the token value from the **PushNotificationFirebaseMessagingService**.
+1. Back in **DeviceInstallationService**, ensure the following imports are present at the top of the file.
+
+    ```kotlin
+    package com.<your_organization>.pushdemo
+    import com.<your_organization>.pushdemo.services.PushNotificationsFirebaseMessagingService
+    ```
+
+    > [!NOTE]
+    > Replace **<your_organization>** with your own organization value.
+
+1. Update the placeholder text *Placeholder_Get_Value_From_FirebaseMessagingService_Implementation* to get the token value from the **PushNotificationFirebaseMessagingService**.
 
     ```kotlin
     fun getDeviceToken() : String {
