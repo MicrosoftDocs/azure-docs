@@ -96,8 +96,8 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 ### Use CMD or PowerShell in Serial Console
 
 1. Connect to the serial console. If you successfully connect, the prompt is **SAC>**:
-   ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
+   ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Enter `cmd` to create a channel that has a CMD instance.
 
 1. Enter `ch -si 1` or press the `<esc>+<tab>` shortcut keys to switch to the channel that's running the CMD instance.
@@ -107,6 +107,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 1. After you've entered valid credentials, the CMD instance opens.
 
 1. To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**.
+
    ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### Use the serial console for NMI calls
