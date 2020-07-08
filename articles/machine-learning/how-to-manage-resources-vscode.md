@@ -16,13 +16,13 @@ ms.date: 07/08/2020
 
 Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
-![AML VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
+![Azure Machine Learning VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
 ## Prerequisites
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
-- VS Code Azure Machine Learning Extension. Follow the [AML VS Code extension installation guide](tutorial-setup-vscode-extension.md#install-the-extension) to install the extension.
+- VS Code Azure Machine Learning Extension. Follow the [Azure Machine Learning VS Code extension installation guide](tutorial-setup-vscode-extension.md#install-the-extension) to install the extension.
 
 All of the processes below assume that you are in the Azure Machine Learning view in Visual Studio Code. To launch the extension, select the **Azure** icon in the VS Code activity bar.
 
@@ -38,7 +38,7 @@ For more information, see [workspaces](concept-workspace.md).
     1. Choose your Azure subscription
     1. Choose or create a new resource group to provision the workspace in
     1. Select the location where to provision the workspace.
-    1. Choose between the *basic* and *enterprise* edition. Learn more about the different [AML editions](concept-editions.md).
+    1. Choose between the *basic* and *enterprise* edition. Learn more about the different [Azure Machine Learning editions](concept-editions.md).
 
 Alternative methods to create a workspace include:
 
@@ -382,7 +382,7 @@ In addition to creating and deleting deployments, you can view and edit settings
 1. Expand the **Endpoints** node inside your workspace.
 1. Right-click the deployment you want to manage:
     - To edit settings, select **Edit service**.
-        1. A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+        - A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
     - To view deployment configuration settings, select **View service properties**.
 
 ## Next steps
