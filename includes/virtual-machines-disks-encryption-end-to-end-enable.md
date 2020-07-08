@@ -19,40 +19,25 @@
 
 ## Prerequisites
 
-You must enable the feature on your subscription before you can enable end-to-end encryption for your VM/virtual machine scale set.
+You must get the feature enabled for your subscriptions before you use the EncryptionAtHost property for your VM/VMSS. Please send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
 
-- Use the following command to register the feature for your subscription:
- `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"` 
-- Registering can take a few minutes, you can check the registration state using the following command:
- `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  `
+## Enable encryption at host for disks attached to VM and VMSS using rest API
 
-### Create an Azure Key Vault and DiskEncryptionSet
+You can enable the feature by setting a new property EncryptionAtHost under securityProfile of VMs/VMSSs using the API version *2020-06-01* and above.
 
-Once you've enabled the feature, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
+"securityProfile": { "encryptionAtHost": "true" }
 
-[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](virtual-machines-disks-encryption-create-key-vault-powershell.md)]
+## Enable encryption at host for disks attached to a VM with customer managed keys (CMK) via using PowerShell
 
-## Enable end to end encryption
+1. Follow the instructions [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption#setting-up-your-azure-key-vault-and-diskencryptionset) for creating a Key Vault for storing your keys and a DiskEncryptionSet pointing to a key in the Key Vault
 
-Now that you've enabled the feature and set up an Azure Key Vault as well as a DiskEncryptionSet, you can enable end-to-end encryption on your VMs.
-
-Currently, you must use the API in order to enable end-to-end encryption. Using an API version of 2020-06-01 or newer, setting the following two properties on new or existing VMs to enable end-to-end encryption:
-
-`"securityProfile": { "encryptionAtHost": "true" }` and to the `"osDisk"` and `"dataDisks"` properties, add `"diskEncryptionSet": {"id": "[parameters('diskEncryptionSetId')]"}`. Replace diskEncryptionSetId with the resource URI of the DiskEncryptionSet you created earlier.
-
-## Example scripts
-
-Alternatively, you may use the following scripts that will create VMs using end-to-end encryption, for you.
-
-### Disks encrypted with customer-managed keys with server-side encryption
-
-The following script creates a VM using end-to-end encryption on VMs that are using customer-managed keys with server-side encryption:
+2. Create a VM with managed disks using the resource URI of the DiskEncryptionSet created in the step #1 
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<yoursubscriptionID>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
 ```PowerShell
 $password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName yourResourceGroupName `
+New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
   -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json" `
   -virtualMachineName "<yourVMName>" `
   -adminPassword $password `
@@ -61,13 +46,13 @@ New-AzResourceGroupDeployment -ResourceGroupName yourResourceGroupName `
   -region "<yourRegion>"
 ```
 
-### Disks encrypted with platform-managed keys with server-side encryption
+## Enable encryption at host for disks attached to a VM with with platform managed keys (PMK) via using PowerShell
 
-The following script creates a VM with disks using end-to-end encryption on VMs that have been configured to use platform-managed keys with server-side encryption:
+Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
 ```PowerShell
 $password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
+New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
   -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json" `
   -virtualMachineName "<yourVMName>" `
   -adminPassword $password `
