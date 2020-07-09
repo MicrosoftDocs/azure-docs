@@ -40,9 +40,9 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 **Install the Python Service SDK** 
 
-You can install the [Python service SDK preview pacakge](https://pypi.org/project/azure-iot-hub/2.2.0rc1/) by running the following command: 
+You can install the [Python service SDK preview pacakge](https://pypi.org/project/azure-iot-hub/2.2.1rc0/) by running the following command: 
 
-`pip3 install azure-iot-hub==2.2.0rc1`
+`pip3 install azure-iot-hub==2.2.1rc0`
 
 
 ## Run the sample device
