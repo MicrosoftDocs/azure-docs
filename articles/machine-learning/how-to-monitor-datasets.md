@@ -139,6 +139,10 @@ In the **Schema** settings, specify the timestamp column from a virtual or real 
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Set the timestamp":::
 
+If your data is partitioned by date, as is the case here, you can also specify the partition_timestamp.  This allows more efficient processing of dates.
+
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Partition timestamp":::
+
 
 ## Create dataset monitors
 
@@ -211,7 +215,7 @@ Click on the **+Create monitor** button and continue through the wizard by click
 
 * **Select target dataset**.  The target dataset is a tabular dataset with timestamp column specified which will be analyzed for data drift. The target dataset must have features in common with the baseline dataset, and should be a `timeseries` dataset, which new data is appended to. Historical data in the target dataset can be analyzed, or new data can be monitored.
 
-* **Select baseline dataset.**  Select the tabular dataset to be used as the baseline for comparison of the target dataset over time.  The baseline dataset must have features in common with the target dataset.  The baseline can be either a slice of the target dataset or a model's training dataset.
+* **Select baseline dataset.**  Select the tabular dataset to be used as the baseline for comparison of the target dataset over time.  The baseline dataset must have features in common with the target dataset.  Select a time range to use a slice of the target dataset, or specify a separate dataset to use as the baseline.
 
 * **Monitor settings**.  These settings are for the scheduled dataset monitor pipeline, which will be created. 
 
