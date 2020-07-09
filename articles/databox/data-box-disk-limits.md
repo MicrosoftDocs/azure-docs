@@ -59,7 +59,7 @@ Here are the limits on the size of the data that is copied into storage account.
 
 | Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|
-| Block Blob and page blob                                            | For the most up-to-date information on these limits, go to [Azure blob storage scale targets]                                                                               | (https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage),<br> [Azure standard storage scale targets]                                                                               | (https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account)<br> and [Azure Files scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts). <br> This includes data from all the sources including Data Box Disk.|
+| Block Blob and page blob                                            | For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage),[Azure standard storage scale targets](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account) and [Azure Files scale target](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts). <br> This includes data from all the sources including Data Box Disk.|
 
 
 ## Azure object size limits
