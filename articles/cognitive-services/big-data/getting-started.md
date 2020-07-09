@@ -10,9 +10,9 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ---
 
-# Getting started 
+# Getting started
 
-Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy. 
+Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy.
 
 In this article, we'll perform these steps to get you started:
 
@@ -54,13 +54,13 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 1. [Create a Spark cluster in Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Install the Big Data Cognitive Services
     * Create a new library in your databricks workspace
-       <img src="media/create_library.png" alt="Create library" width="50%"/>
+       <img src="media/create-library.png" alt="Create library" width="50%"/>
     * Input the following maven coordinates
       Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1`
       Repository: `https://mmlspark.azureedge.net/maven`
-      <img src="media/lib_coords.png" alt="Library Coordinates" width="50%"/>
+      <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Install the library onto a cluster
-      <img src="media/install_lib.png" alt="Install Library on Cluster" width="50%"/>
+      <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
 ### Synapse Analytics (optional)
 
@@ -69,11 +69,11 @@ Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synap
 1. [Create a Synapse Workspace (preview)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
 1. [Create a new Apache Spark pool (preview) using the Azure portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
-In Synapse Analytics, Big Data for Cognitive Services is installed by default. 
+In Synapse Analytics, Big Data for Cognitive Services is installed by default.
 
 ### Azure Kubernetes Service
 
-If you're using containerized Cognitive Services, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service. 
+If you're using containerized Cognitive Services, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service.
 
 To get started on Azure Kubernetes Service, follow these steps:
 
@@ -85,14 +85,14 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 After you set up your Spark cluster and environment, we can run a short sample. This section demonstrates how to use the Big Data for Cognitive Services in Azure Databricks.
 
-First, we can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit. 
+First, we can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 
 1. Create a new Databricks notebook, by choosing **New notebook** from the **Azure Databricks** menu.
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
 1. In the **Create Notebook** dialog box, enter a name, select **Python** as the language, and select the Spark cluster that you created earlier.
-   
+
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
     Select **Create**.

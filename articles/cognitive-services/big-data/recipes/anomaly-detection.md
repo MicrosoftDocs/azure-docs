@@ -142,7 +142,7 @@ plt.show()
 
 If successful, your output will look like this:
 
-![Anomaly Detector Plot](../media/anomaly_output.png)
+![Anomaly Detector Plot](../media/anomaly-output.png)
 
 ## Next steps
 
