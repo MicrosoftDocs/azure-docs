@@ -154,7 +154,7 @@ You can view log output (calls to `console.log`) from the app directly in the VS
 Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
-> [Tutorial: Node.js app with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Node.js app](configure-language-nodejs.md)

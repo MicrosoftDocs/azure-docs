@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Create a PHP web app'
+title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
@@ -192,7 +192,7 @@ Once deployment has completed, return to the browser window that opened during t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [PHP with MySQL](app-service-web-tutorial-php-mysql.md)
+> [PHP with MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure PHP app](configure-language-php.md)

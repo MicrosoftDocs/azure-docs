@@ -57,10 +57,10 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
+      href: ../app-service/tutorial-multi-container-app.md
       maintainContext: true
     - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      href: ../app-service/tutorial-php-mysql-app.md
       maintainContext: true
 - name: Samples
   items:

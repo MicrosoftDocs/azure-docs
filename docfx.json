@@ -746,8 +746,6 @@
         "articles/dev-spaces/**/*.md": "Azure Dev Spaces",
         "articles/app-service/*.md": "Azure App Service",
         "articles/app-service/*.yml": "Azure App Service",
-        "articles/app-service/containers/*.md": "Azure App Service",
-        "articles/app-service/containers/*.yml": "Azure App Service",
         "articles/app-service/scripts/*.md": "Azure App Service",
         "articles/app-service/scripts/*.yml": "Azure App Service",
         "articles/app-service/environment/*.md": "Azure App Service Environment",

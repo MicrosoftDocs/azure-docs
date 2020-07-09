@@ -12,7 +12,7 @@ ms.date: 06/02/2020
 
 Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually. For information about Linux apps, see [Configure a Linux PHP app for Azure App Service](containers/configure-language-nodejs.md).
 
-This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](app-service-web-get-started-nodejs.md) and [Node.js with MongoDB tutorial](app-service-web-tutorial-nodejs-mongodb-app.md) first.
+This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](app-service-web-get-started-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
 ## Show Node.js version
 
@@ -160,5 +160,5 @@ When a working Node.js app behaves differently in App Service or has errors, try
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Node.js app with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
 

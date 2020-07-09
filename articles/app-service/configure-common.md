@@ -33,7 +33,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](containers/configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
@@ -104,7 +104,7 @@ For example, a MySql connection string named *connectionstring1* can be accessed
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](containers/configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
@@ -234,7 +234,7 @@ For Linux apps, see:
 - [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [Ruby](configure-language-ruby.md)
 
 ## Configure custom containers
 

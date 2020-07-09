@@ -15,7 +15,7 @@ ms.custom: mvc, seodec18
 > [!NOTE]
 > Multi-container is in preview.
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
+[Web App for Containers](../overview.md#app-service-on-linux) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
 
 You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). 
 
@@ -96,7 +96,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 > [!NOTE]
 > Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
-In your Cloud Shell terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+In your Cloud Shell terminal, create a multi-container [web app](../overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -138,4 +138,4 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 > [Configure a custom container](configure-custom-container.md)
 
 <!--Image references-->
-[1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
+[1]: ../media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
