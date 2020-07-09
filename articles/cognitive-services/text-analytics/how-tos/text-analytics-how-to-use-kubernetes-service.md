@@ -8,16 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 04/01/2020
 ms.author: aahi
 ---
 
 # Deploy a Text Analytics container to Azure Kubernetes Service
 
 Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
-
-> [!NOTE]
-> The Text Analytics for health container is only supported by the following virtual machines: `B4ms`, `D4s_v3`, `DS3_v2` and `D8s_v3`
 
 ## Prerequisites
 
@@ -52,12 +49,6 @@ This procedure requires several tools that must be installed and run locally. Do
 [!INCLUDE [Sentiment Analysis Kubernetes config and deploy steps](../includes/sentiment-analysis-kubernetes-config-deploy.md)]
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
-
-#### [Text Analytics for Health](#tab/health)
-
-[!INCLUDE [Text analytics for health Kubernetes config and deploy steps](../includes/health-kubernetes-config-deploy.md)]
-
-[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
 ***
 
