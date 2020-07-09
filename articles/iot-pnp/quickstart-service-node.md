@@ -30,10 +30,6 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-You can install the [Node service SDK with PnP support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) by running the following command: 
-
-`npm i azure-iot-digitaltwins-service@1.0.0-pnp-refresh.2`
-
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
@@ -41,6 +37,10 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
+**Install the Node Service SDK**
+You can install the [Node service SDK with PnP support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) by running the following command: 
+
+`npm i azure-iot-digitaltwins-service@1.0.0-pnp-refresh.2`
 
 ## Run the sample device
 
@@ -133,7 +133,10 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     
 1. Also notice how to retrieve the device twin's model ID, which, in this case, is for the simple thermostat model. 
 
-** UPDATE WITH WORKING SAMPLE OUTPUT AND CODE SNIPPET **
+```javascript
+    console.log("Model Id: " + inspect(digitalTwin.$metadata.$model))
+```
+In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`
 
 ### Update a writable property
 
@@ -239,7 +242,15 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
 1. Output in the _service_ terminal should show the following confirmation:
 
     ```cmd/sh
-    ** UPDATE WITH CORRECT WORKING OUTPUT**
+    {   
+        xMsCommandStatuscode: 200,  
+        xMsRequestId: 'ee9dd3d7-4405-4983-8cee-48b4801fdce2',  
+        connection: 'close',  'content-length': '18',  
+        'content-type': 'application/json; charset=utf-8',  
+        date: 'Thu, 09 Jul 2020 15:05:14 GMT',  
+        server: 'Microsoft-HTTPAPI/2.0',  vary: 'Origin',  
+        body: 'min/max response' 
+    }
     ```
 
 1. Go to the _device_ terminal, you see the command has been acknowledged:
