@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -16,8 +16,18 @@ Azure Data Box is used to transfer customer data to and from Azure. There are in
 
 This article covers how Customer Lockbox requests are initiated and tracked for Data Box import as well as export orders. The article applies to both Azure Data Box devices and Azure Data Box Heavy devices. 
 
+## DevOps workflow for data access
 
-## Prerequisites
+The Support and Data Box Operations team at Microsoft typically does not  access customer data. They try to resolve issues by using standard tools and telemetry. <!--The only scenarios where there is a need to access customer data is when there is an issue with the data that needs to be fixed. For example, if the data is copied to a wrong folder or is in an incorrect format and is likely to result in an upload or download failure, then Microsoft will try to access your data in the Azure datacenter.--> 
+
+If the issues can’t be resolved and require Microsoft Support to investigate or repair data, they request elevated access via Just in Time (JIT) portal. The JIP portal validates permission level, provides multi-factor authentication and also includes an approval from the Internal Microsoft Approvers. For example, the approver could be DevOps Manager. 
+
+After your request for elevated access is approved via the JIT portal, if you have enabled Lockbox, Microsoft will also require your explicit consent to access the data. The access is requested and tracked via the Customer Lockbox service in the portal. 
+
+If you have not enabled Lockbox, then your consent is not needed to access the data.
+
+
+## Prerequisites for access request
 
 Before you begin, make sure:
 
@@ -31,15 +41,6 @@ Before you begin, make sure:
     2. Customer Lockbox is automatically available for all customers who have an Azure support plan with a minimal level of Developer. <!--How do you enable Lockbox? change this for Azure Data Box, perhaps you need a different support plan When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.-->
 
 3. A service request or a  Support ticket is already opened for this issue. For information on support ticket, see [File a service request for Data Box](data-box-disk-contact-microsoft-support.md).
-
-
-## Access customer data
-
-Microsoft typically does not  access customer data. The only scenarios where there is a need to access customer data is when there is an issue with the data that needs to be fixed. For example, if the data is copied to a wrong folder or is an incorrect format and is likely to result in an upload or download failure, then Microsoft will try to access your data in the Azure datacenter. 
-
-If you have enabled Lockbox, Microsoft will require your explicit consent to access the data. The access is requested and tracked via the Customer Lockbox service in the portal. 
-
-If you have not enabled Lockbox, then your consent is not needed to access the data.
 
 
 ## Track, approve request via Lockbox

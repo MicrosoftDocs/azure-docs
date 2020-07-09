@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 07/10/2020
 ms.author: alkohli
 ---
 
-# Tracking and event logging for export orders for your Azure Data Box and Azure Data Box Heavy
+# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy export orders
 
 A Data Box or Data Box Heavy export order goes through the following steps: order, set up, data copy, return, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
@@ -19,7 +19,7 @@ This article describes in detail the various mechanisms or tools available to tr
 
 The following table shows a summary of the Data Box export order steps and the tools available to track and audit the order during each step.
 
-| Data Box order stage       | Tool to track and audit                                                                        |
+| Data Box export order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order) <br> [Enable verbose log in the order](#enable-verbose-log-in-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
