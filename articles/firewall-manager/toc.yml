@@ -44,6 +44,8 @@
     href: migrate-to-policy.md
   - name: DNS settings
     href: dns-settings.md
+  - name: Deploy multiple public IPs
+    href: multiple-public-ip-powershell.md
 - name: Reference
   items:
   - name: Azure CLI
