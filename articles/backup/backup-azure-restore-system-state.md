@@ -160,7 +160,7 @@ System State backup includes Active Directory data. Use the following steps to r
 * Restoring all Active Directory data when there are no functioning domain controllers left in the forest
 * Restoring a portion of the Active Directory data when those objects have been deleted or corrupted
 
-This article will only be discussing the first scenario, which calls for a nonauthorative restore of AD DS and an authoritative restore of the SYSVOL folder.  If you need to perform the second scenario (where the domain controllers are still functional but you need to restore particular AD objects), see [these instructions](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
+This article will only be discussing the first scenario, which calls for a nonauthorative restore of AD DS and an authoritative restore of the sysvol folder.  If you need to perform the second scenario (where the domain controllers are still functional but you need to restore particular AD objects), see [these instructions](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
 
 1. Follow the steps here to [Recover System State files to an alternate server](#recover-system-state-files-to-an-alternate-server).
 1. Use the following commands to reboot your server in *Directory Services Repair Mode*. In an elevated command prompt:
