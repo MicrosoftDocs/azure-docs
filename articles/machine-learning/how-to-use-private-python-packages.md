@@ -9,7 +9,7 @@ ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 07/10/2020
 
 ## As a developer, I need to use private Python packages securely when training machine learning models.
 
@@ -59,7 +59,7 @@ with token based authentication, such as private GitHub repositories.
 
  2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) method.
 
-    ```python
+     ```python
     from azureml.core import Workspace
     
     pat_token = input("Enter secret token")
@@ -69,10 +69,10 @@ with token based authentication, such as private GitHub repositories.
         target = "https://<my-org>.pkgs.visualstudio.com", 
         authType = "PAT", 
         value = pat_token) 
-    ```
+     ```
 
  3. Create an Azure Machine Learning environment and add Python packages from the feed.
-
+    
     ```python
     from azureml.core import Environment
     from azureml.core.conda_dependencies import CondaDependencies
