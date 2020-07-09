@@ -59,19 +59,27 @@ The syntax for `search.score` in **$orderby** is `search.score()`. The function 
 
 Sort hotels ascending by base rate:
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Sort hotels descending by rating, then ascending by base rate (remember that ascending is the default):
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Sort hotels descending by rating, then ascending by distance from the given coordinates:
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates. Between two hotels with identical relevance scores and ratings, the closest one is listed first:
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## Next steps  
 
