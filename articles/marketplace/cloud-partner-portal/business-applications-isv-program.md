@@ -15,19 +15,22 @@ The [Business Applications ISV Connect Program](https://partner.microsoft.com/so
 
 To enroll and take advantage of all the technical, marketing, and sales enablement benefits of the Business Applications ISV Connect Program, complete the following sections in this article. 
 
-[!IMPORTANT] It is necessary to complete all the steps in this article before publishing changes to a new or existing offer.
+> [!IMPORTANT]
+> It's necessary to complete all the steps in this article before publishing changes to a new or existing offer.
 
 ## Set up your Microsoft Partner Center account
 
 To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
 
-[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center.
+> [!NOTE]
+> This step requires an *Owner* or *Manager* role in Partner Center.
 
 ## Accept the Business Applications ISV Program Addendum
 
 Participation in this program requires you to review and accept the [Business Applications Addendum](https://aka.ms/bizappsisvaddendum).
 
-[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements. 
+> [!NOTE]
+> This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements. 
 
 1.	Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 2.	Select **Settings** (gear icon) and select **Developer Settings**.
@@ -39,7 +42,8 @@ Participation in this program requires you to review and accept the [Business Ap
 
 Set up billing information for the Business Applications ISV Connect Program.
 
-[!NOTE] This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
+> [!NOTE]
+> This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
 
 1.	Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 2.	Select **Settings** (gear icon) and select **Developer Settings**.
@@ -48,7 +52,8 @@ Set up billing information for the Business Applications ISV Connect Program.
 5.	If applicable, provide Tax ID/VAT ID settings.
 6.	To save your changes, click **Save**.
 
-[!NOTE] You can update your billing profile at any time. However, *Company Name* and billing address *Country* cannot be changed later.
+> [!NOTE]
+> You can update your billing profile at any time. However, *Company Name* and billing address *Country* cannot be changed later.
 
 ## Publish and certify your application
 
@@ -59,7 +64,8 @@ The final step for enrollment in the Business Applications ISV Connect program i
 - [For Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
 - [For Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-[!IMPORTANT] You need to recertify your apps every 6 months to keep them live on AppSource. See marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+> [!IMPORTANT]
+> You need to recertify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
 
 ## Next steps
 
