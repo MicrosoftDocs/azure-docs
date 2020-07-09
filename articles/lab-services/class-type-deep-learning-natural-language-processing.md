@@ -1,21 +1,10 @@
 ---
 title: Set up a lab focused on deep learning using Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach shell scripting on Linux. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Set up a lab focused on deep learning in natural language processing using Azure Lab Services
 This article shows you how to set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. Natural language processing (NLP) is a form of artificial intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  
 

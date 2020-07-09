@@ -15,7 +15,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 ## Wait for events
 
-The `WaitForExternalEvent` (.NET) and `waitForExternalEvent` (JavaScript) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) and  `waitForExternalEvent` (JavaScript) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allow an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
 # [C#](#tab/csharp)
 
@@ -168,7 +168,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## Send events
 
-The `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) sends the events that `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript) waits for.  The `RaiseEventAsync` method takes *eventName* and *eventData* as parameters. The event data must be JSON-serializable.
+You can use the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) or `raiseEventAsync` (JavaScript) methods to send an external event to an orchestration. These methods are exposed by the [orchestration client](durable-functions-bindings.md#orchestration-client) binding. You can also use the built-in [raise event HTTP API](durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
+
+A raised event includes an *instance ID*, an *eventName*, and *eventData* as parameters. Orchestrator functions handle these events using the `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript) APIs. The *eventName* must match on both the sending and receiving ends in order for the event to be processed. The event data must also be JSON-serializable.
+
+Internally, the "raise event" mechanisms enqueue a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
+
+> [!NOTE]
+> If there is no orchestration instance with the specified *instance ID*, the event message is discarded.
 
 Below is an example queue-triggered function that sends an "Approval" event to an orchestrator function instance. The orchestration instance ID comes from the body of the queue message.
 
@@ -204,6 +211,19 @@ Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a mes
 
 > [!NOTE]
 > If there is no orchestration instance with the specified *instance ID*, the event message is discarded.
+
+### HTTP
+
+The following is an example of an HTTP request that raises an "Approval" event to an orchestration instance. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+In this case, the instance ID is hardcoded as *MyInstanceId*.
 
 ## Next steps
 

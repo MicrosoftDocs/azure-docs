@@ -24,8 +24,8 @@ In this article, you learn common design patterns for doing text-to-speech synth
 * Using neural voices
 
 > [!TIP]
-> If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try speech recognition out for yourself.
-> * [Recognize speech from a microphone](quickstarts/text-to-speech.md)
+> If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try text to speech for yourself.
+> * [Synthesize speech to a speaker](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]

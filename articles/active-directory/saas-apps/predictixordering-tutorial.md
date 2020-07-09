@@ -106,11 +106,10 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
     1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-        | |
-	    |--|
-    	| `https://<companyname-pricing>.dev.ordering.predictix.com` |
-    	| `https://<companyname-pricing>.ordering.predictix.com` |
-    	| |
+        ```https
+        https://<companyname-pricing>.dev.ordering.predictix.com
+        https://<companyname-pricing>.ordering.predictix.com
+        ```
 
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Ordering support team](https://www.predix.io/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
