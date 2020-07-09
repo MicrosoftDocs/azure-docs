@@ -309,7 +309,7 @@ You can gain insights into VM activities using log search. To view the logs:
  
 1. Select **Activity Log** from the menu.
 
-   ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
+   ![Select activity log](./media/security-center-just-in-time/jit-select-activity-log.png)
 
    The activity log provides a filtered view of previous operations for that VM along with time, date, and subscription.
 

@@ -31,7 +31,7 @@ As with all cybersecurity prevention techniques, your goal should be to reduce t
 
 Your legitimate users also use these ports, so it's not practical to keep them closed.
 
-To solve this dilemma, Azure Security Center offers JIT. With JIT, you can lock down the inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+To solve this dilemma, Azure Security Center offers JIT. With JIT, you can lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 When just-in-time is enabled, Security Center uses [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
 
