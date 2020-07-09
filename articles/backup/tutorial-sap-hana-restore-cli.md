@@ -176,7 +176,7 @@ For this tutorial, we'll choose the previous point-in-time `28-11-2019-09:53:00`
 Using the restore point name above and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](https://docs.microsoft.com/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
 * **--target-container-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
-* **--rp-name** This is used to assign a name
+* **--rp-name** For a point-in-time restore the restore point name will be **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -317,10 +317,10 @@ Move these restored files to the SAP HANA server where you want to restore them 
         * `<DatabaseName>` - Name of the new database or existing database that you want to restore
         * `<Timestamp>` - Exact timestamp of the Point in time restore
         * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need to be specified for restores done on the same HANA server from where the backup is taken.
-        * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step C**
+        * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step 3**
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
-        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
+        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step 3**
 
     * To restore to a particular full or differential backup:
 
@@ -333,10 +333,10 @@ Move these restored files to the SAP HANA server where you want to restore them 
         * `<DatabaseName>` - the name of the new database or existing database that you want to restore
         * `<Timestamp>` - the exact timestamp of the Point in time restore
         * `<DatabaseName@HostName>` - the name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>`  option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it need not be specified for restores done on the same HANA server from where the backup is taken.
-        * `<PathToGeneratedCatalogInStep3>` - the path to the catalog file generated in **Step C**
+        * `<PathToGeneratedCatalogInStep3>` - the path to the catalog file generated in **Step 3**
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
-        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
+        * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step 3**
 
 ## Next steps
 

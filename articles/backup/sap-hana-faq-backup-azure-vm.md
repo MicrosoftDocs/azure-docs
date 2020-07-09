@@ -54,15 +54,19 @@ Currently we don't have the capability to set up the solution against a virtual 
 
 ### How can I move an on-demand backup to the local file system instead of the Azure vault?
 
-1. Wait for the currently running backup to complete on the desired database (check from studio for completion)
+1. Wait for the currently running backup to complete on the desired database (check from studio for completion).
 1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
 1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
     1. Set enable_auto_log_backup to **no**
     1. Set log_backup_using_backint to **false**
-1. Take an on-demand backup on the desired database, and wait for the backup and catalog backup to complete.
+1. Take an on-demand backup (full / differential/ incremental) on the desired database, and wait for the backup and catalog backup to complete.
+1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes**
 1. Revert to the previous settings to allow backups to flow to the Azure vault:
     1. Set enable_auto_log_backup to **yes**
     1. Set log_backup_using_backint to **true**
+
+>[!NOTE]
+>Moving backups to the local Filesystem and switching back again to the Azure vault may cause a log chain break of the log backups in the vault. This will trigger a full backup, which once successfully completed will start backing up the logs.
 
 ### How can I use SAP HANA Backup with my HANA Replication set-up?
 
