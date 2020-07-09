@@ -32,7 +32,7 @@ Azure Backup also allows you back up your Azure VMs that use your key for [stora
 In addition to encrypting your data in the Recovery Services vault using customer-managed keys, you can also choose to have an additional layer of encryption configured on the storage infrastructure. This infrastructure encryption is managed by the platform and together with encryption at rest using customer-managed keys, it allows two-layer encryption of your backup data. It should be noted that infrastructure encryption can be configured only if you first choose to use your own keys for encryption at rest. Infrastructure encryption uses platform-managed keys for encrypting data.
 
 >[!NOTE]
->Infrastructure encryption is currently in limited preview and is available in US East, US West2 and US South Central regions only. If you wish to use the feature in any of these regions, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Infrastructure encryption is currently in limited preview and is available in US East, US West2, US South Central, US Gov Arizona, and US GOV Virginia regions only. If you wish to use the feature in any of these regions, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## Backup of VMs encrypted using ADE
 
