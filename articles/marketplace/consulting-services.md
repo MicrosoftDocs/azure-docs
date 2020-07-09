@@ -1,12 +1,10 @@
 ---
 title: Consulting services in Microsoft commercial marketplace  
 description: This article describes the eligibility criteria and publishing requirements for new consulting service offers in Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.author: dsindona
 ---
 
 # Consulting service offers

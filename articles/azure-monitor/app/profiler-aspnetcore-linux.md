@@ -31,17 +31,17 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create an ASP.NET Core MVC web application:
 
-    ```
-    dotnet new mvc -n LinuxProfilerTest
-    ```
+   ```console
+   dotnet new mvc -n LinuxProfilerTest
+   ```
 
 1. Change the working directory to the root folder for the project.
 
 1. Add the NuGet package to collect the Profiler traces:
 
-    ```shell
-    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
-    ```
+   ```console
+   dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+   ```
 
 1. Enable Application Insights in Program.cs:
 
@@ -51,7 +51,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
             .UseApplicationInsights() // Add this line of code to Enable Application Insights
             .UseStartup<Startup>();
     ```
-    
+
 1. Enable Profiler in Startup.cs:
 
     ```csharp
@@ -65,24 +65,24 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
 
     ```csharp
-        using System.Threading;
-        ...
+    using System.Threading;
+    ...
 
-        public IActionResult About()
-            {
-                Random r = new Random();
-                int delay = r.Next(5000, 10000);
-                Thread.Sleep(delay);
-                return View();
-            }
+    public IActionResult About()
+        {
+            Random r = new Random();
+            int delay = r.Next(5000, 10000);
+            Thread.Sleep(delay);
+            return View();
+        }
     ```
 
 1. Save and commit your changes to the local repository:
 
-    ```
-        git init
-        git add .
-        git commit -m "first commit"
+    ```console
+    git init
+    git add .
+    git commit -m "first commit"
     ```
 
 ## Create the Linux web app to host your project
@@ -108,7 +108,7 @@ For more deployment options, see [App Service documentation](https://docs.micros
 
 1. In your Command Prompt window, browse to the root folder for your project. Add a Git remote repository to point to the repository on App Service:
 
-    ```
+    ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
@@ -117,13 +117,13 @@ For more deployment options, see [App Service documentation](https://docs.micros
 
 2. Deploy the project by pushing the changes to Azure:
 
-    ```
+    ```console
     git push azure master
     ```
 
-You should see output similar to the following example:
+    You should see output similar to the following example:
 
-    ```
+    ```output
     Counting objects: 9, done.
     Delta compression using up to 8 threads.
     Compressing objects: 100% (8/8), done.
@@ -140,8 +140,7 @@ You should see output similar to the following example:
     remote: .
     remote:   Installing Newtonsoft.Json 10.0.3.
     remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-    …
-
+    ...
     ```
 
 ## Add Application Insights to monitor your web apps
@@ -150,9 +149,7 @@ You should see output similar to the following example:
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
-    ```
-    APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ```
+    `APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]`
 
     When the app settings are changed, the site automatically restarts. After the new settings are applied, the Profiler immediately runs for two minutes. The Profiler then runs for two minutes every hour.
 
