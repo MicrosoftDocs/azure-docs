@@ -52,7 +52,7 @@
     - name: Manage reservations
       href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Change optimize setting
-      href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json
+      href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Report costs
