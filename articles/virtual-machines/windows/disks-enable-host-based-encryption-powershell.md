@@ -121,4 +121,4 @@ foreach($vmSize in $vmSizes)
 
 ## Next steps
 
-[Samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)
+[Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)
