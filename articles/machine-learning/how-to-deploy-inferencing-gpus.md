@@ -157,6 +157,9 @@ For this example, the file is saved as `myenv.yml`.
 
 ## Define the deployment configuration
 
+> [!IMPORTANT]
+> AKS does not allow pods to share GPUs, you can have only as many replicas of a GPU-enabled web service as there are GPUs in the cluster.
+
 The deployment configuration defines the Azure Kubernetes Service environment used to run the web service:
 
 ```python

@@ -5,10 +5,8 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Tutorial: React to Blob Storage events on IoT Edge (Preview)

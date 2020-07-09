@@ -76,7 +76,9 @@ To add the custom route, follow these steps:
     ```
 3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 
@@ -104,7 +106,9 @@ To add the custom route, follow these steps:
 
 3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 
