@@ -19,23 +19,11 @@ In this quickstart, you create and test a basic Custom Commands application usin
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a>For supported regions, visit the [region availability](custom-commands-region-availability.md) page.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
-## Regional availability
-At this time, Custom Commands only supports speech subscriptions in these regions:
-* West US
-* West US2
-* East US
-* East US2
-* North Europe
-* West Europe
-* West Central US
-* Central India
-* East Asia
-* Southeast Asia
 
 ## Go to the Speech Studio for Custom Commands
 

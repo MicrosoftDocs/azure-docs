@@ -444,6 +444,8 @@
                   href: custom-commands-references.md
         - name: Resources
           items:
+            - name: Regional Availability
+              href: custom-commands-region-availability.md
             - name: Custom Commands Samples (GitHub)
               href: https://aka.ms/speech/cc-samples
             - name: Voice Assistants Samples (GitHub)

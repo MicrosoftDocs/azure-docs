@@ -35,7 +35,7 @@ To request the ability to use customer-managed keys, fill out and submit Custome
    > [!NOTE]
    > **Customer-managed keys (CMK) are supported only for Custom Commands.**
    >
-   >  **Custom Speech and Custom Voice still support only Bring Your Own Storage (BYOS).**
+   >  **Custom Speech and Custom Voice still support only Bring Your Own Storage (BYOS).**  [Learn more](speech-encryption-of-data-at-rest.md)
    >
    > If you're using the given speech resource for accessing these service, compliance needs must be met by explicitly configuring BYOS.
 

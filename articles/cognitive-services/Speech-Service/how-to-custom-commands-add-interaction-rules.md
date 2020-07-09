@@ -14,7 +14,7 @@ ms.author: sausin
 
 # Add interaction rules
 
-In this article, you learned about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
+In this article, you'll learn about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
 
 * Confirming commands
 * Adding a one-step correction to commands
