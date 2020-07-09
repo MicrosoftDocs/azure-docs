@@ -79,4 +79,4 @@ To learn about using metrics with Event Grid on IoT Edge, see [monitor topics an
 
 | Property Name | Description |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Reporter type for metrics enpoint. Default is `none` and disables metrics. Setting to `prometheus` enables metrics in the Prometheus exposition format.
+| `metrics__reporterType` | Reporter type for metrics endpoint. Default is `none` and disables metrics. Setting to `prometheus` enables metrics in the Prometheus exposition format.
