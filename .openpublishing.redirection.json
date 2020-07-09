@@ -56550,6 +56550,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cost-management-billing/costs/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/costs/toc.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/manage/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/manage/toc.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/understand/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/understand/toc.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
