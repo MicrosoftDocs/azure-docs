@@ -12,7 +12,7 @@ ms.date: 07/08/2020
 ms.author: sausin
 ---
 
-## Regional Availability
+# Regional Availability
 
 At this time, Custom Commands supports speech subscriptions created in these regions:
 * West US
