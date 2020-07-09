@@ -181,7 +181,7 @@ To switch package execution environments with Azure-enabled projects, you can cr
    ![Switch Visual Studio Configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
 
 ## Current limitations
--  This SSDT feature doesn't supported national cloud right now.
+-  This SSDT feature doesn't support national cloud right now.
 
 ## Next steps
 Once you are satisfied with running your packages in Azure from SSDT, you can deploy and run them as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
