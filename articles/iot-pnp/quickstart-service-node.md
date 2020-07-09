@@ -38,7 +38,7 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 **Install the Node Service SDK**
-You can install the [Node service SDK with PnP support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) by running the following command: 
+You can install the [Node service SDK with PnP support](https://www.npmjs.com/package/azure-iot-digitaltwins-service/v/1.0.0-pnp-refresh.2) by running the following command: 
 
 `npm i azure-iot-digitaltwins-service@1.0.0-pnp-refresh.2`
 
