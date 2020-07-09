@@ -60,7 +60,7 @@ The following are required when using Media Services to encrypt your HLS content
   * password for the .pfx
   
 > [!NOTE]
-> Azure Media Services does not check the certificate expiration date during packaging or key delivery. It will continue to work after certificate expiration.
+> Azure Media Services doesn't check the certificate expiration date during packaging or key delivery. It will continue to work after the certificate expires.
 
 ## FairPlay and player apps
 
