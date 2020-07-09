@@ -286,13 +286,13 @@ Your auth settings can optionally be configured via a file that is provided by y
 > [!CAUTION]
 > During preview, enabling file-based configuration will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell.
 
-1. Create a new JSON file for your configuration at the root of your project. Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing ARM configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
+1. Create a new JSON file for your configuration at the root of your project (deployed to D:\home\site\wwwroot in your web / function app). Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing ARM configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
 
 2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettings`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettings collection, you will need to set three properties (and may remove others):
 
     1.	Set `enabled` to "true"
     2.	Set `isAuthFromFile` to "true"
-    3.	Set `authFilePath` to the name of the file.
+    3.	Set `authFilePath` to the name of the file (for example, "auth.json")
 
 Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to ARM-based configuration, you can do so by setting `isAuthFromFile` back to "false".
 

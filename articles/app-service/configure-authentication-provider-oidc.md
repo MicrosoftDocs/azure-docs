@@ -77,7 +77,7 @@ This section will walk you through updating the configuration to include your ne
 1. Within the `openIdConnectConfiguration` object, provide the OpenID Connect metadata you gathered earlier. There are two options for this, based on which information you collected:
 
     - Set the `wellKnownOpenIdConfiguration` property to the configuration metadata URL you gathered earlier.
-    - Individually set the four values gathered as follows:
+    - Alternatively, set the four individual values gathered as follows:
         - Set `issuer` to the issuer URL
         - Set `authorizationEndpoint` to the authorization Endpoint
         - Set `tokenEndpoint` to the token endpoint
@@ -87,7 +87,7 @@ This section will walk you through updating the configuration to include your ne
 
 Once this configuration has been set, you are ready to use your OpenID Connect provider for authentication in your app.
 
-An example configuration might look like the following (using Sign in with Apple as an example):
+An example configuration might look like the following (using Sign in with Apple as an example, where the APPLE_GENERATED_CLIENT_SECRET setting points to a generated JWT as per [Apple documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)):
 
 ```json
 {
