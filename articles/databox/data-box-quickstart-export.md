@@ -15,9 +15,10 @@ ms.localizationpriority: high
 
 # Get started with Azure Data Box
 
-This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data from Data Box. The quickstart is performed in the Azure portal and on the local web UI of the device.
+This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
-For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
+<!-- Link doesn't work right now, because the export tutorial isn't in master yet -->
+For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Create export order for Azure Data Box](data-box-deploy-export-ordered.md)
 
 ## Prerequisites
 
@@ -30,9 +31,9 @@ Before you begin:
 
 * Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 * Review the [safety guidelines for your Data Box](data-box-safety.md).
-* You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+* You have an Azure Data Box device to move data to your location. Your host computer must
   * Run a [Supported operating system](data-box-system-requirements.md).
-  * Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
+  * Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted.
 * You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 * You have procured the following cables to connect your Data Box to the host computer.
   * Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
@@ -45,12 +46,13 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Order
 
-This step takes roughly 5 minutes.
+This step takes roughly 10 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
-2. Select an existing subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
+2. Select an existing subscription enabled for this service and choose transfer type as **Export to Azure**. Provide the **Source Azure region** where the data resides and **Destination country** for the data transfer.
 3. Select **Data Box**. The maximum usable capacity is 80 TB and you can create multiple orders for larger data sizes.
-4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
+4. Select **Add storage account and export type** and then **Select Export option**.
+5. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
 
@@ -75,7 +77,7 @@ When you receive the Data Box, do the following steps to cable, connect to and t
     ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
-    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
+    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device.
     3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data.
     4. Turn on the device. The power button is on the front panel of the device.
 
@@ -85,25 +87,15 @@ This step takes about 5-7 minutes to complete.
 
 1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
-3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
+3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website's security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address.
 
 ## Copy data
 
 The time to complete this operation depends upon your data size and network speed.
 
-1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data from the storage accounts. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
 2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
-// Need to check what is different here
-
-## Ship to Azure
-
-This operation takes about 10-15 minutes to complete.
-
-1. Go to **Prepare to ship** page in the local web UI and start the ship preparation.
-2. Turn off the device from the local web UI. Remove the cables from the device.
-3. The return shipping label should be visible on the E-ink display. If the E-ink display is not displaying the label, download shipping label from the Azure portal and insert in the clear sleeve attached to the device.
-4. Lock the case and ship to Microsoft.
 
 ## Clean up resources
 
@@ -115,7 +107,7 @@ This step takes 2-3 minutes to complete.
 
 ## Next steps
 
-In this quickstart, you've deployed an Azure Data Box to help import your data into Azure. To learn more about Azure Data Box management, advance to the following tutorial:
+In this quickstart, you've deployed an export order from Azure into an Azure Data Box. To learn more about Azure Data Box management, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
