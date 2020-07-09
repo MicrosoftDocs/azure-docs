@@ -28,6 +28,7 @@ When sharing ultra disks, they have the following additional limitations:
 - Can only be enabled on data disks, not OS disks.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - ReadOnly host caching is not available for premium SSDs with `maxShares>1`.
+- Disk bursting is not available for premium SSDs with `maxShares>1`.
 - Azure Backup and Azure Site Recovery support is not yet available.
 
 If you're interested in trying shared disks then [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).
