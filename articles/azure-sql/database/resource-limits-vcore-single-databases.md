@@ -134,7 +134,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen4 compute generation (part 2)
 
@@ -161,7 +161,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## Hyperscale - provisioned compute - Gen5
 
@@ -190,7 +190,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen5 compute generation (part 2)
 
@@ -217,13 +217,13 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### Notes
 
 **Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Note 2**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
+**Note 2**: Latency is 1-2 ms for data on local compute replica SSD, which caches most used data pages. Higher latency for data retrieved from page servers.
 
 ## General purpose - provisioned compute - Gen4
 
