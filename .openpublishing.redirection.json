@@ -28677,6 +28677,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
+      "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-managed-disks-overview.md",
       "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
       "redirect_document_id": true
