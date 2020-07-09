@@ -42,23 +42,28 @@ Once installed, the client can be launched from the Start menu by searching for 
 
 ## Subscribe to a Workspace
 
-Get the list of managed resources available to you by subscribing to the Workspace provided by your admin. Subscribing makes the resources available on your local PC.
+There are two ways you can subscribe to a Workspace. The client can try to discover the resources available to you from your work or school account or you can directly specify the URL where your resources are for cases where the client is unable to find them. Once you've subscribed to a Workspace, you can launch resources with one of the following methods:
 
-To subscribe to a Workspace:
+- Go to the Connection Center and double-click a resource to launch it.
+- You can also go to the Start menu and look for a folder with the Workspace name or enter the resource name in the search bar.
 
-1. Open the Windows Desktop client.
-2. Select **Subscribe** on the main page to connect to the service and retrieve your resources.
-3. Sign in with your user account when prompted.
+### Subscribe with a user account
 
-After you successfully sign in, you should see a list of the resources you can access.
+1. From the main page of the client, select **Subscribe**.
+2. Sign in with your user account when prompted.
+3. The resources will appear in the Connection Center, and are grouped by workspace.
 
-You can launch resources by one of two methods.
+### Subscribe with a URL
 
-- From the client's main page, double-click a resource to launch it.
-- Launch a resource as you normally would other apps from the Start Menu.
-  - You can also search for the apps in the search bar.
-
-Once subscribed to a Workspace, its content is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
+1. From the main page of the client, select **Subscribe with URL**.
+2. Enter the Workspace URL or your email address:
+   - If you use the **Workspace URL**, use the one your admin gave you. If accessing resources from Windows Virtual Desktop, you can use one of the following URLs:
+     - Windows Virtual Desktop Fall 2019: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop Spring 2020: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+   - If you're using the **Email** field instead, enter your email address. This tells the client to search for a URL associated with your email address if your admin has se tup [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
+3. Select **Next**.
+4. Sign in with your user account when prompted.
+5. The resources should appear in the Connection Center, grouped by workspace.
 
 ## Next steps
 
