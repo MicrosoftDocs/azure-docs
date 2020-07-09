@@ -34,9 +34,9 @@ The following table lists the API versions for the resources used in this templa
 
 ## Before using the template
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) to create a connection with Azure. With Azure PowerShell, deployment uses [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.1.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). With Azure CLI, this deployment uses [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.1.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). With Azure CLI, this deployment uses [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 The JSON template is configured to prompt you for:
 
