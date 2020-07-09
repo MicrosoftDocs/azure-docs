@@ -16,5 +16,5 @@ Currently available only in the following regions:
 - East US
 - East US 2
 - South Central US
-- US Gov East
-- US Gov West
+- US Gov East (Virginia)
+- US Gov South West (Arizona)
