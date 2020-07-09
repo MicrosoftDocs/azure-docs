@@ -38,7 +38,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 
 > [!NOTE]
-> Looking for [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Although it uses Cognitive Services for some tasks, it’s a different search technology that supports other scenarios.
+> Looking for [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Although it uses Cognitive Services for some tasks, it's a different search technology that supports other scenarios.
 
 
 ## Language APIs
@@ -74,17 +74,13 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 
-## Use free trials
-
-[Signing up for free trials](https://azure.microsoft.com/try/cognitive-services/ "Sign-up Help") only takes an email and a few simple steps. You need a Microsoft Account if you don't already have one. You'll receive a unique pair of keys for each API requested. The second one is just a spare. Don't share the secret keys with anyone. Trials have both a rate limit, transactions per second or minute, and a monthly usage cap. A transaction is simply an API call. You can upgrade to paid tiers to unlock the restrictions.
-
 ## Subscription management
 
 Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
 ## Upgrade to unlock limits
 
-All APIs have a free trial plan, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
+All APIs have a free tier, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
 ## Regional availability
 
