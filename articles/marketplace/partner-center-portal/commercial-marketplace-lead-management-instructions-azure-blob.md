@@ -4,6 +4,8 @@ description: Learn how to use Azure Blob to configure leads for Microsoft AppSou
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/01/2020
 ---
 

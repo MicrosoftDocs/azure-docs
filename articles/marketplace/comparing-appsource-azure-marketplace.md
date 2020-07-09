@@ -4,6 +4,8 @@ description: This article explains the differences between Microsoft commercial 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
 ---
 

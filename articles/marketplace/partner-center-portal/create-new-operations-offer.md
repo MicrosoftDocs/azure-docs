@@ -4,6 +4,8 @@ description: How to create a new Dynamics 365 for Operations offer for listing o
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
 ---
 

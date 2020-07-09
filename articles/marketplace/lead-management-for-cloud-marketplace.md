@@ -4,6 +4,8 @@ description: An overview of various topics related to publishing offers and tech
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
 ---
 

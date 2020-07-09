@@ -4,6 +4,8 @@ description: Get resources on marketing best practices for partners publishing o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
 ---
 
