@@ -72,6 +72,20 @@ For more information on templates, see the following articles:
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
+Create your resource group
+
+# [Azure CLI](#tab/CLI)
+
+```azurecli
+az group create --name examplegroup --location "East US"
+```
+
+# [Azure PowerShell](#tab/PowerShell)
+
+```azurepowershell
+New-AzResourceGroup -Name examplegroup -Location "East US"
+```
+
 ### Advanced template
 
 The following example template demonstrates how to create a workspace with three settings:
