@@ -49,7 +49,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Workday no version info":::
+:::image type="icon" source="./media/weather-services-concepts/sunny-i.png" alt-text="Workday no version info":::
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
