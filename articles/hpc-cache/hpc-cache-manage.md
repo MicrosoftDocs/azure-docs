@@ -215,8 +215,18 @@ Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cac
 
 Example:
 ```azurecli
-az hpc-cache delete --name doc-cache0629
+$ az hpc-cache delete --name doc-cache0629
  - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
 ```
 
 ---
