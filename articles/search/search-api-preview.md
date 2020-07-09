@@ -1,7 +1,7 @@
 ---
-title: Preview features in REST API
+title: Preview feature list
 titleSuffix: Azure Cognitive Search
-description: Preview features are released so that customers can provide feedback on its design and utility. This article is an exhaustive list of all features currently in preview.
+description: Preview features are released so that customers can provide feedback on their design and utility. This article is a comprehensive list of all features currently in preview.
 
 manager: nitinme
 author: HeidiSteen
@@ -16,7 +16,7 @@ This article is a comprehensive list of all features that are in preview so that
 
 Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it is generally available. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
-|Feature  | Category | Description | Availability  |
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
 | [**featuresMode parameter**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Relevance (scoring) | Relevance score expansion to include details: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial). | Add this query parameter using [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) with api-version=2020-06-30-Preview or 2019-05-06-Preview. |
 | [**Managed service identity**](search-howto-managed-identities-data-sources.md) | Indexers, security| Register a search service with Azure Active Directory to make it a trusted service, and then use RBAC permissions on Azure data sources to allow read-only access by an indexer. | Access this capability when using the portal or [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
@@ -27,7 +27,7 @@ Preview features that transition to general availability are removed from this l
 | [**Incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md) | Indexer configuration| Adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.| Add this configuration setting using [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
 | [**Cosmos DB indexer: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Indexer data source | For Cosmos DB, SQL API is generally available, but MongoDB, Gremlin, and Cassandra APIs are in preview. | For Gremlin and Cassandra only, [sign up first](https://aka.ms/azure-cognitive-search/indexer-preview) so that support can be enabled for your subscription on the backend. MongoDB data sources can be configured in the portal. Otherwise, data source configuration for all three APIs is supported using [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
 |  [**Azure Data Lake Storage Gen2 indexer**](search-howto-index-azure-data-lake-storage.md) | Indexer data source | Index content and metadata from Data Lake Storage Gen2.| [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) is required so that support can be enabled for your subscription on the backend. Access this data source using [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
-| [**moreLikeThis query parameter**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | Add this query parameter in [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) calls with api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, or 2017-11-11-Preview. |
+| [**moreLikeThis**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | Add this query parameter in [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) calls with api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, or 2017-11-11-Preview. |
 
 ## Calling preview REST APIs
 
@@ -45,7 +45,9 @@ Older previews are still operational but become stale over time. If your code ca
 
 The following example syntax illustrates a call to the preview API version.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```HTTP
+GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```
 
 Azure Cognitive Search service is available in multiple versions. For more information, see [API versions](search-api-versions.md).
 

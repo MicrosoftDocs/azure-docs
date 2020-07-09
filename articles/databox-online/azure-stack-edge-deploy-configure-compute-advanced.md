@@ -18,7 +18,7 @@ This tutorial describes how to configure a compute role for an advanced deployme
 
 Compute can be configured for simple or advanced deployment flow on your device.
 
-|                  | Simple deployment                                | Advanced deployment                   |
+| Criteria | Simple deployment                                | Advanced deployment                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Intended for     | IT administrators                                | Developers                            |
 | Type             | Use Azure Stack Edge service to deploy modules      | Use IoT Hub service to deploy modules |
@@ -211,9 +211,9 @@ In this section, you add a custom module to the IoT Edge device that you created
 
         ![Add custom module](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.    Under **Specify Routes**, set routes between modules.  
-    
-    ![The Specify Routes](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
+5. Under **Specify Routes**, set routes between modules.  
+   
+   ![The Specify Routes](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
     You can replace *route* with the following route string that you copied earlier. In this example, enter the name of the local share that will push data to the cloud share. Replace the `modulename` with the name of the module. Select **Next**.
         
@@ -223,9 +223,9 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     ![The Specify Routes section](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.    Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
+6. Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
 
-    ![The Set Modules page](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![The Set Modules page](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     This action starts the module deployment. After the deployment is complete, the **Runtime status** of module is **running**.
 
@@ -237,13 +237,13 @@ The final step is to ensure that the module is connected and running as expected
 
 Take the following steps to verify data transform and transfer to Azure.
  
-1.    In File Explorer, connect to both the Edge local and Edge shares you created previously.
+1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
-    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
+   ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.    Add data to the local share.
+1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     The data gets moved to the cloud share.
 

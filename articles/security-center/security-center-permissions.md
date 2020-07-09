@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/02/2020
 ms.author: memildin
 
 ---
@@ -40,6 +40,7 @@ The following table displays roles and allowed actions in Security Center.
 |Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edit security policy|-|✔|-|-|✔|
+|Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
 |Change subscription pricing tier|-|✔|-|-|✔|
 |Enable / disable auto-provisioning|-|✔|✔|-|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
