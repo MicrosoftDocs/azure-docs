@@ -1,17 +1,11 @@
 ---
-title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for May 2020."
+title: "Cognitive Services: What's new in docs for June 1, 2020 - June 30, 2020"
+description: "What's new in the Cognitive Services docs for June 1, 2020 - June 30, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 07/09/2020
----
-
----
-title: "Cognitive Services docs: What's new for June 1, 2020 - June 30, 2020"
-description: "What's new in the Cognitive Services docs for June 1, 2020 - June 30, 2020."
 ms.date: 07/09/2020
 ---
 
@@ -120,4 +114,4 @@ The following people contributed to the Cognitive Services docs during this peri
 - [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
 - [huaigulin](https://github.com/huaigulin) - Huaigu Lin (1)
 
-[!INCLUDE [Service specific updates](../includes/service-specific-updates.md)]
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]
