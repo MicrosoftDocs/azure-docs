@@ -164,18 +164,9 @@ myenv.python.conda_dependencies=conda_dep
 >[!IMPORTANT]
 > If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image of your environment. If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. For more information, see [Environment building, caching, and reuse](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
-### Private wheel files
+### Private Python packages
 
-You can use private pip wheel files by first uploading them to your workspace storage. You upload them by using a static [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. Then you capture the storage URL and pass the URL to the `add_pip_package()` method.
-
-```python
-# During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
-whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
-myenv = Environment(name="myenv")
-conda_dep = CondaDependencies()
-conda_dep.add_pip_package(whl_url)
-myenv.python.conda_dependencies=conda_dep
-```
+To use Python packages privately and securely without exposing them to the public internet, see the article [How to use private Python packages](how-to-use-private-python-packages.md).
 
 ## Manage environments
 
