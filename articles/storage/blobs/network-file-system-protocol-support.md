@@ -28,13 +28,15 @@ To mount a storage account container, you'll have to do these things.
 
 1. Register NFS 3.0 protocol feature with your subscription.
 
-2. Create an Azure Virtual Network (VNet).
+2. Verify that the feature is registered.
 
-3. Create and configure storage account that accepts traffic only from the VNet.
+3. Create an Azure Virtual Network (VNet).
 
-4. Create a container in the storage account.
+4. Create and configure storage account that accepts traffic only from the VNet.
 
-5. Mount a container in the storage account.
+5. Create a container in the storage account.
+
+6. Mount a container in the storage account.
 
 > [!IMPORTANT]
 > It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account.

@@ -61,7 +61,7 @@ You can mount a container in Azure Data Lake Storage from a Linux-based Azure Vi
 
 ## Step 2: Verify that the feature is registered 
 
-Registration approval can take up to an hour. To verify that the feature is registered with your subscription, use the following commands.
+Registration approval can take up to an hour. To verify that the registration is complete, use the following commands.
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
@@ -70,15 +70,15 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## Step 3: Create an Azure Virtual Network (VNet)
 
-Your storage account must be contained within a VNet. To learn more about VNet and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
+Your storage account must be contained within a VNet. To learn more about VNet, and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
 
 > [!NOTE]
 > Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
 
 
-## Step 4: Configure a storage account
+## Step 4: Create and configure a storage account
 
-To mount a container by using NFS 3.0, You must create a storage account after you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
+To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
 NFS 3.0 protocol is supported in the following types of storage accounts:
 
@@ -91,23 +91,24 @@ As you configure the account, choose these values:
 
 |Setting |general-purpose v2 account |BlockBlobStorage account|
 |----|---|----|
-|Location|US Central (EUAP), US East 2 (EUAP)|US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |
+|Location|One of the following regions: US Central (EUAP), US East 2 (EUAP)|One of the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |
 |Performance|Standard|Premium|
-|Account kind|StorageV2 (general purpose vs2|BlockBlobStorage|
+|Account kind|StorageV2 (general purpose v2|BlockBlobStorage|
 |Replication|Locally-redundant storage (LRS)|Locally-redundant storage (LRS)|
 |Connectivity method|Public endpoint (selected networks) or Private endpoint.|Public endpoint (selected networks) or Private endpoint.|
 |Secure transfer required|Disabled|Disabled|
 |Hierarchical namespace|Enabled|Enabled|
 |NFS V3|Enabled|Enabled|
 
-You can accept the default value for all other settings. 
+You can accept the default values for all other settings. 
 
 ## Step 5: Create a container
 
 In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
 
-You can create a container by using [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container), [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container), [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container), [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container), [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container), [Java](data-lake-storage-directory-file-acl-java.md#create-a-container), [Python](data-lake-storage-directory-file-acl-python.md#create-a-container), [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container), or [REST](https://docs.microsoft.com/rest/api/storageservices/create-container).
+Create a container by using any of these options:
 
+:::row::: :::column span=""::: [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container) :::column-end::: :::column span=""::: [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span=""::: [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container) :::column-end::: :::column span=""::: [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span="2"::: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container) :::column-end::: :::row-end::::::row::: :::column span=""::: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container) :::column-end::: :::column span=""::: [Python](data-lake-storage-directory-file-acl-python.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span=""::: [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container) :::column-end::: :::column span=""::: [REST](https://docs.microsoft.com/rest/api/storageservices/create-container) :::column-end::: :::row-end::: :::row::: :::column span="2"::: Blank entry :::column-end::: :::row-end:::
 
 ## Step 6: Mount the container
 
@@ -121,9 +122,9 @@ Replace the `<storage-account-name>` placeholder that appears in this command wi
 
 Replace the `<container-name>` placeholder with the name of your container.
 
-If you receive the error `Access denied by server while mounting`, ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
+If you receive the error "`Access denied by server while mounting`", ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
 
-If you receive the error `No such file or directory`, make sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).
+If you receive the error "`No such file or directory`", make sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).
 
 ## See also
 
