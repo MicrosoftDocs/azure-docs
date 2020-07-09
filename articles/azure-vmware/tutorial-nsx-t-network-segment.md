@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An AVS private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. See the [Tutorial: Configure networking for your VMware private cloud in Azure)(tutorial-configure-networking.md).
+An AVS private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. See the [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md).
 
 ## Provision a network segment in NSX-T
 
