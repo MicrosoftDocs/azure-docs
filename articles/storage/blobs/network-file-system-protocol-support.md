@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 07/08/2020
 ms.author: normesta
 ms.reviewer: yzheng
+ms.custom: references_regions
 ---
 
 # Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)
@@ -16,7 +17,9 @@ Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol
 
 > [!NOTE]
 > NFS 3.0 protocol support is in public preview.
+>
 > Support is available for general-purpose v2 accounts in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
+>
 > Support is available for BlockBlobStorage accounts in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
 ## Mount a storage account container
@@ -52,27 +55,35 @@ A connecting client can run any of these locations:
 
   This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) gateway along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
 
-## Known issues and feature limitations
+## Features and tasks that are not yet supported
 
-- Any security configurations other than network security are not yet supported.
+- Azure Active Directory (AD) security.
 
-  This includes any aspect of Azure Active Directory (AD) including Role Based Access Control (RBAC) as well as POSIX ACLs on directories and containers.
+- POSIX access control lists (ACLs)
 
-- Once you've enable stuff. You can't disable it.
+- Disabling NFS 3.0 support for a storage account 
 
-- UDP. We only support TCP
-- Locking (i.e. Network Lock Manager (NLM))
-- Quotad for supporting quotas
-- Mounting a subdirectory
-- Listing mounts, i.e. “showmount -a”
-- Listing exports via “showmount -e”
-  Note: We support listing exports via List File Systems
-- Exporting via the RPC call EXPORT
-  Note: We have export support for Create File System and a flag Hard links
-- Post-op attributes
-- WCC
-- Read-only mount
-- During preview, the only way to access data in the NFS v3 enabled storage account is through NFS. You cannot access it via blob REST apis. The blob REST api access will be available at GA timeframe. 
+- NFS 3.0 over UDP. Only NFS 3.0 over TCP is supported
+
+- Locking files with Network Lock Manager (NLM)
+
+  Mount commands must include the `-o nolock` parameter
+
+- Mounting sub-directories. You can only mount the root directory (Container)
+
+- Listing mounts (For example: by using the command `showmount -a`)
+
+- Listing exports (For example: by using the command `showmount -e`)
+
+- Post-operation attributes
+
+- Weak Cache Consistency
+
+- Mounting a container as read-only
+
+- Access to the account by using REST APIs, Blob SDKs, or Data Lake Storage SDKs.
+
+  Once you've enabled the NFS 3.0 protocol for your storage account, you can only use that protocol to access data in the storage account. 
 
 ## Pricing
 

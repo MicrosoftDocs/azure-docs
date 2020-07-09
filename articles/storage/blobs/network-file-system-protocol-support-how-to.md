@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: normesta
 ms.reviewer: yzheng
+ms.custom: references_regions
 ---
 
 # Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)
@@ -16,7 +17,9 @@ Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol
 
 > [!NOTE]
 > NFS 3.0 protocol support is in public preview.
+>
 > Support is available for general-purpose v2 accounts in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
+>
 > Support is available for BlockBlobStorage accounts in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
 ## Register NFS 3.0 protocol feature with your subscription
@@ -119,6 +122,10 @@ mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.window
 Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
 Replace the `<container-name>` placeholder with the name of your container.
+
+## See also
+
+[Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md)
 
 
 
