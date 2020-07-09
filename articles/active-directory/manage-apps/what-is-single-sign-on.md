@@ -132,7 +132,7 @@ Linked sign-on can provide a consistent user experience while you migrate applic
 
 Once a user has authenticated with a linked application, an account record needs to be created before the end user is provided single sign-on access. Provisioning this account record can either occur automatically, or it can occur manually by an administrator.
 
->[!Note]
+>[!NOTE]
 >You cannot apply conditional access policies to a linked application. This is because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application you are simply adding a link that will appear in the app launcher or MyApps portal. 
 
 ## Disabled SSO
