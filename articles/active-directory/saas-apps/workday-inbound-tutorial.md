@@ -685,11 +685,6 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 You can also check whether all of the [required ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) are open.
 
-To make sure the tool gives you the right results, be sure to:
-
-* Open the tool on a browser from the server where you have installed the Provisioning Agent.
-* Ensure that any proxies or firewalls applicable to your Provisioning Agent are also applied to this page. This can be done in Internet Explorer by going to **Settings -> Internet Options -> Connections -> LAN Settings**. On this page, you see the field "Use a Proxy Server for your LAN". Select this box, and put the proxy address into the "Address" field.
-
 #### Can one Provisioning Agent be configured to provision multiple AD domains?
 
 Yes, one Provisioning Agent can be configured to handle multiple AD domains as long as the agent has line of sight to the respective domain controllers. Microsoft recommends setting up a group of 3 provisioning agents serving the same set of AD domains to ensure high availability and provide fail over support.
