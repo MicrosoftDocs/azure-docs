@@ -115,18 +115,17 @@ The SPA player app completes the following actions:
 * Decryption, decode, and display.
 * Microsoft Graph API calls for troubleshooting purposes. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
-<!--
 The screen for sign-in, token acquisition, token renewal, and token display:
 
- ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition.png)
 
 The screen for parsing JWT tokens (access_token or id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
