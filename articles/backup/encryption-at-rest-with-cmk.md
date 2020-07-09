@@ -36,7 +36,7 @@ This article discusses the following:
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## Configuring your Recovery Services vault to encrypt backup data using customer-managed keys
+## Configuring a vault to encrypt using customer-managed keys
 
 This section involves the following steps:
 
@@ -172,7 +172,7 @@ To assign the key:
 >
 > - The Recovery Services vault has the required permissions to access the Key Vault.
 
-## Backing up to a Recovery Services vault encrypted with customer-managed keys
+## Backing up to a vault encrypted with customer-managed keys
 
 Before proceeding to configure protection, we strongly recommend you ensure the following checklist is adhered to. This is important since once an item has been configured to be backed up (or attempted to be configured) to a non-CMK encrypted vault, encryption using customer-managed keys can't be enabled on it and it will continue to use platform-managed keys.
 
@@ -247,7 +247,7 @@ No, this article discusses encryption of Backup data only. For Azure Site Recove
 
 ### I missed one of the steps in this article and went on to protect my data source. Can I still use CMK encryption?
 
-Not following the steps in the article and continuing to protect items may lead to the vault not being able to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-recovery-services-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
+Not following the steps in the article and continuing to protect items may lead to the vault not being able to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
 
 ### Does using CMK-encryption add to the cost of my backups?
 
