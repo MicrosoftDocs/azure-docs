@@ -44,17 +44,17 @@ An AVS private cloud with access to the vCenter and NSX-T Manager management int
 
 1. Set the IP address of the gateway for the new segment and then select **ADD**. The IP address that you use will need to be on an non-overlapping RFC1918 address block in order to ensure that you will be able to connect to the VMs that you place on the new segment.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Specify the segment gateway IP address in CIDR notation and select “ADD”.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Specify the segment gateway IP address in CIDR notation and select ADD.":::
 
 1. Apply the new network segment by selecting **APPLY** and then save the configuration with **SAVE**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="Apply the new network segment to the NSX-T configuration with “APPLY”.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="Apply the new network segment to the NSX-T configuration with APPLY.":::
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="Save the new network segment to the NSX-T configuration with "SAVE".":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="Save the new network segment to the NSX-T configuration with SAVE.":::
 
 1. The new network segment has now been created and you will decline the option to continue configuring the segment by selecting **NO**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="Decline to further configure the newly created network segment by selecting “NO”.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="Decline to further configure the newly created network segment by selecting NO.":::
 
 1. Confirm the new network segment is present in NSX-T by selecting **Networking > Segments** and seeing the new segment is in the list (in this case “ls01”).
 
