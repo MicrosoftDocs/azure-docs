@@ -1,19 +1,19 @@
 ---
-title: Encryption at rest using customer-managed keys 
+title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
 ---
 
-# Encryption of at rest backup data using customer-managed keys
+# Encryption of backup data using customer-managed keys
 
-Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which is enabled by default. Your keys that are used for encrypting the backup data must be stored in Azure Key Vault.
+Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which is enabled by default. Your keys that are used for encrypting the backup data must be stored in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256 based data encryption key (DEK), which is, in turn, protected using your keys. This gives you full control over the data and the keys. To allow encryption, it's required that the Recovery Services vault be granted access to the encryption key in the Azure Key Vault. You can change the key as and when required.
+The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256 based data encryption key (DEK), which, in turn, is protected using your keys (KEK). This gives you full control over the data and the keys. To allow encryption, it's required that the Recovery Services vault be granted access to the encryption key in the Azure Key Vault. You can change the key as and when required.
 
 This article discusses the following:
 
-- Creating Recovery Services vaults
+- Creating a Recovery Services vault
 - Configuring your Recovery Services vault to encrypt backup data using customer-managed keys
 - Performing backup to vaults encrypted using customer-managed keys
 - Restoring data from backups
@@ -157,7 +157,7 @@ To assign the key:
 
 1. Click **Save**.
 
-1. **Tracking progress of encryption key update:** You can track the progress of the key assignment using the **Activity Log** in the Recovery Services vault. The status should soon change to **Succeeded**. Your vault will now encrypt all the data with the specified key.
+1. **Tracking progress of encryption key update:** You can track the progress of the key assignment using the **Activity Log** in the Recovery Services vault. The status should soon change to **Succeeded**. Your vault will now encrypt all the data with the specified key as KEK.
 
     ![Track progress with activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
 
