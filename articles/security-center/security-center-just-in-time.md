@@ -17,14 +17,24 @@ Lock down inbound traffic to your Azure Virtual Machines with Azure Security Cen
 
 For a full explanation about how JIT works and the underlying logic, see [Just-in-time explained](just-in-time-explained.md).
 
+This page teaches you how to include JIT in your security program. You'll learn how to: 
+
+- **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Security Center, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
+- **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Security Center still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Security Center, Azure virtual machines, PowerShell, or the REST API.
+- **Auditing the activity**
+
 ## Availability
 
 - Release state: **General availability**
 - Pricing: **Standard tier**. [Learn more about pricing](/azure/security-center/security-center-pricing).
 - Required roles and permissions:
-    - **Reader** and **SecurityReader** roles can both read policies. 
+    - **Reader** and **SecurityReader** roles can both view the JIT status and parameters. 
     - To create custom roles that can work with JIT, see the FAQ ([What permissions are needed to configure and use JIT?](faq-just-in-time.md#what-permissions-are-needed-to-configure-and-use-jit)).
-- Supported VMs: VMs deployed through Azure Resource Manager (ARM). [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+- Supported VMs: 
+    - ✔ VMs deployed through Azure Resource Manager (ARM).
+    - ✘ VMs deployed with classic deployment models<br>
+    [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+    - VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)
 - Clouds: 
     - ✔ Commercial clouds
     - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
@@ -32,17 +42,17 @@ For a full explanation about how JIT works and the underlying logic, see [Just-i
 
 
 
-## Configure JIT VM access <a name="jit-configure"></a>
+## Enable JIT VM access <a name="jit-configure"></a>
 
-You can configure a JIT VM access policy with your own custom options for one or more VMs using Security Center or programmatically. Alternatively, you can enable a JIT VM access policy with default, hard-coded parameters from Azure Virtual machines.
+You can enable JIT VM access with your own custom options for one or more VMs using Security Center or programmatically. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure Virtual machines.
 
 ### [Security Center](#tab/jit-config-asc)
 
-### Configure JIT VM access in Azure Security Center <a name="jit-asc"></a>
+### Enable JIT on your VMs Azure Security Center <a name="jit-asc"></a>
 
 ![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-asc.gif)
 
-Configure the JIT policy on your VMs from Security Center.
+From Security Center, you can enable and configure the JIT VM access.
 
 1. From Security Center's menu, select **Just-in-time VM access**.
 
@@ -51,10 +61,10 @@ Configure the JIT policy on your VMs from Security Center.
     - **Configured** - VMs that have been already been configured to support just-in-time VM access. For each VM, the configured tab shows:
         - the number of approved JIT requests in the last seven days
         - the last access date and time
-        - the connection details configured in the JIT policy
+        - the connection details configured
         - the last user
-    - **Not configured** - VMs that can support JIT but haven't got a policy configured. We recommend that you enable JIT for these VMs.
-    - **Unsupported** - VMs without a JIT policy and which don't support the feature. Your VM might be in this tab for the following reasons:
+    - **Not configured** - VMs without JIT enabled, but that can support JIT. We recommend that you enable JIT for these VMs.
+    - **Unsupported** - VMs without JIT enabled and which don't support the feature. Your VM might be in this tab for the following reasons:
       - Missing network security group (NSG) - JIT requires an NSG to be configured
       - Classic VM - JIT supports VMs that are deployed through Azure Resource Manager, not 'classic deployment'. [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
       - Other - Your VM might be in this tab if the JIT solution is disabled in the security policy of the subscription or the resource group, or if the VM doesn't have a public IP and doesn't have an NSG in place.
@@ -69,7 +79,7 @@ Configure the JIT policy on your VMs from Security Center.
 
     To accept the default settings, select **Save**.
 
-1. To customize the policy:
+1. To customize the JIT options:
 
     - Add custom ports with the **Add** button. 
     - Modify one of the default ports, by selecting it from the list.
@@ -84,8 +94,6 @@ Configure the JIT policy on your VMs from Security Center.
 
 1. Select **Save**.
 
-> [!NOTE]
-> When JIT VM access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new "deny all inbound traffic" rules take top priority in the Network Security Groups and Azure Firewall.
 
 
 ### Edit a JIT VM access policy via Security Center
