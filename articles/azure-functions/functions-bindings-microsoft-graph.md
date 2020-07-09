@@ -54,7 +54,7 @@ If you are using Visual Studio, you can get the extensions by installing [the Nu
 
 ### Configuring Authentication / Authorization
 
-The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) with Azure Active Directory. You will also need to request any resource permissions your functions require.
+The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
 > [!Note] 
 > The Microsoft Graph extension only supports Azure AD authentication. Users need to log in with a work or school account.
@@ -978,7 +978,7 @@ Webhooks allow you to react to events in the Microsoft Graph. To support webhook
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
 - A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
-The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 For more information about webhooks, see [Working with webhooks in Microsoft Graph].
 

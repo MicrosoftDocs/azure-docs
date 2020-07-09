@@ -11,7 +11,7 @@ The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win
 
 As it happens to other languages, a Function App may have one or more functions. A Java function is a `public` method, decorated with the annotation `@FunctionName`. This method defines the entry for a Java function, and must be unique in a particular package. One Function App written in Java may have multiple classes with multiple public methods annotated with `@FunctionName`.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete one of the following Functions quickstarts: [Create your first Java function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) or [Create your first Java function from the command line using Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete one of the following Functions quickstarts: [Create your first Java function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java) or [Create your first Java function from the command line using Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).
 
 ## Programming model 
 
@@ -43,7 +43,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-To get started using this archetype, see the [Java quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
+To get started using this archetype, see the [Java quickstart](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
 
 ## Folder structure
 
@@ -82,7 +82,7 @@ You can put more than one function in a project. Avoid putting your functions in
 Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information, see the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
+> You must configure an Azure Storage account in your [local.settings.json](./functions-run-local.md#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
 
 Example:
 
@@ -329,7 +329,7 @@ You invoke this function on an HttpRequest. It writes multiple values to Queue s
 
 ## Metadata
 
-Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings) along with input data. You can use annotation `@BindingName` to bind to trigger metadata.
+Few triggers send [trigger metadata](./functions-triggers-bindings.md) along with input data. You can use annotation `@BindingName` to bind to trigger metadata.
 
 
 ```Java
