@@ -13,12 +13,6 @@ ms.date: 07/09/2020
 
 Welcome to what's new in the Cognitive Services docs from June 1, 2020 through June 30, 2020. This article lists some of the major changes to docs during this period.
 
-## Bing Local Business Search
-
-### Updated articles
-
-- [Quickstart: Send a query to the Bing Local Business Search API using Java](/azure/cognitive-services/bing-local-business-search/quickstarts/local-search-java-quickstart)
-
 ## Computer Vision
 
 ### Updated articles
