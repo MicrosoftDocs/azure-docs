@@ -1,9 +1,9 @@
 ---
-title: "Tutorial - Use Distributed Tracing with Azure Spring Cloud"
-description: This tutorial shows how to use Spring Cloud's Distributed Tracing through Azure Application Insights
+title: "Use Distributed Tracing with Azure Spring Cloud"
+description: Learn how to use Spring Cloud's distributed tracing through Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 
@@ -22,7 +22,7 @@ In this article you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
     
 ## Add dependencies
 
@@ -97,7 +97,4 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this tutorial, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn how to bind your application to an Azure Cosmos DB database, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Learn how to bind to an Azure Cosmos DB database](spring-cloud-tutorial-bind-cosmos.md)
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-tutorial-bind-cosmos.md).

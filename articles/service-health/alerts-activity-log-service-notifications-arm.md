@@ -3,7 +3,7 @@ title: Receive activity log alerts on Azure service notifications using Resource
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/27/2019
+ms.date: 06/29/2020
 ---
 
 # Quickstart: Create activity log alerts on service notifications using an ARM template
@@ -129,7 +129,7 @@ The following template creates an action group with an email target and enables 
 The template defines two resources:
 
 - [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## Deploy the template
 
