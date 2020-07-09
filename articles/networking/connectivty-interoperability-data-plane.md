@@ -26,7 +26,7 @@ Data plane analysis examines the path taken by packets that traverse from one lo
 
 Virtual network (VNet) peering emulates network bridge functionality between the two VNets that are peered. Traceroute output from a hub VNet to a VM in the spoke VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.4
 
 Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -45,7 +45,7 @@ The following figure shows the graphical connection view of the hub VNet and the
 
 Traceroute output from a hub VNet to a VM in the branch VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.68
 
 Tracing route to 10.11.30.68 over a maximum of 30 hops
@@ -71,7 +71,7 @@ For the same connection, the following figure shows the grid view in Network Wat
 
 Traceroute output from a hub VNet to a VM in on-premises Location 1 is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.2.30.10
 
 Tracing route to 10.2.30.10 over a maximum of 30 hops
@@ -91,7 +91,7 @@ In this traceroute, the first hop is the Azure ExpressRoute gateway tunnel endpo
 
 Traceroute output from a hub VNet to a VM in on-premises Location 2 is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.1.31.10
 
 Tracing route to 10.1.31.10 over a maximum of 30 hops
@@ -110,7 +110,7 @@ In this traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to
 
 Traceroute output from a hub VNet to a VM in the remote VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.17.30.4
 
 Tracing route to 10.17.30.4 over a maximum of 30 hops
@@ -132,7 +132,7 @@ The spoke VNet shares the network view of the hub VNet. Through VNet peering, th
 
 Traceroute output from the spoke VNet to a VM in the hub VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -146,7 +146,7 @@ Trace complete.
 
 Traceroute output from the spoke VNet to a VM in the branch VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.68
 
 Tracing route to 10.11.30.68 over a maximum of 30 hops
@@ -164,7 +164,7 @@ In this traceroute, the first hop is the VPN gateway of the hub VNet. The second
 
 Traceroute output from the spoke VNet to a VM in on-premises Location 1 is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.2.30.10
 
 Tracing route to 10.2.30.10 over a maximum of 30 hops
@@ -183,7 +183,7 @@ In this traceroute, the first hop is the hub VNet's ExpressRoute gateway tunnel 
 
 Traceroute output from the spoke VNet to a VM in on-premises Location 2 is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.1.31.10
 
 Tracing route to 10.1.31.10 over a maximum of 30 hops
@@ -202,7 +202,7 @@ In this traceroute, the first hop is the hub VNet's ExpressRoute gateway tunnel 
 
 Traceroute output from the spoke VNet to a VM in the remote VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.17.30.4
 
 Tracing route to 10.17.30.4 over a maximum of 30 hops
@@ -222,7 +222,7 @@ In this traceroute, the first hop is the hub VNet's ExpressRoute gateway tunnel 
 
 Traceroute output from the branch VNet to a VM in the hub VNet is shown here:
 
-```output
+```console
 C:\Windows\system32>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -240,7 +240,7 @@ In this traceroute, the first hop is the VPN gateway of the branch VNet. The sec
 
 Traceroute output from the branch VNet to a VM in the spoke VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.4
 
 Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -258,9 +258,9 @@ In this traceroute, the first hop is the VPN gateway of the branch VNet. The sec
 
 Traceroute output from the branch VNet to a VM in on-premises Location 1 is shown here:
 
+```console
 C:\Users\rb>tracert 10.2.30.10
 
-```output
 Tracing route to 10.2.30.10 over a maximum of 30 hops
 
   1     1 ms    <1 ms    <1 ms  10.11.30.100
@@ -278,7 +278,7 @@ In this traceroute, the first hop is the VPN gateway of the branch VNet. The sec
 
 As we discussed in the control plane analysis, the branch VNet has no visibility either to on-premises Location 2 or to the remote VNet per the network configuration. The following ping results confirm: 
 
-```output
+```console
 C:\Users\rb>ping 10.1.31.10
 
 Pinging 10.1.31.10 with 32 bytes of data:
@@ -308,7 +308,7 @@ Ping statistics for 10.17.30.4:
 
 Traceroute output from on-premises Location 1 to a VM in the hub VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -332,7 +332,7 @@ The following figure shows the topology view of the on-premises Location 1 VM co
 
 As discussed earlier, the test setup uses a site-to-site VPN as backup connectivity for ExpressRoute between the on-premises Location 1 and the hub VNet. To test the backup data path, let's induce an ExpressRoute link failure between the on-premises Location 1 primary CE router and the corresponding MSEE. To induce an ExpressRoute link failure, shut down the CE interface that faces the MSEE:
 
-```output
+```console
 C:\Users\rb>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -354,7 +354,7 @@ Traceroute output from on-premises Location 1 to a VM in the spoke VNet is shown
 
 Let's bring back the ExpressRoute primary connectivity to do the data path analysis toward the spoke VNet:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.4
 
 Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -374,7 +374,7 @@ Bring up the primary ExpressRoute 1 connectivity for the remainder of the data p
 
 Traceroute output from on-premises Location 1 to a VM in the branch VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.68
 
 Tracing route to 10.11.30.68 over a maximum of 30 hops
@@ -390,7 +390,7 @@ Trace complete.
 
 As we discuss in the [control plane analysis][Control-Analysis], the on-premises Location 1 has no visibility to on-premises Location 2 per the network configuration. The following ping results confirm: 
 
-```output
+```console
 C:\Users\rb>ping 10.1.31.10
 
 Pinging 10.1.31.10 with 32 bytes of data:
@@ -407,7 +407,7 @@ Ping statistics for 10.1.31.10:
 
 Traceroute output from on-premises Location 1 to a VM in the remote VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.17.30.4
 
 Tracing route to 10.17.30.4 over a maximum of 30 hops
@@ -427,7 +427,7 @@ Trace complete.
 
 Traceroute output from on-premises Location 2 to a VM in the hub VNet is shown here:
 
-```output
+```console
 C:\Windows\system32>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -445,7 +445,7 @@ Trace complete.
 
 Traceroute output from on-premises Location 2 to a VM in the spoke VNet is shown here:
 
-```output
+```console
 C:\Windows\system32>tracert 10.11.30.4
 
 Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -468,7 +468,7 @@ As we discuss in the [control plane analysis][Control-Analysis], the on-premises
 
 Traceroute output from the remote VNet to a VM in the hub VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.10.30.4
 
 Tracing route to 10.10.30.4 over a maximum of 30 hops
@@ -484,7 +484,7 @@ Trace complete.
 
 Traceroute output from the remote VNet to a VM in the spoke VNet is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.11.30.4
 
 Tracing route to 10.11.30.4 over a maximum of 30 hops
@@ -504,7 +504,7 @@ As we discuss in the [control plane analysis][Control-Analysis], the remote VNet
 
 Traceroute output from the remote VNet to a VM in on-premises Location 1 is shown here:
 
-```output
+```console
 C:\Users\rb>tracert 10.2.30.10
 
 Tracing route to 10.2.30.10 over a maximum of 30 hops
