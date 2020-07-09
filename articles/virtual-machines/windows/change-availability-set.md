@@ -15,6 +15,8 @@ This article applies to both Linux and Windows VMs.
 
 This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://shell.azure.com/powershell) and the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0.
 
+This example does not check to see if the VM is attached to a load balancer. If your VM is attached to a load balancer, you will need to update the script to handle that case. 
+
 
 ## Change the availability set 
 
