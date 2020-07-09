@@ -129,7 +129,7 @@
     - name: DTDL parser library - NuGet
       href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
     - name: DTDL validator (sample)
-      href: https://github.com/Azure-Samples/dtdl-validator
+      href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: Tools and sample projects 
@@ -138,10 +138,10 @@
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
       - name: Azure Digital Twins samples
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/
-      - name: DTDL validator (sample)
-        href: https://github.com/Azure-Samples/dtdl-validator
       - name: Azure Digital Twins explorer (sample)
         href: https://github.com/Azure-Samples/digital-twins-explorer
+      - name: DTDL validator (sample)
+        href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
