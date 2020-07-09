@@ -5,7 +5,7 @@ description: Access private Python packages securely from Azure Machine Learning
 services: machine-learning
 author: rastala
 ms.author: roastala
-ms.reviewer: larryfr
+ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -25,7 +25,7 @@ In this article, learn how to use private Python packages securely within Azure 
 
 The recommended approach depends on whether you have few packages for a single Azure Machine Learning workspace, or an entire repository of packages for all workspaces within an organization.
 
-The private packages are used through [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) class. Within an environment, you declare Python packages to be used, including private ones. To learn about environment in Azure Machine Learning in general, see [How to use environments](how-to-use-environments.md). 
+The private packages are used through [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) class. Within an environment, you declare which Python packages to use, including private ones. To learn about environment in Azure Machine Learning in general, see [How to use environments](how-to-use-environments.md). 
 
 ## Prerequisites
 
@@ -50,7 +50,10 @@ Internally, Azure Machine Learning service replaces the URL by secure SAS URL, s
 
 ### Consume a repository of packages from Azure DevOps feed
 
-If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them into a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feed using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
+If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
+
+This approach uses Personal Access Token to authenticate against the repository. The same approach is applicable to other repositories
+with token based authentication, such as private GitHub repositories. 
 
  1. [Create a Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
 
@@ -63,12 +66,12 @@ pat_token = input("Enter secret token")
 ws = Workspace.from_config()
 ws.set_connection(name="connection-1", 
     category = "PythonFeed",
-    target = "https:/<my-repo>.pkgs.visualstudio.com", 
+    target = "https://<my-org>.pkgs.visualstudio.com", 
     authType = "PAT", 
     value = pat_token) 
  ```
 
- 3. Create Azure Machine Learning environment and add Python packages from the feed.
+ 3. Create an Azure Machine Learning environment and add Python packages from the feed.
 
 ```python
 from azureml.core import Environment
@@ -77,19 +80,19 @@ from azureml.core.conda_dependencies import CondaDependencies
 env = Environment(name="my-env")
 cd = CondaDependencies()
 cd.add_pip_package("<my-package>")
-cd.set_pip_option("--extra-index-url https://<my-repo>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
+cd.set_pip_option("--extra-index-url https://<my-org>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
 env.python.conda_dependencies=cd
 ```
 
-The environment is now ready to be used in training runs or web service endpoint deployments. Internally, Azure Machine Learning service uses the PAT to authenticate against the feed with matching base URL when building the environment.
+The environment is now ready to be used in training runs or web service endpoint deployments. When building the environment, Azure Machine Learning service uses the PAT to authenticate against the feed with the matching base URL.
 
 ### Consume a repository of packages from private storage
 
-You can consume packages from an Azure storage account within organization's firewall. Such a storage account can hold a curated set of packages for enterprise use, or an internal mirror of publicly available packages.
+You can consume packages from an Azure storage account within your organization's firewall. Such a storage account can hold a curated set of packages for enterprise use or an internal mirror of publicly available packages.
 
 To set up such private storage:
 
- 1. [Place the Workspace inside virtual network (VNET)](how-to-enable-virtual-network.md).
+ 1. [Place the Workspace inside a virtual network (VNET)](how-to-enable-virtual-network.md).
  2. Create a storage account and [disallow public access](https://docs.microsoft.com/azure/storage/common/storage-network-security).
  2. Place the Python packages you want to use into a container within the storage account 
  3. [Allow the storage account access from Workspace VNET](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network) 

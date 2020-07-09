@@ -160,7 +160,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ### Private Python packages
 
-To use Python packages privately and securely, without exposing them to public internet, see the article [How to use private Python packages][how-to-use-private-python-packages.md].
+To use Python packages privately and securely without exposing them to the public internet, see the article [How to use private Python packages][how-to-use-private-python-packages.md].
 
 ## Manage environments
 
