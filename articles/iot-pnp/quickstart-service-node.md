@@ -245,7 +245,8 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
 1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
-    ** UPDATE FOR WORKING OUTPUT ***
+    MaxMinReport [object Object]
+    Response to method 'getMaxMinReport' sent successfully.
     ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
