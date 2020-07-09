@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/19/2020
+ms.date: 07/09/2020
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -33,7 +33,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
 
-[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
+[!code-json[create-azure-machine-learning-service-workspace](~/azure-quickstart-templates/201-machine-learning-advanced/azuredeploy.json)]
 
 This template creates the following Azure services:
 
@@ -72,19 +72,41 @@ For more information on templates, see the following articles:
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-Create your resource group
+Create your resource group:
 
 # [Azure CLI](#tab/CLI)
 
 ```azurecli
-az group create --name examplegroup --location "East US"
+az group create --name examplegroup --location eastus
 ```
 
 # [Azure PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-New-AzResourceGroup -Name examplegroup -Location "East US"
+New-AzResourceGroup -Name examplegroup -Location eastus
 ```
+
+Then, deploy the template
+
+# [Azure CLI](#tab/CLI)
+
+```azurecli
+az deployment group create \
+    --name exampledeployment \
+    --resource-group examplegroup \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName=exampleworkspace location=eastus
+```
+
+# [Azure PowerShell](#tab/PowerShell)
+
+```azurepowershell
+New-azresourcegroupdeployment -name exampledeployment `
+  -resourcegroupname examplegroup -location "East US" `
+  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
+```
+
+
 
 ### Advanced template
 
