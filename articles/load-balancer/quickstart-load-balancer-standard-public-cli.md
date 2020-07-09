@@ -251,7 +251,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
   az vm create \
     --resource-group myResourceGroupSLB \
     --name myVM1 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM1 \
     --image UbuntuLTS \
     --generate-ssh-keys \
@@ -261,7 +260,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
   az vm create \
     --resource-group myResourceGroupSLB \
     --name myVM2 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM2 \
     --image UbuntuLTS \
     --generate-ssh-keys \
@@ -271,7 +269,6 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
    az vm create \
     --resource-group myResourceGroupSLB \
     --name myVM3 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM3 \
     --image UbuntuLTS \
     --generate-ssh-keys \
