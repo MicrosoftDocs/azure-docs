@@ -4,7 +4,7 @@ description: Enable customer-managed keys on your managed disks with the Azure C
 author: roygara
 
 ms.date: 07/10/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
@@ -28,7 +28,7 @@ First, you must set up an Azure Key Vault and a diskencryptionset resource.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-Now that you've created and configured these resources, you can use them to secure your managed disks. The following are example scripts each with a respective scenario that you can use to secure your managed disks.
+Now that you've created and configured these resources, you can use them to secure your managed disks. The following links contain example scripts, each with a respective scenario, that you can use to secure your managed disks.
 
 ## Examples
 

@@ -4,7 +4,7 @@ description: Enable customer-managed keys on your managed disks with the Azure p
 author: roygara
 
 ms.date: 07/10/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks

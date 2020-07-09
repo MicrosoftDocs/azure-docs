@@ -3,7 +3,7 @@ title: Azure PowerShell - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with Azure PowerShell.
 author: roygara
 ms.date: 07/09/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
@@ -29,7 +29,7 @@ To use customer-managed keys with SSE, you must set up an Azure Key Vault and a 
 
 ## Examples
 
-Now that you've created and configured these resources, you can use them to secure your managed disks. The following are example scripts each with a respective scenario that you can use to secure your managed disks.
+Now that you've created and configured these resources, you can use them to secure your managed disks. The following are example scripts, each with a respective scenario, that you can use to secure your managed disks.
 
 ### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 

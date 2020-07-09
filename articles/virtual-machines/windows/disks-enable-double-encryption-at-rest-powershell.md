@@ -4,7 +4,7 @@ description: Enable double encryption at rest for your managed disk data using A
 author: roygara
 
 ms.date: 07/10/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
@@ -42,7 +42,7 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Please use the API version 2020-05-01 in the Azure Resource Manager (ARM) template. 
+1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Use API version **2020-05-01** in the Azure Resource Manager (ARM) template. 
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
@@ -64,6 +64,8 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     ```
 
 ## Next steps
+
+Now that you've created and configured these resources, you can use them to secure your managed disks. The following links contain example scripts, each with a respective scenario, that you can use to secure your managed disks.
 
 [Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](disks-enable-customer-managed-keys-powershell.md)
 [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)

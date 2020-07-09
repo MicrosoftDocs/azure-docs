@@ -114,4 +114,6 @@ foreach($vmSize in $vmSizes)
 
 ## Next steps
 
+Now that you've created and configured these resources, you can use them to secure your managed disks. The following link contains example scripts, each with a respective scenario, that you can use to secure your managed disks.
+
 [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)
