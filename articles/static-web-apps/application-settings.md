@@ -28,7 +28,7 @@ Application settings are also sometimes referred to as environment variables.
 ## Prerequisites
 
 - An Azure Static Web Apps application
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Types of application settings
 
