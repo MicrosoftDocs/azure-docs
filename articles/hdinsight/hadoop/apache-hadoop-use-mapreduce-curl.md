@@ -80,7 +80,7 @@ Either:
 
     This command should return a job ID that can be used to check the status of the job:
 
-       job_1415651640909_0026
+    `job_1415651640909_0026`
 
 1. To check the status of the job, use the following command. Replace the value for `JOBID` with the **actual** value returned in the previous step. Revise location of **jq** as needed.
 
@@ -100,7 +100,7 @@ Either:
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. use the following command to verify that you can connect to your HDInsight cluster:
+1. Use the following command to verify that you can connect to your HDInsight cluster:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -143,7 +143,7 @@ Either:
 
    This command should return a job ID that can be used to check the status of the job:
 
-       job_1415651640909_0026
+    `job_1415651640909_0026`
 
 1. To check the status of the job, use the following command:
 

@@ -44,12 +44,15 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **mapreducejob.ps1** file, then use the following command to run the script:
 
+    ```azurepowershell
         .\mapreducejob.ps1
+    ```
 
     When you run the script, you're prompted for the name of the HDInsight cluster and the cluster login. You may also be prompted to authenticate to your Azure subscription.
 
 3. When the job completes, you receive output similar to the following text:
 
+    ```output
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -59,6 +62,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
+    ```
 
     This output indicates that the job completed successfully.
 
