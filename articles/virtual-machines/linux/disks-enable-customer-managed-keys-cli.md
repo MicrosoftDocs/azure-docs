@@ -15,10 +15,6 @@ ms.custom: references_regions
 
 Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the [Customer-managed keys](disk-encryption.md#customer-managed-keys) section of our disk encryption article.
 
-## Supported regions
-
-[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
-
 ## Restrictions
 
 For now, customer-managed keys have the following restrictions:
