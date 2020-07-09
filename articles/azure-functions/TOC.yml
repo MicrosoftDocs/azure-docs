@@ -502,7 +502,7 @@
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-functions
     - name: Architecture guidance
-      herf: https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview
+      href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
