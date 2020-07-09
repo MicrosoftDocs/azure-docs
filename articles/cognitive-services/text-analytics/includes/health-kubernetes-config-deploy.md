@@ -44,13 +44,13 @@ ms.author: aahi
     code .
     ```
 
-4. Within the text editor, create a new file named *textAnalyticsHealth.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
+4. Within the text editor, create a new file named *textanalyticshealth.yaml*, and paste the following YAML into it. Be sure to replace `billing/value` and `apikey/value` with your own information.
 
     ```yaml
     apiVersion: apps/v1beta1
     kind: Deployment
     metadata:
-      name: textAnalyticsHealth
+      name: textanalyticshealth
     spec:
       template:
         metadata:
@@ -67,7 +67,7 @@ ms.author: aahi
                 memory: 10Gi
                 cpu: 4
               limits:
-                memory: 12Gi
+                memory: 16Gi
                 cpu: 6
             env:
             - name: EULA
@@ -81,7 +81,7 @@ ms.author: aahi
     apiVersion: v1
     kind: Service
     metadata:
-      name: textAnalyticsHealth
+      name: textanalyticshealth
     spec:
       type: LoadBalancer
       ports:
@@ -91,17 +91,17 @@ ms.author: aahi
     ```
 
 5. Save the file, and close the text editor.
-6. Run the Kubernetes `apply` command with the *textAnalyticsHealth.yaml* file as its target:
+6. Run the Kubernetes `apply` command with the *textanalyticshealth.yaml* file as its target:
 
     ```console
-    kubectl apply -f textAnalyticsHealth.yaml
+    kubectl apply -f textanalyticshealth.yaml
     ```
 
     It will take a few minutes for the deployment to finish. Wait until it completes before moving on. After the command successfully applies the deployment configuration, a message appears similar to the following output:
 
     ```output
-    deployment.apps "textAnalyticsHealth" created
-    service "textAnalyticsHealth" created
+    deployment.apps "textanalyticshealth" created
+    service "textanalyticshealth" created
     ```
 1. Verify that the pod was deployed:
 
@@ -113,7 +113,7 @@ ms.author: aahi
 
     ```output
     NAME                         READY     STATUS    RESTARTS   AGE
-    textAnalyticsHealth-5c9ccdf575-mf6k5   1/1       Running   0          1m
+    textanalyticshealth-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
 1. Verify that the service is available, and get the IP address.
@@ -127,6 +127,6 @@ ms.author: aahi
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
-    textAnalyticsHealth    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
+    textanalyticshealth    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
