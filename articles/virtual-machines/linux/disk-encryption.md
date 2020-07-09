@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -44,9 +44,11 @@ For now, customer-managed keys have the following restrictions:
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-## Host-based encryption
+## Encryption at host - End-to-end encryption for your VM data
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+When you enable encryption at host, that encryption starts on the VM host itself, the Azure server that your VM is allocated to. The data for your temporary disk and OS/data disk caches are stored on that VM host. After enabling encryption at host, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. Essentially, encryption at host encrypts your data from end-to-end. Encryption at host does not use your VM's CPU and doesn't impact your VM's performance. 
+
+Temporary disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
 ### Restrictions
 
@@ -74,7 +76,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable host-based encryption](disks-enable-host-based-encryption.md)
+- [Enable encryption at host](disks-enable-host-based-encryption-cli.md)
 - [Azure CLI - Enable double encryption at rest - managed disks](disks-enable-double-encryption-at-rest-cli.md)
 - [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
 - [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)

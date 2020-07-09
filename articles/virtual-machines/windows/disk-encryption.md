@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
@@ -43,9 +43,11 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## Host-based encryption
+## End-to-end encryption using encryption at VM host
 
-When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+End-to-end encryption starts from the VM host, the Azure server that your VM is allocated to. Data on your temp disks and OS/data disk caches are stored on that VM host. When you enable end-to-end encryption, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. End-to-end encryption does not use your VM's CPU and does not impact your VM's performance. 
+
+Temp disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
 ### Restrictions
 
@@ -77,7 +79,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable host-based encryption](disks-enable-host-based-encryption.md)
+- [Enable host-based encryption](disks-enable-host-based-encryption-powershell.md)
 - [Azure PowerShell - Enable double encryption at rest - managed disks](disks-enable-double-encryption-at-rest-powershell.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys - managed disks](disks-enable-customer-managed-keys-portal.md)
