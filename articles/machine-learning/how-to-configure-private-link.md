@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Private Link
+title: Configure a private endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: 'Use Azure Private Link to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 03/13/2020
 ---
 
-# Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
+# Configure Azure Private Link for an Azure Machine Learning workspace (preview)
 
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. This capability is currently in preview, and is available in the US East, US West 2, US South Central regions. 
 

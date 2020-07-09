@@ -28,7 +28,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 - The **Hub Database** must be an Azure SQL Database.
 - The **member databases** can be either databases in Azure SQL Database or in instances of SQL Server.
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
+- The **Sync Metadata Database** contains the metadata and log for Data Sync. The Sync Metadata Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Metadata Database is customer created and customer owned. You can only have one Sync Metadata Database per region and subscription. Sync Metadata Database cannot be deleted or renamed while sync groups or sync agents exist. Microsoft recommends to create a new, empty database for use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload.
 
 > [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -229,6 +229,10 @@ Yes. SQL Data Sync supports collation in the following scenarios:
 ### Is federation supported in SQL Data Sync
 
 Federation Root Database can be used in the SQL Data Sync Service without any limitation. You can't add the Federated Database endpoint to the current version of SQL Data Sync.
+
+### Can I use Data Sync to sync data exported from Dynamics 365 using bring your own database (BYOD) feature?
+
+The Dynamics 365 bring your own database feature lets administrators export data entities from the application into their own Microsoft Azure SQL database. Data Sync can be used to sync this data into other databases if data is exported using **incremental push** (full push is not supported) and **enable triggers in target database** is set to **yes**.
 
 ## Next steps
 

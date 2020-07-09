@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ### Verify your permissions
 
-To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure account and user:
+To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
 
 |Permissions|Resource Group which contains the VNet|User executing `az aro create`|Service Principal passed as `–client-id`|
 |----|:----:|:----:|:----:|
