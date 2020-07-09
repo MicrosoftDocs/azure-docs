@@ -128,10 +128,18 @@
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
     - name: DTDL parser library - NuGet
       href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
-    - name: DTDL validator sample
+    - name: DTDL validator (sample)
       href: https://github.com/Azure-Samples/dtdl-validator
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
+  - name: Tools and sample projects 
+    items: 
+      - name: Device simulator service
+        href: https://github.com/Azure/device-simulation-dotnet/tree/master
+      - name: DTDL validator (sample)
+        href: https://github.com/Azure-Samples/dtdl-validator
+      - name: Azure Digital Twins explorer (sample)
+        href: https://github.com/Azure-Samples/digital-twins-explorer
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
