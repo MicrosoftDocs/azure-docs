@@ -273,12 +273,12 @@
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: Microsoft Q&A question page
-        href: https://docs.microsoft.com/answers/topics/azure-api-management.html
+        href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: API design guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+        href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+        href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: Troubleshoot failed to update hostnames error
         href: api-management-troubleshoot-cannot-add-custom-domain.md
