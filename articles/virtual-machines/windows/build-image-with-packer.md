@@ -118,7 +118,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
 
 This template builds a Windows Server 2016 VM, installs IIS, then generalizes the VM with Sysprep. The IIS install shows how you can use the PowerShell provisioner to run additional commands. The final Packer image then includes the required software install and configuration.
 
-The Windows Guest Agent participates in the Sysprep process. The agent must be fully installed before the VM can be sysprep'ed. To ensure this is true all agent services must be running before executing sysprep.exe. The above JSON snippet shows one way to do this in the PowerShell provisioner. This snippet is only required if the VM is configured to install the agent, which is the default.
+The Windows Guest Agent participates in the Sysprep process. The agent must be fully installed before the VM can be sysprep'ed. To ensure that this is true, all agent services must be running before you execute sysprep.exe. The preceding JSON snippet shows one way to do this in the PowerShell provisioner. This snippet is required only if the VM is configured to install the agent, which is the default.
 
 
 ## Build Packer image
