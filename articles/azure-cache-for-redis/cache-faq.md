@@ -35,6 +35,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [What Azure Cache for Redis offering and size should I use?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Azure Cache for Redis performance](#azure-cache-for-redis-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
+* [Where does my cached data reside?](#where-does-my-cached-data-reside)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -142,6 +143,13 @@ For instructions on setting up stunnel or downloading the Redis tools such as `r
 
 ### In what region should I locate my cache?
 For best performance and lowest latency, locate your Azure Cache for Redis in the same region as your cache client application.
+
+### Where do my cached data reside?
+Azure Cache for Redis stores your application data in the RAM of the VM or VMs, depending on the tier, that host your cache. Your data reside strictly in the Azure region you've selected by default. There are two cases where your data may leave a region:
+  1. When you enable persistence on the cache, Azure Cache for Redis will backup your data to an Azure Storage account you own. If the storage account you provide happens to be in another region, a copy of your data will end up there.
+  1. If you set up geo-replication and your secondary cache is in a different region, which would be the case normally, your data will be replicated to that region.
+
+You'll need to explicitly configure Azure Cache for Redis to use these features. You also have complete control over the region that the storage account or secondary cache is located.
 
 <a name="cache-billing"></a>
 
