@@ -40,13 +40,15 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a Disk
 
 ## Enable encryption at host for disks attached to VM and virtual machine scale sets
 
-You can enable the feature by setting a new property EncryptionAtHost under securityProfile of VMs/VMSSs using the API version *2020-06-01* and above.
+You can enable encryption at host by setting a new property EncryptionAtHost under securityProfile of VMs or virtual machine scale sets using the API version **2020-06-01** and above.
 
-"securityProfile": { "encryptionAtHost": "true" }
+`"securityProfile": { "encryptionAtHost": "true" }`
 
-## Enable encryption at host for disks attached to a VM with customer-managed keys
+## Example scripts
 
-Create a VM with managed disks using the resource URI of the DiskEncryptionSet created in the step #1 
+### Enable encryption at host for disks attached to a VM with customer-managed keys
+
+Create a VM with managed disks using the resource URI of the DiskEncryptionSet created earlier.
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<yoursubscriptionID>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
@@ -61,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 -region "<yourRegion>"
 ```
 
-## Enable encryption at host for disks attached to a VM with platform-managed keys
+### Enable encryption at host for disks attached to a VM with platform-managed keys
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
