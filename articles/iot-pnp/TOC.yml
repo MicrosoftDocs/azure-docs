@@ -37,6 +37,8 @@
     href: concepts-developer-guide.md
   - name: Components
     href: concepts-components.md
+  - name: Message conventions
+    href: concepts-convention.md
   - name: Common interfaces
     href: concepts-common-interfaces.md
   - name: Model repository
