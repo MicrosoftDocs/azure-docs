@@ -1,28 +1,28 @@
 ---
 title: Plan your app - QnA Maker
-description: Planning your QnA Maker app requires understanding how QnA Maker works and interacts with other Azure services as well as some knowledge base concepts.
+description: Learn how to plan your QnA Maker app by understanding how QnA Maker works and interacts with other Azure services as well as some knowledge base concepts.
 ms.topic: conceptual
 ms.date: 07/2/2020
 ---
 
 # Plan your QnA Maker app
 
-Planning your QnA Maker app requires understanding how QnA Maker works and interacts with other Azure services as well as some knowledge base concepts.
+To plan your QnA Maker app, you need to understand how QnA Maker works and interacts with other Azure services. You should also have a solid grasp of knowledge base concepts.
 
 ## Azure resources
 
-Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Because each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations), it is important to understand what these resources do as part of your planning process.
+Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Because each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations), it's important to understand the function of these resources so that you can use that knowledge into your planning process.
 
-|Resource|Purpose|
-|--|--|
-| [QnA Maker](azure-resources.md#qna-maker-resource) resource|Authoring and query prediction|
-| [Cognitive Search](azure-resources.md#cognitive-search-resource) resource|Data storage and search|
-| [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource|Query prediction endpoint|
-| [Application Insights](azure-resources.md#application-insights) resource|Query prediction telemetry|
+| Resource | Purpose |
+| -- | -- |
+| [QnA Maker](azure-resources.md#qna-maker-resource) resource | Authoring and query prediction |
+| [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
+| [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
+| [Application Insights](azure-resources.md#application-insights) resource | Query prediction telemetry |
 
 ### Resource planning
 
-While you are learning authoring and query prediction, using the free tier, `F0`, of each resource works and will provide both the authoring and query prediction experience. When you move to a production, live, scenario, reevaluate your resource selection.
+The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
 
 #### QnA Maker resource
 
@@ -30,7 +30,7 @@ A single QnA Maker resource can host more than one knowledge base. The number of
 
 #### Knowledge base size and throughput
 
-When you plan to build a real app, plan your resources for the size of your knowledge base, and the query prediction requests you expect.
+When you plan to build a real app, allocate resources for the size of your knowledge base and for your expected query prediction requests.
 
 A knowledge base size is controlled by the:
 * [Cognitive Search resource](../../../search/search-limits-quotas-capacity.md) pricing tier limits
@@ -40,15 +40,15 @@ The knowledge base query prediction request is controlled by the Web app plan an
 
 ### Resource sharing
 
-If you already have some of these resources in use, you may consider sharing resources. While some resources [can be shared](azure-resources.md#share-services-with-qna-maker), this is an advanced scenario.
+If you already have some of these resources in use, you may consider sharing resources. See which resources [can be shared](azure-resources.md#share-services-with-qna-maker), but be aware that resource sharing is an advanced scenario.
 
 All knowledge bases created in the same QnA Maker resource share the same **test** query prediction endpoint.
 
-### Understanding impact of resource selection
+### Understand the impact of resource selection
 
 Proper resource selection means your knowledge base answers query predictions successfully.
 
-If your knowledge base isn't functioning properly, typically the issue is improper resource management.
+If your knowledge base isn't functioning properly, it's typically an issue of improper resource management.
 
 Improper resource selection requires investigation to determine which [resource needs to change](azure-resources.md#when-to-change-a-pricing-tier).
 
@@ -62,21 +62,21 @@ The first knowledge base created on your QnA Maker resource sets the language fo
 
 Structure your QnA Maker resources by language or use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
-### Ingesting data sources
+### Ingest data sources
 
-Ingested [data sources](knowledge-base.md), used to create a knowledge base, can be one of the following:
+You can use one of the following ingested [data sources](knowledge-base.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
 
-The ingestion process converts [supported content types](content-types.md) to markdown. All further editing of the *answer* is done with markdown. After creating your knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+The ingestion process converts [supported content types](content-types.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### Data format considerations
 
-Because the final format of a QnA pair is markdown, understanding the [markdown support](../reference-markdown-format.md) is important.
+Because the final format of a QnA pair is markdown, it's important to understand [markdown support](../reference-markdown-format.md).
 
-Linked images must be available from a public URL in order to display in the test pane of the QnA Maker portal as well as any client application because QnA Maker doesn't provide authentication for content, including images.
+Linked images must be available from a public URL in order to display in the test pane of the QnA Maker portal or in a client application. QnA Maker doesn't provide authentication for content, including images.
 
 ### Bot personality
 
