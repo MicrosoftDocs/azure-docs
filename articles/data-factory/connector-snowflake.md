@@ -297,6 +297,7 @@ If your source data store and format meet the criteria described in this section
     - For **JSON** format, direct copy only supports the case that sink Snowflake table only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
         - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
         - `encodingName` is left as default or set to **utf-8**.
+        - Column mapping is not specified.
 
 3. In copy activity source, 
 
