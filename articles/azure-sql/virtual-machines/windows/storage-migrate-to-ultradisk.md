@@ -32,7 +32,7 @@ Complete a [full backup](backup-restore.md) up of your database.
 
 Attach the Ultra SSD to your virtual machine once you have enabled ultradisk compatibility on the VM. 
 
-Ultra disk is supported on a subset of VM sizes and regions. Before proceeding, validate that your VM is in a region, zone, and size that supports ultra disk. You can [determine VM size and region](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) using the Azure CLI or PowerShell. 
+Ultra disk is supported on a subset of VM sizes and regions. Before proceeding, validate that your VM is in a region, zone, and size that supports ultra disk. You can [determine and validate VM size and region](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) using the Azure CLI or PowerShell. 
 
 ### Enable compatibility
 
