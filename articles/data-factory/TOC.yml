@@ -727,6 +727,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Diagnose connectivity in Azure-SSIS IR
+      href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Reference
   items:
   - name: Data flow script
