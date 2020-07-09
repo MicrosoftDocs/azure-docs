@@ -683,7 +683,7 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 #### How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?
 
-You can also check whether you have all the required ports open by opening the [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) from your on premises network. More green checkmarks means greater resiliency.
+You can also check whether all of the [required ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) are open.
 
 To make sure the tool gives you the right results, be sure to:
 
