@@ -32,6 +32,92 @@ You will be building a solution as picture below. You will be extending the Digi
 * Follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md).
     * You'll be extending this twin with an additional endpoint and route.
 
+## Create a function to update time series insights when twins update
+
+First, you'll create a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, you'll create an Azure function to read those update messages. 
+
+## Create a route and filter to twin update notifications
+
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+
+This pattern reads from the twins directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for without needing to update our time series insights logic.
+
+!Note If you have set up the end-to-end tutorial you only need to follow step 2 to create a new endpoint. You can reuse that event grid and digital twin route.
+
+1. Create an event grid topic, which will receive events from our Azure Digital Twins instance.
+    ```azurecli
+    az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
+    ```
+
+2. Create an endpoint to link your event grid topic to Azure Digital Twins.
+    ```azurecli
+    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+    ```
+
+3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
+    ```azurecli
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    ```
+
+## Create an Azure function to update maps
+
+You're going to create an Event Grid-triggered function inside our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will unpack those notifications and send updates to an event hub, which we will connect to Time Series Insights.
+
+See the following document for reference info: [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+
+Replace the function code with the following code. It will filter out only updates, read the full twin state, and send that information to Time Series Insights.
+
+```C#
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Azure.Identity;
+using Azure.DigitalTwins.Core;
+using Azure.Core.Pipeline;
+
+namespace SampleFunctionsApp
+{
+    public static class ProcessDTUpdatetoTSI
+    {   //Read our ADT info from application settings on function startup
+        private static HttpClient httpClient = new HttpClient();
+        const string adtAppId = "https://digitaltwins.azure.net";
+        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+
+        [FunctionName("ProcessDTUpdatetoTSI")]
+        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubConnectionAppSetting")] IAsyncCollector<string> outputEvents, ILogger log)
+        {
+            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
+            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
+                eventGridEvent.EventType.ToString() + ": " + message["data"]);
+            
+            ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+
+            // Read properties which values have been changed in each operation
+            bool hasreplace = false;
+            foreach (var operation in message["data"]["patch"]){
+                if (operation["op"].ToString() == "replace")
+                    hasreplace = true;
+            }
+            //Send an update to TSI if the twin has been updated
+            if (hasreplace){
+                var twinInfo = client.GetDigitalTwin(eventGridEvent.Subject.ToString());
+                log.LogInformation("Updating with value: " + twinInfo.Value);
+                await outputEvents.AddAsync(twinInfo.Value);
+            }
+        }
+    }
+}
+```
+
+
+
 ## Send telemetry to an Event Hub
 
 To begin, you will create an Event Hub namespace with one event hub and configure your Digital Twins instance to stream twin change events to that event hub.
@@ -55,21 +141,23 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <myauthrule>
 ```
 
-### Configure your Digital Twins instance to route twin change events to your Event Hub.
+### Configure your function
 
-1. Create an endpoint to link your event grid topic to Azure Digital Twins.
+You'll need to set one environment variable in your function app containing your event hub connection string
+
+1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rule you created above
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name <your-endpoint-name> --eventhub <event hub name> --eventhub-resource-group <resource group name> --eventhub-policy <myauthrule> --eventhub-namespace <Event Hubs namespace> -n <your-Azure-Digital-Twins-instance-name>
-```
-2. Create a route in Azure Digital Twins to send twin update events to your endpoint.
+az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <myauthrule>
+
+2. In your function app create an app setting containing your connection string
 ```azurecli-interactive
-az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Hub-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+az functionapp config appsettings set --settings "EventHubConnectionAppSettingy=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
 
 ## Create and connect a Time Series Insights instance
 
 1. Create a preview PAYG environment. [Tutorial: Create a Preview PAYG environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#create-a-preview-payg-environment)
-    1. Select the **PAYG(Preview)** pricing tier and to enter Time Series ID Properties of **cloudEvents:subject** and **patch_path**
+    1. Select the **PAYG(Preview)** pricing tier and to enter Time Series ID Properties of **$dtID**
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is cloudEvents:subject":::
 
@@ -93,7 +181,7 @@ Now data should be flowing into your Time Series Insights instance, ready to be 
 
 2. In the explorer, you will see your three twins shown on the left. Click on **thermostat67**, select **patch_value**, and click **add**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-add-data.png" alt-text="Click on **thermostat67**, select **patch_value**, and click **add**":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-add-data.png" alt-text="Click on **thermostat67**, select **temperature**, and click **add**":::
 
 3. You should now be seeing the initial temperature readings from your thermostat, as shown below. That same temperature reading is updated for room21 and floor1, and you can visualize those data streams in tandem.
     
