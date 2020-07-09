@@ -98,6 +98,10 @@ moviesAltered sink(
            ) ~> movieDB
 ```
 
+### Known limitations
+
+When writing to a delta sink, there is a known limitation where the numbers of rows written won't be return in the monitoring output.
+
 ## Next steps
 
 * Create a [source transformation](data-flow-source.md) in mapping data flow.
