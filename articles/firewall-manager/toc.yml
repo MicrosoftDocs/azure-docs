@@ -47,9 +47,9 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    href: /cli/azure/ext/azure-firewall/network/firewall/policy
   - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
+    href: /powershell/module/az.network/new-azfirewallpolicy
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -59,7 +59,7 @@
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/firewall
+    href: /rest/api/virtualnetwork/firewallpolicies
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
 - name: Resources
