@@ -66,7 +66,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 ## More identity and access management options
 
-[Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts, like Facebook or Google.
+[Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
 
 [Azure AD B2B](../b2b/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 

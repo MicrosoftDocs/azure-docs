@@ -17,9 +17,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft identity platform
+          - text: What is the Microsoft identity platform?
             url: v2-overview.md
-          - text: Migrate apps to MSAL
+          - text: Migrate apps from ADAL to MSAL
             url: msal-migration.md
       - linkListType: concept
         links:
