@@ -93,11 +93,11 @@ Use Machine Learning datasets to monitor for data drift. Specify a baseline data
 
 ## Create target dataset
 
-The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the Python SDK or Azure Machine Learning studio. A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to improve the importance of time series functionality.
+The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the [Python SDK](#sdk-dataset) or [Azure Machine Learning studio](#studio-dataset). A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to improve the importance of time series functionality.
 
-### Python SDK
+### <a name="sdk-dataset"></a>Python SDK
 
-The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class' [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
+The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -126,7 +126,7 @@ dset = dset.register(ws, 'target')
 
 For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### Azure Machine Learning studio
+### <a name="studio-dataset"></a>Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 If you create your dataset using Azure Machine Learning studio, ensure the path to your data contains timestamp information, include all subfolders with data, and set the partition format.
@@ -146,9 +146,9 @@ If your data is partitioned by date, as is the case here, you can also specify t
 
 ## Create dataset monitors
 
-Create dataset monitors to detect and alert to data drift on a new dataset.  Use either the Python SDK or Azure Machine Learning studio.
+Create dataset monitors to detect and alert to data drift on a new dataset.  Use either the [Python SDK](#sdk-monitor) or [Azure Machine Learning studio](#studio-monitor).
 
-### Python SDK
+### <a name="sdk-monitor"></a>Python SDK
 
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
@@ -200,7 +200,7 @@ monitor = monitor.enable_schedule()
 
 For a full example of setting up a `timeseries` dataset and data drift detector, see our [example notebook](https://aka.ms/datadrift-notebook).
 
-### Azure Machine Learning studio
+### <a name="studio-monitor"></a> Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise edition capabilities.
