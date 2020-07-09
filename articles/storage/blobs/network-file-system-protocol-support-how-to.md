@@ -116,30 +116,28 @@ Create a container in your storage account by using any of these tools or SDKs:
    :::column span="":::
       :heavy_check_mark: [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       :heavy_check_mark: [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)
    :::column-end:::
+:::row-end:::
+:::row:::
    :::column span="":::
       :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
    :::column-end:::
    :::column span="":::
       :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       :heavy_check_mark: [Python](data-lake-storage-directory-file-acl-python.md#create-a-container)
    :::column-end:::
    :::column span="":::
       :heavy_check_mark: [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container)
    :::column-end:::
+:::row-end:::
+:::row:::
    :::column span="":::
       :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
    :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="":::
       :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
    :::column-end:::
