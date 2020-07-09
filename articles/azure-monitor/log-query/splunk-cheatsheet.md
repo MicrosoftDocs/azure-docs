@@ -108,7 +108,7 @@ Azure Monitor uses the `project-rename` operator to rename a field. `project-ren
 | | Operator | Example |
 |:---|:---|:---|
 | **Splunk** | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **project-rename** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
+| **Azure Monitor** | **project-rename** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 
 ### Format results/Projection
 Splunk does not seem to have an operator similar to `project-away`. You can use the UI to filter away fields.
