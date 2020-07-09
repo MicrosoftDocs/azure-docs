@@ -1,8 +1,6 @@
 ---
 title: Metering service APIs FAQ - Microsoft commercial marketplace
 description: Frequently asked questions about the metering service APIs for SaaS offers in Microsoft AppSource and Azure Marketplace. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

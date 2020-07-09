@@ -417,6 +417,8 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
 - M-series VMs with Write Accelerator disks.
+- Applying [server-side encryption with customer-managed keys](disk-encryption.md) to a VMs encrypted by ADE, and vice versa.
+- Migrating a VM encrypted with ADE to [server-side encryption with customer-managed keys](disk-encryption.md).
 
 ## Next steps
 
