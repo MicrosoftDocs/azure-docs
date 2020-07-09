@@ -134,7 +134,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen4 compute generation (part 2)
 
@@ -161,7 +161,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## Hyperscale - provisioned compute - Gen5
 
@@ -190,7 +190,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### Gen5 compute generation (part 2)
 
@@ -217,7 +217,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-\* Besides local SSD IO, workloads will use remote page server IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+\* Besides local SSD IO, workloads will use remote [page server](service-tier-hyperscale.md#page-server) IO. Effective IOPS will depend on workload. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance), and [Data IO in resource utilization statistics](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### Notes
 
