@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central security and safety Video Analytics | Microsoft Docs
-description: Learn to build an IoT Central application using the security and safety video analytics application template in IoT Central. This template uses live video analytics and connected cameras.
+title: Azure IoT Central video analytics security and safety | Microsoft Docs
+description: Learn to build an IoT Central application using the video analytics - security and safety application template in IoT Central. This template uses live video analytics and connected cameras.
 author: KishorIoT
 ms.author: nandab
 ms.date: 06/20/2020
@@ -10,13 +10,13 @@ ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Security and safety video analytics application architecture
+# Video analytics - security and safety application architecture
 
-The **Security and safety video analytics** application template lets you build solutions that...
+The **Video analytics - security and safety** application template lets you build solutions that...
 
-:::image type="content" source="media/architecture-public-safety/architecture.png" alt-text="Architecture":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architecture":::
 
-The key components of the security and safety video analytics solution include:
+The key components of the video analytics - security and safety solution include:
 
 ## Live video analytics (LVA)
 
@@ -36,4 +36,4 @@ Media graph lets you define where media should be captured from, how it should b
 
 ## Next steps
 
-The suggested next step is to learn how to [Create a live security and safety video analytics application in Azure IoT Central](tutorial-public-safety-create-app.md).
+The suggested next step is to learn how to [Create a video analytics - security and safety application in Azure IoT Central](tutorial-video-analytics-create-app.md).

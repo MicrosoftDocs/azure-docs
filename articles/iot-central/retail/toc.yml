@@ -30,20 +30,20 @@
     items:    
     - name: Create a micro-fulfillment  center application
       href: tutorial-micro-fulfillment-center.md 
-  - name : Security and safety video analytics
+  - name : Video analytics - security and safety
     items:
-    - name: 1 - Create a security and safety video analytics application
-      href: tutorial-public-safety-create-app.md
+    - name: 1 - Create a video analytics - security and safety application
+      href: tutorial-video-analytics-create-app.md
     - name: 2 - Configure an IoT Edge device
       items:
       - name: Create live video analytics device on the edge (Linux VM)
-        href: tutorial-public-safety-iot-edge-vm.md
+        href: tutorial-video-analytics-iot-edge-vm.md
       - name: Create live video analytics device on the edge (Intel NUC)
-        href: tutorial-public-safety-iot-edge-nuc.md
-    - name: 3 -Monitor and manage a security and safety video analytics application
-      href: tutorial-public-safety-manage.md
+        href: tutorial-video-analytics-iot-edge-nuc.md
+    - name: 3 -Monitor and manage a video analytics - security and safetys application
+      href: tutorial-video-analytics-manage.md
     - name: 4 - Modify and build the live video analytics gateway modules
-      href: tutorial-public-safety-build-module.md
+      href: tutorial-video-analytics-build-module.md
 - name: Concepts
   items:
     - name: Connected logistics app template architecture
@@ -57,7 +57,7 @@
     - name: Micro-fulfillment center app template architecture
       href: architecture-micro-fulfillment-center.md
     - name: Security and safety video analytics architecture
-      href: architecture-public-safety.md
+      href: architecture-video-analytics.md
     - name: Connectivity
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: What are application templates?

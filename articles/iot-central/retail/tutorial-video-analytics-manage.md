@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Monitor video using the Azure IoT Central security and safety video analytics application template'
-description: This tutorial shows how to use the dashboards in the security and safety video analytics application template to manage your cameras and monitor the video.
+title: 'Tutorial - Monitor video using the Azure IoT Central video analytics - security and safety application template'
+description: This tutorial shows how to use the dashboards in the video analytics - security and safety application template to manage your cameras and monitor the video.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -9,7 +9,7 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/01/2020
 ---
-# Tutorial: Monitor and manage a security and safety video analytics application
+# Tutorial: Monitor and manage a video analytics - security and safety application
 
 <!-- TODO - make sure to summarize the key learning steps of this tutorial -->
 
@@ -22,9 +22,9 @@ In this tutorial, you learn how to:
 
 Before you start, you should complete:
 
-* The [Create a live video analytics application in Azure IoT Central](./tutorial-public-safety-create-app.md) tutorial.
+* The [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
 
-* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-public-safety-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-public-safety-iot-edge-nuc.md) tutorials.
+* One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
 
 You should have [Docker](https://www.docker.com/products/docker-desktop) installed on your local machine to run the video viewer application.
 
@@ -45,7 +45,7 @@ Use the values in the following table as the parameter values for the **Add Came
 
 Select **Run** to add the camera device.
 
-:::image type="content" source="media/tutorial-public-safety-manage/add_camera.png" alt-text="Add Camera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/add_camera.png" alt-text="Add Camera":::
 
 > [!NOTE]
 > The **LVA Edge Object Detector** device template already exists in the application.
@@ -58,7 +58,7 @@ If you have two cameras connected to your IoT Edge gateway device, repeat the pr
 
 Select the **Downstream Devices** tab for the **LVA Gateway 001** device to see the camera devices you just added.
 
-:::image type="content" source="media/tutorial-public-safety-manage/inspect_downstream.png" alt-text="Inspect":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect_downstream.png" alt-text="Inspect":::
 
 The camera devices also appear in the list on the **Devices** page in the application.
 
@@ -93,7 +93,7 @@ Select **Save**.
 
 After a few seconds you see the **synced** confirmation message for each setting:
 
-:::image type="content" source="media/tutorial-public-safety-manage/object_detect.png" alt-text="Object Detect":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object_detect.png" alt-text="Object Detect":::
 
 ## Start LVA processing
 
@@ -153,7 +153,7 @@ The application dashboards are originally populated with telemetry and propertie
 1. Check the **Inference Count** telemetry field.
 1. Select **Update**.
 
-   :::image type="content" source="media/tutorial-public-safety-manage/update_real_cameras.png" alt-text="Ream Cameras":::
+   :::image type="content" source="media/tutorial-video-analytics-manage/update_real_cameras.png" alt-text="Ream Cameras":::
 
 1. Repeat the steps for the following tiles:
     1. **Detection** uses `AI Inference Interface/Inference/entity/tag/value` pie chart.
@@ -189,4 +189,4 @@ You've now learned how to add cameras to the IoT Central application and configu
 To learn how to customize the source code for the IoT Edge modules:
 
 > [!div class="nextstepaction"]
-> [Modify and build the live video analytics gateway modules](./tutorial-public-safety-build-module.md)
+> [Modify and build the live video analytics gateway modules](./tutorial-video-analytics-build-module.md)

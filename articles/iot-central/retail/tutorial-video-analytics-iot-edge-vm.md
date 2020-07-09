@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Create a live video analytics IoT Edge instance in Azure IoT Central (Linux VM)'
-description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the security and safety video analytics application template.
+description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the video analytics - security and safety application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -19,7 +19,7 @@ Azure IoT Edge is a fully managed service that delivers cloud intelligence local
 
 In IoT Edge, these services run directly on cross-platform IoT devices. This enables you to run your IoT solution securely and at scale in the cloud or offline.
 
-This tutorial shows you how to prepare an IoT Edge device in an Azure VM. The IoT Edge instance runs the live video analytics modules that the Azure IoT Central security and safety video analytics application template uses.
+This tutorial shows you how to prepare an IoT Edge device in an Azure VM. The IoT Edge instance runs the live video analytics modules that the Azure IoT Central video analytics - security and safety application template uses.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-public-safety-create-app.md) tutorial.
+Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
 
 You also need an Azure subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
@@ -88,13 +88,13 @@ The deployment configured the following five IoT Edge modules to run:
 * lvaEdge
 * lvaYolov3
 
-The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for live video analytics (Intel NUC)](./tutorial-public-safety-iot-edge-nuc.md) tutorial.
+The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for live video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) tutorial.
 
 To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
 
 ## Use the RTSP simulator
 
-If you don't have real camera devices to connect to your IoT Edge device, you can use the two simulated camera devices in the security and safety video analytics application template. This section shows you how to use a simulated video stream in your IoT Edge device.
+If you don't have real camera devices to connect to your IoT Edge device, you can use the two simulated camera devices in the video analytics - security and safety application template. This section shows you how to use a simulated video stream in your IoT Edge device.
 
 These instructions show you how to use the [Live555 Media Server](http://www.live555.com/mediaServer/) as a RTSP simulator in a docker container.
 
@@ -122,4 +122,4 @@ You have now deployed the IoT Edge runtime, the LVA modules and the live555 simu
 To manage the cameras, follow the next tutorial
 
 > [!div class="nextstepaction"]
-> [Monitor and manage a security and safety video analytics application](./tutorial-public-safety-manage.md)
+> [Monitor and manage a video analytics - security and safety application](./tutorial-video-analytics-manage.md)

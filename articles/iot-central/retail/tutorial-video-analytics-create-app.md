@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial - Create a security and safety video analytics application in Azure IoT Central'
+title: 'Tutorial - Create a video analytics - security and safety application in Azure IoT Central'
 description: This tutorial shows how to create a live video analytics application in IoT Central. You create it, customize it, and connect it to other Azure services.
 services: iot-central
 ms.service: iot-central
@@ -9,7 +9,7 @@ author: KishorIoT
 ms.author: nandab
 ms.date: 07/01/2020
 ---
-# Tutorial: Create a security and safety video analytics application in Azure IoT Central
+# Tutorial: Create a video analytics - security and safety application in Azure IoT Central
 
 The tutorial shows solution builders how to create a live video analytics application using the IoT Central **Security and Safety Video Analytics** application template, AzureIoT Edge devices, and Azure Media Services. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
 
@@ -22,7 +22,7 @@ The sample application includes two simulated devices and one IoT Edge gateway. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Use the Azure IoT Central security and safety video analytics application template to create a retail store application
+> * Use the Azure IoT Central video analytics - security and safety application template to create a retail store application
 > * Customize the application settings
 > * Create a device template for an IoT Edge gateway device
 > * Add a gateway device to your IoT Central application
@@ -51,7 +51,7 @@ When the deployment is complete, navigate to the **Properties** page for your **
 
 Next, configure an Azure Active Directory service principal for your Media Services resource. Select **API access** and then **Service principal authentication**. Create a new AAD app with the same name as your Media Services resource, and create a secret with a description *IoT Edge Access*.
 
-:::image type="content" source="./media/tutorial-public-safety-create-app/ams-aad.png" alt-text="Configure AAD app for AMS":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/ams-aad.png" alt-text="Configure AAD app for AMS":::
 
 When the secret is generated, scroll down to the section **Copy your credentials to connect your service principal application**. Then select **JSON**. You can copy all the credential information from here in one go. Make a note of this information somewhere safe, you use it later when you configure the IoT Edge device.
 
@@ -76,7 +76,7 @@ To create a new live video analytics application:
 
 <!-- NOTE - The template is not available yet, use this private template in the meantime <https://apps.azureiotcentral.com/build/new/4583065c-c742-4eb8-930f-c9d7017ba414> -->
 
-1. Select the **Security and safety video analytics** application template. This template includes device templates for the devices used in the tutorial. The template also provides an operator dashboard for monitoring the video.
+1. Select the **Video analytics - security and safety** application template. This template includes device templates for the devices used in the tutorial. The template also provides an operator dashboard for monitoring the video.
 
 1. Optionally, choose a friendly **Application name**. This application is based on a fictional retail store named Northwind Traders. The tutorial uses the **Application name** *Northwind Traders video analytics*.
 
@@ -89,7 +89,7 @@ To create a new live video analytics application:
 
 1. Select **Create**.
 
-    :::image type="content" source="./media/tutorial-public-safety-create-app/new-application.png" alt-text="Azure IoT Central Create Application page":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Azure IoT Central Create Application page":::
 
 ### Retrieve the configuration data
 
@@ -98,11 +98,11 @@ Later in this tutorial when you configure the IoT Edge gateway, you need some co
 <!-- I don't think we use the Application ID anywhere - we could remove it from here -->
 In the **Administration** section, select **Your application** and make a note of the **Application URL** and the **Application ID**:
 
-:::image type="content" source="./media/tutorial-public-safety-create-app/administration.png" alt-text="Administration":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administration":::
 
 Select **API Tokens** and generate a new token called **LVAEdgeToken** for the **Operator** role:
 
-:::image type="content" source="./media/tutorial-public-safety-create-app/token.png" alt-text="Generate Token":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Generate Token":::
 
 > [!TIP]
 > When the token is generated, make a note of it for later. After the dialog closes you can't view the token again.
@@ -118,7 +118,7 @@ Make a note of this **Primary key** for devices. You use this *primary group sha
 The [LVA-gateway](https://hyperlink_to_the_public_facing_repo) GitHub repository contains the sample IoT Edge deployment manifest for the LVA gateway device and the device capability models for the camera devices.
 
 > [!NOTE]
-> The repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-public-safety-build-module.md).
+> The repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-video-analytics-build-module.md).
 
 Use the following command to clone the repository to a suitable location on your local machine:
 
@@ -228,7 +228,7 @@ To prepare the deployment manifest:
 
 ## Create the Azure IoT Edge gateway device
 
-The security and safety video analytics application includes a **LVA Edge Object Detector** device template and a **LVA Edge Motion Detection** device template. In this section you create a gateway device template using the deployment manifest, and add the gateway device to your IoT Central application.
+The video analytics - security and safety application includes a **LVA Edge Object Detector** device template and a **LVA Edge Motion Detection** device template. In this section you create a gateway device template using the deployment manifest, and add the gateway device to your IoT Central application.
 
 ### Create a device template for the LVA Edge Gateway
 
@@ -242,7 +242,7 @@ To import the deployment manifest and create the **LVA Edge Gateway** device tem
 
     Don't browse for the deployment manifest yet. If you do, the deployment wizard expects an interface for each module, but you only need to expose the interface for the **LvaEdgeGatewayModule**. You upload the manifest in a later step.
 
-    :::image type="content" source="./media/tutorial-public-safety-create-app/upload-deployment-manifest.png" alt-text="Do not upload deployment manifest":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="Do not upload deployment manifest":::
 
     Select **Next: Review**.
 
@@ -258,7 +258,7 @@ The **LVA Edge Gateway** device template now includes the **LVA Edge Gateway Mod
 
 On the **LVA Edge Gateway** page, select **+ Replace manifest**.
 
-:::image type="content" source="./media/tutorial-public-safety-create-app/replace-manifest.png" alt-text="Replace Manifest":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="Replace Manifest":::
 
 Navigate to the *storage* folder in your local copy of the **lva-gateway** repository and select the *deployment.amd64.json* manifest file you edited previously. Select **Upload**. When the validation is complete, select **Replace**.
 
@@ -267,7 +267,7 @@ Navigate to the *storage* folder in your local copy of the **lva-gateway** repos
 
 Click on the device thumbnail and upload the `amslogo.png` file located under the setup folder from the repository.
 
-:::image type="content" source="media/tutorial-public-safety-create-app/add_logo.png" alt-text="add image":::
+:::image type="content" source="media/tutorial-video-analytics-create-app/add_logo.png" alt-text="add image":::
 -->
 
 ### Add relationships
@@ -281,7 +281,7 @@ In the **LVA Edge Gateway** device template, under **Modules/LVA Edge Gateway Mo
 
 Then select **Save**.
 
-:::image type="content" source="media/tutorial-public-safety-create-app/relationships.png" alt-text="Add relationships":::
+:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Add relationships":::
 
 ### Add views
 
@@ -305,7 +305,7 @@ To add a view to the device template:
     * A 1x1 last known value tile showing the **System Heartbeat** telemetry.
     * A 1x1 last known value tile showing the **Connected Cameras**.
 
-    :::image type="content" source="media/tutorial-public-safety-create-app/gateway_dash.png" alt-text="Dashboard":::
+    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway_dash.png" alt-text="Dashboard":::
 
 1. Select **Save**.
 
@@ -352,14 +352,14 @@ You need the credentials that allow the device to connect to your IoT Central ap
 
 ## Next steps
 
-You've now created an IoT Central application using the **Security and safety video analytics** application template, created a device template for the gateway device, and added a gateway device to the application.
+You've now created an IoT Central application using the **Video analytics - security and safety** application template, created a device template for the gateway device, and added a gateway device to the application.
 
-If you want to try out the security and safety video analytics application using IoT Edge modules running a cloud VM with simulated video streams:
-
-> [!div class="nextstepaction"]
-> [Create an IoT Edge instance for live video analytics (Linux VM)](./tutorial-public-safety-iot-edge-vm.md)
-
-If you want to try out the security and safety video analytics application using IoT Edge modules running a real device with real **ONVIF** camera:
+If you want to try out the video analytics - security and safety application using IoT Edge modules running a cloud VM with simulated video streams:
 
 > [!div class="nextstepaction"]
-> [Create an IoT Edge instance for live video analytics (Intel NUC)](./tutorial-public-safety-iot-edge-nuc.md)
+> [Create an IoT Edge instance for live video analytics (Linux VM)](./tutorial-video-analytics-iot-edge-vm.md)
+
+If you want to try out the video analytics - security and safety application using IoT Edge modules running a real device with real **ONVIF** camera:
+
+> [!div class="nextstepaction"]
+> [Create an IoT Edge instance for live video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md)

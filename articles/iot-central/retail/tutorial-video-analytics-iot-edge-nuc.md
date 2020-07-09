@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Create a live video analytics IoT Edge instance in Azure IoT Central (Intel NUC)'
-description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the security and safety video analytics application template.
+description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the video analytics - security and safety application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 * A device, such as an Intel NUC, running Linux, capable of running Docker containers, and enough processing power to run video analysis.
 * The [IoT Edge runtime installed](../../iot-edge/how-to-install-iot-edge-linux.md) and running on the device.
 * To connect to the IoT Edge device from your Windows machine, you need the [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or an equivalent utility.
-* Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-public-safety-create-app.md) tutorial.
+* Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
 * You also need an Azure subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Configure the IoT Edge device
@@ -156,4 +156,4 @@ You have now deployed the IoT Edge runtime and the LVA modules to the Intel NUC 
 To manage the cameras, follow the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Monitor and manage a security and safety video analytics application](./tutorial-public-safety-manage.md)
+> [Monitor and manage a video analytics - security and safety application](./tutorial-video-analytics-manage.md)
