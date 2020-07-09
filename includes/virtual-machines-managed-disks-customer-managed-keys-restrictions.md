@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-- Only [software and HSM RSA keys](../articles/key-vault/keys/about-keys.md) of size 2080 are supported, no other keys or sizes.
+- Only [software and HSM RSA keys](../articles/key-vault/keys/about-keys.md) of sizes 2,048-bit, 3,072-bit and 4,096-bit are supported, no other keys or sizes.
     - [HSM](../articles/key-vault/keys/hsm-protected-keys.md) keys require the **premium** tier of Azure Key vaults.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
