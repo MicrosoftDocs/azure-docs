@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Enable host-based encryption
 
-When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](disk-encryption.md#encryption-at-host)
+When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on host-based encryption, as well as other managed disk encryption types, see [Host-based encryption](disk-encryption.md#host-based-encryption).
 
 [!INCLUDE [virtual-machines-disks-enable-host-based-encryption](../../../includes/virtual-machines-disks-enable-host-based-encryption.md)]
 
