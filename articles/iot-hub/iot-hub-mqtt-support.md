@@ -298,7 +298,7 @@ The device does not receive any messages from IoT Hub, until it has successfully
 
 IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` when there are message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
-Properties in the property bag are represented as in the following table:
+Property values in the property bag are represented as in the following table:
 
 | Property value | Representation | Description |
 |----|----|----|
@@ -306,13 +306,11 @@ Properties in the property bag are represented as in the following table:
 | empty string | `key=` | The key followed by an equal sign with no value |
 | non-null, non-empty value | `key=value` | The key followed by an equal sign and the value |
 
-The following example shows the representation of three application properties: `prop1` with a value of `null`; `prop2`, an empty string (""); and `prop3` with a value of "my string".
+The following example shows a property bag that contains four application properties: `prop1` with a value of `null`, `prop2`, an empty string (""), `prop3` with a value of "a string", and `prop4` with a value of "another string".
 
-```url
-/?prop1&prop2=&prop3=my string
+```mqtt
+/?prop1&prop2=&prop3=a string&prop4=another string
 ```
-
-Note that the value for prop3 is not quoted.
 
 When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub delivers messages to the device using QoS 1.
 
