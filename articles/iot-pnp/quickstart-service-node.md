@@ -101,7 +101,8 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
 1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
 
     ```cmd/sh
-    reported state property as online
+    properties have been reported for component
+    sending telemetry message 0...
     ```
 
 1. In the **/azure-iot-samples-node/digital-twins/samples/service/javascript** folder, open the file **get_digital_twin.js**. Be sure to set the environment variable for your device ID as well.
@@ -116,10 +117,18 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     node get_digital_twin.js
     ```
 
-1. In the _service_ terminal output, scroll to the `thermostat` component. You see that the `state` property has been reported as _online_:
+1. In the _service_ terminal output, notice the response of the digital twin. You should see the device's model ID and associated properties reported:
 
     ```JSON
-    ** UPDATE WITH CORRECT WORKING DT OUTPUT **
+     {
+      '$dtId': 'mySimpleThermostat',
+      serialNumber: '123abc',
+      maxTempSinceLastReboot: 51.96167432818655,
+      '$metadata': {
+        '$model': 'dtmi:com:example:Thermostat;1',
+        serialNumber: { lastUpdateTime: '2020-07-09T14:04:00.6845182Z' },
+        maxTempSinceLastReboot: { lastUpdateTime: '2020-07-09T14:04:00.6845182Z' }
+      },
     ```
     
 1. Also notice how to retrieve the device twin's model ID, which, in this case, is for the simple thermostat model. 
@@ -136,12 +145,12 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
     set IOTHUB_DEVICE_ID=<your device ID> (i.e. mySimpleThermostat)
     ```
-1. Take a quick look through the sample code. You'll see a JSON patch created which will update your device's digital twin. Notice how it is currently set to replace teh thermostat's temperature with the value 42: 
+1. Take a quick look through the sample code. You'll see a JSON patch created which will update your device's digital twin. Notice how it is currently set to replace the thermostat's temperature with the value 42: 
 
     ```javascript
     const patch = [{
-        op: 'replace',
-        path: 'thermostat1/TargetTemperature',
+        op: 'add',
+        path: 'targetTemperature',
         value: '42'
       }]
     ```
@@ -152,10 +161,33 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     node update_digital_twin_property.js
     ```
 
-1. The _service_ terminal output shows the updated device information. Scroll to the `thermostat1` component to see the new brightness value of 42. You can also verify this on Azure Device Explorer:
+1. The _service_ terminal output shows the updated device information. Scroll to the `thermostat1` component to see the new targetTemperature value of 42. You can also verify this on Azure Device Explorer:
 
     ```json
-        ** UPDATE WITH WORKING DIGITIAL TWIN UPDATE **
+    "modelId": "dtmi:com:example:Thermostat;1",
+        "version": 12,
+        "properties": {
+            "desired": {
+                "targetTemperature": "42",
+                "$metadata": {
+                    "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
+                    "$lastUpdatedVersion": 5,
+                    "targetTemperature": {
+                        "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
+                        "$lastUpdatedVersion": 5
+                    }
+                },
+                "$version": 5
+            },
+            "reported": {
+                "serialNumber": "123abc",
+                "maxTempSinceLastReboot": 32.279942997143785,
+                "targetTemperature": {
+                    "value": "42",
+                    "ac": 200,
+                    "ad": "Successfully executed patch for targetTemperature",
+                    "av": 2
+                },
     ```
 
 1. Go to your _device_ terminal, you see the device has received the update:
@@ -171,10 +203,18 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     node get_digital_twin.js
     ```
 
-1. In the _service_ terminal output, under the `thermostat1` component, you see the updated target temperature has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has processed the property update.
+1. In the _service_ terminal output, in the digital twin response under the `thermostat1` component, you see the updated target temperature has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has processed the property update.
 
     ```json
-    ** UPDATE WITH WORKING TWIN OUTPUT **
+    '$model': 'dtmi:com:example:Thermostat;1',
+    targetTemperature: {
+      desiredValue: '42',
+      desiredVersion: 4,
+      ackVersion: 4,
+      ackCode: 200,
+      ackDescription: 'Successfully executed patch for targetTemperature',
+      lastUpdateTime: '2020-07-09T13:55:30.5062641Z'
+    },
     ```
 
 ### Invoke a command
