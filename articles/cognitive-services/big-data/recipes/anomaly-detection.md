@@ -97,7 +97,7 @@ This cell should yield a result that looks like:
 |:--------------------|--------:|:-----------|:------------|
 | 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
 | 2020-05-01 18:33:52 |    2976 | dev-7      | False       |
-| 2020-05-01 18:33:53 |    2714 | dev-7      | False      |
+| 2020-05-01 18:33:53 |    2714 | dev-7      | False       |
 
 
  ## Visualize anomalies for one of the devices
