@@ -2,7 +2,6 @@
 title: Viewing a remotely rendered model
 description: The "Hello World" of Azure Remote Rendering, tutorial shows how to view a Model rendered remotely by Azure
 author: michael-house
-ms.author: v-mihous
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---
