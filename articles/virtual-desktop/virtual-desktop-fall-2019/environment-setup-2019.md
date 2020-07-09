@@ -62,5 +62,5 @@ To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect from Windows 10 or Windows 7](../connect-windows-7-and-10.md)
+- [Connect from Windows 10 or Windows 7](../connect-windows-7-10.md)
 - [Connect from a web browser](connect-web-2019.md)
