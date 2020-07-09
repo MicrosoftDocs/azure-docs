@@ -49,15 +49,15 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
-:::image type="icon" source="./media/weather-services-concepts/sunny-i.png" alt-text="Workday no version info":::
+:::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png":::
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  No    | Sunny|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  No    | Mostly Sunny|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  No    | Partly Sunny|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  No    | Intermittent Clouds|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Yes |  No    | Hazy Sunshine |
+| 1           |:::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  No    | Sunny|
+| 2           |:::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  No    | Mostly Sunny|
+| 3           |:::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  No    | Partly Sunny|
+| 4           |:::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  No    | Intermittent Clouds|
+| 5           |:::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  No    | Hazy Sunshine |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Yes |  No    | Mostly Cloudy|
 | 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Yes |  Yes   | Cloudy |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Yes |  Yes   | Dreary (Overcast)|
