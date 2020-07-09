@@ -14,7 +14,7 @@ ms.author: marhamil
 
 ![Azure Cognitive Services for Big Data](media/cognitive-services-big-data-overview.svg)
 
-The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using [Apache Spark&trade;](https://docs.microsoft.com/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it's easy to create large-scale intelligent applications with any datastore. 
+The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using [Apache Spark&trade;](https://docs.microsoft.com/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it's easy to create large-scale intelligent applications with any datastore.
 
 With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications.
 
@@ -57,19 +57,19 @@ Cognitive Services for Big Data can use services from any region in the world, a
 |:-----------|:------------------|
 |[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing Image Search")|The Bing Image Search service returns a display of images determined to be relevant to the user's query.|
 
-## Supported Programming Languages for the Cognitive Services for Big Data
+## Supported programming languages for Cognitive Services for Big Data
 
 The Cognitive Services for Big Data are built on Apache Spark. Apache Spark is a distributed computing library that supports Java, Scala, Python, R, and many other languages. These languages are currently supported.
 
 ### Python
 
-We provide a PySpark API in the `mmlspark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Python Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/pyspark/mmlspark.cognitive.html). For usage examples, see the [Python Samples](samples-python.md). 
+We provide a PySpark API in the `mmlspark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Python Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/pyspark/mmlspark.cognitive.html). For usage examples, see the [Python Samples](samples-python.md).
 
 ### Scala and Java
 
-We provide a Scala and Java-based Spark API in the `com.microsoft.ml.spark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Scala Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/scala/index.html#package). For usage examples, see the [Scala Samples](samples-scala.md). 
+We provide a Scala and Java-based Spark API in the `com.microsoft.ml.spark.cognitive` namespace of [Microsoft ML for Apache Spark](https://aka.ms/spark). For more information, see the [Scala Developer API](https://mmlspark.blob.core.windows.net/docs/1.0.0-rc1/scala/index.html#package). For usage examples, see the [Scala Samples](samples-scala.md).
 
-## Supported Platforms and Connectors
+## Supported platforms and connectors
 
 The Cognitive Services for Big Data requires Apache Spark. There are several Apache Spark platforms that support the Cognitive Services for Big Data.
 
@@ -84,7 +84,7 @@ The Cognitive Services for Big Data requires Apache Spark. There are several Apa
 ### Azure Kubernetes Service
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) orchestrates Docker Containers and distributed applications at massive scales. AKS is a managed Kubernetes offering that simplifies using Kubernetes in Azure. Kubernetes can enable fine-grained control of Cognitive Service scale, latency, and networking. However, we recommend using Azure Databricks or Synapse Analytics if you're unfamiliar with Apache Spark.
- 
+
 ### Data Connectors
 
 Once you have a Spark Cluster, the next step is connecting to your data. Apache Spark has a broad collection of database connectors. These connectors allow applications to work with large datasets no matter where they're stored. For more information about supported databases and connectors, see the [list of supported datasources for Azure Databricks](https://docs.microsoft.com/azure/databricks/data/data-sources/).
@@ -97,10 +97,10 @@ Once you have a Spark Cluster, the next step is connecting to your data. Apache 
 
 The basis of Spark is the DataFrame: a tabular collection of data distributed across the Apache Spark worker nodes. A Spark DataFrame is like a table in a relational database or a data frame in R/Python, but with limitless scale. DataFrames can be constructed from many sources such as: structured data files, tables in Hive, or external databases. Once your data is in a Spark DataFrame, you can:
 
-   - Do SQL-style computations such as join and filter tables. 
+   - Do SQL-style computations such as join and filter tables.
    - Apply functions to large datasets using MapReduce style parallelism.
    - Apply Distributed Machine Learning using Microsoft Machine Learning for Apache Spark.
-   - Use the Cognitive Services for Big Data to enrich your data with ready-to-use intelligent services. 
+   - Use the Cognitive Services for Big Data to enrich your data with ready-to-use intelligent services.
 
 ### Microsoft Machine Learning for Apache Spark (MMLSpark)
 
@@ -132,4 +132,3 @@ Cognitive Services for Big Data is an example of how we can integrate intelligen
 - [Getting Started with the Cognitive Services for Big Data](getting-started.md)
 - [Simple Python Examples](samples-python.md)
 - [Simple Scala Examples](samples-scala.md)
-

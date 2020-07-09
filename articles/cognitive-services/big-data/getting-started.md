@@ -53,13 +53,13 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 1. [Create an Azure Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
 1. [Create a Spark cluster in Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Install the Big Data Cognitive Services
-    * Create a new library in your databricks workspace
+    * Create a new library in your databricks workspace  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
     * Input the following maven coordinates
       Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1`
-      Repository: `https://mmlspark.azureedge.net/maven`
+      Repository: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
-    * Install the library onto a cluster
+    * Install the library onto a cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
 ### Synapse Analytics (optional)

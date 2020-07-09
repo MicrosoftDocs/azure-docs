@@ -17,7 +17,7 @@ ms.custom: tracking-python
 
 This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
-## Hypothetical Scenario
+## Hypothetical scenario
 
 The hypothetical scenario is a Power Plant, where IoT devices are monitoring [steam turbines](https://en.wikipedia.org/wiki/Steam_turbine). The IoTSignals collection has Revolutions per minute (RPM) and Megawatts (MW) data for each turbine. Signals from steam turbines are being analyzed and anomalous signals are detected.
 
@@ -38,7 +38,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 Make note of the endpoint and the key for this resource, you'll need it in this guide.
 
-## Enter Your Service Keys
+## Enter your service keys
 
 Let's start by adding your key and location.
 
@@ -106,16 +106,16 @@ IoTSignals.csv has signals from multiple IoT devices. We'll focus on a specific 
 
 ```python
 df_anomaly_single_device = spark.sql("""
-select 
+select
   timestamp,
   measureValue,
   anomalies.expectedValue,
   anomalies.expectedValue + anomalies.upperMargin as expectedUpperValue,
   anomalies.expectedValue - anomalies.lowerMargin as expectedLowerValue,
   case when anomalies.isAnomaly=true then 1 else 0 end as isAnomaly
-from 
-  df_anomaly 
-where deviceid = 'dev-1' and timestamp < '2020-04-29' 
+from
+  df_anomaly
+where deviceid = 'dev-1' and timestamp < '2020-04-29'
 order by timestamp
 limit 200""")
 ```
@@ -125,9 +125,9 @@ Now that we have created a dataframe that represents the anomalies for a particu
 ```python
 import matplotlib.pyplot as plt
 from pyspark.sql.functions import col
- 
+
 adf = df_anomaly_single_device.toPandas()
-adf_subset = df_anomaly_single_device.where(col("isAnomaly") == 1).toPandas() 
+adf_subset = df_anomaly_single_device.where(col("isAnomaly") == 1).toPandas()
 
 plt.figure(figsize=(23,8))
 plt.plot(adf['timestamp'],adf['expectedUpperValue'], color='darkred', linestyle='solid', linewidth=0.25, label='UpperMargin')

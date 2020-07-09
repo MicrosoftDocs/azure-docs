@@ -12,7 +12,7 @@ ms.author: marhamil
 
 # Python Samples for Cognitive Services for Big Data
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark with Python. 
+The following snippets are ready to run and will help get you started with using Cognitive Services on Spark with Python.
 
 The samples in this article use these Cognitive Services:
 
@@ -71,7 +71,7 @@ sentiment = (TextSentiment()
     .setOutputCol("sentiment")
     .setErrorCol("error")
     .setLanguageCol("language"))
-    
+
 # Show the results of your text query in a table format
 display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
 ```
@@ -116,7 +116,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 |:------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg | ['skating' 'person' 'man' 'outdoor' 'riding' 'sport' 'skateboard' 'young' 'board' 'shirt' 'air' 'black' 'park' 'boy' 'side' 'jumping' 'trick' 'ramp' 'doing' 'flying']
 | https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/dog.jpg | ['dog' 'outdoor' 'fence' 'wooden' 'small' 'brown' 'building' 'sitting' 'front' 'bench' 'standing' 'table' 'walking' 'board' 'beach' 'white' 'holding' 'bridge' 'track']                
-| https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group'] 
+| https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/house.jpg | ['outdoor' 'grass' 'house' 'building' 'old' 'home' 'front' 'small' 'church' 'stone' 'large' 'grazing' 'yard' 'green' 'sitting' 'leading' 'sheep' 'brick' 'bench' 'street' 'white' 'country' 'clock' 'sign' 'parked' 'field' 'standing' 'garden' 'water' 'red' 'horse' 'man' 'tall' 'fire' 'group']
 
 
 ## Bing Image Search sample
@@ -127,9 +127,9 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 from pyspark.ml import PipelineModel
 
 # Number of images Bing will return per query
-imgsPerBatch = 10 
+imgsPerBatch = 10
 # A list of offsets, used to page into the search results
-offsets = [(i*imgsPerBatch,) for i in range(100)] 
+offsets = [(i*imgsPerBatch,) for i in range(100)]
 # Since web content is our data, we create a dataframe with options on that data: offsets
 bingParameters = spark.createDataFrame(offsets, ["offset"])
 
@@ -258,7 +258,7 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 | 1973-02-01T00:00:00Z |     837 | False       |
 | 1973-03-01T00:00:00Z |    9000 | True        |
 
-## Arbitrary Web APIs
+## Arbitrary web APIs
 
 With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
 
