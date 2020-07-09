@@ -53,12 +53,12 @@ Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<you
 ```PowerShell
 $password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
 New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json" `
-  -virtualMachineName "<yourVMName>" `
-  -adminPassword $password `
-  -vmSize "<yourVMSize>" `
-  -diskEncryptionSetId "/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" `
-  -region "<yourRegion>"
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithCMK.json" `
+-virtualMachineName "<yourVMName>" `
+-adminPassword $password `
+-vmSize "<yourVMSize>" `
+-diskEncryptionSetId "/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" `
+-region "<yourRegion>"
 ```
 
 ## Enable encryption at host for disks attached to a VM with platform-managed keys via using PowerShell
@@ -68,11 +68,11 @@ Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourResourceGroupNam
 ```PowerShell
 $password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
 New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json" `
-  -virtualMachineName "<yourVMName>" `
-  -adminPassword $password `
-  -vmSize "<yourVMSize>" `
-  -region "<yourRegion>"
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithPMK.json" `
+-virtualMachineName "<yourVMName>" `
+-adminPassword $password `
+-vmSize "<yourVMSize>" `
+-region "<yourRegion>"
 ```
 
 ## Finding supported VM sizes
