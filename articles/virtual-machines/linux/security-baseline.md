@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Linux Virtual Machines
-description: Azure security baseline for Linux Virtual Machines
+title: Linux Virtual Machines security baseline for Azure Security Benchmark
+description: The Linux Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,17 +12,17 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Linux Virtual Machines
+# Linux Virtual Machines security baseline for Azure Security Benchmark
 
 The Azure Security Baseline for Linux Virtual Machines contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -42,7 +42,7 @@ Alternatively, if you have a specific use case for a centralized firewall, Azure
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 **Guidance**: Use the Azure Security Center to identify and follow network protection recommendations to help secure your Azure Virtual Machine (VM) resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit for the VMs for unusual activity.
 
@@ -70,7 +70,7 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 **Guidance**: Enable Distributed Denial of Service (DDoS) Standard protection on the Virtual Networks to guard against DDoS attacks. Using Azure Security Center Integrated Threat Intelligence, you can monitor communications with known malicious IP addresses. Configure Azure Firewall on each of your Virtual Network segments, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
 
@@ -102,11 +102,11 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: By combining packet captures provided by Network Watcher and an open source IDS tool, you can perform network intrusion detection for a wide range of threats. Also, you can deploy Azure Firewall on the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
+**Guidance**: By combining packet captures provided by Network Watcher and an open-source IDS tool, you can perform network intrusion detection for a wide range of threats. Also, you can deploy Azure Firewall on the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
 
-* [Perform network intrusion detection with Network Watcher and open source tools](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+* [Perform network intrusion detection with Network Watcher and open-source tools](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
 
 * [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
@@ -142,7 +142,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for Azure Virtual Machines (VM) using Azure Policy. You may also use Azure Blueprints to simplify large scale Azure VM deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to subscriptions, and enable resource management through blueprint versioning.
+**Guidance**: Define and implement standard security configurations for Azure Virtual Machines (VM) using Azure Policy. You may also use Azure Blueprints to simplify large-scale Azure VM deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to subscriptions, and enable resource management through blueprint versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -170,7 +170,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
-**Guidance**: Use the Azure Activity Log to monitor changes to network resource configurations related to your virtual machines. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place.
+**Guidance**: Use the Azure Activity Log to monitor changes to network resource configurations related to your virtual machines. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Linux Virtual Machines.
 
@@ -188,7 +188,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -218,7 +218,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 Enable the collection of guest OS diagnostic data by deploying the diagnostic extension on your Virtual Machines (VM). You can use the diagnostics extension to collect diagnostic data like application logs or performance counters from an Azure virtual machine.
 
-For advanced visibility of the applications and services supported by the your virtual machines you can enable both Azure Monitor for VMs and Application insights. With Application Insights, you can monitor your application and capture telemetry such as HTTP requests, exceptions, etc. so you can correlate issues between the VMs and your application.
+For advanced visibility of the applications and services supported by your virtual machines you can enable both Azure Monitor for VMs and Application insights. With Application Insights, you can monitor your application and capture telemetry such as HTTP requests, exceptions, and others so you can correlate issues between the VMs and your application.
 
 Additionally, enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
@@ -262,13 +262,13 @@ If your organization would like to retain the security event log data from the v
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 **Guidance**: Enable the Log Analytics agent, also referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, and configure it to send logs to a Log Analytics workspace. The Linux agent sends collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution.
 
 Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor to review logs and perform queries on log data.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM to monitor and review your logs.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to monitor and review your logs.
 
 * [Log analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)
 
@@ -288,7 +288,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Use Azure Security Center configured with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events for your Azure Virtual Machines.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM to set up alerts for anomalous activity.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to set up alerts for anomalous activity.
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -302,7 +302,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: You will need a third party tool for anti-malware vulnerability detection for inside the Linux OS.
+**Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
 * [Instructions for onboarding Linux servers to Azure Security center](https://docs.microsoft.com/azure/security-center/quick-onboard-linux-computer)
 
@@ -334,7 +334,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -350,7 +350,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Linux Virtual Machines and Azure Active Directory do not have the concept of default passwords. Customer responsible for third party applications and marketplace services that may use default passwords.
+**Guidance**: Linux Virtual Machines and Azure Active Directory do not have the concept of default passwords. Customer responsible for third-party applications and marketplace services that may use default passwords.
 
 **Azure Security Center monitoring**: Not available
 
@@ -368,7 +368,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 **Guidance**: Wherever possible, customer to use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
@@ -380,7 +380,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 **Guidance**: Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -392,7 +392,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
@@ -468,7 +468,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 **Guidance**: Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your storage account resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
@@ -484,7 +484,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: In cases where a third party needs to access customer data (such as during a support request), use Customer Lockbox for Azure virtual machines to review and approve or reject customer data access requests.
+**Guidance**: In cases where a third-party needs to access customer data (such as during a support request), use Customer Lockbox for Azure virtual machines to review and approve or reject customer data access requests.
 
 * [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -494,7 +494,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -530,7 +530,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: Implement third party solution on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
+**Guidance**: Implement third-party solution on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -554,7 +554,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
-**Guidance**: Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
+**Guidance**: Use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
 
 **Azure Security Center monitoring**: Not Available
 
@@ -574,7 +574,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
-**Guidance**: Implement a third party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to mitigate the risk of data breaches.
+**Guidance**: Implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to mitigate the risk of data breaches.
 
 **Azure Security Center monitoring**: Not Available
 
@@ -608,17 +608,15 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: You will need a third party tool for anti-malware vulnerability detection for inside the Linux OS.
+**Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
 * [Instructions for onboarding Linux servers to Azure Security center](https://docs.microsoft.com/azure/security-center/quick-onboard-linux-computer)
 
-Below are some of the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected.
-
-https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
+* [Microsoft recommended security guidelines](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -668,11 +666,11 @@ https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use automated Asset Discovery solution
+### 6.1: Use automated asset discovery solution
 
-**Guidance**: Use Azure Resource Graph to query and discover all resources (including Virtual machines etc) within your subscriptions. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query and discover all resources (including virtual machines) within your subscriptions. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 * [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
@@ -708,7 +706,7 @@ https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
 **Guidance**: You should create an inventory of approved Azure resources and approved software for your compute resources. You can also use Adaptive application controls, a feature of Azure Security Center to help you define a set of applications that are allowed to run on configured groups of machines. This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
@@ -738,7 +736,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
-**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to metrics and other information, customer required to enable guest-level diagnostic and can send syslog information to a designated storage account.
+**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to metrics and other information, customer required to enable guest-level diagnostic and can send syslog information to a designated storage account.
 
 In addition to using Change Tracking for monitoring of software applications, adaptive application controls in Azure Security Center use machine learning to analyze the applications running on your machines and create an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to Avoid unwanted software to be used in your environment. You can configure audit mode or enforce mode. Audit mode only audits the activity on the protected VMs. Enforce mode does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
@@ -792,7 +790,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 ### 6.10: Maintain an inventory of approved software titles
 
-**Guidance**: Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third party solution if this does not meet your organization's requirement.
+**Guidance**: Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third-party solution if this does not meet your organization's requirement.
 
 * [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
@@ -822,7 +820,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 ### 6.13: Physically or logically segregate high risk applications
 
-**Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
+**Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual networks, subnets, subscriptions, management groups and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
 * [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
 
@@ -844,11 +842,11 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure resources. Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your company.
+**Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure resources. Also, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your company.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -872,7 +870,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure Resource Manager templates and Azure Policies to securely configure Azure resources associated with the Virtual machines. Azure Resource Manager templates are JSON based files used to deploy Virtual machine along with Azure resources and custom template will need to be maintained. Microsoft performs the maintenance on the base templates. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Resource Manager templates and Azure Policies to securely configure Azure resources associated with the Virtual machines. Azure Resource Manager templates are JSON-based files used to deploy Virtual machine along with Azure resources and custom template will need to be maintained. Microsoft performs the maintenance on the base templates. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [Information on creating Azure Resource Manager templates](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 
@@ -888,7 +886,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: There are several options for maintaining a secure configuration for Azure Virtual Machines(VM) for deployment:
 
-1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
+1- Azure Resource Manager templates: These are JSON-based files used to deploy a VM from the Azure portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
 
 2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
 
@@ -908,7 +906,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: Use Azure DevOps/Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc.  To access the resources you manage in Azure DevOps, such as your code, builds, and work tracking, you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure DevOps/Repos to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates, Desired State Configuration scripts, and other code. To access the resources you manage in Azure DevOps, such as your code, builds, and work tracking, you must have permissions for those specific resources. Most permissions are granted through built-in security groups as described in Permissions and access. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -952,7 +950,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Leverage Azure Security Center to perform baseline scans for your Azure Virtual machines. Additional methods for automated configuration includes using Azure Automation State Configuration.
+**Guidance**: Leverage Azure Security Center to perform baseline scans for your Azure Virtual machines. Additional methods for automated configuration include using Azure Automation State Configuration.
 
 * [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
@@ -1008,11 +1006,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
-**Guidance**: You will need a third party tool for anti-malware protection in Azure Linux Virtual machine.
+**Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine.
 
 * [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
 
@@ -1022,7 +1020,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Not applicable to Azure Virtual machines as its a compute resource.
+**Guidance**: Not applicable to Azure Virtual machines as it's a compute resource.
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1030,7 +1028,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
-**Guidance**: You will need a third party tool for anti-malware protection in Azure Linux Virtual machine.
+**Guidance**: You will need a third-party tool for anti-malware protection in Azure Linux Virtual machine.
 
 * [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
 
@@ -1040,9 +1038,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 **Guidance**: Enable Azure Backup and configure the Azure Virtual machines (VM), as well as the desired frequency and retention period for automatic backups.
 
@@ -1054,11 +1052,11 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: Create snapshots of your Azure virtual machines or the managed disks attached to those instances using PowerShell or REST APIs. Backup any customer managed keys within Azure Key Vault.
+**Guidance**: Create snapshots of your Azure virtual machines or the managed disks attached to those instances using PowerShell or REST APIs. Back up any customer-managed keys within Azure Key Vault.
 
-Enable Azure Backup and target Azure Virtual Machines (VM), as well as the desired frequency and retention periods. This includes complete system state backup. If you are using Azure disk encryption, Azure VM backup automatically handles the backup of customer managed keys.
+Enable Azure Backup and target Azure Virtual Machines (VM), as well as the desired frequency and retention periods. This includes complete system state backup. If you are using Azure disk encryption, Azure VM backup automatically handles the backup of customer-managed keys.
 
 * [Backup on Azure VMs that use encryption](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)
 
@@ -1072,9 +1070,9 @@ Enable Azure Backup and target Azure Virtual Machines (VM), as well as the desir
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: Ensure ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated virtual network or subscription. Customer to test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated virtual network or subscription. Customer to test restoration of backed up customer-managed keys.
 
 If you are using Azure disk encryption, you can restore the Azure VM with the disk encryption keys. When using disk encryption, you can restore the Azure VM with the disk encryption keys.
 
@@ -1090,7 +1088,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion. 
 
@@ -1104,7 +1102,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1176,7 +1174,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1192,5 +1190,5 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
