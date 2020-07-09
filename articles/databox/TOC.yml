@@ -12,6 +12,8 @@
       items:
       - name: Set up - Azure portal
         href: data-box-quickstart-portal.md
+      - name: Set up - Azure portal
+        href: data-box-quickstart-export.md
     - name: Tutorials
       items:
       - name: 1 - Order
