@@ -259,8 +259,8 @@ Every connection has to initiate its own control link to be able to start and en
 
 To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome, which carries the assigned `txn-id`.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
@@ -272,8 +272,8 @@ The controller concludes the transactional work by sending a `discharge` message
 
 > Note: fail=true refers to Rollback of a transaction, and fail=false refers to Commit.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Transactional work<br/>on other links<br/> . . . |
@@ -284,8 +284,8 @@ The controller concludes the transactional work by sending a `discharge` message
 
 All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. In the case of sending messages, the transactional-state is carried by the message's transfer frame. 
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
@@ -295,8 +295,8 @@ All transactional work is done with the transactional delivery state `transactio
 
 Message disposition includes operations like `Complete` / `Abandon` / `DeadLetter` / `Defer`. To perform these operations within a transaction, pass the `transactional-state` with the disposition.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -394,8 +394,8 @@ With this functionality, you create a sender and establish the link to the `via-
 
 > Note: Authentication has to be performed for both *via-entity* and *destination-entity* before establishing this link.
 
-| Client | | Service Bus |
-| --- | --- | --- |
+| Client | Direction | Service Bus |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
