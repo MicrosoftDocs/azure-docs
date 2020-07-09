@@ -12,122 +12,76 @@ ms.reviewer: yzheng
 
 # Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)
 
-You can connect to data in Azure Data Lake Storage Gen2 by using the Network File System (NFS) 3.0 protocol. This means that you can interact with data in Azure Data Lake Storage by using familiar workflows without having to author custom code, or use unfamiliar tool sets. You can point existing applications and workloads that use the NFS 3.0 protocol to an Azure Data Lake Storage endpoint without having to modify them. 
+Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol. This support enables you to mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or from a computer that runs Linux on on-premises. 
 
 > [!NOTE]
 > NFS 3.0 protocol support is in public preview.
 > Support is available for general-purpose v2 accounts in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
 > Support is available for BlockBlobStorage accounts in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
-## Register NFS 3.0 protocol feature with your subscription
+## Mount a storage account container
 
-To get started, use PowerShell commands to register the `AllowNFSV3` feature with your subscription.
+To mount a storage account container, you'll have to do these things.
 
-1. Open a PowerShell command window. 
+1. Register NFS 3.0 protocol feature with your subscription.
 
-2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+2. Create an Azure Virtual Network (VNet).
 
-   ```powershell
-   Connect-AzAccount
-   ```
+3. Create and configure storage account that accepts traffic only from the VNet.
 
-3. If your identity is associated with more than one subscription, then set your active subscription.
+4. Create containers in the storage account.
 
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-   
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+> [!IMPORTANT]
+> The order in which you complete these tasks are important. First register, then create and configure the account, and then add containers. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account.
 
-4. Register the `AllowNFSV3` feature by using the following command.
+For step-by-step guidance, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
-   ```
+## Supported network locations
 
-5. If you plan to access a BlockBlobStorage account by using NFS 3.0 protocol, then register the `PremiumHns` feature by using the following command as well.
+A connecting client can run any of these locations:
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
+- The VNet that you configure for your storage account. 
+  
+  For the purpose of this article, we'll refer to that VNet as the *primary VNet*.
 
-6. Register the resource provider by using the following command.
-    
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
+- A peered VNet that is in the same region as the primary VNet.
 
-## Verify that the feature is registered 
+- An on-premises network that is connected to your primary VNet by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager).
 
-After you register the NFS 3.0 protocol feature with your subscription, the registration must be approved. This can take up to an hour. 
+- An on-premises network that is connected to a peered network.
 
-To verify that the feature is registered with your subscription, use the following commands.
+  This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) gateway along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
 
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
-```
+## Known issues and feature limitations
 
-## Create an Azure Virtual Network (VNet)
+- Any security configurations other than network security are not yet supported.
 
-Your storage account must be contained within a VNet. To learn more about VNet and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
+  This includes any aspect of Azure Active Directory (AD) including Role Based Access Control (RBAC) as well as POSIX ACLs on directories and containers.
 
-If you plan to connect to your storage account by using a Virtual Machine (VM) that is in the same VNet as your storage account, 
+- Once you've enable stuff. You can't disable it.
 
-If you plan to connect to your Azure storage account from an on-premises computer, you'll have to connect your on-premises network to your virtual network by using one of these tools:
-
-- [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager)
-
-You can connect your on-premises network to a peered virtual network that is in the same region as your storage account by using [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit). 
-
-## Configure a storage account
-
-You can use the NFS 3.0 protocol only with new storage accounts. You can't enable existing accounts.
-
-NFS 3.0 protocol is supported in the following types of storage accounts:
-
-- [general-purpose V2](../common/storage-account-create.md)
-- [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md)
-
-For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
-
-As you configure the account, choose these values:
-
-|Setting |general-purpose v2 account |BlockBlobStorage account|
-|----|---|----|
-|Location|US Central (EUAP), US East 2 (EUAP)|US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |
-|Performance|Standard|Premium|
-|Account kind|StorageV2 (general purpose vs2|BlockBlobStorage|
-|Replication|Locally-redundant storage (LRS)|Locally-redundant storage (LRS)|
-|Connectivity method|Public endpoint (selected networks) or Private endpoint.|Public endpoint (selected networks) or Private endpoint.|
-|Secure transfer required|Disabled|Disabled|
-|Hierarchical namespace|Enabled|Enabled|
-|NFS V3|Enabled|Enabled|
-
-You can accept the default value for all other settings. 
-
-## Create and mount a container
-
-In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
-
-You can create a container by using [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container), [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container), [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container), [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container), [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container), [Java](data-lake-storage-directory-file-acl-java.md#create-a-container), [Python](data-lake-storage-directory-file-acl-python.md#create-a-container), [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container), or [REST](https://docs.microsoft.com/rest/api/storageservices/create-container).
-
-On a computer running Linux, you can mount a container by using the following command.
-
-```
-mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:<storage-account-name>/<container-name>  /mnt/test
-```
-
-Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
-
-Replace the `<container-name>` placeholder with the name of your container.
-
-## Features not yet supported
+- UDP. We only support TCP
+- Locking (i.e. Network Lock Manager (NLM))
+- Quotad for supporting quotas
+- Mounting a subdirectory
+- Listing mounts, i.e. “showmount -a”
+- Listing exports via “showmount -e”
+  Note: We support listing exports via List File Systems
+- Exporting via the RPC call EXPORT
+  Note: We have export support for Create File System and a flag Hard links
+- Post-op attributes
+- WCC
+- Read-only mount
+- During preview, the only way to access data in the NFS v3 enabled storage account is through NFS. You cannot access it via blob REST apis. The blob REST api access will be available at GA timeframe. 
 
 ## Pricing
 
+During preview, the data stored in your NFS test storage accounts are billed the same capacity rate blob storage has per GB per month. 
+The transaction is free during preview. Transaction will not be free at GA timeframe. The exact transaction pricing is to be determined. 
+
+## Next Steps
+
+To get started, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 
 

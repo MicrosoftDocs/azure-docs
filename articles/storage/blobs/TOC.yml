@@ -728,6 +728,8 @@
         href: data-lake-storage-use-distcp.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Mount storage from Linux using NFS
+        href: network-file-system-protocol-support-how-to.md
     - name: Optimize
       items:
       - name: Optimize performance
