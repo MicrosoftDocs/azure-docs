@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently available in the following regions:
+Currently available only in the following regions:
 
 - West US 2
 - East US
