@@ -5,11 +5,11 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/08/2020
+ ms.date: 07/09/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 1. Does not support ultra disks.
-1. You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) enabled on your VMs/virtual machine scale sets.
-1. You have to deallocate your existing VMs to enable the encryption.
-1. You can enable the encryption for existing virtual machine scale set. However, only new VMs created after enabling the encryption are encrypted.
+1. Host-based encryption cannot be enabled if you have Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) currently enabled on your VMs/virtual machine scale sets.
+1. The encryption can be enabled on existing virtual machine scale set. However, only new VMs created after enabling the encryption are automatically encrypted.
+1. Existing VMs must be deallocated and reallocated in order to be encrypted.

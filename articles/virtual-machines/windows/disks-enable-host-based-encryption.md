@@ -4,7 +4,7 @@ description: How to enable host-based encryption on Azure managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 07/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions

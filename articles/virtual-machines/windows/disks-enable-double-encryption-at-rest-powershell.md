@@ -3,7 +3,7 @@ title: Enable double encryption at rest - managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
