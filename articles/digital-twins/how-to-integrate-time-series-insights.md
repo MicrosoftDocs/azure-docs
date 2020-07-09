@@ -157,9 +157,9 @@ az functionapp config appsettings set --settings "EventHubConnectionAppSettingy=
 ## Create and connect a Time Series Insights instance
 
 1. Create a preview PAYG environment. [Tutorial: Create a Preview PAYG environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#create-a-preview-payg-environment)
-    1. Select the **PAYG(Preview)** pricing tier and to enter Time Series ID Properties of **$dtID**
+    1. Select the **PAYG(Preview)** pricing tier and to enter Time Series ID Properties of **$dtId**
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is cloudEvents:subject":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
 
 2. Select **Next: Event Source** and select your Event Hub information from above. You will also need to create a new Event Hub consumer group.
     
