@@ -27,7 +27,13 @@ Suggestions while controlling access to your vault are as follows:
 
 ## Backup
 
-Make sure you take regular back ups of your HSM.
+Make sure you take regular back ups of your HSM. Backups can be done at the HSM level and for specific keys. 
+
+Azure CLI Backup Commands:
+[HSM Backup](IS THERE A COMMANDS DOC?.md)
+
+Azure CLI Restore Commands:
+[HSM Restore](IS THERE A COMMANDS DOC?.md)
 
 ## Turn on Logging
 
