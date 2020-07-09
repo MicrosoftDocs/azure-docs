@@ -59,30 +59,30 @@ with token based authentication, such as private GitHub repositories.
 
  2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) method.
 
- ```python
-from azureml.core import Workspace
-
-pat_token = input("Enter secret token")
-ws = Workspace.from_config()
-ws.set_connection(name="connection-1", 
-    category = "PythonFeed",
-    target = "https://<my-org>.pkgs.visualstudio.com", 
-    authType = "PAT", 
-    value = pat_token) 
- ```
+    ```python
+    from azureml.core import Workspace
+    
+    pat_token = input("Enter secret token")
+    ws = Workspace.from_config()
+    ws.set_connection(name="connection-1", 
+        category = "PythonFeed",
+        target = "https://<my-org>.pkgs.visualstudio.com", 
+        authType = "PAT", 
+        value = pat_token) 
+    ```
 
  3. Create an Azure Machine Learning environment and add Python packages from the feed.
 
-```python
-from azureml.core import Environment
-from azureml.core.conda_dependencies import CondaDependencies
-
-env = Environment(name="my-env")
-cd = CondaDependencies()
-cd.add_pip_package("<my-package>")
-cd.set_pip_option("--extra-index-url https://<my-org>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
-env.python.conda_dependencies=cd
-```
+    ```python
+    from azureml.core import Environment
+    from azureml.core.conda_dependencies import CondaDependencies
+    
+    env = Environment(name="my-env")
+    cd = CondaDependencies()
+    cd.add_pip_package("<my-package>")
+    cd.set_pip_option("--extra-index-url https://<my-org>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
+    env.python.conda_dependencies=cd
+    ```
 
 The environment is now ready to be used in training runs or web service endpoint deployments. When building the environment, Azure Machine Learning service uses the PAT to authenticate against the feed with the matching base URL.
 
