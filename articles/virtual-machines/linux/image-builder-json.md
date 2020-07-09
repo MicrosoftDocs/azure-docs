@@ -149,7 +149,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### ISO source
 We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
