@@ -84,7 +84,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp
     ```
 
-Go to the folder of this cloned repository branch, and navigate to the **/azure-iot-samples-node/digital-twins/samples/service/javascript** folder. Install all the dependencies by running the following command:
+1. Go to the folder of this cloned repository branch, and navigate to the **/azure-iot-samples-node/digital-twins/samples/service/javascript** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
