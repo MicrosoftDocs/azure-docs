@@ -245,7 +245,7 @@ These settings can be applied to the best model as a result of your automated ML
 |**Enable voting ensemble & stack ensemble models**| ✓|✓|
 |**Show best model based on non-primary metric**|✓||
 |**Enable/disable ONNX model compatibility**|✓||
-|Test the model | ✓| |
+|**Test the model** | ✓| |
 
 ### Run control settings
 
