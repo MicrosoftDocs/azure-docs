@@ -33,14 +33,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Azure Cosmos DB Java SDK v4, the two available *ConnectionMode*s are:  
-      
-    * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The connection mode is a key configuration setting available for configuring the client. For Azure Cosmos DB Java SDK v4, the two available connection modes are:  
 
-    These *ConnectionMode*s essentially condition the route that data plane requests - document reads and writes - take from your client machine to partitions in the Azure Cosmos DB back-end. Generally Direct Mode is the preferred option for best performance - it allows your client to open TCP connections directly to partitions in the Azure Cosmos DB back-end and send requests *direct*ly with no intermediary. By contrast, in Gateway mode, requests made by your client are routed to a so-called "Gateway" server in the Azure Cosmos DB front-end, which in turn fans out your requests to the appropriate partition(s) in the Azure Cosmos DB back-end. If your application runs within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop (client to Gateway plus Gateway to partition) every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+    * Direct mode (default)      
+    * Gateway mode
 
-    The connection mode for data plane requests is configured in Azure Cosmos DB client builder using the `directMode()` or `gatewayMode()` methods with the *ConnectionPolicy* parameter, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (`DirectConnectionConfig` for `directMode()`,  `GatewayConnectionConfig` for `gatewayMode()`.
+    These connection modes essentially condition the route that data plane requests - document reads and writes - take from your client machine to partitions in the Azure Cosmos DB back-end. Generally Direct mode is the preferred option for best performance - it allows your client to open TCP connections directly to partitions in the Azure Cosmos DB back-end and send requests *direct*ly with no intermediary. By contrast, in Gateway mode, requests made by your client are routed to a so-called "Gateway" server in the Azure Cosmos DB front-end, which in turn fans out your requests to the appropriate partition(s) in the Azure Cosmos DB back-end. If your application runs within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop (client to Gateway plus Gateway to partition) every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+
+    The connection mode for data plane requests is configured in the Azure Cosmos DB client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.)
     
     ### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -58,7 +58,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     --- 
 
-    The `directMode()` method has an additional override, for the following reason. Control plane operations such as database and container CRUD *always* utilize Gateway mode; when the user has configured Direct mode for data plane operations, control plane operations use default Gateway mode settings. This suits most users. However, users who want Direct mode for data plane operations as well as tunability of control plane Gateway mode parameters can use the following `directMode()` override:
+    The *directMode()* method has an additional override, for the following reason. Control plane operations such as database and container CRUD *always* utilize Gateway mode; when the user has configured Direct mode for data plane operations, control plane operations use default Gateway mode settings. This suits most users. However, users who want Direct mode for data plane operations as well as tunability of control plane Gateway mode parameters can use the following *directMode()* override:
 
     ### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
