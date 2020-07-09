@@ -219,21 +219,21 @@ The following settings allow you to configure your automated ML experiment.
 
 | |The Python SDK|The studio web experience|
 ----|:----:|:----:
-Split data into train/validation sets| ✓|✓
-Supports ML tasks: classification, regression, and forecasting| ✓| ✓
-Optimizes based on primary metric| ✓| ✓
-Supports AML compute as compute target | ✓|✓
-Configure forecast horizon, target lags & rolling window|✓|✓
-Set exit criteria |✓|✓ 
-Set concurrent iterations| ✓|✓
-Drop columns| ✓|✓
-Block algorithms|✓|✓
-Cross validation |✓|✓
-Supports training on Azure Databricks clusters| ✓|
-View engineered feature names|✓|
-Featurization summary| ✓|
-Featurization for holidays|✓|
-Log file verbosity levels| ✓|
+|**Split data into train/validation sets**| ✓|✓
+|**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
+|**Optimizes based on primary metric**| ✓| ✓
+|**Supports AML compute as compute target** | ✓|✓
+|**Configure forecast horizon, target lags & rolling window**|✓|✓
+|**Set exit criteria** |✓|✓ 
+|**Set concurrent iterations**| ✓|✓
+|**Drop columns**| ✓|✓
+|**Block algorithms**|✓|✓
+|**Cross validation** |✓|✓
+|**Supports training on Azure Databricks clusters**| ✓|
+|**View engineered feature names**|✓|
+|**Featurization summary**| ✓|
+|**Featurization for holidays**|✓|
+|**Log file verbosity levels**| ✓|
 
 ### Model settings
 
@@ -241,10 +241,10 @@ These settings can be applied to the best model as a result of your automated ML
 
 | |The Python SDK|The studio web experience|
 |----|:----:|:----:|
-|Best model registration, deployment, explainability| ✓|✓|
-|Enable voting ensemble & stack ensemble models| ✓|✓|
-|Show best model based on non-primary metric|✓||
-|Enable/disable ONNX model compatibility|✓||
+|**Best model registration, deployment, explainability**| ✓|✓|
+|**Enable voting ensemble & stack ensemble models**| ✓|✓|
+|**Show best model based on non-primary metric**|✓||
+|**Enable/disable ONNX model compatibility**|✓||
 |Test the model | ✓| |
 
 ### Run control settings
@@ -253,10 +253,10 @@ These settings allow you to review and control your experiment runs and its chil
 
 | |The Python SDK|The studio web experience|
 |----|:----:|:----:|
-|Run summary table| ✓|✓|
-|Cancel runs & child runs| ✓|✓|
-|Get guardrails| ✓|✓|
-|Pause & resume runs| ✓| |
+|**Run summary table**| ✓|✓|
+|**Cancel runs & child runs**| ✓|✓|
+|**Get guardrails**| ✓|✓|
+|**Pause & resume runs**| ✓| |
 
 <a name="use-with-onnx"></a>
 
