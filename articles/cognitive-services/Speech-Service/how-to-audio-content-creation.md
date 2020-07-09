@@ -18,6 +18,8 @@ ms.author: trbye
 
 The Audio Content Creation tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). To simplify customization and tuning, Audio Content Creation allows you to visually inspect your text-to-speech outputs in real time.
 
+See the [video tutorial](https://www.youtube.com/watch?v=O1wIJ7mts_w) for Audio Content Creation.
+
 ## How does it work?
 
 This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use the links below to learn more about each step.

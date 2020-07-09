@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus bindings for Azure Functions
+title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 author: craigshoemaker
 
@@ -312,6 +312,7 @@ The following parameter types are available for the queue or topic message:
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
 * `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) - Used to receive and acknowledge messages from the message container (required when [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) is set to `false`)
 
 These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 

@@ -182,7 +182,7 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/developer/javascript/tutorial-vscode-static-website-node-03) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven't already. If you don't convert the image to Fixed, you can't successfully create the image.
 

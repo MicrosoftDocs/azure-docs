@@ -99,6 +99,7 @@ When represented as a JSON object, a digital twin will display the following fie
 | Field name | Description |
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the digital twin |
+| `$etag` | Standard HTTP field assigned by the web server |
 | `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
 | `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
@@ -117,6 +118,7 @@ Here is an example of a digital twin formatted as a JSON object:
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -164,6 +166,7 @@ When represented as a JSON object, a relationship from a digital twin will displ
 | Field name | Description |
 | --- | --- |
 | `$relationshipId` | A user-provided string representing the ID of this relationship. This string is unique in the context of the source digital twin, which also means that `sourceId` + `relationshipId` is unique in the context of the Azure Digital Twins instance. |
+| `$etag` | Standard HTTP field assigned by the web server |
 | `$sourceId` | The ID of the source digital twin |
 | `$targetId` | The ID of the target digital twin |
 | `$relationshipName` | The name of the relationship |
@@ -176,8 +179,8 @@ Here is an example of a relationship formatted as a JSON object:
   "$relationshipId": "relationship-01",
   "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationshipName": "contains",
   "$targetId": "Cafe",
+  "$relationshipName": "contains",
   "startDate": "2020-02-04"
 }
 ```

@@ -13,7 +13,7 @@ ms.author: mjbrown
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB Cassandra API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, keyspace and table](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, keyspace, and table for Cassandra API. |
 | [Change throughput](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a keyspace and table.|

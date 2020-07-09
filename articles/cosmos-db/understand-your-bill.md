@@ -13,12 +13,12 @@ ms.reviewer: sngun
 
 As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for provisioned throughput and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premises or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premises or IaaS solutions.
 
-With Azure Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage. For the provisioned throughput, the unit for billing is 100 RU/sec per hour, charged at $0.008 per hour, assuming standard public pricing, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). For the consumed storage, you are billed $0.25 per 1 GB of storage per month, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+With Azure Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage. For the provisioned throughput, the unit for billing is 100 RU/sec per hour, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information. For the consumed storage, you are billed per 1 GB of storage per month, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
-This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month.
+This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month. All the examples in this article calculate the bill based on the pricing information shown in the [Pricing page.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> Billing is for any portion of a wall-clock hour, not a 60 minute duration.
+> Billing is for any portion of a wall-clock hour, not a 60 minute duration. All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
 ## Billing examples
 
@@ -230,19 +230,18 @@ This example reflects [multi-master pricing](https://azure.microsoft.com/pricing
 
 Let's consider another example, where you want to proactively estimate your bill before the month's end. You can estimate your bill as follows:
 
-|**Storage Cost** | |
-|----|----|
-|Avg Record Size (KB) |1 |
-|Number of Records  |100,000,000  |
-|Total Storage (GB)  |100 |
-|Monthly cost per GB  |$0.25  |
-|Expected Monthly Cost for Storage   |$25.00  |
+**Storage cost**
 
-<br>
+* Avg Record Size (KB) =  1 
+* Number of Records = 100,000,000 
+* Total Storage (GB) = 100 
+* Monthly cost per GB = $0.25 
+* Expected Monthly Cost for Storage =  $25.00 
 
-|**Throughput Cost** | | | |
+**Throughput Cost**
+
+|Operation type| Requests/sec| Avg. RU/request| RUs needed|
 |----|----|----|----|
-|Operation Type| Requests/sec| Avg. RU/request| RUs needed|
 |Write| 100 | 5 | 500|
 |Read| 400| 1| 400|
 
