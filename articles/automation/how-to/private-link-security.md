@@ -48,7 +48,7 @@ As part of the preview release, an Automation account cannot access Azure resour
 
 ### Webhook scenario
 
-You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like: `https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### State Configuration (agentsvc) scenario
 
