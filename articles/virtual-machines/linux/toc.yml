@@ -511,6 +511,8 @@
             href: ../vm-specialized-image-version-powershell.md
         - name: Update image resources
           href: ../update-image-resources-powershell.md
+        - name: App registration for sharing
+          href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Portal
         items:
         - name: Create a gallery, image and VM

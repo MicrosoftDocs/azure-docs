@@ -96,7 +96,6 @@ Source regions are listed in the table below. All public regions can be target r
 |                       |                   |                    | West US 2          |
 
 
-
 ## Limits 
 
 There are limits, per subscription, for deploying resources using Shared Image Galleries:

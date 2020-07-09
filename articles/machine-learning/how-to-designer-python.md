@@ -1,7 +1,7 @@
 ---
-title: Execute Python Script in the designer
+title: Execute Python Script in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Python in Azure Machine Learning designer to transform data.
+description: Learn how to use Python in Azure Machine Learning designer (preview) to transform data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
