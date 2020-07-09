@@ -76,7 +76,7 @@ Configure SQL Server to use the new log drive. You can do so using Transact-SQL 
 
 ### Configure permissions
 
-1. Verify the service account used by SQL Server. You can do so by using SQL Server Configuration Manager or Services.msc
+1. Verify the service account used by SQL Server. You can do so by using SQL Server Configuration Manager or Services.msc.
 1. Navigate to your new disk. 
 1. Create a folder (or multiple folders) to be used for your log file. 
 1. Right-click the folder and select **Properties**.
