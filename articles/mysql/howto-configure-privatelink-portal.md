@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for MySQL fr
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 
@@ -168,7 +168,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
     |||
 
     > [!Note] 
-    > Use the predefined private DNS zone for your service or create a new one. Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md) for details.
+    > Use the predefined private DNS zone for your service or provide your preferred DNS zone name. Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md) for details.
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 

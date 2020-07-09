@@ -2,8 +2,10 @@
 title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/08/2020
+ms.author: thomasge
 
 ---
 
@@ -11,13 +13,13 @@ ms.date: 04/16/2019
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal].
+This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster.
 
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
 
-The following limitations apply:
+## The following limitations apply:
 
-- Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
+- Azure AD can only be enabled on RBAC-enabled cluster.
 
 ## Before you begin
 
@@ -272,6 +274,6 @@ For best practices on identity and resource control, see [Best practices for aut
 [azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

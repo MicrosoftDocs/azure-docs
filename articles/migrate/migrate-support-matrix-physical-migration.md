@@ -3,15 +3,14 @@ title: Support for physical server migration in Azure Migrate
 description: Learn about support for physical server migration in Azure Migrate.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 01/07/2020
+ms.date: 06/14/2020
 ---
 
 # Support matrix for physical server migration
 
 This article summarizes support settings and limitations for migrating physical servers with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
-
-## Overview
+## Migrating machines as physical
 
 You can migrate on-premises machines as physical servers, using agent-based replication. Using this tool, you can migrate a wide range of machines to Azure:
 

@@ -3,7 +3,7 @@ title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
 description: Troubleshooting Azure Files problems in Windows
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
@@ -64,27 +64,31 @@ To check if your firewall or ISP is blocking port 445, use the [AzFileDiagnostic
 To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
    
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
+```azurepowershell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+# This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
+# The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+# $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+# or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
+```
     
 If the connection was successful, you should see the following output:
     
   
-    ComputerName     : <your-storage-account-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
+```azurepowershell
+ComputerName     : <your-storage-account-name>
+RemoteAddress    : <storage-account-ip-address>
+RemotePort       : 445
+InterfaceAlias   : <your-network-interface>
+SourceAddress    : <your-ip-address>
+TcpTestSucceeded : True
+```
  
 
 > [!Note]  
@@ -334,14 +338,14 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 The cmdlet performs these checks below in sequence and provides guidance for failures:
-1. CheckPort445Connectivity: check that Port 445 is opened for SMB connection
-2. CheckDomainJoined: validate that the client machine is domain joined to AD
-3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
-4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
-5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
-6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
-
-We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
+1. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection
+2. CheckDomainJoined: Validate that the client machine is domain joined to AD
+3. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name).
+4. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account 
+5. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key
+6. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
+7. CheckAadUserHasSid: Check if an Azure AD user has a SID in AD, this check requires user to input Object Id of the Azure AD user with parameter -ObjectId. 
+8. CheckStorageAccountDomainJoined: Check the storage account's properties to see that AD authentication has been enabled and the account's AD properties are populated.
 
 ## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
 

@@ -4,7 +4,6 @@ description: This article provides answers to frequently asked questions about r
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: felixwu
 editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -16,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ---
-# Frequently asked questions for SQL Server running on Windows virtual machines in Azure
+# Frequently asked questions for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-This article provides answers to some of the most common questions about running [SQL Server on Windows Virtual Machines (VMs) in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+This article provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 

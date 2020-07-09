@@ -4,7 +4,7 @@ description: This article helps you connect an Azure virtual network gateway to 
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
 

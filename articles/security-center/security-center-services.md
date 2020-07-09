@@ -36,7 +36,6 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
 |Missing OS patches assessment|✔|✔|✔|Free|
@@ -101,7 +100,7 @@ For information about when recommendations are generated for each of these prote
  **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
 
 > [!NOTE]
-> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
 
 
 ## Next steps

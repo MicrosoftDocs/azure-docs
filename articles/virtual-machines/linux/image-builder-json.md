@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -23,7 +23,7 @@ This is the basic template format:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},			 
     "dependsOn": [], 
     "properties": { 
@@ -82,7 +82,7 @@ By default Image Builder will use a "Standard_D1_v2" build VM, you can override 
 
 ## osDiskSizeGB
 
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. 
+By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
 
 ```json
  {
@@ -388,7 +388,8 @@ Files in the File customizer can be downloaded from Azure Storage using [MSI](ht
 
 ### Windows Update Customizer
 This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -401,6 +402,7 @@ This customizer is built on the [community Windows Update Provisioner](https://p
             }
                ], 
 OS support: Windows
+```
 
 Customize properties:
 - **type**  – WindowsUpdate.

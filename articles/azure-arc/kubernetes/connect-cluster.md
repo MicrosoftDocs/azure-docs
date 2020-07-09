@@ -26,7 +26,7 @@ Verify you have the following requirements ready:
 * You'll need a kubeconfig file to access the cluster and cluster-admin role on the cluster for deployment of Arc enabled Kubernetes agents.
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Azure Arc for Kubernetes Onboarding" role having these permissions can be used for role assignments on the user or service principal used with Azure CLI for onboarding.
 * Helm 3 is required for the onboarding the cluster using connectedk8s extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
-* Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI version 2.3+.
+* Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI version 2.3+.
 * Install the Arc enabled Kubernetes CLI extensions:
   
   Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
@@ -73,10 +73,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 Registration is an asynchronous process. Registration may take approximately 10 minutes. You can monitor the registration process with the following commands:
@@ -204,7 +202,7 @@ Azure Arc enabled Kubernetes consists of a few agents (operators) that run in yo
 * `deployment.apps/metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
 * `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count and Arc agent version
 * `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
-* `deployment.apps/clusteridentityoperator`: maintains the managed service identity (MSI) certificate used by other agents for communication with Azure
+* `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
 * `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
 
 ## Delete a connected cluster

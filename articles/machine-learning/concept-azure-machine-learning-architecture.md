@@ -41,9 +41,9 @@ The machine learning model workflow generally follows this sequence:
 Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code. (An [Enterprise workspace](concept-workspace.md#upgrade)) is required to use designer.)
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 > [!NOTE]
@@ -208,7 +208,7 @@ If you've enabled monitoring, Azure collects telemetry data from the model insid
 Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
 
 
-### <a name="compute-instance"></a>Compute instance (preview)
+### <a name="compute-instance"></a>Compute instance
 
 An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 

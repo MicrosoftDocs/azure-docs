@@ -1,17 +1,17 @@
 ---
 title: "Quickstart: Create a shared query with templates"
-description: In this quickstart, you use a Resource Manager template to create a Resource Graph shared query that counts virtual machines by OS.
-ms.date: 04/28/2020
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
-# Quickstart: Create a shared query by using a Resource Manager template
+# Quickstart: Create a shared query by using an Azure Resource Manager template
 
 Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is
 saved to the individuals portal profile and isn't visible to others. A shared query is a Resource
 Manager object that can be shared with others through permissions and role-based access. A shared
-query provides common and consistent execution of resource discovery. This quickstart uses a
-Resource Manager template to create a shared query.
+query provides common and consistent execution of resource discovery. This quickstart uses an Azure
+Resource Manager template (ARM template) to create a shared query.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -44,7 +44,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   [![Deploy the Policy template to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 
@@ -66,7 +66,7 @@ Some additional resources:
   [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - To see the template reference, go to
   [Azure template reference](/azure/templates/microsoft.resourcegraph/allversions).
-- To learn how to develop Resource Manager templates, see
+- To learn how to develop ARM templates, see
   [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
   [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).

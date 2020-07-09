@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
+ms.date: 7/6/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Serverless is a compute tier for single Azure SQL Databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Serverless is a compute tier for single databases in Azure SQL Database that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
@@ -60,7 +60,7 @@ The following table summarizes distinctions between the serverless compute tier 
 
 | | **Serverless compute** | **Provisioned compute** |
 |:---|:---|:---|
-|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. |	More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
+|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. | More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
 | **Performance management effort** |Lower|Higher|
 |**Compute scaling**|Automatic|Manual|
 |**Compute responsiveness**|Lower after inactive periods|Immediate|
@@ -82,9 +82,9 @@ Memory for serverless databases is reclaimed more frequently than for provisione
 
 #### Cache reclamation
 
-Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low.
+Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.  Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.
 
-- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+- Active cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
 - When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
 - The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.
@@ -106,7 +106,7 @@ Autopausing is triggered if all of the following conditions are true for the dur
 
 An option is provided to disable autopausing if desired.
 
-The following features do not support autopausing.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
+The following features do not support autopausing, but do support auto-scaling.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
@@ -155,19 +155,8 @@ If using [customer managed transparent data encryption](transparent-data-encrypt
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
-1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
+1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. For service objective options, see [serverless resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Service objective name|Service tier|Hardware generation|Max vCores|
-   |---|---|---|---|
-   |GP_S_Gen5_1|General Purpose|Gen5|1|
-   |GP_S_Gen5_2|General Purpose|Gen5|2|
-   |GP_S_Gen5_4|General Purpose|Gen5|4|
-   |GP_S_Gen5_6|General Purpose|Gen5|6|
-   |GP_S_Gen5_8|General Purpose|Gen5|8|
-   |GP_S_Gen5_10|General Purpose|Gen5|10|
-   |GP_S_Gen5_12|General Purpose|Gen5|12|
-   |GP_S_Gen5_14|General Purpose|Gen5|14|
-   |GP_S_Gen5_16|General Purpose|Gen5|16|
 
 2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
@@ -352,7 +341,7 @@ Azure Hybrid Benefit (AHB) and reserved capacity discounts do not apply to the s
 
 ## Available regions
 
-The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
+The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, and US Gov Central (Iowa).
 
 ## Next steps
 
