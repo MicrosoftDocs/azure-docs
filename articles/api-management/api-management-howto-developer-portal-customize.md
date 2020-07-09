@@ -127,8 +127,8 @@ After you publish the portal, you can access it at the same URL as the administr
 You need to enable CORS (cross-origin resource sharing) on your APIs to let the visitors of your portal test the APIs through the built-in interactive console. Refer to [this documentation article](api-management-howto-developer-portal.md#cors) for more details.
 
 ## Next steps
+- [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-- [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
