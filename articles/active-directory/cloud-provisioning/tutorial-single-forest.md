@@ -103,13 +103,13 @@ To verify that the agent is running follow these steps:
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**
-![](media/how-to-configure/manage1.png)
+![Screenshot showing "Manage provisioning (Preview)" link.](media/how-to-configure/manage1.png)
 5.  Click **New Configuration**
-![](media/tutorial-single-forest/configure1.png)
+![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
-![](media/tutorial-single-forest/configure2.png)
+![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)
 1.  The configuration status should now be **Healthy**.
-![](media/how-to-configure/manage4.png)
+![Screenshot of Azure AD Provisioning (Preview) screen showing Healthy status.](media/how-to-configure/manage4.png)
 
 ## Verify users are created and synchronization is occurring
 You will now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  Be aware that this may take a few hours to complete.  To verify users are synchronized do the following.
