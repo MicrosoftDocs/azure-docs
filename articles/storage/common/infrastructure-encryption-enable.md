@@ -37,7 +37,7 @@ To register to use infrastructure encryption with Azure Storage, use PowerShell 
 
 # [PowerShell](#tab/powershell)
 
-To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -115,7 +115,7 @@ N/A
 
 ## Create a storage account with infrastructure encryption enabled
 
-You must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled after the account has already been created.
+You must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled or disabled after the account has been created.
 
 The storage account must be of type general-purpose v2. You can create the storage account and configure it to enable infrastructure encryption by using either PowerShell, Azure CLI or an Azure Resource Manager template.
 
@@ -221,6 +221,10 @@ az storage account show /
 N/A
 
 ---
+
+## Ask questions or provide feedback
+
+To ask questions about infrastructure encryption, or to provide feedback, contact Microsoft at AzureStorageFeedback@microsoft.com. Ideas and suggestions about Azure Storage are always welcomed at the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
 
 ## Next steps
 
