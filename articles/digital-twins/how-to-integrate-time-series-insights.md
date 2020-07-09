@@ -42,7 +42,8 @@ Azure Digital Twins instances can emit twin update events whenever a twin's stat
 
 This pattern reads from the twins directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for without needing to update our time series insights logic.
 
-!Note If you have set up the end-to-end tutorial you only need to follow step 2 to create a new endpoint. You can reuse that event grid and digital twin route.
+> [!NOTE]
+> If you have set up the end-to-end tutorial you only need to follow step 2 to create a new endpoint. You can reuse that event grid and digital twin route.
 
 1. Create an event grid topic, which will receive events from our Azure Digital Twins instance.
     ```azurecli
