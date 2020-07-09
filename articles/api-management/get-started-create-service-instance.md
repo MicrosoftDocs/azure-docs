@@ -82,8 +82,3 @@ When no longer needed, you can remove the resource group and all related resourc
 
 > [!div class="nextstepaction"]
 > [Import and publish your first API](import-and-publish.md)
-
-Want to optimize and save on your cloud spending?
-
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
