@@ -104,53 +104,47 @@ You can accept the default values for all other settings.
 
 ## Step 5: Create a container
 
-In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
-
-Create a container by using any of these options:
+Create a container in your storage account by using any of these tools or SDKs:
 
 :::row:::
    :::column span="":::
-      [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)
+      :heavy_check_mark: [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)
    :::column-end:::
    :::column span="":::
-      [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)
+      :heavy_check_mark: [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      :heavy_check_mark: [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)
+      :heavy_check_mark: [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)
    :::column-end:::
    :::column span="":::
-      [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)
+      :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
+      :heavy_check_mark: [Python](data-lake-storage-directory-file-acl-python.md#create-a-container)
    :::column-end:::
    :::column span="":::
-      [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
+      :heavy_check_mark: [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Python](data-lake-storage-directory-file-acl-python.md#create-a-container)
+      :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
    :::column-end:::
-   :::column span="":::
-      [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
-   :::column-end:::
-:::row-end:::
-:::row:::
    :::column span="2":::
-      [REST](https://docs.microsoft.com/rest/api/storageservices/create-container)
+      :heavy_check_mark: [REST](https://docs.microsoft.com/rest/api/storageservices/create-container)
    :::column-end:::
 :::row-end:::
 
@@ -162,9 +156,9 @@ On a Linux system, you can mount a container by using the following command.
 mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:<storage-account-name>/<container-name>  /mnt/test
 ```
 
-Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
+- Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
-Replace the `<container-name>` placeholder with the name of your container.
+- Replace the `<container-name>` placeholder with the name of your container.
 
 If you receive the error "`Access denied by server while mounting`", ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
 
