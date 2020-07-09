@@ -104,25 +104,21 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     a. In the **Identifier** text box, type a URL as per your requirement:
 
-	| |
-	|--|
-	| `https://admin.zscaler.net` |
-	| `https://admin.zscalerone.net` |
-	| `https://admin.zscalertwo.net` |
-	| `https://admin.zscalerthree.net` |
-	| `https://admin.zscloud.net` |
-	| `https://admin.zscalerbeta.net` |
+	- `https://admin.zscaler.net`
+	- `https://admin.zscalerone.net`
+	- `https://admin.zscalertwo.net`
+	- `https://admin.zscalerthree.net`
+	- `https://admin.zscloud.net`
+	- `https://admin.zscalerbeta.net`
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
 
-	| |
-	|--|
-	| `https://admin.zscaler.net/adminsso.do` |
-	| `https://admin.zscalerone.net/adminsso.do` |
-	| `https://admin.zscalertwo.net/adminsso.do` |
-	| `https://admin.zscalerthree.net/adminsso.do` |
-	| `https://admin.zscloud.net/adminsso.do` |
-	| `https://admin.zscalerbeta.net/adminsso.do` |
+	- `https://admin.zscaler.net/adminsso.do`
+	- `https://admin.zscalerone.net/adminsso.do`
+	- `https://admin.zscalertwo.net/adminsso.do`
+	- `https://admin.zscalerthree.net/adminsso.do`
+	- `https://admin.zscloud.net/adminsso.do`
+	- `https://admin.zscalerbeta.net/adminsso.do`
 
 5. Zscaler Internet Access Administrator application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML page**, click **Edit** button to open **User Attributes & Claims** dialog.
 
