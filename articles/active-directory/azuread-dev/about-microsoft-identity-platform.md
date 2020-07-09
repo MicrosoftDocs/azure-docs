@@ -64,5 +64,5 @@ Microsoft identity platform (v2.0) endpoint is now OIDC certified. It works with
 
 Learn more about v1.0 and v2.0.
 
-* [Microsoft identity platform (v2.0) overview](v2-overview.md)
-* [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md)
+* [Microsoft identity platform (v2.0)](../develop/v2-overview.md) overview
+* [Azure Active Directory for developers (v1.0)](v1-overview.md) overview

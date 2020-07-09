@@ -18,20 +18,22 @@ ms.custom: identityplatformtop40
 
 # Microsoft identity platform overview
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
+The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts, and provide authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
 
-- **OAuth 2.0 and OpenID Connect standard-compliant authentication service** that enables developers to authenticate any Microsoft identity, including:
-  - Work or school accounts (provisioned through Azure AD)
-  - Personal Microsoft accounts (such as Skype, Xbox, and Outlook.com)
-  - Social or local accounts (via Azure AD B2C)
+There are several components that make up the Microsoft identity platform:
+
+- **OAuth 2.0 and OpenID Connect standard-compliant authentication service** enabling developers to authenticate several identity types, including:
+  - Work or school accounts, provisioned through Azure AD
+  - Personal Microsoft account, like Skype, Xbox, and Outlook.com
+  - Social or local accounts, by using Azure AD B2C
 - **Open-source libraries**: Microsoft Authentication Libraries (MSAL) and support for other standards-compliant libraries
-- **Application management portal**: A registration and configuration experience built in the Azure portal, along with all your other Azure management capabilities.
-- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through the Microsoft Graph API and PowerShell, so you can automate your DevOps tasks.
-- **Developer content**: conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
+- **Application management portal**: A registration and configuration experience in the Azure portal, along with the other Azure management capabilities.
+- **Application configuration API and PowerShell**: Programmatic configuration of your applications through the Microsoft Graph API and PowerShell so you can automate your DevOps tasks.
+- **Developer content**: Technical documentation including quickstarts, tutorials, how-to guides, and code samples.
 
-For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and Conditional Access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
 
-With Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
+With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
 
 ## Getting started
 
@@ -79,6 +81,8 @@ If you'd like to invite external users into your tenant as "guest" users to whic
 
 ## Next steps
 
-Most developers need an Azure Active Directory tenant they can use for development purposes, sometimes referred to as a "dev tenant."
+If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
 
-To learn how to create your own dev tenant, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
+Learn how to create your own dev tenant for use as you build your applications:
+
+- [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
