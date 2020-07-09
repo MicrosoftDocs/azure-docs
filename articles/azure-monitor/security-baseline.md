@@ -86,58 +86,6 @@ How to use NPM packages to embed the Application Insight SDK: https://docs.micro
 
 **Responsibility**: Customer
 
-### 1.4: Deny communications with known-malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12397).
-
-**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If you are using Log Analytics workspace, Log Analytics Gateway, Azure Monitor agents, enable DDoS Standard protection on your Azure Virtual Networks hosting these services to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses. Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic. Use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period. Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence. How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer Understand Azure Security Center Adaptive Network Hardening: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening Understand Azure Security Center Just In Time Network Access Control: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
-
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.5: Record network packets
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12398).
-
-**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If using Azure Monitor gateway or agents, enable Network Watcher packet capture to investigate anomalous activities. 
-Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirementsConnect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
-How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
-
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12399).
-
-**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If using Azure Monitor gateway or agents, select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic. 
-
-Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirementsConnect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
-
-Azure Marketplace: https://azuremarketplace.microsoft.com/marketplace/?term=Firewall How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.7: Manage traffic to web applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12400).
-
-**Guidance**: Not applicable; Azure Policy is part of the Azure core services and cannot be deployed as a service separately.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
@@ -155,35 +103,6 @@ Understand and use Service Tags:
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview 
 
 
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.9: Maintain standard security configurations for network devices
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12402).
-
-**Guidance**: Azure Monitor is part of the Azure core services and cannot be deployed as a service separately.  If you are using Azure Monitor gateway or agents, define and implement standard security configurations for network resources with Azure Policy. 
-
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. 
-
-Network requirements for Azure Monitor agents:  https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements
-
-Connect computers without internet access by using the Log Analytics gateway in Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/gateway
-
-How to configure and manage Azure Policy: 
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
-
-Azure Policy samples for networking: 
-
-https://docs.microsoft.com/azure/governance/policy/samples/#network 
-
-How to create an Azure Blueprint: 
-
-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center monitoring**: Not applicable
 
