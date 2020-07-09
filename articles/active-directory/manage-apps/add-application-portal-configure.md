@@ -27,18 +27,18 @@ To configure the properties of an application in your Azure AD tenant, you need:
 - Optional: Completion of [Add an app](add-application-portal.md).
 
 >[!IMPORTANT]
->We recommend that you use a nonproduction environment to test the steps in this quickstart.
+>Use a nonproduction environment to test the steps in this quickstart.
 
 ## Configure app properties
 
-When you finish adding an application to your Azure AD tenant, you're immediately presented with the overview page for it. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
+When you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant. 
 
 To edit the application properties:
 
-1. In the Azure AD portal, select **Enterprise applications**, and then find and select the application you want to configure.
+1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 
-    ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
+    ![Screenshot of the Properties screen that shows editable app properties.](media/add-application-portal/edit-properties.png)
 
 1. Take a moment to understand the options available to configure:
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
@@ -86,7 +86,7 @@ To use a custom logo:
 1. Select the icon to upload the logo.
 1. When you're finished, select **Save**.
 
-    ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
+    ![Screenshot of the Properties screen that shows how to change the logo.](media/add-application-portal/change-logo.png)
 
    > [!NOTE]
    > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the **Properties** pane to see the updated icon.
