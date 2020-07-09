@@ -39,6 +39,9 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 > * Backup of all workloads and files with DPM.
 > * Backup of all workloads and files with MABS.
 
+>[!NOTE]
+>Azure CSP subscriptions are not supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
+
 ## Prerequisites
 
 Ensure that the following prerequisites are met before you start the offline backup workflow:

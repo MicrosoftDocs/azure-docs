@@ -56635,6 +56635,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-visual-studio-templates.md",
+      "redirect_url": "/azure/batch/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md",
       "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
