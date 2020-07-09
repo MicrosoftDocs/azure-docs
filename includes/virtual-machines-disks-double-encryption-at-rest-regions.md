@@ -14,5 +14,5 @@ Currently available in the following regions:
 - West US 2
 - East US
 - South Central US
-- US gov East (Virginia)
-- US Gov South West (Arizona)
+- US Gov Virginia
+- US Gov Arizona
