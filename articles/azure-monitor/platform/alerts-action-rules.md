@@ -33,6 +33,8 @@ Action rules help you simplify this process. By defining actions at scale, an ac
 
 ## Configuring an action rule
 
+### [Portal](#tab/portal)
+
 You can access the feature by selecting **Manage actions** from the **Alerts** landing page in Azure Monitor. Then, select **Action rules (preview)**. You can access the rules by selecting **Action rules (preview)** from the dashboard of the landing page for alerts.
 
 ![Action rules from the Azure Monitor landing page](media/alerts-action-rules/action-rules-landing-page.png)
@@ -138,13 +140,149 @@ Contoso has defined [a metric alert at a subscription level](https://docs.micros
 > [!NOTE]
 > *Action groups defined within action rules and alert rules operate independently, with no deduplication.* In the scenario described earlier, if an action group is defined for the alert rule, it triggers in conjunction with the action group defined in the action rule. 
 
+### [Azure CLI](#tab/azure-cli)
+
+You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+
+### Prepare your environment
+
+1. [Install the Azure CLI](install-azure-cli.md)
+
+   If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
+
+   - Select **Try It** in the upper-right corner of a code block. **Try It** will open Azure Cloud Shell, but it doesn't automatically copy the code to Cloud Shell.
+
+   - Open Cloud Shell by going to [https://shell.azure.com](https://shell.azure.com)
+
+   - Select the **Cloud Shell** button on the menu bar at the upper right corner in the [Azure portal](https://portal.azure.com)
+
+1. Sign in.
+
+   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+
+    ```azurecli
+    az login
+    ```
+
+    Follow the steps displayed in your terminal to complete the authentication process.
+
+1. Install the `alertsmanagement` extension
+
+   The `az monitor action-rule` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   The following warning is expected.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### Create action rules with the Azure CLI
+
+See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) to learn about required and optional parameters.
+
+```azurecli
+# Create an action rule to suppress notifications in a resource group
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --scope-type ResourceGroup \
+                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
+                              --suppression-recurrence-type Always \
+                              --alert-context Contains Computer-01 \
+                               --monitor-service Equals "Log Analytics"
+
+# Create an action rule to suppress notifications for all Sev4 alerts on all VMs within the subscription every weekend
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --severity Equals Sev4 \
+                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
+                              --suppression-recurrence-type Weekly \
+                              --suppression-recurrence 0 6 \
+                              --suppression-start-date 12/09/2018 \
+                              --suppression-end-date 12/18/2018 \
+                              --suppression-start-time 06:00:00 \
+                              --suppression-end-time 14:00:00
+
+```
+
+* * *
+
 ## Managing your action rules
+
+### [Portal](#tab/portal)
 
 You can view and manage your action rules from the list view:
 
 ![Action rules list view](media/alerts-action-rules/action-rules-list-view.png)
 
 From here, you can enable, disable, or delete action rules at scale by selecting the check box next to them. When you select an action rule, its configuration page opens. The page helps you update the action rule's definition and enable or disable it.
+
+### [Azure CLI](#tab/azure-cli)
+
+You can view and manage your action rules using the [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) command from the Azure CLI.
+
+### Prepare your environment
+
+1. [Install the Azure CLI](install-azure-cli.md)
+
+   If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
+
+   - Select **Try It** in the upper-right corner of a code block. **Try It** will open Azure Cloud Shell, but it doesn't automatically copy the code to Cloud Shell.
+
+   - Open Cloud Shell by going to [https://shell.azure.com](https://shell.azure.com)
+
+   - Select the **Cloud Shell** button on the menu bar at the upper right corner in the [Azure portal](https://portal.azure.com)
+
+1. Sign in.
+
+   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+
+    ```azurecli
+    az login
+    ```
+
+    Follow the steps displayed in your terminal to complete the authentication process.
+
+1. Install the `alertsmanagement` extension
+
+   The `az monitor action-rule` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   The following warning is expected.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### Manage action rules with the Azure CLI
+
+```azurecli
+# List all action rules for a subscription
+az monitor action-rule list
+
+# Get details of an action rule
+az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+
+# Update an action rule.
+az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+
+# Delete an action rule.
+az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+```
+
+* * *
 
 ## Best practices
 
