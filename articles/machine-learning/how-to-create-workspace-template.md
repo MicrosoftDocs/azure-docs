@@ -33,7 +33,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
 
-[!code-json[create-azure-machine-learning-service-workspace](~/azure-quickstart-templates/201-machine-learning-advanced/azuredeploy.json)]
+[!code-json[create-azure-machine-learning-service-workspace](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-machine-learning-create/azuredeploy.json)]
 
 This template creates the following Azure services:
 
