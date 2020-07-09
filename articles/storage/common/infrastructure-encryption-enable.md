@@ -114,7 +114,7 @@ N/A
 
 ---
 
-## Create a storage account with infrastructure encryption enabled
+## Create an account with infrastructure encryption enabled
 
 You must configure a storage account to use infrastructure encryption at the time that you create the account. Infrastructure encryption cannot be enabled or disabled after the account has been created.
 
