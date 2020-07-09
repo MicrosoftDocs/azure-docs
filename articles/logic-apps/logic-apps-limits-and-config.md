@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
+ms.date: 06/25/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -213,7 +213,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -267,7 +267,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 
 | Runtime endpoint | Free | Basic | Standard | Notes |
 |------------------|------|-------|----------|-------|
-| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | You can distribute the workload across more than one account as necessary. |
+| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one account as necessary. |
 | Invoke calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Tracking calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Blocking concurrent calls | ~1,000 | ~1,000 | ~1,000 | Same for all SKUs. You can reduce the number of concurrent requests or reduce the duration as necessary. |

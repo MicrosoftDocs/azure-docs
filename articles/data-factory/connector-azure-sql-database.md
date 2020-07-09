@@ -124,7 +124,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key

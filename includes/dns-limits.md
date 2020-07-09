@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 2/14/2020    
 ms.author: rohink

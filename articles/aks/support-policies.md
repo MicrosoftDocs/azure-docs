@@ -48,6 +48,9 @@ Because worker nodes are sensitive, Microsoft takes great care to limit their ba
 
 Microsoft provides technical support for the following:
 
+> [!NOTE]
+> Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
+
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
 * Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency. Etcd. on demand roll back or restore is not supported as a feature.
