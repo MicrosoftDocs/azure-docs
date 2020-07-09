@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable host-based encryption - CLI
+# Enable end-to-end encryption using host-based encryption - CLI
 
 When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on host-based encryption, as well as other managed disk encryption types, see [Host-based encryption](disk-encryption.md#host-based-encryption).
 
