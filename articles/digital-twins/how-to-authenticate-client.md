@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Authenticate a client application with Azure Digital Twins
 
-After you [*create an Azure Digital Twins instance*](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
+After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
 
 This is done in two steps:
 1. Create an app registration
