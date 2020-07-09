@@ -13,16 +13,16 @@ ms.custom: references_regions
 
 # Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)
 
-Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol. This support enables you to mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or from a computer that runs Linux on on-premises. 
+You can mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or a computer on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Azure Data Lake Storage Gen2, see [Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> NFS 3.0 protocol support is in public preview.
+> Data Lake Storage Gen2 support for NFS 3.0 protocol is in public preview.
 >
-> Support is available for general-purpose v2 accounts in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
+> In general-purpose v2 accounts, support is available in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
 >
-> Support is available for BlockBlobStorage accounts in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
+> For BlockBlobStorage accounts, support is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
-## Register NFS 3.0 protocol feature with your subscription
+## Step 1: Register NFS 3.0 protocol feature with your subscription
 
 To get started, use PowerShell commands to register the `AllowNFSV3` feature with your subscription.
 
@@ -61,7 +61,7 @@ To get started, use PowerShell commands to register the `AllowNFSV3` feature wit
    Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
    ```
 
-## Verify that the feature is registered 
+## Step 2: Verify that the feature is registered 
 
 After you register the NFS 3.0 protocol feature with your subscription, the registration must be approved. This can take up to an hour. 
 
@@ -72,7 +72,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFS
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
-## Create an Azure Virtual Network (VNet)
+## Step 3: Create an Azure Virtual Network (VNet)
 
 Your storage account must be contained within a VNet. To learn more about VNet and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
 
@@ -81,7 +81,7 @@ If you plan to connect to your storage account by using a Virtual Machine (VM) t
 If you plan to connect to your Azure storage account from an on-premises computer, you'll have to connect your on-premises network to your virtual network. See supported topologies.
 
 
-## Configure a storage account
+## Step 4: Configure a storage account
 
 You can use the NFS 3.0 protocol only with new storage accounts. You can't enable existing accounts.
 
@@ -107,11 +107,14 @@ As you configure the account, choose these values:
 
 You can accept the default value for all other settings. 
 
-## Create and mount a container
+## Step 5: Create a container
 
 In the current release, you can mount only containers. You can't mount individual directories that are inside of a container.
 
 You can create a container by using [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container), [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container), [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container), [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container), [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container), [Java](data-lake-storage-directory-file-acl-java.md#create-a-container), [Python](data-lake-storage-directory-file-acl-python.md#create-a-container), [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container), or [REST](https://docs.microsoft.com/rest/api/storageservices/create-container).
+
+
+## Step 6: Mount the container
 
 On a computer running Linux, you can mount a container by using the following command.
 
