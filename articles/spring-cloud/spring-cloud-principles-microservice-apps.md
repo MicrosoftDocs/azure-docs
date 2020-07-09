@@ -1,5 +1,5 @@
 ---
-title:  Java and sase OS for Azure Spring Cloud microservice apps
+title:  Java and base OS for Azure Spring Cloud microservice apps
 description: Principles for maintaining healthy Java and base operating system for Azure Spring Cloud microservice apps
 author:  MikeDodaro
 ms.author: brendm
