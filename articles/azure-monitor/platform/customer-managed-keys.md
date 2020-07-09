@@ -19,7 +19,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 [Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
-Azure Monitor ensures that all data is encrypted at rest using Azure-managed keys. Azure Monitor also provides an option for data encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key (CMK) can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Azure Monitor use of encryption is identical to the way [Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) operates.
 
@@ -465,12 +465,12 @@ All your data remains accessible after the key rotation operation, since data al
 
 ## CMK for queries
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries in your own storage account that you connect to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
 > CMK for queries used in workbooks and Azure dashboards isn't supported yet. These queries remain encrypted with Microsoft key.  
 
-When you configure to [Bring Your Own Storage](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+When you [Bring Your Own Storage](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) and associate it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
 **Considerations before setting CMK for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
