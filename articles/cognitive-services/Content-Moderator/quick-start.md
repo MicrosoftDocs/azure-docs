@@ -53,7 +53,14 @@ Now you're ready to upload sample content. Select **Try > Image**, **Try > Text*
 
 ![Try Image or Text Moderation](images/tryimagesortext.png)
 
-Submit your content for moderation. Internally, the review tool will call the moderation APIs to scan your content. Once the scanning is complete, you'll see a message informing you that there are results waiting for your review.
+Submit your content for moderation. You can use the following sample text content:
+
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+Internally, the review tool will call the moderation APIs to scan your content. Once the scanning is complete, you'll see a message informing you that there are results waiting for your review.
 
 ![Moderate files](images/submitted.png)
 
@@ -61,7 +68,7 @@ Submit your content for moderation. Internally, the review tool will call the mo
 
 Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content tags indicate.
 
-![Review results](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 In a project, you or your review team can change these tags or add more tags as needed. You'll submit these changes with the **Next** button. As your business application calls the Moderator APIs, the tagged content will queue up here, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach.
 
