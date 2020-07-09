@@ -104,7 +104,11 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
     reported state property as online
     ```
 
-1. In the **/azure-iot-samples-node/digital-twins/samples/service/javascript** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
+1. In the **/azure-iot-samples-node/digital-twins/samples/service/javascript** folder, open the file **get_digital_twin.js**. Be sure to set the environment variable for your device ID as well.
+
+    ```cmd/sh
+    set IOTHUB_DEVICE_ID=<your device ID> (i.e. mySimpleThermostat)
+    ```
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
 
@@ -115,16 +119,7 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
 1. In the _service_ terminal output, scroll to the `thermostat` component. You see that the `state` property has been reported as _online_:
 
     ```JSON
-    "environmentalSensor": {
-      "name": "environmentalSensor",
-      "properties": {
-        "state": {
-          "reported": {
-            "value": "online"
-          }
-        }
-      }
-    }
+    ** UPDATE WITH CORRECT WORKING DT OUTPUT **
     ```
     
 1. Also notice how to retrieve the device twin's model ID, which, in this case, is for the simple thermostat model. 
@@ -135,7 +130,7 @@ Go to the folder of this cloned repository branch, and navigate to the **/azure-
 
 1. Open the file **update_digital_twin_property.js**.
 
-1. Be sure to set your environment variables for the IOTHUB_CONNECTION_STRING and IOTHUB_DEVICE_ID:
+1. Be sure that your environment variables for the IOTHUB_CONNECTION_STRING and IOTHUB_DEVICE_ID are properly set:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
