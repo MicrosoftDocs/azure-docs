@@ -1,25 +1,30 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/07/2020
- ms.author: rogarana
- ms.custom: include file
+title: Enable host-based encryption for Azure managed disks
+description: How to enable host-based encryption on Azure managed disks.
+author: roygara
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 07/09/2020
+ms.author: rogarana
+ms.subservice: disks
+ms.custom: references_regions
 ---
+
+# Enable host-based encryption - CLI
+
+When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on host-based encryption, as well as other managed disk encryption types, see [Host-based encryption](disk-encryption.md#host-based-encryption).
+
 ## Restrictions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](virtual-machines-disks-encryption-at-host-restrictions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](virtual-machines-disks-encryption-at-host-regions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
 You may also find the VM sizes programmatically. For details on that, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
 
@@ -31,7 +36,7 @@ You must get the feature enabled for your subscriptions before you use the Encry
 
 Once you've enabled the feature, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
 
-[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](virtual-machines-disks-encryption-create-key-vault-powershell.md)]
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 ## Enable encryption at host for disks attached to VM and virtual machine scale set using rest API
 
@@ -113,3 +118,7 @@ foreach($vmSize in $vmSizes)
     }
 }
 ```
+
+## Next steps
+
+[Samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)

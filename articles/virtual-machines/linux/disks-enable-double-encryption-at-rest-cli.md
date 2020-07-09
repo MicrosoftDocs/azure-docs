@@ -68,3 +68,4 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 ## Next steps
 
 [Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](../windows/disks-enable-customer-managed-keys-powershell.md)
+https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption

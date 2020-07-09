@@ -947,8 +947,8 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable host-based encryption
-        href: disks-enable-host-based-encryption.md
+      - name: Enable host-based encryption - CLI
+        href: disks-enable-host-based-encryption-cli.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal

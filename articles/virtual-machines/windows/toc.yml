@@ -855,8 +855,8 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable host-based encryption
-        href: disks-enable-host-based-encryption.md
+      - name: Enable host-based encryption - PowerShell
+        href: disks-enable-host-based-encryption-powershell.md
       - name: Enable customer-managed keys - PowerShell
         href: disks-enable-customer-managed-keys-powershell.md
       - name: Enable customer-managed keys - Portal
