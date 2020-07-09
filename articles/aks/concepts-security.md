@@ -49,9 +49,9 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ### Compute isolation
 
- Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](..\..\virtual-machines\linux\isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
+ Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](../virtual-machines/linux/isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
 
- To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](..\..\virtual-machines\linux\isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
+ To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](../virtual-machines/linux/isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
 
 
 ## Cluster upgrades
