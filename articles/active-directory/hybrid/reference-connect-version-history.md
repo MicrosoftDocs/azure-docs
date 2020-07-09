@@ -53,6 +53,12 @@ This release includes a public preview of the functionality to export the config
 
 A detailed description of this new feature can be found in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
 
+### Fixed issues
+- Fixed a bug where there would be a false warning about the local DB size on the localized builds during upgrade.
+- Fixed a bug where there would be a false error in the app events for the account name/domain name swap.
+- Fixed an error where AADConnect would fail to install on a DC, giving error "member not found".
+
+
 ## 1.5.30.0
 
 ### Release status
