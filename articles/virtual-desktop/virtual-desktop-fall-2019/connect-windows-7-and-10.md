@@ -40,11 +40,11 @@ You can install the client for the current user, which doesn't require admin rig
 
 Once installed, the client can be launched from the Start menu by searching for **Remote Desktop**.
 
-## Subscribe to a feed
+## Subscribe to a Workspace
 
-Get the list of managed resources available to you by subscribing to the feed provided by your admin. Subscribing makes the resources available on your local PC.
+Get the list of managed resources available to you by subscribing to the Workspace provided by your admin. Subscribing makes the resources available on your local PC.
 
-To subscribe to a feed:
+To subscribe to a Workspace:
 
 1. Open the Windows Desktop client.
 2. Select **Subscribe** on the main page to connect to the service and retrieve your resources.
@@ -58,7 +58,7 @@ You can launch resources by one of two methods.
 - Launch a resource as you normally would other apps from the Start Menu.
   - You can also search for the apps in the search bar.
 
-Once subscribed to a feed, the content of the feed is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
+Once subscribed to a Workspace, its content is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
 ## Next steps
 
