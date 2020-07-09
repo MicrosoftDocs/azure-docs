@@ -1,5 +1,5 @@
 ---
-title: Assign directory roles to users - Azure Active Directory | Microsoft Docs
+title: Assign Azure AD roles to users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign administrator and non-administrator roles to users with Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -47,17 +47,17 @@ A common way to assign Azure AD roles to a user is on the **Assigned roles** pag
 
 5. On the **Alain Charon - Profile** page, select **Assigned roles**.
 
-    The **Alain Charon - Directory role** page appears.
+    The **Alain Charon - Administrative roles** page appears.
 
 6. Select **Add assignments**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
 
     ![Assigned roles page - showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Directory role** page.
+    The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Administrative roles** page.
 
 ## Remove a role assignment
 
-If you need to remove the role assignment from a user, you can also do that from the **Alain Charon - Directory role** page.
+If you need to remove the role assignment from a user, you can also do that from the **Alain Charon - Administrative roles** page.
 
 ### To remove a role assignment from a user
 
@@ -67,7 +67,7 @@ If you need to remove the role assignment from a user, you can also do that from
 
     ![Assigned roles page, showing the selected role and the remove option](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    The Application administrator role is removed from Alain Charon and it no longer appears on the **Alain Charon - Directory role** page.
+    The Application administrator role is removed from Alain Charon and it no longer appears on the **Alain Charon - Administrative roles** page.
 
 ## Next steps
 
