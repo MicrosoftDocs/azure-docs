@@ -21,8 +21,7 @@ By default, all your data is encrypted using platform-managed keys. You don't ne
 
 When backing up your Azure Virtual Machines, you can now encrypt your data using keys owned and managed by you. Azure Backup lets you use your RSA keys stored in the Azure Key Vault for encrypting your backups. The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256 based data encryption key (DEK), which is, in turn, protected using your keys. This gives you full control over the data and the keys. To allow encryption, it's required that the Recovery Services vault be granted access to the encryption key in the Azure Key Vault. You can disable the key or revoke access whenever needed. However, you must enable encryption using your keys before you attempt to protect any items to the vault.
 
->[!NOTE]
->This feature is currently in limited availability. Please fill out [this survey](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) and email us at AskAzureBackupTeam@microsoft.com if you wish to encrypt your backup data using customer managed keys. Note that the ability to use this feature is subject to approval from the Azure Backup service.
+Read more about how to encrypt your backup data using customer-managed keys [here](encryption-at-rest-with-cmk.md).
 
 ## Backup of managed disk VMs encrypted using customer-managed keys
 
