@@ -106,10 +106,8 @@ To configure Azure AD single sign-on with SCC LifeCycle, perform the following s
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://bs1.scc.com/<entity>`|
-	| `https://lifecycle.scc.com/<entity>`|
+    - `https://bs1.scc.com/<entity>`
+    - `https://lifecycle.scc.com/<entity>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SCC LifeCycle Client support team](mailto:lifecycle.support@scc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
