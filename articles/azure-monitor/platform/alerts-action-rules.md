@@ -17,14 +17,13 @@ Action rules help you define or suppress actions at any Azure Resource Manager s
 
 ### Suppression of alerts
 
-There are many scenarios where it's useful to suppress the notifications that alerts generate. These scenarios range from suppression during a planned maintenance window to suppression during non-business hours. For example, the team responsible for  **ContosoVM** wants to suppress alert notifications for the upcoming weekend, because **ContosoVM** is undergoing planned maintenance. 
+There are many scenarios where it's useful to suppress the notifications that alerts generate. These scenarios range from suppression during a planned maintenance window to suppression during non-business hours. For example, the team responsible for  **ContosoVM** wants to suppress alert notifications for the upcoming weekend, because **ContosoVM** is undergoing planned maintenance.
 
 Although the team can disable each alert rule that's configured on **ContosoVM** manually (and enable it again after maintenance), it's not a simple process. Action rules help you define alert suppression at scale with the ability to flexibly configure the period of suppression. In the previous example, the team can define one action rule on **ContosoVM** that suppresses all alert notifications for the weekend.
 
-
 ### Actions at scale
 
-Although alert rules help you define the action group that triggers when the alert is generated, customers often have a common action group across their scope of operations. For example, a team responsible for the resource group **ContosoRG** will probably define the same action group for all alert rules defined within **ContosoRG**. 
+Although alert rules help you define the action group that triggers when the alert is generated, customers often have a common action group across their scope of operations. For example, a team responsible for the resource group **ContosoRG** will probably define the same action group for all alert rules defined within **ContosoRG**.
 
 Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
 
@@ -39,7 +38,7 @@ You can access the feature by selecting **Manage actions** from the **Alerts** l
 
 ![Action rules from the Azure Monitor landing page](media/alerts-action-rules/action-rules-landing-page.png)
 
-Select **+ New Action Rule**. 
+Select **+ New Action Rule**.
 
 ![Add new action rule](media/alerts-action-rules/action-rules-new-rule.png)
 
@@ -47,7 +46,7 @@ Alternatively, you can create an action rule while you're configuring an alert r
 
 ![Add new action rule](media/alerts-action-rules/action-rules-alert-rule.png)
 
-You should now see the flow page for creating action rules. Configure the following elements: 
+You should now see the flow page for creating action rules. Configure the following elements:
 
 ![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -59,9 +58,9 @@ First choose the scope (Azure subscription, resource group, or target resource).
 
 ### Filter criteria
 
-You can additionally define filters to narrow them down to a specific subset of the alerts. 
+You can additionally define filters to narrow them down to a specific subset of the alerts.
 
-The available filters are: 
+The available filters are:
 
 * **Severity**: The option to select one or more alert severities. **Severity = Sev1** means that the action rule is applicable for all alerts set to Sev1.
 * **Monitor Service**: A filter based on the originating monitoring service. This filter is also multiple-select. For example, **Monitor Service = “Application Insights”** means that the action rule is applicable for all Application Insights-based alerts.
@@ -71,7 +70,7 @@ The available filters are:
 * **Description**: A regex (regular expression) match that defines a string match against the description, defined as part of the alert rule. For example, **Description contains 'prod'** will match all alerts that contain the string "prod" in their descriptions.
 * **Alert Context (payload)**: A regex match that defines a string match against the alert context fields of an alert's payload. For example, **Alert context (payload) contains 'Computer-01'** will match all alerts whose payloads contain the string "Computer-01."
 
-These filters are applied in conjunction with one another. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then you've filtered for all **Sev0** alerts on only your VMs. 
+These filters are applied in conjunction with one another. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then you've filtered for all **Sev0** alerts on only your VMs.
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -90,7 +89,7 @@ If you select **suppression**, configure the duration for the suppression of act
 
 #### Action group
 
-If you select **Action group** in the toggle, either add an existing action group or create a new one. 
+If you select **Action group** in the toggle, either add an existing action group or create a new one.
 
 > [!NOTE]
 > You can associate only one action group with an action rule.
@@ -102,43 +101,7 @@ If you select **Action group** in the toggle, either add an existing action grou
 Last, configure the following details for the action rule:
 * Name
 * Resource group in which it's saved
-* Description 
-
-## Example scenarios
-
-### Scenario 1: Suppression of alerts based on severity
-
-Contoso wants to suppress notifications for all Sev4 alerts on all VMs within the subscription **ContosoSub** every weekend.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoSub**
-* Filters
-    * Severity = **Sev4**
-    * Resource Type = **Virtual Machines**
-* Suppression with recurrence set to weekly, and **Saturday** and **Sunday** checked
-
-### Scenario 2: Suppression of alerts based on alert context (payload)
-
-Contoso wants to suppress notifications for all log alerts generated for **Computer-01** in **ContosoSub** indefinitely as it's going through maintenance.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoSub**
-* Filters
-    * Monitor Service = **Log Analytics**
-    * Alert Context (payload) contains **Computer-01**
-* Suppression set to **From now (Always)**
-
-### Scenario 3: Action group defined at a resource group
-
-Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoRG**
-* No filters
-* Action group set to **ContosoActionGroup**
-
-> [!NOTE]
-> *Action groups defined within action rules and alert rules operate independently, with no deduplication.* In the scenario described earlier, if an action group is defined for the alert rule, it triggers in conjunction with the action group defined in the action rule. 
+* Description
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -216,6 +179,42 @@ az monitor action-rule create --resource-group MyResourceGroupName \
 
 * * *
 
+## Example scenarios
+
+### Scenario 1: Suppression of alerts based on severity
+
+Contoso wants to suppress notifications for all Sev4 alerts on all VMs within the subscription **ContosoSub** every weekend.
+
+**Solution:** Create an action rule with:
+* Scope = **ContosoSub**
+* Filters
+    * Severity = **Sev4**
+    * Resource Type = **Virtual Machines**
+* Suppression with recurrence set to weekly, and **Saturday** and **Sunday** checked
+
+### Scenario 2: Suppression of alerts based on alert context (payload)
+
+Contoso wants to suppress notifications for all log alerts generated for **Computer-01** in **ContosoSub** indefinitely as it's going through maintenance.
+
+**Solution:** Create an action rule with:
+* Scope = **ContosoSub**
+* Filters
+    * Monitor Service = **Log Analytics**
+    * Alert Context (payload) contains **Computer-01**
+* Suppression set to **From now (Always)**
+
+### Scenario 3: Action group defined at a resource group
+
+Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
+
+**Solution:** Create an action rule with:
+* Scope = **ContosoRG**
+* No filters
+* Action group set to **ContosoActionGroup**
+
+> [!NOTE]
+> *Action groups defined within action rules and alert rules operate independently, with no deduplication.* In the scenario described earlier, if an action group is defined for the alert rule, it triggers in conjunction with the action group defined in the action rule.
+
 ## Managing your action rules
 
 ### [Portal](#tab/portal)
@@ -279,7 +278,7 @@ After you define the target resource for your alert rule, you can see the list o
 * A subset: For example, the alert rule you're defining is on a subscription, and the action rule is on a resource group within the subscription.
 * A superset: For example, the alert rule you're defining is on a resource group, and the action rule is on the subscription that contains the resource group.
 * An intersection: For example, the alert rule you're defining is on **VM1** and **VM2**, and the action rule is on **VM2** and **VM3**.
-    
+
 ![Overlapping action rules](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### Can I see the alerts that have been suppressed by an action rule?
@@ -298,7 +297,7 @@ Suppression always takes precedence on the same scope.
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-For every alert on VM1 and VM3, action group AG1 would be triggered once. For every alert on **VM2**, action group AG1 would be triggered twice, because action rules don't deduplicate actions. 
+For every alert on VM1 and VM3, action group AG1 would be triggered once. For every alert on **VM2**, action group AG1 would be triggered twice, because action rules don't deduplicate actions.
 
 ### What happens if I have a resource monitored in two separate action rules and one calls for action while another for suppression? For example, **VM2** in the following scenario:
 
@@ -306,7 +305,7 @@ For every alert on VM1 and VM3, action group AG1 would be triggered once. For ev
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-For every alert on VM1, action group AG1 would be triggered once. Actions and notifications for every alert on VM2 and VM3 will be suppressed. 
+For every alert on VM1, action group AG1 would be triggered once. Actions and notifications for every alert on VM2 and VM3 will be suppressed.
 
 ### What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, **VM1** in the following scenario:
 
@@ -314,7 +313,7 @@ For every alert on VM1, action group AG1 would be triggered once. Actions and no
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-For every alert on VM1, action group AG1 would be triggered once. Whenever alert rule "rule1" is triggered, it will also trigger AG2 additionally. Action groups defined within action rules and alert rules operate independently, with no deduplication. 
+For every alert on VM1, action group AG1 would be triggered once. Whenever alert rule "rule1" is triggered, it will also trigger AG2 additionally. Action groups defined within action rules and alert rules operate independently, with no deduplication.
 
 ## Next steps
 
