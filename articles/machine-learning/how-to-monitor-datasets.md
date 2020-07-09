@@ -234,7 +234,7 @@ After finishing the wizard, the resulting dataset monitor will appear in the lis
 
 ## Understand data drift results
 
-This section shows you the results of a monitoring a dataset, found in the **Datasets** / **Dataset monitors** page in Azure studio.  You can update the settings as well as analyze existing data for a specific time period on this page.  
+This section shows you the results of monitoring a dataset, found in the **Datasets** / **Dataset monitors** page in Azure studio.  You can update the settings as well as analyze existing data for a specific time period on this page.  
 
 Start with the top-level insights into the magnitude of data drift and a highlight of features to be further investigated.
 
