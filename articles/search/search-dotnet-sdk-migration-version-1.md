@@ -389,7 +389,9 @@ There is one potential issue to be aware of with this approach: If you use a mod
 
 This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 For this reason, we still recommend that you use nullable types in your model classes as a best practice.
 
