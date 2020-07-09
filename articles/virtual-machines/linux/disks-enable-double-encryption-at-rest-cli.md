@@ -29,9 +29,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
-    > [!IMPORTANT]
-    > Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
-
+    
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
@@ -48,19 +46,21 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.    Create an instance of a DiskEncryptionSet. 
+1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Please use the API version 2020-05-01 in the Azure Resource Manager (ARM) template. 
     
-    ```azurecli
-    az group deployment create -g $rgName --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" --parameters "diskEncryptionSetName=$diskEncryptionSetName" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
-    ```
+        ```azurecli
+        az group deployment create -g $rgName \
+        --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" \
+        --parameters "diskEncryptionSetName=$diskEncryptionSetName" "encryptionType=EncryptionAtRestWithPlatformAndCustomerKeys" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
+        ```
 
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
-    > [!NOTE]
-    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+        > [!NOTE]
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
-    ```azurecli
-    desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
+        ```azurecli
+        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
 
-    az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    ```
+        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+        ```
