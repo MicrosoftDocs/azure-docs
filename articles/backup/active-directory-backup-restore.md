@@ -9,7 +9,7 @@ ms.date: 07/08/2020
 
 Backing up Active Directory, and ensuring successful restores in cases of corruption, compromise or disaster is a critical part of Active Directory maintenance.
 
-This article will outline the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they Azure virtual machines or on-premises servers.
+This article will outline the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they Azure virtual machines or on-premises servers. It discusses the scenario where all Active Directory data needs to be restored, because there are no functioning domain controllers left in the forest.
 
 >[!NOTE]
 > This article does not discuss restoring items from [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). For information on restoring Azure Active Directory users, see [this article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore).
@@ -45,7 +45,18 @@ To back up an on-premises domain controller, you need to back up the server's Sy
 >[!NOTE]
 > Restoring on-premises domain controllers (either from system state or from VMs) to the Azure cloud is not supported. If you would like the option of failover from an on-premises Active Directory environment to Azure, consider using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
-## Restoring Azure VM domain controllers
+## Restoring Active Directory
+
+Active Directory data can be restored in one of two modes: **authoritative** or **nonauthoritative**. In an authoritative restore, the restored Active Directory data will override the data found on the other domain controllers in the forest.
+
+However, in our scenario there are no functioning domain controllers in the forest, so a **nonauthoritative** restore should be performed.
+
+During the restore, the server will be started in Directory Services Restore Mode (DSRM). You'll need to provide the Administrator password for Directory Services Restore Mode.
+
+>[!NOTE]
+>If the DSRM password is forgotten, you can reset it using [these instructions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc754363(v=ws.11)).
+
+### Restoring Azure VM domain controllers
 
 To restore an Azure VM domain controller, see [How to restore Azure VM data in Azure portal](backup-azure-arm-restore-vms.md).
 
@@ -55,16 +66,9 @@ If it's the last remaining domain controller in the domain, or a recovery in an 
 
 If you need to restore multiple domains in one forest, we recommend a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
-## Restoring on-premises domain controllers
+### Restoring on-premises domain controllers
 
-To restore an on-premises domain controller, follow the directions in [Restore System State to Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server).
-
-After the restore, restart the domain controller in Directory Services Restore Mode (DSRM) as described in the above article. You'll need to provide the Administrator password for Directory Services Restore Mode.
-
->[!NOTE]
->If the DSRM password is forgotten, you can reset it using [these instructions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc754363(v=ws.11)).
-
-After completing the all the steps required to restore the system state in DSRM, follow the instructions [here](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) to use Windows Server Backup cmdlets to recover AD DS.
+To restore an on-premises domain controller, follow the directions in for restoring system state to Windows Server, using the guidance for [special considerations for system state recovery on a domain controller](backup-azure-restore-system-state.md##special-considerations-for-system-state-recovery-on-a-domain-controller).
 
 ## Next steps
 
