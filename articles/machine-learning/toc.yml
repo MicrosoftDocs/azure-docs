@@ -215,7 +215,7 @@
     - name: Set up software environments
       displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
-	- name: Use private Python packages
+    - name: Use private Python packages
       displayName: pip, Conda, anaconda
       href: how-to-use-private-python-packages.m    - name: Enable logging
       displayName: troubleshoot, log, files, tracing
