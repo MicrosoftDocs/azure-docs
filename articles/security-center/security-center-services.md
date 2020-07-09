@@ -36,7 +36,6 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
 |Missing OS patches assessment|✔|✔|✔|Free|
