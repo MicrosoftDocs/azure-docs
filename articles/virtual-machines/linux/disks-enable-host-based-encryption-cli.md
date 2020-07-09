@@ -1,18 +1,18 @@
 ---
-title: Enable end-to-end encryption using encryption at host - Azure CLI - managed disks
-description: Use encryption at host to enable end-to-end encryption on your Azure managed disks.
+title: Enable host-based encryption for Azure managed disks
+description: How to enable host-based encryption on Azure managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 07/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable end-to-end encryption using encryption at host - Azure CLI
+# Enable end-to-end encryption using host-based encryption - CLI
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [End-to-end encryption using encryption at VM host](disk-encryption.md#end-to-end-encryption-using-encryption-at-vm-host).
+When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on host-based encryption, as well as other managed disk encryption types, see [Host-based encryption](disk-encryption.md#host-based-encryption).
 
 ## Restrictions
 
@@ -50,36 +50,29 @@ Create a VM with managed disks using the resource URI of the DiskEncryptionSet c
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourDESName>`, `<yoursubscriptionID>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
-```PowerShell
-$password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json" `
-  -virtualMachineName "<yourVMName>" `
-  -adminPassword $password `
-  -vmSize "<yourVMSize>" `
-  -diskEncryptionSetId "/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" `
-  -region "<yourRegion>"
+```azurecli
+az group deployment create -g <yourResourceGroupName> \
+--template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithCMK.json" \
+--parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "diskEncryptionSetId=/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" "region=<yourRegion>"
 ```
+
+
 
 ## Enable encryption at host for disks attached to a VM with platform-managed keys via using PowerShell
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
-```PowerShell
-$password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
-  -TemplateUri "https://raw.githubusercontent.com/ramankumarlive/manageddisksendtoendencryptionpreview/master/CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json" `
-  -virtualMachineName "<yourVMName>" `
-  -adminPassword $password `
-  -vmSize "<yourVMSize>" `
-  -region "<yourRegion>"
+```azurecli
+az group deployment create -g <yourResourceGroupName> \
+--template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithPMK.json" \
+--parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "region=<yourRegion>"
 ```
 
 ## Finding supported VM sizes
 
 Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either:
 
-Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the   EncryptionAtHostSupported capability is set to True
+Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the EncryptionAtHostSupported capability is set to True
 
 ```json
     {
