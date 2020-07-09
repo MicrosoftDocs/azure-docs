@@ -121,9 +121,9 @@
    v:groupContext="group"
    v:layerMember="0">
 			<title
-   id="title1007">Web App (Was Websites).1277</title>
+   id="title1007">Web app (Was Websites).1277</title>
 			<desc
-   id="desc1009">Daemon Web App</desc>
+   id="desc1009">Daemon Web app</desc>
 			<g
    id="group1002-2"
    v:mID="1002"
@@ -436,7 +436,7 @@
    dy="1.2em"
    class="st3"
    id="tspan1120"
-   style="fill:#008bfd;fill-opacity:1;">Web App</tspan></text>
+   style="fill:#008bfd;fill-opacity:1;">Web app</tspan></text>
 			</g>
 		</g>
 		<g

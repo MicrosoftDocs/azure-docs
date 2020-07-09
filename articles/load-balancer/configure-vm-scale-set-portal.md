@@ -4,7 +4,7 @@ description: Learn how to configure a virtual machine scale set with an existing
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ---
 
@@ -15,7 +15,7 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 ## Prerequisites
 
 - An Azure subscription.
-- An existing Azure Load Balancer in the subscription where the virtual machine scale set will be deployed.
+- An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
 - An Azure Virtual Network for the virtual machine scale set.
 
 ## Sign in to the Azure portal
@@ -24,7 +24,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 
 
-## Deploy VM scale set with existing load balancer
+## Deploy virtual machine scale set with existing load balancer
 
 In this section, you'll create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
 

@@ -3,15 +3,12 @@ title: Get a token for a web API that calls web APIs | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs that require acquiring a token for the app.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur

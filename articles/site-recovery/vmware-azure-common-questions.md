@@ -90,7 +90,7 @@ The installers are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\reposi
 On each VM that you want to replicate, install the service by one of several methods:
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
-- [Manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or PowerShell
+- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) from the UI or PowerShell
 - Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
@@ -116,7 +116,7 @@ Replication of new VMs to a storage account is available only by using PowerShel
 
 ### Can I change the managed-disk type after a machine is protected?
 
-Yes, you can easily [change the type of managed disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
+Yes, you can easily [change the type of managed disk](../virtual-machines/windows/convert-disk-storage.md) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
 
 1. Go to the **Managed Disk** resource on the Azure portal and check whether you have a shared access signature URL banner on the **Overview** blade.
 1. If the banner is present, select it to cancel the ongoing export.

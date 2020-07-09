@@ -3,7 +3,7 @@ title: Security Recommendations for Azure Marketplace Images | Microsoft Docs
 description: This article provides recommendations for images included in the market place
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: barbkess
 ms.assetid: 
 ms.service: security
@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # Security Recommendations for Azure Marketplace Images

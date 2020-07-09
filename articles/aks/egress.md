@@ -1,5 +1,6 @@
 ---
-title: Static IP address for egress traffic in Azure Kubernetes Service (AKS)
+title: Use static IP for egress traffic
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static public IP address for egress traffic in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
@@ -20,6 +21,9 @@ This article shows you how to create and use a static public IP address for use 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+> [!IMPORTANT]
+> This article uses the *Basic* SKU load balancer with a single node pool. This configuration is not available for multiple node pools since the *Basic* SKU load balancer is not supported with multiple node pools. See [Use a public Standard Load Balancer in Azure Kubernetes Service (AKS)][slb] for more details on using the *Standard* SKU load balancer.
 
 ## Egress traffic overview
 
@@ -131,3 +135,4 @@ To avoid maintaining multiple public IP addresses on the Azure Load Balancer, yo
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

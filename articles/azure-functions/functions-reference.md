@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 
 ---
-# Azure Functions developers guide
+# Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
@@ -68,7 +68,7 @@ When multiple triggering events occur faster than a single-threaded function run
 
 ## Functions runtime versioning
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~3" indicates that your Function App will use 3.x as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~3" indicates that your function app will use 3.x as its major version. Function apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## Repositories
 The code for Azure Functions is open source and stored in GitHub repositories:

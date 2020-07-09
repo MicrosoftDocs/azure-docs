@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 04/13/2020
 ms.author: erhopf
 ---
 
@@ -22,8 +22,8 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 This quickstart requires:
 
-* [Node 8.12.x or later](https://nodejs.org/en/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+* <a href="https://nodejs.org/en/" target="_blank">Node 8.12.x or later <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
 * An Azure subscription key for the Speech service. [Get one for free!](get-started.md).
 
 ## Create a project and require dependencies

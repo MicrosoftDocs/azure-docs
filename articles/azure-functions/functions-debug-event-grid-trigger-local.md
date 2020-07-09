@@ -58,7 +58,7 @@ Open the Azure portal and navigate to a storage account and click on the **Event
 
 ![Add storage account event](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-In the *Events* window, click on the **Event Subscription** button. In the *Even Subscription* window, click on the *Endpoint Type* dropdown and select **Web Hook**.
+In the *Events* window, click on the **Event Subscription** button. In the *Event Subscription* window, click on the *Endpoint Type* dropdown and select **Web Hook**.
 
 ![Select subscription type](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 

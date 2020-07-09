@@ -26,7 +26,7 @@ Learn more about [pricing tiers](Concepts/azure-resources.md).
 <summary><b>How to get the QnAMaker service endpoint</b></summary>
 
 **Answer**:
-QnAMaker service endpoint is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The endpoint is a URL in this form: https://your-resource-name.azurewebsites.net.
+QnAMaker service endpoint is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The endpoint is a URL in this form: `https://your-resource-name.azurewebsites.net`.
 
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
@@ -148,7 +148,7 @@ Every edit operation, whether in a table update, test, or setting, needs to be s
 * Files - not supported
 
 #### Answer text in markdown
-Once QnA sets are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
+Once QnA pairs are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
 
 
 </details>

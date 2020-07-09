@@ -4,14 +4,14 @@ description: Describes how to use the Azure Analysis Services REST API to code a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Asynchronous refresh with the REST API
 
-By using any programming language that supports REST calls, you can  perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale-out. 
+By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale-out. 
 
 Data-refresh operations can take some time depending on a number of factors including data volume, level of optimization using partitions, etc. These operations have traditionally been invoked with existing methods such as using [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
 
@@ -153,14 +153,14 @@ To get a list of historical refresh operations for a model, use the GET verb on 
 [
     {
         "refreshId": "1344a272-7893-4afa-a4b3-3fb87222fdac",
-        "startTime": "2017-12-09T01:58:04.76",
-        "endTime": "2017-12-09T01:58:12.607",
+        "startTime": "2017-12-07T02:06:57.1838734Z",
+        "endTime": "2017-12-07T02:07:00.4929675Z",
         "status": "succeeded"
     },
     {
         "refreshId": "474fc5a0-3d69-4c5d-adb4-8a846fa5580b",
-        "startTime": "2017-12-07T02:05:48.32",
-        "endTime": "2017-12-07T02:05:54.913",
+        "startTime": "2017-12-07T01:05:54.157324Z",
+        "endTime": "2017-12-07T01:05:57.353371Z",
         "status": "succeeded"
     }
 ]
@@ -203,8 +203,8 @@ Here's a C# code sample to get you started, [RestApiSample on GitHub](https://gi
 
 ### To use the code sample
 
-1.	Clone or download the repo. Open the RestApiSample solution.
-2.	Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
+1.    Clone or download the repo. Open the RestApiSample solution.
+2.    Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
 
 The code sample uses [service principal](#service-principal) authentication.
 
@@ -212,9 +212,9 @@ The code sample uses [service principal](#service-principal) authentication.
 
 See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 
-1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
-2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
-3.	Run the sample.
+1.    In the code sample, find **string authority = …**, replace **common** with your organization's tenant ID.
+2.    Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
+3.    Run the sample.
 
 
 ## See also

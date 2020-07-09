@@ -20,6 +20,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 In Azure Data Factory, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![The role of the Copy activity](media/copy-activity-overview/copy-activity.png)
@@ -49,7 +51,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
-* Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy data from a SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
 * Copy zipped files from an on-premises file system, decompress them on-the-fly, and write extracted files to Azure Data Lake Storage Gen2.
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
@@ -130,10 +132,10 @@ The following template of a Copy activity contains a complete list of supported 
 | source | Specify the copy source type and the corresponding properties for retrieving data.<br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | sink | Specify the copy sink type and the corresponding properties for writing data.<br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
 | translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Specify a measure that represents the amount of power that the [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
+| dataIntegrationUnits | Specify a measure that represents the amount of power that the [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/>For more information, see [Data Integration Units](copy-activity-performance-features.md#data-integration-units). | No |
+| parallelCopies | Specify the parallelism that you want the Copy activity to use when reading data from the source and writing data to the sink.<br/>For more information, see [Parallel copy](copy-activity-performance-features.md#parallel-copy). | No |
 | preserve | Specify whether to preserve metadata/ACLs during data copy. <br/>For more information, see [Preserve metadata](copy-activity-preserve-metadata.md). |No |
-| enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
+| enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance-features.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
 
 ## Monitoring
@@ -244,4 +246,4 @@ See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)
 - [Copy data from Azure Blob storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copy data from an on-premises SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)
+- [Copy data from a SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)

@@ -1,13 +1,13 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 03/12/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ---
 
 # Cross-tenant management experiences
 
-As a service provider, you can use [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Most tasks and services can be performed on delegated Azure resources across managed tenants. This article describes some of the enhanced scenarios where Azure delegated resource management can be effective.
+As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Many tasks and services can be performed on delegated Azure resources across managed tenants by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
@@ -18,13 +18,9 @@ An Azure Active Directory (Azure AD) tenant is a representation of an organizati
 
 Typically, in order to manage Azure resources for a customer, service providers would have to sign in to the Azure portal using an account associated with that customer's tenant, requiring an administrator in the customer's tenant to create and manage user accounts for the service provider.
 
-With Azure delegated resource management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access. This can be done by visiting the [My customers](../how-to/view-manage-customers.md) page in the Azure portal, or by working directly within the context of that customer's subscription, either in the Azure portal or via APIs.
+With Azure Lighthouse, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access. This can be done by visiting the [My customers](../how-to/view-manage-customers.md) page in the Azure portal, or by working directly within the context of that customer's subscription, either in the Azure portal or via APIs.
 
-Azure delegated resource management allows greater flexibility to manage resources for multiple customers without having to sign in to different accounts in different tenants. For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
-
-![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Using Azure delegated resource management, authorized users can sign in to the service provider's tenant to access these resources, as shown here:
+Azure Lighthouse allows greater flexibility to manage resources for multiple customers without having to sign in to different accounts in different tenants. For example, a service provider may have two customers with different responsibilities and access levels. Using Azure Lighthouse, authorized users can sign in to the service provider's tenant to access these resources.
 
 ![Customer resources managed through one service provider tenant](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -32,22 +28,22 @@ Using Azure delegated resource management, authorized users can sign in to the s
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-The Azure PowerShell [Get-AzSubscription cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) show the **tenantID** for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
+The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) show the **tenantID** for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
 
-Similarly, Azure CLI commands such as [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
 
 > [!TIP]
 > If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
-We also provide APIs that are specific to performing Azure delegated resource management tasks. For more info, see the **Reference** section.
+We also provide APIs that are specific to performing Azure Lighthouse tasks. For more info, see the **Reference** section.
 
 ## Enhanced services and scenarios
 
-Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be effective.
+Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be especially effective.
 
 [Azure Arc for servers (preview)](../../azure-arc/servers/overview.md):
 
-- [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/quickstart-onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
+- [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
 - Manage connected machines using Azure constructs, such as Azure Policy and tagging
 
 [Azure Automation](../../automation/index.yml):
@@ -60,6 +56,10 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
+[Azure Cost Management + Billing](../../cost-management-billing/index.yml):
+
+- From the managing tenant, CSP partners can view, manage and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure RBAC access that the partner has for the customer's subscription.
+
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
@@ -70,6 +70,14 @@ Most tasks and services can be performed on delegated resources across managed t
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
+
+[Azure Networking](../../networking/networking-overview.md):
+
+- Deploy and manage [Azure Virtual Network (VNet)](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within customer tenants
+- Deploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers’ Virtual Network resources
+- Manage connectivity services such as [Azure Virtual WAN](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](../../expressroute/expressroute-introduction.md), and [VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) for customers
+- Use Azure Lighthouse to support key scenarios for the [Azure Networking MSP Program](../../networking/networking-partners-msp.md)
+
 
 [Azure Policy](../../governance/policy/index.yml):
 
@@ -104,6 +112,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage Azure Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
 - [Track attacks and view security alerts across multiple customer tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Sentinel workspaces spread across customer tenants
 
 [Azure Service Health](../../service-health/index.yml):
 
@@ -119,11 +128,8 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
 - Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
-- Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
-
-[Azure Virtual Network](../../virtual-network/index.yml):
-
-- Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
+- Integrate VMs with Azure KeyVault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in customer tenants
+- Note that you can't use Azure Active Directory for remote login to VMs in customer tenants
 
 Support requests:
 

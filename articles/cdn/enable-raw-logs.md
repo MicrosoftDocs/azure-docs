@@ -7,7 +7,7 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
 ---
@@ -57,7 +57,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 ## Raw logs properties
 
-Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). Raw logs provide individual API requests with each entry having the following schema: 
+Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide individual API requests with each entry having the following schema: 
 
 | Property              | Description                                                                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -79,11 +79,10 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 | Pop                   | The edge pop, which responded to the user request. POPs' abbreviations are airport codes of their respective metros.                                                                                   |
 | Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                             |
 > [!IMPORTANT]
-> The HTTP Raw logs feature is available automatically for any profiles created or updated after **25th February 2020**. For CDN profiles created earlier, one should update the CDN endpoint after setting up logging. For example, one can navigate to geo filtering under CDN endpoints and block any country not relevant to their workload and hit save. 
+> The HTTP Raw logs feature is available automatically for any profiles created or updated after **25th February 2020**. For CDN profiles created earlier, one should update the CDN endpoint after setting up logging. For example, one can navigate to geo filtering under CDN endpoints and block any country/region not relevant to their workload and hit save. 
 
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like              AzureDiagnostics
-| where OperationName == "Microsoft.Cdn/Profiles/AccessLog/Write"
 | where Category == "AzureCdnAccessLog"
 
 ## Next Steps

@@ -7,7 +7,7 @@ author: matt1883
 ms.author: mahi
 
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ---
 # Configure user access to job information to job information in Azure Data Lake Analytics 

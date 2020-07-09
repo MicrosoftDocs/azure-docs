@@ -11,7 +11,12 @@ ms.date: 11/01/2019
 
 # Transformation functions in wrangling data flow
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Wrangling data flow in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale. Wrangling data flow integrates with [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) and makes Power Query M functions available for data wrangling via spark execution. 
+
+> [!NOTE]
+> Wrangling data flow is currently avilable in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you'll be prompted with the following error message if a function isn't supported:
 
@@ -112,8 +117,8 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 | Function | Status |
 | -- | -- |
-| Table.PromoteHeaders | Not supported. The same result can be achieved by setting “First row as header” in the dataset. |
-| Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.PromoteHeaders | Not supported. The same result can be achieved by setting "First row as header" in the dataset. |
+| Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
 | Table.Distinct | Remove duplicate rows isn't supported. |

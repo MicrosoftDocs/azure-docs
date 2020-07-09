@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: gwallace
-editor: tysonn
+
 tags: 
 
 ms.assetid:

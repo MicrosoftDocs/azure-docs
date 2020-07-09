@@ -23,7 +23,7 @@ In this quickstart, you learn to manage blobs by using JavaScript code running e
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
 - [Visual Studio Code](https://code.visualstudio.com).
-- A VS Code extension for browser debugging, such as [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- A VS Code extension for browser debugging, such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
 ## Setting up storage account CORS rules
 
@@ -85,11 +85,11 @@ You may find the series of values after each parameter a bit cryptic. These para
 Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
 
 > [!IMPORTANT]
-> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
+> In production, always pass SAS tokens using TLS. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
-In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for VS Code.
 
 ### Set up the web application
 

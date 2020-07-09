@@ -4,7 +4,7 @@ description: Index spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
 
 ---
@@ -23,11 +23,17 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 ## Modifying geospatial data type
 
-In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specify one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
+In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. Specify one **Geospatial Configuration** per container: geography or geometry.
 
-> [!NOTE]
-> Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET SDK only in versions 3.6 and above.
->
+You can toggle between the **geography** and **geometry** spatial type in the Azure portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
+
+Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure portal:
+
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Setting geospatial configuration":::
+
+You can also modify the `geospatialConfig` in the .NET SDK to adjust the **Geospatial Configuration**:
+
+If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
 Here is an example for modifying the geospatial data type to `geometry` by setting the `geospatialConfig` property and adding a **boundingBox**:
 
@@ -107,7 +113,7 @@ The bounding box consists of the following properties:
 
 A bounding box is required because geometric data occupies a plane that can be infinite. Spatial indexes, however, require a finite space. For the **geography** data type, the Earth is the boundary and you do not need to set a bounding box.
 
-You should create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. You should not make the bounding box significantly larger than necessary because this will negatively impact query performance.
+Create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. Making the bounding box larger than necessary will negatively impact query performance.
 
 Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 

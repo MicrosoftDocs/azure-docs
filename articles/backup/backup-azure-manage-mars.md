@@ -16,7 +16,7 @@ When you modify backup policy, you can add new items, remove existing items from
 - **Add Items** use this option only for adding new items to back up. To remove existing items, use **Remove Items** or **Exclusion Settings** option.  
 - **Remove Items** use this option to remove items from being backed up.
   - Use **Exclusion Settings** for removing all items within a volume instead of **Remove Items**.
-  - Clearing all selections in a volume causes old backups of the items, to be retained as per retention settings at the time of the last backup, without scope for modification.
+  - Clearing all selections in a volume causes old backups of the items, to be retained according to retention settings at the time of the last backup, without scope for modification.
   - Reselecting these items, leads to a first full-backup and new policy changes are not applied to old backups.
   - Unselecting entire volume retains past backup without any scope for modifying retention policy.
 - **Exclusion Settings** use this option to exclude specific items from being backed up.
@@ -73,8 +73,8 @@ You can add exclusion rules to skip files and folders that you don't want to be 
 
     ![Select the items](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it is recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
+    > [!NOTE]
+    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it is recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
 
 2. Complete the subsequent steps and click **Finish** to complete the operation.
 
@@ -84,7 +84,7 @@ There are two ways to stop protecting Files and Folders backup:
 
 - **Stop protection and retain backup data**.
   - This option will stop all future backup jobs from protection.
-  - Azure Backup service will retain the recovery points that have been backed up based on the retention policy.
+  - Azure Backup service will continue to retain all the existing recovery points.  
   - You'll be able to restore the backed-up data for unexpired recovery points.
   - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data would be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
@@ -162,6 +162,26 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
 - Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
+## Managing backup data for unavailable machines
+
+This section discusses a scenario where your source machine that was protected with MARS is no longer available because it was deleted, corrupted, infected with malware/ransomware, or decommissioned.
+
+For these machines, the Azure Backup service ensures that the last recovery point doesn't expire (that is, doesn't get pruned) according to the retention rules specified in the backup policy. Therefore, you can safely restore the machine.  Consider the following scenarios you can perform on the backed-up data:
+
+### Scenario 1: The source machine is unavailable, and you no longer need to retain backup data
+
+- You can delete the backed-up data from the Azure portal using the steps listed in [this article](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### Scenario 2: The source machine is unavailable, and you need to retain backup data
+
+Managing the backup policy for MARS is done through the MARS console and not through the portal. If you need to extend retention settings for existing recovery points before they expire, then you need to restore the machine, install the MARS console, and extend the policy.
+
+- To restore the machine, perform the following steps:
+  - [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Recreate the target machine with same host name as the source machine
+  - Install the agent and re-register to the same vault and with the same passphrase
+  - Launch the MARS client to extend the retention duration according to your requirements
+- Your newly restored machine, protected with MARS, will continue to take backups.  
 
 ## Next steps
 

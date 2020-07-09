@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the [OpenID Conne
 
 The **Name** attribute of the **Protocol** element needs to be set to `OpenIdConnect`. For example, the protocol for the **MSA-OIDC** technical profile is `OpenIdConnect`:
 
-```XML
+```xml
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
@@ -35,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 
 The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>
@@ -88,7 +88,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
-### Error messages
+### UI elements
  
 The following settings can be used to configure the error message displayed upon failure. The metadata should be configured in the OpenID Connect technical profile. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 

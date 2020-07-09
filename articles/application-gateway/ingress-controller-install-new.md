@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -63,7 +63,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
     }
     EOF
     ```
-    To deploy an **RBAC** enabled cluster, set the `aksEnabledRBAC` field to `true`
+    To deploy an **RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
 
 ## Deploy Components
 This step will add the following components to your subscription:
@@ -266,7 +266,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
 
    > [!NOTE]
    > The `identityResourceID` and `identityClientID` are values that were created
-   during the [Create an Identity](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-new.md#create-an-identity)
+   during the [Deploy Components](ingress-controller-install-new.md#deploy-components)
    steps, and could be obtained again using the following command:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>

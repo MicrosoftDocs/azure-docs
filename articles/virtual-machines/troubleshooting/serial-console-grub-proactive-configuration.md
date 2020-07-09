@@ -3,8 +3,8 @@ title: Azure Serial Console proactive GRUB configuration| Microsoft Docs
 description: Configure GRUB across various distributions allowing single user and recovery mode access in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
+ms.author: mimckitt
 ---
 
 # Proactively ensuring you have access to GRUB and sysrq could save you lots of down time
@@ -72,7 +72,7 @@ Ensuring you have access to the Azure Serial Console and GRUB means that a passw
 
 - Disk Swap – can be automated using either:
 
-   - [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [PowerShell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [bash Recovery Scripts](https://github.com/sribs/azure-support-scripts)
 
 - Legacy Method
@@ -94,7 +94,7 @@ In this article, we'll review various Linux distributions and document configura
 The sysrq key is enabled on some newer Linux distros by default, although on others it might be configured for accepting values only for certain SysRq functions.
 On older distros, it might be disabled completely.
 
-The SysRq feature is useful for rebooting a crashed or hung VM directly from the Azure Serial Console, also helpful in gaining access to the GRUB menu, alternatively restarting a VM from another portal window or ssh session might drop your current console connection thus expiring GRUB Timeouts to which are used to display the GRUB menu.
+The SysRq feature is useful for rebooting a crashed or non-responding VM directly from the Azure Serial Console, also helpful in gaining access to the GRUB menu, alternatively restarting a VM from another portal window or ssh session might drop your current console connection thus expiring GRUB Timeouts to which are used to display the GRUB menu.
 The VM must be configured to accept a value of 1 for the kernel parameter, which enables all functions of sysrq or 128, which allows reboot/poweroff
 
 
@@ -346,7 +346,7 @@ GRUB menu should appear on-screen for the configured timeout=15 without the need
 ## SuSE
 
 ## SLES 12 sp1
-Either use yast bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
+Either use YaST bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
 
 Or add/change to /etc/default/grub the following parameters:
 

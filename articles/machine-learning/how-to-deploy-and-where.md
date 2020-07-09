@@ -5,13 +5,13 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 07/08/2020
+ms.custom: seoapril2019, tracking-python
 
-ms.custom: seoapril2019
 ---
 
 # Deploy models with Azure Machine Learning
@@ -55,7 +55,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using Visual Studio Code**
 
-   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the Visual Studio Code extension documentation.
+   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-manage-resources-vscode.md#endpoints) in the Visual Studio Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -251,9 +251,34 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 ```
 
 **Multiple model example**
+
+In this scenario, two models are registered with the workspace:
+
+* `my_first_model`: Contains one file (`my_first_model.pkl`) and there is only one version (`1`).
+* `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions; `1` and `2`.
+
+When the service was deployed, both models are provided in the deploy operation:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+In the Docker image that hosts the service, the `AZUREML_MODEL_DIR` environment variable contains the directory where the models are located.
+In this directory, each of the models is located in a directory path of `MODEL_NAME/VERSION`. Where `MODEL_NAME` is the name of the registered model, and `VERSION` is the version of the model. The files that make up the registered model are stored in these directories.
+
+In this example, the paths would be `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` and `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl`.
+
+
 ```python
 # Example when the model is a file, and the deployment contains multiple models
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
 ```
 
 ##### get_model_path
@@ -318,6 +343,8 @@ def run(data):
         return error
 ```
 
+##### Power BI compatible endpoint 
+
 The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
@@ -354,8 +381,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
-
-@input_schema('data', PandasParameterType(input_sample))
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
@@ -513,6 +541,10 @@ You can use the following compute targets, or compute resources, to host your we
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
+> [!NOTE]
+> * ACI is suitable only for small models <1GB in size. 
+> * We recommend to use single node AKS for dev-test of larger models.
+
 ### Define your deployment configuration
 
 Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
@@ -533,9 +565,9 @@ The classes for local, Azure Container Instances, and AKS web services can be im
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### Securing deployments with SSL
+### Securing deployments with TLS
 
-For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+For more information on how to secure a web service deployment, see [Enable TLS and deploy](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Local deployment
 
@@ -904,13 +936,36 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-NOTE: These dependencies are included in the prebuilt sklearn inference container:
+NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
+NOTE: These dependencies are included in the prebuilt scikit-learn inference container:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## Package models
@@ -1101,6 +1156,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
+
 <a id="cors"></a>
 
 ### Cross-origin resource sharing (CORS)
@@ -1112,11 +1177,13 @@ To configure your model deployment to support CORS, use the `AMLResponse` class 
 The following example sets the `Access-Control-Allow-Origin` header for the response from the entry script:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
@@ -1147,11 +1214,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+
+> [!WARNING]
+> Azure Machine Learning will route only POST and GET requests to the containers running the scoring service. This can cause errors due to browsers using OPTIONS requests to pre-flight CORS requests.
+> 
+
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

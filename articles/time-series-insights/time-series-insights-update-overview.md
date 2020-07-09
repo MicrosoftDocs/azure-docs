@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
 ---
 
@@ -50,8 +50,8 @@ A rich operational analytics platform combined with our interactive data explora
 
 * Multi-layered storage solution with warm and cold analytics support providing customers the option to route data between warm and cold for interactive analytics over warm data as well as operational intelligence over decades of historical data. 
 
-    *	A highly interactive warm analytics solution to perform frequent, and large number of queries over shorter time span data 
-    *	A scalable, performant, and cost optimized time series data lake based on Azure Storage allowing customers to trend years’ worth of time series data in seconds. 
+    *    A highly interactive warm analytics solution to perform frequent, and large number of queries over shorter time span data 
+    *    A scalable, performant, and cost optimized time series data lake based on Azure Storage allowing customers to trend years' worth of time series data in seconds. 
 
 * Semantic model support that describes the domain and metadata associated with the derived and raw signals from assets and devices.
 
@@ -59,7 +59,7 @@ A rich operational analytics platform combined with our interactive data explora
 
 * Rich analytics with enhanced query APIs and user experience that combines asset-based data insights with rich, ad hoc data analytics with support for interpolation, scalar and aggregate functions, categorical variables, scatter plots, and time shifting time series signals for in-depth analysis.
 
-*	Enterprise grade platform to support the scale, performance, security, and reliability needs of our enterprise IoT customers.
+*    Enterprise grade platform to support the scale, performance, security, and reliability needs of our enterprise IoT customers.
 
 * Extensibility and integration support for end-to-end analytics. Time Series Insights provides an extensible analytics platform for a variety of data scenarios. Time Series Insights Power BI connector enables customers to take the queries they do in Time Series Insights directly into Power BI to get unified view of their BI and time series analytics in a single pane of glass.
 
@@ -73,12 +73,12 @@ With the introduction of these key industrial IoT capabilities, Time Series Insi
 
 | | |
 | ---| ---|
-| Multilayered storage for IoT-scale time series data | With a shared data processing pipeline for ingesting data, you can ingest data into both warm and cold stores. Use warm store for interactive queries and cold store for storing large volumes of data. To learn more about how to take advantage of high-performing asset-based queries, see [queries](./time-series-insights-update-tsq.md). |
-| Time Series Model to contextualize raw telemetry and derive asset-based insights | You can use the time series model to create instances, hierarchies, types, and variables for your time series data. To learn more about Time Series Model, see [Time Series Model](./time-series-insights-update-tsm.md).  |
-| Smooth and continuous integration with other data solutions | Data in Time Series Insights cold store is [stored](./time-series-insights-update-storage-ingress.md) in open-source Apache Parquet files. This enables data integration with other data solutions, 1st or 3rd party, for scenarios that include business intelligence, advanced machine learning, and predictive analytics. |
+| Multilayered storage for IoT-scale time series data | With a shared data processing pipeline for ingesting data, you can ingest data into both warm and cold stores. Use warm store for interactive queries and cold store for storing large volumes of data. To learn more about how to take advantage of high-performing asset-based queries, see [queries](./concepts-query-overview.md). |
+| Time Series Model to contextualize raw telemetry and derive asset-based insights | You can use the time series model to create instances, hierarchies, types, and variables for your time series data. To learn more about Time Series Model, see [Time Series Model](./concepts-model-overview.md).  |
+| Smooth and continuous integration with other data solutions | Data in Time Series Insights cold store is [stored](concepts-storage.md) in open-source Apache Parquet files. This enables data integration with other data solutions, 1st or 3rd party, for scenarios that include business intelligence, advanced machine learning, and predictive analytics. |
 | Near real-time data exploration | The [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) user experience provides visualization for all data streaming through the ingestion pipeline. After you connect an event source, you can view, explore, and query event data. In this way, you can validate whether a device emits data as expected. You also can monitor an IoT asset for health, productivity, and overall effectiveness. | 
 | Extensibility and integration | The Azure Time Series Insights Power BI Connector integration is available directly in the Time Series Explorer user experience through the **Export** option, allowing customers to export the time series queries they create in our user experience directly into the Power BI desktop and view their time series charts alongside other BI analytics. This opens the door to a new class of scenarios for industrial IoT enterprises who have invested in Power BI by providing a single pane of glass over analytics from various data sources including IoT time series. | 
-| Custom applications built on the Time Series Insights platform | Time Series Insights supports the [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Time Series Insights to suit your business needs. You also can use the Time Series Insights [Query APIs](./time-series-insights-update-tsq.md) directly to drive data into custom IoT applications. |
+| Custom applications built on the Time Series Insights platform | Time Series Insights supports the [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). The SDK provides rich controls and simplified access to queries. Use the SDK to build custom IoT applications on top of Time Series Insights to suit your business needs. You also can use the Time Series Insights [Query APIs](./concepts-query-overview.md) directly to drive data into custom IoT applications. |
 
 ## Next steps
 

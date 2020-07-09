@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 10/05/2018
+ms.topic: how-to
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,17 +25,16 @@ This article shows you how to enable sign-in for users from an Amazon account by
 - Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 - If you don't already have an Amazon account, create one at [https://www.amazon.com/](https://www.amazon.com/).
 
-## Register the application
+## Create an app in the Amazon developer console
 
-To enable sign-in for users from an Amazon account, you need to create an Amazon application.
+To use an Amazon account as a federated identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your [Amazon Developer Services and Technologies](https://developer.amazon.com). If you don't already have an Amazon account, you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
 
-1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
-2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
-3. Select **Register new application**.
-4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
-5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
-7. Click **Save**.
+> [!NOTE]  
+> Use the following URLs in **step 8** below, replacing `your-tenant-name` with the name of your tenant. When entering your tenant name, use all lowercase letters, even if the tenant is defined with uppercase letters in Azure AD B2C.
+> - For **Allowed Origins**, enter `https://your-tenant-name.b2clogin.com` 
+> - For **Allowed Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## Create a policy key
 
@@ -130,7 +129,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AmazonExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
     ```
 
@@ -141,7 +140,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 

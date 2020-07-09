@@ -16,7 +16,7 @@ ms.author: sharadag
 ---
 
 # What is Azure Front Door?
-Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reaches a global audience with Azure.
+Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and quick global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reaches a global audience with Azure.
 
 Front Door works at Layer 7 or HTTP/HTTPS layer and uses anycast protocol with split TCP and Microsoft's global network for improving global connectivity. So, per your routing method selection in the configuration, you can ensure that Front Door is routing your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover models. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door is resilient to failures, including the failure of an entire Azure region.
 
@@ -32,7 +32,7 @@ Using split TCP-based anycast protocol, Front Door ensures that your end users p
 
 ## Increase application availability with smart health probes
 
-Front Door delivers high availability for your critical applications using its smart health probes, monitoring your backends for both latency and availability and providing instant automatic failover when a backend goes down. So, you can run planned maintenance operations on your applications without downtime. Front Door directs traffic to alternative backends while the maintenance is in progress.
+Front Door delivers high availability for your critical applications using its smart health probes, monitoring your backends for both latency and availability and providing quick automatic failover when a backend goes down. So, you can run planned maintenance operations on your applications without downtime. Front Door directs traffic to alternative backends while the maintenance is in progress.
 
 ## URL-based routing
 URL Path Based Routing allows you to route traffic to backend pools based on URL paths of the request. One of the scenarios is to route requests for different content types to different backend pools.
@@ -47,12 +47,12 @@ Similarly, you can have two different domains `www.contoso.com` and `www.fabrika
 ## Session affinity
 The cookie-based session affinity feature is useful when you want to keep a user session on the same application backend. By using Front Door managed cookies, subsequent traffic from a user session gets directed to the same application backend for processing. This feature is important in cases where session state is saved locally on the backend for a user session.
 
-## Secure Sockets Layer (SSL) termination
-Front Door supports SSL termination at the edge that is, individual users can set up SSL connection with Front Door environments instead of establishing it over long haul connections with the application backend. Additionally, Front Door supports both HTTP as well as HTTPS connectivity between Front Door environments and your backends. So, you can also set up end-to-end SSL encryption. For example, if Front Door for your application workload receives over 5000 requests in a minute, due to warm connection reuse, for active services, it will only establish say about 500 connections with your application backend, thereby reducing significant load from your backends.
+## TLS termination
+Front Door supports TLS termination at the edge that is, individual users can set up a TLS connection with Front Door environments instead of establishing it over long haul connections with the application backend. Additionally, Front Door supports both HTTP as well as HTTPS connectivity between Front Door environments and your backends. So, you can also set up end-to-end TLS encryption. For example, if Front Door for your application workload receives over 5000 requests in a minute, due to warm connection reuse, for active services, it will only establish say about 500 connections with your application backend, thereby reducing significant load from your backends.
 
 ## Custom domains and certificate management
 When you use Front Door to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your Front Door URL. Having a visible domain name can be convenient for your customers and useful for branding purposes.
-Front Door also supports HTTPS for custom domain names. Use this feature by either choosing Front Door managed certificates for your traffic or uploading your own custom SSL certificate.
+Front Door also supports HTTPS for custom domain names. Use this feature by either choosing Front Door managed certificates for your traffic or uploading your own custom TLS/SSL certificate.
 
 ## Application layer security
 Azure Front Door allows you to author custom Web Application Firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic. For more information about Web Application Firewall, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)

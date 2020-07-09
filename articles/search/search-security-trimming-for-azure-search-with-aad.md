@@ -1,14 +1,14 @@
 ---
 title: Security filters to trim results using Active Directory
 titleSuffix: Azure Cognitive Search
-description: Access control on Azure Cognitive Search content using security filters and Azure Active Directory (AAD) identities.
+description: Security privileges at the document level for Azure Cognitive Search search results, using security filters and Azure Active Directory (AAD) identities.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/04/2020
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
 
@@ -23,7 +23,7 @@ This article covers the following tasks:
 > - Issue a search request with group identifiers filter
 > 
 > [!NOTE]
-> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). 
+> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## Prerequisites
 

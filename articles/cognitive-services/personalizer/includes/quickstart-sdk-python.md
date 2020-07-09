@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.author: diberry
 ---
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
@@ -31,7 +31,7 @@ There are several steps to use this quickstart:
 
 [!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
 
-[!INCLUDE [!Change model frequency](change-model-frequency.md)]
+[!INCLUDE [Change model frequency](change-model-frequency.md)]
 
 ## Install the Python library for Personalizer
 

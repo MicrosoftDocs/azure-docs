@@ -64,7 +64,7 @@ The portal is based on an adapted fork of the [Paperbits framework](https://pape
 
 In this section, we answer common questions about the developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
+### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
 By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
@@ -165,7 +165,7 @@ The legacy portals required the permission `Microsoft.ApiManagement/service/gets
 
 You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -183,7 +183,7 @@ New-AzRoleDefinition -Role $customRole
  
 Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
@@ -195,7 +195,7 @@ This error is shown when a `GET` call to `https://<management-endpoint-hostname>
 
 If your API Management service is in a VNet - refer to the VNet connectivity question above.
 
-The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
 ### What's the browser support for the portal?
 

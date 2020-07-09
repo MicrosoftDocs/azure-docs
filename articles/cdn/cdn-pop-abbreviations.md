@@ -3,7 +3,7 @@ title: Azure CDN POP locations by abbreviation | Microsoft Docs
 description: This article lists Azure CDN POP locations, sorted by POP abbreviation, for Azure CDN from Verizon.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Azure CDN POP locations by abbreviation

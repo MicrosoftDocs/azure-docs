@@ -141,8 +141,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/mysql/
-          - text: REST API developer reference
             url: /cli/azure/mysql
+          - text: REST API developer reference
+            url: /rest/api/mysql/
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions

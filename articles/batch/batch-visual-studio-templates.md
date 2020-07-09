@@ -1,19 +1,8 @@
 ---
-title: Build solutions with Visual Studio templates - Azure Batch | Microsoft Docs
+title: Build solutions with Visual Studio templates
 description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 02/27/2017
-ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -22,9 +11,7 @@ ms.custom: seodec18
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
 > [!IMPORTANT]
-> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md) and [Batch feature overview for developers](batch-api-basics.md).
-> 
-> 
+> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md) and [Batch service workflow and resources](batch-service-workflow-features.md). 
 
 ## High-level overview
 The Job Manager and Task Processor templates can be used to create two useful components:
@@ -75,7 +62,7 @@ The Job Manager template helps you to implement a job manager task that can perf
 * Submit those tasks to run on Batch.
 
 > [!NOTE]
-> For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
+> For more information about job manager tasks, see [Jobs and tasks](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -194,7 +181,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](error-handling.md).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
@@ -435,13 +422,13 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
 
 
-[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: /dotnet/api/microsoft.azure.batch.jobmanagertask
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: /dotnet/api/system.diagnostics.process.exitcode
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
-[vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
-[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
+[vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
+[vs_find_use_ext]: /visualstudio/ide/finding-and-using-visual-studio-extensions
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png

@@ -3,20 +3,17 @@ title: Acquire a token to call a web API (mobile apps) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs. (Get a token for the app.)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
-ms.custom: aaddev 
+ms.reviewer: brandwe
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -26,7 +23,7 @@ Before your app can call protected web APIs, it needs an access token. This arti
 
 ## Define a scope
 
-When you request a token, you need to define a scope. The scope determines what data your app can access.  
+When you request a token, you need to define a scope. The scope determines what data your app can access.
 
 The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells Microsoft identity platform that your app requires all scopes that are set in the portal.
 
@@ -41,7 +38,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 ### Xamarin
-```csharp 
+```csharp
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -72,13 +69,13 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
             /* No accounts or > 1 account. */
         }
     }
-});    
+});
 
 [...]
 
 // No accounts found. Interactively request a token.
 // TODO: Create an interactive callback to catch successful or failed requests.
-sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
+sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 ```
 
 #### iOS
@@ -89,22 +86,22 @@ First try acquiring a token silently:
 
 NSArray *scopes = @[@"https://graph.microsoft.com/.default"];
 NSString *accountIdentifier = @"my.account.id";
-    
+
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
-    
+
 MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
 [application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
-        
+
     if (!error)
     {
         // You'll want to get the account identifier to retrieve and reuse the account
         // for later acquireToken calls
         NSString *accountIdentifier = result.account.identifier;
-            
-        // Access token to call the Web API
+
+        // Access token to call the web API
         NSString *accessToken = result.accessToken;
     }
-        
+
     // Check the error
     if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
     {
@@ -113,34 +110,34 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
- 
+
 ```swift
 
 let scopes = ["https://graph.microsoft.com/.default"]
 let accountIdentifier = "my.account.id"
-        
+
 guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
 let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
 application.acquireTokenSilent(with: silentParameters) { (result, error) in
-            
+
     guard let authResult = result, error == nil else {
-                
+
     let nsError = error! as NSError
-                
+
     if (nsError.domain == MSALErrorDomain &&
         nsError.code == MSALError.interactionRequired.rawValue) {
-                    
+
             // Interactive auth will be required, call acquireToken()
             return
          }
          return
      }
-            
+
     // You'll want to get the account identifier to retrieve and reuse the account
     // for later acquireToken calls
     let accountIdentifier = authResult.account.identifier
-            
-    // Access token to call the Web API
+
+    // Access token to call the web API
     let accessToken = authResult.accessToken
 }
 ```
@@ -149,15 +146,15 @@ If MSAL returns `MSALErrorInteractionRequired`, then try acquiring tokens intera
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
-MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:viewController];
+MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)	
+	if (!error)
 	{
 		// You'll want to get the account identifier to retrieve and reuse the account
 		// for later acquireToken calls
 		NSString *accountIdentifier = result.account.identifier;
-            
+
 		NSString *accessToken = result.accessToken;
 	}
 }];
@@ -165,15 +162,15 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 
 ```swift
 let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
-let webviewParameters = MSALWebviewParameters(parentViewController: viewController)
+let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
-                
+
 	guard let authResult = result, error == nil else {
 		print(error!.localizedDescription)
 		return
 	}
-                
+
 	// Get access token from result
 	let accessToken = authResult.accessToken
 })
@@ -207,15 +204,15 @@ catch(MsalUiRequiredException)
 
 #### Mandatory parameters in MSAL.NET
 
-`AcquireTokenInteractive` has only one mandatory parameter: `scopes`. The `scopes` parameter enumerates strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API. In the reference, go to the "Permissions" section. 
+`AcquireTokenInteractive` has only one mandatory parameter: `scopes`. The `scopes` parameter enumerates strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API. In the reference, go to the "Permissions" section.
 
-For example, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+For example, to [list the user's contacts](https://docs.microsoft.com/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 On Android, you can specify parent activity when you create the app by using `PublicClientApplicationBuilder`. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
 
 #### Specific optional parameters in MSAL.NET
 
-The following sections explain the optional parameters in MSAL.NET. 
+The following sections explain the optional parameters in MSAL.NET.
 
 ##### WithPrompt
 
@@ -225,19 +222,19 @@ The `WithPrompt()` parameter controls interactivity with the user by specifying 
 
 The class defines the following constants:
 
-- `SelectAccount` forces the security token service (STS) to present the account-selection dialog box. The dialog box contains the accounts for which the user has a session. You can use this option when you want to let the user choose among different identities. This option drives MSAL to send `prompt=select_account` to the identity provider. 
-    
+- `SelectAccount` forces the security token service (STS) to present the account-selection dialog box. The dialog box contains the accounts for which the user has a session. You can use this option when you want to let the user choose among different identities. This option drives MSAL to send `prompt=select_account` to the identity provider.
+
     The `SelectAccount` constant is the default, and it effectively provides the best possible experience based on the available information. The available information might include account, presence of a session for the user, and so on. Don't change this default unless you have a good reason to do it.
-- `Consent` enables you to prompt the user for consent even if consent was granted before. In this case, MSAL sends `prompt=consent` to the identity provider. 
+- `Consent` enables you to prompt the user for consent even if consent was granted before. In this case, MSAL sends `prompt=consent` to the identity provider.
 
     You might want to use the `Consent` constant in security-focused applications where the organization governance requires users to see the consent dialog box each time they use the application.
-- `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed. 
+- `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed.
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
 - `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
 
     If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then you need to use another `Prompt` parameter.
-- `NoPrompt` doesn't send a prompt to the identity provider. 
+- `NoPrompt` doesn't send a prompt to the identity provider.
 
     This option is useful only for edit-profile policies in Azure Active Directory B2C. For more information, see [B2C specifics](https://aka.ms/msal-net-b2c-specificities).
 
@@ -245,7 +242,7 @@ The class defines the following constants:
 
 Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or Microsoft identity platform 2.0. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
-Here's a code example: 
+Here's a code example:
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -261,14 +258,14 @@ To learn about the other optional parameters for `AcquireTokenInteractive`, see 
 
 We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and conditional access.
 
-When you use the protocol to get tokens for mobile apps, make two requests: 
+When you use the protocol to get tokens for mobile apps, make two requests:
 
 * Get an authorization code.
 * Exchange the code for a token.
 
 #### Get an authorization code
 
-```Text
+```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=<CLIENT_ID>
 &response_type=code
@@ -280,7 +277,7 @@ client_id=<CLIENT_ID>
 
 #### Get access and refresh the token
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded

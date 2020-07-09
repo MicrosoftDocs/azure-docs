@@ -5,7 +5,7 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: "include"
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: "include file"
 ---
@@ -65,23 +65,13 @@ ms.custom: "include file"
    - **Node.js backend**
     
      If you’re going to use Node.js quickstart app, follow the instructions below.
-
-     1. In the Azure portal, go to **Easy Tables**, you will see this screen.
-      
-        ![Node Easy Tables](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Make sure the SQL connection string is already added in the **Configuration** tab. Then check the box of **I acknowledge that this will overwrite all site contents** and click the **Create TodoItem table** button.
      
-        ![Node Easy Tables Configuration](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. In **Easy Tables**, click the **+ Add** button.
-    
-        ![Node Easy Tables Add Button](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Create a `TodoItem` table with anonymous access.
-      
-        ![Node Easy Tables Add Table](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Create a new API - You can either make changes right in the Azure portal or modify the code locally in your development environment and then publish to Azure. Click on the `App Service Editor (Preview)` under `Development Tools` menu which provides an in-browser editing experience for your app code.
+        
+        2. Click on `Go` and once the App Service Editor opens, you have full control over the source code. Assuming you have already installed express and azure-mobile-apps package with npm install command, click on the api folder under WWWROOT to create or edit custom API. Make your changes to the code file and the changes are saved automatically.
+        
+        3. You have full control on the Azure SQL Database used to store the application data. You can easily create new tables in the database.
+ 
    - **.NET backend**
     
         If you’re going to use .NET quickstart app, follow the instructions below.

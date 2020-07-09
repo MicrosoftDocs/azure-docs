@@ -1,5 +1,5 @@
 ---
-title: Forecast bike sharing demand with automated ML experiment
+title: Tutorial:Demand forecasting & AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
@@ -9,21 +9,24 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
+ms.date: 06/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
-# Tutorial: Forecast bike sharing demand with automated machine learning
+# Tutorial: Forecast demand with automated machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time series forecasting model to predict rental demand for a bike sharing service.
+In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
+
+For a classification model example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
 > * Configure and run an automated ML experiment.
+> * Specify forecasting settings.
 > * Explore the experiment results.
 > * Deploy the best model.
 
@@ -118,7 +121,7 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Next**.
 
-## Select task type and settings
+## Select forecast settings
 
 Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 
@@ -126,7 +129,7 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
 
-    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
+    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
 
   
         Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
@@ -221,6 +224,10 @@ See this article for steps on how to create a Power BI supported schema to facil
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Learn more about [automated machine learning](concept-automated-ml.md).
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
++ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

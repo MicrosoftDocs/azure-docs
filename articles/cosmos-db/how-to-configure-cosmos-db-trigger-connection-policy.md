@@ -3,7 +3,7 @@ title: Azure Functions trigger for Cosmos DB connection policy
 description: Learn how to configure the connection policy used by Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ---
