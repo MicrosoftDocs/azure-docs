@@ -223,10 +223,6 @@ N/A
 
 ---
 
-## Ask questions or provide feedback
-
-To ask questions about infrastructure encryption, or to provide feedback, contact Microsoft at AzureStorageFeedback@microsoft.com. Ideas and suggestions about Azure Storage are always welcomed at the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
-
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
