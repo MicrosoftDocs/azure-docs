@@ -180,8 +180,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | - | - | - | 
-| User assigned | ![Available][check] | - | - | - |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] | 
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-managed-identity).
