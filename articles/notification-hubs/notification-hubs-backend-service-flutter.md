@@ -41,7 +41,6 @@ To follow along, you require:
 * An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
 * The [Flutter](https://flutter.dev/docs/get-started/install) toolkit (along with its prerequisites).
 * [Visual Studio Code](https://code.visualstudio.com) with the [Flutter and Dart plugins](https://flutter.dev/docs/get-started/editor?tab=vscode) installed.
-* [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#installation) installed for managing library dependencies.
 * The ability to run the app on either **Android** (physical or emulator devices) or **iOS** (physical devices only).
 
 For Android, you must have:
@@ -53,18 +52,19 @@ For iOS, you must have:
 * An active [Apple Developer Account](https://developer.apple.com).
 * A physical iOS device that is [registered to your developer account](https://help.apple.com/developer-account/#/dev40df0d9fa) *(running iOS 13.0 and above)*.
 * A **.p12** [development certificate](https://help.apple.com/developer-account/#/dev04fd06d56) installed in your **keychain** allowing you to [run an app on a physical device](https://help.apple.com/xcode/mac/current/#/dev5a825a1ca).
+* [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#installation) installed for managing library dependencies.
 
 > [!NOTE]
 > The iOS Simulator does not support remote notifications and so a physical device is required when exploring this sample on iOS. However, you do not need to run the app on both **Android** and **iOS** in order to complete this tutorial.
 
 You can follow the steps in this first-principles example with no prior experience. However, you'll benefit from having familiarity with the following aspects.
 
-* [Apple Developer Portal](https://developer.apple.com).
-* [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1).
-* [Google Firebase Console](https://console.firebase.google.com/u/0/).
-* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
-* [Flutter](https://flutter.dev) and [Dart](https://dart.dev) for cross-platform development.
-* [Kotlin](https://kotlinlang.org) and [Swift](https://developer.apple.com/swift) for Android and iOS native development.
+* [Apple Developer Portal](https://developer.apple.com)
+* [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
+* [Google Firebase Console](https://console.firebase.google.com/u/0/)
+* [Flutter](https://flutter.dev) and [Dart](https://dart.dev) for cross-platform development
+* [Kotlin](https://kotlinlang.org) and [Swift](https://developer.apple.com/swift) for Android and iOS native development
 
 The steps provided are specific to [macOS](https://developer.apple.com/macos). It's possible to follow along on [Windows](https://www.microsoft.com/windows) by skipping the **iOS** aspects.
 
