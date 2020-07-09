@@ -144,7 +144,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ForwardRequest"></a> Forward request
 
-The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md#configure-api-settings) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
+The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
 > [!NOTE]
 > Removing this policy results in the request not being forwarded to the backend service and the policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
@@ -914,7 +914,7 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
 -   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting.
--   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#diagnostic-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
+-   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
 ### Policy statement
 

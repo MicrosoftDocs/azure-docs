@@ -239,7 +239,7 @@ In addition to Azure Monitor, Azure API Management can be integrated with one or
 
 Optionally, enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal)
+* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -261,7 +261,7 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 * [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-* [How to enable Diagnostic Settings for Azure API Management](./api-management-howto-use-azure-monitor.md#diagnostic-logs)
+* [How to enable Diagnostic Settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -281,7 +281,7 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 * [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [How to archive logs to an Azure Storage account](../azure-monitor/platform/resource-logs.md#collect-to-azure-storage)
+* [How to archive logs to an Azure Storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -317,7 +317,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 * [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-* [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#diagnostic-logs)
+* [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
 * [How to configure an alert rule for unauthorized request](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
 

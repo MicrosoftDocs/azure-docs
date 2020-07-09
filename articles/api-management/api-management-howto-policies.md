@@ -124,7 +124,7 @@ For more information working with policies, see:
 
 [Advanced policies]: ./api-management-advanced-policies.md
 [Control flow]: ./api-management-advanced-policies.md#choose
-[Set variable]: ./api-management-advanced-policies.md#set_variable
+[Set variable]: ./api-management-advanced-policies.md#set-variable
 [Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

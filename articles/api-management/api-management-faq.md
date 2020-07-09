@@ -89,7 +89,7 @@ To set up multiple environments, for example, a test environment and a productio
 * Host the same APIs on different tenants.
 
 ### Can I use SOAP with API Management?
-[SOAP pass-through](https://azure.microsoft.com/en-us/blog/soap-pass-through/?ref=msdn) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
+[SOAP pass-through](https://azure.microsoft.com/blog/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
 
 ### Can I configure an OAuth 2.0 authorization server with AD FS security?
 To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).

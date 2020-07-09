@@ -19,7 +19,7 @@ ms.author: apimpm
 ---
 
 # Use revisions to make non-breaking changes safely
-When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://azure.microsoft.com/en-us/blog/versions-revisions/?ref=msdn) and [API Versioning with Azure API Management](https://azure.microsoft.com/en-us/blog/api-versioning-with-azure-api-management/?ref=msdn).
+When your API is ready to go and starts to be used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) and [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
 In this tutorial, you learn how to:
 
