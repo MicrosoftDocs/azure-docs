@@ -45,7 +45,7 @@ For now, customer-managed keys have the following restrictions:
 
 ## Host-based encryption
 
-When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on disk data flows encrypted to Storage service. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+When you enable host-based encryption, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. The temp disks are encrypted at rest with platform-managed keys. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys the cache for the disk is encrypted with customer-managed keys and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
 ### Restrictions
 
