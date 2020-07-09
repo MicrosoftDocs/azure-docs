@@ -4,19 +4,22 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: 
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Automation
+# Use Azure Private Link to securely connect networks to Azure Automation (preview)
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Automation service into your VNet. Network traffic between the machines on the VNet and the Automation account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, State Configuration, and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET. This can be achieved by deploying private endpoints.
 
-This article covers when to use and how to set up a private endpoint with your Automation account.
+This article covers when to use and how to set up a private endpoint with your Automation account (preview).
 
 ![Conceptual overview of Private Link for Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Private Link support with Azure Automation (preview) is available only in Azure Commercial and Azure US Government clouds.
 
 ## Advantages
 
@@ -41,6 +44,8 @@ Azure Automation Private Link connects one or more private endpoints (and theref
 
 After you create private endpoints for Automation, each of the public facing Automation URLs, which you or a machine can directly contact, is mapped to one private endpoint in your VNet.
 
+As part of this preview release, an Automation account cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage Account, etc.
+
 ### Webhook scenario
 
 You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like this: `https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
@@ -55,7 +60,7 @@ The URL for public & private endpoint would be the same, however, it would be ma
 
 ## Planning based on your network
 
-Before setting up your Automation account resource, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions to your Automation account (including setting up a Private Link Group Scope to Azure Monitor Logs if integrated with your Automation account).
+Before setting up your Automation account resource, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions to your Automation account (including setting up a Private Link Group Scope to Azure Monitor Logs if integrated with your Automation account). Also include a review of the Automation service [DNS records](./automation-region-dns-records.md) as part of your plan to ensure the supported features work without issue.
 
 ### Connect to a private endpoint
 
