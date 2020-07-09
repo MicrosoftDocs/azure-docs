@@ -86,6 +86,8 @@ az group create --name examplegroup --location eastus
 New-AzResourceGroup -Name examplegroup -Location eastus
 ```
 
+---
+
 Then, deploy the template
 
 # [Azure CLI](#tab/CLI)
@@ -106,7 +108,7 @@ New-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
 ```
 
-
+---
 
 ### Advanced template
 
