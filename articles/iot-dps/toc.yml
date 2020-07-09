@@ -87,6 +87,8 @@
         href: quick-enroll-device-tpm-node.md
       - name: Python
         href: quick-enroll-device-tpm-python.md
+    - name: Provisioning samples in the Azure IoT C SDK
+      href: provisioning-client-samples.md
 - name: Concepts
   items:
   - name: Auto-provisioning
@@ -129,12 +131,12 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md      
+    - name: Control access to Provisioning Service APIs
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
     - name: Configure Device Provisioning Service using Azure CLI
       href: how-to-manage-dps-with-cli.md
-    - name: Control access to Provisioning Service APIs
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
