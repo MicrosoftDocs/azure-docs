@@ -72,7 +72,7 @@ To directly assign a user to a session host in the Azure portal:
 1. Sign in to the Azure portal at <https://portal.azure.com>.
 2. Enter **Windows Virtual Desktop** into the search bar.
 3. Under **Services**, select **Windows Virtual Desktop**.
-4. At the Windows Virtual Desktop page, go the the menu on the left side of the window and select **Host pools**.
+4. At the Windows Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
 5. Select the name of the host pool you want to update.
 6. Next, go to the menu on the left side of the window and select **Application groups**.
 7. Select the name of the desktop app group you want to edit, then select **Assignments** in the menu on the left side of the window.
