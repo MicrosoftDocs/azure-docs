@@ -166,7 +166,7 @@ To recognize the content of a file at a given URI, use the **StartRecognizeConte
 private static async Task<Guid> GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
-    Response<IReadOnlyList<FormPage>> formPages = await recognizerClient
+    Response<FormPageCollection> formPages = await recognizerClient
         .StartRecognizeContentFromUri(new Uri(invoiceUri))
         .WaitForCompletionAsync();
 ```
@@ -194,7 +194,7 @@ The returned value is a collection of **FormPage** objects: one for each page in
                 $" {table.ColumnCount} columns.");
             foreach (FormTableCell cell in table.Cells)
             {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})"
+                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
                     $" contains text: '{cell.Text}'.");
             }
         }

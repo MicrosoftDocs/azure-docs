@@ -484,7 +484,7 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 
 Users with this role can create users, and manage all aspects of users with some restrictions (see below), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
-| | |
+| Permission | Can do |
 | --- | --- |
 |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets<p>Update password expiration policies|
 |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
@@ -1344,8 +1344,7 @@ Can manage commercial purchases for a company, department or team.
 | --- | --- |
 | microsoft.commerce.billing/partners/read | Read partner property of O365 Billing. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Manage all aspects of Volume Licensing Service Center. |
-| microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and view own Office 365 support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 

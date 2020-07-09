@@ -230,7 +230,7 @@ In this section, you will run some queries on the data retrieved.
 
    The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   ![Countries/regions revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Countries/regions revenue map visualization":::
 
 1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
