@@ -57,7 +57,6 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
 The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.
-<!-- To skip flushing data, include the option ``--no-wait``. -->
 
 When the action is complete, the cache status changes to **Stopped**.
 
@@ -112,7 +111,27 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
-<!-- test/get output? -->
+Example:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+When the flush finishes, a success message is returned.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
 
 ---
 
@@ -193,6 +212,12 @@ After stopping the cache, click the **Delete** button to permanently remove the 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
+
+Example:
+```azurecli
+az hpc-cache delete --name doc-cache0629
+ - Running ..
+```
 
 ---
 

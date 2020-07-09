@@ -27,6 +27,17 @@ To remove a storage target, select it in the list and click the **Delete** butto
 
 Use [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) to delete a storage target from the cache.
 
+```azurecli
+$ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
+
+{- Finished ..
+  "endTime": "2020-07-09T21:45:06.1631571+00:00",
+  "name": "2f95eac1-aded-4860-b19c-3f089531a7ec",
+  "startTime": "2020-07-09T21:43:38.5461495+00:00",
+  "status": "Succeeded"
+}
+```
+
 ---
 
 This action removes the storage target association with this Azure HPC Cache system, but it does not change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
@@ -71,10 +82,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) command to change the <!--IP address, -->usage model, virtual namespace path, and NFS export or subdirectory values for a storage target.
-
-<!-- test if you can actually do this??? -->
-<!-- * To change the storage IP or hostname, use the ``--nfs3-target`` option. Example: ``--nfs3-target 10.0.44.44``-->
+Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) command to change the usage model, virtual namespace path, and NFS export or subdirectory values for a storage target.
 
 * To change the usage model, use the ``--nfs3-usage-model`` option. Example: ``--nfs3-usage-model WRITE_WORKLOAD_15``
 
@@ -90,12 +98,12 @@ Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-t
 
 The cache name, storage target name, and resource group are required in all update commands.
 
-Command example: <!-- need to test this and also maybe get output -->
+Command example: <!-- having problem testing this -->
 
 ```azurecli
 az hpc-cache nfs-storage-target update --cache-name mycache \
     --name rivernfs0 --resource-group doc-rg0619 \
-    --junction namespace-path="/nfs1/data2" nfs-export="/datadisk2" target-path=""
+    --nfs3-usage-model READ_HEAVY_INFREQ
 ```
 
 If the cache is stopped or not in a healthy state, the update applies after the cache is healthy.
@@ -120,10 +128,10 @@ When finished, click **OK** to update the storage target, or click **Cancel** to
 
 Use [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) to update a target's namespace path.
 
-<!-- test /new/path -->
 ```azurecli
-az hpc-cache blob-storage-target update --cache-name name --name target-name \
-   --resource-group rg --virtual-namespace-path "/new/path"
+az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
+    --resource-group rg --storage-account "/subscriptions/<subscription_ID>/resourceGroups/erinazcli/providers/Microsoft.Storage/storageAccounts/rg"  \
+    --container-name "container-name" --virtual-namespace-path "/new-path"
 ```
 
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
