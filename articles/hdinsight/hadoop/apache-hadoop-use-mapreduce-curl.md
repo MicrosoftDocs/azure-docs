@@ -56,7 +56,7 @@ Either:
 
     You receive a response similar to the following JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -78,9 +78,7 @@ Either:
      * **class**: The class that contains the MapReduce logic
      * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-    This command should return a job ID that can be used to check the status of the job:
-
-    `job_1415651640909_0026`
+    This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command. Replace the value for `JOBID` with the **actual** value returned in the previous step. Revise location of **jq** as needed.
 
@@ -111,7 +109,7 @@ Either:
 
     You receive a response similar to the following JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -141,9 +139,7 @@ Either:
     * **class**: The class that contains the MapReduce logic
     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-   This command should return a job ID that can be used to check the status of the job:
-
-    `job_1415651640909_0026`
+   This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command:
 

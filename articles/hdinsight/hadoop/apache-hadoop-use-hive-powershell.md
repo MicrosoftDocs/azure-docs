@@ -48,7 +48,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the `hivejob.ps1` file, then use the following command to run the script:
 
     ```azurepowershell
-        .\hivejob.ps1
+    .\hivejob.ps1
     ```
 
     When the script runs, you're prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to sign in to your Azure subscription.
