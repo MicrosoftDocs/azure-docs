@@ -29,7 +29,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Workspace Azure Resource Manager template
+## Workspace Resource Manager template
 
 The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quick start templates GitHub repository.
 
@@ -313,7 +313,7 @@ Once you've successfully completed the steps above, deploy your template like yo
 * **cmk_keyvault** to the `cmk_keyvault` value obtained in previous steps.
 * **resource_cmk_uri** to the `resource_cmk_uri` value obtained in previous steps.
 
-When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security#encryption-at-rest).
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
 
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
@@ -322,7 +322,7 @@ An additional configuration you can provide for your data is to set the **confid
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
 
-  For more information, see [encryption at rest](concept-enterprise-security#encryption-at-rest).
+  For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 ## Deploy workspace behind a virtual network
 
@@ -419,6 +419,12 @@ To deploy a workspace with existing associated resources you have to set the **v
 > Subnets do not allow creation of private endpoints. Disable private endpoint to enable subnet.
 
 1. Enable service endpoints for the resources.
+
+    # [Azure PowerShell](#tab/azcli)
+
+    ```azurecli
+    az deploy
+    ```
 
     # [Azure PowerShell](#tab/azpowershell)
 
