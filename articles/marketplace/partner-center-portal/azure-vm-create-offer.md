@@ -1,11 +1,11 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
 description: Learn how to create a virtual machine offer on Azure Marketplace with the required SKU.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 06/17/2020
 ---
 

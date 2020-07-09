@@ -99,6 +99,7 @@ The index specifies the fields in a document, attributes, and other constructs t
 
 Here's how to create an index with a searchable `content` field to store the text extracted from blobs:   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +111,7 @@ Here's how to create an index with a searchable `content` field to store the tex
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -121,6 +123,7 @@ Once the index and data source have been created, you're ready to create the ind
 
 Example indexer definition for a blob indexer:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -131,6 +134,7 @@ Example indexer definition for a blob indexer:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 

@@ -1,13 +1,12 @@
 ---
 title: Microsoft commercial marketplace support - Azure Marketplace
 description: Support information and links for Azure Marketplace and AppSource in Partner Center
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-
 ---
 
 # Support for Microsoft commercial marketplace

@@ -13,7 +13,7 @@ ms.author: cynthn
 
 The following table includes links to PowerShell scripts samples that create and manage Linux virtual machines.
 
-| | |
+| Script | Description |
 |---|---|
 |**Create virtual machines**||
 | [Create a fully configured virtual machine](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|

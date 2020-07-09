@@ -10,7 +10,7 @@ ms.date: 04/30/2020
 
 This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application.
 
-The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications.
+The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications. If you are using the [Worker Service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 ## Supported scenarios
 
@@ -221,7 +221,7 @@ For more information, see [Configure adaptive sampling for ASP.NET Core applicat
 
 ### Adding TelemetryInitializers
 
-Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to enrich telemetry with additional information.
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
@@ -278,7 +278,7 @@ Application Insights uses telemetry modules to automatically collect useful tele
 The following automatic-collection modules are enabled by default. These modules are responsible for automatically collecting telemetry. You can disable or configure them to alter their default behavior.
 
 * `RequestTrackingTelemetryModule` - Collects RequestTelemetry from incoming web requests.
-* `DependencyTrackingTelemetryModule` - Collects DependencyTelemetry from outgoing http calls and sql calls.
+* `DependencyTrackingTelemetryModule` - Collects [DependencyTelemetry](./asp-net-dependencies.md) from outgoing http calls and sql calls.
 * `PerformanceCollectorModule` - Collects Windows PerformanceCounters.
 * `QuickPulseTelemetryModule` - Collects telemetry for showing in Live Metrics portal.
 * `AppServicesHeartbeatTelemetryModule` - Collects heart beats (which are sent as custom metrics), about Azure App Service environment where application is hosted.
@@ -326,7 +326,7 @@ option to disable any of the default modules.
 
 ### Configuring a telemetry channel
 
-The default channel is `ServerTelemetryChannel`. You can override it as the following example shows.
+The default [telemetry channel](./telemetry-channels.md) is `ServerTelemetryChannel`. You can override it as the following example shows.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -395,7 +395,7 @@ public class HomeController : Controller
     }
 ```
 
-For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/).
+For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](./get-metric.md).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
