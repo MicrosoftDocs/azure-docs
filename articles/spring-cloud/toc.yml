@@ -28,6 +28,10 @@
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: spring-cloud-tutorial-custom-domain.md
+    - name: Use IntelliJ to deploy Azure Spring Cloud applications
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Provision an Azure Spring Cloud instance with terraform
+      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD with Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Samples
