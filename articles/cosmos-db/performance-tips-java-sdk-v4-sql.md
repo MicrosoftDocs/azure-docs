@@ -166,9 +166,6 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
         As a first step, use the following recommended configuration settings below. These *DirectConnectionConfig* options are advanced configuration settings which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel very comfortable in understanding the tradeoffs and it is absolutely necessary. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
-        If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
-
-
         | Configuration option       | Default    |
         | :------------------:       | :-----:    |
         | idleConnectionTimeout      | "PT1M"     |
