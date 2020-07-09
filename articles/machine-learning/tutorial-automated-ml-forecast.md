@@ -19,6 +19,9 @@ ms.date: 07/10/2020
 
 In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
 
+>[!IMPORTANT]
+> The automated ML experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
+
 For a classification model example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 In this tutorial, you learn how to do the following tasks:
@@ -141,7 +144,7 @@ Complete the setup for your automated ML experiment by specifying the machine le
     Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
     Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
     Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-    Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+    Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
     Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
     Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
     Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6

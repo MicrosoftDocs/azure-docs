@@ -17,7 +17,10 @@ ms.date: 07/10/2020
 # Tutorial: Create a classification model with automated ML in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create a basic classification model without writing a single line of code using Azure Machine Learning's automated machine learning interface. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+
+>[!IMPORTANT]
+> The automated machine learning experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
