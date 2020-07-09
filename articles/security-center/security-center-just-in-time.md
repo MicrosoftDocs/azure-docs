@@ -13,7 +13,7 @@ ms.author: memildin
 ---
 # Secure your management ports with just-in-time access
 
-Lock down inbound traffic to your Azure Virtual Machines with just-in-time (JIT) virtual machine (VM) access. This reduces exposure to attacks while providing easy access to connect to VMs when needed.
+Lock down inbound traffic to your Azure Virtual Machines with Azure Security Center's just-in-time (JIT) virtual machine (VM) access feature. This reduces exposure to attacks while providing easy access when you need to connect to a VM.
 
 For a full explanation about how JIT works and the underlying logic, see [Just-in-time explained](just-in-time-explained.md).
 
@@ -34,26 +34,30 @@ For a full explanation about how JIT works and the underlying logic, see [Just-i
 
 ## Configure JIT VM access <a name="jit-configure"></a>
 
-You can configure a JIT policy on a VM using the Azure portal (in Security Center or Azure Virtual Machines) or programmatically.
+You can configure a JIT VM access policy with your own custom options for one or more VMs using Security Center or programmatically. Alternatively, you can enable a JIT VM access policy with default, hard-coded parameters from Azure Virtual machines.
 
 ### [Security Center](#tab/jit-config-asc)
 
-Configure the JIT policies on your VMs from Security Center.
-
-### Configure JIT access on a VM in Azure Security Center <a name="jit-asc"></a>
+### Configure JIT VM access in Azure Security Center <a name="jit-asc"></a>
 
 ![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-asc.gif)
+
+Configure the JIT policy on your VMs from Security Center.
 
 1. From Security Center's menu, select **Just-in-time VM access**.
 
     The **Just-in-time VM access** page opens with your VMs grouped into the following tabs:
 
-    - **Configured** - VMs that have been configured to support just-in-time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
-    - **Not configured** - VMs that can support just-in-time VM access but haven't been configured to. We recommend that you enable just-in-time VM access control for these VMs.
-    - **Unsupported** - Reasons that can cause a VM not to be recommended are:
-      - Missing NSG - The just-in-time solution requires an NSG to be in place.
-      - Classic VM - Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just-in-time solution. 
-      - Other - A VM is in this category if the just-in-time solution is turned off in the security policy of the subscription or the resource group, or if the VM is missing a public IP and doesn't have an NSG in place.
+    - **Configured** - VMs that have been already been configured to support just-in-time VM access. For each VM, the configured tab shows:
+        - the number of approved JIT requests in the last seven days
+        - the last access date and time
+        - the connection details configured in the JIT policy
+        - the last user
+    - **Not configured** - VMs that can support JIT but haven't got a policy configured. We recommend that you enable JIT for these VMs.
+    - **Unsupported** - VMs without a JIT policy and which don't support the feature. Your VM might be in this tab for the following reasons:
+      - Missing network security group (NSG) - JIT requires an NSG to be configured
+      - Classic VM - JIT supports VMs that are deployed through Azure Resource Manager, not 'classic deployment'. [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+      - Other - Your VM might be in this tab if the JIT solution is disabled in the security policy of the subscription or the resource group, or if the VM doesn't have a public IP and doesn't have an NSG in place.
 
 1. From the **Not configured** tab, mark the VMs to protect with JIT and select **Enable JIT on VMs**. 
 
@@ -63,21 +67,25 @@ Configure the JIT policies on your VMs from Security Center.
     - 5985 - WinRM 
     - 5986 - WinRM
 
-1. Optionally, you can add remove any of the default ports or add your own custom ports to the list:
+    To accept the default settings, select **Save**.
 
-      1. Select **Add**. The **Add port configuration** pane opens.
+1. To customize the policy:
 
-      1. For each port you choose to configure, both default and custom, you can customize the following settings:
-            - **Protocol**- The protocol that is allowed on this port when a request is approved
-            - **Allowed source IPs**- The IP ranges that are allowed on this port when a request is approved
-            - **Maximum request time**- The maximum time window during which a specific port can be opened
+    - Add custom ports with the **Add** button. 
+    - Modify one of the default ports, by selecting it from the list.
+
+    In the **Add port configuration** pane for each port you modify, both custom and default, you can edit the following settings:
+
+    - **Protocol**- The protocol that is allowed on this port when a request is approved
+    - **Allowed source IPs**- The IP ranges that are allowed on this port when a request is approved
+    - **Maximum request time**- The maximum time window during which a specific port can be opened
 
      1. Select **OK**.
 
 1. Select **Save**.
 
 > [!NOTE]
->When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new "deny all inbound traffic" rules take top priority in the Network Security Groups and Azure Firewall.
+> When JIT VM access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new "deny all inbound traffic" rules take top priority in the Network Security Groups and Azure Firewall.
 
 
 ### Edit a JIT VM access policy via Security Center
@@ -96,13 +104,13 @@ To edit an existing just-in-time policy of a VM:
 
 
 
-### [Virtual Machines](#tab/jit-config-avm)
+### [Azure Virtual Machines](#tab/jit-config-avm)
 
-### Configure JIT access on a VM via the Azure VM page
+### Configure JIT VM access from the Azure VM page
 
-You can configure your JIT policy from the Azure Virtual Machine pages of the Azure portal.
+You can configure your JIT policy from the Azure virtual machines pages of the Azure portal.
 
-![Configuring JIT VM access in Azure Virtual Machines](./media/security-center-just-in-time/jit-config-avm.gif)
+![Configuring JIT VM access in Azure Virtual machines](./media/security-center-just-in-time/jit-config-avm.gif)
 
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
 2. Select the virtual machine you want to limit to just-in-time access.
@@ -126,7 +134,7 @@ If a VM already has just-in-time enabled, when you go to its configuration page 
 
 ### [PowerShell](#tab/jit-config-powershell)
 
-### JIT VM access via PowerShell
+### Configure JIT VM access using PowerShell
 
 To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
@@ -171,11 +179,11 @@ The following PowerShell commands create this example policy:
         Use the -Name parameter to specify a VM. For example, to establish the JIT policy for two different VMs, VM1 and VM2, use: ```Set-AzJitNetworkAccessPolicy -Name VM1``` and ```Set-AzJitNetworkAccessPolicy -Name VM2```.
 
 
-### [Rest API](#tab/jit-config-api)
+### [REST API](#tab/jit-config-api)
 
 The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. 
 
-Learn more at [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -191,15 +199,15 @@ Learn more at [Jit Network Access Policies](https://docs.microsoft.com/rest/api/
 
 ## Request JIT VM access
 
-You can request access to a JIT-enabled VM from the Azure portal (in Security Center or Azure Virtual Machines) or programmatically.
+You can request access to a JIT-enabled VM from the Azure portal (in Security Center or Azure Virtual machines) or programmatically.
 
-### [Security Center](#tab/jit-request-asc)
+### [Azure Security Center](#tab/jit-request-asc)
+
+### Request JIT VM access from Azure Security Center 
+
+When a VM has a JIT VM access policy you have to request access. However you've established your JIT policy on your VM, you can request access from Security Center.
 
 ![Requesting JIT access from Security Center](./media/security-center-just-in-time/jit-request-asc.gif)
-
-### Request JIT access via Security Center
-
-To request access to a VM via Security Center:
 
 1. From the **Just-in-time VM access** page, select the **Configured** tab.
 
@@ -220,13 +228,13 @@ To request access to a VM via Security Center:
 
 
 
-### [Virtual Machines](#tab/jit-request-avm)
+### [Azure Virtual machines](#tab/jit-request-avm)
 
-### Request JIT access to a VM via an Azure VM's page
+### Request JIT VM access from the Azure Virtual machine's connect page
 
-In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM.
+When a VM has a JIT VM access policy you have to request access. However you've established your JIT policy on your VM, you can request access from Azure Virtual machines.
 
-- If you have a JIT policy configured on the VM, open the **Connect** page and select **Request access** to grant access in accordance with the JIT policy set for the VM. 
+In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM. If you have a JIT policy configured on the VM, open the **Connect** page and select **Request access** to grant access in accordance with the JIT policy set for the VM. 
 
   >![jit request](./media/security-center-just-in-time/jit-request-vm.png)
 
@@ -280,7 +288,7 @@ Learn more in the [PowerShell cmdlet documentation](https://docs.microsoft.com/p
 
 The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. 
 
-Learn more at [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 
@@ -293,19 +301,19 @@ Learn more at [Jit Network Access Policies](https://docs.microsoft.com/rest/api/
 
 ## Audit JIT access activity in Security Center
 
-You can gain insights into VM activities using log search. To view logs:
+You can gain insights into VM activities using log search. To view the logs:
 
 1. From **Just-in-time VM access**, select the **Configured** tab.
 
-1. Under **VMs**, select a VM to view information about by selecting the ellipsis at the end of its row, and select **Activity Log** from the menu. The **Activity log** opens.
+1. For the VM that you want to audit, open the ellipsis menu at the end of the row.
+ 
+1. Select **Activity Log** from the menu.
 
    ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
 
-   **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
+   The activity log provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
-To download the log information, select **Click here to download all the items as CSV**.
-
-Modify the filters and select **Apply** to create a search and log.
+1. To download the log information, select **Download as CSV**.
 
 
 
@@ -316,11 +324,7 @@ Modify the filters and select **Apply** to create a search and log.
 
 ## Next steps
 
-In this article, you learned how just-in-time VM access in Security Center helps you control access to your Azure virtual machines.
+In this article, you learned how to setup and use just-in-time VM access. To learn why JIT should be used, read the concept article explaining the threats it's defending against:
 
-To learn more about Security Center, see the following:
-
-- The Microsoft Learn module [Protect your servers and VMs from brute-force and malware attacks with Azure Security Center](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
-- [Setting security policies](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations](security-center-recommendations.md) - Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
+> [!div class="nextstepaction"]
+> [JIT explained](just-in-time-explained.md)

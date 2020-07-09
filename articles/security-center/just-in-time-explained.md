@@ -57,6 +57,8 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 
 
+
+
 ## Next steps
 
 This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. Advance to the how-to article to learn how to apply JIT to your machines:
