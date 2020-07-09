@@ -18,7 +18,7 @@ ms.custom: seodec18
 Azure Time Series Insights streaming data ingress limitations are described below.
 
 > [!TIP]
-> Read [Plan your Preview environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) for a comprehensive list of all Preview limits. **TODO** remove the word "Preview" here once that article title has been updated.
+> Read [Plan your Preview environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) for a comprehensive list of all Preview limits.
 
 ## Per environment limitations
 

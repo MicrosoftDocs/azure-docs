@@ -4,6 +4,8 @@ description: Steps for one to purchase software on AppSource | Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
 ---
 

@@ -4,6 +4,8 @@ description: Learn how to access analytic reports to monitor sales, evaluate per
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: rajap
+ms.author: rajap
 ms.date: 12/11/2019
 ---
 

@@ -4,8 +4,9 @@ description: Learn how to create a landing page in the Azure Marketplace and Mic
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/04/2018
-
 ---
 
 # Build your landing page

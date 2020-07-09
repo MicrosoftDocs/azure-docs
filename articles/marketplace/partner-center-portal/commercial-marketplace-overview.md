@@ -4,6 +4,8 @@ description: Learn more about the Commercial Marketplace portal in Partner Cente
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/19/2020
 ---
 

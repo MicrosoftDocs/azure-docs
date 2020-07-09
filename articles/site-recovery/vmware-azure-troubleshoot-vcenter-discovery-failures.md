@@ -76,4 +76,4 @@ For DRA proxy configuration:
 
 ## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
