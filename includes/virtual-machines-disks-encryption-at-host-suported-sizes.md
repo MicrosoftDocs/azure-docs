@@ -20,3 +20,5 @@ All the latest generation of VM sizes support encryption at host:
 |GPU     | NC, NV        | NCv2, NCv3, ND, NVv3, NVv4, NDv2 (preview)        |
 |High performance compute     | H        | HB, HC, HBv2        |
 |Previous generations     | F, A, D, L, G        | DS, GS, Fs, NVv2        |
+
+Upgrading the VM size will result in validation to check if the new VM size supports the EncryptionAtHost feature.

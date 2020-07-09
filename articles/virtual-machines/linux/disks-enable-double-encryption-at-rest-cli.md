@@ -10,9 +10,19 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
-# Enable double encryption at rest on your managed disks
+# Azure CLI - Enable double encryption at rest on your managed disks
 
-1. Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).
+Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
+
+## Supported regions
+
+[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+
+## Prerequisites
+
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account with [az login](/cli/azure/reference-index).
+
+## Getting started
 
 1. Create an instance of Azure Key Vault and encryption key.
 

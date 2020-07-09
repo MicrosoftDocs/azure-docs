@@ -58,10 +58,7 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ## Double encryption at rest
 
-High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation , or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys 
-
-Customers sets a new property Type for an instance of DiskEncryptionSet with value EncryptionAtRestWithPlatformAndCustomerKeys and then associate the DiskEncryptionSet with disks, snapshots and images for encrypting them at rest with double encryption.
-
+High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation, or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys. This new layer can be applied to disks, snapshots, and images, all of which will be encrypted at rest with double encryption.
 
 ## Server-side encryption versus Azure disk encryption
 
@@ -70,6 +67,7 @@ Customers sets a new property Type for an instance of DiskEncryptionSet with val
 ## Next steps
 
 - [Enable encryption at host](disks-enable-encryption-at-host.md)
+- [Azure CLI - Enable double encryption at rest - managed disks](disks-enable-double-encryption-at-rest-cli.md)
 - [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
 - [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](../windows/disks-enable-customer-managed-keys-powershell.md)

@@ -951,6 +951,8 @@
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
+      - name: Enable double encryption at rest
+        href: disks-enable-double-encryption-at-rest-cli.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
