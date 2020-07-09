@@ -37,7 +37,7 @@ With the Microsoft identity platform, you can write code once and reach any user
 
 ## Getting started
 
-Choose the [application scenario](authentication-flows-app-scenarios.md) you'd like to build. Each of these scenario paths starts with an overview and links to a quickstart to help you get up and running.
+Choose the [application scenario](authentication-flows-app-scenarios.md) you'd like to build. Each of these scenario paths starts with an overview and links to a quickstart to help you get up and running:
 
 - [Single-page app (SPA)](scenario-spa-overview.md)
 - [Web app that signs in users](scenario-web-app-sign-user-overview.md)
@@ -54,7 +54,7 @@ As you work with the Microsoft identity platform to integrate authentication and
 
 ## Learn authentication concepts
 
-Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles.
+Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles:
 
 - [Authentication basics](authentication-scenarios.md)
 - [Application and service principals](app-objects-and-service-principals.md)
@@ -66,23 +66,19 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 ## More identity and access management options
 
-Building a customer-facing application your users can sign in to using their social accounts like Facebook or Google?
+[Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts, like Facebook or Google.
 
-- [Azure AD B2C](../../active-directory-b2c/overview.md).
-
-If you'd like to invite external users into your tenant as "guest" users to which you can assign permissions (for authorization) while allowing them to use their existing credentials (for authentication)
-
-- [Azure AD B2B](../b2b/what-is-b2b.md).
+[Azure AD B2B](../b2b/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
 > [!TIP]
 > Looking for *Azure Active Directory developer platform (v1.0)* documentation?
 >
-> [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
+> [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md)
 
 ## Next steps
 
 If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
 
-Learn how to create your own dev tenant for use as you build your applications:
+Learn how to create your own tenant for use while building your applications:
 
-- [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
+[Quickstart: Set up an Azure AD tenant](quickstart-create-new-tenant.md)
