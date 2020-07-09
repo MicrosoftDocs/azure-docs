@@ -59,9 +59,9 @@ You can follow the steps in this first-principles example with no prior experien
 
 * [Apple Developer Portal](https://developer.apple.com)
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 * [Google Firebase Console](https://console.firebase.google.com/u/0/)
-* [Microsoft Azure](https://portal.azure.com) and [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
-* [React Native](https://reactnative.dev/docs/getting-started).
+* [React Native](https://reactnative.dev/docs/getting-started)
 
 The steps provided are for [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and [Visual Studio Code](https://code.visualstudio.com/download) but it's possible to follow along using [Visual Studio 2019](https://visualstudio.microsoft.com/vs).
 
