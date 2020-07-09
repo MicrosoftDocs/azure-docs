@@ -64,3 +64,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
         ```
+
+## Next steps
+
+[Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](../windows/disks-enable-customer-managed-keys-powershell.md)

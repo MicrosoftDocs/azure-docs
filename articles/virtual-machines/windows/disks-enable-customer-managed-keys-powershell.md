@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.custom: references_regions
 ---
 
 # Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks

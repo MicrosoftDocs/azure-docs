@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
 ---
 
 # Enable customer-managed keys with server-side encryption - managed disks - portal

@@ -62,3 +62,7 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     ```powershell  
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
     ```
+
+## Next steps
+
+[Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](disks-enable-customer-managed-keys-powershell.md)
