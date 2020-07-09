@@ -358,7 +358,7 @@ To try your policy, start creating a connection by using the now restricted conn
 
 The message includes this information:
 
-| | |
+| Description | Content |
 |---|---|
 | Reason for the failure | `"Resource 'instagram' was disallowed by policy."` |
 | Assignment name | `"Block Instagram connections"` |

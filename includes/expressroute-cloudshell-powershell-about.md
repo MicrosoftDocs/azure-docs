@@ -17,7 +17,7 @@ executed, press **Enter** to run code.
 
 There are a few ways to launch the Cloud Shell:
 
-|  |   |
+| Option | Link |
 |-----------------------------------------------|---|
 | Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
 | Open Cloud Shell in your browser. | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
