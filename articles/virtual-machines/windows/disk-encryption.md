@@ -35,10 +35,6 @@ By default, managed disks use platform-managed encryption keys. As of June 10, 2
 
 [!INCLUDE [virtual-machines-managed-disks-description-customer-managed-keys](../../../includes/virtual-machines-managed-disks-description-customer-managed-keys.md)]
 
-#### Supported regions
-
-[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
-
 #### Restrictions
 
 For now, customer-managed keys have the following restrictions:
