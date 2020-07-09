@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ---
 
 # Quickstart: Create and manage logic apps using the Azure CLI
@@ -25,11 +25,11 @@ This quickstart shows you how to create and manage logic apps by using the [Azur
 
 ### Prerequisite check
 
-To validate your environment:
+Validate your environment before you begin:
 
-* To sign in to the Azure portal and check that your subscription is active, run `az login`.
-* To check your version of the Azure CLI, in a terminal or command window, run `az --version`. For the latest version, see the [latest release notes](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest&tabs=azure-cli).
-  * If you don't have the latest version, update your version by following the [installation guide for your operating system or platform](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Sign in to the Azure portal and check that your subscription is active by running `az login`.
+* Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest&tabs=azure-cli).
+  * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Example - create resource group
 
@@ -43,7 +43,7 @@ az group create --name testResourceGroup --location westus
 
 The output shows the `provisioningState` as `Succeeded` when your resource group is successfully created:
 
-```json
+```output
 
 <...>
   "name": "testResourceGroup",
@@ -240,7 +240,7 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 
 The following error indicates that the Azure Logic Apps CLI extension isn't installed. Follow the steps in the prerequisites to [install the Logic Apps extension](#prerequisites) on your computer.
 
-```azurecli
+```output
 
 az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is from an extension, please make sure the corresponding extension is installed. To learn more about extensions, please visit https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview
 
@@ -248,7 +248,7 @@ az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is
 
 The following error might indicate that the file path for uploading your workflow definition is incorrect.
 
-```azurecli
+```output
 
 Expecting value: line 1 column 1 (char 0)
 
