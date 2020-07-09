@@ -58,6 +58,8 @@
           href: data-box-logs.md
         - name: For export orders
           href: data-box-export-logs.md
+      - name: View audit logs
+        href: data-box-audit-logs.md
       - name: Review requirements
         items:
         - name: For Data Box
