@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Azure PowerShell - Enable double encryption at rest on your managed disks

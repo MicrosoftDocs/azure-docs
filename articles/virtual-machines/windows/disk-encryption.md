@@ -77,7 +77,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable host-based encryption](disks-enable-encryption-at-host.md)
+- [Enable host-based encryption](disks-enable-host-based-encryption.md)
 - [Azure PowerShell - Enable double encryption at rest - managed disks](disks-enable-double-encryption-at-rest-powershell.md)
 - [Enable customer-managed keys for your managed disk - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys - managed disks](disks-enable-customer-managed-keys-portal.md)

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Azure CLI - Enable customer-managed keys with server-side encryption - managed disks
