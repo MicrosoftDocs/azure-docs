@@ -1,13 +1,12 @@
 ---
-title: Go-To-Market Services - your commercial marketplace benefits | Azure Marketplace
+title: Go-To-Market Services - your commercial marketplace benefits, Azure Marketplace
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: dsindona
-
+ms.topic: article
+ms.date: 07/06/2020
+author: keferna
+ms.author: keferna
 ---
 
 # Your commercial marketplace benefits
@@ -30,15 +29,15 @@ For Transact partners, as you grow your billed sales through the marketplace pla
 
 The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform.
 
-You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
+Detailed descriptions of all program benefits can be found in this [Marketplace Rewards program presentation](https://aka.ms/marketplacerewards).
 
-Your steps to get started are easy:
+Getting started is easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. Go to the Partner Center [dashboard](https://partner.microsoft.com/dashboard/directory), select **Sales and Marketing benefits** tab on Marketplace Rewards page to see your list of benefits.
-3. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
+2. Go to [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
+3. To activate sales and marketing benefit, assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
     1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
@@ -51,8 +50,8 @@ Your steps to get started are easy:
 1. You can use your technical benefit to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
 2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
->[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
+>[!NOTE]
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -70,8 +69,8 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 
 When you go live with your transactable offer in either Azure Marketplace or Microsoft AppSource, you are able to access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace. 
 
->[!Note]
->Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2020.
+>[!NOTE]
+>Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must have been completed by June 30, 2020.
 
 These benefits are designed to support you in marketing, sales, and technical activities, and thereby helping you to get more visitors, receive more leads, and convert more business.
 
@@ -101,12 +100,12 @@ All the activities described on this page are covered by the [marketplace publis
 
 Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
 
-* engage in illegal activity using their marketplace listing.
-* are de-listed from the commercial marketplace. 
-* use their offer to show marketing or other content that violates copyright or trademark laws.
-* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
+* Engage in illegal activity using their marketplace listing.
+* Are de-listed from the commercial marketplace. 
+* Use their offer to show marketing or other content that violates copyright or trademark laws.
+* Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
 
-### Offer Availability
+### Offer availability
 
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
@@ -119,5 +118,3 @@ If you created your offer in [Partner Center](https://partner.microsoft.com/dash
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.
-
----

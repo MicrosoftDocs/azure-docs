@@ -186,15 +186,14 @@ When a container service restarts or moves to another node in the cluster, the I
  
 3. For Windows clusters only, set up an Azure Network Security Group (NSG) rule that opens up port UDP/53 for the virtual network with the following values:
 
-   |Setting |Value | |
-   | --- | --- | --- |
-   |Priority |2000 | |
-   |Name |Custom_Dns  | |
-   |Source |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
-   |Service | DNS (UDP/53) | |
-   |Action | Allow  | |
-   | | |
+   |Setting |Value |
+   | --- | --- |
+   |Priority |2000 |
+   |Name |Custom_Dns  |
+   |Source |VirtualNetwork |
+   |Destination | VirtualNetwork |
+   |Service | DNS (UDP/53) |
+   |Action | Allow  |
 
 4. Specify the networking mode in the application manifest for each service: `<NetworkConfig NetworkType="Open">`. **Open** networking mode results in the service getting a dedicated IP address. If a mode isn't specified, the service defaults to **nat** mode. In the following manifest example, the `NodeContainerServicePackage1` and `NodeContainerServicePackage2` services can each listen on the same port (both services are listening on `Endpoint1`). When Open networking mode is specified, `PortBinding` configurations cannot be specified.
 

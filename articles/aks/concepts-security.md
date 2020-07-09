@@ -14,11 +14,16 @@ To protect your customer data as you run application workloads in Azure Kubernet
 
 This article introduces the core concepts that secure your applications in AKS:
 
-- [Master components security](#master-security)
-- [Node security](#node-security)
-- [Cluster upgrades](#cluster-upgrades)
-- [Network security](#network-security)
-- [Kubernetes Secrets](#kubernetes-secrets)
+- [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Master security](#master-security)
+  - [Node security](#node-security)
+    - [Compute isolation](#compute-isolation)
+  - [Cluster upgrades](#cluster-upgrades)
+    - [Cordon and drain](#cordon-and-drain)
+  - [Network security](#network-security)
+    - [Azure network security groups](#azure-network-security-groups)
+  - [Kubernetes Secrets](#kubernetes-secrets)
+  - [Next steps](#next-steps)
 
 ## Master security
 
@@ -40,7 +45,14 @@ Nodes are deployed into a private virtual network subnet, with no public IP addr
 
 To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, these are Premium disks backed by high-performance SSDs. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, these disks are also securely replicated within the Azure datacenter.
 
-Kubernetes environments, in AKS or elsewhere, currently aren't completely safe for hostile multi-tenant usage. Additional security features such as *Pod Security Policies* or more fine-grained role-based access controls (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters. For more information on ways to isolate workloads, see [Best practices for cluster isolation in AKS][cluster-isolation],
+Kubernetes environments, in AKS or elsewhere, currently aren't completely safe for hostile multi-tenant usage. Additional security features such as *Pod Security Policies* or more fine-grained role-based access controls (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters. For more information on ways to isolate workloads, see [Best practices for cluster isolation in AKS][cluster-isolation].
+
+### Compute isolation
+
+ Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](../virtual-machines/linux/isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
+
+ To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](../virtual-machines/linux/isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
+
 
 ## Cluster upgrades
 

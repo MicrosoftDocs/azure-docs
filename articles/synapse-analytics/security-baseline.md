@@ -26,9 +26,9 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: Secure your Azure SQL Server to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
+**Guidance**: Secure Azure SQL Database to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
 
-Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to the SQL database by using a network security group. Disable all Azure service traffic to the SQL database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
+Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to SQL Database by using a network security group. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
 
 * [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -122,7 +122,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 **Guidance**: Use virtual network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure SQL database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
+When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
 * [Understand service tags with service endpoints for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -134,7 +134,7 @@ When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
+**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL Database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
 
 Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
@@ -582,7 +582,7 @@ Additionally, you can set up a dynamic data masking (DDM) policy in the Azure po
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL databases in your Synapse SQL pool.
+**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL Database in your Synapse SQL pool.
 
 Authorization is controlled by your user account's database role memberships and object-level permissions. As a best practice, you should grant users the least privileges necessary.
 
@@ -640,9 +640,9 @@ Additionally, you can set up alerts for databases in your SQL Synapse pool using
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL databases.
+**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on SQL Database.
 
-* [How to run vulnerability assessments on your Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [How to run vulnerability assessments on Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [How to enable Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 

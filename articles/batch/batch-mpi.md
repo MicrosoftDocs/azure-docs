@@ -81,7 +81,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### Remote direct memory access (RDMA)
-When you choose an [RDMA-capable size](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
+When you choose an [RDMA-capable size](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
 
 Look for the sizes specified as "RDMA capable" in the following articles:
 
@@ -329,7 +329,7 @@ Sample complete, hit ENTER to exit...
 [msdn_env_var]: ./batch-compute-node-environment-variables.md
 [msmpi_msdn]: /message-passing-interface/microsoft-mpi
 [msmpi_sdk]: https://go.microsoft.com/FWLink/p/?LinkID=389556
-[msmpi_howto]: https://blogs.technet.com/b/windowshpc/archive/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program.aspx
+[msmpi_howto]: /archive/blogs/windowshpc/how-to-compile-and-run-a-simple-ms-mpi-program
 [openfoam]: http://www.openfoam.com/
 [visual_studio]: https://www.visualstudio.com/vs/community/
 

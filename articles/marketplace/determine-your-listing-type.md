@@ -1,12 +1,12 @@
 ---
 title: Determine your publishing option - Microsoft commercial marketplace
 description: This article describes eligibility criteria and requirements for publishing offers to Microsoft AppSource and Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 06/22/2020
 ---
 
 # Determine your publishing option
@@ -51,11 +51,11 @@ Before you select a publishing option, it's important to understand the storefro
 **Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
 
 >[!Note]
->Cross-listing (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.
+>"Cross-listing" (for SaaS Apps only): if your SaaS offer is intended for a technical audience (Azure Marketplace) and a business audience (AppSource), you can select a category and/or subcategory applicable to either Storefronts. Be mindful that the intent of "cross-listing" your offer should be based on a value proposition that extends to both audiences. Click [here](./gtm-offer-listing-best-practices.md#categories) to view categories applicable to each Storefront.
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](gtm-your-marketplace-benefits.md). Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|

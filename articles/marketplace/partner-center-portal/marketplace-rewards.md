@@ -2,13 +2,10 @@
 title: Marketplace rewards - your commercial marketplace benefits | Azure
 description: Marketplace Rewards is designed to support you at your specific stage of growth.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/18/2019
-ms.author: evansma
-
 ---
 
 # Marketplace Rewards
