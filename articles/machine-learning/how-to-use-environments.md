@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 07/10/2020
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -160,7 +160,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ### Private Python packages
 
-To use Python packages privately and securely without exposing them to the public internet, see the article [How to use private Python packages][how-to-use-private-python-packages.md].
+To use Python packages privately and securely without exposing them to the public internet, see the article [How to use private Python packages](how-to-use-private-python-packages.md).
 
 ## Manage environments
 
