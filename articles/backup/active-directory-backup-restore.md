@@ -68,7 +68,7 @@ If you need to restore multiple domains in one forest, we recommend a [forest re
 
 ### Restoring on-premises domain controllers
 
-To restore an on-premises domain controller, follow the directions in for restoring system state to Windows Server, using the guidance for [special considerations for system state recovery on a domain controller](backup-azure-restore-system-state.md##special-considerations-for-system-state-recovery-on-a-domain-controller).
+To restore an on-premises domain controller, follow the directions in for restoring system state to Windows Server, using the guidance for [special considerations for system state recovery on a domain controller](backup-azure-restore-system-state.md#special-considerations-for-system-state-recovery-on-a-domain-controller).
 
 ## Next steps
 
