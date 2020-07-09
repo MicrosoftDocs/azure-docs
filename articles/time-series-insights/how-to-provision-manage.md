@@ -42,7 +42,6 @@ You will learn how to:
 To create an Azure Time Series Insights Gen 2 environment:
 1. Create an Azure Time Series Insights resource under *Internet of Things* on [Azure portal](https://portal.azure.com/).
 
-
 1. Select **Gen2(L1)** as the **Tier**. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
 
    [![Create an Azure Time Series Insights instance.](media/v2-update-manage/create-and-manage-configuration.png)](media/v2-update-manage/create-and-manage-configuration.png#lightbox)
@@ -58,7 +57,6 @@ To create an Azure Time Series Insights Gen 2 environment:
 Alternatively, you can also bring your own storage (BYOS) through [ARM template](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) when you create a new Azure Time Series Gen2 environment. 
 
 1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create an Azure Time Series Insights Gen2 environment.
-
 
 1. **(Optional)** You can add an event source now. You can also wait until after the instance has been provisioned.
 
@@ -93,11 +91,11 @@ You can manage your Azure Time Series Insights Gen2 environment by using the Azu
 
 * The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data concept has been replaced by [Time Series Model (TSM)](./time-series-insights-update-how-to-tsm.md).
 
-[![Azure Time Series Insights Gen 2 environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
+[![Azure Time Series Insights Gen2 environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## Next steps
 
-- Learn more about Azure Time Series Insights generally available environments and Gen 2 environments by reading [Plan your environment](./time-series-insights-update-plan.md).
+- Learn more about Azure Time Series Insights generally available environments and Gen2 environments by reading [Plan your environment](./time-series-insights-update-plan.md).
 
 - Learn how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 

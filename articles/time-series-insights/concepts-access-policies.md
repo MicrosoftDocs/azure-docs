@@ -9,7 +9,7 @@ manager: dpalled
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
@@ -119,4 +119,4 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 ## Next steps
 * Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
 
-* View [your environment in the Azure Time Series Insights Gen 2 explorer](./time-series-insights-update-explorer.md).
+* View [your environment in the Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).

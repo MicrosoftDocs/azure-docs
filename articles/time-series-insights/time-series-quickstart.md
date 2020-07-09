@@ -13,7 +13,7 @@ ms.date: 06/30/2020
 # Customer intent: As a data analyst or developer, I want to quickly learn about the Azure Time Series Insights visualization Explorer.
 ---
 
-# Quickstart: Explore Azure Time Series Insights Gen 1
+# Quickstart: Explore Azure Time Series Insights Gen1
 
 This Azure Time Series Insights Explorer quickstart helps you get started with Azure Time Series Insights in a free demonstration environment. In this quickstart, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
 
@@ -28,7 +28,7 @@ This Azure Time Series Insights Explorer quickstart offers a guided tour of feat
 
 ## Prepare the demo environment
 
-1. In your browser, go to the [Gen 1 demo](https://insights.timeseries.azure.com/demo).
+1. In your browser, go to the [Gen1 demo](https://insights.timeseries.azure.com/demo).
 
 1. If prompted, sign in to the Azure Time Series Insights Explorer by using your Azure account credentials.
 

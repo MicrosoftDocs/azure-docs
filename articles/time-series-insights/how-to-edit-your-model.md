@@ -1,6 +1,6 @@
 ---
-title: 'Data modeling in Gen 2 environments - Azure Time Series Insights | Microsoft Docs'
-description: Learn about data modeling in Azure Time Series Insights Gen 2.
+title: 'Data modeling in Gen2 environments - Azure Time Series Insights | Microsoft Docs'
+description: Learn about data modeling in Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -12,13 +12,13 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Data modeling in Azure Time Series Insights Gen 2
+# Data modeling in Azure Time Series Insights Gen2
 
-This article describes how to work with Time Series Model in Azure Time Series Insights Gen 2. It details several common data scenarios.
+This article describes how to work with Time Series Model in Azure Time Series Insights Gen2. It details several common data scenarios.
 
 > [!TIP]
 > * Read more about the [Time Series Model](concepts-model-overview.md).
-> * Learn more about navigating the [Azure Time Series Insights Gen 2 explorer](./time-series-insights-update-explorer.md).
+> * Learn more about navigating the [Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).
 
 ## Instances
 
@@ -165,6 +165,6 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 - For more information about Time Series Model, read [Data modeling](./concepts-model-overview.md).
 
-- To learn more about the Gen 2, read [Visualize data in the Azure Time Series Insights Gen 2 explorer](./time-series-insights-update-explorer.md).
+- To learn more about the Gen2, read [Visualize data in the Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).
 
 - To learn about supported JSON shapes, read [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).

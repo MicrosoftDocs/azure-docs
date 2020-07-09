@@ -13,7 +13,7 @@ ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Create a new Azure Time Series Insights Gen 1 environment in the Azure portal
+# Create a new Azure Time Series Insights Gen1 environment in the Azure portal
 
 This article describes how to create a new Azure Time Series Insights environment using the Azure portal.
 

@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Gen 1 Explorer
+# Azure Time Series Insights Gen1 Explorer
 
-This article describes the features and options for the Azure Time Series Insights Gen 1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
+This article describes the features and options for the Azure Time Series Insights Gen1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. 
 
@@ -75,7 +75,7 @@ Within minutes of connecting your event source to your Azure Time Series Insight
 
       - **Example queries**
 
-         [![Example Gen 1 queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
+         [![Example Gen1 queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
 1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
@@ -103,7 +103,7 @@ Within minutes of connecting your event source to your Azure Time Series Insight
 
 1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.
 
-    [![Gen 1 explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Gen1 explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can review all of your raw events and export your events as JSON or CSV files. Azure Time Series Insights stores all raw data.
 
