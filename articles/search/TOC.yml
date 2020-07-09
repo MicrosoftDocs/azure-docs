@@ -394,26 +394,26 @@
       href: /rest/api/searchmanagement/index-2019-10-01-preview
   - name: .NET
     items:
-    - name: microsoft.azure.search
+    - name: Search API
       href: /dotnet/api/overview/azure/search?view=azure-dotnet
-    - name: microsoft.azure.management.search
-      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+    - name: Management API
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: Java
     items:
     - name: Management API
-      href: https://docs.microsoft.com/en-us/java/api/overview/azure/search/management?view=azure-java-stable
+      href: https://docs.microsoft.com//java/api/overview/azure/search/management?view=azure-java-stable
   - name: JavaScript
     items:
-    - name: Management API
-      href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-arm-search/1.3.0/index.html
     - name: Search API
       href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html
+    - name: Management API
+      href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-arm-search/1.3.0/index.html
   - name: Python
     items:
-    - name: Management API
-      href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-search/2.1.0/index.html
     - name: Search API
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/latest/azure.search.documents.html
+    - name: Management API
+      href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-search/2.1.0/index.html
   - name: OData language reference
     items:
     - name: Overview
