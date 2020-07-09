@@ -69,7 +69,8 @@ The following usernames are not allowed:
 There are varying password length requirements, depending on the tool you are using:
  - Portal - between 12 - 72 characters
  - PowerShell - between 8 - 123 characters
- - CLI - between 12 - 123
+ - CLI - between 12 - 123 characters
+ - Azure Resource Manager (ARM) templates - 12 - 72 characters and control characters are not allowed
  
 
 Passwords must also meet 3 out of the following 4 complexity requirements:
