@@ -1,7 +1,7 @@
 ---
 title: Create a storage account with infrastructure encryption enabled for double encryption of data
 titleSuffix: Azure Storage
-description: 
+description: Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice with two different encryption algorithms and two different keys.
 services: storage
 author: tamram
 
@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: references_regions
 ---
 
 # Create a storage account with infrastructure encryption enabled for double encryption of data
