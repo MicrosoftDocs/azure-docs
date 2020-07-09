@@ -204,9 +204,9 @@ If a user not in Group 1 attempts to access the app no “if’ condition is met
 
 The Conditional Access framework provides you with a great configuration flexibility. However, great flexibility also means you should carefully review each configuration policy before releasing it to avoid undesirable results.
 
-### Apply CA policies to every app
+### Apply CA policies to every app accessed by end users
 
-Access tokens are by default issued if a CA Policy condition does not trigger an access control. Ensure that every app has at least one conditional access policy applied
+Access tokens are by default issued if a CA Policy condition does not trigger an access control. Ensure that every app accessed by your users has at least one conditional access policy applied.
 
 > [!IMPORTANT]
 > Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure Administration Portal, and exclusions cannot be configured for important end-points such as Microsoft Graph.
