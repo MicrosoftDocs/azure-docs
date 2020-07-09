@@ -22,18 +22,32 @@ In the previous tutorial, you deployed and set up your Azure API for FHIR. Now t
 ![Client Application Registration](media/tutorial-web-app/reg-public-app.png)
 
 ## Client application settings
-Once your client application is registered, copy the Application (client) ID from the Overview Page. You will need this value later when accessing the client.
+Once your client application is registered, copy the Application (client) ID and the Tenant ID from the Overview Page. You will need these two values later when accessing the client.
 
-![Copy App ID](media/tutorial-web-app/app-id.png)
+![Copy App ID](media/tutorial-web-app/clientid-and-tenantid.png)
 
-Next, set the correct authentication options. Select **Authentication** from the left-hand side. Check the **Access Token** and **ID token** boxes. You can also setup the redirect URI in preparation for when you create your web application in the fourth part of this tutorial. To do this, add https://\<WEB-APP-NAME>.azurewebsites.net to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-write-web-app.md), you will need to come back and update this.
+### Connecting with web app
+If you have [written your web app](tutorial-web-app-write-web-app.md) to connect with the Azure API for FHIR, you also need to set the correct authentication options. 
 
-![App authentication settings](media/tutorial-web-app/app-authentication.png)
+Firstly, please select the **Authentication** from the left-hand side menu under Manage. 
+
+Secondly, you need to add a new platform configuration, as shown in the screenshot below, and choose "Web".
+
+Thirdly, setup the redirect URI in preparation for when you create your web application in the fourth part of this tutorial. To do this, add https://\<WEB-APP-NAME>.azurewebsites.net to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-write-web-app.md), you will need to come back and update this.
+
+Finally, check the **Access Token** and **ID token** boxes.
+
+![App authentication settings](media/tutorial-web-app/web-app-authentication.png)
+
+## Add API permissions
 
 Now that you have setup the correct authentication, set the API permissions. 
 1. Select **API permissions** and click **Add a permission**
 1. Under **APIs my organization uses**, search for Azure Healthcare APIs
 1. Select **user_impersonation** and click **add permissions**
+
+Steps above can be summarized into screenshot below.
+![Add API permissions](media/tutorial-web-app/api-permissions.png)
 
 ## Next Steps
 You now have a public client application. In the next tutorial, we will walk through testing and gaining access to this application through Postman.
