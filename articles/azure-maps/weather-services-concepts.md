@@ -49,9 +49,13 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
+:::image type="icon" source="./media/weather-services-concepts/sunny-i.png"
+border="true":::
+
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  No    | Sunny|
+| 1           |:::image type="icon" source="./media/weather-services-concepts/sunny-i.png"
+border="true":::                      | Yes |  No    | Sunny|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  No    | Mostly Sunny|
 | 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  No    | Partly Sunny|
 | 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  No    | Intermittent Clouds|
