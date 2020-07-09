@@ -247,7 +247,7 @@ No, this article discusses encryption of Backup data only. For Azure Site Recove
 
 ### I missed one of the steps in this article and went on to protect my data source. Can I still use CMK encryption?
 
-Not following the steps in the article and continuing to protect items may lead to the vault not being able to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-recovery-services-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
+Not following the steps in the article and continuing to protect items may lead to the vault not being able to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
 
 ### Does using CMK-encryption add to the cost of my backups?
 
