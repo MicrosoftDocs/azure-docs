@@ -38,13 +38,13 @@ Once you've enabled the feature, you'll need to set up an Azure Key Vault and a 
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-## Enable encryption at host for disks attached to VM and virtual machine scale set using rest API
+## Enable encryption at host for disks attached to VM and virtual machine scale sets
 
 You can enable the feature by setting a new property EncryptionAtHost under securityProfile of VMs/VMSSs using the API version *2020-06-01* and above.
 
 "securityProfile": { "encryptionAtHost": "true" }
 
-## Enable encryption at host for disks attached to a VM with customer-managed keys via using PowerShell
+## Enable encryption at host for disks attached to a VM with customer-managed keys
 
 Create a VM with managed disks using the resource URI of the DiskEncryptionSet created in the step #1 
 
@@ -58,7 +58,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 
 
-## Enable encryption at host for disks attached to a VM with platform-managed keys via using PowerShell
+## Enable encryption at host for disks attached to a VM with platform-managed keys
 
 Replace `<yourPassword>`, `<yourVMName>`, `<yourVMSize>`, `<yourResourceGroupName>`, and `<yourRegion>`, then run the script.
 
@@ -72,7 +72,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either:
 
-Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the EncryptionAtHostSupported capability is set to True
+Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the `EncryptionAtHostSupported` capability is set to **True**.
 
 ```json
     {
