@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault managed storage account - PowerShell version
+title: Fetch shared access signature tokens in code | Azure Key Vault
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
 ms.service: key-vault
