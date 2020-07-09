@@ -27,18 +27,44 @@ For a list of supported features in SQL Managed Instance, see [Azure SQL Managed
 For differences in syntax and behavior between Azure SQL Managed Instance and SQL Server, see [T-SQL differences from SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
-## Tech spec & resource limits
+## Technical specification, resource limits and other limitations
  
 **Where can I find technical characteristics and resource limits for SQL Managed Instance?**
 
 For available hardware generation characteristics, see [Technical differences in hardware generations](resource-limits.md#hardware-generation-characteristics).
 For available service tiers and their characteristics, see [Technical differences between service tiers](resource-limits.md#service-tier-characteristics).
 
+**What service tier am I eligible for?**
+
+Any customer is eligible for any service tier. However, if you want to exchange your existing licenses for discounted rates on Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), bear in mind that SQL Server Enterprise Edition customers with Software Assurance are eligible for the [General Purpose](../database/service-tier-general-purpose.md) or [Business Critical](../database/service-tier-business-critical.md) performance tiers and SQL Server Standard Edition customers with Software Assurance are eligible for the General Purpose performance tier only. For more details, see [Specific rights of the AHB](../azure-hybrid-benefit.md?tabs=azure-powershell#what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server).
+
+**What subscription types are supported for SQL Managed Instance?**
+
+For the list of supported subscription types, see [Supported subscription types](resource-limits.md#supported-subscription-types). 
+
+**Which Azure regions are supported?**
+
+Managed instances can be created in most of the Azure regions; see [Supported regions for SQL Managed Instance](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you need managed instance in a region that is currently not supported, [send a support request via the Azure portal](../database/quota-increase-request.md).
+
+**Are there any quota limitations for SQL Managed Instance deployments?**
+
+Managed instance has two default limits: limit on the number of subnets you can use and a limit on the number of vCores you can provision. Limits vary across the subscription types and regions. For the list of regional resource limitations by subscription type, see table from [Regional resource limitation](resource-limits.md#regional-resource-limitations). These are soft limits that can be increased on demand. If you need to provision more managed instances in your current regions, send a support request to increase the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
+
+**Can I increase the number of databases limit (100) on my managed instance on demand?**
+
+No, and currently there are no committed plans to increase the number of databases on SQL Managed Instance. 
+
+**Where can I migrate if I have more than 8TB of data?**
+You can consider migrating to other Azure flavors that suit your workload: [Azure SQL Database Hyperscale](../database/service-tier-hyperscale.md) or [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+
+**Where can I migrate if I have specific hardware requirements such as larger RAM to vCore ratio or more CPUs?**
+You can consider migrating to [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) or [Azure SQL Database](../database/sql-database-paas-overview.md) memory/cpu optimized.
+
 ## Known issues & bugs
 
 **Where can I find known issues and bugs?**
 
-For bugs and known issues, see [known issues](../database/doc-changes-updates-release-notes.md#known-issues).
+For bugs and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## New features
 
