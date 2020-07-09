@@ -58,6 +58,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 ```csharp
 using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
+using Azure.AI.FormRecognizer.Training;
 
 using System;
 using System.IO;
@@ -193,7 +194,7 @@ The returned value is a collection of **FormPage** objects: one for each page in
                 $" {table.ColumnCount} columns.");
             foreach (FormTableCell cell in table.Cells)
             {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})"
+                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
                     $" contains text: '{cell.Text}'.");
             }
         }

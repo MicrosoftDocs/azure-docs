@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu
-ms.date: 05/04/2020
+ms.date: 06/28/2020
 ms.custom: designer
 ---
 
@@ -74,7 +74,7 @@ In this section, you use the [Split Data module](algorithm-module-reference/spli
 
 Your pipeline should look like this:
 
-![Screenshot showing how to configure the pipeline and the Split Data module](media/how-to-designer-transform-data/split-data.png).
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
 
 
 ## Save the datasets

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ---
@@ -128,14 +128,6 @@ To work around this problem:
 
 > [!IMPORTANT]  
 > Rotating the storage key for the primary storage account attached to a cluster is not supported.
-
-### Poor performance
-
-If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center. And across the public internet, which can introduce latency.
-
-### Additional charges
-
-If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center. This charge is applied even if the traffic is destined for another Azure data center in a different region.
 
 ## Next steps
 
