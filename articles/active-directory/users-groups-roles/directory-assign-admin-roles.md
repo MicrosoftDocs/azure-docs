@@ -180,6 +180,7 @@ This role is available for assignment only as an additional local administrator 
 ### [Directory Readers](#directory-readers-permissions)
 
 Users in this role can read basic directory information. This role should be used for:
+
 * Granting a specific set of guest users read access instead of granting it to all guest users.
 * Granting a specific set of non-admin users access to Azure portal when "Restrict access to Azure AD portal to admins only" is set to "Yes".
 * Granting service principals access to directory where Directory.Read.All is not an option.
@@ -290,7 +291,7 @@ Users with this role have global permissions within Microsoft Intune Online, whe
 This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the organization. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator." It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
 
 ### [Kaizala Administrator](#kaizala-administrator-permissions)
 
@@ -309,6 +310,7 @@ Users in this role can monitor all notifications in the Message Center, includin
 Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 ### [Modern Commerce Administrator](#modern-commerce-administrator-permissions)
+
 Do not use. This role is automatically assigned from Commerce, and is not intended or supported for any other use. See details below.
 
 The Modern Commerce Administrator role gives certain users permission to access Microsoft 365 admin center and see the left navigation entries for **Home**, **Billing**, and **Support**. The content available in these areas is controlled by [commerce-specific roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) assigned to users to manage products that they bought for themselves or your organization. This might include tasks like paying bills, or for access to billing accounts and billing profiles. 
@@ -316,17 +318,17 @@ The Modern Commerce Administrator role gives certain users permission to access 
 Users with the Modern Commerce Administrator role typically have administrative permissions in other Microsoft purchasing systems, but do not have Global administrator or Billing administrator roles used to access the admin center. 
 
 **When is the Modern Commerce Administrator role assigned?**
+
 * **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce Administrator role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). For more information, see [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Purchases from Microsoft commercial marketplace**  – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce Administrator role is assigned if they don’t have the Global admin or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
-* **Proposals from Microsoft**  – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global admin or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce Administrator role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role. 
+* **Purchases from Microsoft commercial marketplace**  – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce Administrator role is assigned if they don’t have the Global admin or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Proposals from Microsoft**  – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global admin or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce Administrator role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
 * **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global or Billing admin, they get the Modern Commerce Administrator role so they can access the admin center.  
 
-If the Modern Commerce Administrator role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions. 
+If the Modern Commerce Administrator role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions.
 
 ### [Network Administrator](#network-administrator-permissions)
 
-Users in this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations. 
-
+Users in this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations
 ### [Office Apps Administrator](#office-apps-administrator-permissions)
 
 Users in this role can manage Office 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
