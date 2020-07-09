@@ -295,7 +295,7 @@ In this section you install the containerized agent for Azure Monitor for contai
     ```
 
 >[!NOTE]
->See the [Obtain workspace ID and key](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-linux#obtain-workspace-id-and-key) for a detailed description of how to get the logAnalyticsWorkspaceId and logAnalyticsWorkspaceKey.
+>See the [Obtain workspace ID and key](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux#obtain-workspace-id-and-key) for a detailed description of how to get the logAnalyticsWorkspaceId and logAnalyticsWorkspaceKey.
 
 ### Enable the Helm chart using the API Model
 
