@@ -35,35 +35,43 @@ With Microsoft identity platform, you can write code once and reach any user. Yo
 
 ## Getting started
 
-Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you—each scenario path has a quickstart and an overview to help get you up and running:
+Choose the [application scenario](authentication-flows-app-scenarios.md) you'd like to build. Each of these scenario paths starts with an overview and links to a quickstart to help you get up and running.
 
-- [Build a single-page app](scenario-spa-overview.md)
-- [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)
-- [Build a web app that calls web APIs](scenario-web-app-call-api-overview.md)
-- [Build a protected web API](scenario-protected-web-api-overview.md)
-- [Build a web API that calls web APIs](scenario-web-api-call-api-overview.md)
-- [Build a desktop app](scenario-desktop-overview.md)
-- [Build a daemon app](scenario-daemon-overview.md)
-- [Build a mobile app](scenario-mobile-overview.md)
+- [Single-page app (SPA)](scenario-spa-overview.md)
+- [Web app that signs in users](scenario-web-app-sign-user-overview.md)
+- [Web app that calls web APIs](scenario-web-app-call-api-overview.md)
+- [Protected web API](scenario-protected-web-api-overview.md)
+- [Web API that calls web APIs](scenario-web-api-call-api-overview.md)
+- [Desktop app](scenario-desktop-overview.md)
+- [Daemon app](scenario-daemon-overview.md)
+- [Mobile app](scenario-mobile-overview.md)
 
-The following image outlines common authentication app scenarios – use it as a reference when integrating the Microsoft identity platform with your app.
+As you work with the Microsoft identity platform to integrate authentication and authorization in your apps, you can refer to this image that outlines the most common app scenarios and their identity components. Select the image to view it full-size.
 
-[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[![Metro map showing several application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## Authentication concepts
+## Learn authentication concepts
 
-If you’d like to learn more about core authentication concepts, we recommend you start with these topics:
+If you’d like to learn how core authentication concepts apply to the Microsoft identity platform, here are several recommended topics to start with:
 
-- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 - [Authentication basics](authentication-scenarios.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
 - [Permissions and consent](v2-permissions-and-consent.md)
 - [ID tokens](id-tokens.md) and [access tokens](access-tokens.md)
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 
-## Other identity options
+## More identity and access management options
 
-If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](../../active-directory-b2c/overview.md).
+If you'd like to build a customer-facing application that users can sign in to using their social accounts like Facebook or Google, see [Azure AD B2C](../../active-directory-b2c/overview.md).
+
+If you'd like invite external users into your tenant as "guest" users to which you can assign permissions (for authorization) while allowing them to use their existing credentials (for authentication), see [Azure AD B2B](../b2b/what-is-b2b.md).
 
 > [!TIP]
 > Looking for **Azure Active Directory (Azure AD) developer platform (v1.0)** documentation? We've moved it here: [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
+
+## Next steps
+
+Most developers need an Azure Active Directory tenant they can use for development purposes, also known as a "dev tenant."
+
+For info on creating your own dev tenant, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
