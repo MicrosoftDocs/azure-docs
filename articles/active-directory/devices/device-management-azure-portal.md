@@ -106,9 +106,9 @@ You can use a device ID to verify the device ID details on the device or using P
   
 ### View or copy BitLocker keys
 
-You can view and copy the BitLocker keys to allow users to recover encrypted drives. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can find these keys when accessing details of a device by selecting **Show Recovery Key**.
+You can view and copy the BitLocker keys to help users to recover their encrypted drive. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can copy these keys when accessing details of the device.
 
-![View BitLocker keys](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
+![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
 To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
@@ -165,7 +165,6 @@ This option is a premium edition capability available through products such as A
 > **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
 
 - [Enterprise State Roaming](enterprise-state-roaming-overview.md)
-
 
 ## Audit logs
 
