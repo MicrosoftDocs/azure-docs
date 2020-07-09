@@ -40,8 +40,14 @@ By integrating Defender ATP with Azure Security Center, you can also benefit fro
 
 Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a Standard tier subscription and for Non-Azure VMs you need Standard tier in the workspace level only.
 
-> [!NOTE]
-> When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created. The Microsoft Defender ATP data is stored in the US for US users, and in the EU for European and UK users. If you need to move your data to another location, contact Microsoft Support to reset the tenant. Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
+Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
+
+## Data storage location
+
+When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created. Data collected by Microsoft Defender ATP is stored in the geo-location of the tenant as identified during provisioning. Customer data in pseudonymized form may also be stored in the central storage and processing systems in the United States. 
+
+Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
+
 
 ## Onboarding servers to Security Center 
 

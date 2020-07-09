@@ -241,9 +241,9 @@ The access to `download.microsoft.com` is required to download components used t
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks and each disk size is greater than 32 TB.
+This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks or each disk size is greater than 4 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only for file recovery and then shut it down when not required. Restoring on the original machine isn't recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.

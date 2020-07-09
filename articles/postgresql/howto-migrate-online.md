@@ -4,7 +4,7 @@ description: This article describes how to perform a minimal-downtime migration 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 
