@@ -87,13 +87,15 @@
     items:
     - name: Common
       items:
+      - name: CheckBox
+        href: microsoft-common-checkbox.md
       - name: DropDown
         href: microsoft-common-dropdown.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
       - name: InfoBox
         href: microsoft-common-infobox.md
-      - name: OptionsGroup
+      - name: OptionsGroup (radio button)
         href: microsoft-common-optionsgroup.md
       - name: PasswordBox
         href: microsoft-common-passwordbox.md
