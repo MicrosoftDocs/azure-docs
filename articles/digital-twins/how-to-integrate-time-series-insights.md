@@ -25,7 +25,7 @@ In this how-to, you will learn how to integrate Azure Digital Twins with Time Se
 
 You will be building a solution as picture below. You will be extending the Digital Twins end-to-end solution with an Event Hub and Time Series Insights instance. 
 
-:::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-time-series-insights/maps-tsi-diagram.png":::
+:::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png":::
 
 ## Prerequisites
 
