@@ -385,7 +385,7 @@ Each step type supports several properties appropriate for its type. The followi
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
-| `volumeMount` | string |	No	| The volume name to mount. Must exactly match name from volumes property.	| None |
+| `volumeMount` | string |	No	| The volume name to mount. Must exactly match name from `volumes` property.	| None |
 | `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `/workspace` |
 
 ### Examples: Task step properties
@@ -448,7 +448,7 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 #### Example: volumes
 
-The `volumes` property allows volumes and their secret contents to be specified for the task. Inside each step, an optional `volumeMounts` property lists all the volumes and corresponding container paths to mount into the container at that step. Secrets are mounted as files at each container's path.
+The `volumes` property allows volumes and their secret contents to be specified for the task. Inside each step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's path.
 
 Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
 
