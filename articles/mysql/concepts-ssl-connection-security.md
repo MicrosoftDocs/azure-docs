@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 07/03/2020
+ms.date: 07/07/2020
 ---
 
 # SSL/TLS connectivity in Azure Database for MySQL
