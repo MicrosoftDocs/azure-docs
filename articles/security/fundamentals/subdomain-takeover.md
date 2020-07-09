@@ -153,7 +153,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
         endpoint = properties.defaultHostName"
         ```
         
-        **Example 2** - This example query combines multiple resource types and returns the resources from Azure App Service **and** Azure App Service - Slots:
+        **Example 2** - This query combines multiple resource types to return the resources from Azure App Service **and** Azure App Service - Slots:
 
         ```powershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
