@@ -21,7 +21,7 @@ Azure Machine Learning emits the following event types:
 | Microsoft.MachineLearningServices.ModelDeployed | Raised when Model(s) have been successfully deployed to an Endpoint. |
 | Microsoft.MachineLearningServices.RunCompleted | Raised when a Run has been successfully completed. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Raised when a Dataset drift monitor detects drift. |
-| Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes to 'failed'. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes. |
 
 ### The contents of an event response
 
