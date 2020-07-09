@@ -1,22 +1,22 @@
 ---
-title: Connect IoT Plug and Play Preview sample Node.js device code to Azure IoT Hub | Microsoft Docs
+title: Connect IoT Plug and Play Preview sample Node.js device with components and root interface to Azure IoT Hub | Microsoft Docs
 description: Use Node.js to build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/26/2019
+author: olkar
+ms.author: olkar
+ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+# As a device developer, I want to see a working IoT Plug and Play device sample with components and root interface connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device with components reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (Node.js)
+# Quickstart: Connect a sample IoT Plug and Play Preview device application with components and root interface to IoT Hub (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +56,7 @@ This operation may take several minutes to complete.
 
 ## Install required libraries
 
-You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK to build the included sample code. The application you build simulates a Plug and Play device with components and root interface that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-sdk-node/device/samples/pnp** folder. Then run the following command to install the required libraries:
 
@@ -85,7 +85,7 @@ The `azure-iot-sdk-node\device\samples\pnp` folder contains the sample code for 
 
 There are two samples, one that is simpler, self-contained, and uses the PnP specification without Components, based on the Thermostat DTMI. The other implements a Temperature controller that is more complex, with multiple components and a root interface, based on the Temperature Controller DTMI.
 
-The Thermostat sample is **simple_thermostat.js**. This sample code implements a device that is IoT Plug and Play compatible using the Azure IoT Python Device Client Library.
+The complex Temperature Controller sample is **pnpTemperatureController.js**. This sample code implements a device with components and root interface that is IoT Plug and Play compatible using the Azure IoT Python Device Client Library.
 
 ## Advanced Multiple Components, Root Interface Scenario (Temperature Controller Sample)
 
@@ -93,40 +93,40 @@ Use the IoT Hub you created previously and create a device. Use the device conne
 
 Open the **pnpTemperatureController.js** file in an editor of your choice. Notice how it:
 
-1. Defines the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the corresponding DTDL file.
+1. Defines the `modelId` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the corresponding (Temperature Controller DTDL model)[https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json].
 
-1. This sample device utilizes 3 components which implements two interfaces based off the (Temperature Controller model)[https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json]. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. For the current sample, these two interfaces represent:
+1. Utilizes 3 components which implements 2 interfaces based off the above DTDL. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. For the current sample, these two interfaces represent:
     - Thermostat.
     - Device information developed by Azure.
 
-1. Defines some component names given to the components in the DTDL json file. There are 2 thermostats in the DTDL and 1 device information component.
+3. Defines some component names given to the components in the DTDL json file. There are 2 thermostats in the DTDL and 1 device information component.
 
-2. Some command names are defined as constants. These are the commands to which the device responds.
+4. Defines some command names constants. These are the commands to which the device responds.
 
-3. A constant called `serial_number` is also defined at top. A `serial_number` can not change for any device.
+5. Defines a constant called `serialNumber`.A `serialNumber` can not change for any device.
 
-4. Defines a handler that gets executed when the device receives PnP command requests.
+6. Defines a handler that gets executed when the device receives PnP command requests.
 
-5. There are functions defined that sends command response. These define what the device responds to the service with once it receives PnP command requests.
+7. Defines functions defined that sends command response. These are what the device responds with to the service with once it receives PnP command requests.
 
-6. There are some helper functions that log command requests.
+8. Defines some helper functions that log command requests.
 
-7. An helper function that creates the PnP readable properties and a function to update the PnP properties as well.
+9. Defines a helper function that creates the PnP readable properties and a defines function to update the PnP properties as well.
 
-8. Defines another listener that listens for property updates.
+10. Defines another listener that listens for property updates.
 
-9. Defines an input keyboard listener function to let you quit the application.
+11. Defines an input keyboard listener function that lets you quit the application.
 
-10. Defines a function to send telemetry from this device. Both the thermostats as well as the root component are going to send temperature as telemetry,
-so this function takes in a component name as well to differentiate from which component the telemetry is being sent.
+12. Defines a function to send telemetry from this device. Both the thermostats as well as the root component are going to send telemetry,
+so this function takes in a component name as well to differentiate from which component(or root) the telemetry is being sent.
 
-11. Has a **main** function. The **main** function:
+13. Has a **main** function. The **main** function:
 
     1. Uses the device SDK to create a device client and connect to your IoT hub. At this point the device also supplies the `modelId` so that the Hub can identify the device as a PnP device.
 
     2. Starts listening for command requests using the **onDeviceMethod** function. The function sets up a 'listener' to listen for PnP command requests coming from the service.
         - The device DTDL defines two PnP commands that our Temperature Controller responds to: `reboot`, and `getMaxMinReport`.
-        - The command_handler function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
+        - The `commandHandler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
 
     3. Starts sending telemetry by using `setInterval` and **sendTelemetry**.
 
