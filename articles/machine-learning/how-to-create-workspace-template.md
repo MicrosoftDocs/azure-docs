@@ -29,651 +29,12 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Resource Manager template
+## Workspace Azure Resource Manager template
 
-The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
-
-<!-- [!code-json[create-azure-machine-learning-service-workspace](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-machine-learning-create/azuredeploy.json)] -->
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the Azure Machine Learning workspace."
-      }
-    },
-    "location": {
-      "type": "string",
-      "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
-        "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
-        "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
-      ],
-      "metadata": {
-        "description": "Specifies the location for all resources."
-      }
-    },
-    "sku": {
-      "type": "string",
-      "defaultValue": "basic",
-      "allowedValues": [
-        "basic",
-        "enterprise"
-      ],
-      "metadata": {
-        "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
-      }
-    },
-    "storageAccountOption": {
-      "type": "string",
-      "defaultValue": "new",
-      "allowedValues": [
-        "new",
-        "existing"
-      ],
-      "metadata": {
-        "description": "Determines whether or not a new storage should be provisioned."
-      }
-    },
-    "storageAccountName": {
-      "type": "string",
-      "defaultValue": "[concat('sa',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "Name of the storage account."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Standard_ZRS",
-        "Premium_LRS",
-        "Premium_ZRS",
-        "Standard_GZRS",
-        "Standard_RAGZRS"
-      ]
-    },
-    "storageAccountBehindVNet": {
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "true",
-        "false"
-      ],
-      "metadata": {
-        "description": "Determines whether or not to put the storage account behind VNet"
-      }
-    },
-    "storageAccountResourceGroupName": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().name]"
-    },
-    "keyVaultOption": {
-      "type": "string",
-      "defaultValue": "new",
-      "allowedValues": [
-        "new",
-        "existing"
-      ],
-      "metadata": {
-        "description": "Determines whether or not a new key vault should be provisioned."
-      }
-    },
-    "keyVaultName": {
-      "type": "string",
-      "defaultValue": "[concat('kv',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "Name of the key vault."
-      }
-    },
-    "keyVaultBehindVNet": {
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "true",
-        "false"
-      ],
-      "metadata": {
-        "description": "Determines whether or not to put the storage account behind VNet"
-      }
-    },
-    "keyVaultResourceGroupName": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().name]"
-    },
-    "applicationInsightsOption": {
-      "type": "string",
-      "defaultValue": "new",
-      "allowedValues": [
-        "new",
-        "existing"
-      ],
-      "metadata": {
-        "description": "Determines whether or not new ApplicationInsights should be provisioned."
-      }
-    },
-    "applicationInsightsName": {
-      "type": "string",
-      "defaultValue": "[concat('ai',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "Name of ApplicationInsights."
-      }
-    },
-    "applicationInsightsResourceGroupName": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().name]"
-    },
-    "containerRegistryOption": {
-      "type": "string",
-      "defaultValue": "none",
-      "allowedValues": [
-        "new",
-        "existing",
-        "none"
-      ],
-      "metadata": {
-        "description": "Determines whether or not a new container registry should be provisioned."
-      }
-    },
-    "containerRegistryName": {
-      "type": "string",
-      "defaultValue": "[concat('cr',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "The container registry bind to the workspace."
-      }
-    },
-    "containerRegistrySku": {
-      "type": "string",
-      "defaultValue": "Standard",
-      "allowedValues": [
-        "Basic",
-        "Standard",
-        "Premium"
-      ]
-    },
-    "containerRegistryResourceGroupName": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().name]"
-    },
-    "containerRegistryBehindVNet": {
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "true",
-        "false"
-      ],
-      "metadata": {
-        "description": "Determines whether or not to put container registry behind VNet."
-      }
-    },
-    "vnetOption": {
-      "type": "string",
-      "defaultValue": "[if(equals(parameters('privateEndpointType'), 'none'), 'none', 'new')]",
-      "allowedValues": [
-        "new",
-        "existing",
-        "none"
-      ],
-      "metadata": {
-        "description": "Determines whether or not a new VNet should be provisioned."
-      }
-    },
-    "vnetName": {
-      "type": "string",
-      "defaultValue": "[concat('vn',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "Name of the VNet"
-      }
-    },
-    "vnetResourceGroupName": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().name]"
-    },
-    "addressPrefixes": {
-      "type": "array",
-      "defaultValue": [
-        "10.0.0.0/16"
-      ],
-      "metadata": {
-        "description": "Address prefix of the virtual network"
-      }
-    },
-    "subnetOption": {
-      "type": "string",
-      "defaultValue": "[if(or(not(equals(parameters('privateEndpointType'), 'none')), equals(parameters('vnetOption'), 'new')), 'new', 'none')]",
-      "allowedValues": [
-        "new",
-        "existing",
-        "none"
-      ],
-      "metadata": {
-        "description": "Determines whether or not a new subnet should be provisioned."
-      }
-    },
-    "subnetName": {
-      "type": "string",
-      "defaultValue": "[concat('sn',uniqueString(resourceGroup().id, parameters('workspaceName')))]",
-      "metadata": {
-        "description": "Name of the subnet"
-      }
-    },
-    "subnetPrefix": {
-      "type": "string",
-      "defaultValue": "10.0.0.0/24",
-      "metadata": {
-        "description": "Subnet prefix of the virtual network"
-      }
-    },
-    "adbWorkspace": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Azure Databrick workspace to be linked to the workspace"
-      }
-    },
-    "confidential_data":{
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "false",
-        "true"
-      ],
-      "metadata": {
-        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
-      }
-    },
-    "encryption_status":{
-      "type": "string",
-      "defaultValue": "Disabled",
-      "allowedValues": [
-        "Enabled",
-        "Disabled"
-      ],
-      "metadata": {
-        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with customer managed key."
-      }
-    },
-    "cmk_keyvault":{
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Specifies the customer managed keyVault arm id."
-      }
-    },
-    "resource_cmk_uri":{
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Specifies if the customer managed keyvault key uri."
-      }
-    },
-    "privateEndpointType": {
-      "type": "string",
-      "defaultValue": "none",
-      "allowedValues": [
-        "AutoApproval",
-        "ManualApproval",
-        "none"
-      ]
-    }
-  },
-  "variables": {
-    "tenantId": "[subscription().tenantId]",
-    "storageAccount": "[resourceId(parameters('storageAccountResourceGroupName'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-    "keyVault": "[resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
-    "containerRegistry": "[resourceId(parameters('containerRegistryResourceGroupName'), 'Microsoft.ContainerRegistry/registries', parameters('containerRegistryName'))]",
-    "applicationInsights": "[resourceId(parameters('applicationInsightsResourceGroupName'), 'Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-    "vnet": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
-    "subnet": "[resourceId(parameters('vnetResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
-    "privateEdnpoint": "[resourceId('Microsoft.Network/privateEndpoints', concat(parameters('workspaceName'), '-PrivateEndpoint'))]",
-    "privateDnsGuid": "[guid(resourceGroup().id, deployment().name)]",
-    "locationsPEAvailable": [
-      "southcentralus",
-      "eastus",
-      "westus2"
-    ],
-    "enablePE": "[or(equals(parameters('privateEndpointType'), 'none'), contains(variables('locationsPEAvailable'), parameters('location')))]",
-    "networkRuleSetBehindVNet": {
-      "defaultAction": "deny",
-      "virtualNetworkRules": [
-        {
-          "action": "Allow",
-          "id": "[variables('subnet')]"
-        }
-      ]
-    },
-    "subnetPolicyForPE": {
-      "privateEndpointNetworkPolicies": "Disabled",
-      "privateLinkServiceNetworkPolicies": "Enabled"
-    },
-    "privateEndpointSettings": {
-      "name": "[concat(parameters('workspaceName'), '-PrivateEndpoint')]",
-      "properties": {
-        "privateLinkServiceId": "[resourceId('Microsoft.MachineLearningServices/workspaces', parameters('workspaceName'))]",
-        "groupIds": [
-          "amlworkspace"
-        ]
-      }
-    },
-    "defaultPEConnections": "[array(variables('privateEndpointSettings'))]"
-  },
-  "resources": [    
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('vnetOption'), 'new'))]",
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2019-09-01",
-      "name": "[parameters('vnetName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": "[parameters('addressPrefixes')]"
-        },
-        "enableDdosProtection": false,
-        "enableVmProtection": false
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('subnetOption'), 'new'))]",
-      "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2019-09-01",
-      "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
-      "dependsOn": [
-        "[variables('vnet')]"
-      ],
-      "properties": {
-        "addressPrefix": "[parameters('subnetPrefix')]",
-        "privateEndpointNetworkPolicies": "Disabled",
-        "privateLinkServiceNetworkPolicies": "Enabled",
-        "serviceEndpoints": [
-          {
-            "service": "Microsoft.Storage"
-          },
-          {
-            "service": "Microsoft.KeyVault"
-          },
-          {
-            "service": "Microsoft.ContainerRegistry"
-          }
-        ]
-      }
-    },
-    {
-      "condition": "[and(equals(parameters('subnetOption'), 'existing'), not(equals(parameters('privateEndpointType'), 'none')))]",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "UpdateSubnetPolicy",
-      "dependsOn": [
-        "[variables('subnet')]"
-      ],
-      "resourceGroup": "[parameters('vnetResourceGroupName')]",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Network/virtualNetworks/subnets",
-              "apiVersion": "2019-09-01",
-              "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
-              "properties": "[if(and(equals(parameters('subnetOption'), 'existing'), not(equals(parameters('privateEndpointType'), 'none'))), union(reference(variables('subnet'), '2019-09-01'), variables('subnetPolicyForPE')), json('null'))]"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('storageAccountOption'), 'new'))]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[parameters('storageAccountName')]",
-      "dependsOn": [
-          "[variables('subnet')]"
-      ],
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "encryption": {
-          "services": {
-            "blob": {
-              "enabled": true
-              },
-            "file": {
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "supportsHttpsTrafficOnly": true,
-        "networkAcls": "[if(equals(parameters('storageAccountBehindVNet'), 'true'), variables('networkRuleSetBehindVNet'), json('null'))]"
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('keyVaultOption'), 'new'))]",
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
-      "dependsOn": [
-          "[variables('subnet')]"
-      ],
-      "name": "[parameters('keyVaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "tenantId": "[variables('tenantId')]",
-        "sku": {
-            "name": "standard",
-            "family": "A"
-        },
-        "accessPolicies": [],
-        "networkAcls": "[if(equals(parameters('keyVaultBehindVNet'), 'true'), variables('networkRuleSetBehindVNet'), json('null'))]"
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('containerRegistryOption'), 'new'))]",
-      "type": "Microsoft.ContainerRegistry/registries",
-      "apiVersion": "2019-05-01",
-      "name": "[parameters('containerRegistryName')]",
-      "dependsOn": [
-          "[variables('subnet')]"
-      ],
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('containerRegistrySku')]"
-      },
-      "properties": {
-        "adminUserEnabled": true,
-        "networkRuleSet": "[if(equals(parameters('containerRegistryBehindVNet'), 'true'), variables('networkRuleSetBehindVNet'), json('null'))]"
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('applicationInsightsOption'), 'new'))]",
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2018-05-01-preview",
-      "name": "[parameters('applicationInsightsName')]",
-      "location": "[if(or(equals(parameters('location'),'eastus2'), equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-      "kind": "web",
-      "properties": {
-          "Application_Type": "web"
-      }
-    },
-    {
-      "condition": "[variables('enablePE')]",
-      "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2020-04-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[variables('storageAccount')]",
-        "[variables('keyVault')]",
-        "[variables('applicationInsights')]",
-        "[variables('containerRegistry')]"
-      ],
-      "identity": {
-        "type": "systemAssigned"
-      },
-      "sku": {
-        "tier": "[parameters('sku')]",
-        "name": "[parameters('sku')]"
-      },
-      "properties": {
-        "friendlyName": "[parameters('workspaceName')]",
-        "storageAccount": "[variables('storageAccount')]",
-        "keyVault": "[variables('keyVault')]",
-        "applicationInsights": "[variables('applicationInsights')]",
-        "containerRegistry": "[if(not(equals(parameters('containerRegistryOption'), 'none')), variables('containerRegistry'), json('null'))]",
-        "adbWorkspace": "[if(empty(parameters('adbWorkspace')), json('null'), parameters('adbWorkspace'))]",
-        "encryption": {
-          "status": "[parameters('encryption_status')]",
-          "keyVaultProperties": {
-            "keyVaultArmId": "[parameters('cmk_keyvault')]",
-            "keyIdentifier": "[parameters('resource_cmk_uri')]"
-          }
-        },
-        "hbiWorkspace": "[parameters('confidential_data')]"
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), not(equals(parameters('privateEndpointType'), 'none')))]",
-      "apiVersion": "2020-04-01",
-      "name": "[concat(parameters('workspaceName'), '-PrivateEndpoint')]",
-      "type": "Microsoft.Network/privateEndpoints",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.MachineLearningServices/workspaces', parameters('workspaceName'))]",
-        "[variables('subnet')]"
-      ],
-      "properties": {
-        "privateLinkServiceConnections":"[if(equals(parameters('privateEndpointType'), 'AutoApproval'), variables('defaultPEConnections'), json('null'))]",
-        "manualPrivateLinkServiceConnections": "[if(equals(parameters('privateEndpointType'), 'ManualApproval'), variables('defaultPEConnections'), json('null'))]",
-        "subnet": {
-          "id": "[variables('subnet')]"
-        }
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('privateEndpointType'), 'AutoApproval'))]",
-      "type": "Microsoft.Network/privateDnsZones",
-      "apiVersion": "2018-09-01",
-      "name": "privatelink.api.azureml.ms",
-      "dependsOn": [
-        "[variables('privateEdnpoint')]"
-      ],
-      "location": "global",
-      "properties":{}
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('privateEndpointType'), 'AutoApproval'))]",
-      "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
-      "apiVersion": "2018-09-01",
-      "name": "[concat('privatelink.api.azureml.ms', '/', uniqueString(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))))]",
-      "location": "global",
-      "dependsOn": [
-        "[variables('privateEdnpoint')]",
-        "privatelink.api.azureml.ms"
-      ],
-      "properties": {
-        "virtualNetwork": {
-          "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-        },
-        "registrationEnabled": false
-      }
-    },
-    {
-      "condition": "[and(variables('enablePE'), equals(parameters('privateEndpointType'), 'AutoApproval'))]",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "[concat('EndpointDnsRecords-', variables('privateDnsGuid'))]",
-      "dependsOn": [
-        "privatelink.api.azureml.ms"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "expressionEvaluationOptions": {
-          "scope": "inner"
-        },
-        "parameters": {
-          "privateEndpointIPConfig": {
-            "value": "[if(equals(parameters('privateEndpointType'), 'AutoApproval'), reference(variables('privateEdnpoint'), '2020-04-01').customDnsConfigs, json('null'))]"
-          }
-        },
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "privateEndpointIPConfig": {
-              "type": "array"
-            }
-          },
-          "variables": {
-            "copy": [
-              {
-                "name": "aRecordName",
-                "count": "[length(parameters('privateEndpointIPConfig'))]",
-                "input": "[substring(parameters('privateEndpointIPConfig')[copyIndex('aRecordName')].fqdn, 0, sub(length(parameters('privateEndpointIPConfig')[copyIndex('aRecordName')].fqdn), 15))]"
-              }
-            ]
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Network/privateDnsZones/A",
-              "name": "[concat('privatelink.api.azureml.ms','/', variables('aRecordName')[copyIndex('fqdnCopy')])]",
-              "apiVersion": "2018-09-01",
-              "properties": {
-                "aRecords": [
-                  {
-                    "ipv4Address": "[parameters('privateEndpointIPConfig')[copyIndex('fqdnCopy')].ipAddresses[0]]"
-                  }
-                ],
-                "ttl": 3600 
-              },
-              "copy": {
-                "name": "fqdnCopy",
-                "count": "[length(parameters('privateEndpointIPConfig'))]"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "PrivateEndPointNotSupported": {
-      "condition": "[and(not(variables('enablePE')), not(equals(parameters('privateEndpointType'), 'none')))]",
-      "type": "string",
-      "value": "Private endpoint is not supported in the specified location."
-    }
-  }
-}
-```
+The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quick start templates GitHub repository.
 
 This template creates the following Azure services:
 
-* Azure Resource Group
 * Azure Storage Account
 * Azure Key Vault
 * Azure Application Insights
@@ -682,13 +43,13 @@ This template creates the following Azure services:
 
 The resource group is the container that holds the services. The various services are required by the Azure Machine Learning workspace.
 
-The example template has two parameters:
+The example template has two **required** parameters:
 
-* The **location** where the resource group and services will be created.
+* The **location** where the resources will be created.
 
     The template will use the location you select for most resources. The exception is the Application Insights service, which is not available in all of the locations that the other services are. If you select a location where it is not available, the service will be created in the South Central US location.
 
-* The **workspace name**, which is the friendly name of the Azure Machine Learning workspace.
+* The **workspaceName**, which is the friendly name of the Azure Machine Learning workspace.
 
     > [!NOTE]
     > The workspace name is case-insensitive.
@@ -708,45 +69,82 @@ For more information on templates, see the following articles:
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-Create your resource group:
+## Deploy template
 
-# [Azure CLI](#tab/CLI)
+To deploy your template you have to create a resource group.
+
+See the [Azure portal](#use-the-azure-portal) section if you prefer using the graphical user interface.
+
+# [Azure CLI](#tab/azcli)
 
 ```azurecli
-az group create --name examplegroup --location eastus
+az group create --name "examplegroup" --location "eastus"
 ```
 
-# [Azure PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name examplegroup -Location eastus
+New-AzResourceGroup -Name "examplegroup" -Location "eastus"
 ```
 
 ---
 
-Then, deploy the template
+Once your resource group is successfully created, deploy the template with the following command:
 
-# [Azure CLI](#tab/CLI)
+# [Azure CLI](#tab/azcli)
 
 ```azurecli
 az deployment group create \
-    --name exampledeployment \
-    --resource-group examplegroup \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
-    --parameters workspaceName=exampleworkspace location=eastus
+    --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
-# [Azure PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
-New-azresourcegroupdeployment -name exampledeployment `
-  -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus"
 ```
 
 ---
 
-### Advanced template
+By default, all of the resources created as part of the template are new. However, you also have the option of using existing resources. By providing additional parameters to the template, you can use existing resources. For example, if you want to use an existing storage account set the **storageAccountOption** value to **existing** and provide the name of your storage account in the **storageAccountName** parameter.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+	    storageAccountOption="existing" \
+	    storageAccountName="existingstorageaccountname"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -storageAccountOption "existing" `
+	-storageAccountName "existingstorageaccountname"
+```
+
+---
+
+## Deploy an encrypted workspace
 
 The following example template demonstrates how to create a workspace with three settings:
 
@@ -758,6 +156,7 @@ For more information, see [Encryption at rest](concept-enterprise-security.md#en
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
+>
 > * The __Azure Machine Learning__ application must be a __contributor__ for your Azure subscription.
 > * You must have an existing Azure Key Vault that contains an encryption key.
 > * You must have an access policy in the Azure Key Vault that grants __get__, __wrap__, and __unwrap__ access to the __Azure Cosmos DB__ application.
@@ -765,70 +164,420 @@ For more information, see [Encryption at rest](concept-enterprise-security.md#en
 
 __To add the Azure Machine Learning app as a contributor__, use the following commands:
 
-1. To authenticate to Azure from the CLI, use the following command:
+1. Log into your Azure account and get your subscription ID. This subscription must be the same one that contains your Azure Machine Learning workspace.  
+
+    # [Azure CLI](#tab/azcli)
 
     ```azurecli-interactive
-    az login
+    az account list --query '[].[name,id]' --output tsv
     ```
-    
-    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
+
+    > [!TIP]
+    > To select another subscription, use the az account set -s <subscription name or ID> command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell-interactive
+    Get-AzSubscription
+    ```
+
+    > [!TIP]
+    > To select another subscription, use the `Az-SetContext -SubscriptionId <subscription ID>` command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
+    ---
 
 1. To get the object ID of the Azure Machine Learning app, use the following command. The value may be different for each of your Azure subscriptions:
+
+    # [Azure CLI](#tab/azcli)
 
     ```azurecli-interactive
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell-interactive
+    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
+    ```
+
+    ---
     This command returns the object ID, which is a GUID.
 
-1. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the GUID from the previous step. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
+1. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the object ID of the service principal. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
 
-    ```azurecli-interactive
+    # [Azure CLI](#tab/azcli)
+
+    ```azurecli
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-__To add a key to your Azure Key Vault__, use the information in the [Adding a key, secret, or certificate to the key vault](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) section of the __Manage Key Vault using Azure CLI__ article.
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
+    ```
+
+    ---
+<!-- __To add a key to your Azure Key Vault__, use the information in the [Adding a key, secret, or certificate to the key vault](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) section of the __Manage Key Vault using Azure CLI__ article. -->
+
+1. To generate a key in an existing Azure Key Vault, use one of the following commands. Replace `<keyvault-name>` with the name of the key vault. Replace `<key-name>` with the name to use for the key:
+
+    # [Azure CLI](#tab/azcli)
+
+    ```Bash
+        az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
+    ```
+
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+        Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
+    ```
+    --- 
 
 __To add an access policy to the key vault, use the following commands__:
 
 1. To get the object ID of the Azure Cosmos DB app, use the following command. The value may be different for each of your Azure subscriptions:
 
+    # [Azure CLI](#tab/azcli)
+
     ```azurecli-interactive
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
-    
-    This command returns the object ID, which is a GUID.
+
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell-interactive
+    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
+    ```
+    ---
+
+    This command returns the object ID, which is a GUID. Save it for later
 
 1. To set the policy, use the following command. Replace `<keyvault-name>` with the name of the existing Azure Key Vault. Replace `<object-ID>` with the GUID from the previous step:
 
-    ```azurecli-interactive
+    # [Azure CLI](#tab/azcli)
+
+    ```azurecli
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
+
+    # [Azure PowerShell](#tab/azpowershell)
+    
+    ```azurepowershell
+    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
+    ```
+    ---    
 
 __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:
 
 1. To get the Key Vault ID, use the following command:
 
-    ```azurecli-interactive
-    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    # [Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az keyvault show --name <keyvault-name>
     ```
 
-    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
+    ```
+    ---
+
+    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.
 
 1. To get the value for the URI for the customer managed key, use the following command:
 
-    ```azurecli-interactive
-    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    # [Azure CLI](#tab/azcli)
+
+    ```azurecli
+    z keyvault key show --vault-name <keyvault-name> --name <key-name> 
     ```
+
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
+    ```
+    ---
 
     This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
 
-__Example template__
-
-:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
-
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
+
+Once you've successfully completed the steps above, deploy your template like you normally would. To enable use of Customer Managed Keys set the following parameters:
+
+* **encryption_status** to **Enabled**.
+* **cmk_keyvault** to the `cmk_keyvault` value obtained in previous steps.
+* **resource_cmk_uri** to the `resource_cmk_uri` value obtained in previous steps.
+
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security#encryption-at-rest).
+
+An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
+
+* Starts encrypting the local scratch disk for Azure Machine Learning compute clusters, providing you have not created any previous clusters in your subscription. If you have previously created a cluster in the subscription, open a support ticket to have encryption of the scratch disk enabled for your compute clusters.
+* Cleans up the local scratch disk between runs.
+* Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
+* Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
+
+  For more information, see [encryption at rest](concept-enterprise-security#encryption-at-rest).
+
+## Deploy workspace behind a virtual network
+
+By setting the `vnetOption` parameter value to either `new` or `existing`, you are able to create the resources used by a workspace behind a virtual network.
+
+> [!IMPORTANT]
+> For container registry, only the 'Premium' sku is supported.
+
+> [!IMPORTANT]
+> Application Insights does not support deployment behind a virtual network.
+
+### Use a new vnet
+
+To deploy a resource behind a new virtual network, set the **vnetOption** to **new** along with the virtual network settings for the respective resource. The deployment below shows how to deploy a workspace with the storage account resource behind a new virtual network.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+```
+
+---
+
+Alternatively, you can deploy multiple or all dependent resources behind a virtual network.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -storageAccountBehindVNet "true"
+  -keyVaultBehindVNet "true" `
+  -containerRegistryBehindVNet "true" `
+  -containerRegistryOption "new" `
+  -containerRegistrySku "Premium"
+```
+
+---
+
+### Use an existing virtual network & resources
+
+To deploy a workspace with existing associated resources you have to set the **vnetOption** parameter to **existing** along with subnet parameters. However, you need to create service endpoints in the virtual network for each of the resources **before** deployment. Like with new virtual network deployments, you can have one or all of your resources behind a virtual network.
+
+> [!IMPORTANT]
+> Subnet should have `Microsoft.Storage` service endpoint
+
+> [!IMPORTANT]
+> Subnets do not allow creation of private endpoints. Disable private endpoint to enable subnet.
+
+1. Enable service endpoints for the resources.
+
+    # [Azure PowerShell](#tab/azpowershell)
+
+    ```azurepowershell
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.ContainerRegistry" | Set-AzVirtualNetwork
+    ```
+
+    ---
+
+1. Deploy the workspace
+
+    # [Azure CLI](#tab/azcli)
+
+    ```azurecli
+    az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      vnetOption="existing" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="examplegroup" \
+      storageAccountBehindVNet="true" \
+      keyVaultBehindVNet="true" \
+      containerRegistryBehindVNet="true" \
+      containerRegistryOption="new" \
+      containerRegistrySku="Premium" \
+      subnetName="examplesubnet" \
+      subnetOption="existing"
+    ```
+
+    # [Azure PowerShell](#tab/azpowershell)
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -Name "exampledeployment" `
+      -ResourceGroupName "examplegroup" `
+      -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+      -workspaceName "exampleworkspace" `
+      -location "eastus" `
+      -vnetOption "existing" `
+      -vnetName "examplevnet" `
+      -vnetResourceGroupName "examplegroup" `
+      -storageAccountBehindVNet "true"
+      -keyVaultBehindVNet "true" `
+      -containerRegistryBehindVNet "true" `
+      -containerRegistryOption "new" `
+      -containerRegistrySku "Premium" `
+      -subnetName "examplesubnet" `
+      -subnetOption "existing"
+    ```
+    ---
+
+## Deploy a workspace with private endpoints
+
+Automated and manual approval of private endpoints is supported.
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+### Use a private endpoint without a virtual network
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+### Use a private endpoint with a new virtual network
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
+### Use a private endpoint with an existing virtual network
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+	    location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      vnetResourceGroupName="rg" \
+      privateEndpointType="AutoApproval" \
+      subnetName="subnet" \
+      subnetOption="existing"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "existing" `
+  -vnetName "examplevnet" `
+  -vnetResourceGroupName "rg"
+  -privateEndpointType "AutoApproval"
+  -subnetName "subnet"
+  -subnetOption "existing"
+```
+
+---
 
 ## Use the Azure portal
 
@@ -842,7 +591,7 @@ __Example template__
 
 For more information, see [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## Use Azure PowerShell
+<!-- ## Use Azure PowerShell
 
 This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
 
@@ -866,9 +615,9 @@ az group deployment create \
   --resource-group examplegroup \
   --template-file azuredeploy.json \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
-```
+``` 
 
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).-->
 
 ## Troubleshooting
 
