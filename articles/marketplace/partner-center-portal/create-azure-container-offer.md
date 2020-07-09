@@ -1,12 +1,12 @@
 ---
 title: Create an Azure container offer - Azure Marketplace
 description: Learn how to create and publish a container offer to Azure Marketplace. 
-author: mingshen 
-ms.author: mingshen 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+author: mingshen
+ms.author: mingshen
+ms.date: 06/17/2020
 ---
 
 # Create an Azure container offer in Azure Marketplace
@@ -89,7 +89,12 @@ This page lets you define the categories used to group your offer on the marketp
 
 #### Category
 
-Select a minimum of one and a maximum to five categories. These categories are used to place your offer in the appropriate marketplace search areas, and are shown on your offer details page. In the offer description, explain how your offer supports these categories. Containers appear under **Containers** and then the **Container Images** category.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Containers always appear under **Containers** and then the **Container Images** category.
 
 #### Legal
 

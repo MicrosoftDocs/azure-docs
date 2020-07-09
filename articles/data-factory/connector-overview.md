@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -23,7 +23,16 @@ Azure Data Factory supports the following data stores and formats via Copy, Data
 
 ## Supported file formats
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
+
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Common Data Model format](format-common-data-model.md)
+- [Delimited text format](format-delimited-text.md)
+- [Excel format](format-excel.md)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
 
 ## Next steps
 

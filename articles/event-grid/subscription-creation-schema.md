@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid subscription schema
 description: This article describes the properties for subscribing to an event with Azure Event Grid. Event Grid subscription schema. 
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/23/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Event Grid subscription schema

@@ -127,7 +127,7 @@ Advanced Threat Protection for Azure SQL Database detects anomalous activities i
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Databases, Azure SQL Database managed instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
@@ -144,6 +144,7 @@ For more information, see:
 - Release state:
     - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
     - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
 - Clouds:<br>
     ✔ Commercial clouds<br>
     ✔ US Gov<br>
@@ -151,9 +152,11 @@ For more information, see:
 
 ### What's protected?
 
-Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) blobs or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) file shares.
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
-This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems.
+
+Your storage accounts are protected 
 
 ### What kind of alerts does Threat protection for Azure Storage provide?
 

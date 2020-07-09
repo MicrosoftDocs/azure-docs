@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -43,7 +43,7 @@ The steps that follow constitute the OBO flow and are explained with the help of
 > [!NOTE]
 > In this scenario, the middle-tier service has no user interaction to obtain the user's consent to access the downstream API. Therefore, the option to grant access to the downstream API is presented upfront as a part of the consent step during authentication. To learn how to set this up for your app, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application).
 
-## Service-to-service access token request
+## Middle-tier access token request
 
 To request an access token, make an HTTP POST to the tenant-specific Microsoft identity platform token endpoint with the following parameters.
 
@@ -62,7 +62,7 @@ When using a shared secret, a service-to-service access token request contains t
 | `grant_type` | Required | The type of  token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Required | The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
 | `client_secret` | Required | The client secret that you generated for your app in the Azure portal - App registrations page. |
-| `assertion` | Required | The value of the token used in the request.  This token must have an audience of the app making this OBO request (the app denoted by the `client-id` field). |
+| `assertion` | Required | The access token that was sent to the middle-tier API.  This token must have an audience (`aud`) claim of the app making this OBO request (the app denoted by the `client-id` field). Applications cannot redeem a token for a different app (so e.g. if a client sends an API a token meant for MS Graph, the API cannot redeem it using OBO.  It should instead reject the token).  |
 | `scope` | Required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). |
 | `requested_token_use` | Required | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
 
@@ -95,7 +95,7 @@ A service-to-service access token request with a certificate contains the follow
 | `client_id` | Required |  The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
 | `client_assertion_type` | Required | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. To learn how to register your certificate and the format of the assertion, see [certificate credentials](active-directory-certificate-credentials.md). |
-| `assertion` | Required | The value of the token used in the request. |
+| `assertion` | Required |  The access token that was sent to the middle-tier API.  This token must have an audience (`aud`) claim of the app making this OBO request (the app denoted by the `client-id` field). Applications cannot redeem a token for a different app (so e.g. if a client sends an API a token meant for MS Graph, the API cannot redeem it using OBO.  It should instead reject the token).  |
 | `requested_token_use` | Required | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
 | `scope` | Required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md).|
 
@@ -121,7 +121,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## Service to service access token response
+## Middle-tier access token response
 
 A success response is a JSON OAuth 2.0 response with the following parameters.
 

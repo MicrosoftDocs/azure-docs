@@ -10,7 +10,7 @@ ms.custom: seodec18
 > [!NOTE]
 > The user accounts discussed in this article are different from user accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons.
 >
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. For certain scenarios, you may want to configure the user account under which you want a task to run. This article discusses the types of user accounts and how to configure them for your scenario.

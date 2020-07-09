@@ -6,7 +6,7 @@ author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2016
 ---
 

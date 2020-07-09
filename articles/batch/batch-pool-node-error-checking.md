@@ -145,7 +145,7 @@ Make sure that any data you need has been retrieved from the node or uploaded to
 
 2. If your pool is a [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), you can remove the node from the pool using the [remove nodes API](/rest/api/batchservice/pool/removenodes). Then, you can grow the pool again to replace the bad node with a fresh one.
 
-3.  Delete old completed jobs or old completed tasks whose task data is still on the nodes. For a hint at what jobs/tasks data is on the nodes you can look in the [RecentTasks collection](/rest/api/batchservice/computenode/get#taskinformation) on the node, or at the [files on the node](//rest/api/batchservice/file/listfromcomputenode). Deleting the job will delete all the tasks in the job, and deleting the tasks in the job will trigger data in the task directories on the node to be deleted, thus freeing up space. Once you've freed up enough space, reboot the node and it should move out of "Unusable" state and into "Idle" again.
+3.  Delete old completed jobs or old completed tasks whose task data is still on the nodes. For a hint at what jobs/tasks data is on the nodes you can look in the [RecentTasks collection](/rest/api/batchservice/computenode/get#taskinformation) on the node, or at the [files on the node](/rest/api/batchservice/file/listfromcomputenode). Deleting the job will delete all the tasks in the job, and deleting the tasks in the job will trigger data in the task directories on the node to be deleted, thus freeing up space. Once you've freed up enough space, reboot the node and it should move out of "Unusable" state and into "Idle" again.
 
 ## Next steps
 

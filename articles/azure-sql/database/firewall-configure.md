@@ -1,6 +1,6 @@
 ---
 title: IP firewall rules
-description: Configure server-level IP firewall rules for a database in Azure SQL Database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
+description: Configure server-level IP firewall rules for a database in Azure SQL Database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

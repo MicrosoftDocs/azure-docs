@@ -11,7 +11,9 @@ ms.author: sunasing
 
 Azure FarmBeats helps you to bring weather data from your weather data provider(s) using a docker-based Connector Framework. Using this framework, weather data providers implement a docker that can be integrated with FarmBeats. Currently the following weather data providers are supported:
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 The weather data can be used to generate actionable insights and build AI/ML models on FarmBeats.
 
@@ -55,6 +57,9 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
    ```
 
    For example, to get weather data from DTN, use the payload below. You can modify the name and description as per your preference.
+
+   > [!NOTE]
+   > The below step requires an API key, please contact DTN to get the same for your DTN subscription.
 
    ```json
    {
@@ -201,6 +206,11 @@ To query weather data using FarmBeats REST API, follow the steps below:
    ```
 
 In the preceding example, the response has data for two timestamps along with the measure name ("Temperature") and values of the reported weather data in the two timestamps. You will need to refer to the associated Weather Data Model (as described in step 2 above) to interpret the type and unit of the reported values.
+
+## Troubleshoot job failures
+
+To troubleshoot job failures, you can check for the job logs. Please follow the [steps here](troubleshoot-azure-farmbeats.md#weather-data-job-failures) for the same.
+
 
 ## Appendix
 
