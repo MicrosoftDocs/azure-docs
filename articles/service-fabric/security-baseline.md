@@ -4,7 +4,7 @@ description: The Service Fabric security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,19 +22,29 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 
 
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+
 ## Network security
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24082).
 
-* [Deploy Azure Firewall using a template](https://docs.microsoft.com/azure/firewall/deploy-template)
+**Guidance**: Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. 
 
-* [Create perimeter networks by using Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices#use-network-isolation-and-security-with-azure-service-fabric)
+Deploy Azure Firewall using a template:
 
-* [How to integrate your Azure Service Fabric cluster with an existing virtual network](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)
+https://docs.microsoft.com/azure/firewall/deploy-template
+
+Create perimeter networks by using Azure Network Security Groups (NSGs):
+https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices#use-network-isolation-and-security-with-azure-service-fabric
+
+How to integrate your Azure Service Fabric cluster with an existing virtual network: 
+https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking
 
 **Azure Security Center monitoring**: Yes
 
@@ -42,13 +52,19 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24083).
+
 **Guidance**: Use Azure Security Center and remediate network protection recommendations for the virtual network, subnet, and network security group being used to secure your Azure Service Fabric cluster. Enable network security group (NSG) flow logs and send logs into a Azure Storage Account to traffic audit. You may also send NSG flow logs to a Azure Log Analytics Workspace and use Azure Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Azure Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network mis-configurations.
 
-* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+How to Enable NSG Flow Logs:
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-* [How to Enable and use Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+How to Enable and use Azure Traffic Analytics:
+https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
-* [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+Understand Network Security provided by Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 **Azure Security Center monitoring**: Yes
 
@@ -56,15 +72,21 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 ### 1.3: Protect critical web applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24084).
+
 **Guidance**: Provide a front-end gateway to provide a single point of ingress for users, devices, or other applications. Azure API Management integrates directly with Service Fabric, allowing you to secure access to back-end services, prevent DOS attacks by using throttling, and verify API keys, JWT tokens, certificates, and other credentials.
 
 Consider deploying Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.
 
-* [Service Fabric with Azure API Management overview](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview)
+Service Fabric with Azure API Management overview:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview
 
-* [Integrate API Management in an internal VNET with Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+Integrate API Management in an internal VNET with Application Gateway:
+https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+How to deploy Azure WAF:
+https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
 
-* [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
 
 **Azure Security Center monitoring**: N/A
 
@@ -72,11 +94,16 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 ### 1.4: Deny communications with known-malicious IP addresses
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24085).
+
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure Service Fabric cluster is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+How to configure DDoS protection:
+https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-* [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+Understand Azure Security Center Integrated Threat Intelligence:
+https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Azure Security Center monitoring**: Yes
 
@@ -84,13 +111,21 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 ### 1.5: Record network packets
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24086).
+
 **Guidance**: Enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure Service Fabric cluster. Record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
-* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+How to Enable NSG Flow Logs:
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-* [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+How to enable Network Watcher:
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
-* [Use traffic analytics to visualize NSG flow logs](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+Use traffic analytics to visualize NSG flow logs:
+https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -98,15 +133,12 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24087).
 
-Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic.
+**Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic. Azure Marketplace: https://azuremarketplace.microsoft.com/marketplace/?term=Firewall How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
 
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
-
-* [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -114,13 +146,16 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.7: Manage traffic to web applications
 
-**Guidance**: Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24088).
 
-* [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+**Guidance**: Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. How to deploy Application Gateway:https://docs.microsoft.com/azure/application-gateway/quick-create-portalHow to configure Application Gateway to use HTTPS:
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
 
-* [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+Understand layer 7 load balancing with Azure web application gateways:
+https://docs.microsoft.com/azure/application-gateway/overview
 
-* [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -128,9 +163,19 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24089).
+
 **Guidance**: Use Virtual network service tags to define network access controls on network security groups (NSG) that are attached to the subnet your Azure Service Fabric cluster is deployed in. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-* [Virtual network service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+Virtual network service tags:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+
+Service Fabric networking best practices:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-networking
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -138,15 +183,22 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.9: Maintain standard security configurations for network devices
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24090).
+
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure Service Fabric cluster. Use Azure Policy aliases in the "Microsoft.ServiceFabric" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Service Fabric cluster.
 
 You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
-* [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+How to view available Azure Policy aliases:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+How to create an Azure Blueprint:
+https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -154,17 +206,23 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ### 1.10: Document traffic configuration rules
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24091).
+
 **Guidance**: Use Tags for network security group (NSGs) and other resources related to network security and traffic flow that are associated with your Azure Service Fabric cluster. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
 Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or perform actions on resources based on their Tags.
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-* [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+How to create a virtual network:
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+How to create an NSG with a Security Config:
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -172,11 +230,17 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24092).
+
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Service Fabric deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+How to view and retrieve Azure Activity Log events:
+https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+How to create alerts in Azure Monitor:
+https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -188,9 +252,14 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.1: Use approved time synchronization sources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24093).
+
 **Guidance**: Microsoft maintains time sources for Azure Service Fabric cluster components, you may update time synchronization for your compute deployments.
 
-* [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+How to configure time synchronization for Azure compute resources:
+https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -198,13 +267,19 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.2: Configure central security log management
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24094).
+
 **Guidance**: You can onboard your Azure Service Fabric cluster to Azure Monitor to aggregate security data generated by the cluster. See example diagnostics problems and solutions with Service Fabric.
 
-* [Configure Azure Monitor logs integration with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+Configure Azure Monitor logs integration with Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup
 
-* [Set up Azure Monitor logs for monitoring containers in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+Set up Azure Monitor logs for monitoring containers in Azure Service Fabric:https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers
 
-* [Diagnosing common Service Fabric scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-common-scenarios)
+Diagnosing common Service Fabric scenarios:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-common-scenarios
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -212,15 +287,22 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.3: Enable audit logging for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24095).
+
 **Guidance**: Enable Azure Monitor for the Service Fabric cluster, direct it to a Log Analytics workspace. This will log relevant cluster information and OS metrics for all Azure Service Fabric cluster nodes.
 
-* [Configure Azure Monitor logs integration with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+Configure Azure Monitor logs integration with Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup
 
-* [Set up Azure Monitor logs for monitoring containers in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+Set up Azure Monitor logs for monitoring containers in Azure Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers
 
-* [How to deploy the Log Analystics agent onto your nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+How to deploy the Log Analystics agent onto your nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent
 
-* [Log Analytics Log Searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)
+Log Analytics Log Searches:
+https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -228,15 +310,24 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.4: Collect security logs from operating systems
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24096).
+
 **Guidance**: Onboard the Azure Service Fabric cluster to Azure Monitor. Ensure that the Log Analytics workspace used has the log retention period set according to your organization's compliance regulations.
 
-* [Configure Azure Monitor logs integration with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+Configure Azure Monitor logs integration with Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup
 
-* [Set up Azure Monitor logs for monitoring containers in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+Set up Azure Monitor logs for monitoring containers in Azure Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers
 
-* [How to deploy the Log Analystics agent onto your nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+How to deploy the Log Analystics agent onto your nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent 
 
-* [How to configure Log Analytics Workspace Retention Period](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+How to configure Log Analytics Workspace Retention Period:
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -244,15 +335,22 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.5: Configure security log storage retention
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24097).
+
 **Guidance**: Onboard the Azure Service Fabric cluster to Azure Monitor. Ensure that the Log Analytics workspace used has the log retention period set according to your organization's compliance regulations.
 
-* [Configure Azure Monitor logs integration with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)
+Configure Azure Monitor logs integration with Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup
 
-* [Set up Azure Monitor logs for monitoring containers in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers)
+Set up Azure Monitor logs for monitoring containers in Azure Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-wincontainers
 
-* [How to deploy the Log Analystics agent onto your nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)
+How to deploy the Log Analystics agent onto your nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent
 
-* [How to configure Log Analytics Workspace Retention Period](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+How to configure Log Analytics Workspace Retention Period:
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -260,9 +358,14 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.6: Monitor and review logs
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24098).
+
 **Guidance**: Use Azure Log Analytics workspace queries to query Azure Service Fabric logs.
 
-* [Log Analytics Log Searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)
+Log Analytics Log Searches:
+https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -270,11 +373,16 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.7: Enable alerts for anomalous activities
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24099).
+
 **Guidance**: Use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure Service Fabric cluster.
 
-* [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+How to manage alerts in Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-* [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+How to alert on log analytics log data:
+https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Azure Security Center monitoring**: Yes
 
@@ -282,15 +390,22 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 2.8: Centralize anti-malware logging
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24100).
+
 **Guidance**: By default, Windows Defender is installed on Windows Server 2016. Refer to your Antimaleware documentation for configuration rules if you are not using Windows Defender. Windows Defender is not supported on Linux.
 
-* [For details, see Windows Defender antivirus on Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)
+For details, see Windows Defender antivirus on Windows Server 2016:
+https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### 2.9: Enable DNS query logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24101).
 
 **Guidance**: Implement a third-party solution for DNS logging.
 
@@ -299,6 +414,9 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 **Responsibility**: Customer
 
 ### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24102).
 
 **Guidance**: Manually configure console logging on a per-node basis.
 
@@ -312,15 +430,22 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 ### 3.1: Maintain an inventory of administrative accounts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24103).
+
 **Guidance**: Maintain record of the local administrative account that is created during cluster provisioning of Azure Service Fabric cluster as well as any other accounts you create. In addition, if Azure AD integration is used, Azure AD has built-in roles that must be explicitly assigned and are therefore queryable. Use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups.
 
 In addition, you may use Azure Security Center Identity and Access Management recommendations.
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+How to get a directory role in Azure AD with PowerShell:
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+How to get members of a directory role in Azure AD with PowerShell:
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-* [How to monitor identity and access with Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to monitor identity and access with Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -328,9 +453,14 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.2: Change default passwords where applicable
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24104).
+
 **Guidance**: When provisioning a cluster, Azure requires you to create new passwords for the web portal. There are no default passwords to change, however you can specify different passwords for web portal access.
 
-* [Create in Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
+Create in Azure portal:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -338,13 +468,19 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.3: Use dedicated administrative accounts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24105).
+
 **Guidance**: Integrate Authentication for Azure Service Fabric with Azure Active Directory. Create policies and procedures around the use of dedicated administrative accounts.
 
 In addition, you may use Azure Security Center Identity and Access Management recommendations.
 
-* [Set up Azure Active Directory client authentication](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster#set-up-azure-active-directory-client-authentication)
+Set up Azure Active Directory client authentication:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster#set-up-azure-active-directory-client-authentication
 
-* [How to monitor identity and access with Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to monitor identity and access with Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -352,9 +488,10 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
 
-**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24106).
 
-* [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations. Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Azure Security Center monitoring**: N/A
 
@@ -362,11 +499,12 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
-**Guidance**: Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24107).
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+**Guidance**: Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations. How to enable MFA in Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstartedHow to monitor identity and access within Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: N/A
 
@@ -374,11 +512,18 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24108).
+
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure your Azure Service Fabric clusters and related resources.
 
-* [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+Learn about Privileged Access Workstations:
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+
+How to enable MFA in Azure:
+
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -386,11 +531,18 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24109).
+
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-* [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+How to deploy Privileged Identity Management (PIM):
 
-* [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+
+Understand Azure AD risk detections:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Azure Security Center monitoring**: N/A
 
@@ -398,9 +550,10 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.8: Manage Azure resources from only approved locations
 
-**Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24110).
 
-* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+**Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions. How to configure Named Locations in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center monitoring**: N/A
 
@@ -408,11 +561,15 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AAD) as the central authentication and authorization system to secure access to management endpoints of Azure Service Fabric clusters. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24111).
 
-* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+**Guidance**: Use Azure Active Directory (AAD) as the central authentication and authorization system to secure access to management endpoints of Azure Service Fabric clusters. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials. How to create and configure an AAD instance:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
-* [Setup Azure Active Directory for Service Fabric client authentication](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-setup-aad)
+Setup Azure Active Directory for Service Fabric client authentication:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-setup-aad
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -420,9 +577,14 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.10: Regularly review and reconcile user access
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24112).
+
 **Guidance**: Use Azure Active Directory (AAD) authentication with your Azure Service Fabric cluster. AAD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+How to use Azure Identity Access Reviews:
+
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -430,11 +592,16 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24113).
+
 **Guidance**: Use Azure Active Directory (AAD) Sign-in and Audit logs to monitor for attempts to access deactivated accounts; these logs can be integrated into any third-party SIEM/monitoring tool.
 
 You can streamline this process by creating Diagnostic Settings for AAD user accounts, sending the audit logs and sign-in logs to a Azure Log Analytics workspace. Configure desired Alerts within Azure Log Analytics workspace.
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+How to integrate Azure Activity Logs into Azure Monitor:
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -442,13 +609,10 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 ### 3.12: Alert on account sign-in behavior deviation
 
-**Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24114).
 
-* [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
-
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
-
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+**Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation. How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: N/A
 
@@ -456,9 +620,13 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24115).
+
 **Guidance**: Not available; Customer Lockbox not yet supported for Azure Service Fabric.
 
-* [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+List of Customer Lockbox supported services:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -470,9 +638,13 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 ### 4.1: Maintain an inventory of sensitive Information
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24116).
+
 **Guidance**: Use tags on resources related to your Azure Service Fabric cluster deployments to assist in tracking Azure resources that store or process sensitive information.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: N/A
 
@@ -480,21 +652,20 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24117).
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use. How to create additional Azure subscriptions:https://docs.microsoft.com/azure/billing/billing-create-subscriptionHow to create Management Groups:
+https://docs.microsoft.com/azure/governance/management-groups/createHow to create and use Tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tagsHow to create a Virtual Network:
+https://docs.microsoft.com/azure/virtual-network/quick-create-portalHow to create an NSG with a Security Config:
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-trafficHow to deploy Azure Firewall:
+https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to configure alert or alert and deny with Azure Firewall:
+https://docs.microsoft.com/azure/firewall/threat-intel
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
-
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
-
-* [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
 **Azure Security Center monitoring**: N/A
 
@@ -502,11 +673,10 @@ You can streamline this process by creating Diagnostic Settings for AAD user acc
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24118).
 
-For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
-
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+**Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals. For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities. Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: N/A
 
@@ -514,15 +684,20 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24119).
 
-Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
+**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater. 
 
-* [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+For Service Fabric client-to-node mutual authentication, use a X.509 certificate for server identity and TLS encryption of http communication. Any number of additional certificates can be installed on a cluster for application security purposes, including encryption and decryption of application configuration values and data across nodes durinkg replication.Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable. Understand encryption in transit with Azure:
+https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
-* [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)
+Service Fabric cluster security scenarios:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security
 
-* [Service Fabric Troubleshooting Guide for TLS Configuration](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+Service Fabric Troubleshooting Guide for TLS Configuration:
+https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -530,17 +705,24 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24120).
+
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+Understand customer data protection in Azure:
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Shared
 
 ### 4.6: Use Role-based access control to control access to resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24121).
 
 **Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data.
 
@@ -550,11 +732,15 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24122).
+
 **Guidance**: For Azure Service Fabric clusters storing or processing sensitive information, mark the cluster and related resources as sensitive using tags. Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+Understand customer data protection in Azure:
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: N/A
 
@@ -562,15 +748,21 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.8: Encrypt sensitive information at rest
 
-**Guidance**: Use encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24123).
 
-* [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+**Guidance**: Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. 
+Understand encryption at rest in Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest  How to configure customer managed encryption keys: https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-* [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+Enable disk encryption for Azure Service Fabric cluster nodes in Windows:
 
-* [Enable disk encryption for Azure Service Fabric cluster nodes in Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-windows)
+https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-windows
 
-* [Enable disk encryption for Azure Service Fabric cluster nodes in Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-linux)
+Enable disk encryption for Azure Service Fabric cluster nodes in Linux:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-enable-azure-disk-encryption-linux
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -578,9 +770,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
-**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24124).
 
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources. How to create alerts for Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: N/A
 
@@ -592,17 +785,20 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 5.1: Run automated vulnerability scanning tools
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24125).
+
 **Guidance**: Regularly run the Service Fabric Fault Analysis Service and Chaos services to simulate faults throughout the cluster to assess the robustness and reliability of your services.
 
-Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure virtual machines and container images.
+Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure virtual machines and container images. Use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning. 
 
-Use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
+Introduction to Service Fabric Fault Analysis Service:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview
 
-* [Introduction to Service Fabric Fault Analysis Service](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview)
+Induce controlled Chaos in Service Fabric clusters:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaosHow to implement Azure Security Center vulnerability assessment recommendations: https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
 
-* [Induce controlled Chaos in Service Fabric clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)
 
-* [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 **Azure Security Center monitoring**: N/A
 
@@ -610,17 +806,28 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 ### 5.2: Deploy automated operating system patch management solution
 
-**Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24126).
 
-Alternately, to test OS patches first before going to production, use the manual trigger for OS image upgrades of your scale set. Note that the manual trigger option doesn't provide built-in rollback. Monitor OS patches using Update Management from Azure Automation.
+**Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster. 
 
-* [Patch management for Service Fabric cluster nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+Alternately, to test OS patches first before going to
+production, use the manual trigger for OS image upgrades of your scale set. Note that the manual trigger option doesn't provide  built-in rollback. Monitor OS patches using Update Management from Azure Automation. 
 
-* [Automatic OS image upgrades with Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+Patch management for Service Fabric cluster nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration
 
-* [How to bring VMs up-to-date with the latest scale set model](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
+Automatic OS image upgrades with Azure virtual machine scale sets:
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
 
-* [Azure Automation Update Management overview](https://docs.microsoft.com/azure/automation/automation-update-management)
+How to bring VMs up-to-date with the latest scale set model:
+
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model
+
+Azure Automation Update Management overview:
+https://docs.microsoft.com/azure/automation/automation-update-management
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -628,19 +835,29 @@ Alternately, to test OS patches first before going to production, use the manual
 
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24127).
+
 **Guidance**: Enable automatic OS image upgrades on the virtual machine scale sets of your Azure Service Fabric cluster. Patch Orchestration Application (POA) is an alternative solution that is intended for Service Fabric clusters hosted outside of Azure. POA can be used with Azure clusters, with some additional hosting overhead.
 
-* [Patch management for Service Fabric cluster nodes](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
+Patch management for Service Fabric cluster nodes:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-virtual-machine-operating-system-automatic-upgrade-configuration
 
-* [Automatic OS image upgrades with Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+Automatic OS image upgrades with Azure virtual machine scale sets:
+https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade
 
-* [How to configure the OS patching schedule for Service Fabric clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
+How to configure the OS patching schedule for Service Fabric clusters: https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application
+
+
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
 
 ### 5.4: Compare back-to-back vulnerability scans
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24128).
 
 **Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you may pivot into the selected solution's portal to view historical scan data.
 
@@ -649,6 +866,9 @@ Alternately, to test OS patches first before going to production, use the manual
 **Responsibility**: Customer
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24129).
 
 **Guidance**: Use a common risk scoring program (e.g. Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.
 
@@ -662,15 +882,10 @@ Alternately, to test OS patches first before going to production, use the manual
 
 ### 6.1: Use automated asset discovery solution
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24130).
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
-
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
-
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
-
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions. Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward. How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center monitoring**: N/A
 
@@ -678,9 +893,14 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.2: Maintain asset metadata
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24131).
+
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -688,19 +908,28 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.3: Delete unauthorized Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24132).
+
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+How to create additional Azure subscriptions:
+https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to create Management Groups:
+https://docs.microsoft.com/azure/governance/management-groups/create
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
 
 ### 6.4: Define and maintain inventory of approved Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24133).
 
 **Guidance**: Define approved Azure resources and approved software for compute resources.
 
@@ -710,6 +939,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.5: Monitor for unapproved Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24134).
+
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 Not allowed resource types
@@ -718,15 +950,18 @@ Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
 
 ### 6.6: Monitor for unapproved software applications within compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24135).
 
 **Guidance**: Implement a third-party solution to monitor cluster nodes for unapproved software applications.
 
@@ -736,15 +971,22 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24136).
+
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.), including Azure Service Fabric clusters, within your subscription(s). Remove any unapproved Azure resources that you discover. For Azure Service Fabric cluster nodes, implement a third-party solution to remove or alert on unapproved software.
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+How to create queries with Azure Graph:
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
 
 ### 6.8: Use only approved applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24137).
 
 **Guidance**: For Azure Service Fabric cluster nodes, implement a third-party solution to prevent unauthorized software from executing.
 
@@ -754,17 +996,23 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure Policy to restrict which services you can provision in your environment.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24138).
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Guidance**: Use Azure Policy to restrict which services you can provision in your environment. 
 
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
 
 ### 6.10: Maintain an inventory of approved software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24139).
 
 **Guidance**: For Azure Service Fabric cluster nodes, implement a third-party solution to prevent unauthorized file types from executing.
 
@@ -774,9 +1022,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24140).
 
-* [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App. How to configure Conditional Access to block access to Azure Resources Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: N/A
 
@@ -784,9 +1033,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
-**Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24141).
 
-* [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+**Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. For example, how to control PowerShell script execution in Windows Environments: https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 **Azure Security Center monitoring**: N/A
 
@@ -794,11 +1044,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.13: Physically or logically segregate high risk applications
 
-**Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24142).
 
-* [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-
-* [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+**Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group. How to create a virtual network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal How to create an NSG with a security config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center monitoring**: N/A
 
@@ -810,11 +1059,17 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.1: Establish secure configurations for all Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24143).
+
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ServiceFabric" namespace to create custom policies to audit or enforce the network configuration of your Service Fabric cluster.
 
-* [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+How to view available Azure Policy aliases:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -822,7 +1077,11 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.2: Establish secure operating system configurations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24144).
+
 **Guidance**: Azure Service Fabric Operating System Images are managed and maintained by Microsoft. Customer responsible for implementing secure configurations for your cluster nodes' operating system.
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -830,17 +1089,26 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.3: Maintain secure Azure resource configurations
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24145).
+
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings for your Azure Service Fabric clusters and related resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+Understand Azure Policy Effects:
+https://docs.microsoft.com/azure/governance/policy/concepts/effects
+
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24146).
 
 **Guidance**: Azure Service Fabric cluster Operating System Images managed and maintained by Microsoft. Customer responsible for implementing OS-level state configuration.
 
@@ -850,11 +1118,17 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.5: Securely store configuration of Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24147).
+
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+How to store code in Azure DevOps:
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+Azure Repos Documentation:
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -862,13 +1136,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24148).
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-
-* [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+**Guidance**: If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images. Understand RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles Understand RBAC for Container Registry: https://docs.microsoft.com/azure/container-registry/container-registry-roles How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center monitoring**: N/A
 
@@ -876,15 +1147,23 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24149).
+
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ServiceFabric" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### 7.8: Deploy configuration management tools for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24150).
 
 **Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
@@ -894,11 +1173,17 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24151).
+
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ServiceFabric" namespace to create custom policies to audit or enforce the configuration of your Service Fabric cluster.
 
-* [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+How to view available Azure Policy aliases:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -906,9 +1191,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
-**Guidance**: Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24152).
 
-* [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+**Guidance**: Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers. Understand Azure Security Center container recommendations: https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
 **Azure Security Center monitoring**: N/A
 
@@ -916,15 +1202,24 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.11: Manage Azure secrets securely
 
-**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24153).
 
-* [Using managed identities for Azure with Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
+**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. 
 
-* [Configure managed identity support for a new Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/configure-new-azure-service-fabric-enable-managed-identity)
+Using managed identities for Azure with Service Fabric:
+https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity
 
-* [Use managed identity with a Service Fabric application](https://docs.microsoft.com/azure/service-fabric/how-to-managed-identity-service-fabric-app-code)
+Configure managed identity support for a new Service Fabric cluster:
+https://docs.microsoft.com/azure/service-fabric/configure-new-azure-service-fabric-enable-managed-identity
 
-* [KeyVaultReference support for Service Fabric applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+Use managed identity with a Service Fabric application:
+https://docs.microsoft.com/azure/service-fabric/how-to-managed-identity-service-fabric-app-code
+
+KeyVaultReference support for Service Fabric applications:
+https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -932,9 +1227,14 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.12: Manage identities securely and automatically
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24154).
+
 **Guidance**: Managed identities can be used in Azure-deployed Service Fabric clusters, and for applications deployed as Azure resources. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-* [Using Managed identities for Azure with Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
+Using Managed identities for Azure with Service Fabric:
+
+https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -942,13 +1242,19 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.13: Eliminate unintended credential exposure
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24155).
+
 **Guidance**: If using any code related to your Azure Service Fabric deployment, you may implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 Use Azure Key Vault to rotate Service Fabric cluster certificates automatically.
 
-* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcredscan.html
 
-* [Certificate management in Service Fabric clusters](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#certificate-rotation)
+Certificate management in Service Fabric clusters:
+https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#certificate-rotation
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -960,11 +1266,16 @@ Use Azure Key Vault to rotate Service Fabric cluster certificates automatically.
 
 ### 8.1: Use centrally-managed anti-malware software
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24156).
+
 **Guidance**: By default, Windows Defender antivirus is installed on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required.
 
 Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. Windows Defender isn't supported on Linux.
 
-* [Understand Windows Defender Antivirus on Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)
+Understand Windows Defender Antivirus on Windows Server 2016:
+
+https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -972,7 +1283,13 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data. Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Service Fabric), however it does not run on customer content.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24157).
+
+**Guidance**: Not applicable; this recommendation is intended for
+non-compute resources designed to store data. Microsoft anti-malware is enabled on the underlying
+host that supports Azure services (for example, Service Fabric), however it
+does not run on customer content.
 
 **Azure Security Center monitoring**: N/A
 
@@ -980,7 +1297,13 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
-**Guidance**: Not applicable; this recommendation is intended for non-compute resources designed to store data. Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Service Fabric), however it does not run on customer content.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24158).
+
+**Guidance**: Not applicable; this recommendation is intended for
+non-compute resources designed to store data. Microsoft anti-malware is enabled on the underlying
+host that supports Azure services (for example, Service Fabric), however it
+does not run on customer content.
 
 **Azure Security Center monitoring**: N/A
 
@@ -992,6 +1315,9 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 9.1: Ensure regular automated back-ups
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24159).
+
 **Guidance**: How data is backed up/made redundant is dependent on the service. LRS, ZRS, GRS for Storage Accounts, Global Replication for CosmosDB, built-in backup and DR for Virtual Machines
 
 **Azure Security Center monitoring**: N/A
@@ -1000,13 +1326,22 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24160).
+
 **Guidance**: Enable backup restore service in your Service Fabric cluster and create backup policies to backup stateful services periodically and on-demand. Backup customer managed keys within Azure Key Vault.
 
-* [Periodic backup and restore in an Azure Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster)
+Periodic backup and restore in an Azure Service Fabric cluster:
 
-* [Understanding periodic backup configuration in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup)
+https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster
 
-* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+Understanding periodic backup configuration in Azure Service Fabric:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup
+
+How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1014,13 +1349,22 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 9.3: Validate all backups including customer-managed keys
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24161).
+
 **Guidance**: Ensure ability to perform restoration from the backup restore service by periodically reviewing backup configuration information and available backups. Test restoration of backed up customer managed keys.
 
-* [Understanding periodic backup configuration in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup)
+Understanding periodic backup configuration in Azure Service Fabric:
 
-* [Restoring backup in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-backup-restore-service-trigger-restore)
+https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup
 
-* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+Restoring backup in Azure Service Fabric:
+
+https://docs.microsoft.com/azure/service-fabric/service-fabric-backup-restore-service-trigger-restore
+
+How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1028,13 +1372,14 @@ Refer to your Antimalware documentation for configuration rules if you are not u
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Backups from Service Fabric backup restore service use an Azure Storage account in your subscription. Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys for encryption of storage data.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24162).
 
-If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabled to protect keys against accidental or malicious deletion.
+**Guidance**: Backups from Service Fabric backup restore service use an Azure Storage account in your subscription. Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys for encryption of storage data.If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabled to protect keys against accidental or malicious deletion.Azure Storage encryption at rest:https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
-* [Azure Storage encryption at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+How to enable Soft-Delete in Key Vault:
+https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-* [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center monitoring**: N/A
 
@@ -1046,15 +1391,22 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 10.1: Create an incident response guide
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24163).
+
 **Guidance**: Ensure that there are written incident response plans that defines roles of personnel as well as phases of incident handling/management.
 
-* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+How to configure Workflow Automations within Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### 10.2: Create an incident scoring and prioritization procedure
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24164).
 
 **Guidance**: Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1064,9 +1416,15 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 10.3: Test security response procedures
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24169).
+
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-* [NIST Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+NIST Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:
+
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1074,9 +1432,13 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24165).
+
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party.
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+How to set the Azure Security Center Security Contact:
+https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1084,11 +1446,17 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 10.5: Incorporate security alerts into your incident response system
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24166).
+
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+How to configure continuous export:
+https://docs.microsoft.com/azure/security-center/continuous-export
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+How to stream alerts into Azure Sentinel:
+https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -1096,9 +1464,13 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 10.6: Automate the response to security alerts
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24167).
+
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+How to configure Workflow Automation and Logic Apps:
+https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1110,11 +1482,17 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24168).
+
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Review Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications.
 
-* [Microsoft Cloud Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
+Microsoft Cloud Penetration Testing Rules of Engagement:
+https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+Microsoft Cloud Red Teaming:
+https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+
 
 **Azure Security Center monitoring**: N/A
 
