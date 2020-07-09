@@ -223,12 +223,12 @@ To use a client certificate for service principal authentication:
 
 ## Connection String Support
 
-By default, `AzureServiceTokenProvider` tries the dollowing authentication methods, in order, to retrieve a token:
+By default, `AzureServiceTokenProvider` tries the following authentication methods, in order, to retrieve a token:
 
 - [A managed identity for Azure resources](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Visual Studio authentication
 - [Azure CLI authentication](/azure/authenticate-azure-cli?view=azure-cli-latest)
-- [WIntegrated Windows authentication](/aspnet/web-api/overview/security/integrated-windows-authentication)
+- [Integrated Windows authentication](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.  The following options are supported:
 
