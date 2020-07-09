@@ -176,4 +176,4 @@ To learn more about related services and Azure features you can use to defend ag
 
 - [Use the Domain Verification ID when adding Custom Domains in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
