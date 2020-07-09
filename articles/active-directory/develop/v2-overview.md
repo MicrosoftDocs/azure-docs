@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform (v2.0) overview - Azure
-description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
+title: Microsoft identity platform overview - Azure
+description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
+ms.custom: identityplatformtop40
+# Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
-# Microsoft identity platform (v2.0) overview
+# Microsoft identity platform overview
 
 Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
 
@@ -52,26 +52,33 @@ As you work with the Microsoft identity platform to integrate authentication and
 
 ## Learn authentication concepts
 
-If you’d like to learn how core authentication concepts apply to the Microsoft identity platform, here are several recommended topics to start with:
+Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles.
 
 - [Authentication basics](authentication-scenarios.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
 - [Permissions and consent](v2-permissions-and-consent.md)
-- [ID tokens](id-tokens.md) and [access tokens](access-tokens.md)
+- [ID tokens](id-tokens.md)
+- [Access tokens](access-tokens.md)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 
 ## More identity and access management options
 
-If you'd like to build a customer-facing application that users can sign in to using their social accounts like Facebook or Google, see [Azure AD B2C](../../active-directory-b2c/overview.md).
+Building a customer-facing application your users can sign in to using their social accounts like Facebook or Google?
 
-If you'd like invite external users into your tenant as "guest" users to which you can assign permissions (for authorization) while allowing them to use their existing credentials (for authentication), see [Azure AD B2B](../b2b/what-is-b2b.md).
+- [Azure AD B2C](../../active-directory-b2c/overview.md).
+
+If you'd like to invite external users into your tenant as "guest" users to which you can assign permissions (for authorization) while allowing them to use their existing credentials (for authentication)
+
+- [Azure AD B2B](../b2b/what-is-b2b.md).
 
 > [!TIP]
-> Looking for **Azure Active Directory (Azure AD) developer platform (v1.0)** documentation? We've moved it here: [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
+> Looking for *Azure Active Directory developer platform (v1.0)* documentation?
+>
+> [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
 
 ## Next steps
 
-Most developers need an Azure Active Directory tenant they can use for development purposes, also known as a "dev tenant."
+Most developers need an Azure Active Directory tenant they can use for development purposes, sometimes referred to as a "dev tenant."
 
-For info on creating your own dev tenant, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
+To learn how to create your own dev tenant, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
