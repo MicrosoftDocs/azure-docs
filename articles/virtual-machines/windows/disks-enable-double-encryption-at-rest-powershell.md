@@ -42,7 +42,7 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1. Create an instance of a DiskEncryptionSet. 
+1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Please use the API version 2020-05-01 in the Azure Resource Manager (ARM) template. 
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
@@ -56,9 +56,9 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
 
 1. Grant the DiskEncryptionSet resource access to the key vault.
 
-> [!NOTE]
-> It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+    > [!NOTE]
+    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
-```powershell  
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-```
+    ```powershell  
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+    ```
