@@ -36,7 +36,7 @@ To get started, you'll need:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Step | Description |
 |------|------|
 |1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C user flow. The interaction flow starts when the user clicks on this button.  |
 |2     | Azure AD B2C starts the OpenID connect flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
