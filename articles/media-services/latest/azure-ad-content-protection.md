@@ -1,5 +1,5 @@
 ---
-title: End-to-End content protection using Azure AD
+title: End-to-end content protection using Azure AD
 description: This article teaches you how to protect your content with Azure Media Services and Azure Active Directory
 services: media-services
 documentationcenter: ''
@@ -115,9 +115,10 @@ The SPA player app completes the following actions:
 * Decryption, decode, and display.
 * Microsoft Graph API calls for troubleshooting purposes. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
+<!--
 The screen for sign-in, token acquisition, token renewal, and token display:
 
-![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
 
 The screen for parsing JWT tokens (access_token or id_token):
 
@@ -126,6 +127,7 @@ The screen for parsing JWT tokens (access_token or id_token):
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
 ![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+-->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
@@ -136,8 +138,8 @@ The screen for testing protected content with different combinations of DRM/AES 
 
 Choose an Azure AD tenant to use for our end-to-end sample. You have two options:
 
-1. An existing Azure AD tenant. Any Azure subscription must have one Azure AD tenant, but an Azure AD tenant can be used by multiple Azure subscriptions.
-1. A new Azure AD tenant that is *not* used by any Azure subscription. If you choose the new tenant option, the media service account and the sample player app must be in an Azure subscription that uses a separate Azure AD tenant. This provides some flexibility. For example, you could use your own Azure AD tenant but also the customer’s media service account in the customer’s Azure subscription.
+* An existing Azure AD tenant. Any Azure subscription must have one Azure AD tenant, but an Azure AD tenant can be used by multiple Azure subscriptions.
+* A new Azure AD tenant that is *not* used by any Azure subscription. If you choose the new tenant option, the media service account and the sample player app must be in an Azure subscription that uses a separate Azure AD tenant. This provides some flexibility. For example, you could use your own Azure AD tenant but also the customer’s media service account in the customer’s Azure subscription.
 
 ## Register the backend resource app
 
