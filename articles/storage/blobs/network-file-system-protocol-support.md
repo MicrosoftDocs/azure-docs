@@ -22,7 +22,7 @@ Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol
 >
 > For BlockBlobStorage accounts, support is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
-## Get started: Mount a storage account container
+## Getting started: Mount a storage account container
 
 To mount a storage account container, you'll have to do these things.
 
@@ -38,10 +38,10 @@ To mount a storage account container, you'll have to do these things.
 
 6. Mount a container in the storage account.
 
+For step-by-step guidance, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+
 > [!IMPORTANT]
 > It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account.
-
-For step-by-step guidance, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 ## Supported network locations
 
@@ -95,7 +95,7 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 
 ## Pricing
 
-During preview, the data stored in your storage account is billed at the same capacity rate that blob storage charges per GB per month. 
+During the preview, the data stored in your storage account is billed at the same capacity rate that blob storage charges per GB per month. 
 
 A transaction is free during the preview. Transactions will not be free when this feature becomes generally available. The exact transaction pricing is yet to be determined. 
 

@@ -108,7 +108,51 @@ In the current release, you can mount only containers. You can't mount individua
 
 Create a container by using any of these options:
 
-:::row::: :::column span=""::: [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container) :::column-end::: :::column span=""::: [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span=""::: [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container) :::column-end::: :::column span=""::: [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span="2"::: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container) :::column-end::: :::row-end::::::row::: :::column span=""::: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container) :::column-end::: :::column span=""::: [Python](data-lake-storage-directory-file-acl-python.md#create-a-container) :::column-end::: :::row-end::: :::row::: :::column span=""::: [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container) :::column-end::: :::column span=""::: [REST](https://docs.microsoft.com/rest/api/storageservices/create-container) :::column-end::: :::row-end::: :::row::: :::column span="2"::: Blank entry :::column-end::: :::row-end:::
+:::row:::
+   :::column span="":::
+      [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Python](data-lake-storage-directory-file-acl-python.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
+   :::column-end:::
+   :::column span="":::
+      [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [REST](https://docs.microsoft.com/rest/api/storageservices/create-container)
+   :::column-end:::
+:::row-end:::
 
 ## Step 6: Mount the container
 
