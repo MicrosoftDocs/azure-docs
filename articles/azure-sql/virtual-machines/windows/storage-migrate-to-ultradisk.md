@@ -76,7 +76,7 @@ Configure SQL Server to use the new log drive. You can do so using Transact-SQL 
 
 ### Configure permissions
 
-1. Verify the service account used by SQL Server. You can do so by using SQL Server Configuration Manager or Services.msc
+1. Verify the service account used by SQL Server. You can do so by using SQL Server Configuration Manager or Services.msc.
 1. Navigate to your new disk. 
 1. Create a folder (or multiple folders) to be used for your log file. 
 1. Right-click the folder and select **Properties**.
@@ -86,7 +86,12 @@ Configure SQL Server to use the new log drive. You can do so using Transact-SQL 
 
 ### Use new log drive 
 
-After permission has been granted, use either Transact-SQL (T-SQL) or SQL Server Management Studio (SSMS) to move existing log files to the new location. 
+After permission has been granted, use either Transact-SQL (T-SQL) or SQL Server Management Studio (SSMS) to detach the database and move existing log files to the new location.
+
+   > [!CAUTION]
+   > Detaching the database will take it offline, closing connections and rolling back any transactions that are in-flight. Proceed with caution and during a down-time maintenance window. 
+
+
 
 # [Transact-SQL (T-SQL)](#tab/tsql)
 
