@@ -131,3 +131,4 @@ You need to enable CORS (cross-origin resource sharing) on your APIs to let the 
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
