@@ -72,7 +72,7 @@ The following video segment fast-forwards to an explanation of the ranking algor
 
 ## featuresMode parameter (preview)
 
-[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) requests have a new [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) parameter that can provide additional detail about relevance at the field level. Whereas the `@searchScore` is calculated for the document all-up (how relevant is this document in the context of this query), through featuresMode you can get information about individual fields, as expressed in `@search.features`:
+[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) requests have a new [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) parameter that can provide additional detail about relevance at the field level. Whereas the `@searchScore` is calculated for the document all-up (how relevant is this document in the context of this query), through featuresMode you can get information about individual fields, as expressed in a `@search.features` structure. The structure contains all fields used in the query (either specific fields through **searchFields** in a query, or all fields attributed as **searchable** in an index). For each field, you get the following values:
 
 + Number of unique tokens found in the field
 + Similarity score, or a measure of how similar the content of the field is, relative to the query term

@@ -115,6 +115,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
+* [Enclosure environment alerts](#enclosure-environment-alerts)
 
 ### Cloud connectivity alerts
 

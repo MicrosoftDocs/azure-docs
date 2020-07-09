@@ -39,7 +39,7 @@ In this step, you'll assign a role to the function app's system-assigned managed
 |Built-in role  |Description  |
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
-|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
+|[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
 
 > [!IMPORTANT]
 > Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.

@@ -373,8 +373,10 @@
       href: backup-azure-security-feature.md
     - name: Private Endpoints
       href: private-endpoints.md
-    - name: Encryption
+    - name: Encryption in Azure Backup
       href: backup-encryption.md
+    - name: Encryption using customer-managed keys
+      href: encryption-at-rest-with-cmk.md
     - name: Built-in security controls
       href: backup-security-controls.md
     - name: Security baseline

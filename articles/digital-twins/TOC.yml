@@ -88,6 +88,8 @@
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK
           href: https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins
+        - name: Java SDK - reference
+          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview
         - name: Java SDK - source
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins
         - name: JavaScript SDK
@@ -106,12 +108,18 @@
           href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
-        - name: .NET (C#) SDK - reference
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
+        - name: .NET (C#) SDK - reference
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
+  - name: Digital Twins CLI 
+    items: 
+    - name: Digital Twins CLI reference
+      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+    - name: CLI package
+      href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: DTDL
     items: 
     - name: DTDL v2 spec
@@ -126,12 +134,6 @@
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: Azure tools
     items: 
-    - name: Azure CLI reference
-      href: /cli/azure/iot
-    - name: Azure IoT CLI extension reference
-      href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
-    - name: Azure IoT CLI extension releases
-      href: https://github.com/Azure/azure-iot-cli-extension/releases
     - name: Azure Cloud Shell
       href: https://shell.azure.com
     - name: Azure PowerShell

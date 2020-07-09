@@ -46,47 +46,7 @@ The storage replication type by default is set to geo-redundant storage (GRS). O
 
 ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
 
-Before deciding to move from GRS to locally redundant storage (LRS), review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS, then you have two choices. They depend on your business requirements to retain the backup data:
-
-- [Don’t need to preserve previous backed-up data](#dont-need-to-preserve-previous-backed-up-data)
-- [Must preserve previous backed-up data](#must-preserve-previous-backed-up-data)
-
-### Don’t need to preserve previous backed-up data
-
-To protect workloads in a new LRS vault, the current protection and data will need to be deleted in the GRS vault and backups configured again.
-
->[!WARNING]
->The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
-
-Stop and delete current protection on the GRS vault:
-
-1. Disable soft delete in the GRS vault properties. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete.
-
-1. Stop protection and delete backups from the existing GRS vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the LRS vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
-
-1. If you're planning to move AFS (Azure file shares), SQL servers or SAP HANA servers, then you'll need also to unregister them. In the vault dashboard menu, select **Backup Infrastructure**. See how to [unregister the SQL server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), and [unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
-
-1. Once they're removed from the GRS vault, continue to configure the backups for your workload in the new LRS vault.
-
-### Must preserve previous backed-up data
-
-If you need to keep the current protected data in the GRS vault and continue the protection in a new LRS vault, there are limited options for some of the workloads:
-
-- For MARS, you can [stop protection with retain data](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) and register the agent in the new LRS vault.
-
-  - Azure Backup service will continue to retain all the existing recovery points of the GRS vault.
-  - You'll need to pay to keep the recovery points in the GRS vault.
-  - You'll be able to restore the backed-up data only for unexpired recovery points in the GRS vault.
-  - A new initial replica of the data will need to be created on the LRS vault.
-
-- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then protect the VM in the LRS vault. See [guidance and limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) for moving a VM to another resource group.
-
-  A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the LRS vault as it is considered a different VM.
-
-  - Azure Backup service will retain the recovery points that have been backed up on the GRS vault.
-  - You'll need to pay to keep the recovery points in the GRS vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
-  - You'll be able to restore the VM, if needed, from the GRS vault.
-  - The first backup on the LRS vault of the VM in the new resource will be an initial replica.
+If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 
