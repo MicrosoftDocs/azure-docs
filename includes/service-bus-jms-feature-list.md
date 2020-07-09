@@ -10,10 +10,10 @@ ms.author: aschhab
 ms.custom: "include file"
 ---
 
-The below table lists the **Java Message Service (JMS)** features that are currently supported and un-supported by Azure Service Bus.
+The following table lists the Java Message Service (JMS) features that Azure Service Bus currently supports. It also shows features that are unsupported.
 
 
-| Features | Status |
+| Feature | Status |
 |---|---|
 | Queues   | Supported |
 | Topics   | Supported |
@@ -25,5 +25,5 @@ The below table lists the **Java Message Service (JMS)** features that are curre
 | Unshared Durable Subscriptions | Supported |
 | Shared Non-durable Subscriptions | Supported |
 | Unshared Non-durable Subscriptions | Supported |
-| Distributed Transactions | **Not supported** |
-| Durable Terminus | **Not supported** |
+| Distributed Transactions | Not supported |
+| Durable Terminus | Not supported |
