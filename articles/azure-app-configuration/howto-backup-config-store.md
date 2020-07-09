@@ -1,5 +1,5 @@
 ---
-title: Automatically backup key values from App Configuration store
+title: Automatically backup key values from Azure App Configuration store
 description: Learn how to set up an automatic backup of key values between App Configuration stores
 services: azure-app-configuration
 author: avanigupta
