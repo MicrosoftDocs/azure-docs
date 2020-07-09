@@ -25,7 +25,7 @@ Threat actors actively hunt accessible machines with open management ports, like
 
 
 
-## Why just-in-time (JIT) virtual machine (VM) access is the solution 
+## Why JIT VM access is the solution 
 
 As with all cybersecurity prevention techniques, your goal should be to reduce the attack surface. In this case, that means having fewer open ports, especially management ports.
 
@@ -45,7 +45,7 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 
 
-## How does Security Center identify VMs that should have JIT applied?
+## How Security Center identifies which VMs should have JIT applied
 
 The diagram below shows the logic that Security Center applies when deciding how to categorize your ARM deployed VMs that are on the standard pricing tier: 
 
@@ -61,7 +61,9 @@ When Security Center finds a machine that can benefit from JIT, it adds that mac
 
 ## Next steps
 
-This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. Advance to the how-to article to learn how to apply JIT to your machines:
+This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. 
+
+Advance to the how-to article to learn about enabling JIT and requesting access to your JIT-enabled VMs:
 
 > [!div class="nextstepaction"]
 > [How to secure your management ports with JIT](security-center-just-in-time.md)
