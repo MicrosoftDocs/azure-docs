@@ -53,7 +53,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
  
  Below is a summary of data collected for each route:
         
-|  | .NET Basic Collection | .NET Recommended collection |
+| Data | .NET Basic Collection | .NET Recommended collection |
 | --- | --- | --- |
 | Adds CPU, memory, and I/O usage trends |Yes |Yes |
 | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
