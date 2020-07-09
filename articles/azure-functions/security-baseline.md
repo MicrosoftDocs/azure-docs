@@ -126,7 +126,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 - [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [Understand Azure Web Application Firewall](../application-gateway/overview.md#web-application-firewall)
+- [Understand Azure Web Application Firewall](../web-application-firewall/index.yml)
 
 - [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
@@ -148,7 +148,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 - [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [Understand Azure Web Application Firewall](../application-gateway/overview.md#web-application-firewall)
+- [Understand Azure Web Application Firewall](../web-application-firewall/index.yml)
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
