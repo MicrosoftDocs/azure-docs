@@ -1,7 +1,7 @@
 ---
 title: Provision and manage a Gen 2 environment - Azure Time Series | Microsoft Docs
 description: Learn how to provision and manage an Azure Time Series Insights Gen 2 environment.
-author: shipramishra 
+author: shipra1mishra 
 ms.author: shmishr
 manager: diviso
 ms.workload: big-data
@@ -33,14 +33,14 @@ You will learn how to:
 1.  Associate each Azure Time Series Insights Gen 2 environment with an event source. You will also provide a Timestamp ID property and a unique consumer group to ensure that the environment has access to the appropriate events.
 
    > [!NOTE]
-   > The preceding step is optional when provisioning an environment. If you skip this step, you must attach an event source to the environment later so data can start flowing in this newly created environment and can be accessed through query.
+   > The preceding step is optional when provisioning an environment. If you skip this step, you must attach an event source to the environment later so data can start flowing into your environment and can be accessed through query.
 
 1. After provisioning is complete, you can modify your access policies and other environment attributes to suit your business needs.
 
 ## Create the environment
 
 To create an Azure Time Series Insights Gen 2 environment:
-1. Create a Time Series Insights resource under *Internet of Things* on [Azure portal](https://portal.azure.com/).
+1. Create an Azure Time Series Insights resource under *Internet of Things* on [Azure portal](https://portal.azure.com/).
 
 
 1. Select **Gen2(L1)** as the **Tier**. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
@@ -51,22 +51,20 @@ To create an Azure Time Series Insights Gen 2 environment:
 
     > [!NOTE]
     > * The Time Series ID is *case-sensitive* and *immutable*. (It can't be changed after it's set.)
-    > * Time Series IDs can be up to *three* keys. Think of it as a primary key in a database, which uniquely represents each device sensor that would send data to the TSI environment. It could be one property or a combination of upto three properties.
+    > * Time Series IDs can be up to *three* keys. Think of it as a primary key in a database, which uniquely represents each device sensor that would send data to your environment. It could be one property or a combination of upto three properties.
     > * Read more about [How to choose a Time Series ID](time-series-insights-update-how-to-id.md)
 
-1. Create an Azure Storage account by selecting a storage account name, account kind and designating a [replication](https://docs.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal) choice. Doing so automatically creates an Azure Storage  account. By default, [general purpose v2](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) account will be created. The account is created in the same region as the Azure Time Series Insights Gen2 environment that you previously selected.
+1. Create an Azure Storage account by selecting a storage account name, account kind and designating a [replication](https://docs.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal) choice. Doing so automatically creates an Azure Storage  account. By default, [general purpose v2](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) account will be created. The account is created in the same region as the Azure Time Series Insights Gen2 environment that you previously selected. 
+Alternatively, you can also bring your own storage (BYOS) through [ARM template](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) when you create a new Azure Time Series Gen2 environment. 
 
-    [![Cold storage configuration](media/v2-update-manage/create-and-manage-cold-store.png)](media/v2-update-manage/create-and-manage-cold-store.png#lightbox)
+1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create an Azure Time Series Insights Gen2 environment.
 
-1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create a Azure Time Series Insights Gen2 environment.
-
-    [![Warm storage configuration](media/v2-update-manage/create-and-manage-warm-storage.png)](media/v2-update-manage/create-and-manage-warm-storage.png#lightbox)
 
 1. **(Optional)** You can add an event source now. You can also wait until after the instance has been provisioned.
 
    * Azure Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as event source options. Although you can add only a single event source when you create the environment, you can add another event source later. 
    
-     You can select an existing consumer group or create a new consumer group when you add the event source. It's best to create a unique consumer group to ensure that all events are visible to your Azure Time Series Insights Gen2 environment.
+     You can select an existing consumer group or create a new consumer group when you add the event source. Please note that the event source requires a unique consumer group for your environment to read data into it.
 
    * Choose the appropriate Timestamp property. By default, Azure Time Series Insights uses the message-enqueued time for each event source.
 
@@ -91,9 +89,9 @@ You can manage your Azure Time Series Insights Gen2 environment by using the Azu
   * The displayed URL directs you to the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
   * Your Azure Storage account name is listed.
 
-* The Azure portal's **Configure** blade is removed because Azure Time Series Insights Gen2 aren't configurable. However, you can use **Storage Configuration** to configure the newly introduced warm store.
+* The Azure portal's **Configure** blade is removed because scale units don't apply to Azure Time Series Insights Gen2 environments. However, you can use **Storage Configuration** to configure the newly introduced warm store.
 
-* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because thre is no concept of reference data in Gen2.
+* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data concept has been replaced by [Time Series Model (TSM)](./time-series-insights-update-how-to-tsm.md).
 
 [![Azure Time Series Insights Gen 2 environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
