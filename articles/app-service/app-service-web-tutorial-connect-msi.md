@@ -76,7 +76,7 @@ To set the Azure AD user for Azure service authentication, select **Tools** > **
 
 You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
 
-### MacOS
+### macOS
 
 Visual Studio for Mac is not integrated with Azure AD authentication. However, the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library that you will use later can use tokens from Azure CLI. To enable development and debugging in Visual Studio, first you need to [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your local machine.
 

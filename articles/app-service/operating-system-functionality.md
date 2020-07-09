@@ -56,7 +56,7 @@ It is important to monitor your disk utilization as your application grows. If t
 
 <a id="NetworkDrives"></a>
 
-### Network drives (aka UNC shares)
+### Network drives (UNC shares)
 One of the unique aspects of App Service that makes app deployment and maintenance straightforward is that all user content is stored on a set of UNC shares. This model maps well to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers. 
 
 Within App Service, there is a number of UNC shares created in each data center. A percentage of the user content for all customers in each data center is allocated to each UNC share. Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share. 

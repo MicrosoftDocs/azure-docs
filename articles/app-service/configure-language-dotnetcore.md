@@ -112,7 +112,7 @@ In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_pro
 
 - Configure the middleware with [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
 - Add private IP address ranges to the known networks, so that the middleware can trust the App Service load balancer.
-- Invoke the [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in `Startup.Configure` before calling other middlewares.
+- Invoke the [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in `Startup.Configure` before calling other middleware.
 
 Putting all three elements together, your code looks like the following example:
 

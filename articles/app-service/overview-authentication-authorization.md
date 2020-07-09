@@ -57,7 +57,7 @@ App Service provides a built-in token store, which is a repository of tokens tha
 
 You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
 
-The id tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
+The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 
 If you don't need to work with tokens in your app, you can disable the token store.
 
