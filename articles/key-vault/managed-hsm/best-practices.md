@@ -17,13 +17,13 @@ ms.author: mbaldwin
 
 ## Control Access to your Managed HSM
 
-Managed HSM is a cloud service that safeguards encryption keys. Because this  is sensitive and business critical, you need to secure access to your hsm's by allowing only authorized applications and users. This [article](secure-your-hsm.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
+Managed HSM is a cloud service that safeguards encryption keys. Because keys are sensitive and business critical, you need to secure access to your HSM's by allowing only authorized applications and users. This [article](accerss-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
 
 Suggestions while controlling access to your vault are as follows:
-1. Lock down access to your subscription, resource group and Key Vaults (RBAC)
-2. Create Access policies for every vault
+1. Lock down access to your subscription, resource group and Managed HSMs (RBAC)
+2. Create Access policies for every HSM
 3. Use least privilege access principal to grant access
-4. Turn on Firewall and [VNET Service Endpoints](key-vault-overview-vnet-service-endpoints.md)
+4. Turn on Firewall and [VNET Service Endpoints](vnet-service-endpoints.md)
 
 ## Backup
 
@@ -35,5 +35,5 @@ Make sure you take regular back ups of your HSM.
 
 ## Turn on recovery options
 
-1. Turn on [Soft Delete](ovw-soft-delete.md).
+1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the HSM even after soft delete is turned on.
