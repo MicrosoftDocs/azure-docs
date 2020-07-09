@@ -7,7 +7,7 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
-ms.author: vikancha
+ms.author: vikancha-MSFT
 
 ---
 
