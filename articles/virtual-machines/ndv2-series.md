@@ -1,7 +1,7 @@
 ---
 title: NDv2-series 
 description: Specifications for the NDv2-series VMs.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article

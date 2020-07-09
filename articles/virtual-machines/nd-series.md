@@ -1,7 +1,7 @@
 ---
 title: ND-series - Azure Virtual Machines
 description: Specifications for the ND-series VMs.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article

@@ -33,6 +33,7 @@ To complete most of the steps in this tutorial, you can use [this demo environme
 You can also use your own environment, if you're using Azure Monitor to collect log data on at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
 
 ## Understand the schema
+ 
 A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
 
 The schema tables appear on the **Tables** tab of the Log Analytics workspace. The tables contain columns, each with a data type shown by the icon next to the column name. For example, the **Event** table contains text columns like **Computer** and numerical columns like **EventCategory**.
@@ -46,6 +47,7 @@ Log Analytics opens with a new blank query in the **Query editor**.
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### Write a query
+
 Azure Monitor log queries use a version of the Kusto query language. Queries can begin with either a table name or a [search](/azure/kusto/query/searchoperator) command. 
 
 The following query retrieves all records from the **Event** table:
@@ -152,6 +154,7 @@ You can change properties of the view, such as x and y axes, or grouping and spl
 You can also set the preferred view in the query itself, using the [render](/azure/kusto/query/renderoperator) operator.
 
 ## Pin results to a dashboard
+
 To pin a results table or chart from Log Analytics to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
@@ -167,9 +170,11 @@ A table or chart that you pin to a shared dashboard has the following simplifica
 - Charts with many discrete categories automatically group less populated categories into a single **others** bin.
 
 ## Save, load, or export queries
+
 Once you create a query, you can save or share the query or results with others. 
 
 ### Save queries
+
 To save a query:
 
 1. Select **Save** on the top bar.

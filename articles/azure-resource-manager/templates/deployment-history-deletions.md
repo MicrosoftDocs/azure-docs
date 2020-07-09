@@ -2,13 +2,13 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/06/2020
 ---
 # Automatic deletions from deployment history
 
 Every time you deploy a template, information about the deployment is written to the deployment history. Each resource group is limited to 800 deployments in its deployment history.
 
-Starting in June 2020, Azure Resource Manager automatically deletes deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
+Azure Resource Manager will soon start automatically deleting deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error. **This feature has not yet been added to Azure. We're notifying you of this upcoming change, in case you want to opt out.**
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
@@ -32,7 +32,7 @@ When you give a deployment the same name as one in the history, you reset its pl
 
 You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
 
-To disable automatic deletions, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group.
+To disable automatic deletions, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group. To reenable automatic deletions, unregister the feature flag.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -48,6 +48,8 @@ To see the current status of your subscription, use:
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+To reenable automatic deletions, use Azure REST API or Azure CLI.
+
 # [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
@@ -62,6 +64,12 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
 # [REST](#tab/rest)
 
 For REST API, use [Features - Register](/rest/api/resources/features/register).
@@ -74,6 +82,12 @@ To see the current status of your subscription, use:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
+```
+
+To reenable automatic deletions, use [Features - Unregister](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
 ```
 
 ---

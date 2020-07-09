@@ -1,18 +1,8 @@
 ---
 title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 11/04/2019
-ms.custom: mvc
-ms.author: aschhab
-#Customer intent: As a developer, I want to be able to securely and reliably send messages between applications and services, with the ability to use publish/subscribe capabilities.
+ms.date: 06/23/2020
 ---
 
 # What is Azure Service Bus?

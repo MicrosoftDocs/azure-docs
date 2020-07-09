@@ -110,7 +110,7 @@ HTTP requests.
    - Subscription - `/subscriptions/{subId}/`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-For more information about managing resource policies using the Azure Resource Manager PowerShell
+For more information about managing resource policies using the Resource Manager PowerShell
 module, see [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### Create and assign a policy definition using ARMClient

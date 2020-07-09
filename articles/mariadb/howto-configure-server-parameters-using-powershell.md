@@ -5,11 +5,11 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/26/2020
 ---
 
-# Customize Azure Database for MariaDB server parameters using PowerShell
+# Configure server parameters in Azure Database for MariaDB using PowerShell
 
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.

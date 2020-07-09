@@ -26,7 +26,7 @@
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Security - Enable Customer Managed Key Encryption
-    href: quickstart-enable-customer-managed-key.md
+    href: enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -194,30 +194,6 @@
         href: wrangling-data-flow-overview.md
       - name: Supported functions
         href: wrangling-data-flow-functions.md
-  - name: Data migration for data lake & EDW
-    items:
-    - name: Why Azure Data Factory
-      href: data-migration-guidance-overview.md
-    - name: Migrate data from AWS S3 to Azure
-      href: data-migration-guidance-s3-azure-storage.md
-    - name: Migrate data from on-premises Hadoop cluster to Azure
-      href: data-migration-guidance-hdfs-azure-storage.md
-    - name: Migrate data from on-premises Netezza server to Azure
-      href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using mapping data flow
-    items:
-    - name: Process fixed-width text files
-      href: how-to-fixed-width.md
-    - name: Error row handling
-      href: how-to-data-flow-error-rows.md
-    - name: Azure SQL DB to CosmosDB
-      href: how-to-sqldb-to-cosmosdb.md
-  - name: SSIS migration from on-premises
-    items:
-    - name: SSIS migration overview
-      href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Managed Instance
-      href: scenario-ssis-migration-ssisdb-mi.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -600,13 +576,15 @@
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Monitor SSIS with Azure Monitor
+      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
@@ -683,6 +661,32 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+  - name: Scenarios
+    items:    
+    - name: Data migration for data lake & EDW
+      items:
+      - name: Why Azure Data Factory
+        href: data-migration-guidance-overview.md
+      - name: Migrate data from AWS S3 to Azure
+        href: data-migration-guidance-s3-azure-storage.md
+      - name: Migrate data from on-premises Hadoop cluster to Azure
+        href: data-migration-guidance-hdfs-azure-storage.md
+      - name: Migrate data from on-premises Netezza server to Azure
+        href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Transformation using mapping data flow
+      items:
+      - name: Process fixed-width text files
+        href: how-to-fixed-width.md
+      - name: Error row handling
+        href: how-to-data-flow-error-rows.md
+      - name: Azure SQL DB to CosmosDB
+        href: how-to-sqldb-to-cosmosdb.md
+    - name: SSIS migration from on-premises
+      items:
+      - name: SSIS migration overview
+        href: scenario-ssis-migration-overview.md
+      - name: SSISDB migration to Azure SQL Managed Instance
+        href: scenario-ssis-migration-ssisdb-mi.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -723,6 +727,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Diagnose connectivity in Azure-SSIS IR
+      href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Reference
   items:
   - name: Data flow script

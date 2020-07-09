@@ -1,5 +1,5 @@
 ---
-title: Debug an AI enrichment skillset (preview)
+title: Debug sessions concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Debug sessions, accessed through the Azure portal, provides an IDE like environment where you can identify and fix errors, validate changes, and push changes to skillsets in the AI enrichment pipeline. Debug sessions is in preview.
 
@@ -11,14 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-# Debug sessions
+# Debug sessions in Azure Cognitive Search
 
 Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and push changes to a production skillset in the AI enrichment pipeline.
 
 > [!Important]
-> Debug sessions support for Azure Cognitive Search is available [upon request](https://aka.ms/DebugSessions) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug sessions is a preview feature provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Once you are granted access to the preview, you'll be able to access and use Debug sessions for the service using the Azure portal.
 
 ## Using debug sessions
 
@@ -82,6 +81,10 @@ The **Enriched Data Structure** pane shows the document's enrichments through th
 ## Errors/Warnings
 
 This window displays all of the errors and warnings the skillset produces as it is executed against the document in the debug session.
+
+## Limitations
+
+Debug sesisons work with all generally available data sources amd most preview data sources. The MongoDB API (preview) and Cassandra API (preview) of Cosmos DB are currently not supported.
 
 ## Next steps
 

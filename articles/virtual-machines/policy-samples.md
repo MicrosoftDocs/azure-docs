@@ -1,14 +1,14 @@
 ---
 title: Built-in policy definitions for Azure Virtual Machines 
 description: Lists Azure Policy built-in policy definitions for Azure Virtual Machines. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Virtual Machines
+# Azure Policy built-in definitions for Azure Virtual Machines
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Virtual Machines. For additional Azure Policy built-ins for other services,

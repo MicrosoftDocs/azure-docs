@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # Connect and query Azure SQL Edge (Preview)
 
-In Azure SQL Edge, after you deploy a container, you can connect to the SQL database engine from any of the following locations:
+In Azure SQL Edge, after you deploy a container, you can connect to the database engine from any of the following locations:
 
 - Inside the container
 - From another Docker container running on the same host

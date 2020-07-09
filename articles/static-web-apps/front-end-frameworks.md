@@ -32,6 +32,7 @@ The intent of the table columns is explained by the following items:
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
 | [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
