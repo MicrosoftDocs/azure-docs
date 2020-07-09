@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or a computer on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Azure Data Lake Storage Gen2, see [Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md).
+You can mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Azure Data Lake Storage Gen2, see [Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > Data Lake Storage Gen2 support for NFS 3.0 protocol is in public preview.
@@ -22,9 +22,7 @@ You can mount a container in Azure Data Lake Storage from a Linux-based Azure Vi
 >
 > For BlockBlobStorage accounts, support is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
-## Step 1: Register NFS 3.0 protocol feature with your subscription
-
-To get started, use PowerShell commands to register the `AllowNFSV3` feature with your subscription.
+## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
 1. Open a PowerShell command window. 
 
@@ -63,9 +61,7 @@ To get started, use PowerShell commands to register the `AllowNFSV3` feature wit
 
 ## Step 2: Verify that the feature is registered 
 
-After you register the NFS 3.0 protocol feature with your subscription, the registration must be approved. This can take up to an hour. 
-
-To verify that the feature is registered with your subscription, use the following commands.
+Registration approval can take up to an hour. To verify that the feature is registered with your subscription, use the following commands.
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
@@ -76,14 +72,13 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 Your storage account must be contained within a VNet. To learn more about VNet and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
 
-If you plan to connect to your storage account by using a Virtual Machine (VM) that is in the same VNet as your storage account, 
-
-If you plan to connect to your Azure storage account from an on-premises computer, you'll have to connect your on-premises network to your virtual network. See supported topologies.
+> [!NOTE]
+> Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
 
 
 ## Step 4: Configure a storage account
 
-You can use the NFS 3.0 protocol only with new storage accounts. You can't enable existing accounts.
+To mount a container by using NFS 3.0, You must create a storage account after you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
 NFS 3.0 protocol is supported in the following types of storage accounts:
 
@@ -116,7 +111,7 @@ You can create a container by using [Azure Storage Explorer](data-lake-storage-e
 
 ## Step 6: Mount the container
 
-On a computer running Linux, you can mount a container by using the following command.
+On a Linux system, you can mount a container by using the following command.
 
 ```
 mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:<storage-account-name>/<container-name>  /mnt/test
@@ -125,6 +120,10 @@ mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.window
 Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
 Replace the `<container-name>` placeholder with the name of your container.
+
+If you receive the error `Access denied by server while mounting`, ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
+
+If you receive the error `No such file or directory`, make sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).
 
 ## See also
 
