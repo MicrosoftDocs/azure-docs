@@ -68,7 +68,7 @@ The following table provides definitions for the properties of a custom health p
 | Time-out |Probe time-out in seconds. If a valid response isn't received within this time-out period, the probe is marked as failed  |
 | Unhealthy threshold |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold |
 
-### Probe Matching
+### Probe matching
 
 By default, an HTTP(S) response with status code between 200 and 399 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what makes a healthy response.
 
