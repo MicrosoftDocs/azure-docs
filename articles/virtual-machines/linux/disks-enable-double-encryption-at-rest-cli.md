@@ -46,11 +46,11 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Please use the API version 2020-05-01 in the Azure Resource Manager (ARM) template. 
+1.    Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Use the API version 2020-05-01 in the Azure Resource Manager (ARM) template. 
     
         ```azurecli
         az group deployment create -g $rgName \
-        --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" \
+       --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" \
         --parameters "diskEncryptionSetName=$diskEncryptionSetName" "encryptionType=EncryptionAtRestWithPlatformAndCustomerKeys" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
         ```
 
@@ -67,5 +67,5 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
 ## Next steps
 
-[Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](../windows/disks-enable-customer-managed-keys-powershell.md)
+[Enable customer-managed keys with server-side encryption - Examples](disks-enable-customer-managed-keys-cli.md#examples)
 [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
