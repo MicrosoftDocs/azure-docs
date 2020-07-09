@@ -86,7 +86,12 @@ Configure SQL Server to use the new log drive. You can do so using Transact-SQL 
 
 ### Use new log drive 
 
-After permission has been granted, use either Transact-SQL (T-SQL) or SQL Server Management Studio (SSMS) to move existing log files to the new location. 
+After permission has been granted, use either Transact-SQL (T-SQL) or SQL Server Management Studio (SSMS) to detach the database and move existing log files to the new location.
+
+   > [!CAUTION]
+   > Detaching the database will take it offline, closing connections and rolling back any transactions that are in-flight. Proceed with caution and during a down-time maintenance window. 
+
+
 
 # [Transact-SQL (T-SQL)](#tab/tsql)
 
