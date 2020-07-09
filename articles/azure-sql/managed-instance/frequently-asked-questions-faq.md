@@ -72,22 +72,48 @@ For bugs and known issues, see [Known issues](../database/doc-changes-updates-re
 
 For new and preview features, see [Release notes](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
 
-## Deployment times 
+## Create, update, delete or move SQL Managed Instance
 
-**How much time does it take to create or update instance, or to restore a database?**
+**How can I provision SQL Managed Instance?**
 
-Expected time to create a managed instance or change service tier (vCores, storage) depends on several factors. Take a look at the [management operations](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations). 
+You can provision an instance from [Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
+**Can I provision Managed Instances in an existing subscription?**
+
+Yes, you can provision a Managed Instance in an existing subscription if that subscription belongs to the [Supported subscription types](resource-limits.md#supported-subscription-types).
+
+**Why couldn’t I provision a Managed Instance in the subnet which name starts with a digit?**
+
+This is a current limitation on underlying component that verifies subnet name against the regex ^[a-zA-Z_][^\\\/\:\*\?\"\<\>\|\`\'\^]*(?<![\.\s])$. All names that pass the regex and are valid subnet names are currently supported.
+
+**How can I scale my managed instance?**
+
+You can scale your managed instance from [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+
+**Can I move my Managed Instance from one region to another?**
+
+Yes, you can. For instructions, see [Move resources across regions](../database/move-resources-across-regions.md).
+
+**How can I delete my Managed Instance?**
+
+You can delete Managed Instances via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+
+**How much time does it take to create or update an instance, or to restore a database?**
+
+Expected time to create a new managed instance or to change service tiers (vCores, storage), depends on several factors. See [Management operations](sql-managed-instance-paas-overview.md#management-operations).
+ 
 ## Naming conventions
 
 **Can a managed instance have the same name as a SQL Server on-premises instance?**
 
 Changing a managed instance name is not supported.
 
-The default DNS zone *.database.windows.net* for a managed instance could be changed. 
+**Can I change DNS zone prefix?**
+
+Yes, Managed Instance default DNS zone *.database.windows.net* can be changed. 
 
 To use another DNS zone instead of the default, for example, *.contoso.com*: 
-- Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or a script as well.
+- Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it can be done using group policy or a script as well.
 - Use *CNAME* with the *TrustServerCertificate=true* option.
 
 ## Move a database from SQL Managed Instance 
