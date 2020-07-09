@@ -57,7 +57,7 @@ App Service provides a built-in token store, which is a repository of tokens tha
 
 You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
 
-The id tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
+The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 
 If you don't need to work with tokens in your app, you can disable the token store.
 
@@ -80,7 +80,7 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options with ease.
 
-A [legacy extensiblity path][custom-auth] exists for integrating with other identity providers or a custom auth solution, but this is not recommended. Instead, consider using the OpenID Connect support.
+A [legacy extensibility path][custom-auth] exists for integrating with other identity providers or a custom auth solution, but this is not recommended. Instead, consider using the OpenID Connect support.
 
 ## Authentication flow
 
@@ -155,7 +155,7 @@ Provider-specific how-to guides:
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
-[OIDC]: configure-authentication-provider-oidc.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
