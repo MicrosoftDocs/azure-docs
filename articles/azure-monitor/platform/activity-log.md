@@ -15,6 +15,9 @@ The Activity log is a [platform log](platform-logs-overview.md) in Azure that pr
 
 See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting.
 
+> [!NOTE]
+> Entries in the Activity Log are system generated and cannot be changed or deleted.
+
 ## View the Activity log
 You can access the Activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, then the only filter will be on the subscription. If you open it from a resource's menu, then the filter will be set to that resource. You can always change the filter though to view all other entries. Click **Add Filter** to add additional properties to the filter.
 

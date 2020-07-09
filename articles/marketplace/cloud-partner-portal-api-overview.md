@@ -1,12 +1,10 @@
 ---
 title: Cloud Partner Portal API Reference - Microsoft commercial marketplace
 description: Description of, prerequisites to use, and list of marketplace API operations.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
 ---
 
 
