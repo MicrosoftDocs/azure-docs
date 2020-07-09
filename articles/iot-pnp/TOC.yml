@@ -27,6 +27,8 @@
   items:
   - name: Create an end-to-end solution
     href: tutorial-build-solution.md
+  - name: Connect a multiple component device (C#)
+    href: tutorial-multiple-components-csharp.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
 - name: Concepts
