@@ -40,6 +40,8 @@
     items:
     - name: About circuits and peering
       href: expressroute-circuit-peerings.md
+    - name: About upgrading circuit bandwidth
+      href: about-upgrade-circuit-bandwidth.md
     - name: Moving circuits from classic to Resource Manager
       href: expressroute-move.md
   - name: BFD over ExpressRoute
