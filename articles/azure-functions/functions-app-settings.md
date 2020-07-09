@@ -14,7 +14,7 @@ App settings in a function app contain global configuration options that affect 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
 > [!NOTE]  
-> You can use specifically formatted application settings to override host.json setting values without changing the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values).  
+> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values).  
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
