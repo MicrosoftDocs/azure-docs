@@ -47,17 +47,20 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ### February 2020
 
-+ [PII Detection (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
-
-+ [Custom Entity Lookup (preview)](cognitive-search-skill-custom-entity-lookup.md ) looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
+| [**Custom Entity Lookup (preview)**](cognitive-search-skill-custom-entity-lookup.md )| AI enrichment | A new cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ### January 2020
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) is now generally available. If you are using REST, you can access the feature using `api-version=2019-05-06` or later. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) |Security | Adds an extra layer of encryption in addition to the platform's built-in encryption. Using an encryption key that you create and manage, you can encrypt index content and synonym maps before the payload reaches a search service. | Generally available. </br> Use Search REST API 2019-05-06 or later. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. |
+| [**IP rules for in-bound firewall support (preview)**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
+| [**Azure Private Link for a private search endpoint (preview)**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  |
 
-+ Private access to a search service is available through two mechanisms, both currently in preview:
-
-  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+## Feature announcements in 2019
 
 ### December 2019
 
