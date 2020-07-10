@@ -268,7 +268,6 @@ module.exports = df.orchestrator(function*(context) {
 import azure.functions as func
 import azure.durable_functions as df
 
-
 def orchestrator_function(context: df.DurableOrchestrationContext):
     url = context.get_input()
     res = yield context.call_http('GET', url)
@@ -363,7 +362,6 @@ module.exports = async function (context, location) {
 from collections import namedtuple
 import azure.functions as func
 import azure.durable_functions as df
-
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     Location = namedtuple('Location', ['city', 'state'])
