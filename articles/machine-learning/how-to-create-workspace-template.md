@@ -447,7 +447,7 @@ To deploy a workspace with existing associated resources you have to set the **v
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       vnetOption="existing" \
       vnetName="examplevnet" \
       vnetResourceGroupName="examplegroup" \
@@ -498,7 +498,7 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       privateEndpointType="AutoApproval"
 ```
 
