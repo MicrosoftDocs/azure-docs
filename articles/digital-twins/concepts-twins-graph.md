@@ -51,9 +51,9 @@ You can also use the sample to...
 * Edit properties of twins
 * Run queries against the twins graph
 
-## Sample creation code
+## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains code examples that utilize the [DigitalTwins APIs](how-to-use-apis-sdks.md), to provide additional context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](how-to-use-apis-sdks.md), to provide additional context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
