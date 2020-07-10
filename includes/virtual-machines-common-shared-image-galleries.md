@@ -78,23 +78,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
-
-
-| Source regions                                                                      |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Australia Central     | China East        | South India        | West Europe        |
-| Australia Central 2   | China East 2      | Southeast Asia     | UK South           |
-| Australia East        | China North       | Japan East         | UK West            |
-| Australia Southeast   | China North 2     | Japan West         | US DoD Central     |
-| Brazil South          | East Asia         | Korea Central      | US DoD East        |
-| Canada Central        | East US           | Korea South        | US Gov Arizona     |
-| Canada East           | East US 2         | North Central US   | US Gov Texas       |
-| Central India         | East US 2 EUAP    | North Europe       | US Gov Virginia    |
-| Central US            | France Central    | South Central US   | West India         |
-| Central US EUAP       | France South      | West Central US    | West US            |
-|                       |                   |                    | West US 2          |
-
+All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## Limits 
 
