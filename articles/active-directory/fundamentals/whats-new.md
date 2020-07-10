@@ -256,7 +256,7 @@ We have introduced a new riskEventsTypes_v2 (string) property to the signIns v1.
 **Product capability:** Identity Security & Protection
  
 
-We are making the following changes to the MFA email notifications for MFA:
+We are making the following changes to the email notifications for cloud MFA:
 
 E-mail notifications will be sent from the following address: azure-noreply@microsoft.com and msonlineservicesteam@microsoftonline.com. We're updating the content of fraud alert emails to better indicate the required steps to unblock uses.
 
