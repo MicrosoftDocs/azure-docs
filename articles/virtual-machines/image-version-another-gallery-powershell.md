@@ -1,5 +1,5 @@
 ---
-title: Copy an image from another gallery
+title: Copy an image from another gallery using PowerShell
 description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.reviewer: akjosh
 #SIG to SIG
 ---
 
-# Copy an image from another gallery
+# Copy an image from another gallery using PowerShell
 
 If you have multiple galleries in your organization, you can create images from images stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
 
@@ -161,3 +161,5 @@ $job.State
 Create a VM from a [generalized](vm-generalized-image-version-powershell.md) or a [specialized](vm-specialized-image-version-powershell.md) image version.
 
 [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
