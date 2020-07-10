@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell - Enable customer-managed keys with SSE - managed disks
-description: Enable customer-managed keys on your managed disks with Azure PowerShell.
+description: Enable server-side encryption using customer-managed keys on your managed disks with Azure PowerShell.
 author: roygara
 ms.date: 07/09/2020
 ms.topic: how-to
