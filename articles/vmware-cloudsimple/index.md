@@ -1,6 +1,6 @@
 --- 
 title: Azure VMware Solution by CloudSimple 
-description: Documentation portal for Azure VMware Solution by CloudSimple. 
+description: Find documentation for Azure VMware Solution by CloudSimple. 
 author: sharaths-cs
 ms.author: b-mashar 
 ms.date: 08/20/2019 

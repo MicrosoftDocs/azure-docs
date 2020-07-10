@@ -17,7 +17,7 @@ ms.custom: seodec18
 This article describes how to work with Time Series Model in Azure Time Series Insights Preview. It details several common data scenarios.
 
 > [!TIP]
-> * Read about the Preview [Time Series Model](time-series-insights-update-tsm.md).
+> * Read about the Preview [Time Series Model](concepts-model-overview.md).
 > * Learn more about navigating the Preview UI in [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 ## Instances
@@ -163,7 +163,7 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ## Next steps
 
-- For more information about Time Series Model, read [Data modeling](./time-series-insights-update-tsm.md).
+- For more information about Time Series Model, read [Data modeling](./concepts-model-overview.md).
 
 - To learn more about the preview, read [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 

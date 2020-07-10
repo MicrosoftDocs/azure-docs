@@ -228,6 +228,8 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
+    - name: Secure pods with Azure Policy (preview)
+      href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
@@ -244,6 +246,8 @@
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
+    - name: Use Azure RBAC for Kubernetes Authorization (preview)
+      href: manage-azure-rbac.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
@@ -253,6 +257,8 @@
       href: private-clusters.md
     - name: BYOK for disks
       href: azure-disk-customer-managed-keys.md
+    - name: Enable host-based encryption
+      href: enable-host-encryption.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
