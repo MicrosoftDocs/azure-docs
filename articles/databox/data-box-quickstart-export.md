@@ -33,11 +33,11 @@ Before you begin:
 * Review the [safety guidelines for your Data Box](data-box-safety.md).
 * You have an Azure Data Box device to move data to your location. Your host computer must
   * Run a [Supported operating system](data-box-system-requirements.md).
-  * Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted.
+  * Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted.
 * You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 * You have procured the following cables to connect your Data Box to the host computer.
-  * Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
-  * One RJ-45 CAT 6 network cable (use with MGMT network interface)
+  * Two 10-GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
+  * One RJ-45 CAT 6 network cable (use with management (MGMT) network interface)
   * One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 ## Sign in to Azure
@@ -60,13 +60,13 @@ Once the order is created, the device is prepared for shipment.
 
 This step takes roughly 10 minutes.
 
-When you receive the Data Box, do the following steps to cable, connect to and turn on the device. This step takes about 10 minutes.
+When you receive the Data Box, do the following steps to cable, connect to, and turn on the device. This step takes about 10 minutes.
 
 1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
 2. Before you cable your device, ensure that you have the following cables:
 
-   * (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
-   * One RJ-45 CAT 6 network cable (use with MGMT network interface)
+   * Grounded power cord (included) rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
+   * One RJ-45 CAT 6 network cable (use with management (MGMT) network interface)
    * Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
    * One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
@@ -77,8 +77,8 @@ When you receive the Data Box, do the following steps to cable, connect to and t
     ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
-    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device.
-    3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data.
+    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the MGMT port on the device.
+    3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1, or DATA 2 for data.
     4. Turn on the device. The power button is on the front panel of the device.
 
 ## Connect
@@ -88,7 +88,7 @@ This step takes about 5-7 minutes to complete.
 1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website's security certificate. Follow the browser-specific instructions to proceed to the web page.
-4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address.
+4. By default, the network settings for the 10-Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address.
 
 ## Copy data
 
