@@ -112,7 +112,7 @@ Next, you will create a virtual network containing two empty subnets.
 
 1. **Create a resource group**
 
-    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
+    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -137,7 +137,7 @@ Next, you will create a virtual network containing two empty subnets.
 
     Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-    Create a new virtual network in the same resource group you created earlier.
+    Create a new virtual network in the same resource group you created earlier:
 
     ```azurecli-interactive
     az network vnet create \
@@ -204,7 +204,8 @@ Run the following command to create a cluster. If you choose to use either of th
 * Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content. Add the `--pull-secret @pull-secret.txt` argument to your command.
 * Optionally, you can [use a custom domain](#prepare-a-custom-domain-for-your-cluster-optional). Add the `--domain foo.example.com` argument to your command, replacing `foo.example.com` with your own custom domain.
 
-> If you are adding any optional arguments to your command, be sure to close the argument on the preceding line of the command with a trailing backslash.
+> [!NOTE]
+> If you're adding any optional arguments to your command, be sure to close the argument on the preceding line of the command with a trailing backslash.
 
 ```azurecli-interactive
 az aro create \
@@ -221,7 +222,7 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 
 In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
-> * Setup the prerequisites and create the required virtual network and subnets
+> * Set up the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster
 
 Advance to the next tutorial:
