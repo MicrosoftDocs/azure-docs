@@ -132,6 +132,7 @@ You can run this sample with the following command.
 ```cmd/sh
 python pnp_update_digital_twin_sample.py
 ```
+
 You can verify that the update has been applied both in IoT Explorer and on the _device_ terminal that you have open, where you should see the following:
 
 ```cmd/sh
@@ -148,27 +149,28 @@ The _service_ terminal from which you ran the `pnp_update_digital_twin_sample.py
 
 Finally, to invoke a command, you can run the `pnp_invoke_command_sample.py` sample. This sample showcases how to invoke a command on a no-component device like the simple thermostat (*note: the `invoke_component_command_sample.py` shows how to invoke a command on a specific component of a multiple component device)*. Before running this sample, be sure to set all of the necessary environment variables, specifically the `IOTHUB_COMMAND_NAME` and `IOTHUB_COMMAND_PAYLOAD`:
 
-    ```cmd/sh
-    set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-    set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-    ```
+```cmd/sh
+set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
+set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
+```
     
-  You can then run the sample with:
+You can then run the sample with:
   
-    ```cmd/sh
-    python pnp_invoke_command_sample.py
-    ```
+```cmd/sh
+python pnp_invoke_command_sample.py
+```
     
-   On the _service_ terminal, you should see a confirmation from the device with `min\max response`.
-   
-   On the _device_ terminal, you should see that the device received the command:
-   ```cmd/sh
-    Command request received with payload
-    hello world
-    Will return the max, min and average temperature from the specified time hello to the current time
-    Done generating
-    {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-    Sent message
+On the _service_ terminal, you should see a confirmation from the device with `min\max response`.
+
+On the _device_ terminal, you should see that the device received the command:
+
+```cmd/sh
+Command request received with payload
+hello world
+Will return the max, min and average temperature from the specified time hello to the current time
+Done generating
+{"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
+Sent message
 ```
     
 Congratulations! You've now interacted with your Plug and Play device from a Python solution. 

@@ -1,5 +1,5 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
+title: Connect IoT Plug and Play Preview sample C device code to IoT Hub | Microsoft Docs
 description: Build and run IoT Plug and Play Preview sample device code on Linux or Windows that connects to an IoT hub. Use the Azure CLI to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt

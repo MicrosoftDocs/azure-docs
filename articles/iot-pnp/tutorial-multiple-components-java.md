@@ -1,5 +1,5 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub  | Microsoft Docs
+title: Connect IoT Plug and Play Preview sample Java device code to IoT Hub  | Microsoft Docs
 description: Build and run IoT Plug and Play Preview sample device code on  Windows that connects to an IoT hub. Use the Azure CLI to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
@@ -24,7 +24,7 @@ This quickstart shows you how to build a multiple component sample IoT Plug and 
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### Azure IoT explorer
@@ -155,7 +155,7 @@ This class PnpHelper contains 6 sample methods, to use for either root interface
 
 As a result of execution you can see the differents compoments, follow telemetry for thermostat1 or thermostat2, same for propertis and commands:
 
-![Default component](iotexplorerMultipleComponent.JPG)
+:::image type="content" source="media/tutorial-multiple-components-java/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
 
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]

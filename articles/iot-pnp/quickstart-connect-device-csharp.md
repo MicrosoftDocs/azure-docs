@@ -1,5 +1,5 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub  | Microsoft Docs
+title: Connect IoT Plug and Play Preview sample C# device code to IoT Hub | Microsoft Docs
 description: Build and run IoT Plug and Play Preview sample device code on  Windows that connects to an IoT hub. Use the Azure CLI to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
@@ -58,7 +58,7 @@ You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
- On Windows, you can open the solution **azureiot.sln** in Visual Studio 2019 and set the **thermostat** project as the startup project in the solution.(see it under iothub|device|samples|Thermostat.csproj)
+On Windows, you can open the solution **azureiot.sln** in Visual Studio 2019 and set the **thermostat** project as the startup project in the solution.(see it under iothub|device|samples|Thermostat.csproj)
 
 You can now build the sample in Visual Studio and run it in debug mode.
 
