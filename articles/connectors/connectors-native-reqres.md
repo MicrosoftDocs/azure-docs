@@ -19,7 +19,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 * Receive and respond to an HTTPS call from another logic app.
 
-The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+The Request trigger supports [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## Prerequisites
 

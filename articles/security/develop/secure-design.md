@@ -398,7 +398,7 @@ AD)](../../active-directory/fundamentals/active-directory-whatis.md)
 is the Azure solution for identity and access management. These Azure AD
 tools and services help with secure development:
 
-- [Microsoft identity platform](../../active-directory/develop/)
+- [Microsoft identity platform](/azure/active-directory/develop/)
 is a set of components that developers use to build apps that
 securely sign in users. The platform assists developers who are building
 single-tenant, line-of-business (LOB) apps and developers who are

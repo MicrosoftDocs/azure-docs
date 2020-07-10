@@ -177,7 +177,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 ### Authentication limits
 
-Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
