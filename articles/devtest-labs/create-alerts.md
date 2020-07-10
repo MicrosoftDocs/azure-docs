@@ -8,7 +8,7 @@ ms.date: 07/10/2020
 # Create activity log alerts for labs in Azure DevTest Labs
 This article explains how to create activity log alerts for labs in Azure DevTest Labs (for example: when a VM is created or when a VM is deleted).
 
-## Set alerts for activity log events
+## Create alerts
 In this example, you create an alert for all administrative operations on a lab with an action that sends an email to subscription owners. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
