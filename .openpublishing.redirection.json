@@ -17982,6 +17982,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-data-warehouse/load-data-wideworldimportersdw.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw",
       "redirect_document_id": true
