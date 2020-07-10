@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Regional presence with Azure Cosmos DB
 
-Azure Cosmos DB is a foundational service in Azure, and, by default, is always available in [all regions where Azure is available](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cosmos-db&regions=all).
+Azure Cosmos DB is a foundational service in Azure, and, by default, is always available in [all regions where Azure is available](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all).
 
 :::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regions where Azure Cosmos DB is available" lightbox="./media/regional-presence/regional-presence.png" border="false":::
 
