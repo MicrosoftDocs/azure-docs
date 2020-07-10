@@ -8,7 +8,7 @@ ms.date: 07/10/2020
 # View activity logs for Azure DevTest Labs and set alerts
 After you create one or more labs, you'll likely want to monitor how and when your labs are accessed, modified, and managed, and by whom. Azure DevTest Labs uses Azure Monitor, specifically **activity logs**, to provide information these operations against labs. 
 
-This article explains how to view  activity logs for a lab in Azure DevTest Labs, and set alerts on activity log events (for example: VM is started, VM is stopped).
+This article explains how to view  activity logs for a lab in Azure DevTest Labs, and set alerts on activity log events (for example: VM is created, VM is deleted).
 
 ## View activity log for a lab
 
@@ -84,6 +84,18 @@ In this example, you create an alert for all administrative operations on a lab 
 1. Now, on the **Create alert rule** page, enter a name for the alert rule, and then select **OK**. 
 
     :::image type="content" source="./media/activity-logs/create-alert-rule-done.png" alt-text="Create alert rule - done":::
+2. You will see alerts on the **Alerts** for all administrative operations (in this example). Alerts may take sometime to show up. 
+
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Alerts":::
+1. If you select number in a column (for example: **Total alerts**), you see the alerts that were raised. 
+
+    :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="All alerts":::
+1. If you select an alert, you see details about it. 
+
+    :::image type="content" source="./media/activity-logs/alert-details.png" alt-text="Alert details":::
+1. In this example, you also receive an email with content as shown in the following example: 
+
+    :::image type="content" source="./media/activity-logs/alert-email.png" alt-text="Alert email":::
 
 ## Next steps
 To learn more about creating action groups using different action types, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
