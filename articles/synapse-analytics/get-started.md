@@ -18,7 +18,7 @@ This tutorial guides you through the basic steps to set up and use Azure Synapse
 * [STEP 1 - Create and setup a Synapse workspace](get-started-create-workspace.md)
 * [STEP 2 - Analyze using a SQL Pool](get-started-analyze-sql-pool.md)
 * [STEP 3 - Analyze using Spark](get-started-analyze-spark.md)
-* [STEP 4 - Analyze SQL on-demand](get-started-analyze-sql-on-demand.md)
+* [STEP 4 - Analyze using SQL on-demand](get-started-analyze-sql-on-demand.md)
 * [STEP 5 - Analyze data in a storage account](get-started-analyze-storage.md)
 * [STEP 6 - Orchestrate with pipelines](get-started-pipelines.md)
 * [STEP 7 - Visualize data with Power BI](get-started-visualize-powerbi.md)
