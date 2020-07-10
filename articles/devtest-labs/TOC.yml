@@ -64,6 +64,10 @@
       href: devtest-lab-training-lab.md
     - name: Scenarios for using claimable VMs
       href: devtest-lab-use-claim-capabilities.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Configure a lab
