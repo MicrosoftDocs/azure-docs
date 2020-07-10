@@ -39,7 +39,7 @@ Azure Machine Learning supports two forms of authentication for web services: ke
 
 |Authentication method|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|Key|Keys are static and do not need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
+|Key|Keys are static and don't need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
 |Token|Tokens expire after a specified time period and need to be refreshed.| Not available| Disabled by default |
 
 For code examples, see the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication).
@@ -116,11 +116,11 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 > [!IMPORTANT]
 > If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. 
 
-The `hbi_workspace` flag controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments. In addition it enables the following:
+The `hbi_workspace` flag controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft-managed environments. In addition, it enables the following actions:
 
 * Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
 * Cleans up your local scratch disk between runs
-* Securely passes credentials for your storage account, container registry and SSH account from the execution layer to your compute clusters using your key vault
+* Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
 
 
@@ -228,7 +228,7 @@ Azure Databricks can be used in Azure Machine Learning pipelines. By default, th
 
 Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
-To secure external calls to the scoring endpoint Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
