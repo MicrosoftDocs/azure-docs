@@ -4,7 +4,7 @@ description: Learn how to use managed identities in Azure Kubernetes Service (AK
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/10/2020
 ms.author: mlearned
 ---
 
@@ -18,7 +18,7 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 
 You must have the following resource installed:
 
-- The Azure CLI, version 2.2.0 or later
+- The Azure CLI, version 2.8.0 or later
 
 ## Limitations
 

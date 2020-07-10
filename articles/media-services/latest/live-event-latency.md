@@ -59,15 +59,15 @@ The following tables show typical results for latency (when the LowLatency flag 
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
-|DASH in AMP|10s|8s|
-|HLS on native iOS player|14s|10s|
+|**DASH in AMP**|10s|8s|
+|**HLS on native iOS player**|14s|10s|
 
 ### Live encoding
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
-|DASH in AMP|14s|10s|
-|HLS on native iOS player|18s|13s|
+|**DASH in AMP**|14s|10s|
+|**HLS on native iOS player**|18s|13s|
 
 > [!NOTE]
 > The end-to-end latency can vary depending on local network conditions or by introducing a CDN caching layer. You should test your exact configurations.
