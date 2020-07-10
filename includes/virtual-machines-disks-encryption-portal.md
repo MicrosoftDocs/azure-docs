@@ -16,7 +16,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Key Vaults**.
 
-    [ ![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search-expanded.png#lightbox)
+    [ ![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
@@ -32,7 +32,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Select **Keys** under **Settings**.
 1. Select **Generate/Import**.
 
-    ![Screenshot of the Key Vault resource settings pane. Shows the generate/import button inside settings.](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-generate-settings.png)
+    ![Screenshot of the Key Vault resource settings pane. Shows the generate/import button inside settings.](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
 
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
