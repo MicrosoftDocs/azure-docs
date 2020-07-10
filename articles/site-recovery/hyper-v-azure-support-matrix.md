@@ -132,8 +132,8 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
-Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards). [Learn more](../virtual-machines/windows/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards). [Learn more](../virtual-machines/windows/disk-encryption.md)
-Double Encryption at rest <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
+Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
+Double Encryption at rest <br></br> (Only for failover to managed disks) <br></br> Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Premium storage | Yes | Yes
 Standard storage | Yes | Yes
 Import/Export service | No | No
