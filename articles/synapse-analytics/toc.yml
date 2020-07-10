@@ -8,7 +8,7 @@
     href: overview-what-is.md
   - name: Get Started
     items: 
-    - name: Overview
+    - name: Introduction
       href: get-started.md
     - name: Step 1 Create and setup a Synapse workspace
       href: get-started-create-workspace.md
