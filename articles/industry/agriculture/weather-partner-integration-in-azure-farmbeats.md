@@ -230,7 +230,7 @@ For example, here's a telemetry message:
      "weatherdata": [
      {
       "timestamp": "2019-07-10T00:00:00Z",
-      "forecastedtimestamp": "2019-07-05T00:00:00Z",
+      "predictiontimestamp": "2019-07-05T00:00:00Z",
       "PrecipitationTotalLiquidEquivalent": 0,
       "AvgPressure": 0,
       "AvgRelativeHumidity": 72
