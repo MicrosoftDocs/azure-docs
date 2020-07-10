@@ -7,7 +7,7 @@ ms.date: 7/10/2020
 ms.author: baanders
 ---
 
-## Visualization
+## Visualize
 
 While the primary way to interact with your Azure Digital Twins instance is through the [APIs and SDKs](../articles/digital-twins/how-to-use-apis-sdks.md), it can be helpful to see a visualization of the twins and graphs that you are creating in your instance.
 
