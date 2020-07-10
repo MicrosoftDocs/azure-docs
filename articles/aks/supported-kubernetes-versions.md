@@ -74,7 +74,7 @@ And AKS releases 1.16.*, this means that the 1.13.* versions (all 1.13 versions)
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
 > requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the
-> [AKS support policies](https://docs.microsoft.com/azure/aks/support-policies).
+> [AKS support policies](./support-policies.md).
 
 In addition to the above on minor versions, AKS supports the two latest **patch** releases of a given minor version. For example, given the following supported versions:
 
