@@ -21,7 +21,7 @@ Cosmos DB is available in all five distinct Azure cloud environments available t
 
 * **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers in China.
 
-* **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
+* **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telekom, acting as the German data trustee.
 
 * **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
 
