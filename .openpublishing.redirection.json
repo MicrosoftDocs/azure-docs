@@ -28677,6 +28677,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
+      "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-managed-disks-overview.md",
       "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
       "redirect_document_id": true
@@ -28824,6 +28829,11 @@
     {
       "source_path": "articles/storage/storage-require-secure-transfer.md",
       "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-tls.md",
+      "redirect_url": "/azure/storage/common/transport-layer-security-configure-minimum-version",
       "redirect_document_id": true
     },
     {
@@ -56535,6 +56545,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-visual-studio-templates.md",
+      "redirect_url": "/azure/batch/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md",
       "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
       "redirect_document_id": false
@@ -56547,6 +56562,21 @@
     {
       "source_path": "articles/active-directory/manage-apps/change-name-or-logo-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/costs/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/manage/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/understand/index.yml",
+      "redirect_url": "/azure/cost-management-billing",
       "redirect_document_id": false
     },
     {

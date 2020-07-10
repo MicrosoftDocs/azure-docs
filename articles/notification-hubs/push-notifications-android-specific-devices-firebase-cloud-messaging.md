@@ -113,7 +113,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
     Your `main_activity.xml` graphical layout should look like in the following image:
 
-    ![][A1]
+    ![Screenshot of an emulator displaying what the main activity X M L graphical layout will look like.][A1]
 3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java
