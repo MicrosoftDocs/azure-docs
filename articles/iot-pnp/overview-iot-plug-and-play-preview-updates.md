@@ -1,9 +1,9 @@
 ---
-title: What's new? IoT Plug and Play Preview May 2020 | Microsoft Docs
-description: Learn what's new with the May 2020 IoT Plug and Play Preview release.
-author: dominicbetts
-ms.author: dobett
-ms.date: 04/15/2020
+title: What's new? IoT Plug and Play Preview Summer 2020 | Microsoft Docs
+description: Learn what's new with the Summer 2020 IoT Plug and Play Preview release.
+author: rido-min
+ms.author: rmpablos
+ms.date: 07/06/2020
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
@@ -11,9 +11,9 @@ services: iot-pnp
 manager: eliotgra
 ---
 
-# IoT Plug and Play Preview - May 2020
+# IoT Plug and Play Preview - Summer 2020
 
-This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play May 2020 preview release. The previous IoT Plug and Play preview release was in August 2019.
+This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play Summer 2020 preview release. The previous IoT Plug and Play preview release was in August 2019.
 
 ## Digital Twins Definition Language (DTDL)
 
@@ -32,32 +32,17 @@ The following list shows the key differences between DTDL v1 and DTDL v2. In DTD
 
 To work with DTDL v1, you need to use the previous version of the SDK and Azure IoT Explorer 0.10.x. To work with DTDL v2, you need the latest version of the SDK and Azure IoT Explorer 0.11.x.
 
-## Model repository
+## Component-less and Multi-component implementations
 
-There's now a single model repository that contains both public published models, and private RBAC-protected company models. All models have a unique identifier and are immutable once created.
+Simple devices using a few telemetry, commands or properties can be described in a single interface without using components. Any existing device can become a Plug and Play by just announcing the Model Id without any changes to existing device implementation.
 
-Existing company model repositories from the previous release are not supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
-
-The Azure IoT extension for the Azure CLI does not support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.
-
-## Model resolution
-
-In this release, IoT Hub no longer provides model resolution, or retrieval.
+More complex device might require to group telemetry, commands and properties on different interfaces to manage complexity and enable reuse across devices. These devices must be updated to follow a set of simple rules defined in the [PnPConvention](#)
 
 ## Registration and discovery
 
-In this release, devices register their **Model ID** with IoT Hub on every connection. IoT Hub caches the the **Model ID**, and a backend solution can retrieve the **Model ID** using the device twin. Previously, a device announced the capability model and interfaces it supported in a telemetry message sent to IoT Hub, and IoT Hub cached this information.
+In this release, devices register their **Model ID** with IoT Hub on every connection. IoT Hub caches the the **Model ID**, and a backend solution can retrieve the **Model ID** using the device twin `modelId` property. Previously, a device announced the capability model and interfaces it supported in a telemetry message sent to IoT Hub, and IoT Hub cached this information.
 
 You can use both the current and previous preview versions of the SDKs and Azure IoT Explorer tool with IoT Hub. However, if a device uses the previous preview version of the SDK, you must use the previous version of Azure IoT Explorer. Similarly, if a device uses the latest preview version of the SDK, you must use the latest version of Azure IoT Explorer.
-
-The **SystemProperties** collection in a telemetry message now includes the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| dt-subject | string | This value is set by the user and is the name of the component that implements the telemetry message. |
-| dt-schema | string | This value is set by iot hub after device discovery and model ID of the digital twin interface that acts as the device model. |
-
-The **iothub-interface-name** property is now deprecated.
 
 ## Microsoft defined interfaces
 
@@ -66,20 +51,27 @@ The following Microsoft-defined interfaces are deprecated and aren't published i
 - **urn:azureiot:ModelDiscovery:DigitalTwin:1**
 - **urn:azureiot:ModelDiscovery:ModelInformation:1**
 
-The following interfaces are published in the new model repository:
+The following interface is published in the new model repository:
 
-- **dtmi:azure:DeviceManagement:DeviceInformation;1**
-- **dtmi:azure:Client:SDKInformation;1**
-
-## Telemetry messages
-
-This release reduces the number and size of the telemetry message a device needs to send.
+- `dtmi:azure:DeviceManagement:DeviceInformation;1` available in the URL [https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview) 
 
 ## DigitalTwinChangeEvents
 
 The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events) has changed to use the **JSON-Patch** format. This is a breaking change with no backward compatibility support.
 
 The **SystemProperties** collection in a digital twin change event now includes a **dt-schema** property that stores the **Model ID** reported by the device.
+
+## Device and service SDKs
+
+There's no backward compatibility with previous preview versions of the SDKs. You'll need to change your code if you move to the latest preview version of an SDK.
+
+With the convention based approach there is no need for a separate device client SDKs, from this preveiew release, the existing DigitalTwinClient libraries are deprecated in all languages. Instead the existing SDKs have been updated to include an option to announce the Model Id. 
+
+Component-less devices will require minimal code changes - just announcing the model id - while more complex devices using a multi-component approach might require some reusable functions to implement the convention. Device samples include a set a functions that you might reuse in your device implementation.
+
+### Service SDKs
+
+The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md). 
 
 ## VS Code extension
 
@@ -91,21 +83,16 @@ If you require DTDL v2 authoring support in VS Code, install the new [DTDL exten
 
 The [digital twin service-side REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) and payloads have changed. The supported APIs are:
 
-- Update a digital twin using **JSON-Patch** payload.
 - Retrieve a digital twin.
 - Call a command.
+- Update a digital twin using **JSON-Patch** payload.
 
-The existing REST APIs continue to be supported in this release. REST APIs are versioned.
+The existing REST APIs continue to be supported in this release.
 
-## Device and service SDKs
+## Model repository
 
-There's no backward compatibility with previous preview versions of the SDKs. You'll need to change your code if you move to the latest preview version of an SDK.
+There's now a single model repository that contains both public published models, and private RBAC-protected company models. All models have a unique identifier and are immutable once created.
 
-The [C device SDK API](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/doc/readme.md) changes are:
+Existing company model repositories from the previous release are not supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
 
-- **DigitalTwin_DeviceClient_RegisterInterfacesAsync**: Remove **deviceCapabilityModel** parameter.
-- **DigitalTwin_DeviceClient_CreateFromDeviceHandle**: Add a new parameter, **ModelId**, to specify the DTMI value of the root.
-
-Currently, the device SDK is available in [C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/digitaltwin_client/doc/readme.md), [Python](https://github.com/Azure/azure-iot-sdk-python/tree/digitaltwins-preview/azure-iot-device), and [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/device/readme.md).
-
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md). There are multiple service SDK changes.
+The Azure IoT extension for the Azure CLI does not support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.

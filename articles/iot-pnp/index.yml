@@ -37,8 +37,6 @@ landingContent:
           url: concepts-architecture.md
         - text: Developer guide
           url: concepts-developer-guide.md
-        - text: Common interfaces
-          url: concepts-common-interfaces.md
   - title: Build solutions
     linkLists:
     - linkListType: concept
