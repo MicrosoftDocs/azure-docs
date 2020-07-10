@@ -46,6 +46,8 @@
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+      - name: Delete a host pool
+        href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
