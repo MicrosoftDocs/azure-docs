@@ -131,7 +131,7 @@ The load balancer inbound NAT rules should match the NAT pools from the virtual 
 ```
 
 ### Standard SKU Load Balancer outbound rules
-Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md#snatexhaust) and [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md).
+Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md) and [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 > The standard template references an NSG which allows all outbound traffic by default. Inbound traffic is limited to the ports that are required for Service Fabric management operations. The NSG rules can be modified to meet your requirements.
