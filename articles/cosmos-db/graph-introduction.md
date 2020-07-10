@@ -5,20 +5,20 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.author: lbosq
 ---
 # Introduction to Gremlin API in Azure Cosmos DB
 
-[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. Azure Cosmos DB supports graph databases with the help of Gremlin API. In other words, the Gremlin API in Azure Cosmos DB is used to store and operate with graph data on a fully managed database service designed for any scale.  
+[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. "Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
 
-This article provides an overview of the graph databases in Azure Cosmos DB Gremlin API and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
+This article provides an overview of the Azure Cosmos DB Gremlin API and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
 
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
 
-## Features of graph database in Azure Cosmos DB Gremlin API
+## Features of Azure Cosmos DB's Gremlin API
  
 Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.
 
@@ -82,7 +82,7 @@ Data as it appears in the real world is naturally connected. Traditional data mo
 
 A graph database approach relies on persisting relationships in the storage layer instead, which leads to highly efficient graph retrieval operations. Azure Cosmos DB's Gremlin API supports the [property graph model](https://tinkerpop.apache.org/docs/current/reference/#intro).
 
-### Components of a graph database
+### Property graph objects
 
 A property [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both objects can have an arbitrary number of key-value pairs as properties. 
 
@@ -122,25 +122,25 @@ The Gremlin Console is an interactive terminal offered by the Apache TinkerPop a
 
 First let's look at CRUD. The following Gremlin statement inserts the "Thomas" vertex into the graph:
 
-```bash
+```java
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
 ```
 
 Next, the following Gremlin statement inserts a "knows" edge between Thomas and Robin.
 
-```bash
+```java
 :> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
 ```
 
 The following query returns the "person" vertices in descending order of their first names:
 
-```bash
+```java
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
 Where graphs shine is when you need to answer questions like "What operating systems do friends of Thomas use?". You can run this Gremlin traversal to get that information from the graph:
 
-```bash
+```java
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
 ```
 
