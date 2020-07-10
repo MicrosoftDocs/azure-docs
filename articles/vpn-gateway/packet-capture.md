@@ -22,9 +22,11 @@ VPN gateway packet captures can be run on the gateway or on a specific connectio
 
 Using 5 tuples filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) is helpful when isolating issues on a high volume traffic.
 
-You can use only one option per property while running the packet capture.
-
-See below an example of JSON and JSON schema with explanation of each property. If you notice the schema we have filter as an array but for now we will only allow 1 filter and not more than that. In addition to that we allow only a max of 5 captures in parallel per gateway. This can be a gateway wide capture or per connection capture. We do not allow multiple captures on the same connection in parallel, though you can start captures different connections in parallel. Similarly we allow only one capture at a time for a gateway wide capture. :
+See below an example of JSON and JSON schema with explanation of each property. Also, note some limitations while running the packet captures:
+- In the schema, filter is shown as an array but at present only one filter can be used at a time.
+- Multiple gateway wide packet captures at the same time are not allowed.
+- Multiple packet captures on the same connection at the same time are not allowed. You can run packet captures on different connections at the same time.
+- A maximum of 5 packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway wide packet capture or per connection packet capture.
 
 ### Example JSON
 ```JSON-interactive
@@ -314,7 +316,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
 
 ## Setup packet capture using PowerShell
 
-See the examples below for PowerShell commands to start and stop packet captures. For more information on parameter options (such as how to create filter), see this PowerShell [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+See the examples below for PowerShell commands to start and stop packet captures. For more information on parameter options, see this PowerShell [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### Start packet capture for a VPN gateway
 
