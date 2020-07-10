@@ -27,7 +27,7 @@ Encryption of data in transit on HDInsight is achieved with [Transport Layer Sec
 
 To create a new cluster with encryption in transit enabled using the Azure portal, do the following steps:
 
-1. Begin the normal cluster creation process. See [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) for initial cluster creation steps.
+1. Begin the normal cluster creation process. See [Create Linux-based clusters in HDInsight by using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) for initial cluster creation steps.
 1. Complete the **Basics** and **Storage** tabs. Proceed to the **Security + Networking** tab.
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Create cluster - security and networking tab.":::
