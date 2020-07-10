@@ -31,7 +31,7 @@ Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis
 > [!NOTE]
 > Managing event routes through the Azure portal is currently only available to Azure users on corporate-domain accounts. 
 >
->If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an *@outlook.com* account, please use the Azure Digital Twins APIs or CLI to manage event routes as described within this article.
+>If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an @outlook.com account, please use the Azure Digital Twins APIs or CLI to manage event routes as described within this article.
 
 ## Create an endpoint for Azure Digital Twins
 

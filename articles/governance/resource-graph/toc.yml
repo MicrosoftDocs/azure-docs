@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run your first query - Azure portal
+  - name: Run your first query - Portal
     displayName: portal, resource, graph, explorer
     href: ./first-query-portal.md
   - name: Run your first query - Azure CLI

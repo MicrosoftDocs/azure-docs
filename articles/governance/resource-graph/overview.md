@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -14,7 +14,8 @@ provide the following features:
 - Ability to query resources with complex filtering, grouping, and sorting by resource properties.
 - Ability to iteratively explore resources based on governance requirements.
 - Ability to assess the impact of applying policies in a vast cloud environment.
-- Ability to [detail changes made to resource properties](./how-to/get-resource-changes.md) (preview).
+- Ability to [detail changes made to resource properties](./how-to/get-resource-changes.md)
+  (preview).
 
 In this documentation, you'll go over each feature in detail.
 
@@ -63,11 +64,12 @@ updated outside of Resource Manager.
 Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to
 construct queries.
 
-It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](/azure/data-explorer/data-explorer-overview)
-used by Azure Data Explorer.
+It's important to understand that Azure Resource Graph's query language is based on the
+[Kusto query language](/azure/data-explorer/data-explorer-overview) used by Azure Data Explorer.
 
-First, for details on operations and functions that can be used with Azure Resource Graph, see [Resource Graph query language](./concepts/query-language.md).
-To browse resources, see [explore resources](./concepts/explore-resources.md).
+First, for details on operations and functions that can be used with Azure Resource Graph, see
+[Resource Graph query language](./concepts/query-language.md). To browse resources, see
+[explore resources](./concepts/explore-resources.md).
 
 ## Permissions in Azure Resource Graph
 
@@ -84,10 +86,10 @@ group, results won't be returned.
 Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
 directly, the subscription list is provided by the user. If the user has access to any of the
 subscriptions in the list, the query results are returned for the subscriptions the user has access
-to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
-\- you get resource groups you've access to without any indication that the result may be partial.
-If there are no subscriptions in the subscription list that the user has appropriate rights to, the
-response is a _403_ (Forbidden).
+to. This behavior is the same as when calling
+[Resource Groups - List](/rest/api/resources/resourcegroups/list) \- you get resource groups you've
+access to without any indication that the result may be partial. If there are no subscriptions in
+the subscription list that the user has appropriate rights to, the response is a _403_ (Forbidden).
 
 ## Throttling
 
@@ -103,7 +105,8 @@ headers:
 
 - `x-ms-user-quota-remaining` (int): The remaining resource quota for the user. This value maps to
   query count.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
+- `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
+  reset
 
 For more information, see
 [Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
@@ -112,7 +115,8 @@ For more information, see
 
 Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
 in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
-portal workflow. For more information, see [First query with Azure Resource Graph Explorer](./first-query-portal.md).
+portal workflow. For more information, see
+[First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
 Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
 structured the same for each language. Learn how to enable Resource Graph with:

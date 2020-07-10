@@ -157,15 +157,41 @@ For more information, see:
 
 ## Threat protection for Azure Storage <a name="azure-storage"></a>
 
-Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems. 
+### Availability
 
-Security alerts are triggered when there are suspicious activities on your storage account or anomalous behavior is detected. Suspicious activities might include the upload of a blob suspected of containing malware. Anomalous behavior alerts include changes in the access pattern to a storage account.
+- Release state:
+    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
+    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
+- Clouds:<br>
+    ✔ Commercial clouds<br>
+    ✔ US Gov<br>
+    ✘ China Gov, Other Gov
 
-The alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
+### What's protected?
 
-Threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) blobs or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) file shares.
 
-This service is available in all public clouds and US government clouds, but no other sovereign or Azure Government cloud regions. 
+This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+
+### What kind of alerts does Threat protection for Azure Storage provide?
+
+Security alerts are triggered when there's:
+
+- **Suspicious activity** - for example, the storage account has been accessed successfully from an IP address that is known as an active exit node of Tor
+- **Anomalous behavior** - for example, changes in the access pattern to a storage account
+- **Potential malware uploaded** - hash reputation analysis indicates that an uploaded file contains malware
+
+Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
+
+### What is hash reputation analysis for malware?
+
+To determine whether an uploaded file is suspicious, threat protection for Azure Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). The threat protection tools don’t scan the uploaded files, rather they examine the storage logs and compare the hashes of newly uploaded files with those of known viruses, trojans, spyware, and ransomware. 
+
+When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file. To set up this automatic removal of files that hash reputation analysis indicates contain malware, deploy a [workflow automation to trigger on alerts that contain "Potential malware uploaded to a storage account”](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
+
+
+
+### Next steps 
 
 For pricing details, including a free 30-day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -173,9 +199,13 @@ For more information, see:
 
 * [How to enable Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [The list of threat protection alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
+* [Microsoft's threat intelligence capabilities](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> You can simulate Azure Storage alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> You can simulate storage alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 

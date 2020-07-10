@@ -24,6 +24,9 @@ For Azure SQL Database and Azure Synapse Analytics, the TDE protector is set at 
 > [!IMPORTANT]
 > For those using service-managed TDE who would like to start using customer-managed TDE, data remains encrypted during the process of switching over, and there is no downtime nor re-encryption of the database files. Switching from a service-managed key to a customer-managed key only requires re-encryption of the DEK, which is a fast and online operation.
 
+> [!NOTE]
+> To provide Azure SQL customers with two layers of encryption of data at rest, infrastructure encryption (using AES-256 encryption algorithm) with platform managed keys is being rolled out. This provides an addition layer of encryption at rest along with TDE with customer-managed keys, which is already available. At this time, customers must request access to this capability. If you are interested in this capability, contact AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+
 ## Benefits of the customer-managed TDE
 
 Customer-managed TDE provides the following benefits to the customer:
