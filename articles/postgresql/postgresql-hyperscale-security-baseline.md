@@ -4,7 +4,7 @@ description: The Azure Database for PostgreSQL - Hyperscale security baseline pr
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -34,7 +34,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 **Guidance**: Not applicable; Azure Database for PostgreSQL - Hyperscale (Citus) cannot be associated with a virtual network, subnet, or network security group.
 
@@ -50,7 +50,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 **Responsibility**: Not applicable
 
-### 1.4: Deny communications with known-malicious IP addresses
+### 1.4: Deny communications with known malicious IP addresses
 
 **Guidance**: Not applicable; the endpoints used by Azure Database for PostgreSQL - Hyperscale (Citus) are all managed by Microsoft. You are responsible for any additional controls you wish to deploy to your on-premises systems.
 
@@ -286,7 +286,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 **Responsibility**: Customer
 
-### 3.4: Use Azure Active Directory single sign-on (SSO)
+### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 **Guidance**: Signing into Azure Database for PostgreSQL - Hyperscale (Citus) is supported both using username/password configured directly in the database, as well as using an Azure Active Directory (AD) identity and utilizing an Azure AD token to connect. When using an Azure AD token, different methods are supported, such as an Azure AD user, an Azure AD group, or an Azure AD application connecting to the database.
 
@@ -296,7 +296,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 **Responsibility**: Not applicable
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations. When utilizing Azure AD tokens for signing into your database, this allows you to require multi-factor authentication for database sign-ins.
 
@@ -322,7 +322,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activities from administrative accounts
+### 3.7: Alert on account login behavior deviation
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -878,7 +878,7 @@ Use Managed Identities to provide Azure services with an automatically managed i
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally-managed anti-malware software
+### 8.1: Use centrally managed anti-malware software
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -912,7 +912,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back-ups
+### 9.1: Ensure regular automated back ups
 
 **Guidance**: Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates backups of each node and stores them in locally redundant storage. Backups can be used to restore your Hyperscale (Citus) cluster to a specified time.
 
