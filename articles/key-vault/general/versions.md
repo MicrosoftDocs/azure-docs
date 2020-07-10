@@ -55,13 +55,13 @@ New features released this year:
 - Certificate management. Added as a feature to the GA version 2015-06-01 on September 26, 2016.
 
 General Availability (version 2015-06-01) was announced on June 24, 2015. The following changes were made at this release: 
-- Delete a key - “use” field removed.
-- Get information about a key - “use” field removed.
-- Import a key into a vault - “use” field removed.
-- Restore a key - “use” field removed.     
-- Changed “RSA_OAEP” to “RSA-OAEP” for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
+- Delete a key - "use" field removed.
+- Get information about a key - "use" field removed.
+- Import a key into a vault - "use" field removed.
+- Restore a key - "use" field removed.     
+- Changed "RSA_OAEP" to "RSA-OAEP" for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
  
-Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) blog post. The following tasks were updated:
+Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
  
 - List the keys in a vault - added pagination support to operation.
 - List the versions of a key - added operation to list the versions of a key.  
