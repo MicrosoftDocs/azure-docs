@@ -4,7 +4,6 @@ description: This article tells how to troubleshoot and resolve issues with the 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-ms.subservice:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/10/2020
@@ -15,13 +14,11 @@ ms.topic: conceptual
 
 This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc for servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc for servers overview](./overview.md).
 
-## Agent connection issues to service
-
-### Agent verbose log
+## Agent verbose log
 
 Before following the troubleshooting steps described in this section, the minimum information you need is the verbose log. It contains the output of the **azcmagent** tool commands, when the verbose (-v) argument is used. The log files are written to `%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log` for Windows, and Linux to `/var/opt/azcmagent/log/azcmagent.log`.
 
-#### Windows
+### Windows
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an interactive installation.
 
@@ -42,7 +39,7 @@ The following is an example of the command to enable verbose logging with the Co
   --verbose
 ```
 
-#### Linux
+### Linux
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an interactive installation.
 
@@ -63,7 +60,7 @@ azcmagent connect \
   --verbose
 ```
 
-#### General errors
+## Agent connection issues to service
 
 The following table lists some of the known errors and suggestions on how to troubleshoot and resolve them.
 
