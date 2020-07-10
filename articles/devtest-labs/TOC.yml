@@ -269,8 +269,10 @@
       href: devtest-lab-troubleshoot-artifact-failure.md
   - name: Monitor
     items: 
-    - name: View activity logs and set alerts
+    - name: View activity logs
       href: activity-logs.md
+    - name: Create activity log alerts
+      href: create-alerts.md
 - name: Reference
   items:
   - name: CLI
