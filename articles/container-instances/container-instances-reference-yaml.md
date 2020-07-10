@@ -20,7 +20,7 @@ The schema for the YAML file follows, including comments to highlight key proper
 
 ```yml
 name: string  # Name of the container group
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: string
 tags: {}
 identity: 
