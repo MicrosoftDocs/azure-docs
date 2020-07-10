@@ -1,5 +1,5 @@
 ---
-title: Enable SMB multichannel
+title: About SMB multichannel
 description: Example text
 author: roygara
 ms.service: storage
@@ -9,4 +9,4 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Enable SMB multichannel
+# About SMB multichannel
