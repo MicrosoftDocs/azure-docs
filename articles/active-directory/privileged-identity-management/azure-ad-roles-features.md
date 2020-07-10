@@ -9,7 +9,7 @@ manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/10/2020
 ms.author: curtand
