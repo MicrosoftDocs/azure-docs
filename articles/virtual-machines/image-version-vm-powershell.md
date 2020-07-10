@@ -134,3 +134,5 @@ $job.State
 ## Next steps
 
 Once you have verified that you new image version is working correctly, you can create a VM. Create a VM from a [specialized image version](vm-specialized-image-version-powershell.md) or a [generalized image version](vm-generalized-image-version-powershell.md).
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
