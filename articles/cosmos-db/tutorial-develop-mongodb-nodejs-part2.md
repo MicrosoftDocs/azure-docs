@@ -141,7 +141,7 @@ This tutorial also requires:
 
 7. Save all your modified files. 
 
-8. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), click the Gear button ![Gear button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). The new launch.json file opens in Visual Studio Code.
+8. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::, click the Gear button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. The new launch.json file opens in Visual Studio Code. 
 
 8. On line 11 of the launch.json file, change `"${workspaceFolder}\\server"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
 
