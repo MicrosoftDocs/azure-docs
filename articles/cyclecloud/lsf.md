@@ -162,6 +162,11 @@ host start time.
 prevent this job from 
 matching on hosts where `placementGroup` is undefined.
 
+Often when using placement groups there will be a maximum placement group size determined
+by the `Azure.MaxScaleSetSize` property. This property indirectly limits how many nodes
+may be added to a placement group but is not considered by LSF. It's therefore important to set
+`MaxNumber` of the LSF template equal to `Azure.MaxScaleSetSize` in the cluster template.
+
 ### _user_data.sh_
 
 The template provides attributes for executing a _user_data.sh_ script; `customScriptUri` and `userData`. These are the URI and custom environment variables of the user-managed script running at node startup. This script is downloaded by annonymous CURL command, so `customScriptUri` requiring authentication fail. Use this script to:
