@@ -224,7 +224,7 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
 
     # [Azure CLI](#tab/azcli)
 
-    ```Bash
+    ```azurecli
     az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
     ```
 
@@ -276,7 +276,7 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
     # [Azure CLI](#tab/azcli)
 
     ```azurecli
-    az keyvault show --name <keyvault-name>
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
@@ -293,7 +293,7 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
     # [Azure CLI](#tab/azcli)
 
     ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
@@ -313,6 +313,35 @@ Once you've successfully completed the steps above, deploy your template like yo
 * **encryption_status** to **Enabled**.
 * **cmk_keyvault** to the `cmk_keyvault` value obtained in previous steps.
 * **resource_cmk_uri** to the `resource_cmk_uri` value obtained in previous steps.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      encryption_status="Enabled" \
+      cmk_keyvault="/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" \
+      resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -encryption_status "Enabled" `
+	-cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
+  -resource_cmk_uri "https://mykeyvault.vault.azure.net/keys/mykey/{guid}"
+```
+---
 
 When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
 
@@ -424,7 +453,9 @@ To deploy a workspace with existing associated resources you have to set the **v
     # [Azure CLI](#tab/azcli)
 
     ```azurecli
-    az deploy
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
+    az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
