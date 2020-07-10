@@ -8,7 +8,7 @@ ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: urosmil
-ms.author: urosmil
+ms.author: Uros Milanovic (MSFT)
 ms.reviewer: sstein, carlrab, MashaMSFT
 ms.date: 07/10/2020
 ---
@@ -101,7 +101,7 @@ Category  |Operation  |Cancelable  |Estimated cancel duration  |
 
 In order to cancel the management operation, go to the overview blade and click on notification box of the ongoing operation. From the right side, a screen with the ongoing operation will appear and there will be button for canceling operation. After the first click, you will be asked to click again and confirm that you want to cancel the operation.
 
-[![Cancel operation](./media/management-operations-overview/canceling-operation.png)](./media/sql-managed-instance-paas-overview/canceling-operation.png#lightbox)
+[![Cancel operation](./media/management-operations-overview/canceling-operation.png)](./media/management-operations-overview/canceling-operation.png#lightbox)
 
 After a cancel request has been submitted and processed, you will get a notification if the cancel submission has been successful or not.
 
