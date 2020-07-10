@@ -36,7 +36,7 @@ Most Windows-based clustering build on WSFC, which handles all core infrastructu
 
 Some popular applications running on WSFC include:
 
-- [SQL Server Failover Cluster Instances (FCI)](azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
+- [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Scale-out File Server (SoFS)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
