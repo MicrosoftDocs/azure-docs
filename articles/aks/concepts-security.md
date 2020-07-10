@@ -49,9 +49,9 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ### Compute isolation
 
- Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](..\virtual-machines\linux\isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
+ Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](../virtual-machines/linux/isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
 
- To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](..\virtual-machines\linux\isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
+ To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](../virtual-machines/linux/isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
 
 
 ## Cluster upgrades
@@ -107,12 +107,12 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

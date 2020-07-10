@@ -1,12 +1,12 @@
 ---
-title: "Azure Cognitive Services for big data"
-description: Overview page for the Cognitive Services for Big Data
+title: "Cognitive Services for Big Data"
+description: Learn how to leverage Azure Cognitive Services on large datasets using Python, Java, and Scala. With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/09/2020
 ms.author: marhamil
 ---
 
