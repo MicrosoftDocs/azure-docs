@@ -47,7 +47,9 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
      ```
 
 12. Follow the instructions [here](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) to get a registration token.
-      - If you'd prefer to use the Azure portal, you can also go to the Overview page of the host pool you want to add the VM to and create a token there.
+      
+      - If you'd rather use the Azure portal, you can also go to the Overview page of the host pool you want to add the VM to and create a token there.
+  
 13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
