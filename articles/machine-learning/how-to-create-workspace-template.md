@@ -364,9 +364,12 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 > [!IMPORTANT]
 > Application Insights does not support deployment behind a virtual network.
 
-### Deploy workspace behind a virtual network
+### Only deploy workspace behind virtual network
 
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a virtual network.
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
 
 # [Azure CLI](#tab/azcli)
 
@@ -394,7 +397,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-### Use a new vnet
+### Use a new virtual network
 
 To deploy a resource behind a new virtual network, set the **vnetOption** to **new** along with the virtual network settings for the respective resource. The deployment below shows how to deploy a workspace with the storage account resource behind a new virtual network.
 
@@ -410,6 +413,7 @@ az deployment group create \
       vnetOption="new" \
       vnetName="examplevnet" \
       storageAccountBehindVNet="true"
+      privateEndpointType="AutoApproval"
 ```
 
 # [Azure PowerShell](#tab/azpowershell)
@@ -424,6 +428,7 @@ New-AzResourceGroupDeployment `
   -vnetOption "new" `
   -vnetName "examplevnet" `
   -storageAccountBehindVNet "true"
+  -privateEndpointType "AutoApproval"
 ```
 
 ---
@@ -446,6 +451,7 @@ az deployment group create \
       containerRegistryBehindVNet="true" \
       containerRegistryOption="new" \
       containerRegistrySku="Premium"
+      privateEndpointType="AutoApproval"
 ```
 
 # [Azure PowerShell](#tab/azpowershell)
@@ -464,11 +470,12 @@ New-AzResourceGroupDeployment `
   -containerRegistryBehindVNet "true" `
   -containerRegistryOption "new" `
   -containerRegistrySku "Premium"
+  -privateEndpointType "AutoApproval"
 ```
 
 ---
 
-Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
 
 > [!IMPORTANT]
 > The deployment is only valid in regions which support private endpoints.
@@ -501,7 +508,7 @@ New-AzResourceGroupDeployment `
   -privateEndpointType "AutoApproval"
 ```
 
----
+--- -->
 
 ### Use an existing virtual network & resources
 
@@ -554,6 +561,7 @@ To deploy a workspace with existing associated resources you have to set the **v
       containerRegistrySku="Premium" \
       subnetName="examplesubnet" \
       subnetOption="existing"
+      privateEndpointType="AutoApproval"
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
@@ -574,10 +582,11 @@ To deploy a workspace with existing associated resources you have to set the **v
       -containerRegistrySku "Premium" `
       -subnetName "examplesubnet" `
       -subnetOption "existing"
+      -privateEndpointType "AutoApproval"
     ```
     ---
 
-Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
+<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
 
 > [!IMPORTANT]
 > The deployment is only valid in regions which support private endpoints.
@@ -616,7 +625,7 @@ New-AzResourceGroupDeployment `
   -subnetOption "existing"
 ```
 
----
+--- -->
 
 ## Use the Azure portal
 
