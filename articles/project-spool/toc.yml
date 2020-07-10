@@ -22,6 +22,8 @@
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
     href: quickstarts/create-a-communication-resource.md
+  - name: Request phone numbers
+    href: quickstarts/request-phone-numbers.md
   - name: Configure Your Server
     href: quickstarts/configure-server.md
   - name: Initialize Your Calling Client
