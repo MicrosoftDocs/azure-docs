@@ -22632,6 +22632,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/about-microsoft-identity-platform.md",
+      "redirect_url": "/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/howto-reactivate-disabled-acs-namespaces.md",
       "redirect_url": "/azure/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces",
       "redirect_document_id": true

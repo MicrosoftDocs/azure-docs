@@ -71,5 +71,5 @@ A: See the [Migration guidance](#migration-guidance) section of this article. If
 ## Next steps
 
 - [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
-- [Learn more about Microsoft identity platform (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Review our MSAL code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Overview of the Microsoft identity platform](v2-overview.md)
+- [Review our MSAL code samples](sample-v2-code.md)
