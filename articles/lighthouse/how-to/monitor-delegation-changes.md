@@ -123,9 +123,7 @@ $showOperations = $data;
 if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/register/action") {
     $registerOutputs = $showOperations | Where-Object -FilterScript { $_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/register/action" }
     foreach ($registerOutput in $registerOutputs) {
-
         $eventDescription = $registerOutput.description | ConvertFrom-Json;
-
     $registerOutputdata = [pscustomobject]@{
         Event                    = "An Azure customer has registered delegated resources to your Azure tenant";
         DelegatedResourceId      = $eventDescription.delegationResourceId; 
