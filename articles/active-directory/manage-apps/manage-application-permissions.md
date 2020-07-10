@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take action on overpriviledged, or suspicious application in Azure Active Directory
 
-Learn how to review and manage application permissions. Based on the scenario, this article will provide different actions you can perform to secure your application. This apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
+Learn how to review and manage application permissions. Based on the scenario, this article will provide different actions you can perform to secure your application. This applies to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
 
 For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
@@ -37,7 +37,7 @@ You can access the Azure AD portal to get contextual PowerShell scripts to perfo
 
 ## I want to control access to an application
 
-We recommend that you restrict access to this application by turning User assignment settign on.
+We recommend that you restrict access to this application by turning User assignment setting on.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
@@ -50,7 +50,7 @@ Optional, you can remove all users assigned to the application using PowerShell.
 
 ## I want to revoke all permissions for an application
 
-Using the PowerShell revoke all permissions granted to this application.
+Using the PowerShell revokes all permissions granted to this application.
 
 > [!NOTE]
 > Revoking the current granted permission won't stop users for reconseing to the applications. If you want to block users from consenting to the application, read [Configure how end-users consent to applications](configure-user-consent.md).
@@ -62,9 +62,9 @@ Optional, you can disable the application to block users from accessing the app 
 3. Select the application you want to restrict access.
 4. Select **Properties** and then set Enabled for users to sign-in? to No.
 
-## Application is suspicious and I want to investigate before allowing more users to consent
+## Application is suspicious and I want to investigate
 
-We recommend that you restrict access to this application by turning User assignment settign on and review the permissions that user and admins have granted to the application.
+We recommend that you restrict access to this application by turning User assignment setting on and review the permissions that user and admins have granted to the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 3. Select **Azure Active Directory** > **Enterprise applications**.
@@ -87,7 +87,7 @@ We recommend that you disable the application to block users from accessing the 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application you want to restrict access.
-4. Select **Properties** and then copy the object Id.
+4. Select **Properties** and then copy the object ID.
 
 ### PowerShell commands
 
@@ -162,4 +162,7 @@ Invalidate refresh tokens
             Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
         }
 ```
-
+## Next steps
+- [Manage consent to applications and evaluate consent request](manage-consent-requests.md)
+- [Configure user consent](configure-user-consent.md)
+- [Configure admin consent workflow](configure-admin-consent-workflow.md)
