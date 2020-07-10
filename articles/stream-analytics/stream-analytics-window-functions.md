@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/10/2020
 ---
 # Introduction to Stream Analytics windowing functions
 
@@ -44,6 +44,11 @@ If events keep occurring within the specified timeout, the session window will k
 
 When a partition key is provided, the events are grouped together by the key and session window is applied to each group independently. This partitioning is useful for cases where you need different session windows for different users or devices.
 
+## Snapshot window
+
+Snapshot windows groups events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
+
+![Stream Analytics snapshot window](media/stream-analytics-window-functions/snapshot.png)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
