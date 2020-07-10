@@ -17,7 +17,7 @@ With this sample, you can see a visual representation of your digital twins and 
 
 Here's a view of what the sample visualization looks like:
 
-:::image type="content" source="../articles/digital-twins/media/include-visualization/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="../articles/digital-twins/media/include-visualization/azure-digital-twins-explorer.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="../articles/digital-twins/media/includes/azure-digital-twins-explorer.png":::
 
 You can also use the sample to...
 * Upload and explore models

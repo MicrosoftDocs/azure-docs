@@ -49,7 +49,7 @@ You can view a visualization of your Azure Digital Twins graph through the help 
 
 Here's a view of what the sample visualization looks like:
 
-:::image type="content" source="media/include-visualization/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="media/include-visualization/azure-digital-twins-explorer.png":::
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Azure Digital Twins provides a rich **event system** to keep that graph current with data processing and business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
