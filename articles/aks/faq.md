@@ -141,7 +141,11 @@ Movement of clusters between subscriptions is currently unsupported.
 
 ## Can I move my AKS clusters from the current Azure subscription to another? 
 
-Moving your AKS cluster and it's associated resources between Azure subscriptions is not supported.
+Moving your AKS cluster and it' associated resources between Azure subscriptions is not supported.
+
+## Can I move my AKS cluster or AKS infrastructure resources to other resource groups or rename them?
+
+Moving or renaming your AKS cluster and its associated resources is not supported.
 
 ## Why is my cluster delete taking so long? 
 
