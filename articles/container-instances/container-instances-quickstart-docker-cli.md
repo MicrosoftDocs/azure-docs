@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 
 For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [MacOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta).
 
-### Create Azure context
+## Create Azure context
 
 To use Docker commands to run containers in Azure Container Instances, first log into Azure:
 
