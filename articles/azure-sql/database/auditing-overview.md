@@ -119,6 +119,8 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
+   
+   For more details about Azure Monitor Logs Workspaces see https://aka.ms/logsdesign
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
