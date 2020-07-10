@@ -24,8 +24,8 @@
     href: quickstarts/create-a-communication-resource.md
   - name: Request phone numbers
     href: quickstarts/request-phone-numbers.md
-  - name: Configure Your Server
-    href: quickstarts/configure-server.md
+ # - name: Configure Your Server
+ #   href: quickstarts/configure-server.md
   - name: Initialize Your Calling Client
     href: quickstarts/init-client.md
   - name: Capture a Local Video Stream
@@ -42,17 +42,19 @@
  #   href: quickstarts/todo.md
  # - name: Implement Two-Factor Authentication
  #   href: quickstarts/todo.md
-  - name: Get Started With Chat
+  - name: Chat
     href: quickstarts/get-started-with-chat.md
-  - name: Assign A Telephone Number To An MS Graph Bot
-    href: quickstarts/assign-a-telephone-number-to-a-ms-graph-bot.md
-  - name: Place A Telephone Call To An MS Graph Bot
-    href: quickstarts/place-a-telephone-call-to-a-graph-api-bot.md
+ # - name: Assign A Telephone Number To An MS Graph Bot
+ #   href: quickstarts/assign-a-telephone-number-to-a-ms-graph-bot.md
+ # - name: Place A Telephone Call To An MS Graph Bot
+ #   href: quickstarts/place-a-telephone-call-to-a-graph-api-bot.md
 - name: Tutorials
   expanded: true
   items:
   - name: Add SMS To Your Web App
     href: tutorials/add-sms-to-your-web-app.md
+  - name: Voice and Video Calling
+    href: concepts/calling-client-samples.md
   # - name: Add Calling To Your App
   #  href: tutorials/add-calling-to-your-app.md  
   # - name: Add Signaling To Your App
@@ -61,8 +63,8 @@
   #  href: tutorials/add-chat-to-your-app.md
   #- name: Add Network Traversal To Your App
   #  href: tutorials/add-network-traversal-to-your-app.md
-  - name: Add Video To Your UWP App
-    href: tutorials/add-video-to-your-uwp-app.md
+  #- name: Add Video To Your UWP App
+  #  href: tutorials/add-video-to-your-uwp-app.md
   #- name: Provision and Release Phone Numbers
   #  href: tutorials/provision-and-release-phone-numbers.md
   #- name: Configure Call Routing and Number Assignment
@@ -110,14 +112,6 @@
         href: concepts/chat/chat.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
-  #- name: How Voice, Video, and Messaging Relate
-  #  href: concepts/voice-video-messaging.md
-  #- name: Signaling
-  #  href: concepts/signaling.md
-  #- name: Spaces
-  #  href: concepts/spaces.md
-  #- name: Media and Media Devices
-  #  href: concepts/media-devices.md
   - name: SMS
     href: concepts/sms.md
   - name: SMS Flows
@@ -134,18 +128,8 @@
         href: concepts/logs-schema-list.md
   - name: Pricing Model
     href: concepts/pricing.md
-  #- name: Security Model
-  #  href: concepts/security-model.md
   - name: Authentication and Authorization
     href: concepts/authentication.md
-  #- name: Testing Model
-  #  href: concepts/testing.md
-  #- name: Patterns and Practices
-  #  href: concepts/patterns-practices.md
-  #- name: Fraud Detection
-  #  href: concepts/fraud-detection.md
-  #- name: Logging and Diagnostics
-  #  href: concepts/logging-diagnostics.md
   - name: ACS As An Event Grid Source
     href: concepts/acs-event-grid.md
   - name: Push notifications
