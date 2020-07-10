@@ -22,15 +22,15 @@ sections:
     className: cardsFTitle
     items:
     - title: Getting started with Kubernetes clusters
-      href: /azure/container-service/kubernetes
+      href: ./kubernetes/index.yml
       image: 
         src: media/index/get-started.svg
-        href: /azure/container-service/kubernetes
+        href: ./kubernetes/index.yml
     - title: Getting started with DC/OS and Docker Swarm clusters
-      href: /azure/container-service/dcos-swarm
+      href: ./dcos-swarm/index.yml
       image: 
         src: media/index/get-started.svg
-        href: /azure/container-service/dcos-swarm
+        href: ./dcos-swarm/index.yml
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

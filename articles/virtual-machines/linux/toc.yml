@@ -477,6 +477,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md 
           - name: Copy from another gallery
@@ -499,6 +501,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md 
           - name: Copy from another gallery
@@ -547,6 +551,8 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
+    - name: Purchase plan information
+      href: ../marketplace-images.md
     - name: Capture VM to managed image
       href: capture-image.md
     - name: Build image with Packer
@@ -945,6 +951,16 @@
       href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
+    - name: Encryption
+      items:
+      - name: Enable encryption at host - CLI
+        href: disks-enable-host-based-encryption-cli.md
+      - name: Enable customer-managed keys - CLI
+        href: disks-enable-customer-managed-keys-cli.md
+      - name: Enable customer-managed keys - Portal
+        href: disks-enable-customer-managed-keys-portal.md
+      - name: Enable double encryption at rest
+        href: disks-enable-double-encryption-at-rest-cli.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
