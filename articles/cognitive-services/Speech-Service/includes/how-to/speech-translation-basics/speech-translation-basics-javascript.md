@@ -80,7 +80,7 @@ After you've created a [`SpeechTranslationConfig`](https://docs.microsoft.com/ja
 If you're translating speech provided through your device's default microphone, here's what the [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest) should look like:
 
 ```javascript
-const translator = new TranslationRecognizer(speechConfig);
+const translator = new TranslationRecognizer(speechTranslationConfig);
 ```
 
 If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest).
@@ -91,14 +91,14 @@ Reference the `AudioConfig` object as follows:
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-const recognizer = new TranslationRecognizer(speechConfig, audioConfig);
+const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
 ```
 
 If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, this can only be done when targeting **Node.js** and when you create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest), instead of calling `fromDefaultMicrophoneInput`, you'll call `fromWavFileOutput` and pass the `filename` parameter.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const recognizer = new TranslationRecognizer(speechConfig, audioConfig);
+const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
 ```
 
 ## Translate speech
@@ -120,7 +120,7 @@ the translation config object:
 
 ```javascript
 speechTranslationConfig.speechRecognitionLanguage = "en-US";
-speechTranslationConfig.addTargetLanguage("de-DE");
+speechTranslationConfig.addTargetLanguage("de");
 ```
 
 ### Single-shot recognition
@@ -136,21 +136,41 @@ recognizer.recognizeOnceAsync(result => {
 You'll need to write some code to handle the result. This sample evaluates the [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognitionresult?view=azure-node-latest) for a translation to German:
 
 ```javascript
-    recognizer.recognized = function (s, e) {
-        var str = "\r\n(recognized)  Reason: " +
-            sdk.ResultReason[e.result.reason] +
-            " Text: " + e.result.text +
-            " Translations:";
-        var language = "de";
-        str += " [" + language + "] " + e.result.translations.get(language);
-        console.log(str + "\r\n");
-    };
+recognizer.recognizeOnceAsync(
+  function (result) {
+    let translation = result.translations.get("de");
+    window.console.log(translation);
+    recognizer.close();
+  },
+  function (err) {
+    window.console.log(err);
+    recognizer.close();
+});
 ```
 
 Your code can also handle updates provided while the translation is processing.
 You can use these updates to provide visual feedback about the translation progress.
 See [this JavaScript
-Node.js example](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/translation.js) for sample code that shows updates provided during the translation process.
+Node.js example](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/translation.js) for sample code that shows updates provided during the translation process. The following code also
+displays details produced during the translation process.
+
+```javascript
+recognizer.recognizing = function (s, e) {
+    var str = ("(recognizing) Reason: " + SpeechSDK.ResultReason[e.result.reason] +
+            " Text: " +  e.result.text +
+            " Translation:");
+    str += e.result.translations.get("de");
+    console.log(str);
+};
+recognizer.recognized = function (s, e) {
+    var str = "\r\n(recognized)  Reason: " + SpeechSDK.ResultReason[e.result.reason] +
+            " Text: " + e.result.text +
+            " Translation:";
+    str += e.result.translations.get("de");
+    str += "\r\n";
+    console.log(str);
+};
+```
 
 ### Continuous translation
 
@@ -159,7 +179,7 @@ Continuous translation is a bit more involved than single-shot recognition. It r
 Let's start by defining the input and initializing a [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest):
 
 ```javascript
-const translator = new TranslationRecognizer(speechConfig);
+const translator = new TranslationRecognizer(speechTranslationConfig);
 ```
 
 We'll subscribe to the events sent from the [`TranslationRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer?view=azure-node-latest).
@@ -205,16 +225,6 @@ recognizer.startContinuousRecognitionAsync();
 // recognizer.StopContinuousRecognitionAsync();
 ```
 
-### Dictation mode
-
-When using continuous translation, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enableDictation`](htthttps://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest#enabledictation--) method on your [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest).
-
-```javascript
-speechTranslationConfig.enableDictation();
-```
-
 ## Choose a source language
 
 A common task for speech translation is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechTranslationConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechtranslationconfig?view=azure-node-latest), then add the following line directly below it.
@@ -236,12 +246,10 @@ See a list of language codes for text targets in
 The following code adds german as a target language:
 
 ```javascript
-translationConfig.addTargetLanguage("de-DE");
+translationConfig.addTargetLanguage("de");
 ```
 
-Since multiple target language translations are possible, your code must specify the target language when examining the result.
-The following code gets translation results for German. Notice how it uses just the language specifier of the locale, rather
-than the whole locale string:
+Since multiple target language translations are possible, your code must specify the target language when examining the result. The following code gets translation results for German.
 
 ```javascript
 recognizer.recognized = function (s, e) {
