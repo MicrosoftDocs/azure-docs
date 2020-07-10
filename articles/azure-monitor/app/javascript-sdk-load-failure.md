@@ -71,11 +71,11 @@ If you confirm there is an outage, you can [create a new support ticket](https:/
 As the snippet and its configuration are returned by your application as part of each generated page, you can change the snippet `src` configuration to use a different URL for the SDK. By using this approach, you could bypass the CDN blocked issue as the new URL should not be blocked.
 
 Current Application Insights JavaScript SDK CDN endpoints
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> The https://js.monitor.azure.com/ endpoint is an alias that allows us to switch between CDN providers within approximately 5 minutes, without the need for you to change any config. This is to enable us to fix detected CDN related issues more rapidly if a CDN provider is having regional or global issues without requiring everyone to adjust their settings.
+> The `https://js.monitor.azure.com/` endpoint is an alias that allows us to switch between CDN providers within approximately 5 minutes, without the need for you to change any config. This is to enable us to fix detected CDN related issues more rapidly if a CDN provider is having regional or global issues without requiring everyone to adjust their settings.
 
 ## SDK failed to initialize after loading the script
 

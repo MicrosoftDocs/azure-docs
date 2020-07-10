@@ -70,9 +70,12 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 11. In the box under Claim rule name: enter *Keep Users Signed In*.
 12. In the Custom rule box, enter:
 
+```ad-fs-claim-rule
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+```
+
 13. Click **Finish**.
 14. Click **Apply**.
 15. Click **Ok**.

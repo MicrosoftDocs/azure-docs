@@ -77,6 +77,9 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Status: completed, failed with error information or, canceled  
       -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 
+### Network security and access policies associated with integrated CA
+Key Vault service sends requests to CA (outbound traffic). Therefore, it’s fully compatible with firewall enabled key vaults. The Key Vault does not share access policies with the CA. The CA must be configured to accept signing requests independently. [Guide on integrating trusted CA](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## Import a certificate  
  Alternatively – a cert can be imported into Key Vault – PFX or PEM.  
 
@@ -101,7 +104,7 @@ We support the following type of Import for PEM file format. A single PEM encode
 -----BEGIN PRIVATE KEY-----
 -----END PRIVATE KEY-----
 
-When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in differnt formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format. 
+When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in different formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format. 
 
 ### Formats of Merge CSR we support
 AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA) 
