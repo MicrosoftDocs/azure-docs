@@ -60,6 +60,9 @@ A **None route table** is also available for each virtual hub. Propagating to th
 
 Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
 
+## <a name="route"></a>Reset Hub
+Available only in the Azure portal , this option provides the user a means to bring any failed resources such as route tables, hub router or the virtual hub resource itself back to its rightful provisioning state. This is an additional option for user to consider prior to contacting Microsoft for support. This operation does not reset any of the gateways in a virtual hub. 
+
 ## <a name="route"></a>Route tables in Basic and Standard virtual WANs prior to the feature set of Association and Propagation
 
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
