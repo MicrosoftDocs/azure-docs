@@ -62,7 +62,7 @@ The Remote Desktop client may not be able to reach the Remote Desktop service on
 ## Source 1: Remote Desktop client computer
 Verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
+![A diagram of the components in a Remote Desktop (RDP) connection with the RDP client highlighted and an arrow pointing to another on-premises computer indicating a connection.](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 If you cannot, check for the following settings on your computer:
 
@@ -76,7 +76,7 @@ In all these cases, temporarily disable the software and try to connect to an on
 ## Source 2: Organization intranet edge device
 Verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
+![A diagram of the components in a Remote Desktop (RDP) connection with an RDP client that is connected to the internet highlighted and an arrow pointing to an Azure virtual machine indicating a connection.](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
 If you do not have a computer that is directly connected to the Internet, create and test with a new Azure virtual machine in a resource group or cloud service. For more information, see [Create a virtual machine running Windows in Azure](../virtual-machines-windows-hero-tutorial.md). You can delete the virtual machine and the resource group or the cloud service, after the test.
 
@@ -94,7 +94,7 @@ Work with your network administrator to correct the settings of your organizatio
 
 For VMs created using the Classic deployment model, verify that another Azure VM that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure VM.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
+![A diagram of the components in a Remote Desktop (RDP) connection with one Azure VM highlighted and an arrow pointing to another Azure VM within the same cloud service indicating a connection.](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
 > For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#source-4-network-security-groups).
@@ -114,7 +114,7 @@ Network Security Groups allow more granular control of allowed inbound and outbo
 Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) to confirm if a rule in a Network Security Group is blocking traffic to or from a virtual machine. You can also review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## Source 5: Windows-based Azure VM
-![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
+![A diagram of the components in a Remote Desktop (RDP) connection with an Azure VM highlighted within a cloud service and a message that it could be a "possible source of issues". A blue line indicates that Network Security Group rules could be blocking traffic to or from the Azure VM.](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Follow the instructions in [this article](../windows/reset-rdp.md). This article resets the Remote Desktop service on the virtual machine:
 
