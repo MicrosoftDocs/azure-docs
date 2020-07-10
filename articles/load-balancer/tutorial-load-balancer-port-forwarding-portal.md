@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure port forwarding in Azure Load Balancer using the Azure portal"
-titlesuffix: Azure Load Balancer
+title: "Tutorial: Configure port forwarding - Azure portal"
+titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create connections to VMs in an Azure virtual network.
 services: load-balancer
 documentationcenter: na
@@ -55,7 +55,7 @@ First, create a public Standard load balancer that can balance traffic load over
     |Availability zone| Select **Zone redundant**.    |
      
     >[!NOTE]
-     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#services-support-by-region). 
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-region.md). 
 
 3. In the **Review + create** tab, click **Create**.  
   
@@ -63,19 +63,20 @@ First, create a public Standard load balancer that can balance traffic load over
 
 Create a virtual network with two virtual machines, and add the VMs to the back-end pool of your load balancer. 
 
-### Create a virtual network
+## Virtual network and parameters
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
-   
-1. In the **Create virtual network** pane, type or select these values:
-   
-   - **Name**: Type *MyVNet*.
-   - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
-   - **Subnet** > **Name**: Type *MyBackendSubnet*.
-   
-1. Select **Create**.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-   ![Create a virtual network](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create VMs and add them to the load balancer back-end pool
 

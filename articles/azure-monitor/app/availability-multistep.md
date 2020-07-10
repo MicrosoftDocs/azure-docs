@@ -1,14 +1,8 @@
 ---
-title: Monitor your web application with multi-step web tests and Azure Application Insights | Microsoft Docs
+title: Monitor with multi-step web tests - Azure Application Insights
 description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 10/23/2019
-
-ms.reviewer: sdash
+ms.date: 05/26/2020
 ---
 
 # Multi-step web tests
@@ -17,6 +11,9 @@ You can monitor a recorded sequence of URLs and interactions with a website via 
 
 > [!NOTE]
 > Multi-step web tests depend on Visual Studio webtest files. It was [announced](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) that Visual Studio 2019 will be the last version with webtest functionality. It is important to understand that while no new features will be added, webtest functionality in Visual Studio 2019 is still currently supported and will continue to be supported during the support lifecycle of the product. The Azure Monitor product team has addressed questions regarding the future of multi-step availability tests [here](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> </br>
+> Multi-step web tests **are not supported** in the [Azure Government](https://docs.microsoft.com/azure/azure-government/) cloud.
+
 
 ## Pre-requisites
 

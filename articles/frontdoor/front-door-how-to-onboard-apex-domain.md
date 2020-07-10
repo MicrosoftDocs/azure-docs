@@ -1,10 +1,10 @@
 ---
-title: Onboard a root or apex domain to an existing Front Door using the Azure portal
+title: Onboard a root or apex domain to an existing Front Door - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Front Door using the Azure portal.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 
@@ -21,7 +21,7 @@ Mapping your apex or root domain to your Front Door profile basically requires C
 > [!NOTE]
 > There are other DNS providers as well that support CNAME flattening or DNS chasing, however, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
 
-You can use the Azure portal to onboard an apex domain on your Front Door and enable HTTPS on it by associating it with a certificate for SSL termination. Apex domains are also referred as root or naked domains.
+You can use the Azure portal to onboard an apex domain on your Front Door and enable HTTPS on it by associating it with a certificate for TLS termination. Apex domains are also referred as root or naked domains.
 
 In this article, you learn how to:
 
@@ -60,7 +60,7 @@ In this article, you learn how to:
 2. Select the  **Certificate management type** to _'Use my own certificate'_.
 
 > [!WARNING]
-> Front Door managed certificate management type is not currently supported for apex or root domains. The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom SSL certificate hosted on Azure Key Vault.
+> Front Door managed certificate management type is not currently supported for apex or root domains. The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom TLS/SSL certificate hosted on Azure Key Vault.
 
 3. Ensure that you have setup the right permissions for Front Door to access your key Vault as noted in the UI, before proceeding to the next step.
 4. Choose a **Key Vault account** from your current subscription and then select the appropriate **Secret** and **Secret version** to map to the right certificate.

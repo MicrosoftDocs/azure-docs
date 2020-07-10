@@ -6,8 +6,9 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 03/11/2020
 ms.author: robinsh
+ms.custom: mqtt, tracking-python
 ---
 # Get started with device twins (Python)
 
@@ -23,7 +24,9 @@ At the end of this tutorial, you will have two Python console apps:
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -46,12 +49,8 @@ In this section, you create a Python console app that adds location metadata to 
 1. In your working directory, open a command prompt and install the **Azure IoT Hub Service SDK for Python**.
 
    ```cmd/sh
-   pip install azure-iothub-service-client
+   pip install azure-iot-hub
    ```
-
-   > [!NOTE]
-   > The pip package for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
 
 2. Using a text editor, create a new **AddTagsAndQuery.py** file.
 
@@ -59,21 +58,16 @@ In this section, you create a Python console app that adds location metadata to 
 
    ```python
    import sys
-   import iothub_service_client
-   from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
-   from iothub_service_client import IoTHubDeviceTwin, IoTHubError
+   from time import sleep
+   from azure.iot.hub import IoTHubRegistryManager
+   from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, QueryResult
    ```
 
 4. Add the following code. Replace `[IoTHub Connection String]` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace `[Device Id]` with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
-    CONNECTION_STRING = "[IoTHub Connection String]"
+    IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "[Device Id]"
-
-    UPDATE_JSON = "{\"properties\":{\"desired\":{\"location\":\"Redmond\"}}}"
-
-    UPDATE_JSON_SEARCH = "\"location\":\"Redmond\""
-    UPDATE_JSON_CLIENT_SEARCH = "\"connectivity\":\"cellular\""
     ```
 
 5. Add the following code to the **AddTagsAndQuery.py** file:
@@ -81,54 +75,47 @@ In this section, you create a Python console app that adds location metadata to 
     ```python
     def iothub_service_sample_run():
         try:
-            iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+            iothub_registry_manager = IoTHubRegistryManager(IOTHUB_CONNECTION_STRING)
 
-            iothub_registry_statistics = iothub_registry_manager.get_statistics()
-            print ( "Total device count                       : {0}".format(iothub_registry_statistics.totalDeviceCount) )
-            print ( "Enabled device count                     : {0}".format(iothub_registry_statistics.enabledDeviceCount) )
-            print ( "Disabled device count                    : {0}".format(iothub_registry_statistics.disabledDeviceCount) )
-            print ( "" )
+            new_tags = {
+                    'location' : {
+                        'region' : 'US',
+                        'plant' : 'Redmond43'
+                    }
+                }
 
-            number_of_devices = iothub_registry_statistics.totalDeviceCount
-            dev_list = iothub_registry_manager.get_device_list(number_of_devices)
+            twin = iothub_registry_manager.get_twin(DEVICE_ID)
+            twin_patch = Twin(tags=new_tags, properties= TwinProperties(desired={'power_level' : 1}))
+            twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 
-            iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
+            # Add a delay to account for any latency before executing the query
+            sleep(1)
 
-            for device in range(0, number_of_devices):
-                if dev_list[device].deviceId == DEVICE_ID:
-                    twin_info = iothub_twin_method.update_twin(dev_list[device].deviceId, UPDATE_JSON)
+            query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'")
+            query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 100)
+            print("Devices in Redmond43 plant: {}".format(', '.join([twin.device_id for twin in query_result.items])))
 
-            print ( "Devices in Redmond: " )
-            for device in range(0, number_of_devices):
-                twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
+            print()
 
-                if twin_info.find(UPDATE_JSON_SEARCH) > -1:
-                    print ( dev_list[device].deviceId )
+            query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity = 'cellular'")
+            query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 100)
+            print("Devices in Redmond43 plant using cellular network: {}".format(', '.join([twin.device_id for twin in query_result.items])))
 
-            print ( "" )
-
-            print ( "Devices in Redmond using cellular network: " )
-            for device in range(0, number_of_devices):
-                twin_info = iothub_twin_method.get_twin(dev_list[device].deviceId)
-
-                if twin_info.find(UPDATE_JSON_SEARCH) > -1:
-                    if twin_info.find(UPDATE_JSON_CLIENT_SEARCH) > -1:
-                        print ( dev_list[device].deviceId )
-
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error {0}".format(iothub_error) )
+        except Exception as ex:
+            print("Unexpected error {0}".format(ex))
             return
         except KeyboardInterrupt:
-            print ( "IoTHub sample stopped" )
+            print("IoT Hub Device Twin service sample stopped")
     ```
 
-    The **Registry** object exposes all the methods required to interact with device twins from the service. The code first initializes the **Registry** object, then updates the device twin for **deviceId**, and finally runs two queries. The first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
+    The **IoTHubRegistryManager** object exposes all the methods required to interact with device twins from the service. The code first initializes the **IoTHubRegistryManager** object, then updates the device twin for **DEVICE_ID**, and finally runs two queries. The first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network.
 
 6. Add the following code at the end of  **AddTagsAndQuery.py** to implement the **iothub_service_sample_run** function:
 
     ```python
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Device Twins Python service sample..." )
+        print("Starting the Python IoT Hub Device Twin service sample...")
+        print()
 
         iothub_service_sample_run()
     ```
@@ -201,16 +188,16 @@ In this section, you create a Python console app that connects to your hub as yo
             while True:
                 time.sleep(1000000)
         except KeyboardInterrupt:
-            print ( "IoTHubClient sample stopped" )
+            print ( "IoT Hub Device Twin device sample stopped" )
     ```
 
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
+    The **IoTHubModuleClient** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **IoTHubModuleClient** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
 
 6. Add the following code at the end of  **ReportConnectivity.py** to implement the **iothub_client_sample_run** function:
 
     ```python
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Device Twins Python client sample..." )
+        print ( "Starting the Python IoT Hub Device Twin device sample..." )
         print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
@@ -222,9 +209,9 @@ In this section, you create a Python console app that connects to your hub as yo
     python ReportConnectivity.py
     ```
 
-    You should see confirmation the device twins were updated.
+    You should see confirmation the device twin reported properties were updated.
 
-    ![update twins](./media/iot-hub-python-twin-getstarted/device-1.png)
+    ![update reported properties from device app](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
 
@@ -234,7 +221,11 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query](./media/iot-hub-python-twin-getstarted/service-2.png)
+    ![second query on service app](./media/iot-hub-python-twin-getstarted/service-2.png)
+
+    In your device app, you'll see confirmation that the desired properties twin patch sent by the service app was received.
+
+    ![receive desired properties on device app](./media/iot-hub-python-twin-getstarted/device-2.png)
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect support options and resources
-description: Azure Kinect different support options and resources
+description: Understand the different support options and resources for the Azure Kinect.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -24,6 +24,12 @@ There are multiple ways to get your questions answered through public forums:
 ## Assisted support
 
 There are multiple ways to get an assisted support for Azure Kinect.
+
+### Microsoft Q&A
+
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://aka.ms/azureqa), Azure’s preferred destination for community support.
+
+- [Microsoft Q&A for Azure Kinect](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html), where you can ask questions or search through existing library of questions.
 
 ### Development Azure Kinect on Azure
 

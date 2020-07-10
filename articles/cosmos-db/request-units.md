@@ -16,11 +16,11 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by *Request Units* (or RUs, for short). You can think of RUs per second as the currency for throughput. RUs per second is a rate-based currency. It abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. 
 
-The cost to read a 1 KB item is 1 Request Unit (or 1 RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, read, or query, costs are always measured in RUs.
+The cost to read a 1 KB item is 1 Request Unit (or 1 RU). A minimum of 10 RU/s is required to store each 1 GB of data. All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, read, or query, costs are always measured in RUs.
 
 The following image shows the high-level idea of RUs:
 
-![Database operations consume Request Units](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
 To manage and plan capacity, Azure Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can examine the response header to track the number of RUs that are consumed by any database operation. When you understand the [factors that affect RU charges](request-units.md#request-unit-considerations) and your application's throughput requirements, you can run your application cost effectively.
 

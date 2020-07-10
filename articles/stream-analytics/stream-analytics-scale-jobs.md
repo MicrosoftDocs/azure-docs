@@ -1,11 +1,9 @@
 ---
 title: Scaling up and out in Azure Stream Analytics jobs
 description: This article describes how to scale a Stream Analytics job by partitioning input data, tuning the query, and setting job streaming units.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
@@ -19,7 +17,7 @@ As a prerequisite, you may need to read the following articles:
 ## Case 1 – Your query is inherently fully parallelizable across input partitions
 If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
 1.	Author your query to be embarrassingly parallel by using **PARTITION BY** keyword. See more details in the Embarrassingly parallel jobs section [on this page](stream-analytics-parallelization.md).
-2.	Depending on output types used in your query, some output may either be not parallelizable, or need further configuration to be embarrassingly parallel. For example, SQL, SQL DW, and PowerBI outputs are not parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, ADLS, Service Bus, and Azure Function are automatically parallelized. CosmosDB and Event Hub needs to have the PartitionKey configuration set to match with the **PARTITION BY** field (usually PartitionId). For Event Hub, also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
+2.	Depending on output types used in your query, some output may either be not parallelizable, or need further configuration to be embarrassingly parallel. For example, PowerBI output is not parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, ADLS, Service Bus, and Azure Function are automatically parallelized. SQL and SQL DW outputs have an option for parallelization. Event Hub needs to have the PartitionKey configuration set to match with the **PARTITION BY** field (usually PartitionId). For Event Hub, also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
 3.	Run your query with **6 SU** (which is the full capacity of a single computing node) to measure maximum achievable throughput, and if you are using **GROUP BY**, measure how many groups (cardinality) the job can handle. General symptoms of the job hitting system resource limits are the following.
     - SU % utilization metric is over 80%. This indicates memory usage is high. The factors contributing to the increase of this metric are described [here](stream-analytics-streaming-unit-consumption.md). 
     -	Output timestamp is falling behind with respect to wall clock time. Depending on your query logic, the output timestamp may have a logic offset from the wall clock time. However, they should progress at roughly the same rate. If the output timestamp is falling further and further behind, it’s an indicator that the system is overworking. It can be a result of downstream output sink throttling, or high CPU utilization. We don’t provide CPU utilization metric at this time, so it can be difficult to differentiate the two.
@@ -76,7 +74,7 @@ In this case, you can follow the following steps.
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

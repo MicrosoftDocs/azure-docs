@@ -1,5 +1,5 @@
 ---
-title: 'Data Transformation: Process & transform data | Microsoft Docs'
+title: 'Data Transformation: Process & transform data '
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -68,7 +68,7 @@ Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Ana
 ## .NET custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ## Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 

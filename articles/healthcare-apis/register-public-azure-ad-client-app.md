@@ -1,6 +1,6 @@
 ---
-title: Register a public client application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a public client application in Azure Active Directory.
+title: Register a public client app in Azure AD - Azure API for FHIR
+description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -12,7 +12,9 @@ ms.author: mihansen
 
 # Register a public client application in Azure Active Directory
 
-In this article, you'll learn how to register a public application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page javascript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
+In this article, you'll learn how to register a public application in Azure Active Directory.  
+
+Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
 ## App registrations in Azure portal
 
@@ -26,7 +28,7 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 ## Application registration overview
 
-1. Give the application with a display name.
+1. Give the application a display name.
 
 2. Provide a reply URL. The reply URL is where authentication codes will be returned to the client application. You can add more reply URLs and edit existing ones later.
 
@@ -36,15 +38,26 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 Similarly to the [confidential client application](register-confidential-azure-ad-client-app.md), you'll need to select which API permissions this application should be able to request on behalf of users:
 
-1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
+1. Open the **API permissions**.
 
-    ![Azure portal. New public API Permissions.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-API-PERMISSIONS.png)
+    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses** (image below).
+    
+    If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 
-2. Select the scopes that you would like the application to be able to request.
+    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-app/api-permissions.png)
+
+
+2. Select the permissions that you would like the application to be able to request:
+    ![Azure portal. App permissions](media/public-client-app/app-permissions.png)
+
+## Validate FHIR server authority
+If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
+
+If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to **https://login.microsoftonline.com/\<TENANT-ID>**.
 
 ## Next steps
 
-In this article, you've learned how to register a public client application in Azure Active Directory. Next, deploy an FHIR API in Azure.
+In this article, you've learned how to register a public client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)

@@ -1,8 +1,8 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
 ---
 
@@ -12,7 +12,7 @@ In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the 
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
-$ISTIO_VERSION="1.3.2"
+$ISTIO_VERSION="1.4.0"
 
 # Enforce TLS 1.2
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
@@ -29,8 +29,9 @@ New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
 
 # Add C:\Istio to PATH. 
-# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
-[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
-[environment]::SetEnvironmentVariable("PATH", $PATH)
+# Make the new PATH permanently available for the current User
+$USER_PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $USER_PATH, "User")
+# Make the new PATH immediately available in the current shell
+$env:PATH += ";C:\Istio\"
 ```

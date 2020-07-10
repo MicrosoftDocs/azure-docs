@@ -1,17 +1,17 @@
 ---
-title: Self-service signup for email-verified user accounts - Azure Active Directory | Microsoft Docs
-description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
+title: Self-service sign-up for email-verified users - Azure AD | Microsoft Docs
+description: Use self-service sign-up in an Azure Active Directory (Azure AD) organization
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro

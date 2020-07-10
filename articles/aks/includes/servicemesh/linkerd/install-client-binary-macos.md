@@ -1,6 +1,6 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
@@ -20,7 +20,7 @@ curl -sLO "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSIO
 The `linkerd` client binary runs on your client machine and allows you to interact with the Linkerd service mesh. Use the following commands to install the Linkerd `linkerd` client binary in a bash-based shell on MacOS. These commands copy the `linkerd` client binary to the standard user program location in your `PATH`.
 
 ```bash
-sudo cp ./linkerd2-cli-$LINKERD_VERSION-linux /usr/local/bin/linkerd
+sudo cp ./linkerd2-cli-$LINKERD_VERSION-darwin /usr/local/bin/linkerd
 sudo chmod +x /usr/local/bin/linkerd
 ```
 

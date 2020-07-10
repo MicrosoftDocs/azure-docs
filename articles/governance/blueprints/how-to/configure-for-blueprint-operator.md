@@ -1,11 +1,8 @@
 ---
-title: Configure your environment for a Blueprint Operator
+title: Set up your environment for Blueprint Operator
 description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/26/2019
-ms.topic: conceptual
-ms.service: blueprints
+ms.date: 05/06/2020
+ms.topic: how-to
 ---
 # Configure your environment for a Blueprint Operator
 
@@ -48,8 +45,9 @@ of permissions.
    of **Managed Identity Operator** to the account or security group. Scope the role assignment to
    the new user-assigned managed identity.
 
-1. As the **Blueprint Operator**, [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint)
-   that uses the new user-assigned managed identity.
+1. As the **Blueprint Operator**,
+   [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint) that uses the new
+   user-assigned managed identity.
 
 ## Next steps
 

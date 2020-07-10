@@ -1,16 +1,13 @@
 ---
-title: Create performance alerts by using Azure Monitor for containers | Microsoft Docs
-description: This article describes how to use Azure Monitor for containers to create custom alerts based on log queries for memory and CPU utilization.
-ms.service:  azure-monitor
-ms.subservice: 
+title: Create performance alerts for Azure Monitor for containers | Microsoft Docs
+description: This article describes how to create custom alerts based on log queries for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 01/07/2020
 
 ---
 
 # How to set up alerts for performance problems in Azure Monitor for containers
+
 Azure Monitor for containers monitors the performance of container workloads that are deployed to Azure Container Instances or to managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS).
 
 This article describes how to enable alerts for the following situations:
@@ -26,6 +23,7 @@ To alert for high CPU or memory utilization, or low free disk space on cluster n
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
+
 The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
 
 The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
@@ -274,20 +272,22 @@ InsightsMetrics
 ```
 
 ## Create an alert rule
-Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
+
+Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier. To create using an ARM template, see [Sample Log alert creation using Azure Resource Template](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Monitor** from the pane on the left side. Under **Insights**, select **Containers**.
-3. On the **Monitored Clusters** tab, select a cluster from the list.
-4. In the pane on the left side under **Monitoring**, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
-5. On the **Logs** page, select **+New alert rule**.
-6. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
-7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
-8. Configure the alert as follows:
+2. In the Azure portal, search for and select **Log Analytics workspaces**.
+3. In your list of Log Analytics workspaces, select the workspace supporting Azure Monitor for containers. 
+4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
+5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
+6. Select **+New alert** to create a log alert.
+7. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
+8. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
+9. Configure the alert as follows:
 
     1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
     1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold** for the CPU and memory utilization alerts. For the low disk space alert, enter **90**. Or enter a different value that meets your criteria.
@@ -295,13 +295,13 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
     1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. To configure for cluster node low disk alert, select **ClusterId**.
     1. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
 
-9. Select **Done** to complete the alert rule.
-10. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
-11. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
-12. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
-13. Select **Create alert rule** to complete the alert rule. It starts running immediately.
+10. Select **Done** to complete the alert rule.
+11. Enter a name in the **Alert rule name** field. Specify a **Description** that provides details about the alert. And select an appropriate severity level from the options provided.
+12. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
+13. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
+14. Select **Create alert rule** to complete the alert rule. It starts running immediately.
 
 ## Next steps
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
-- To learn more about Azure Monitor and how to monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](container-insights-health.md).

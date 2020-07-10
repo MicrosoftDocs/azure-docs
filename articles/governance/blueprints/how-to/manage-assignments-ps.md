@@ -1,11 +1,8 @@
 ---
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/30/2019
-ms.topic: conceptual
-ms.service: blueprints
+ms.date: 05/06/2020
+ms.topic: how-to
 ---
 # How to manage assignments with PowerShell
 
@@ -23,17 +20,19 @@ with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure
 
 The Azure Blueprints module requires the following software:
 
-- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
+  [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 
-The Blueprints module for PowerShell is **Az.Blueprint**.
+The Azure Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. From an **administrative** PowerShell prompt, run the following command:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 
@@ -231,11 +230,12 @@ ResourceGroups    : ResourceGroup
 
 ### Example 2: Use a JSON assignment definition file
 
-The following example creates nearly the same assignment as [Example 1](#example-1-provide-parameters).
-Instead of passing parameters to the cmdlet, the example shows use of a JSON assignment definition
-file and the **AssignmentFile** parameter. Additionally, the **excludedPrincipals** property is
-configured as part of **locks**. There isn't a PowerShell parameter for **excludedPrincipals** and
-the property can only be configured by setting it through the JSON assignment definition file.
+The following example creates nearly the same assignment as
+[Example 1](#example-1-provide-parameters). Instead of passing parameters to the cmdlet, the example
+shows use of a JSON assignment definition file and the **AssignmentFile** parameter. Additionally,
+the **excludedPrincipals** property is configured as part of **locks**. There isn't a PowerShell
+parameter for **excludedPrincipals** and the property can only be configured by setting it through
+the JSON assignment definition file.
 
 ```json
 {
@@ -276,6 +276,11 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
+For an example of the JSON assignment definition file for a user-assigned managed identity, see the
+request body in
+[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#examples)
+for REST API.
+
 ## Update blueprint assignments
 
 Sometimes it's necessary to update a blueprint assignment that has already been created. The
@@ -284,7 +289,8 @@ that the `New-AzBlueprintAssignment` cmdlet does, allowing anything that was set
 to be updated. The exceptions are the _Name_, _Blueprint_, and _SubscriptionId_. Only the values
 provided are updated.
 
-To understand what happens when updating a blueprint assignment, see [rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
+To understand what happens when updating a blueprint assignment, see
+[rules for updating assignments](./update-existing-assignments.md#rules-for-updating-assignments).
 
 - **Name** [required]
   - Specifies the name of the blueprint assignment to update
@@ -379,7 +385,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## End-to-end code example
+## Code example
 
 Bringing all the steps together, the following example gets the blueprint definition, then creates,
 updates, and removes a blueprint assignment in the specific subscription represented as `{subId}`:

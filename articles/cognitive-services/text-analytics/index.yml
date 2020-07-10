@@ -10,11 +10,10 @@ metadata:
   description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition, and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 07/29/2019
+  ms.date: 01/29/2019
   ms.author: aahi
 
 landingContent:
@@ -39,16 +38,17 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#   
-          url: quickstarts/csharp.md#sentiment-analysis      
+        - text: Using C#
+        
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#sentiment-analysis    
         - text: Using Python   
-          url: quickstarts/python-sdk.md#sentiment-analysis
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#sentiment-analysis
         - text: Using Node.js
-          url: quickstarts/nodejs-sdk.md#sentiment-analysis   
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#sentiment-analysis
         - text: Using Go   
-          url: quickstarts/go-sdk.md#sentiment-analysis    
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#sentiment-analysis    
         - text: Using Ruby   
-          url: quickstarts/ruby-sdk.md#sentiment-analysis  
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#sentiment-analysis  
     - linkListType: tutorial
       links:
         - text: Integrate Power BI to analyze customer sentiment
@@ -65,16 +65,16 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#   
-          url: quickstarts/csharp.md#language-detection   
+        - text: Using C#  
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#language-detection 
         - text: Using Python   
-          url: quickstarts/python-sdk.md#language-detection
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#language-detection 
         - text: Using Node.js
-          url: quickstarts/nodejs-sdk.md#language-detection
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#language-detection 
         - text: Using Go   
-          url: quickstarts/go-sdk.md#language-detection
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#language-detection 
         - text: Using Ruby   
-          url: quickstarts/ruby-sdk.md#language-detection
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#language-detection 
     - linkListType: how-to-guide
       links:
         - text: Language detection
@@ -85,15 +85,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#   
-          url: quickstarts/csharp.md#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#key-phrase-extraction
         - text: Using Python   
-          url: quickstarts/python-sdk.md#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#key-phrase-extraction
         - text: Using Node.js
-          url: quickstarts/nodejs-sdk.md#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript#key-phrase-extraction
         - text: Using Go   
-          url: quickstarts/go-sdk.md#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#key-phrase-extraction
         - text: Using Ruby   
-          url: quickstarts/ruby-sdk.md#key-phrase-extraction
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#key-phrase-extraction
     - linkListType: how-to-guide
       links:
         - text: Keyword extraction
@@ -104,15 +104,15 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#   
-          url: quickstarts/csharp.md#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp#named-entity-recognition-ner
         - text: Using Python   
-          url: quickstarts/python-sdk.md#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-python#named-entity-recognition-ner
         - text: Using Node.js
-          url: quickstarts/nodejs-sdk.md#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-nodejs#named-entity-recognition-ner
         - text: Using Go   
-          url: quickstarts/go-sdk.md#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-go#named-entity-recognition-ner
         - text: Using Ruby   
-          url: quickstarts/ruby-sdk.md#entity-recognition
+          url: quickstarts/text-analytics-sdk.md?pivots=programming-language-ruby#named-entity-recognition-ner
     - linkListType: how-to-guide
       links:
         - text: Entity recognition
@@ -129,7 +129,7 @@ landingContent:
         - text: Python client library
           url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
         - text: Node.js client library
-          url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest
+          url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
         - text: Java client library
           url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
         - text: Go client library

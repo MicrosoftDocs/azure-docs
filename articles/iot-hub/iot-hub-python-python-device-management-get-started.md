@@ -6,8 +6,9 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 01/17/2020
 ms.author: robinsh
+ms.custom: mqtt, tracking-python
 ---
 
 # Get started with device management (Python)
@@ -32,7 +33,9 @@ At the end of this tutorial, you have two Python console apps:
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -57,10 +60,6 @@ In this section, you:
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client is available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
 
 2. Using a text editor, create a file named **dmpatterns_getstarted_device.py** in your working directory.
 
@@ -149,15 +148,11 @@ In this section, you:
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
-1. At your command prompt, run the following command to install the **azure-iot-service-client** package:
+1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iot-hub
     ```
-
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
 
 2. Using a text editor, create a file named **dmpatterns_getstarted_service.py** in your working directory.
 
@@ -165,9 +160,9 @@ In this section, you create a Python console app that initiates a remote reboot 
 
     ```python
     import sys, time
-    import iothub_service_client
 
-    from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
+    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
 4. Add the following variable declarations. Replace the `{IoTHubConnectionString}` placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder value with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
@@ -187,13 +182,15 @@ In this section, you create a Python console app that initiates a remote reboot 
     ```python
     def iothub_devicemethod_sample_run():
         try:
-            iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
-            iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
+            # Create IoTHubRegistryManager
+            registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
             print ( "" )
             print ( "Invoking device to reboot..." )
 
-            response = iothub_device_method.invoke(DEVICE_ID, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
+            # Call the direct method.
+            deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+            response = registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
 
             print ( "" )
             print ( "Successfully invoked the device to reboot." )
@@ -207,19 +204,19 @@ In this section, you create a Python console app that initiates a remote reboot 
 
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
-                    twin_info = iothub_twin_method.get_twin(DEVICE_ID)
+                    twin_info = registry_manager.get_twin(DEVICE_ID)
 
-                    if twin_info.find("rebootTime") != -1:
-                        print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
+                    if twin_info.properties.reported.get("rebootTime") != None :
+                        print ("Last reboot time: " + twin_info.properties.reported.get("rebootTime"))
                     else:
                         print ("Waiting for device to report last reboot time...")
 
                     time.sleep(5)
                     status_counter += 1
 
-        except IoTHubError as iothub_error:
+        except Exception as ex:
             print ( "" )
-            print ( "Unexpected error {0}".format(iothub_error) )
+            print ( "Unexpected error {0}".format(ex) )
             return
         except KeyboardInterrupt:
             print ( "" )

@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL using Go'
+title: 'Connect using Go - Azure Database for MySQL'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/26/2020
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
@@ -17,6 +17,9 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL from 
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Go and MySQL connector
 Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) on your own computer. Depending on your platform, follow the steps in the appropriate section:
@@ -284,7 +287,7 @@ func main() {
 	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
 	checkError(err)
 	rowCount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+	fmt.Printf("Updated %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 ```

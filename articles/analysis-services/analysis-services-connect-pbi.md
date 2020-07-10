@@ -1,10 +1,10 @@
 ---
 title: Connect to Azure Analysis Services with Power BI | Microsoft Docs
-description: Learn how to connect to an Azure Analysis Services server by using Power BI.
+description: Learn how to connect to an Azure Analysis Services server by using Power BI. Once connected, users can explore model data.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -43,5 +43,5 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
-[Client libraries](analysis-services-data-providers.md)
+[Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

@@ -1,11 +1,7 @@
 ---
 title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
 
 ---
@@ -28,7 +24,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
@@ -128,6 +124,6 @@ Workaround: Exclude data collected by the problem Write plugins.
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 
 

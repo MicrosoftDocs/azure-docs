@@ -1,21 +1,20 @@
 ---
-title: Backup and recover with Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: Learn how to back up and recover your account credentials, using the Microsoft Authenticator app.
+title: Back up and recover accounts with the Microsoft Authenticator app - Azure AD
+description: Learn how to back up and recover your backed up account credentials, using the Microsoft Authenticator app.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: lizross
+ms.topic: end-user-help
+ms.date: 06/03/2020
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Backup and recover account credentials with the Microsoft Authenticator app
+# Back up and recover account credentials using the Microsoft Authenticator app
 
 **Applies to:**
 
@@ -28,7 +27,7 @@ The Microsoft Authenticator app backs up your account credentials and related ap
 Each backup storage location requires you to have one personal Microsoft account, while iOS also requires you to have an iCloud account. You can have multiple accounts stored in that single location. For example, you can have a personal account, a work or school account, and a personal, non-Microsoft account like for Facebook, Google, and so on.
 
 > [!IMPORTANT]
-> Only your personal and 3rd-party account credentials are stored, which includes your username and the account verification code that’s required to prove your identity. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
+> Only your personal and 3rd-party account credentials are stored, which includes your username and the account verification code that's required to prove your identity. We don't store any other information associated with your accounts, including emails or files. We also don't associate or share your accounts in any way or with any other product or service. And finally, your IT admin won't get any information about any of these accounts.
 
 ## Back up your account credentials
 
@@ -70,52 +69,52 @@ You can recover your account credentials from your cloud account, but you must f
 
 After you finish your recovery, you might notice that your personal Microsoft account verification codes in the Microsoft Authenticator app are different between your old and new phones. The codes are different because each device has its own unique credential, but both are valid and work while signing in using the associated phone.
 
-## Recover additional accounts requiring more verification
+## Recover accounts requiring more verification
 
-If you use push notifications with your personal or work or school accounts, you'll get an on-screen alert that says you must provide additional verification before you can recover your information. Because push notifications require using a credential that’s tied to your specific device and never sent over the network, you must prove your identity before the credential is created on your device.
+If you use push notifications with your personal or work or school accounts, you'll get an on-screen alert that says you must provide additional verification before you can recover your information. Because push notifications require using a credential that's tied to your specific device and never sent over the network, you must prove your identity before the credential is created on your device.
 
 For personal Microsoft accounts, you can prove your identity by entering your password along with an alternate email or phone number. For work or school accounts, you must scan a QR code given to you by your account provider.
 
-### To provide additional verification for personal accounts
+### To provide more verification for personal accounts
 
-1. In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
+1. In the **Accounts** screen of the Microsoft Authenticator app, tap the account you want to recover to open the full screen view of the account.
 
-    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Microsoft Authenticator app, showing the available account tiles" border="true":::
 
-2. Select **Sign in to recover**, type your password, and then confirm your email address or phone number as additional verification.
+1. Tap the tile for the account you're recovering and then tap the option to sign in to recover. Enter your password and then confirm your email address or phone number as additional verification.
 
-    ![Microsoft Authenticator app, allowing you to enter your sign-in info](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Authenticator presents a one-time password as a verification code" border="true":::
 
-### To provide additional verification for work or school accounts
+### To provide more verification for work or school accounts
 
-1. In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
+1. In the **Accounts** screen of the Microsoft Authenticator app, tap the account you want to recover to open the full screen view of the account.
 
-    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Microsoft Authenticator app, showing the available account tiles" border="true":::
 
-2. Select **Scan QR code to recover**, and then scan the QR code.
+1. In the full screen view, tap the option to scan a QR code to fully recover.
 
-    ![Microsoft Authenticator app, allowing you to scan your QR code](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticator presents a one-time password as a verification code" border="true":::
 
-    >[!NOTE]
-    >For more info about QR codes and how to get one, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), based on whether your admin has turned on security info.
-    >
-    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+>[!NOTE]
+>For more info about QR codes and how to get one, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), based on whether your admin has turned on security info.
+>
+>If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
 ## Troubleshoot backup and recovery problems
 
-There are a few reasons why your backup might not be available:
+There are a few reasons why your backup might not be available
 
-- **Changing operating systems.** Your backup is stored in the iCloud for iOS and in Microsoft's cloud storage provider for Android. This means that your backup is unavailable if you switch between Android and iOS devices. If you make the switch, you must manually recreate your accounts within the Microsoft Authenticator app.
+- **Changing operating systems**: Your backup is stored in the iCloud for iOS and in Microsoft's cloud storage provider for Android. This means that your backup is unavailable if you switch between Android and iOS devices. If you make the switch, you must manually recreate your accounts within the Microsoft Authenticator app.
 
-- **Network problems.** If you're experiencing network-related problems, make sure you're connected to the network and properly signed in to your account.
+- **Network problems**: If you're experiencing network-related problems, make sure you're connected to the network and properly signed in to your account.
 
-- **Account problems.** If you're experiencing account-related problems, make sure that you're properly signed in to your account. For iOS this means that you must be signed into iCloud using the same AppleID account as your iPhone.
+- **Account problems**: If you're experiencing account-related problems, make sure that you're properly signed in to your account. For iOS this means that you must be signed into iCloud using the same AppleID account as your iPhone.
 
-- **Accidental deletion.** It’s possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
+- **Accidental deletion**: It's possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
 
-- **Existing Microsoft Authenticator accounts.** If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
+- **Existing Microsoft Authenticator accounts**: If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
 
-- **Backup is out-of-date.** If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you’ll see a red dot on your menu or action bar. After you select the red dot, you’ll be prompted to sign in again to update your information.
+- **Backup is out-of-date**: If your backup information is out-of-date, you might be asked to refresh the information by signing in to your Microsoft Recovery account again. Your recovery account is the personal Microsoft account you used initially to store your backup. If a sign-in is required, you'll see a red dot on your menu or action bar, or you’ll see an exclamation mark icon prompting you to sign in to finish restoring from backup. After you select the appropriate icon, you'll be prompted to sign in again to update your information.
 
 ## Next steps
 

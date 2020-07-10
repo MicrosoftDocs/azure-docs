@@ -1,25 +1,23 @@
 ---
-title: Configure group settings using PowerShell - Azure Active Directory | Microsoft Docs
+title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 09/10/2019
+ms.topic: how-to
+ms.date: 03/20/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups (sometimes called unified groups). 
+
+This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups (sometimes called unified groups).
 
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
@@ -32,7 +30,7 @@ The cmdlets are part of the Azure Active Directory PowerShell V2 module. For ins
 
 ## Install PowerShell cmdlets
 
-Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands.
+Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release (later than 2.0.0.137)](https://www.powershellgallery.com/packages/AzureADPreview) before you run the PowerShell commands.
 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
@@ -49,7 +47,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
    ```
    
 ## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview).
 
 1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
@@ -59,7 +57,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```
    This cmdlet call returns all templates that are available:
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -72,12 +70,13 @@ These steps create settings at directory level, which apply to all Office 365 gr
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
   
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. Next, create a new settings object based on that template:
   
    ```powershell
-   $Setting = $template.CreateDirectorySetting()
+   $Setting = $Template.CreateDirectorySetting()
    ```  
 4. Then update the usage guideline value:
   
@@ -87,22 +86,57 @@ These steps create settings at directory level, which apply to all Office 365 gr
 5. Then apply the setting:
   
    ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   New-AzureADDirectorySetting -DirectorySetting $Setting
    ```
 6. You can read the values using:
 
    ```powershell
    $Setting.Values
-   ```  
+   ```
+   
 ## Update settings at the directory level
-To update the value for UsageGuideLinesUrl in the setting template, simply edit the URL with Step 4 above, then perform Step 5 to set the new value.
+To update the value for UsageGuideLinesUrl in the setting template, read the current settings from Azure AD, otherwise we could end up overwriting existing settings other than the UsageGuideLinesUrl.
 
-To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
-
+1. Get the current settings from the Group.Unified SettingsTemplate:
+   
+   ```powershell
+   $Setting = Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"}
+   ```  
+2. Check the current settings:
+   
+   ```powershell
+   $Setting.Values
+   ```
+   
+   Output:
+   ```powershell
+    Name                          Value
+    ----                          -----
+    EnableMIPLabels               false
+    CustomBlockedWordsList
+    EnableMSStandardBlockedWords  False
+    ClassificationDescriptions
+    DefaultClassification
+    PrefixSuffixNamingRequirement
+    AllowGuestsToBeGroupOwner     False
+    AllowGuestsToAccessGroups     True
+    GuestUsageGuidelinesUrl
+    GroupCreationAllowedGroupId
+    AllowToAddGuests              True
+    UsageGuidelinesUrl            https://guideline.example.com
+    ClassificationList
+    EnableGroupCreation           True
+    ```
+3. To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string:
+   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-Then perform Step 5 to set the new value.
+4. Save update to the directory:
+   
+   ```powershell
+   Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
+   ```  
 
 ## Template settings
 Here are the settings defined in the Group.Unified SettingsTemplate. Unless otherwise indicated, these features require an Azure Active Directory Premium P1 license. 
@@ -110,18 +144,19 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 | **Setting** | **Description** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Office 365 group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Office 365 groups even when EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
-|  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. The value of ClassificationDescriptions is only valid in this format:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>where Classification matches the strings in the ClassificationList.|
-|  <ul><li>DefaultClassification<li>Type: String<li>Default: “” | The classification that is to be used as the default classification for a group if none was specified.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” | String of a maximum length of 64 characters that defines the naming convention configured for Office 365 groups. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Comma-separated string of phrases that users will not be permitted to use in group names or aliases. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: “False” | Do not use
+|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: "" |GUID of the security group for which the members are allowed to create Office 365 groups even when EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: "" |A link to the Group Usage Guidelines. |
+|  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: "" | A comma-delimited list of classification descriptions. The value of ClassificationDescriptions is only valid in this format:<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>where Classification matches an entry in the ClassificationList.<br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>DefaultClassification<li>Type: String<li>Default: "" | The classification that is to be used as the default classification for a group if none was specified.<br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: "" | String of a maximum length of 64 characters that defines the naming convention configured for Office 365 groups. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: "" | Comma-separated string of phrases that users will not be permitted to use in group names or aliases. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: "False" | Do not use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Office 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
-|  <ul><li>AllowAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
-|  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Office 365 Groups. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: "" | The url of a link to the guest usage guidelines. |
+|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory. <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group.<br>If the AllowToAddGuests setting is set to False at the organization level, any AllowToAddGuests setting at the group level is ignored. If you want to enable guest access for only a few groups, you must set AllowToAddGuests to be true at the organization level, and then selectively disable it for specific groups. |
+|  <ul><li>ClassificationList<li>Type: String<li>Default: "" | A comma-delimited list of valid classification values that can be applied to Office 365 Groups. <br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>EnableMIPLabels<li>Type: Boolean<li>Default: "False" |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Office 365 Groups. For more information, see [Assign Sensitivity Labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
 
 ## Example: Configure Guest policy for groups at the directory level
 1. Get all the setting templates:
@@ -130,16 +165,16 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```
 2. To set guest policy for groups at the directory level, you need Group.Unified template
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. Next, create a new settings object based on that template:
   
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowAddGuests setting
+4. Then update AllowToAddGuests setting
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. Then apply the setting:
   
@@ -193,7 +228,7 @@ These steps read settings at directory level, which apply to all Office groups i
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -221,7 +256,7 @@ This step removes settings at directory level, which apply to all Office groups 
    ```
 2. Retrieve the template object for the Groups.Unified.Guest template:
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Create a new settings object from the template:
    ```powershell
@@ -230,7 +265,7 @@ This step removes settings at directory level, which apply to all Office groups 
 
 4. Set the setting to the required value:
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Get the ID of the group you want to apply this setting to:
    ```powershell
@@ -256,7 +291,7 @@ This step removes settings at directory level, which apply to all Office groups 
    ```
 3. Update the setting of the group as you need, e.g.
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. Then get the ID of the setting for this specific group:
    ```powershell

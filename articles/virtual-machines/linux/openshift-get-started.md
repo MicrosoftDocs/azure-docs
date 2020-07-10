@@ -1,18 +1,11 @@
 ---
-title: OpenShift in Azure overview | Microsoft Docs
+title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw

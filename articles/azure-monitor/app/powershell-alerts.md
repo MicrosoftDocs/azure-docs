@@ -1,11 +1,7 @@
 ---
 title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
 
 ---
@@ -14,7 +10,7 @@ ms.date: 10/31/2016
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can automate the configuration of [alerts](../../azure-monitor/app/alerts.md) in [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+You can automate the configuration of [alerts](../../azure-monitor/platform/alerts-log.md) in [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 In addition, you can [set webhooks to automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md).
 
@@ -32,28 +28,35 @@ Install the Azure Powershell module on the machine where you want to run the scr
 ## Connect to Azure
 Start Azure PowerShell and [connect to your subscription](/powershell/azure/overview):
 
-```powershell
-
-    Add-AzAccount
+```azurepowershell
+Add-AzAccount
 ```
 
 
 ## Get alerts
-    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+
+```azurepowershell
+Get-AzAlertRule -ResourceGroup "Fabrikam" `
+  [-Name "My rule"] `
+  [-DetailedOutput]
+```
 
 ## Add alert
-    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
-     -ResourceGroup "{GROUP NAME}" `
-     -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
-     -MetricName "{METRIC NAME}" `
-     -Operator GreaterThan  `
-     -Threshold {NUMBER}   `
-     -WindowSize {HH:MM:SS}  `
-     [-SendEmailToServiceOwners] `
-     [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US" // must be East US at present
-     -RuleType Metric
 
+```azurepowershell
+Add-AzMetricAlertRule -Name "{ALERT NAME}" `
+  -Description "{TEXT}" `
+  -ResourceGroup "{GROUP NAME}" `
+  -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
+  -MetricName "{METRIC NAME}" `
+  -Operator GreaterThan `
+  -Threshold {NUMBER}  `
+  -WindowSize {HH:MM:SS} `
+  [-SendEmailToServiceOwners] `
+  [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM"] `
+  -Location "East US" // must be East US at present `
+  -RuleType Metric
+```
 
 
 ## Example 1
@@ -61,30 +64,35 @@ Email me if the server's response to HTTP requests, averaged over 5 minutes, is 
 
 The GUID is the subscription ID (not the instrumentation key of the application).
 
-    Add-AzMetricAlertRule -Name "slow responses" `
-     -Description "email me if the server responds slowly" `
-     -ResourceGroup "Fabrikam" `
-     -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
-     -MetricName "request.duration" `
-     -Operator GreaterThan `
-     -Threshold 1 `
-     -WindowSize 00:05:00 `
-     -SendEmailToServiceOwners `
-     -Location "East US" -RuleType Metric
+```azurepowershell
+Add-AzMetricAlertRule -Name "slow responses" `
+  -ResourceGroup "Fabrikam" `
+  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -MetricName "request.duration" `
+  -Operator GreaterThan `
+  -Threshold 1 `
+  -WindowSize 00:05:00 `
+  -SendEmailToServiceOwners `
+  -Location "East US" `
+  -RuleType Metric
+```
 
 ## Example 2
 I have an application in which I use [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
 
-    Add-AzMetricAlertRule -Name "poor sales" `
-     -Description "slow sales alert" `
-     -ResourceGroup "Fabrikam" `
-     -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
-     -MetricName "salesPerHour" `
-     -Operator LessThan `
-     -Threshold 100 `
-     -WindowSize 24:00:00 `
-     -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
-     -Location "East US" -RuleType Metric
+```azurepowershell
+Add-AzMetricAlertRule -Name "poor sales" `
+  -Description "slow sales alert" `
+  -ResourceGroup "Fabrikam" `
+  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -MetricName "salesPerHour" `
+  -Operator LessThan `
+  -Threshold 100 `
+  -WindowSize 24:00:00 `
+  -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
+  -Location "East US" `
+  -RuleType Metric
+```
 
 The same rule can be used for the metric reported by using the [measurement parameter](../../azure-monitor/app/api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
 
@@ -127,7 +135,7 @@ The metrics are sent by different telemetry modules:
 You can [automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
-* [Script to configure Application Insights](powershell-script-create-resource.md)
+* [Script to configure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Create Application Insights and web test resources from templates](powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md)

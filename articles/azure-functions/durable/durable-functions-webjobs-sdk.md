@@ -1,11 +1,6 @@
 ---
 title: How to run Durable Functions as WebJobs - Azure
 description: Learn how to code and configure Durable Functions to run in WebJobs by using the WebJobs SDK.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
@@ -20,7 +15,7 @@ By default, Durable Functions uses the Azure Functions runtime to host orchestra
 
 In version 3.x of the WebJobs SDK, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object.
 
-The chaining Durable Functions sample is available in a WebJobs SDK 2.x version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/), and go to the *samples\\webjobssdk\\chaining* folder.
+The chaining Durable Functions sample is available in a WebJobs SDK 2.x version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/), and checkout *v1* branch and go to the *samples\\webjobssdk\\chaining* folder.
 
 ## Prerequisites
 
@@ -59,7 +54,7 @@ You need NuGet packages for the WebJobs SDK, core bindings, the logging framewor
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.4.0
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
 You also need logging providers. The following commands install the Azure Application Insights provider and the `ConfigurationManager`. The `ConfigurationManager` lets you get the Application Insights instrumentation key from app settings.
@@ -185,7 +180,7 @@ while (true)
 
 You've got Durable Functions set up to run as a WebJob, and you now have an understanding of how this will differ from running Durable Functions as standalone Azure Functions. At this point, seeing it work in a sample might be helpful.
 
-This section provides an overview of how to run the [sample project](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). For detailed instructions that explain how to run a WebJobs SDK project locally and deploy it to an Azure WebJob, see [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
+This section provides an overview of how to run the [sample project](https://github.com/Azure/azure-functions-durable-extension/tree/v1/samples/webjobssdk/chaining). For detailed instructions that explain how to run a WebJobs SDK project locally and deploy it to an Azure WebJob, see [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
 
 ### Run locally
 

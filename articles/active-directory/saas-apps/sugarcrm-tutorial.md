@@ -84,18 +84,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.sugarondemand.com`|
-	| `https://<companyname>.trial.sugarcrm`|
+	- `https://<companyname>.sugarondemand.com`
+	- `https://<companyname>.trial.sugarcrm`
 
 	b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.sugarondemand.com/<companyname>`|
-	| `https://<companyname>.trial.sugarcrm.com/<companyname>`|
-    | `https://<companyname>.trial.sugarcrm.eu/<companyname>`|
+	- `https://<companyname>.sugarondemand.com/<companyname>`
+	- `https://<companyname>.trial.sugarcrm.com/<companyname>`
+    - `https://<companyname>.trial.sugarcrm.eu/<companyname>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -203,7 +199,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
     b. Click **Save**.
 
 > [!NOTE]
-> You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision AAD user accounts.
+> You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision Azure AD user accounts.
 
 ## Test SSO 
 

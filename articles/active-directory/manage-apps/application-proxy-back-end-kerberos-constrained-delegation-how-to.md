@@ -1,22 +1,20 @@
 ---
-title: Troubleshoot Kerberos constrained delegation configs for App Proxy | Microsoft Docs
+title: Troubleshoot Kerberos constrained delegation - App Proxy
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
 ms.collection: M365-identity-device-management
 ---
 

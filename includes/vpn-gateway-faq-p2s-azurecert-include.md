@@ -11,6 +11,14 @@
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
+### What should I do if I'm getting a certificate mismatch when connecting using certificate authentication?
+
+Uncheck **"Verify the server's identity by validating the certificate"** or **add the server FQDN along with the certificate** when creating a profile manually. You can do this by running **rasphone** from a command prompt and picking the profile from the drop-down list.
+
+Bypassing server identity validation is not recommended in general, but with Azure certificate authentication, the same certificate is being used for server validation in the VPN tunneling protocol (IKEv2/SSTP) and the EAP protocol. Since the server certificate and FQDN is already validated by the VPN tunneling protocol, it is redundant to validate the same again in EAP.
+
+![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server Certificate")
+
 ### Can I use my own internal PKI root CA to generate certificates for Point-to-Site connectivity?
 
 Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.

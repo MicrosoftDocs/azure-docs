@@ -1,20 +1,15 @@
 ---
-title: Azure Resource Manager templates for Azure Backup
+title: Azure Resource Manager templates 
 description: Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Azure Resource Manager templates for Azure Backup
 
 The following table includes links to Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features. To learn about the JSON syntax and properties, see [Microsoft.RecoveryServices resource types](/azure/templates/microsoft.recoveryservices/allversions).
 
-|   |   |
+| Template | Description |
 |---|---|
 |**Recovery Services vault** | |
 | [Create a Recovery Services vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Create a Recovery Services vault. The vault can be used for Azure Backup and Azure Site Recovery. |

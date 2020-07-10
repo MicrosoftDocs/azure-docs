@@ -22,11 +22,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests uuid`.
 
-The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
+The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
 
 ## Set the endpoint and path
 
-This sample will try to read your Translator Text endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
+This sample will try to read your Translator endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
 
 ```python
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
@@ -35,10 +35,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-The Translator Text global endpoint is set as the `endpoint`. `path` sets the `languages` route and identifies that we want to hit version 3 of the API.
+The Translator global endpoint is set as the `endpoint`. `path` sets the `languages` route and identifies that we want to hit version 3 of the API.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 path = '/languages?api-version=3.0'
@@ -80,7 +80,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 python get-languages.py
@@ -184,7 +184,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
+ms.custom: has-adal-ref
 ---
 # BitLocker boot errors on an Azure VM
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Symptom
 
@@ -131,11 +132,15 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     - Suspend protection to temporarily turn BitLocker OFF by running the following:
 
-                    manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Fully decrypt the drive. To do this, run the following command:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
 
 ### Key Encryption Key scenario
 
@@ -232,17 +237,18 @@ For a Key Encryption Key scenario, follow these steps:
 
 4. You see the following output when the script begins:
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    GAC    Version        Location                                                                              
+    ---    -------        --------                                                                              
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     When the script finishes, you see the following output:
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. To unlock the attached disk by using the BEK file, run the following command:
 
@@ -260,11 +266,16 @@ For a Key Encryption Key scenario, follow these steps:
 
     - Suspend protection to temporarily turn BitLocker OFF by running the following command:
 
-             manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Fully decrypt the drive. To do this, run the following command:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
+
 ## Script troubleshooting
 
 **Error: Could not load file or assembly**

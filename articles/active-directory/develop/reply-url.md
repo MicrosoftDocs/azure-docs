@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Redirect URI/reply URL restrictions and limitations - Microsoft identity platform
+title: Redirect URI & reply URL restrictions - Microsoft identity platform | Azure
 description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,17 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
 ---
 # Redirect URI/reply URL restrictions and limitations
 
 A redirect URI, or reply URL, is the location that the authorization server will send the user to once the app has been successfully authorized, and granted an authorization code or access token. The code or token is contained in the redirect URI or reply token so it's important that you register the correct location as part of the app registration process.
 
+ The following restrictions apply to reply URLs:
+
+* The reply URL must begin with the scheme `https`.
+
+* The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    
 ## Maximum number of redirect URIs
 
 The following table shows the maximum number of redirect URIs that you can add when you register your app.
@@ -45,7 +50,7 @@ The Azure AD application model doesn't support wildcard URIs for apps that are c
 > [!NOTE]
 > The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add wildcard URIs on the UI. Adding wilcard URI for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use wildcards in the redirect URI. However, older apps that contain wildcards in redirect URIs will continue to work.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider one of the following approaches.
+If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider the following approach.
 
 ### Use a state parameter
 
@@ -61,10 +66,6 @@ In this approach:
 
 > [!NOTE]
 > This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
-
-### Add redirect URIs to service principals
-
-Another approach is to add redirect URIs to the [service principals](app-objects-and-service-principals.md#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. You can use this approach when you can't use a state parameter or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. 
 
 ## Next steps
 

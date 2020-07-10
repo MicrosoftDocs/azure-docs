@@ -1,19 +1,18 @@
 ---
-title: Set a custom home page for published apps by using Azure AD Application Proxy | Microsoft Docs
+title: Custom home page for published apps - Azure AD Application Proxy
 description: Covers the basics about Azure AD Application Proxy connectors
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

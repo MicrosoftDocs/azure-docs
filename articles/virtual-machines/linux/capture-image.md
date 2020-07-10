@@ -1,28 +1,21 @@
 ---
-title: Capture an image of a Linux VM in Azure using Azure CLI | Microsoft Docs
-description: Capture an image of an Azure VM to use for mass deployments by using the Azure CLI.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Capture a managed image of a Linux VM using Azure CLI 
+description: Capture a managed image of an Azure VM to use for mass deployments by using the Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-
+ms.custom: legacy
 ---
-# How to create an image of a virtual machine or VHD
+# How to create a managed image of a virtual machine or VHD
 
-<!-- generalize, image - extended version of the tutorial-->
+To create multiple copies of a virtual machine (VM) for use in Azure for development and test, capture a managed image of the VM or of the OS VHD. To create, store and share images at scale, see [Shared Image Galleries](../shared-images-cli.md).
 
-To create multiple copies of a virtual machine (VM) for use in Azure, capture an image of the VM or of the OS VHD. To create an image for deployment, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use a [Shared Image Galleries](shared-image-galleries.md) image configured with 1 replica for every 20 concurrent VM deployments.
+
+To create a managed image, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
 
 To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
@@ -138,11 +131,4 @@ az vm show \
 ```
 
 ## Next steps
-You can create multiple VMs from your source VM image. To make changes to your image: 
-
-- Create a VM from your image.
-- Make any updates or configuration changes.
-- Follow the steps again to deprovision, deallocate, generalize, and create an image.
-- Use this new image for future deployments. You may delete the original image.
-
-For more information on managing your VMs with the CLI, see [Azure CLI](/cli/azure).
+To create, store and share images at scale, see [Shared Image Galleries](shared-images.md).

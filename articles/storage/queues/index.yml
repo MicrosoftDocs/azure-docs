@@ -34,12 +34,20 @@ landingContent:
         links:
           - text: Create a queue and add a message with the Azure portal
             url: storage-quickstart-queues-portal.md
-          - text: Use .NET to create a queue in Azure Storage
-            url: storage-quickstart-queues-dotnet.md
 
   # Card
   - title: Develop with queues
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure Queue storage for .NET
+            url: storage-quickstart-queues-dotnet.md
+          - text: Azure Queue storage for Java
+            url: storage-quickstart-queues-java.md
+          - text: Azure Queue storage for Python
+            url: storage-quickstart-queues-python.md
+          - text: Azure Queue storage for JavaScript
+            url: storage-quickstart-queues-nodejs.md
       - linkListType: how-to-guide
         links:
           - text: Get started with Azure Queue storage using .NET

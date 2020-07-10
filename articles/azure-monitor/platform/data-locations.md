@@ -1,7 +1,6 @@
 ---
 title: Monitoring data locations in Azure Monitor | Microsoft Docs
 description: Describes the different locations where monitoring data is stored in Azure including the Azure Monitor data platform.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

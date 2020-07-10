@@ -1,8 +1,8 @@
 ---
-title: How to create and locate anchors using Azure Spatial Anchors in Unity | Microsoft Docs
+title: Create & locate anchors in Unity
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -136,7 +136,7 @@ Learn more about the [ProcessFrame](https://docs.microsoft.com/dotnet/api/micros
     if (aRCameraManager.subsystem.TryGetLatestFrame(cameraParams, out xRCameraFrame))
     {
         long latestFrameTimeStamp = xRCameraFrame.timestampNs;
-        
+
         bool newFrameToProcess = latestFrameTimeStamp > lastFrameProcessedTimeStamp;
 
         if (newFrameToProcess)

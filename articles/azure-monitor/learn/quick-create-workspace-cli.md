@@ -1,12 +1,11 @@
 ---
 title: Create a Log Analytics workspace using Azure CLI | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure CLI.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/12/2019
+author: bwren
+ms.author: bwren
+ms.date: 05/26/2020
 
 ---
 
@@ -16,9 +15,9 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
-* Device collections from System Center Configuration Manager  
+* Device collections from Configuration Manager  
 * Diagnostic or log data from Azure storage  
- 
+
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
 * [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md)
@@ -32,9 +31,9 @@ If you don't have an Azure subscription, create [a free account](https://azure.m
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create a workspace
-Create a workspace with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+Create a workspace with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-For information about regions supported, see [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field. 
+For information about regions supported, see [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.
 
 The following parameters set a default value:
 
@@ -42,7 +41,7 @@ The following parameters set a default value:
 * sku - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 
 >[!WARNING]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
 ### Create and deploy template
@@ -56,32 +55,32 @@ The following parameters set a default value:
     "parameters": {
         "workspaceName": {
             "type": "String",
-			"metadata": {
+            "metadata": {
               "description": "Specifies the name of the workspace."
             }
         },
         "location": {
             "type": "String",
-			"allowedValues": [
-			  "eastus",
-			  "westus"
-			],
-			"defaultValue": "eastus",
-			"metadata": {
-			  "description": "Specifies the location in which to create the workspace."
-			}
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
         },
         "sku": {
             "type": "String",
-			"allowedValues": [
+            "allowedValues": [
               "Standalone",
               "PerNode",
-		      "PerGB2018"
+              "PerGB2018"
             ],
-			"defaultValue": "PerGB2018",
-	        "metadata": {
+            "defaultValue": "PerGB2018",
+            "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
-		}
+        }
           }
     },
     "resources": [
@@ -103,7 +102,7 @@ The following parameters set a default value:
     }
     ```
 
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported.
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template. When you're prompted for a workspace name, provide a name that is globally unique across all Azure subscriptions.
 
@@ -114,6 +113,14 @@ The following parameters set a default value:
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
 ![Example result when deployment is complete](media/quick-create-workspace-cli/template-output-01.png)
+
+## Troubleshooting
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
+2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
+   * [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace
+   * [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace
+   * Create a new workspace using the same workspace name
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  

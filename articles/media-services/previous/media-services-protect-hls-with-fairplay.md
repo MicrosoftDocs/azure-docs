@@ -123,7 +123,7 @@ The following are general steps for protecting your assets with FairPlay by usin
 ## Use FairPlay key delivery by player apps
 You can develop player apps by using the iOS SDK. To be able to play FairPlay content, you have to implement the license exchange protocol. This protocol is not specified by Apple. It is up to each app how to send key delivery requests. The Media Services FairPlay key delivery service expects the SPC to come as a www-form-url encoded post message, in the following form:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player supports FairPlay playback. See [Azure Media Player documentation](https://amp.azure.net/libs/amp/latest/docs/index.html) for further information.
@@ -550,6 +550,10 @@ namespace DynamicEncryptionWithFairPlay
     }
 }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps: Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

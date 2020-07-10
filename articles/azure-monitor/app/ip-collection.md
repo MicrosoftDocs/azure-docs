@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2019
 
 ---
@@ -120,7 +116,7 @@ Content-Length: 54
 
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
+If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
 
 ### ASP.NET / ASP.NET Core
 
@@ -150,7 +146,7 @@ namespace MyWebApp
 > [!NOTE]
 > If you are unable to access `ISupportProperties`, check and make sure you are running the latest stable release of the Application Insights SDK. `ISupportProperties` are intended for high cardinality values, whereas `GlobalProperties` are more appropriate for low cardinality values like region name, environment name, etc. 
 
-### Enable telemetry initializer for .ASP.NET
+### Enable telemetry initializer for ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -235,4 +231,4 @@ Newly collected IP addresses should appear in the `customDimensions_client-ip` c
 
 * Learn more about [personal data collection](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
 
-* Learn more about how [IP address collection](https://apmtips.com/blog/2016/07/05/client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)
+* Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)

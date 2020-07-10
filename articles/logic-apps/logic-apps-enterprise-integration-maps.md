@@ -1,15 +1,12 @@
 ---
-title: Transform XML with XSLT maps - Azure Logic Apps | Microsoft Docs
+title: Transform XML with XSLT maps
 description: Add XSLT maps to transform XML in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
-manager: carmonm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
 ---
 
@@ -57,7 +54,7 @@ map that references the assembly.
 
     | Item | Description |
     |------|-------------|
-    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-quickstart-create-account.md). |
+    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
     | Blob container | In this container, you can upload your assembly. You also need this container's location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||

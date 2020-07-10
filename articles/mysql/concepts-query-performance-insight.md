@@ -1,18 +1,15 @@
 ---
-title: Query Performance Insight in Azure Database for MySQL
+title: Query Performance Insight - Azure Database for MySQL
 description: This article describes the Query Performance Insight feature in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 5/12/2020
 ---
 # Query Performance Insight in Azure Database for MySQL
 
-**Applies to:** Azure Database for MySQL 5.7
-
-> [!IMPORTANT]
-> Query Performance Insight is in preview.
+**Applies to:** Azure Database for MySQL 5.7, 8.0
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 

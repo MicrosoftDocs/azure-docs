@@ -1,22 +1,21 @@
 ---
-title: Copy data to and from Azure Database for MySQL using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure Database for MySQL
 description: Learn how to copy data to and from Azure Database for MySQL by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.author: jingwang
-
 ---
+
 # Copy data to and from Azure Database for MySQL using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for MySQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -46,14 +45,14 @@ The following properties are supported for Azure Database for MySQL linked servi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureMySql** | Yes |
-| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. <br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses SSL encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**
@@ -64,10 +63,7 @@ A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<p
     "properties": {
         "type": "AzureMySql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
-            }
+            "connectionString": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -85,10 +81,7 @@ A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<p
     "properties": {
         "type": "AzureMySql",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;"
-            },
+            "connectionString": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

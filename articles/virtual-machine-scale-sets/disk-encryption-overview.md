@@ -1,13 +1,14 @@
 ---
 title: Enable Azure Disk Encryption for Virtual Machine Scale Sets
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Virtual Machine Scale Sets
-author: msmbaldwin
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.topic: article
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-
-ms.custom: seodec18
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -20,7 +21,7 @@ Azure Disk Encryption can also be applied to Windows and Linux virtual machine s
 - OS and data volumes in Windows scale sets.
 - Data volumes in Linux scale sets. OS disk encryption is NOT supported at present for Linux scale sets.
 
-You can learn the fundamentals of Azure Disk Encryption for virtual machine scale sets in just a few minutes with the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md) or the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-powershell.md) tutorials.
+You can learn the fundamentals of Azure Disk Encryption for virtual machine scale sets in just a few minutes with the [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md) or the [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md) tutorials.
 
 ## Next steps
 

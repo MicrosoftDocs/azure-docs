@@ -1,6 +1,6 @@
 ---
-title: LiveEvent latency in Azure Media Services | Microsoft Docs
-description: This topic gives an overview of LiveEvent latency and shows how to set low latency.
+title: LiveEvent low latency settings in Azure Media Services | Microsoft Docs
+description: This topic gives an overview of LiveEvent low latency settings and shows how to set low latency.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Live Event latency in Media Services
+# Live Event low latency settings
 
 This article shows how to set low latency on a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents). It also discusses typical results that you see when using the low latency settings in various players. The results vary based on CDN and network latency.
 
@@ -59,15 +59,15 @@ The following tables show typical results for latency (when the LowLatency flag 
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
-|DASH in AMP|10s|8s|
-|HLS on native iOS player|14s|10s|
+|**DASH in AMP**|10s|8s|
+|**HLS on native iOS player**|14s|10s|
 
 ### Live encoding
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
-|DASH in AMP|14s|10s|
-|HLS on native iOS player|18s|13s|
+|**DASH in AMP**|14s|10s|
+|**HLS on native iOS player**|18s|13s|
 
 > [!NOTE]
 > The end-to-end latency can vary depending on local network conditions or by introducing a CDN caching layer. You should test your exact configurations.

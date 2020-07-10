@@ -1,32 +1,21 @@
 ---
-title: Provision an Azure Cache for Redis using Azure Resource Manager | Microsoft Docs
-description: Use Azure Resource Manager template to deploy an Azure Cache for Redis.
-services: app-service
-documentationcenter: ''
+title: Deploy Azure Cache for Redis with Azure Resource Manager
+description: Learn how to use an Azure Resource Manager template to deploy an Azure Cache for Redis resource. Templates are provided for common scenarios. 
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
-ms.service: cache
-ms.workload: web
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 01/23/2017
 ---
 # Create an Azure Cache for Redis using a template
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and 
-how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 Currently, diagnostic settings are shared for all caches in the same region for a subscription. Updating one cache in the region affects all other caches in the region.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
 
 For the complete template, see [Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
@@ -58,80 +47,91 @@ environment you are deploying to. Do not define parameters for values that alway
 ### redisCacheLocation
 The location of the Azure Cache for Redis. For best performance, use the same location as the app to be used with the cache.
 
-    "redisCacheLocation": {
-      "type": "string"
-    }
+```json
+  "redisCacheLocation": {
+    "type": "string"
+  }
+```
 
 ### existingDiagnosticsStorageAccountName
 The name of the existing storage account to use for diagnostics. 
 
-    "existingDiagnosticsStorageAccountName": {
-      "type": "string"
-    }
+```json
+  "existingDiagnosticsStorageAccountName": {
+    "type": "string"
+  }
+```
 
 ### enableNonSslPort
 A boolean value that indicates whether to allow access via non-SSL ports.
 
-    "enableNonSslPort": {
-      "type": "bool"
-    }
+```json
+  "enableNonSslPort": {
+    "type": "bool"
+  }
+```
 
 ### diagnosticsStatus
 A value that indicates whether diagnostics is enabled. Use ON or OFF.
 
-    "diagnosticsStatus": {
-      "type": "string",
-      "defaultValue": "ON",
-      "allowedValues": [
-            "ON",
-            "OFF"
-        ]
-    }
+```json
+  "diagnosticsStatus": {
+    "type": "string",
+    "defaultValue": "ON",
+    "allowedValues": [
+          "ON",
+          "OFF"
+      ]
+  }
+```
 
 ## Resources to deploy
 ### Azure Cache for Redis
 Creates the Azure Cache for Redis.
 
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[parameters('redisCacheName')]",
-      "type": "Microsoft.Cache/Redis",
-      "location": "[parameters('redisCacheLocation')]",
-      "properties": {
-        "enableNonSslPort": "[parameters('enableNonSslPort')]",
-        "sku": {
-          "capacity": "[parameters('redisCacheCapacity')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "name": "[parameters('redisCacheSKU')]"
+```json
+  {
+    "apiVersion": "2015-08-01",
+    "name": "[parameters('redisCacheName')]",
+    "type": "Microsoft.Cache/Redis",
+    "location": "[parameters('redisCacheLocation')]",
+    "properties": {
+      "enableNonSslPort": "[parameters('enableNonSslPort')]",
+      "sku": {
+        "capacity": "[parameters('redisCacheCapacity')]",
+        "family": "[parameters('redisCacheFamily')]",
+        "name": "[parameters('redisCacheSKU')]"
+      }
+    },
+    "resources": [
+      {
+        "apiVersion": "2017-05-01-preview",
+        "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
+        "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
+        "location": "[parameters('redisCacheLocation')]",
+        "dependsOn": [
+          "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+        ],
+        "properties": {
+          "status": "[parameters('diagnosticsStatus')]",
+          "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
         }
-      },
-      "resources": [
-        {
-          "apiVersion": "2017-05-01-preview",
-          "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
-          "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
-          "location": "[parameters('redisCacheLocation')]",
-          "dependsOn": [
-            "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-          ],
-          "properties": {
-            "status": "[parameters('diagnosticsStatus')]",
-            "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
-          }
-        }
-      ]
-    }
-
-
+      }
+    ]
+  }
+```
 
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
 
+```azurepowershell
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+```
 
 ### Azure CLI
+
+```azurecli
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-
+```

@@ -1,5 +1,5 @@
 ---
-title: Create a VM with a static private IP address - Azure PowerShell | Microsoft Docs
+title: Create a VM with a static private IP address - Azure PowerShell
 description: Learn how to create a virtual machine with a private IP address using PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -10,8 +10,9 @@ tags: azure-resource-manager
 
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019

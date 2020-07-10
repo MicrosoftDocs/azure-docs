@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Data Factory | Microsoft Docs
+title: Introduction to Azure Data Factory 
 description: Learn about Azure Data Factory, a cloud data integration service that orchestrates and automates movement and transformation of data.
 services: data-factory
 documentationcenter: ''
@@ -12,6 +12,8 @@ ms.date: 09/30/2019
 ---
 
 # What is Azure Data Factory?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In the world of big data, raw, unorganized data is often stored in relational, non-relational, and other storage systems. However, on its own, raw data doesn't have the proper context or meaning to provide meaningful insights to analysts, data scientists, or business decision makers. 
 
@@ -76,7 +78,7 @@ Linked services are much like connection strings, which define the connection in
 
 Linked services are used for two purposes in Data Factory:
 
-- To represent a **data store** that includes, but isn't limited to, an on-premises SQL Server database, Oracle database, file share, or Azure blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
+- To represent a **data store** that includes, but isn't limited to, a SQL Server database, Oracle database, file share, or Azure blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
 
 - To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
 

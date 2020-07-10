@@ -1,9 +1,9 @@
 ---
-title: Create a smart meter analytics app with IoT Central | Microsoft Docs
-description: Learn how to create a smart meter monitoring application using Azure IoT Central application templates.
+title: 'Tutorial: Create a smart meter analytics app with IoT Central'
+description: 'Tutorial: Learn how to create a smart meter monitoring application using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: abjork
 ---
 
 # Tutorial: Create and walk-through the smart meter monitoring app template 
+
+
 
 This tutorial guides you through the process of creating the smart meter monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
@@ -20,7 +22,7 @@ This tutorial guides you through the process of creating the smart meter monitor
 > * Clean up resources
 
 
-If you don’t have a subscription, [create a free trial account](https://azure.microsoft.com/free)
+If you don't have a subscription, [create a free trial account](https://azure.microsoft.com/free)
 
 ## Prerequisites
 - None
@@ -41,16 +43,18 @@ You can create this application in three simple steps:
 3. **Create app** will open the **New application** form. Fill in the requested details as shown in the figure below:
     * **Application name**: Pick a name for your IoT Central application. 
     * **URL**: Pick an IoT Central URL, the platform will verify its uniqueness.
-    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don’t have an Azure subscription, start with free trial.
+    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don't have an Azure subscription, start with free trial.
     * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
-    * Click **Create** button at the bottom of the page and your app will be created in a minute or so.     
-        > [!div class="mx-imgBorder"]
-        > ![New application form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+    * Click **Create** button at the bottom of the page and your app will be created in a minute or so.
+
+        ![New application form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+        ![New application form billing info](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
 ### Verify the application and simulated data
 
-The newly created smart meter app is your app and you can modify it anytime. Let’s ensure the app is deployed and working as expected before you modify it.
+The newly created smart meter app is your app and you can modify it anytime. Let's ensure the app is deployed and working as expected before you modify it.
 
 To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes. 
 
@@ -89,7 +93,7 @@ Click on the **Device templates** tab to see the smart meter device model. The m
 ## Clean up resources
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left-hand menu, open Administration tab
+1. From the left pane, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
     > [!div class="mx-imgBorder"]
@@ -97,5 +101,6 @@ If you decide to not continue using this application, delete your application wi
 
 
 ## Next steps
-* To learn about smart meter app architecture refer to the concept article. 
+* Learn about smart meter app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
 * Create smart meter application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)

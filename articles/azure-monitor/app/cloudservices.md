@@ -1,11 +1,7 @@
 ---
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
 
 ---
@@ -31,7 +27,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/app/metrics-explorer.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/platform/metrics-charts.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
@@ -48,12 +44,12 @@ In the next section, you learn how to adapt your own cloud service project in th
 ## Plan resources and resource groups
 The telemetry from your app is stored, analyzed, and displayed in an Azure resource of type Application Insights. 
 
-Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/resource-group-template-deploy.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
+Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/templates/deploy-powershell.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
 We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
-An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
+An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
 Browser telemetry is usually included in the same resource as its server-side web role.
 
@@ -165,7 +161,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
 
 1. Open the Application Insights resources that you created.
 
-   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
@@ -184,7 +180,7 @@ You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
-To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) and add the following chart:
+To view performance counters and counts of events, open [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) and add the following chart:
 
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 

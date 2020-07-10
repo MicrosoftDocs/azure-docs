@@ -1,19 +1,9 @@
 ---
-title: Attach a data disk to a Linux VM | Microsoft Docs
+title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
@@ -30,10 +20,9 @@ Before you attach disks to your VM, review these tips:
 
 
 ## Find the virtual machine
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the left menu, click **Virtual Machines**.
-3. Select the virtual machine from the list.
-4. To the Virtual machines page, in **Essentials**, click **Disks**.
+1. Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
+2. Choose the VM from the list.
+3. In the **Virtual machines** page sidebar, under **Settings**, choose **Disks**.
    
     ![Open disk settings](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -180,6 +169,16 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### Alternate method using parted
+The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+partprobe /dev/sdc1
+```
+As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
 ### Mount the disk
 Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 

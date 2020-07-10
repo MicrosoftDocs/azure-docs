@@ -1,11 +1,12 @@
 ---
-title: Azure Australia additional documentation and resources by focus area
+title: Additional documentation and resources
+titleSuffix: Azure Australia
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Additional documentation and resources by focus area
@@ -19,7 +20,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
 * [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Australian Information Security Manual](https://www.cyber.gov.au/ism)
-* [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
+* [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/cloud-services)
 
 ## Azure Key Vault
 
@@ -55,7 +56,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 * [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 * [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
-* [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials)
+* [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/)
 * [Azure Site Recovery Tutorials](/azure/site-recovery/)
 
 ## Role-based Access Controls and Privileged Identity Management (PIM)

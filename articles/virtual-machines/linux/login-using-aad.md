@@ -1,17 +1,9 @@
 ---
-title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft Docs
+title: Log in to a Linux VM with Azure Active Directory credentials 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor:
-
-ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
@@ -61,9 +53,25 @@ The following Azure regions are currently supported during the preview of this f
 
 >[!IMPORTANT]
 > To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
+>
+> It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+
+## Network requirements
+
+To enable Azure AD authentication for your Linux VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
+
+* https:\//login.microsoftonline.com
+* https:\//login.windows.net
+* https:\//device.login.microsoftonline.com
+* https:\//pas.windows.net
+* https:\//management.azure.com
+* https:\//packages.microsoft.com
+
+> [!NOTE]
+> Currently, Azure network security groups can't be configured for VMs enabled with Azure AD authentication.
 
 ## Create a Linux virtual machine
 
@@ -97,7 +105,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM.
+The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## Configure role assignments for the VM
 
@@ -138,7 +146,7 @@ az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o 
 
 Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Replace the example account with your own. Account addresses should be entered in all lowercase. Replace the example IP address with the public IP address of your VM from the previous command.
 
-```azurecli-interactive
+```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
@@ -159,6 +167,7 @@ The first time that you run sudo, you will be asked to authenticate a second tim
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
+
 With this line:
 
 ```bash
@@ -174,7 +183,7 @@ Some common errors when you try to SSH with Azure AD credentials include no RBAC
 
 If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
-```bash
+```output
 login as: azureuser@contoso.onmicrosoft.com
 Using keyboard-interactive authentication.
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJX327AXD to authenticate. Press ENTER when ready.
@@ -190,6 +199,10 @@ If you successfully complete the authentication step in a web browser, you may b
 - Verify that the sign-in name you specified at the SSH prompt is correct. A typo in the sign-in name could cause a mismatch between the sign-in name you specified at the SSH prompt and the account you signed in to Azure AD with. For example, you typed *azuresuer\@contoso.onmicrosoft.com* instead of *azureuser\@contoso.onmicrosoft.com*.
 - If you have multiple user accounts, make sure you don't provide a different user account in the browser window when signing in to Azure AD.
 - Linux is a case-sensitive operating system. There is a difference between 'Azureuser@contoso.onmicrosoft.com' and 'azureuser@contoso.onmicrosoft.com', which can cause a mismatch. Make sure that you specify the UPN with the correct case-sensitivity at the SSH prompt.
+
+### Other limitations
+
+Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the [required role assignments](#configure-role-assignments-for-the-vm). For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
 
 ## Preview feedback
 

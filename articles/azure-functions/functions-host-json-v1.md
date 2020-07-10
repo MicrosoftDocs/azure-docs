@@ -1,12 +1,8 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: glenga
 ---
 
 # host.json reference for Azure Functions 1.x
@@ -18,7 +14,7 @@ ms.author: glenga
 The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available for the v1 runtime. The JSON schema is at http://json.schemastore.org/host.
 
 > [!NOTE]
-> This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
+> This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x and later, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md).
 
@@ -147,9 +143,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#functions-1x).
 
 ## functions
 
@@ -210,11 +204,14 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 }
 ```
 
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+|Property  |Default | Description |
+|---------|---------|---------| 
+|dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
+|maxConcurrentRequests|unbounded (`-1`)|The maximum number of HTTP functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an HTTP function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a third party service, and those calls need to be rate limited. In these cases, applying a throttle here can help.|
+|maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
+|routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
 
 ## id
-
-*Version 1.x only.*
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure, we recommend that you not set an ID value. An ID is generated automatically in Azure when `id` is omitted. 
 

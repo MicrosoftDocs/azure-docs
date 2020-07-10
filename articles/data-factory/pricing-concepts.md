@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Data Factory pricing through examples | Microsoft Docs
+title: Understanding Azure Data Factory pricing through examples 
 description: This article explains and demonstrates the Azure Data Factory pricing model with detailed examples
 documentationcenter: ''
 author: djpmsft
@@ -9,10 +9,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/27/2019
 ---
 
 # Understanding Data Factory pricing through examples
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
 
@@ -121,13 +123,13 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
-## Using mapping data flow debug for a normal workday (Preview Pricing)
+## Using mapping data flow debug for a normal workday
 
-As a Data Engineer, you are responsible for designing, building, and testing mapping data flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 10 hours, so your Debug session never expires. Therefore, your charge for the day will be:
+As a Data Engineer, you are responsible for designing, building, and testing mapping data flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 8 hours, so your Debug session never expires. Therefore, your charge for the day will be:
 
-**10 (hours) x 8 (cores) x $0.112 = $8.96**
+**8 (hours) x 8 (compute-optimized cores) x $0.193 = $12.35**
 
-## Transform data in blob store with mapping data flows (Preview Pricing)
+## Transform data in blob store with mapping data flows
 
 In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule.
 
@@ -148,17 +150,17 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
-| Data Flow Assumptions: execution time = 10 min + 10 min TTL | 10 \* 8 cores of General Compute with TTL of 10 |
+| Data Flow Assumptions: execution time = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
 | Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retried (1 for pipeline run, 1 for activity run) |
 
-**Total Scenario pricing: $0.3011**
+**Total Scenario pricing: $1.4631**
 
 - Data Factory Operations = **$0.0001**
   - Read/Write = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
   - Monitoring  = 2\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration &amp; Execution = **$0.301**
+- Pipeline Orchestration &amp; Execution = **$1.463**
   - Activity Runs = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
-  - Data Flow Activities = $0.299 Prorated for 20 minutes (10 mins execution time + 10 mins TTL). $0.112/hour on Azure Integration Runtime with 8 cores general compute
+  - Data Flow Activities = $1.461 prorated for 20 minutes (10 mins execution time + 10 mins TTL). $0.274/hour on Azure Integration Runtime with 16 cores general compute
 
 ## Next steps
 

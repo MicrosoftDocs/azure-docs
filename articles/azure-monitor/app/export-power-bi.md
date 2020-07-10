@@ -1,11 +1,7 @@
 ---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/10/2018
 
 ---
@@ -84,8 +80,10 @@ You might encounter errors pertaining to credentials or the size of the dataset.
 ### Unauthorized (401 or 403)
 This can happen if your refresh token has not been updated. Try these steps to ensure you still have access:
 
-1. Sign into the Azure portal, and make sure you can access the resource.
+1. Sign in to the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
+3. Try to clear the cache from your PowerBI Desktop.
+
 
    If you do have access and refreshing the credentials does not work, please open a support ticket.
 

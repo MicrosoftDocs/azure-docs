@@ -1,6 +1,6 @@
 ---
 title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
-description: Learn about gaining tenant-wide visibility in Azure Security Center.
+description: This article explains how to manage your security posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -17,8 +17,7 @@ ms.author: memildin
 ---
 
 # Gain tenant-wide visibility for Azure Security Center
-This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
-
+This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,7 +70,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
 3. Under **Access management for Azure resources**, set the switch to **Yes**.
 
-   ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Access management for Azure resources - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
@@ -158,13 +157,13 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 
 2. In the navigation list, click **Azure Active Directory** and then click **Properties**.
 
-3. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **No**.
+3. Under **Access management for Azure resources**, set the switch to **No**.
 
 4. Click **Save** to save your setting.
 
 
 
-## Adding subscriptions to a management groups
+## Adding subscriptions to a management group
 You can add subscriptions to the management group that you created. These steps aren't mandatory for gaining tenant-wide visibility and global policy and access management.
 
 1. Under **Management Groups**, select a management group to add your subscription to.

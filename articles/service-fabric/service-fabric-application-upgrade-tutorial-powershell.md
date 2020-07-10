@@ -1,21 +1,9 @@
 ﻿---
-title: Service Fabric App upgrade using PowerShell| Microsoft Docs
+title: Service Fabric App upgrade using PowerShell
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade using PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Service Fabric application upgrade using PowerShell
 > [!div class="op_single_selector"]
@@ -42,7 +30,7 @@ Build and publish the application by right-clicking on the application project, 
 
 After building the project in Visual Studio, you can use the PowerShell command [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) to copy the application package to the ImageStore. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet. The next step is to register the application to the Service Fabric runtime using the [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet. The following step is to start an instance of the application by using the [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  These three steps are analogous to using the **Deploy** menu item in Visual Studio.  Once provisioning is completed, you should clean up the copied application package from the image store in order to reduce the resources consumed.  If an application type is no longer required, it should be unregistered for the same reason. See [Deploy and remove applications using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) for more information.
 
-Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, you can use [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) to check the application status.
+Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing `http://localhost:8081/visualobjects` in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, you can use [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) to check the application status.
 
 ## Step 2: Update the Visual Objects sample
 You might notice that with the version that was deployed in Step 1, the visual objects do not rotate. Let's upgrade this application to one where the visual objects also rotate.

@@ -1,5 +1,5 @@
 ---
-title: Activate an Azure AD custom role in Privileged Identity Management (PIM)| Microsoft Docs
+title: Activate Azure AD custom role - Privileged Identity Management (PIM)
 description: How to activate an Azure AD custom role for assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,8 +8,9 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -26,7 +27,9 @@ ms.collection: M365-identity-device-management
 Privileged Identity Management in Azure Active Directory (Azure AD) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Activate a role
 
@@ -38,6 +41,9 @@ When you need to activate an Azure AD custom role, request activation by selecti
 1. Select **Azure AD custom roles** to see a list of your eligible Azure AD custom role assignments.
 
    ![See the list of eligible Azure AD custom role assignments](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
+
+> [!Note] 
+>  Before assigning a role, you must create/configure a role. For further information regarding configuring AAD Custom Roles see [here] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
 1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
 1. Select **Activate your role** to open the **Activate** page.

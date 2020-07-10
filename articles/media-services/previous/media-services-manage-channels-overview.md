@@ -1,6 +1,6 @@
 ---
 title: Overview of Live Streaming using Azure Media Services | Microsoft Docs
-description: This topic gives an overview of live streaming using Azure Media Services.
+description: This article gives an overview of live streaming using Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -51,13 +51,13 @@ In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** 
 
 A **Channel** represents a pipeline for processing live streaming content. A Channel can receive a live input streams in the following ways:
 
-* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Telestream Wirecast, Haivision, Teradek transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
   > 
   > 
-* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The following live encoders with RTMP output are known to work with channels of this type: Telestream Wirecast, FMLE. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The following live encoders with RTMP output are known to work with channels of this type: Telestream Wirecast. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 

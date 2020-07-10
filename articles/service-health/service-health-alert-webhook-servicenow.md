@@ -1,11 +1,7 @@
 ---
-title: Send Azure service health alerts with ServiceNow using webhooks
+title: Send Azure service health alerts with ServiceNow
 description: Get personalized notifications about service health events to your ServiceNow instance.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: article
 ms.date: 06/10/2019
 
 ---
@@ -139,9 +135,10 @@ This article shows you how to integrate Azure service health alerts with Service
      ![The "Base API Path" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  Your full Integration URL looks like:
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## Create an alert using ServiceNow in the Azure portal
 ### For a new action group:

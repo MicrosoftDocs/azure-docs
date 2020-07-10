@@ -1,11 +1,11 @@
 ---
-title: Hyper-V to Azure disaster recovery architecture in Azure Site Recovery
+title: Hyper-V disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 
@@ -35,9 +35,6 @@ The following table and graphic provide a high-level view of the components used
 ![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
-
 ## Architectural components - Hyper-V with VMM
 
 The following table and graphic provide a high-level view of the components used for Hyper-V replication to Azure, when Hyper-V hosts are managed in VMM clouds.
@@ -66,8 +63,8 @@ The following table and graphic provide a high-level view of the components used
 ### Enable protection
 
 1. After you enable protection for a Hyper-V VM, in the Azure portal or on-premises, the **Enable protection** starts.
-2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), to set up replication with the settings you've configured.
-3. The job starts initial replication by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
+2. The job checks that the machine complies with prerequisites, before invoking the [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), to set up replication with the settings you've configured.
+3. The job starts initial replication by invoking the [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) method, to initialize a full VM replication, and send the VM's virtual disks to Azure.
 4. You can monitor the job in the **Jobs** tab.
         ![Jobs list](media/hyper-v-azure-architecture/image1.png)
         ![Enable protection drill down](media/hyper-v-azure-architecture/image2.png)
@@ -75,7 +72,7 @@ The following table and graphic provide a high-level view of the components used
 
 ### Initial data replication
 
-1. When initial replication is triggered, a [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) snapshot is taken.
+1. When initial replication is triggered, a [Hyper-V VM snapshot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, until they're all copied to Azure. This might take a while, depending on the VM size, and network bandwidth. [Learn how](https://support.microsoft.com/kb/3056159) to increase network bandwidth.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to secondary storage. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted.

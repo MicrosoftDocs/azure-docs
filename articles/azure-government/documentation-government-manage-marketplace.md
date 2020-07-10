@@ -1,20 +1,17 @@
 ---
 title: Azure Government Marketplace | Microsoft Docs
-description: Provides guidance on how to use the Azure Government Marketplace.
+description: This article provides guidance on how to use the Azure Government Marketplace.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: b4ffa6c1-30c9-4aef-8938-10326e9f7d1e
+
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 07/13/2018
-ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace

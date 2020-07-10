@@ -1,22 +1,19 @@
 ---
-title: Administrator role content for Microsoft 365 services - Azure AD | Microsoft Docs
+title: Admin role docs across Microsoft 365 services - Azure AD | Microsoft Docs
 description: Find content and API references for administrator roles for Microsoft 365 services in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: reference
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, to delegate permissions across Microsoft 365 services quickly and accurately I want to know where the content is for admin roles.
-
 ms.collection: M365-identity-device-management
 ---
 

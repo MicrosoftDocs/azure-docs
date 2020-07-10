@@ -4,17 +4,13 @@ description: This article provides guidance on publishing solutions to the Azure
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/13/2018
-ms.author: gsacavdm
+ms.date: 05/07/2020
 
 ---
 # Publishing to the Azure Government Marketplace
@@ -36,7 +32,7 @@ Currently, the Azure Government Marketplace only supports the following offers:
 
 * Virtual Machines > Bring your Own License
 * Virtual Machines > Pay-as-you-Go
-* Azure Application > Solution Template
+* Azure Application > Solution Template / Managed App
 
 If there are other offer types you'd like to see supported in Azure Government, let us know via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
 
@@ -99,7 +95,7 @@ Make sure that the image that your solution template relies on is available in A
 Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
 #### Resource providers and API versions
-You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) documentation.
+You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) documentation.
 
 #### Extensions
 Make sure that any virtual machine extensions that your solution template relies on are available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.

@@ -146,7 +146,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     
     3. The location will be automatically populated based on the specified storage account. 
     
-    4. Enable SSL to ensure a secure network communication channel between the device and the cloud.
+    4. Enable TLS to ensure a secure network communication channel between the device and the cloud.
     
     5. Click **Add** to add this storage account credential. 
    

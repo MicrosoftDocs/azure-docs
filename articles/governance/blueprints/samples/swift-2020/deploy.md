@@ -1,11 +1,8 @@
 ---
-title: Sample - SWIFT CSP-CSCF v2020 blueprint - Deploy steps
+title: Deploy SWIFT CSP-CSCF v2020 blueprint sample
 description: Deploy steps for the SWIFT CSP-CSCF v2020 blueprint sample including blueprint artifact parameter details.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Deploy the SWIFT CSP-CSCF v2020 blueprint sample
 
@@ -125,7 +122,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|\[Preview\]: Audit SWIFT CSP-CSCF v2020 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Preview\]: Audit SWIFT CSP-CSCF v2020 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Preview\]: Audit SWIFT CSP-CSCF v2020 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Connected workspace IDs|A semicolon-separated list of the workspace IDs that the Log Analytics agent should be connected to|
 |\[Preview\]: Audit SWIFT CSP-CSCF v2020 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of users that should be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |\[Preview\]: Audit SWIFT CSP-CSCF v2020 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Domain Name (FQDN)|The fully qualified domain name (FQDN) that the Windows VMs should be joined to|
@@ -152,7 +149,7 @@ the following articles to learn about the blueprint and control mapping:
 > [SWIFT CSP-CSCF v2020 blueprint - Overview](./index.md)
 > [SWIFT CSP-CSCF v2020 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

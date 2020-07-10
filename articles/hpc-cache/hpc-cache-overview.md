@@ -1,18 +1,24 @@
 ---
-title: Azure HPC Cache Preview overview 
+title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
-ms.author: rohogue
+ms.date: 05/29/2020
+ms.author: v-erkel
 ---
 
-# What is Azure HPC Cache? (Preview)
+# What is Azure HPC Cache?
 
 Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. This service can be used even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
+
+## Overview video
+
+[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+
+Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
 ## Use cases
 
@@ -44,18 +50,26 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 
 Azure HPC Cache is available in these Azure regions:
 
+| North America      | Europe         | Asia            | Australia      |
+|--------------------|----------------|-----------------|----------------|
+| East US            | North Europe   | Korea Central   | Australia East |
+| East US 2          | West Europe    | Southeast Asia  |               |
+| South Central US | | | |
+| West US 2        | | | |
+
+The [customer-managed keys feature](customer-keys.md) is supported only in these regions:
+
 * East US
-* East US 2
-* North Europe
-* West Europe
-* Southeast Asia
+* South Central US
 * West US 2
 
 Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
 
-## Preview availability
+## Service availability
 
-The Azure HPC Cache public preview is restricted to ensure service quality. Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create test caches.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
+
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
 
 ## Next steps
 

@@ -1,20 +1,11 @@
 ---
-title: Create and use an SSH key pair for Linux VMs in Azure | Microsoft Docs
+title: Create and use an SSH key pair for Linux VMs in Azure 
 description: How to create and use an SSH public-private key pair for Linux VMs in Azure to improve the security of the authentication process.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
 
 ---
@@ -36,10 +27,10 @@ For additional ways to generate and use SSH keys on a Windows computer, see [How
 
 Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the ~/.ssh directory. You can specify a different location, and an optional password (*passphrase*) to access the private key file. If an SSH key pair with the same name exists in the given location, those files are overwritten.
 
-The following command creates an SSH key pair using RSA encryption and a bit length of 2048:
+The following command creates an SSH key pair using RSA encryption and a bit length of 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 If you use the [Azure CLI](/cli/azure) to create your VM with the [az vm create](/cli/azure/vm#az-vm-create) command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. The `--generate-ssh-keys` option will not overwrite existing key files, instead returning an error. In the following command, replace *VMname* and *RGname* with your own values:
@@ -68,13 +59,22 @@ A typical public key value looks like this example:
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-If you copy and paste the contents of the public key file to use in the Azure portal or a Resource Manager template, make sure you don't copy any trailing whitespace. To copy a public key in macOS, you can pipe the public key file to **pbcopy**. Similarly in Linux, you can pipe the public key file to programs such as **xclip**.
+If you copy and paste the contents of the public key file to use in the Azure portal or a Resource Manager template, make sure you don't copy any trailing whitespace. To copy a public key in macOS, you can pipe the public key file to `pbcopy`. Similarly in Linux, you can pipe the public key file to programs such as `xclip`.
 
-The public key that you place on your Linux VM in Azure is by default stored in ~/.ssh/id_rsa.pub, unless you specified a different location when you created the key pair. To use the [Azure CLI 2.0](/cli/azure) to create your VM with an existing public key, specify the value and optionally the location of this public key using the [az vm create](/cli/azure/vm#az-vm-create) command with the `--ssh-key-value` option. In the following command, replace *VMname*, *RGname*, and *keyFile* with your own values:
+The public key that you place on your Linux VM in Azure is by default stored in ~/.ssh/id_rsa.pub, unless you specified a different location when you created the key pair. To use the [Azure CLI 2.0](/cli/azure) to create your VM with an existing public key, specify the value and optionally the location of this public key using the [az vm create](/cli/azure/vm#az-vm-create) command with the `--ssh-key-values` option. In the following command, replace *myVM*, *myResourceGroup*, *UbuntuLTS*, *azureuser*, and *mysshkey.pub* with your own values:
+
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --ssh-key-values mysshkey.pub
 ```
+
+If you want to use multiple SSH keys with your VM, you can enter them in a space-separated list, like this `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`.
+
 
 ## SSH into your VM
 

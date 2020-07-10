@@ -1,13 +1,13 @@
 ---
-title: 'Move a public peering to Microsoft peering - Azure ExpressRoute | Microsoft Docs'
+title: 'Azure ExpressRoute: Move a public peering to Microsoft peering'
 description: This article shows you the steps to move your public peering to Microsoft peering on ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: how-to
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 ---
 
 # Move a public peering to Microsoft peering
@@ -29,7 +29,7 @@ To connect to Microsoft peering, you need to set up and manage NAT. Your connect
 
 Refer to [Asymmetric routing with multiple network paths](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) for caveats of asymmetric routing before configuring Microsoft peering.
 
-* If you are using public peering and currently have IP Network rules for public IP addresses that are used to access [Azure Storage](../storage/common/storage-network-security.md) or [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), you need to make sure that the NAT IP pool configured with Microsoft peering is included in the list of public IP addresses for the Azure storage account or Azure SQL account.<br>
+* If you are using public peering and currently have IP Network rules for public IP addresses that are used to access [Azure Storage](../storage/common/storage-network-security.md) or [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), you need to make sure that the NAT IP pool configured with Microsoft peering is included in the list of public IP addresses for the Azure storage account or Azure SQL account.<br>
 * In order to move to Microsoft peering with no downtime, use the steps in this article in the order that they are presented.
 
 ## <a name="create"></a>1. Create Microsoft peering
@@ -78,9 +78,8 @@ Configure route filters using any of the following articles:
 
 After verifying that the Microsoft peering is configured and the prefixes you wish to consume are correctly advertised on Microsoft peering, you can then delete the public peering. To delete the public peering, use any of the following articles:
 
-* [Delete Azure public peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Delete Azure public peering using Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Delete Azure public peering using CLI](howto-routing-cli.md#deletepublic)
+* [Delete Azure public peering using Azure PowerShell](about-public-peering.md#powershell)
+* [Delete Azure public peering using CLI](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. View peerings
   

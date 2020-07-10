@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: event-hubs
-author: sethmanheim
+author: spelluru
 ms.service: event-hubs
 ms.topic: include
 ms.date: 05/22/2019
@@ -13,16 +13,17 @@ ms.custom: "include file"
 
 The following tables provide quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-The following limits are common across basic, standard, and dedicated tiers. 
+The following limits are common across basic and standard tiers. 
 
 | Limit | Scope | Notes | Value |
 | --- | --- | --- | --- |
 | Number of Event Hubs namespaces per subscription |Subscription |- |100 |
 | Number of event hubs per namespace |Namespace |Subsequent requests for creation of a new event hub are rejected. |10 |
 | Number of partitions per event hub |Entity |- |32 |
-| Maximum size of an event hub name |Entity |- |50 characters |
+| Maximum size of an event hub name |Entity |- | 256 characters |
+| Maximum size of a consumer group name |Entity |- | 256 characters |
 | Number of non-epoch receivers per consumer group |Entity |- |5 |
-| Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
+| Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
 | Number of authorization rules per namespace |Namespace|Subsequent requests for authorization rule creation are rejected.|12 |
 | Number of calls to the GetRuntimeInformation method | Entity | - | 50 per second | 
 | Number of virtual network (VNet) and IP Config rules | Entity | - | 128 | 

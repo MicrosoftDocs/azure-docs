@@ -31,6 +31,13 @@ Please refer to the examples for more information.
 azcopy login [flags]
 ```
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ## Examples
 
 Log in interactively with default AAD tenant ID set to common:
@@ -89,6 +96,8 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 
 |Option|Description|
 |--|--|
+|--aad-endpoint|The Azure Active Directory endpoint to use. The default (`https://login.microsoftonline.com`) is correct for the public Azure cloud. Set this parameter when authenticating in a national cloud. See [Azure AD authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+This flag is not needed for Managed Service Identity.|
 |--application-id string|Application ID of user-assigned identity. Required for service principal auth.|
 |--certificate-path string|Path to certificate for SPN authentication. Required for certificate-based service principal auth.|
 |-h, --help|Show help content for the login command.|
@@ -105,6 +114,7 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 |---|---|
 |--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
 |--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
+|--trusted-microsoft-suffixes string   |Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
 
 ## See also
 

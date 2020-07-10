@@ -1,21 +1,11 @@
 ---
-title: Throttling in the Service Fabric cluster resource manager | Microsoft Docs
+title: Throttling in the Service Fabric cluster resource manager 
 description: Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 
 # Throttling the Service Fabric Cluster Resource Manager

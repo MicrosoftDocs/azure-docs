@@ -1,10 +1,10 @@
 ---
-title: Supported scenarios SAP HANA on Azure (Large Instances)| Microsoft Docs
+title: Supported scenarios for SAP HANA on Azure (Large Instances)| Microsoft Docs
 description: Scenarios supported and their architecture details for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
@@ -12,554 +12,784 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2018
+ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
 # Supported scenarios for HANA Large Instances
-This document describes the supported scenarios along with their architecture details for the HANA Large Instances (HLI).
+This article describes the supported scenarios and architecture details for HANA Large Instances (HLI).
 
 >[!NOTE]
->If your required scenario is not mentioned here, contact Microsoft Service Management team to assess your requirements.
-Before proceeding with the HLI unit provisioning, validate the design with SAP or your service implementation partner.
+>If your required scenario is not mentioned in this article, contact the Microsoft Service Management team to assess your requirements.
+Before you set up the HLI unit, validate the design with SAP or your service implementation partner.
 
 ## Terms and definitions
-Let's understand the terms and definitions used in the document.
+Let's understand the terms and definitions that are used in this article:
 
-- SID: System Identifier for HANA system.
-- HLI: Hana Large Instances.
-- DR: A disaster recovery site.
-- Normal DR: A system setup with a dedicated resource for DR purpose used only.
-- Multipurpose DR: A system at DR site configured to use non-production environment along with production instance configured to use to DR event. 
-- Single SID:  A system with one instance installed.
-- Multi SID: A system with multiple instances configured. Also called an MCOS environment.
-
+- **SID**: A system identifier for the HANA system
+- **HLI**: Hana Large Instances
+- **DR**: Disaster recovery
+- **Normal DR**: A system setup with a dedicated resource for DR purposes only
+- **Multipurpose DR**: A DR-site system that's configured to use a non-production environment alongside a production instance that's configured for a DR event 
+- **Single-SID**: A system with one instance installed
+- **Multi-SID**: A system with multiple instances configured; also called an MCOS environment
+- **HSR**: SAP HANA System Replication
 
 ## Overview
-The HANA Large Instances support the variety of architectures to accomplish your business requirements. The following list covers the scenarios and their configuration details. 
+HANA Large Instances supports a variety of architectures to help you accomplish your business requirements. The following sections cover the architectural scenarios and their configuration details. 
 
-The derived architecture design is purely from the infrastructure perspective, and you must consult SAP or your implementation partners for the HANA deployment. If your scenarios are not listed, contact the Microsoft account team to review the architecture and derive a solution for you.
+The derived architecture design is purely from an infrastructure perspective, and you must consult SAP or your implementation partners for the HANA deployment. If your scenarios are not listed in this article, contact the Microsoft account team to review the architecture and derive a solution for you.
 
-**These architectures are fully compliant with the TDI (Tailored Data Integration) design and supported by SAP.**
+> [!NOTE]
+> These architectures are fully compliant with Tailored Data Integration (TDI) design and supported by SAP.
 
-This document describes the details of the two components in each supported architecture:
+This article describes the details of the two components in each supported architecture:
 
 - Ethernet
 - Storage
 
 ### Ethernet
 
-Each server provisioned comes pre-configured with the sets of ethernet interfaces. Here are the details of the ethernet interfaces configured on each HLI unit.
+Each provisioned server comes preconfigured with sets of Ethernet interfaces. The Ethernet interfaces configured on each HLI unit are categorized into four types:
 
-- **A**: This interface is used for/by the client access.
-- **B**: This interface is used for the node to node communication. This interface is configured on all the servers (irrespective of the topology requested) but only used for the 
-- scale-out scenarios.
-- **C**: This interface is used for the node to the storage connectivity.
-- **D**: This interface is used for the Node to ISCSI device connection for STONITH setup. This interface is only configured when the HSR setup is requested.  
+- **A**: Used for or by client access.
+- **B**: Used for node-to-node communication. This interface is configured on all servers (irrespective of the topology requested) but used only for  scale-out scenarios.
+- **C**: Used for node-to-storage connectivity.
+- **D**: Used for node-to-iSCSI device connection for STONITH setup. This interface is configured only when an HSR setup is requested.  
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
-| B | TYPE I | eth2.tenant | eno3.tenant | Node to node |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node|
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | STONITH |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node|
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
-You use the interfaces based on the topology configured on the HLI unit. For example, the interface “B” is set up for node to node communication, which is useful when you have a scale-out topology configured. In the case of single node scale-up configuration, this interface is not used. Review your required scenarios (later in this document) to get more information about the interface usage. 
+You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node, scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
 
-If needed, you can define additional NIC cards on your own. However, the configuration on the existing NICs can NOT be changed.
+If necessary, you can define additional NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
 
 >[!NOTE]
->You may still find additional interfaces which are physical interfaces or bonding. 
-You should consider the above-mentioned interfaces for your used case, rest can be ignored/or not to be tempered with.
+>You might find additional interfaces that are physical interfaces or bonding. 
+You should consider only the previously mentioned interfaces for your use case. Any others can be ignored.
 
-The distribution for units with two IP addresses assigned should look like:
+The distribution for units with two assigned IP addresses should look like:
 
-- Ethernet “A” should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. This IP address shall be used for maintaining in /etc/hosts of the OS.
+- Ethernet “A” should have an assigned IP address that's within the server IP pool address range that you submitted to Microsoft. This IP address should be maintained in the */etc/hosts* directory of the OS.
 
-- Ethernet “C” should have an IP address assigned that is used for communication to NFS. Therefore, these addresses do **NOT** need to be maintained in etc/hosts in order to allow instance to instance traffic within the tenant.
+- Ethernet “C” should have an assigned IP address that's used for communication to NFS. This address does *not* need to be maintained in the *etc/hosts* directory to allow instance-to-instance traffic within the tenant.
 
-For deployment cases of HANA System Replication or HANA scale-out, a blade configuration with two IP addresses assigned is not suitable. If having two IP addresses assigned only and wanting to deploy such a configuration, contact SAP HANA on Azure Service Management to get a third IP address in a third VLAN assigned. For HANA Large Instance units having three IP addresses assigned on three NIC ports, the following usage rules apply:
+For HANA System Replication or HANA scale-out deployment, a blade configuration with two assigned IP addresses is not suitable. If you have only two assigned IP addresses and you want to deploy such a configuration, contact SAP HANA on Azure Service Management. They can assign you a third IP address in a third VLAN. For HANA Large Instances units with three assigned IP addresses on three NIC ports, the following usage rules apply:
 
-- Ethernet “A” should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. Hence this IP address shall not be used for maintaining in /etc/hosts of the OS.
+- Ethernet “A” should have an assigned IP address that's outside of the server IP pool address range that you submitted to Microsoft. This IP address should not be maintained in the *etc/hosts* directory of the OS.
 
-- Ethernet “B” should be exclusively used to be maintained in etc/hosts for communication between the different instances. These addresses would also be the IP addresses that need to be maintained in scale-out HANA configurations as IP addresses HANA uses for the inter-node configuration.
+- Ethernet “B” should be maintained exclusively in the *etc/hosts* directory for communication between the various instances. These are the IP addresses to be maintained in scale-out HANA configurations as the IP addresses that HANA uses for the inter-node configuration.
 
-- Ethernet “C” should have an IP address assigned that is used for communication to NFS storage. Hence this type of addresses should not be maintained in etc/hosts.
+- Ethernet “C” should have an assigned IP address that's used for communication to NFS storage. This type of address should not be maintained in the *etc/hosts* directory.
 
-- Ethernet “D” should be exclusively used for access STONITH device for pacemaker. This interface is required when you configure HANA System Replication (HSR) and want to achieve auto failover at the operating system using an SBD based device.
+- Ethernet “D” should be used exclusively for access to STONITH devices for Pacemaker. This interface is required when you configure HANA System Replication and want to achieve auto failover of the operating system by using an SBD-based device.
 
 
 ### Storage
-Storage is preconfigured based on the topology requested. The volume sizes and mountpoint vary based on the number of servers, SKUs, and topology configured. Review your required scenarios (later in this document) to get more information. If more storage is required, you can purchase it in one TB increment.
+Storage is preconfigured based on the requested topology. The volume sizes and mount points vary depending on the number of servers, the number of SKUs, and the configured topology. For more information, review your required scenarios (later in this article). If you require more storage, you can purchase it in 1-TB increments.
 
 >[!NOTE]
->The mountpoint /usr/sap/\<SID> is a symbolic link to the /hana/shared mountpoint.
+>The mount point /usr/sap/\<SID> is a symbolic link to the /hana/shared mount point.
 
 
-## Supported Scenarios
+## Supported scenarios
 
-In the architecture diagrams, following notations are used for the graphics:
+The architecture diagrams in the next sections use the following notations:
 
-![Legends.PNG](media/hana-supported-scenario/Legends.PNG)
+[ ![Table of architecture diagrams](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
-The following list shows the supported scenarios:
+Here are the supported scenarios:
 
-1. Single node with one SID
-2. Single node MCOS
-3. Single node with DR (Normal)
-4. Single node with DR (Multipurpose)
-5. HSR with STONITH
-6. HSR with DR (Normal / Multipurpose) 
-7. Host auto failover (1+1) 
-8. Scale-out with standby
-9. Scale-out without standby
-10. Scale-out with DR
+* Single node with one SID
+* Single node MCOS
+* Single node with DR (normal)
+* Single node with DR (multipurpose)
+* HSR with STONITH
+* HSR with DR (normal/multipurpose) 
+* Host auto failover (1+1) 
+* Scale-out with standby
+* Scale-out without standby
+* Scale-out with DR
 
+## Single node with one SID
 
-
-## 1. Single node with one SID
-
-This topology supports one node in a scale up configuration with one SID.
+This topology supports one node in a scale-up configuration with one SID.
 
 ### Architecture diagram  
 
-![Single-node-with-one-SID.png](media/hana-supported-scenario/Single-node-with-one-SID.png)
+![Single node with one SID](media/hana-supported-scenario/Single-node-with-one-SID.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
-|/hana/shared/SID | HANA Install | 
-|/hana/data/SID/mnt00001 | Data files install | 
-|/hana/log/SID/mnt00001 | Log files install | 
+|/hana/shared/SID | HANA installation | 
+|/hana/data/SID/mnt00001 | Data files installation | 
+|/hana/log/SID/mnt00001 | Log files installation | 
 |/hana/logbackups/SID | Redo logs |
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
-## 2. Single node MCOS
+## Single node MCOS
 
-This topology supports one node in a scale up configuration with multiple SIDs.
+This topology supports one node in a scale-up configuration with multiple SIDs.
 
 ### Architecture diagram  
 
-![single-node-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
+![Single node MCOS](media/hana-supported-scenario/single-node-mcos.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
-|/hana/shared/SID1 | HANA Install for SID1 | 
-|/hana/data/SID1/mnt00001 | Data files install for SID1 | 
-|/hana/log/SID1/mnt00001 | Log files install for SID1 | 
+|/hana/shared/SID1 | HANA installation for SID1 | 
+|/hana/data/SID1/mnt00001 | Data files installation for SID1 | 
+|/hana/log/SID1/mnt00001 | Log files installation for SID1 | 
 |/hana/logbackups/SID1 | Redo logs for SID1 |
-|/hana/shared/SID2 | HANA Install for SID2 | 
-|/hana/data/SID2/mnt00001 | Data files install for SID2 | 
-|/hana/log/SID2/mnt00001 | Log files install for SID2 | 
+|/hana/shared/SID2 | HANA installation for SID2 | 
+|/hana/data/SID2/mnt00001 | Data files installation for SID2 | 
+|/hana/log/SID2/mnt00001 | Log files installation for SID2 | 
 |/hana/logbackups/SID2 | Redo logs for SID2 |
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
+- Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-## 3. Single node with DR (Normal)
+## Single node with DR using storage replication
  
-This topology supports one node in a scale up configuration with one or multiple SIDs with the storage-based replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well.
+This topology supports one node in a scale-up configuration with one or multiple SIDs, with storage-based replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but MCOS systems are supported as well.
 
 ### Architecture diagram  
 
-![Single-node-with-dr.png](media/hana-supported-scenario/Single-node-with-dr.png)
+![Single node with DR using storage replication](media/hana-supported-scenario/Single-node-with-dr.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
-|/hana/shared/SID | HANA Install for SID | 
-|/hana/data/SID/mnt00001 | Data files install for SID | 
-|/hana/log/SID/mnt00001 | Log files install for SID | 
+|/hana/shared/SID | HANA installation for SID | 
+|/hana/data/SID/mnt00001 | Data files installation for SID | 
+|/hana/log/SID/mnt00001 | Log files installation for SID | 
 |/hana/logbackups/SID | Redo logs for SID |
 
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
-- At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details.
-- Boot volume for **SKU Type I class** is replicated to DR node.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
+- The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
-## 4. Single node with DR (Multipurpose)
+## Single node with DR (multipurpose) using storage replication
  
-This topology supports one node in a scale up configuration with one or multiple SIDs with the storage-based replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well. At the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down.
+This topology supports one node in a scale-up configuration with one or multiple SIDs, with storage-based replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well. At the DR site, the HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down.
 
 ### Architecture diagram  
 
-![single-node-with-dr-multipurpose.png](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
+![Single node with DR (multipurpose) using storage replication](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**At the primary site**|
-|/hana/shared/SID | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 |**At the DR site**|
-|/hana/shared/SID | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production  SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
-|/hana/shared/QA-SID | HANA Install for QA SID | 
-|/hana/data/QA-SID/mnt00001 | Data files install for QA  SID | 
-|/hana/log/QA-SID/mnt00001 | Log files install for QA SID |
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/shared/QA-SID | HANA installation for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files installation for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files installation for QA SID |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
-- At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
-- At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
-- Boot volume for **SKU Type I class** is replicated to DR node.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- The boot volume for *SKU Type I class* is replicated to the DR node.
 
-## 5. HSR with STONITH
+## HSR with STONITH for high availability
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. This configuration is only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported.
+This topology support two nodes for the HANA System Replication configuration. This configuration is supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported.
 
-**As of now, this architecture is supported only for SUSE Operating system.**
+> [!NOTE]
+> As of December 2019, this architecture is supported only for the SUSE operating system.
 
 
 ### Architecture diagram  
 
-![HSR-with-STONITH.png](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR with STONITH for high availability](media/hana-supported-scenario/HSR-with-STONITH.png)
 
 
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the primary node**|
-|/hana/shared/SID | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 |**On the secondary node**|
-|/hana/shared/SID | HANA Install for secondary SID | 
-|/hana/data/SID/mnt00001 | Data files install for secondary  SID | 
-|/hana/log/SID/mnt00001 | Log files install for secondary SID | 
+|/hana/shared/SID | HANA installation for secondary SID | 
+|/hana/data/SID/mnt00001 | Data files installation for secondary  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for secondary SID | 
 |/hana/logbackups/SID | Redo logs for secondary SID |
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
-- STONITH: An SBD is configured for the STONITH setup. However, a use of STONITH is optional.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- STONITH: An SBD is configured for the STONITH setup. However, the use of STONITH is optional.
 
 
-## 6. HSR with DR
+## High availability with HSR and DR with storage replication
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. These configurations are only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported with these configurations.
+This topology supports two nodes for the HANA System Replication configuration. Both normal and multipurpose DRs are supported. These configurations are supported only for single HANA instances on a node. This means that MCOS scenarios are *not* supported with these configurations.
 
-In the diagram, multipurpose scenario is depicted where at the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down. 
-
-
+In the diagram, a multipurpose scenario is depicted at the DR site, where the HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down. 
 
 ### Architecture diagram  
 
-![HSR-with-DR.png](media/hana-supported-scenario/HSR-with-DR.png)
+![High availability with HSR and DR with storage replication](media/hana-supported-scenario/HSR-with-DR.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
 | B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the primary node at the primary site**|
-|/hana/shared/SID | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 |**On the secondary node at the primary site**|
-|/hana/shared/SID | HANA Install for secondary SID | 
-|/hana/data/SID/mnt00001 | Data files install for secondary  SID | 
-|/hana/log/SID/mnt00001 | Log files install for secondary SID | 
+|/hana/shared/SID | HANA installation for secondary SID | 
+|/hana/data/SID/mnt00001 | Data files installation for secondary  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for secondary SID | 
 |/hana/logbackups/SID | Redo logs for secondary SID |
 |**At the DR site**|
-|/hana/shared/SID | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production  SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
-|/hana/shared/QA-SID | HANA Install for QA SID | 
-|/hana/data/QA-SID/mnt00001 | Data files install for QA  SID | 
-|/hana/log/QA-SID/mnt00001 | Log files install for QA SID |
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/shared/QA-SID | HANA installation for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files installation for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files installation for QA SID |
 |/hana/logbackups/QA-SID | Redo logs for QA SID |
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
-- STONITH: An SBD is configured for the STONITH setup. However, a use of STONITH is optional.
-- At the DR: **Two sets of storage volumes are required** for primary and secondary node replication.
-- At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
-- At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
-- Boot volume for **SKU Type I class** is replicated to DR node.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- STONITH: An SBD is configured for the STONITH setup. However, the use of STONITH is optional.
+- At the DR site: *Two sets of storage volumes are required* for primary and secondary node replication.
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
-## 7. Host auto failover (1+1)
+## Host auto failover (1+1)
  
-This topology supports two nodes in a host auto failover configuration. There is one node with master/worker role and other as a standby. **SAP Supports this scenario only for S/4 HANA.** Refer OSS note “[2408419 - SAP S/4HANA - Multi-Node Support](https://launchpad.support.sap.com/#/notes/2408419)” for more detail.
+This topology supports two nodes in a host auto failover configuration. There is one node with a master/worker role and another as a standby. *SAP supports this scenario only for S/4 HANA.* For more information, see [OSS note 2408419 - SAP S/4HANA - Multi-Node Support](https://launchpad.support.sap.com/#/notes/2408419).
 
 
 
 ### Architecture diagram  
 
-![sca](media/hana-supported-scenario/scaleup-with-standby.png)
+![Host auto failover (1+1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
-| B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the master and standby nodes**|
-|/hana/shared | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 
 
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- On standby: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the HANA Instance installation on the standby unit.
+- On standby: The volumes and mount points are configured (marked as “Required for HANA installation”) for the HANA instance installation at the standby unit.
  
 
-## 8. Scale-out with standby
+## Scale-out with standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with master role, one or more nodes with worker role, and one or more nodes as standby. Though, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, one or more nodes with a worker role, and one or more nodes as standby. However, there can be only one master node at any single point in time.
 
 
 ### Architecture diagram  
 
-![scaleout-nm-standby.png](media/hana-supported-scenario/scaleout-nm-standby.png)
+![Scale-out with standby](media/hana-supported-scenario/scaleout-nm-standby.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
-| B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the master, worker and standby nodes**|
-|/hana/shared | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 
 
-## 9. Scale-out without standby
+## Scale-out without standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with master role, and one or mode nodes with worker role. Though, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, and one or more nodes with a worker role. However, there can be only one master node at any single point in time.
 
 
 ### Architecture diagram  
 
-![scaleout-nm.png](media/hana-supported-scenario/scaleout-nm.png)
+![Scale-out without standby](media/hana-supported-scenario/scaleout-nm.png)
 
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
-| B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the master and worker nodes**|
-|/hana/shared | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
-## 10. Scale-out with DR
+## Scale-out with DR using storage replication
  
-This topology supports multiple nodes in a scale-out with a DR. Both normal and multipurpose DR is supported. In the diagram, only the single purpose DR is depicted. You can request this topology with or without the standby node.
+This topology supports multiple nodes in a scale-out with a DR. Both normal and multipurpose DRs are supported. In the diagram, only the single purpose DR is depicted. You can request this topology with or without the standby node.
 
 
 ### Architecture diagram  
 
-![scaleout-with-dr.png](media/hana-supported-scenario/scaleout-with-dr.png)
+![Scale-out with DR using storage replication](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
 ### Ethernet
 The following network interfaces are preconfigured:
 
-| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
-| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI |
-| B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
-| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
-The following mountpoints are preconfigured:
+The following mount points are preconfigured:
 
-| Mountpoint | Use case | 
+| Mount point | Use case | 
 | --- | --- |
 |**On the primary node**|
-|/hana/shared | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 |/hana/logbackups/SID | Redo logs for production SID |
 |**On the DR node**|
-|/hana/shared | HANA Install for production SID | 
-|/hana/data/SID/mnt00001 | Data files install for production SID | 
-|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
 
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
--  At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
-- Boot volume for **SKU Type I class** is replicated to DR node.
+-  At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- The boot volume for *SKU Type I class* is replicated to the DR node.
+
+
+## Single node with DR using HSR
+ 
+This topology supports one node in a scale-up configuration with one SID, with HANA System Replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well.
+
+### Architecture diagram  
+
+![Single node with DR using HSR](media/hana-supported-scenario/single-node-hsr-dr-111.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mount points are preconfigured on both the HLI units (Primary and DR):
+
+| Mount point | Use case | 
+| --- | --- |
+|/hana/shared/SID | HANA installation for SID | 
+|/hana/data/SID/mnt00001 | Data files installation for SID | 
+|/hana/log/SID/mnt00001 | Log files installation for SID | 
+|/hana/logbackups/SID | Redo logs for SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- The primary node syncs with the DR node by using HANA System Replication. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+
+
+
+## Single node HSR to DR (cost optimized) 
+ 
+ This topology supports one node in a scale-up configuration with one SID, with HANA System Replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well. At the DR site, an HLI unit is used for the QA instance while production operations are running from the primary site. During DR failover (or failover test), the QA instance at the DR site is taken down.
+
+### Architecture diagram  
+
+![Single node HSR to DR (cost optimized)](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mount points are preconfigured:
+
+| Mount point | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|/hana/shared/QA-SID | HANA installation for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files installation for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files installation for QA SID |
+|/hana/logbackups/QA-SID | Redo logs for QA SID |
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- At the DR site: The volumes and mount points are configured (marked as “PROD Instance at DR site”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- The primary node syncs with the DR node by using HANA System Replication. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+
+## High availability and disaster recovery with HSR 
+ 
+ This topology support two nodes for the HANA System Replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode). 
+
+### Architecture diagram  
+
+![High availability and disaster recovery with HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mount points are preconfigured:
+
+| Mount point | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
+- The primary site node syncs with the DR node by using HANA System Replication. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+
+## High availability and disaster recovery with HSR (cost optimized)
+ 
+ This topology supports two nodes for the HANA System Replication configuration for the local regions' high availability. For the DR, the third node at the DR region syncs with the primary site by using HSR (async mode), while another instance (for example, QA) is already running out from the DR node. 
+
+### Architecture diagram  
+
+![High availability and disaster recovery with HSR (cost optimized)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mount points are preconfigured:
+
+| Mount point | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production  SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|/hana/shared/QA-SID | HANA installation for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files installation for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files installation for QA SID |
+|/hana/logbackups/QA-SID | Redo logs for QA SID |
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- The primary site node syncs with the DR node by using HANA System Replication. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+
+## Scale-out with DR using HSR
+ 
+This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. The primary site node syncs with the DR site node by using HANA System Replication (async mode).
+
+
+### Architecture diagram  
+
+[ ![Scale-out with DR using HSR](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
+
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client-to-HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node-to-node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node-to-storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client-to-HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node-to-node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mount points are preconfigured:
+
+| Mount point | Use case | 
+| --- | --- |
+|**On the primary node**|
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**On the DR node**|
+|/hana/shared | HANA installation for production SID | 
+|/hana/data/SID/mnt00001 | Data files installation for production SID | 
+|/hana/log/SID/mnt00001 | Log files installation for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR site: The volumes and mount points are configured for the production HANA instance installation at the DR HLI unit. 
+- The primary site node syncs with the DR node by using HANA System Replication. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 
 ## Next steps
-- Refer [Infrastructure and connectivity](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) for HLI
-- Refer [High availability and disaster recovery](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for HLI
+- [Infrastructure and connectivity](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) for HANA Large Instances
+- [High availability and disaster recovery](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for HANA Large Instances

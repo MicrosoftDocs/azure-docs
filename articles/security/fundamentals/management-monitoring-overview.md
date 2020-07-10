@@ -14,24 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
 
 ---
 # Azure security management and monitoring overview
 This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
-
-## Shared responsibility
-
-The security of your Microsoft cloud services is a partnership and a shared responsibility between you and Microsoft. Microsoft is responsible for the Azure platform and the physical security of its datacenters (by using security protections such as locked badge-entry doors, fences, and guards). Azure provides strong levels of cloud security at the software layer that meets the security, privacy, and compliance needs of its customers.
-
-You own your data and identities, the responsibility for protecting them, the security of your on-premises resources, and the security of cloud components over which you have control. Microsoft gives you security controls and capabilities to help you protect your data and applications. Your degree of responsibility for security is based on the type of cloud service.
-
-The following chart summarizes the balance of responsibility between Microsoft and the customer.
-
-![Shared responsibility](./media/management-monitoring-overview/shared-responsibility.png)
-
-For more information about security management, see [Security management in Azure](management.md).
 
 ## Role-Based Access Control
 
@@ -146,3 +134,7 @@ Intelligent Security Graph provides real-time threat protection in Microsoft pro
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
+## Next Steps
+Learn about the [shared responsibility model](shared-responsibility.md) and which security tasks are handled by Microsoft and which tasks are handled by you.
+
+For more information about security management, see [Security management in Azure](management.md).

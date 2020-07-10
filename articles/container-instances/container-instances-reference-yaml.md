@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances YAML reference    
+title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
 ---
 
 # YAML reference: Azure Container Instances
@@ -39,7 +33,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -134,7 +128,7 @@ properties: # Properties of container group
 
 The following tables describe the values you need to set in the schema.
 
-<a id="Microsoft.ContainerInstance/containerGroups" />
+
 
 ### Microsoft.ContainerInstance/containerGroups object
 
@@ -144,11 +138,11 @@ The following tables describe the values you need to set in the schema.
 |  apiVersion | enum | Yes | 2018-10-01 |
 |  location | string | No | The resource location. |
 |  tags | object | No | The resource tags. |
-|  identity | object | No | The identity of the container group, if configured. - [ContainerGroupIdentity object](#ContainerGroupIdentity) |
-|  properties | object | Yes | [ContainerGroupProperties object](#ContainerGroupProperties) |
+|  identity | object | No | The identity of the container group, if configured. - [ContainerGroupIdentity object](#containergroupidentity-object) |
+|  properties | object | Yes | [ContainerGroupProperties object](#containergroupproperties-object) |
 
 
-<a id="ContainerGroupIdentity" />
+
 
 ### ContainerGroupIdentity object
 
@@ -158,34 +152,34 @@ The following tables describe the values you need to set in the schema.
 |  userAssignedIdentities | object | No | The list of user identities associated with the container group. The user identity dictionary key references will be Azure Resource Manager resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
 
 
-<a id="ContainerGroupProperties" />
+
 
 ### ContainerGroupProperties object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  containers | array | Yes | The containers within the container group. - [Container object](#Container) |
-|  imageRegistryCredentials | array | No | The image registry credentials by which the container group is created from. - [ImageRegistryCredential object](#ImageRegistryCredential) |
+|  containers | array | Yes | The containers within the container group. - [Container object](#container-object) |
+|  imageRegistryCredentials | array | No | The image registry credentials by which the container group is created from. - [ImageRegistryCredential object](#imageregistrycredential-object) |
 |  restartPolicy | enum | No | Restart policy for all containers within the container group. - `Always` Always restart- `OnFailure` Restart on failure- `Never` Never restart. - Always, OnFailure, Never |
-|  ipAddress | object | No | The IP address type of the container group. - [IpAddress object](#IpAddress) |
+|  ipAddress | object | No | The IP address type of the container group. - [IpAddress object](#ipaddress-object) |
 |  osType | enum | Yes | The operating system type required by the containers in the container group. - Windows or Linux |
-|  volumes | array | No | The list of volumes that can be mounted by containers in this container group. - [Volume object](#Volume) |
-|  diagnostics | object | No | The diagnostic information for a container group. - [ContainerGroupDiagnostics object](#ContainerGroupDiagnostics) |
-|  networkProfile | object | No | The network profile information for a container group. - [ContainerGroupNetworkProfile object](#ContainerGroupNetworkProfile) |
-|  dnsConfig | object | No | The DNS config information for a container group. - [DnsConfiguration object](#DnsConfiguration) |
+|  volumes | array | No | The list of volumes that can be mounted by containers in this container group. - [Volume object](#volume-object) |
+|  diagnostics | object | No | The diagnostic information for a container group. - [ContainerGroupDiagnostics object](#containergroupdiagnostics-object) |
+|  networkProfile | object | No | The network profile information for a container group. - [ContainerGroupNetworkProfile object](#containergroupnetworkprofile-object) |
+|  dnsConfig | object | No | The DNS config information for a container group. - [DnsConfiguration object](#dnsconfiguration-object) |
 
 
-<a id="Container" />
+
 
 ### Container object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Yes | The user-provided name of the container instance. |
-|  properties | object | Yes | The properties of the container instance. - [ContainerProperties object](#ContainerProperties) |
+|  properties | object | Yes | The properties of the container instance. - [ContainerProperties object](#containerproperties-object) |
 
 
-<a id="ImageRegistryCredential" />
+
 
 ### ImageRegistryCredential object
 
@@ -196,41 +190,41 @@ The following tables describe the values you need to set in the schema.
 |  password | string | No | The password for the private registry. |
 
 
-<a id="IpAddress" />
+
 
 ### IpAddress object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  ports | array | Yes | The list of ports exposed on the container group. - [Port object](#Port) |
+|  ports | array | Yes | The list of ports exposed on the container group. - [Port object](#port-object) |
 |  type | enum | Yes | Specifies if the IP is exposed to the public internet or private VNET. - Public or Private |
 |  ip | string | No | The IP exposed to the public internet. |
 |  dnsNameLabel | string | No | The Dns name label for the IP. |
 
 
-<a id="Volume" />
+
 
 ### Volume object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Yes | The name of the volume. |
-|  azureFile | object | No | The Azure File volume. - [AzureFileVolume object](#AzureFileVolume) |
+|  azureFile | object | No | The Azure File volume. - [AzureFileVolume object](#azurefilevolume-object) |
 |  emptyDir | object | No | The empty directory volume. |
 |  secret | object | No | The secret volume. |
-|  gitRepo | object | No | The git repo volume. - [GitRepoVolume object](#GitRepoVolume) |
+|  gitRepo | object | No | The git repo volume. - [GitRepoVolume object](#gitrepovolume-object) |
 
 
-<a id="ContainerGroupDiagnostics" />
+
 
 ### ContainerGroupDiagnostics object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  logAnalytics | object | No | Container group log analytics information. - [LogAnalytics object](#LogAnalytics) |
+|  logAnalytics | object | No | Container group log analytics information. - [LogAnalytics object](#loganalytics-object) |
 
 
-<a id="ContainerGroupNetworkProfile" />
+
 
 ### ContainerGroupNetworkProfile object
 
@@ -239,7 +233,7 @@ The following tables describe the values you need to set in the schema.
 |  id | string | Yes | The identifier for a network profile. |
 
 
-<a id="DnsConfiguration" />
+
 
 ### DnsConfiguration object
 
@@ -250,7 +244,7 @@ The following tables describe the values you need to set in the schema.
 |  options | string | No | The DNS options for the container group. |
 
 
-<a id="ContainerProperties" />
+
 
 ### ContainerProperties object
 
@@ -258,15 +252,15 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  image | string | Yes | The name of the image used to create the container instance. |
 |  command | array | No | The commands to execute within the container instance in exec form. - string |
-|  ports | array | No | The exposed ports on the container instance. - [ContainerPort object](#ContainerPort) |
-|  environmentVariables | array | No | The environment variables to set in the container instance. - [EnvironmentVariable object](#EnvironmentVariable) |
-|  resources | object | Yes | The resource requirements of the container instance. - [ResourceRequirements object](#ResourceRequirements) |
-|  volumeMounts | array | No | The volume mounts available to the container instance. - [VolumeMount object](#VolumeMount) |
-|  livenessProbe | object | No | The liveness probe. - [ContainerProbe object](#ContainerProbe) |
-|  readinessProbe | object | No | The readiness probe. - [ContainerProbe object](#ContainerProbe) |
+|  ports | array | No | The exposed ports on the container instance. - [ContainerPort object](#containerport-object) |
+|  environmentVariables | array | No | The environment variables to set in the container instance. - [EnvironmentVariable object](#environmentvariable-object) |
+|  resources | object | Yes | The resource requirements of the container instance. - [ResourceRequirements object](#resourcerequirements-object) |
+|  volumeMounts | array | No | The volume mounts available to the container instance. - [VolumeMount object](#volumemount-object) |
+|  livenessProbe | object | No | The liveness probe. - [ContainerProbe object](#containerprobe-object) |
+|  readinessProbe | object | No | The readiness probe. - [ContainerProbe object](#containerprobe-object) |
 
 
-<a id="Port" />
+
 
 ### Port object
 
@@ -276,7 +270,7 @@ The following tables describe the values you need to set in the schema.
 |  port | integer | Yes | The port number. |
 
 
-<a id="AzureFileVolume" />
+
 
 ### AzureFileVolume object
 
@@ -288,7 +282,7 @@ The following tables describe the values you need to set in the schema.
 |  storageAccountKey | string | No | The storage account access key used to access the Azure File share. |
 
 
-<a id="GitRepoVolume" />
+
 
 ### GitRepoVolume object
 
@@ -299,7 +293,7 @@ The following tables describe the values you need to set in the schema.
 |  revision | string | No | Commit hash for the specified revision. |
 
 
-<a id="LogAnalytics" />
+
 
 ### LogAnalytics object
 
@@ -311,7 +305,7 @@ The following tables describe the values you need to set in the schema.
 |  metadata | object | No | Metadata for log analytics. |
 
 
-<a id="ContainerPort" />
+
 
 ### ContainerPort object
 
@@ -321,7 +315,7 @@ The following tables describe the values you need to set in the schema.
 |  port | integer | Yes | The port number exposed within the container group. |
 
 
-<a id="EnvironmentVariable" />
+
 
 ### EnvironmentVariable object
 
@@ -332,17 +326,17 @@ The following tables describe the values you need to set in the schema.
 |  secureValue | string | No | The value of the secure environment variable. |
 
 
-<a id="ResourceRequirements" />
+
 
 ### ResourceRequirements object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  requests | object | Yes | The resource requests of this container instance. - [ResourceRequests object](#ResourceRequests) |
-|  limits | object | No | The resource limits of this container instance. - [ResourceLimits object](#ResourceLimits) |
+|  requests | object | Yes | The resource requests of this container instance. - [ResourceRequests object](#resourcerequests-object) |
+|  limits | object | No | The resource limits of this container instance. - [ResourceLimits object](#resourcelimits-object) |
 
 
-<a id="VolumeMount" />
+
 
 ### VolumeMount object
 
@@ -353,14 +347,14 @@ The following tables describe the values you need to set in the schema.
 |  readOnly | boolean | No | The flag indicating whether the volume mount is read-only. |
 
 
-<a id="ContainerProbe" />
+
 
 ### ContainerProbe object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  exec | object | No | The execution command to probe - [ContainerExec object](#ContainerExec) |
-|  httpGet | object | No | The Http Get settings to probe - [ContainerHttpGet object](#ContainerHttpGet) |
+|  exec | object | No | The execution command to probe - [ContainerExec object](#containerexec-object) |
+|  httpGet | object | No | The Http Get settings to probe - [ContainerHttpGet object](#containerhttpget-object) |
 |  initialDelaySeconds | integer | No | The initial delay seconds. |
 |  periodSeconds | integer | No | The period seconds. |
 |  failureThreshold | integer | No | The failure threshold. |
@@ -368,7 +362,7 @@ The following tables describe the values you need to set in the schema.
 |  timeoutSeconds | integer | No | The timeout seconds. |
 
 
-<a id="ResourceRequests" />
+
 
 ### ResourceRequests object
 
@@ -376,10 +370,10 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | number | Yes | The memory request in GB of this container instance. |
 |  cpu | number | Yes | The CPU request of this container instance. |
-|  gpu | object | No | The GPU request of this container instance. - [GpuResource object](#GpuResource) |
+|  gpu | object | No | The GPU request of this container instance. - [GpuResource object](#gpuresource-object) |
 
 
-<a id="ResourceLimits" />
+
 
 ### ResourceLimits object
 
@@ -387,10 +381,10 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | number | No | The memory limit in GB of this container instance. |
 |  cpu | number | No | The CPU limit of this container instance. |
-|  gpu | object | No | The GPU limit of this container instance. - [GpuResource object](#GpuResource) |
+|  gpu | object | No | The GPU limit of this container instance. - [GpuResource object](#gpuresource-object) |
 
 
-<a id="ContainerExec" />
+
 
 ### ContainerExec object
 
@@ -399,7 +393,7 @@ The following tables describe the values you need to set in the schema.
 |  command | array | No | The commands to execute within the container. - string |
 
 
-<a id="ContainerHttpGet" />
+
 
 ### ContainerHttpGet object
 
@@ -410,7 +404,7 @@ The following tables describe the values you need to set in the schema.
 |  scheme | enum | No | The scheme. - http or https |
 
 
-<a id="GpuResource" />
+
 
 ### GpuResource object
 

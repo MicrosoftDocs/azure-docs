@@ -1,12 +1,12 @@
 ---
-title: Integrate Azure DNS with your Azure resources
-description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
+title: Integrate Azure DNS with your Azure resources - Azure DNS
+description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 7/13/2019
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
@@ -129,7 +129,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | The DNS name you are creating the alias for, in this example it is the asverify.adatumfunctiona9ed.blob.core.windows.net DNS name provided by default to the storage account.        |
 
-Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation**, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
 ![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
 

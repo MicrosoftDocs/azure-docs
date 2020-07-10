@@ -1,31 +1,32 @@
 ---
-title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
-description: This article discusses popular questions about Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+title: General questions about the Azure Site Recovery service
+description: This article discusses popular general questions about Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 1/24/2020
 ms.author: raynew
 
 ---
-# Azure Site Recovery: frequently asked questions (FAQ)
-This article summarizes frequently asked questions about Azure Site Recovery.</br>
-For specific queries on different ASR scenarios please refer scenario specific FAQs.<br>
+# General questions about Azure Site Recovery
 
-- [Azure VM Disaster Recovery to Azure](azure-to-azure-common-questions.md)
-- [VMware VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
-- [Hyper-V VM Disaster Recovery to Azure](hyper-v-azure-common-questions.md)
+This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios review these articles
+
+- [Questions about Azure VM disaster recovery to Azure](azure-to-azure-common-questions.md)
+- [Questions about VMware VM disaster recovery to Azure](vmware-azure-common-questions.md)
+- [Questions about Hyper-V VM disaster recovery to Azure](hyper-v-azure-common-questions.md)
  
 ## General
 
 ### What does Site Recovery do?
+
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 ### Can I protect a virtual machine that has a Docker disk?
 
 No, this is an unsupported scenario.
+
+### What does Site Recovery do to ensure data integrity?
+
+There are various measures taken by Site Recovery to ensure data integrity. A secure connection is established between all services by using the HTTPS protocol. This makes sure that any malware or outside entities can't tamper the data. Another measure taken is using checksums. The data transfer between source and target is executed by computing checksums of data between them. This ensures that the transferred data is consistent.
 
 ## Service providers
 
@@ -50,7 +51,7 @@ No, Data is replicated to Azure storage in your subscription. When you perform a
 Yes.
 
 ### What platforms do you currently support?
-We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](https://technet.microsoft.com/library/dn850370.aspx) about Azure Pack and Site Recovery integration.
+We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) about Azure Pack and Site Recovery integration.
 
 ### Do you support single Azure Pack and single VMM server deployments?
 Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
@@ -99,10 +100,16 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
 
+### Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
+Yes, TLS 1.2 protocol is enforced by default for Azure-to-Azure Site Recovery scenario. 
 
+### How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
+Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
 
+### How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
+All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One will need to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services. 
 
 ## Disaster recovery
 
@@ -121,7 +128,7 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 
 ### Is disaster recovery supported for Azure VMs?
 
-Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery.
+Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure DR offering. No need to set up configuration server/process server and ExpressRoute connections.
 
 ### Is disaster recovery supported for VMware VMs?
 
@@ -145,7 +152,7 @@ Azure Site Recovery replicates data to an Azure storage account or managed disks
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet with ExpressRoute (Microsoft peering or an existing public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet or via ExpressRoute (Microsoft peering or an existing public peering).
 
 ### Can I use Riverbed SteelHeads for replication?
 
@@ -154,7 +161,7 @@ Our partner, Riverbed, provides detailed guidance on working with Azure Site Rec
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
 Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
 
-- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
+- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
 - Microsoft peering is the recommended routing domain for replication.
 - Replication is not supported over private peering.
 - If you're protecting VMware machines or physical machines, ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity.
@@ -166,7 +173,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 You need an LRS or GRS storage. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal. Managed disks only support LRS.
 
 ### How often can I replicate data?
-* **Hyper-V:** Hyper-V VMs can be replicated every five minutes, o 30 seconds (except for premium storage)
+* **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
 * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
 ### Can I extend replication from existing recovery site to another tertiary site?
@@ -186,9 +193,42 @@ Dynamic disks are supported when replicating Hyper-V virtual machines, and when 
 Yes. You can read more about throttling bandwidth in these articles:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
-* [Capacity planning for replicating Hyper-V VMs to Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Capacity planning for replicating Hyper-V VMs to Azure](./hyper-v-deployment-planner-overview.md)
 
+### Can I enable replication with app-consistency in Linux servers? 
+Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. Below are the steps to enable it.
 
+1. Sign in as root into the machine.
+2. Change directory to Azure Site Recovery Mobility Agent install location. Default is "/usr/local/ASR"<br>
+    `# cd /usr/local/ASR`
+3. Change directory to "VX/scripts" under install location<br>
+    `# cd VX/scripts`
+4. Create a bash shell script named "customscript.sh" with execute permissions for root user.<br>
+    a. The script should support "--pre" and "--post" (Note the double dashes) command-line options<br>
+    b. When the script is called with pre-option, it should freeze the application input/output and when called with post-option, it should thaw the application input/output.<br>
+    c. A sample template -<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Add the freeze and unfreeze input/output commands in pre and post-steps for the applications requiring app-consistency. You can choose to add another script specifying those and invoke it from "customscript.sh" with pre and post-options.
+
+>[!Note]
+>The Site Recovery agent version should be 9.24 or above to support custom scripts.
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure VMs after failover?
@@ -209,13 +249,13 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 
 * [Read more](site-recovery-create-recovery-plans.md) about recovery plans.
 * [Read more](site-recovery-failover.md) about failover.
-* [Read more](site-recovery-failback-azure-to-vmware.md) about failing back VMware VMs and physical servers
+* [Read more](./vmware-azure-failback.md) about failing back VMware VMs and physical servers
 
 ### If my on-premises host is not responding or crashed, can I fail back to a different host?
 Yes, you can use the alternate location recovery to failback to a different host from Azure.
 
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [For Hyper-V virtual machines](hyper-v-azure-failback.md#perform-failback)
+* [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## Automation
 
@@ -234,4 +274,3 @@ Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or
 
 ## Next steps
 * Read the [Site Recovery overview](site-recovery-overview.md)
-

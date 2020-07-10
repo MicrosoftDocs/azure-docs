@@ -1,9 +1,9 @@
 ---
-title: Update the Azure Linux Agent from GitHub | Microsoft Docs
+title: Update the Azure Linux Agent from GitHub 
 description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: akjosh
+ms.author: mimckitt
 
 ---
 # How to update the Azure Linux Agent on a VM
@@ -25,6 +25,9 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 - A connection to that Linux VM using SSH.
 
 You should always check for a package in the Linux distro repository first. It is possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
+
+> [!NOTE]
+> For more information see [Endorsed Linux distributions on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 
 ## Minimum virtual machine agent support in Azure
 Verify the [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) before proceeding.
@@ -84,77 +87,6 @@ initctl restart walinuxagent
 
 ```bash
 systemctl restart walinuxagent.service
-```
-
-## Debian
-
-### Debian 7 “Wheezy”
-
-#### Check your current package version
-
-```bash
-dpkg -l | grep waagent
-```
-
-#### Update package cache
-
-```bash
-sudo apt-get -qq update
-```
-
-#### Install the latest package version
-
-```bash
-sudo apt-get install waagent
-```
-
-#### Enable agent auto update
-This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available for it. The output from the above command will show you if the package is up-to-date.
-
-### Debian 8 “Jessie” / Debian 9 “Stretch”
-
-#### Check your current package version
-
-```bash
-apt list --installed | grep waagent
-```
-
-#### Update package cache
-
-```bash
-sudo apt-get -qq update
-```
-
-#### Install the latest package version
-
-```bash
-sudo apt-get install waagent
-```
-#### Ensure auto update is enabled 
-
-First, check to see if it is enabled:
-
-```bash
-cat /etc/waagent.conf
-```
-
-Find 'AutoUpdate.Enabled'. If you see this output, it is enabled:
-
-```bash
-# AutoUpdate.Enabled=y
-AutoUpdate.Enabled=y
-```
-
-To enable run:
-
-```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-```
-
-### Restart the waagent service
-
-```
-sudo systemctl restart walinuxagent.service
 ```
 
 ## Red Hat / CentOS
@@ -345,7 +277,76 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart waagent.service
 ```
 
-## Oracle 6 and 7
+## Debian
+
+### Debian 7 “Jesse”/ Debian 7 "Stretch"
+
+#### Check your current package version
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### Update package cache
+
+```bash
+sudo apt-get -qq update
+```
+
+#### Install the latest package version
+
+```bash
+sudo apt-get install waagent
+```
+
+#### Enable agent auto update
+This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate is not available for it. The output from the above command will show you if the package is up-to-date.
+
+
+
+### Debian 8 “Jessie” / Debian 9 “Stretch”
+
+#### Check your current package version
+
+```bash
+apt list --installed | grep waagent
+```
+
+#### Update package cache
+
+```bash
+sudo apt-get -qq update
+```
+
+#### Install the latest package version
+
+```bash
+sudo apt-get install waagent
+```
+
+#### Ensure auto update is enabled
+First, check to see if it is enabled:
+
+```bash
+cat /etc/waagent.conf
+```
+
+Find 'AutoUpdate.Enabled'. If you see this output, it is enabled:
+
+```bash
+AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+To enable run:
+
+```bash
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+Restart the waagent service
+sudo systemctl restart walinuxagent.service
+```
+
+## Oracle Linux 6 and Oracle Linux 7
 
 For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 

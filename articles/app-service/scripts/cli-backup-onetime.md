@@ -1,21 +1,15 @@
 ---
-title: Azure CLI Script Sample - Back up an app | Microsoft Docs
-description: Azure CLI Script Sample - Back up an app
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Back up an app'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to back up an app.
+author: msangapu-msft
 tags: azure-service-management
 
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Back up an app using CLI

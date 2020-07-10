@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: Learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 06/30/2020
 ms.author: aahi
 ---
 
@@ -16,17 +16,20 @@ ms.author: aahi
 
 Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
-| API request                                        | Application output                                                                                                                         |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| API request                                        | Application output                                                                                                                                         |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
-| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
+| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                        |
 
- While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
+ While this application is written in C#, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## Prerequisites
 
-- Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/),
-
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+    - You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
+    You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/)
 - The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install Newtonsoft.Json as a NuGet package in Visual Studio:
     
     1. Right click your project in **Solution Explorer**.
@@ -37,9 +40,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### Create an Anomaly Detector resource
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## Create a new application
 
@@ -50,11 +51,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
-    |Detection method  |URI  |
-    |---------|---------|
-    |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
-    
+    | Detection method                   | URI                                              |
+    |------------------------------------|--------------------------------------------------|
+    | Batch detection                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
+    | Detection on the latest data point | `/anomalydetector/v1.0/timeseries/last/detect`   |
+        
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## Create a function to send requests
@@ -86,8 +87,8 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 2. Deserialize the JSON object, and write it to the console.
 
-[!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
-
+    [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
+ 
 ## Load your time series data and send the request
 
 1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`. 
@@ -102,11 +103,4 @@ A successful response is returned in JSON format. Click the links below to view 
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## Next steps
-
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* What is the [Anomaly Detector API?](../overview.md)
-* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

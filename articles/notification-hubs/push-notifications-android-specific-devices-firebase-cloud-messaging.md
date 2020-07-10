@@ -1,5 +1,5 @@
 ---
-title: Push notifications to specific Android devices using Azure Notification Hubs and Google Firebase Cloud Messaging | Microsoft Docs
+title: Send push notifications to specific devices using Azure Notification Hubs and Google Firebase Cloud Messaging | Microsoft Docs
 description: Learn how to use Notification Hubs to push notifications to specific Android devices by using Azure Notification Hubs and Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
@@ -20,7 +20,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
 ---
 
-# Tutorial: Push notifications to specific Android devices using Azure Notification Hubs and Google Firebase Cloud Messaging (FCM)
+# Tutorial: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -113,7 +113,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
     Your `main_activity.xml` graphical layout should look like in the following image:
 
-    ![][A1]
+    ![Screenshot of an emulator displaying what the main activity X M L graphical layout will look like.][A1]
 3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java

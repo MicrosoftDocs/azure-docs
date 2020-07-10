@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: aaaaaaaaaaaaaaaaaaaaa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

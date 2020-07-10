@@ -1,17 +1,9 @@
 ---
 title: Azure CLI script sample - Subscribe to Blob storage account | Microsoft Docs
-description: Azure CLI Script Sample - Subscribe to Blob storage account
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-
-ms.service: event-grid
+description: This article provides a sample Azure CLI script that shows how to subscribe to events for a Azure Blob Storage account. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for a Blob storage account with Azure CLI

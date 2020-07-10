@@ -1,18 +1,15 @@
 ﻿---
-title: Query Store in Azure Database for MariaDB
+title: Query Store - Azure Database for MariaDB
 description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 3/18/2020
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 
 **Applies to:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Query Store is in preview.
 
 The Query Store feature in Azure Database for Mariadb provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MariaDB instance.
 

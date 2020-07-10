@@ -27,14 +27,8 @@
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: C#
-      href: web-search-sdk-quickstart.md
-    - name: Java
-      href: web-sdk-java-quickstart.md
-    - name: Node.js
-      href: web-search-sdk-node-quickstart.md
-    - name: Python
-      href: web-sdk-python-quickstart.md
+    - name: Bing Web Search client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
@@ -83,10 +77,10 @@
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable
-    - name: Python 
+    - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python
-    - name: Node.js 
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
   - name: Use and display requirements
@@ -101,7 +95,7 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md

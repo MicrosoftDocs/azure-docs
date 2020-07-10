@@ -20,7 +20,7 @@
     href: integration-patterns.md
 - name: How-to guides
   expanded: true
-  items: 
+  items:
   - name: Deploy Workbench
     href: deploy.md
   - name: Manage Workbench users
@@ -55,19 +55,21 @@
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
 - name: Resources
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
-  - name: Community
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html
+  - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Support forum
-    href: https://aka.ms/workbenchforum
+  - name: Stack Overflow support
+    href: https://stackoverflow.com/questions/tagged/azure-blockchain-workbench
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
 - name: Solution templates
   items:
   - name: Ethereum Proof-of-Authority consortium
     href: ../templates/ethereum-poa-deployment.md
-  - name: Hyperledger Fabric consortium
-    href: ../templates/hyperledger-fabric-consortium-blockchain.md
+  - name: Hyperledger Fabric consortium Azure Kubernetes Service
+    href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

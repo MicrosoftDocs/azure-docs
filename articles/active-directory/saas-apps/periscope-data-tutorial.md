@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,10 +103,10 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 	a. In the **Sign on URL** text box, type any of the URLs:
     
-	| |
-	|--|
-	| `https://app.periscopedata.com/` |
-	| `https://app.periscopedata.com/app/<SITENAME>` |
+    ```https
+    https://app.periscopedata.com/
+    https://app.periscopedata.com/app/<SITENAME>
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://app.periscopedata.com/<SITENAME>/sso`

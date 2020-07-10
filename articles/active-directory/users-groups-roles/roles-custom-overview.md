@@ -1,14 +1,14 @@
 ---
-title: Preview Azure administrator roles with customizable permissions - Azure Active Directory | Microsoft Docs
+title: Custom administrator roles in Azure Active Directory | Microsoft Docs
 description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 09/04/2019
+ms.topic: overview
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -31,6 +31,22 @@ Granting permission using custom Azure AD roles is a two-step process that invol
 Once you’ve created your role definition, you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
 
 Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments.
+
+### How Azure AD determines if a user has access to a resource
+
+The following are the high-level steps that Azure AD uses to determine if you have access to a management resource. Use this information to troubleshoot access issues.
+
+1. A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
+
+1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph or Azure AD Graph using the issued token.
+
+1. Depending on the circumstance, Azure AD takes one of the following actions:
+
+    - Evaluates the user’s role memberships based on the [wids claim](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) in the user’s access token.
+    - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.
+
+1. Azure AD determines if the action in the API call is included in the roles the user has for this resource.
+1. If the user doesn't have a role with the action at the requested scope, access is not granted. Otherwise access is granted.
 
 ### Role assignments
 

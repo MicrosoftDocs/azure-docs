@@ -1,9 +1,9 @@
 ---
-author: jpconnock
+author: tanmaygore
+ms.author: tagore
 ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: jeconnoc
 ---
 
 > [!NOTE]

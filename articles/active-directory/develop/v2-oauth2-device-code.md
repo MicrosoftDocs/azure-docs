@@ -1,33 +1,26 @@
 ---
-title: Use Microsoft identity platform to sign in users on browser-less devices | Azure
-description: Build embedded and browser-less authentication flows using the device authorization grant.
+title: OAuth 2.0 device code flow | Azure
+titleSuffix: Microsoft identity platform
+description: Sign in users without a browser. Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: hpsin
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: ryanwi
+ms.date: 11/19/2019
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform and the OAuth 2.0 device authorization grant flow
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.
 
-The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
-
-> [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
+This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 ## Protocol diagram
 
@@ -43,7 +36,7 @@ The client must first check with the authentication server for a device and user
 > Try executing this request in Postman!
 > [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -62,7 +55,7 @@ scope=user.read%20openid%20profile
 
 ### Device authorization response
 
-A successful response will be a JSON object containing the required information to allow the user to sign in.  
+A successful response will be a JSON object containing the required information to allow the user to sign in.
 
 | Parameter | Format | Description |
 | ---              | --- | --- |
@@ -80,11 +73,11 @@ A successful response will be a JSON object containing the required information 
 
 After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to sign in using their mobile phone or PC browser.
 
-If the user authenticates with a personal account (on /common or /consumers), they will be asked to sign in again in order to transfer authentication state to the device.  They will also be asked to provide consent, to ensure they are aware of the permissions being granted.  This does not apply to work or school accounts used to authenticate. 
+If the user authenticates with a personal account (on /common or /consumers), they will be asked to sign in again in order to transfer authentication state to the device.  They will also be asked to provide consent, to ensure they are aware of the permissions being granted.  This does not apply to work or school accounts used to authenticate.
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
-``` 
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +88,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parameter | Required | Description|
 | -------- | -------- | ---------- |
-| `tenant`  | Required | The same tenant or tenant alias used in the initial request. | 
+| `tenant`  | Required | The same tenant or tenant alias used in the initial request. |
 | `grant_type` | Required | Must be `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Required | Must match the `client_id` used in the initial request. |
 | `device_code`| Required | The `device_code` returned in the device authorization request.  |
 
 ### Expected errors
 
-The device code flow is a polling protocol so your client must expect to receive errors before the user has finished authenticating.  
+The device code flow is a polling protocol so your client must expect to receive errors before the user has finished authenticating.
 
 | Error | Description | Client Action |
 | ------ | ----------- | -------------|
 | `authorization_pending` | The user hasn't finished authenticating, but hasn't canceled the flow. | Repeat the request after at least `interval` seconds. |
 | `authorization_declined` | The end user denied the authorization request.| Stop polling, and revert to an unauthenticated state.  |
 | `bad_verification_code`| The `device_code` sent to the `/token` endpoint wasn't recognized. | Verify that the client is sending the correct `device_code` in the request. |
-| `expired_token` | At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling and revert to an unauthenticated state. |   
+| `expired_token` | At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling and revert to an unauthenticated state. |
 
 ### Successful authentication response
 
@@ -135,4 +128,4 @@ A successful token response will look like:
 | `id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
 
-You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

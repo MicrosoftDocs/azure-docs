@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
+ms.custom: [amqp, mqtt]
 ---
 # Communicate with your IoT hub using the MQTT protocol
 
@@ -19,7 +20,7 @@ IoT Hub is not a full-featured MQTT broker and does not support all the behavior
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn’t support non-secure connections over port 1883.
+All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support non-secure connections over port 1883.
 
 ## Connecting to IoT Hub
 
@@ -28,21 +29,56 @@ A device can use the MQTT protocol to connect to an IoT hub using any of the fol
 * Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 * The MQTT protocol directly.
 
+The MQTT port (8883) is blocked in many corporate and educational networking environments. If you can't open port 8883 in your firewall, we recommend using MQTT over Web Sockets. MQTT over Web Sockets communicates over port 443, which is almost always open in networking environments. To learn how to specify the MQTT and MQTT over Web Sockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#using-the-device-sdks).
+
 ## Using the device SDKs
 
-[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
-The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT protocol.
+The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT or the MQTT over Web Sockets protocol.
 
-| Language | Protocol parameter |
-| --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Always supports MQTT by default |
+| Language | MQTT protocol parameter | MQTT over Web Sockets protocol parameter
+| --- | --- | --- |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
+
+The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Node.js SDK:
+
+```javascript
+var Client = require('azure-iot-device').Client;
+var Protocol = require('azure-iot-device-mqtt').MqttWs;
+var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+```
+
+The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Python SDK:
+
+```python
+from azure.iot.device.aio import IoTHubDeviceClient
+device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
+```
+
+### Default keep-alive timeout
+
+In order to ensure a client/IoT Hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. The client using IoT SDK sends a keep-alive at the interval defined in this table below:
+
+|Language  |Default keep-alive interval  |Configurable  |
+|---------|---------|---------|
+|Node.js     |   180 seconds      |     No    |
+|Java     |    230 seconds     |     No    |
+|C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|Python (V2)   | 60 seconds |  No   |
+
+Following [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
+
+For example, a device using the Java SDK sends the keep-alive ping then loses network connectivity. 230 seconds later, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
+
+The maximum client keep-alive value you can set is `1767 / 1.5 = 1177` seconds. Any traffic will reset the keep-alive. For example, a successful SAS token refresh resets the keep-alive.
 
 ### Migrating a device app from AMQP to MQTT
 
@@ -77,7 +113,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code:
 
 ### For Azure IoT Tools
 
@@ -88,16 +124,6 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 3. Set **expiration time** and press 'Enter'.
   
 4. The SAS token is created and copied to clipboard.
-
-### For Device Explorer
-
-1. Go to the **Management** tab in **Device Explorer**.
-
-2. Click **SAS Token** (top right).
-
-3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
-
-4. Click **Generate** to create your token.
 
    The SAS token that's generated has the following structure:
 
@@ -120,34 +146,33 @@ This repository contains:
 
 **For Windows:**
 
-•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
+* TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
 
-•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
+* SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
 
-•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
+* DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-•	PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **For Linux:**
 
-•	MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
+* MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu, and Raspbian have been tested so far).
 
-•	LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
+* LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
 
-**For mosquito_pub:**
+**For mosquitto_pub:**
 
-•	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
+This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
-Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
+* Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
 
-Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
-
+* Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
 
 ## Using the MQTT protocol directly (as a module)
 
 Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [above](#using-the-mqtt-protocol-directly-as-a-device)) but you need to use the following:
 
-* Set the client id to `{device_id}/{module_id}`.
+* Set the client ID to `{device_id}/{module_id}`.
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
 
@@ -223,10 +248,6 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
-
-The following are the installation instructions for the prerequisites.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 To authenticate using a device certificate, update the code snippet above with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
 
@@ -305,7 +326,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 204 | Success (no content is returned) |
+| 200 | Success |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
@@ -313,7 +334,7 @@ For more information, see [Device twins developer's guide](iot-hub-devguide-devi
 
 ## Update device twin's reported properties
 
-To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
+To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request ID (`$rid`) provided initially by the device in its update request. This request ID is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
 
 The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
 
@@ -323,7 +344,7 @@ The following sequence describes how a device updates the reported properties in
 
 3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
 
-The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
+The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin's document. A member set to `null`, deletes the member from the containing object. For example:
 
 ```json
 {
@@ -336,7 +357,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Success (no content is returned) |
 | 400 | Bad Request. Malformed JSON |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
@@ -371,7 +392,7 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 }
 ```
 
-As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
+As for property updates, `null` values mean that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.

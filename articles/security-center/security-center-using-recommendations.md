@@ -50,20 +50,20 @@ As part of their daily monitoring activities, Jeff signs in to Azure and opens S
 
 1. Jeff selects the workload's subscriptions.
 
-2. Jeff checks the **secure score** to get an overall picture of how secure the subscriptions are and sees that the score is 548.
+2. Jeff checks the **Secure Score** to get an overall picture of how secure the subscriptions are and sees that the score is 548.
 
-3. Jeff has to decide which recommendations to handle first. So Jeff clicks secure score and starts to handle recommendations based on how much it improves his [secure score impact](security-center-secure-score.md).
+3. Jeff has to decide which recommendations to handle first. So Jeff clicks Secure Score and starts to handle recommendations based on how much it improves his [secure score](secure-score-security-controls.md).
 
 4. Because Jeff has lots of connected VMs and servers, Jeff decides to focus on **Compute and apps**.
 
-5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the secure score impact.
+5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the Secure Score impact.
 
-6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use (**just-in-time VM access**)[security-center-just-in-time.md].
+6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use [**just-in-time VM access**](security-center-just-in-time.md).
 
-Jeff continues to move through the high priority and medium priority recommendations, and makes decisions on implementation. For each recommendation, Jeff looks at the detailed information provided by Security Center to understand which resources are impacted, what the secure score impact is, what each recommendation means and remediation steps for how to mitigate each issue.
+Jeff continues to move through the high priority and medium priority recommendations, and makes decisions on implementation. For each recommendation, Jeff looks at the detailed information provided by Security Center to understand which resources are impacted, what the Secure Score impact is, what each recommendation means and remediation steps for how to mitigate each issue.
 
 ## Conclusion
-Monitoring recommendations in Security Center helps you eliminate security vulnerabilities before an attack occurs. When you remediate recommendations, your secure score and your workloads' security posture improve. Security Center automatically discovers new resources you deploy, assesses them against your security policy and provides new recommendations for securing them.
+Monitoring recommendations in Security Center helps you eliminate security vulnerabilities before an attack occurs. When you remediate recommendations, your Secure Score and your workloads' security posture improve. Security Center automatically discovers new resources you deploy, assesses them against your security policy and provides new recommendations for securing them.
 
 
 ## Next steps

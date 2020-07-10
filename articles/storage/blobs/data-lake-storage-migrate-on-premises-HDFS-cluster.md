@@ -1,38 +1,38 @@
 ---
-title: Use Azure Data Box to migrate data from on-premises HDFS store to Azure Storage
+title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
 description: Migrate data from an on-premises HDFS store to Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 06/11/2019
+ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
-# Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
+# Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
 > * Prepare to migrate your data.
-> * Copy your data to a Data Box or a Data Box Heavy device.
+> * Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
 > * Ship the device back to Microsoft.
-> * Move the data onto Data Lake Storage Gen2.
+> * Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
 ## Prerequisites
 
 You need these things to complete the migration.
 
-* Two storage accounts; one that has a hierarchical namespace enabled on it, and one that doesn't.
+* An Azure Storage account.
 
 * An on-premises Hadoop cluster that contains your source data.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). While ordering your device, remember to choose a storage account that **doesn't** have hierarchical namespaces enabled on it. This is because Data Box devices do not yet support direct ingestion into Azure Data Lake Storage Gen2. You will need to copy into a storage account and then do a second copy into the ADLS Gen2 account. Instructions for this are given in the steps below.
+  * [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
 
   * Cable and connect your [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) to an on-premises network.
 
@@ -169,42 +169,20 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
     * For Data Box Heavy devices, see [Ship your Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
 
-5. After Microsoft receives your device, it is connected to the data center network and the data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
+5. After Microsoft receives your device, it is connected to the data center network and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. 
 
-## Move the data into Azure Data Lake Storage Gen2
+## Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
-You already have the data into your Azure Storage account. Now you will copy the data into your Azure Data Lake storage account and apply access permissions to files and directories.
+You already have the data into your Azure Storage account. Now you will apply access permissions to files and directories.
 
 > [!NOTE]
-> This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
-
-### Copy data to the Azure Data Lake Storage Gen 2 account
-
-You can copy data by using Azure Data Factory, or by using your Azure-based Hadoop cluster.
-
-* To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Make sure to specify **Azure Blob Storage** as the source.
-
-* To use your Azure-based Hadoop cluster, run this DistCp command:
-
-    ```bash
-    hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
-    ```
-
-    * Replace the `<source_account>` and `<dest_account>` placeholders with the names of the source and destination storage accounts.
-
-    * Replace the `<source_container>` and `<dest_container>` placeholders with the names of the source and destination containers.
-
-    * Replace the `<source_path>` and `<dest_path>` placeholders with the source and destination directory paths.
-
-    * Replace the `<source_account_key>` placeholder with the access key of the storage account that contains the data.
-
-    This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
+> This step is needed only if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
 
 ### Create a service principal for your Azure Data Lake Storage Gen2 account
 
 To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-* When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+* When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
 * When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
 
@@ -257,7 +235,7 @@ Run this command to apply permissions to the data that you copied into the Data 
 
 Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### Download helper scripts and set up your edge node to run them
 
@@ -278,7 +256,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
    sudo apt-get install jq
    ```
 
-3. Install the [Requests](http://docs.python-requests.org/en/master/) python package.
+3. Install the [Requests](https://2.python-requests.org/en/master/) python package.
 
    ```bash
    

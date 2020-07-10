@@ -1,5 +1,5 @@
 ---
-title: Create schedule triggers in Azure Data Factory | Microsoft Docs
+title: Create schedule triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 services: data-factory
 documentationcenter: ''
@@ -11,9 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
+ms.custom: tracking-python
 ---
 
 # Create a trigger that runs a pipeline on a schedule
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article provides information about the schedule trigger and the steps to create, start, and monitor a schedule trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 When creating a schedule trigger, you specify a schedule (start date, recurrence, end date etc.) for the trigger, and associate with a pipeline. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
@@ -24,38 +27,46 @@ The following sections provide steps to create a schedule trigger in different w
 You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
 > [!NOTE]
-> For a complete walkthrough of creating a pipeline and a schedule trigger, associating the trigger with the pipeline, and running and monitoring the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
+> For a complete walkthrough of creating a pipeline and a schedule trigger, which associates the trigger with the pipeline, and runs and monitors the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
 
-1. Switch to the **Edit** tab. 
+1. Switch to the **Edit** tab, shown with a pencil symbol. 
 
     ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Click **Trigger** on the menu, and click **New/Edit**. 
+
+1. Select **Trigger** on the menu, then select **New/Edit**. 
 
     ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. In the **Add Triggers** page, click **Choose trigger...**, and click **New**. 
+
+1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
 
     ![Add triggers - new trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. In the **New Trigger** page, do the following steps: 
+
+1. On the **New Trigger** page, do the following steps: 
 
     1. Confirm that **Schedule** is selected for **Type**. 
-    2. Specify the start datetime of the trigger for **Start Date (UTC)**. It's set to the current datetime by default. 
-    3. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
-    4. For the **End** field, if you do not want to specify an end datetime for the trigger, select **No End**. To specify an end date time, select **On Date**, and specify end datetime, and click **Apply**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+    1. Specify the start datetime of the trigger for **Start Date (UTC)**. It's set to the current datetime by default. 
+    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+    1. For the **End** field, if you do not want to specify an end datetime for the trigger, select **No End**. To specify an end date time, select **On Date**, and specify end datetime, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
 
         ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. In the **New Trigger** window, check the **Activated** option, and click **Next**. You can use this checkbox to deactivate the trigger later. 
+
+1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
 
     ![Trigger settings - Next button](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. In the **New Trigger** page, review the warning message, and click **Finish**.
+
+1. In the **New Trigger** window, review the warning message, then select **OK**.
 
     ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Click **Publish** to publish changes to Data Factory. Until you publish changes to Data Factory, the trigger does not start triggering the pipeline runs. 
+
+1. Select **Publish all** to publish the changes to Data Factory. Until you publish the changes to Data Factory, the trigger doesn't start triggering the pipeline runs. 
 
     ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Switch to the **Monitor** tab on the left. Click **Refresh** to refresh the list. You see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use **Trigger Now** option, you see the manual trigger run in the list. 
+
+1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
 
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Click the down-arrow next to **Pipeline Runs** to switch to the **Trigger Runs** view. 
+
+1. Switch to the **Trigger Runs** view. 
 
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -105,31 +116,31 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
     - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. Therefore, you pass values for these parameters from the trigger.
 
-2. Create a trigger by using the **Set-AzDataFactoryV2Trigger** cmdlet:
+1. Create a trigger by using the **Set-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+1. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Start the trigger by using the **Start-AzDataFactoryV2Trigger** cmdlet:
+1. Start the trigger by using the **Start-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirm that the status of the trigger is **Started** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+1. Confirm that the status of the trigger is **Started** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Get the trigger runs in Azure PowerShell by using the **Get-AzDataFactoryV2TriggerRun** cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
+1.  Get the trigger runs in Azure PowerShell by using the **Get-AzDataFactoryV2TriggerRun** cmdlet. To get the information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -396,4 +407,4 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 
 
 ## Next steps
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).

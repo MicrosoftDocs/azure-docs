@@ -1,11 +1,10 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
 
 ---
@@ -96,7 +95,7 @@ The solution dashboard shows the following blades:
 
 ![DNS Security blade](./media/dns-analytics/dns-security-blade.png)
 
-When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
+When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Log search results showing ircbot](./media/dns-analytics/ircbot.png)
 
@@ -176,7 +175,7 @@ Common troubleshooting steps:
 
 1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
-## Feedback
+## Suggestions
 
 To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice) to post ideas for DNS Analytics features to work on. 
 

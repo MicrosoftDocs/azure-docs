@@ -1,8 +1,6 @@
 ---
-title: "How to use a custom NuGet feed in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
+title: "Use a custom NuGet feed"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: "zr-msft"
 ms.author: "zarhoads"
 ms.date: "07/17/2019"
@@ -11,13 +9,13 @@ description: "Use a custom NuGet feed to access and use NuGet packages in an Azu
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 manager: gwallace
 ---
-#  Use a custom NuGet feed in an Azure Dev Space
+# Use a custom NuGet feed with Azure Dev Spaces
 
 A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces needs to access this feed in order for dependencies to be properly installed in the Docker container.
 
 ## Set up a NuGet feed
 
-Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) for your dependency in the `*.csproj` file under the `PackageReference` node. For example:
+Add a [package reference](/nuget/consume-packages/package-references-in-project-files) for your dependency in the `*.csproj` file under the `PackageReference` node. For example:
 
 ```xml
 <ItemGroup>
@@ -27,7 +25,7 @@ Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/pack
 </ItemGroup>
 ```
 
-Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
+Create a [NuGet.Config](/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
 
 ```xml
 <packageSources>
@@ -58,7 +56,7 @@ If you are using Git, you should not have the credentials for your NuGet feed in
 build:
 useGitIgnore: true
 ignore:
-- “!NuGet.Config”
+- "!NuGet.Config"
 ```
 
 If you are not using Git, you can skip this step.
@@ -67,4 +65,4 @@ The next time you run `azds up` or hit `F5` in Visual Studio Code or Visual Stud
 
 ## Next steps
 
-Learn more about [NuGet and how it works](https://docs.microsoft.com/nuget/what-is-nuget).
+Learn more about [NuGet and how it works](/nuget/what-is-nuget).

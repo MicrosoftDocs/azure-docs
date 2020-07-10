@@ -7,15 +7,15 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
 # Tutorial: Use Custom Vision with an IoT device to report visual states
 
-This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an ONNX model exported from the Custom Vision service.
+This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model.
 
 A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * You'll also need to [create an IoT Hub resource](https://ms.portal.azure.com/#create/Microsoft.IotHub) on Azure.
 * [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
-   * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
+   * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help with setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
 
 ## About the Visual Alerts app
 
@@ -58,7 +58,7 @@ The following files handle the main functionality of the app.
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | This code controls the behavior of the XAML UI. It contains the state machine processing code.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | This class is a wrapper that handles integration with the Custom Vision Service.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | This class is a wrapper that handles integration with Windows ML for loading the ONNX model and scoring images against it.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | This class is a wrapper that handles integration with IoT Hub for uploading scoring results to Azure.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | This class is a wrapper that handles integration with IoT Hub for uploading scoring results to Azure.|
 
 ## Set up the Visual Alerts app
 
@@ -86,9 +86,9 @@ When you run the app for the first time, it won't have any knowledge of visual s
 
 To set up a model, you need to put the app in the **Capturing Training Images** state. Take one of the following steps:
 * If you're running the app on PC, use the button on the top-right corner of the UI.
-* If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can call it through the device entry in the IoT Hub menu on the Azure portal, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can call it through the device entry in the IoT Hub menu on the Azure portal, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp).
  
-When the app enters the **Capturing Training Images** state, it will capture about two images every second until it has reached the target number of images. By default, this is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
+When the app enters the **Capturing Training Images** state, it will capture about two images every second until it has reached the target number of images. By default, the target is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
 
 While the app is capturing images, you must expose the camera to the types of visual states that you want to detect (for example, an empty room, a room with
 people, an empty desk, a desk with a toy truck, and so on).
@@ -113,7 +113,7 @@ To repeat this process with your own scenario:
 
 Once the app downloads the trained model, it will switch to the **Scoring** state and start scoring images from the camera in a continuous loop.
 
-For each captured image, the app will display the top tag on the screen. If it doesn't recognize the visual state, it will display **No Matches**). The app also sends these messages to the IoT Hub, and if there is a class being detected, the message will include the label, the confidence score, and a property called `detectedClassAlert`, which can be used by IoT Hub clients interested in doing fast message routing based on properties.
+For each captured image, the app will display the top tag on the screen. If it doesn't recognize the visual state, it will display **No Matches**. The app also sends these messages to the IoT Hub, and if there is a class being detected, the message will include the label, the confidence score, and a property called `detectedClassAlert`, which can be used by IoT Hub clients interested in doing fast message routing based on properties.
 
 In addition, the sample uses a [Sense HAT library](https://github.com/emmellsoft/RPi.SenseHat) to detect when it's running on a Raspberry Pi with a Sense HAT unit, so it can use it as an output display by setting all display lights to red whenever it detects a class and blank when it doesn't detect anything.
 

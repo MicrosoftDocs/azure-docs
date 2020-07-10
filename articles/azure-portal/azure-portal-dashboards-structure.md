@@ -1,19 +1,19 @@
 ---
 title: The structure of Azure Dashboards | Microsoft Docs
-description: This article explains the JSON structure of an Azure Dashboard
+description: Walk through the JSON structure of an Azure Dashboard using an example dashboard. Includes reference to resource properties.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
-editor: tysonn
+manager: mtillman
+
 
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 
 ---
 # The structure of Azure Dashboards
@@ -289,12 +289,12 @@ Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/a
 
 Let’s break down the relevant sections of the JSON.  The top-level properties, __id__, __name__, __type__, __location__, and __tags__ properties are shared across all Azure resource types. That is, they don’t have much to do with the dashboard’s content.
 
-### The id property
+### The ID property
 
-The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
+The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard it generally chooses an ID in the form of a guid, but you are free to use any valid name when you create them programmatically. 
 
 ### The name property
-The name is the segment of the resource Id that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource id.
+The name is the segment of the resource ID that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource ID.
 
 ### The type property
 All dashboards are of type __Microsoft.Portal/dashboards__.
@@ -308,13 +308,13 @@ Tags are a common feature of Azure resources that let you organize your resource
 `"tags": { "hidden-title": "Created via API" }`
 
 ### The properties object
-The properties object contains two properties, __lenses__ and __metadata__. The __lenses__ property contains information about the tiles (a.k.a. parts) on the dashboard.  The __metadata__ property is there for potential future features.
+The properties object contains two properties, __lenses__ and __metadata__. The __lenses__ property contains information about the tiles on the dashboard.  The __metadata__ property is there for potential future features.
 
 ### The lenses property
 The __lenses__ property contains the dashboard. Note that the lenses object in this example contains a single property called “0”. Lenses are a grouping concept that is not currently implemented in dashboards. For now, all of your dashboards have this single property on the lens object, again, called “0”.
 
 ### The lens object
-The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ is always 0. The __parts__ property contains an object that defines the individual parts (a.k.a. tiles) on the dashboard.
+The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ is always 0. The __parts__ property contains an object that defines the individual parts (also referred to as tiles) on the dashboard.
 
 The __parts__ object contains a property for each part, where the name of the property is a number. This number is not significant. 
 
@@ -340,7 +340,7 @@ Each part has a metadata property, an object has only one required property call
 Each type of part has its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 
 
 ### The inputs object
-The inputs object generally contains information that binds a tile to a resource instance.  The virtual machine part in our sample dashboard contains a single input that uses the Azure resource id to express the binding.  This resource id format is consistent across all Azure resources.
+The inputs object generally contains information that binds a tile to a resource instance.  The virtual machine part in our sample dashboard contains a single input that uses the Azure resource ID to express the binding.  This resource ID format is consistent across all Azure resources.
 
 ```json
 "inputs":
@@ -425,6 +425,6 @@ Similarly, the video tile has its own settings that contain a pointer to the vid
 ```
 
 ### The asset object
-Tiles that are bound to first class manageable portal objects (called assets) have this relationship expressed via the asset object.  In our example dashboard, the virtual machine tile contains this asset description.  The __idInputName__ property tells the portal that the id input contains the unique identifier for the asset, in this case the resource id. Most Azure resource types have assets defined in the portal.
+Tiles that are bound to first class manageable portal objects (called assets) have this relationship expressed via the asset object.  In our example dashboard, the virtual machine tile contains this asset description.  The __idInputName__ property tells the portal that the ID input contains the unique identifier for the asset, in this case the resource ID. Most Azure resource types have assets defined in the portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

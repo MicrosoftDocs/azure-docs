@@ -1,14 +1,8 @@
 ---
 title: Security controls for Azure Event Hubs
-description: A checklist of security controls for evaluating Azure Event Hubs
-services: event-hubs
-ms.service: event-hubs
-author: spelluru
-
+description: This article provides a checklist of security controls for evaluating Azure Event Hubs (network, identity, data protection, etc.).
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 # Security controls for Azure Event Hubs
 
@@ -45,7 +39,7 @@ This article documents the security controls built into Azure Event Hubs.
 | Security control | Yes/No | Notes | Documentation |
 |---|---|--|--|
 | Server-side encryption at rest: Microsoft-managed keys |  Yes | |  |
-| Server-side encryption at rest: customer-managed keys (BYOK) | No |  |  |
+| Server-side encryption at rest: customer-managed keys (BYOK) | Yes. Available for dedicated clusters. | A customer managed key in Azure KeyVault can be used to encrypt the data on an Event Hub at rest. | [Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal](configure-customer-managed-key.md) |
 | Column level encryption (Azure Data Services)| N/A | |  |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | |  |
 | API calls encrypted| Yes |  |  |

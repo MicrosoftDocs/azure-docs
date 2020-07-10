@@ -1,10 +1,10 @@
 ---
-title: Benchmarking your application on Azure Disk Storage - managed disks
+title: Benchmarking your application on Azure Disk Storage
 description: Learn about the process of benchmarking your application on Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ---
@@ -20,7 +20,6 @@ To follow the examples below, create a Standard DS14 VM and attach 11 Premium St
 
 ## Next steps
 
-Proceed through our design for high performance article. In it, you create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine which disk offering can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
+Proceed to our article on [designing for high performance](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> See the article on [designing for high performance](premium-storage-performance.md) begin.
+In that article, you create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine which disk offering can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.

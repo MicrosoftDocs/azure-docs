@@ -1,12 +1,11 @@
 ---
 title: Wire Data solution in Azure Monitor | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with Log Analytics agents. Network data is combined with your log data to help you correlate data.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/03/2018
+author: bwren
+ms.author: bwren
+ms.date: 05/29/2020
 
 ---
 
@@ -16,12 +15,15 @@ ms.date: 10/03/2018
 
 Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 In addition to the Log Analytics agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Azure Monitor using agents.  
 
 >[!NOTE]
->If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), there is a new connection metrics data set they collect and store in Azure Monitor that provides comparable information to Wire Data.
+>The Wire Data solution has been replaced with the [Service Map solution](service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
+> 
+>Existing customers using the Wire Data solution may continue to use it. We will publish guidance for a migration timeline for moving to Service Map.
+>
+>New customers should install the [Service Map solution](service-map.md) or [Azure Monitor for VMs](vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  Azure Monitor for VMs includes the Service Map data set with additional performance data and features for analysis. 
+
 
 By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either side closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
@@ -161,7 +163,7 @@ The following sections list the supported operating systems for the Dependency a
 
 Perform the following steps to configure the Wire Data solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 2. Install the Dependency agent on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 > [!NOTE]

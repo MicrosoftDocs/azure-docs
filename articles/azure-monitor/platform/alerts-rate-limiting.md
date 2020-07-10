@@ -1,12 +1,10 @@
 ---
-title: "Rate limiting for SMS, emails, Azure App push notifications and webhooks"
+title: Rate limiting for SMS, emails, push notifications
 description: Understand how Azure limits the number of possible SMS, email, Azure App push or webhook notifications from an action group.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
-ms.author: dukek
 ms.subservice: alerts
 ---
 

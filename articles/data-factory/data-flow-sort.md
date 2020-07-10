@@ -1,32 +1,61 @@
 ---
-title: Azure Data Factory mapping data flow Sort Transformation
+title: Sort transformation in mapping data flow
 description: Azure Data Factory Mapping Data Sort Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.custom: seo-lt-2019
+ms.date: 04/14/2020
 ---
 
-# Azure Data Factory Data Flow Sort Transformations
+# Sort transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+The sort transformation allows you to sort the incoming rows on the current data stream. You can choose individual columns and sort them in ascending or descending order.
+
+> [!NOTE]
+> Mapping data flows are executed on spark clusters which distribute data across multiple nodes and partitions. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to reshuffling of data.
+
+## Configuration
 
 ![Sort settings](media/data-flow/sort.png "Sort")
 
-The Sort transformation allows you to sort the incoming rows on the current data stream. The outgoing rows from the Sort Transformation will subsequently follow the ordering rules that you set. You can choose individual columns and sort them ASC or DEC, using the arrow indicator next to each field. If you need to modify the column before applying the sort, click on "Computed Columns" to launch the expression editor. This will provide with an opportunity to build an expression for the sort operation instead of simply applying a column for the sort.
+**Case insensitive:** Whether or not you wish to ignore case when sorting string or text fields
 
-## Case insensitive
-You can turn on "Case insensitive" if you wish to ignore case when sorting string or text fields.
+**Sort Only Within Partitions:** As data flows are run on spark, each data stream is divided into partitions. This setting sorts data only within the incoming partitions rather than sorting the entire data stream. 
 
-"Sort Only Within Partitions" leverages Spark data partitioning. By sorting incoming data only within each partition, Data Flows can sort partitioned data instead of sorting entire data stream.
+**Sort conditions:** Choose which columns you are sorting by and in which order the sort happens. The order determines sorting priority. Choose whether or not nulls will appear at the beginning or end of the data stream.
 
-Each of the sort conditions in the Sort Transformation can be rearranged. So if you need to move a column higher in the sort precedence, grab that row with your mouse and move it higher or lower in the sorting list.
+### Computed columns
 
-Partitioning effects on Sort
+To modify or extract a column value before applying the sort, hover over the column and select "computed column". This will open the expression builder to create an expression for the sort operation instead of using a column value.
 
-ADF Data Flow is executed on big data Spark clusters with data distributed across multiple nodes and partitions. It is important to keep this in mind when architecting your data flow if you are depending on the Sort transform to keep data in that same order. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to that reshuffling of data.
+## Data flow script
+
+### Syntax
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### Example
+
+![Sort settings](media/data-flow/sort.png "Sort")
+
+The data flow script for the above sort configuration is in the code snippet below.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## Next steps
 

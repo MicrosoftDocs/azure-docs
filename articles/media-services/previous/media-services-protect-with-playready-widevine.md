@@ -31,7 +31,7 @@ Media Services provides a service for delivering PlayReady and Widevine DRM lice
 
 You also can use the following Media Services partners to help you deliver Widevine licenses: 
 
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -600,6 +600,10 @@ namespace DynamicEncryptionWithDRM
     }
 }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

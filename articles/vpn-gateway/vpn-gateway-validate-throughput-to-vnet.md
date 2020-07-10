@@ -1,6 +1,7 @@
 ---
-title: 'Validate VPN throughput to a Microsoft Azure Virtual Network | Microsoft Docs'
+title: 'Validate VPN throughput to a Microsoft Azure Virtual Network'
 description: The purpose of this document is to help a user validate the network throughput from their on-premises resources to an Azure virtual machine.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm

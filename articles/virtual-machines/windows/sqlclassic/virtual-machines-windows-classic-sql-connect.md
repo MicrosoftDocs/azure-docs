@@ -21,7 +21,7 @@ experimental_id: d51f3cc6-753b-4e
 ---
 # Connect to a SQL Server Virtual Machine on Azure (Classic Deployment)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)
 > * [Classic](../classic/sql-connect.md)
 > 
 > 
@@ -30,7 +30,7 @@ experimental_id: d51f3cc6-753b-4e
 This topic describes how to connect to your SQL Server instance running on an Azure virtual machine. It covers some [general connectivity scenarios](#connection-scenarios) and then provides [detailed steps for configuring SQL Server connectivity in an Azure VM](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. If you are using Resource Manager VMs, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. If you are using Resource Manager VMs, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
 
 ## Connection scenarios
 The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:
@@ -49,7 +49,7 @@ Multiple virtual machines can be created in the same cloud service. To understan
 
 In this scenario, you can connect using the VM **Name** (also shown as **Computer Name** or **hostname** in the portal). This is the name you provided for the VM during creation. For example, if you named your SQL VM **mysqlvm**, a client VM in the same cloud service could use the following connection string to connect:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 ### Connect to SQL Server over the Internet
 If you want to connect to your SQL Server database engine from the Internet, you must create a virtual machine endpoint for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
@@ -58,7 +58,7 @@ To connect over the internet, you must use the VM's DNS name and the VM endpoint
 
 For example, consider a classic virtual machine named **mysqlvm** with a DNS Name of **mysqlvm7777.cloudapp.net** and a VM endpoint of **57500**. Assuming properly configured connectivity, the following connection string could be used to access the virtual machine from anywhere on the internet:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 Although this enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, don't use the well-known port 1433 for the public virtual machine endpoint. And if possible, consider adding an ACL on your endpoint to restrict traffic only to the clients you permit. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -74,7 +74,7 @@ Virtual networks also enables you to join your Azure VMs to a domain. This is th
 
 If you are going to configure a domain environment and Windows Authentication, you do not need to use the steps in this article to configure the public endpoint or the SQL Authentication and logins. In this scenario, you can connect to your SQL Server instance by specifying the SQL Server VM name in the connection string. The following example assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-    "Server=mysqlvm;Integrated Security=true"
+`Server=mysqlvm;Integrated Security=true`
 
 ## Steps for configuring SQL Server connectivity in an Azure VM
 The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.
@@ -102,9 +102,9 @@ The connection path is summarized by the following diagram:
 ## Next Steps
 If you are also planning to use AlwaysOn Availability Groups for high availability and disaster recovery, you should consider implementing a listener. Database clients connect to the listener rather than directly to one of the SQL Server instances. The listener routes clients to the primary replica in the availability group. For more information, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](../classic/ps-sql-int-listener.md).
 
-It is important to review all of the security best practices for SQL Server running on an Azure virtual machine. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
+It is important to review all of the security best practices for SQL Server running on an Azure virtual machine. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md).
 
 [Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines. 
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

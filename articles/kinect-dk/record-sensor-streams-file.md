@@ -1,6 +1,6 @@
 ---
 title: Quickstart- Record Azure Kinect sensor streams to a file
-description: Quickstart how to record data streams from the Sensor SDK to a file
+description: In this quickstart, you will learn how to record data streams from the Sensor SDK to a file.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

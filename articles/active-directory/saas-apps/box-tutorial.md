@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 03/24/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,8 +41,9 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Box supports **SP** initiated SSO
+* Box supports [**Automated** user provisioning and deprovisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recommended)
 * Box supports **Just In Time** user provisioning
-* Box supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
+* Once you configure Box you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Box from the gallery
 
@@ -86,6 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `box.net`
+
+    c. In the **Reply URL** text box, type a URL:
+    `https://sso.services.box.net/sp/ACS.saml2`
 
 	> [!NOTE]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -153,3 +156,7 @@ When you click the Box tile in the Access Panel, you should be automatically sig
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Box with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Box with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-box)

@@ -48,7 +48,7 @@ The below JSON example configuration creates a new virtual network and subnet, a
   "properties": {
     "orchestratorProfile": {
       "orchestratorType": "Kubernetes",
-      “kubernetesConfig”: {
+      "kubernetesConfig": {
          "networkPolicy": "azure"
        }
     },

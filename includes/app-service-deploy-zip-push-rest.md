@@ -13,7 +13,7 @@ For the HTTP BASIC authentication, you need your App Service deployment credenti
 
 ### With cURL
 
-The following example uses the cURL tool to deploy a .zip file. Replace the placeholders `<username>`, `<password>`, `<zip_file_path>`, and `<app_name>`. When prompted by cURL, type in the password.
+The following example uses the cURL tool to deploy a .zip file. Replace the placeholders `<deployment_user>`, `<zip_file_path>`, and `<app_name>`. When prompted by cURL, type in the password.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy

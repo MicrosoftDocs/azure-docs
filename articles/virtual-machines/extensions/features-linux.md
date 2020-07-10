@@ -1,5 +1,5 @@
 ---
-title: Azure VM extensions and features for Linux | Microsoft Docs
+title: Azure VM extensions and features for Linux 
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -111,7 +111,7 @@ The following image shows the installation of the Linux Custom Script extension 
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load-balanced VMs and an Azure SQL database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load-balanced VMs and Azure SQL Database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
 
 For more information, see the full [Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 

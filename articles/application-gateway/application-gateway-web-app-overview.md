@@ -1,11 +1,12 @@
 ---
-title: Overview of multi-tenant back ends, such as Azure App service, with Azure Application Gateway
+title: Multi-tenant back ends
+titleSuffix: Azure Application Gateway
 description: This page provides an overview of the Application Gateway support for multi-tenant back ends.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 06/09/2020
 ms.author: victorh
 
 ---
@@ -25,9 +26,9 @@ Application gateway provides a capability which allows users to override the HTT
 
 The ability to specify a host override is defined in the [HTTP settings](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) and can be applied to any back-end pool during rule creation. The following two ways of overriding host header and SNI extension for multi-tenant back ends is supported:
 
-- The ability to set the host name to a fixed value explicitly entered in the HTTP settings. This capability ensures that the host header is overridden to this value for all traffic to the back-end pool where the particular HTTP settings are applied. When using end to end SSL, this overridden host name is used in the SNI extension. This capability enables scenarios where a back-end pool farm expects a host header that is different from the incoming customer host header.
+- The ability to set the host name to a fixed value explicitly entered in the HTTP settings. This capability ensures that the host header is overridden to this value for all traffic to the back-end pool where the particular HTTP settings are applied. When using end to end TLS, this overridden host name is used in the SNI extension. This capability enables scenarios where a back-end pool farm expects a host header that is different from the incoming customer host header.
 
-- The ability to derive the host name from the IP or FQDN of the back-end pool members. HTTP settings also provide an option to dynamically pick the host name from a back-end pool member's FQDN if configured with the option to derive host name from an individual back-end pool member. When using end to end SSL, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back-end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN. For implementing this scenario, we use a switch in the HTTP Settings called [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) which will dynamically override the host header in the original request to the one mentioned in the backend pool.  For example, if your backend pool FQDN contains “contoso11.azurewebsites.net” and “contoso22.azurewebsites.net”, the original request’s host header which is contoso.com will be overridden to contoso11.azurewebsites.net or contoso22.azurewebsites.net when the request is sent to the appropriate backend server. 
+- The ability to derive the host name from the IP or FQDN of the back-end pool members. HTTP settings also provide an option to dynamically pick the host name from a back-end pool member's FQDN if configured with the option to derive host name from an individual back-end pool member. When using end to end TLS, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back-end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN. For implementing this scenario, we use a switch in the HTTP Settings called [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) which will dynamically override the host header in the original request to the one mentioned in the backend pool.  For example, if your backend pool FQDN contains “contoso11.azurewebsites.net” and “contoso22.azurewebsites.net”, the original request’s host header which is contoso.com will be overridden to contoso11.azurewebsites.net or contoso22.azurewebsites.net when the request is sent to the appropriate backend server. 
 
   ![web app scenario](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -35,11 +36,11 @@ With this capability, customers specify the options in the HTTP settings and cus
 
 ## Special considerations
 
-### SSL termination and end to end SSL with multi-tenant services
+### TLS termination and end to end TLS with multi-tenant services
 
-Both SSL termination and end to end SSL encryption is supported with multi-tenant services. For SSL termination at the application gateway, SSL certificate continues to be required to be added to the application gateway listener. However, in case of end to end SSL, trusted Azure services such as Azure App service web apps do not require whitelisting the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
+Both TLS termination and end to end TLS encryption is supported with multi-tenant services. For TLS termination at the application gateway, TLS certificate continues to be required to be added to the application gateway listener. However, in case of end to end TLS, trusted Azure services such as Azure App service web apps do not require allowing the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
 
-![end  to end SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![end  to end TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Notice that in the above image, there is no requirement to add authentication certificates when App service is selected as backend.
 

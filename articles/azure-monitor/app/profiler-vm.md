@@ -1,12 +1,10 @@
 ---
-title: Profile web apps running on an Azure VM by using Application Insights Profiler | Microsoft Docs
+title:  Profile web apps on an Azure VM - Application Insights Profiler
 description: Profile web apps on an Azure VM by using Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 
 ms.reviewer: mbullwin
 ---
@@ -85,15 +83,15 @@ We don't yet have a way to set the Application Insights Profiler sink from the p
 
     ![Check if WAD extension is installed][wadextension]
 
-1. Find the VM Diagnostics extension for your VM. Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+2. Find the VM Diagnostics extension for your VM. Go to [https://resources.azure.com](https://resources.azure.com). Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
 
     ![Navigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
 
-1. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
+3. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
 
     ![Add Application Insights Profiler Sink][resourceexplorersinksconfig]
 
-1. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
+4. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
 
     ![Send put request to apply changes][resourceexplorerput]
 

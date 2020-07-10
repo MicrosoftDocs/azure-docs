@@ -1,17 +1,14 @@
 ---
 title: Update device firmware through Azure IoT Hub | Microsoft Docs
-description: Implement a device firmware update process using jobs and device twins.
+description: Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/28/2019
-ms.custom: mvc
+ms.custom: [mvc, mqtt]
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---
@@ -34,7 +31,7 @@ In this tutorial, you complete the following tasks:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -50,6 +47,8 @@ node --version
 
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
+Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Set up Azure resources
 
 To complete this tutorial, your Azure subscription must have an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
@@ -61,7 +60,7 @@ hubname=tutorial-iot-hub
 location=centralus
 
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Create a resource group
 az group create --name tutorial-iot-hub-rg --location $location

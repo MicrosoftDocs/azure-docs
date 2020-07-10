@@ -1,17 +1,17 @@
 ---
-title: Review access to Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to review access of Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Review access to Azure AD roles in PIM - Azure AD | Microsoft Docs
+description: Learn how to review access of Azure Active Directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -27,10 +27,10 @@ If you're a privileged role administrator or global administrator interested in 
 
 ## Add a PIM dashboard tile
 
-If you don't have the Azure AD Privileged Identity Management service pinned to your dashboard in your Azure portal, follow these steps to get started.
+If you don't have the Privileged Identity Management service pinned to your dashboard in your Azure portal, follow these steps to get started.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
+2. Select your username in the upper right-hand corner of the Azure portal, and select the Azure AD organization where you will you be operating.
 3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application will open.
 
@@ -45,7 +45,6 @@ Follow these steps to find and complete the access review:
 4. Choose either **Approve** or **Deny**. You may need to include a reason for your decision in the **Provide a reason** text box.  
 5. Close the **Review Azure AD roles** blade.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
 - [Perform an access review of my Azure resource roles in PIM](pim-resource-roles-perform-access-review.md)

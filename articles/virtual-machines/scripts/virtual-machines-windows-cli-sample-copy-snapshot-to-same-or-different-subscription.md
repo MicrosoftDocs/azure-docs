@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI| Microsoft Docs
+title: Copy snapshot of a managed disk to a subscription - CLI Sample
 description: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:

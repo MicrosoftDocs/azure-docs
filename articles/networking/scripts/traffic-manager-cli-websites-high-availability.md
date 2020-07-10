@@ -3,22 +3,18 @@ title: Azure CLI Script Sample - Route traffic for high availability of applicat
 description: Azure CLI Script Sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: azure-infrastructure
-
-ms.assetid:
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
-# Route traffic for high availability of applications
+# Route traffic for high availability of applications - Azure CLI
 
 This script creates a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Traffic Manager directs traffic to the application in one region as the primary region, and to the secondary region when the application in the primary region is unavailable. Before executing the script, you must change the MyWebApp, MyWebAppL1 and MyWebAppL2 values to unique values across Azure. After running the script, you can access the app in the primary region with the URL mywebapp.trafficmanager.net.
 

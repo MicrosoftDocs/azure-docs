@@ -4,7 +4,7 @@ title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Do
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -367,8 +367,8 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Application Management|Edit Terms Of Use|
 |Application Management|Publish Terms Of Use|
 |Application Management|Unpublish Terms Of Use|
-|Application Management|Add application SSL certificate|
-|Application Management|Delete SSL binding|
+|Application Management|Add application TLS/SSL certificate|
+|Application Management|Delete TLS binding|
 |Application Management|Register connector|
 |Application Management|AdminPolicyDatas-RemoveResources|
 |Application Management|AdminPolicyDatas-SetResources|

@@ -1,13 +1,13 @@
 ﻿---
 title: Create an Internal Load Balancer - Azure template
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using a template in Resource Manager
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -22,8 +22,6 @@ ms.author: allensu
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -53,20 +51,22 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 To deploy the template by using the Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+2. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-    ```azurecli-interactive
+    ```console
     azure config mode arm
     ```
 
     Here is the expected output for the command above:
 
-        info:    New mode is arm
+    ```output
+    info:    New mode is arm
+    ```
 
 3. Open the parameter file, select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 4. Run the **azure group deployment create** command to deploy the new internal load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-    ```azurecli
+    ```console
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 

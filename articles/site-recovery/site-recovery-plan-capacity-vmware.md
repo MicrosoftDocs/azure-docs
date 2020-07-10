@@ -1,5 +1,5 @@
 ---
-title: Plan capacity and scaling for VMware disaster recovery to Azure by using Azure Site Recovery | Microsoft Docs
+title: Plan capacity for VMware disaster recovery with Azure Site Recovery 
 description: This article can help you plan capacity and scaling when you set up disaster recovery of VMware VMs to Azure by using Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -36,7 +36,7 @@ CPU | Memory | Cache disk size | Data change rate | Protected machines
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB or less | Use to replicate fewer than 100 machines.
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB to 1 TB | Use to replicate 100 to 150 machines.
 16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB | 1 TB | >1 TB to 2 TB | Use to replicate 151 to 200 machines.
-Deploy another configuration server by using an [OVF template](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Deploy a new configuration server if you're replicating more than 200 machines.
+Deploy another configuration server by using an [OVF template](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Deploy a new configuration server if you're replicating more than 200 machines.
 Deploy another [process server](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Deploy a new scale-out process server if the overall daily data change rate is greater than 2 TB.
 
 In these configurations:
@@ -48,7 +48,7 @@ In these configurations:
 
 The process server is the component that handles data replication in Azure Site Recovery. If the daily change rate is greater than 2 TB, you must add scale-out process servers to handle the replication load. To scale out, you can:
 
-* Increase the number of configuration servers by deploying by using an [OVF template](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). For example, you can protect up to 400 machines by using two configuration servers.
+* Increase the number of configuration servers by deploying by using an [OVF template](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). For example, you can protect up to 400 machines by using two configuration servers.
 * Add [scale-out process servers](vmware-azure-set-up-process-server-scale.md#download-installation-file). Use the scale-out process servers to handle replication traffic instead of (or in addition to) the configuration server.
 
 The following table describes this scenario:
@@ -87,11 +87,13 @@ After you use [Site Recovery Deployment Planner](site-recovery-deployment-planne
 
     ![Screenshot of the Azure Backup Properties dialog box](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet to set throttling. Here's an example:
+You can also use the [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) cmdlet to set throttling. Here's an example:
 
-    $mon = [System.DayOfWeek]::Monday
-    $tue = [System.DayOfWeek]::Tuesday
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```azurepowershell-interactive
+$mon = [System.DayOfWeek]::Monday
+$tue = [System.DayOfWeek]::Tuesday
+Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
 
 **Set-OBMachineSetting -NoThrottle** indicates that no throttling is required.
 

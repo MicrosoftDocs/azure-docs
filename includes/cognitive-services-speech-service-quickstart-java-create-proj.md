@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/20/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 ---
 
@@ -38,10 +38,10 @@ ms.author: erhopf
 
    * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
 
-     [!code-xml[POM repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Also add a `dependencies` element, with the Speech SDK version 1.7.0 as a dependency:
+   * Also add a `dependencies` element, with the Speech SDK version 1.12.1 as a dependency:
 
-     [!code-xml[POM dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 
    * Save the changes.

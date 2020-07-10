@@ -3,16 +3,16 @@ title: 'Quickstart: Collect data from a hybrid Linux Computer with Azure Monitor
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Linux computers running outside of Azure and enable data collection with Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: azure-monitor
+
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ---
 
@@ -20,7 +20,7 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 
 [Azure Monitor](../overview.md) can collect data directly from your physical or virtual Linux computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Linux server with a few easy steps. For information about Azure Linux VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,7 +50,7 @@ While the information is verified and the workspace is created, you can track it
 
 ## Obtain workspace ID and key
 
-Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
+Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace. This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -83,7 +83,7 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -95,12 +95,13 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Restart the agent by running the following command: 
+
+3. Restart the agent by running the following command: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
@@ -110,7 +111,7 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
 
 Azure Monitor can collect events from the Linux Syslog and performance counters that you specify for longer term analysis and reporting. It can also take action when it detects a particular condition. Follow these steps to configure collection of events from the Linux Syslog, and several common performance counters to start with.  
 
-1. In the lower-left corner of the Azure portal, select **More services**. In the search box, enter **Log Analytics**. As you type, the list filters based on your input. Select **Log Analytics workspaces**.
+1. In the Azure portal, select **All services**. In the list of resources, type Log Analytics. As you type, the list filters based on your input. Select **Log Analytics workspaces** and in your list of Log Analytics workspaces, select the workspace you are looking for and select **Advanced settings** of the **Log Analytics** workspace.
 
 2. Select **Data**, and then select **Syslog**.  
 

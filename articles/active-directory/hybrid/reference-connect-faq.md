@@ -51,7 +51,7 @@ Yes. After you install the agent, you can complete the registration process by u
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
+**Q: Does Azure AD Connect support syncing from two domains to an Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](how-to-connect-install-multiple-domains.md).
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  
@@ -108,7 +108,7 @@ The following is an informational document that presents some of the best practi
 - Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
 - Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
 - Test and Validate all upgrades on the Staging Server first
-- Always validate exports before switching over to the staging serverLeverage the staging server for Full Imports and Full Synchronizations to reduce business impact
+- Always validate exports before switching over to the staging server.  Leverage the staging server for Full Imports and Full Synchronizations to reduce business impact
 - Keep version consistency between Azure AD Connect Servers as much as possible 
 
 **Q: Can I allow Azure AD Connect to create the Azure AD Connector account on Workgroup machine?**
@@ -253,6 +253,19 @@ In rare cases, the Azure AD Connect service does not start after you perform the
 **Q: I’m not sure what the risks are when I upgrade to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?**  
 If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
+## Operational best practice	
+Below are some best practices you should implement when syncing between Windows Server Active Directory and Azure Active Directory.
+
+**Apply Multi-Factor Authentication for all synced accounts**
+Azure Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Follow the Azure AD Connect server security guidelines**
+The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Enable PHS for leaked credentials detection**
+Password Hash Sync also enables [leaked credential detection](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of your users, the associated account is moved to high risk. 
+
+
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
 
@@ -260,9 +273,9 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 
-[Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
-* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 

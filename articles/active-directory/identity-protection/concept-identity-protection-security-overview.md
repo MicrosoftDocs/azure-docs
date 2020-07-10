@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory (Azure AD) Identity Protection security overview
+title: Azure Active Directory Identity Protection security overview
 description: Learn how the Security overview gives you an insight into your organization’s security posture. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -53,7 +53,7 @@ The ‘Unprotected risky sign-ins' tile shows the last week’s count of success
 
 ### Legacy authentication
 
-The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
+The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications with risk present in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
 
 ### Identity Secure Score
 

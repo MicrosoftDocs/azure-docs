@@ -1,18 +1,21 @@
 ---
-title: 'Transform data by using Spark in Azure Data Factory | Microsoft Docs'
+title: 'Transform data by using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using a Spark activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: tutorial
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline. This pipeline transforms data by using a Spark activity and an on-demand Azure HDInsight linked service. 
 
 You perform the following steps in this tutorial:
@@ -94,7 +97,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-   Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+   Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. For **Version**, select **V2**.
 1. For **Location**, select the location for the data factory. 
 

@@ -2,7 +2,7 @@
 title: How to manage app passwords - Azure Active Directory | Microsoft Docs
 description: Learn about app passwords and what they are used for with regard to two-step verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -10,11 +10,10 @@ ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 08/13/2019
-ms.author: lizross
+ms.topic: end-user-help
+ms.date: 05/28/2020
+ms.author: curtand
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Manage app passwords for two-step verification

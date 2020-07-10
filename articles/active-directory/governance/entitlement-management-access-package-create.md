@@ -1,6 +1,6 @@
 ---
-title: Create a new access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management (Preview).
+title: Create a new access package in entitlement management - Azure AD
+description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available when creating a new access package so that the access package can be managed with minimal effort.
 
 ---
-# Create a new access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create a new access package in Azure AD entitlement management
 
 An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. This article describes how to create a new access package.
 
@@ -67,7 +62,7 @@ Here are the high-level steps to create a new access package.
 1. In the left menu, click **Access packages**.
 
 1. Click **New access package**.
-
+   
     ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## Basics
@@ -134,7 +129,18 @@ On the **Review + create** tab, you can review your settings and check for any v
 
     The new access package appears in the list of access packages.
 
+## Creating an access package programmatically
+
+You can also create an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
+
+1. [List the accessPackageResources in the catalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) and [create an accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) for any resources that are not yet in the catalog.
+1. [List the accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
+1. [Create an accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
+1. [Create an accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
+1. [Create an accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) for each resource role needed in the access package.
+
 ## Next steps
 
 - [Share link to request an access package](entitlement-management-access-package-settings.md)
 - [Change resource roles for an access package](entitlement-management-access-package-resources.md)
+- [Directly assign a user to the access package](entitlement-management-access-package-assignments.md)

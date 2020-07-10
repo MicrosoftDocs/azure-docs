@@ -1,6 +1,6 @@
 ---
 title: Scale media processing by adding encoding units - Azure |  Microsoft Docs
-description: Learn how to how to add encoding units with .NET
+description: This article demonstrates how to add encoding units with Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -36,15 +36,17 @@ ms.reviewer: milangada
 
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
-    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-    encodingS1ReservedUnit.Update();
-    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+```csharp
+IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+encodingS1ReservedUnit.Update();
+Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
-    encodingS1ReservedUnit.CurrentReservedUnits = 2;
-    encodingS1ReservedUnit.Update();
+encodingS1ReservedUnit.CurrentReservedUnits = 2;
+encodingS1ReservedUnit.Update();
 
-    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
 
 ## Opening a Support Ticket
 

@@ -1,10 +1,10 @@
 ---
-title: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances | Microsoft Docs
+title: Azure infrastructure for SAP ASCS/SCS HA with WSFC&file Share | Microsoft Docs
 description: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -37,8 +37,8 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -201,7 +201,7 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -346,7 +346,7 @@ After you successfully install the Windows Scale-Out File Server cluster, adapt 
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide fast enough failover in real error conditions or VM failure.
 

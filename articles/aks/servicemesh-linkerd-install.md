@@ -2,8 +2,6 @@
 title: Install Linkerd in Azure Kubernetes Service (AKS)
 description: Learn how to install and use Linkerd to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
@@ -244,7 +242,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > Deleting Linkerd from a running system may result in traffic related issues between your services. Ensure that you have made provisions for your system to still operate correctly without Linkerd before proceeding.
 
-First you'll need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll your workload deployments. Your workloads  should no longer have any associated data plane components.
+First you'll need to remove the data plane proxies. Remove any Automatic Proxy Injection [annotations][linkerd-automatic-proxy-injection] from workload namespaces and roll out your workload deployments. Your workloads  should no longer have any associated data plane components.
 
 Finally, remove the control plane as follows:
 

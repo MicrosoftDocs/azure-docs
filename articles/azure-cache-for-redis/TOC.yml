@@ -1,5 +1,5 @@
 - name: Azure Cache for Redis Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Cache for Redis
@@ -7,18 +7,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an ASP.NET app
-    href: cache-web-app-howto.md
-  - name: Create a .NET app
-    href: cache-dotnet-how-to-use-azure-redis-cache.md
-  - name: Create a .NET Core app
-    href: cache-dotnet-core-quickstart.md
-  - name: Create a Node.js app
-    href: cache-nodejs-get-started.md
-  - name: Create a Java app
-    href: cache-java-get-started.md
-  - name: Create a Python app
-    href: cache-python-get-started.md
+  - name: Create a cache
+    items:
+    - name: Basic, Standard and Premium tiers
+      href: quickstart-create-redis.md
+    - name: Enterprise tiers
+      href: quickstart-create-redis-enterprise.md
+  - name: Use a cache
+    items:
+    - name: ASP.NET app
+      href: cache-web-app-howto.md
+    - name: .NET Core app
+      href: cache-dotnet-core-quickstart.md
+    - name: .NET app
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Java app
+      href: cache-java-get-started.md
+    - name: Node.js app
+      href: cache-nodejs-get-started.md
+    - name: Python app
+      href: cache-python-get-started.md
 - name: Tutorials
   items:
   - name: Use caching with leaderboards
@@ -27,16 +35,23 @@
   items:
     - name: Azure Cache for Redis samples
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure 
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
 - name: Concepts
   items:
-    - name: Best practices
-      href: cache-best-practices.md
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Failover and patching
       href: cache-failover.md
+    - name: Best practices
+      href: cache-best-practices.md
     - name: Architecture best practices for caching
       href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
 - name: How-to guides
@@ -44,18 +59,22 @@
   - name: Plan
     items:
     - name: Choose a cache tier
-      href: cache-faq.md#what-redis-cache-offering-and-size-should-i-use
+      href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
+    - name: Distribute your cache with clustering
+      href: cache-how-to-premium-clustering.md
     - name: Persist your cache with Redis data persistence
       href: cache-how-to-premium-persistence.md
     - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
-    - name: Distribute your cache with clustering
-      href: cache-how-to-premium-clustering.md
+    - name: Set up geo-replication
+      href: cache-how-to-geo-replication.md
+    - name: Save with reserved capacity
+      href: cache-reserved-pricing.md
     - name: Migrate from Managed Cache Service
       href: cache-migrate-to-redis.md
   - name: Automate
     items:
-    - name: Deploy and manage using Azure Powershell
+    - name: Deploy and manage using Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md
@@ -79,8 +98,6 @@
     items:
     - name: Configure in Azure portal
       href: cache-configure.md
-    - name: Configure Geo-replication
-      href: cache-how-to-geo-replication.md
     - name: Import/Export data
       href: cache-how-to-import-export-data.md
     - name: Reboot
@@ -124,7 +141,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.redis
   - name: Java
-    href: /java/api/com.microsoft.azure.management.redis._redis_cache
+    href: /java/api/com.microsoft.azure.management.redis.rediscache
   - name: Redis clients
     href: https://redis.io/clients
   - name: Redis commands
@@ -145,5 +162,5 @@
     href: cache-faq.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cache-redis.html

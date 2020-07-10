@@ -4,17 +4,13 @@ description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 05/19/2020
 ms.author: tisande
 
 ---
 # GROUP BY clause in Azure Cosmos DB
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
-
-> [!NOTE]
-> Azure Cosmos DB currently supports GROUP BY in [.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) or later.
-> Support for other language SDK's and the Azure Portal is not currently available but is planned.
 
 ## Syntax
 
@@ -48,6 +44,17 @@ The GROUP BY clause divides the query's results according to the values of one o
 - Subqueries
 - Aggregate system functions (these are only allowed in the SELECT clause)
 
+Queries with an aggregate system function and a subquery with `GROUP BY` are not supported. For example, the following query is not supported:
+
+```sql
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
+```
+
 ## Examples
 
 These examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
@@ -63,22 +70,24 @@ GROUP BY f.foodGroup
 Some results are (TOP keyword is used to limit results):
 
 ```json
-[{
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "foodGroup": "Meals, Entrees, and Side Dishes",
-  "foodGroupCount": 113
-},
-{
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta"
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products"
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes"
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs"
+    }
+]
 ```
 
 This query has two expressions used to divide results:
@@ -92,26 +101,28 @@ GROUP BY f.foodGroup, f.version
 Some results are:
 
 ```json
-[{
-  "version": 1,
-  "foodGroup": "Nut and Seed Products",
-  "foodGroupCount": 133
-},
-{
-  "version": 1,
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "version": 1,
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "version": 1,
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs",
+        "version": 1
+    }
+]
 ```
 
 This query has a system function in the GROUP BY clause:
@@ -125,22 +136,24 @@ GROUP BY UPPER(f.foodGroup)
 Some results are:
 
 ```json
-[{
-  "foodGroupCount": 371,
-  "upperFoodGroup": "FAST FOODS"
-},
-{
-  "foodGroupCount": 267,
-  "upperFoodGroup": "FINFISH AND SHELLFISH PRODUCTS"
-},
-{
-  "foodGroupCount": 389,
-  "upperFoodGroup": "LEGUMES AND LEGUME PRODUCTS"
-},
-{
-  "foodGroupCount": 113,
-  "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
+    },
+    {
+        "foodGroupCount": 133,
+        "upperFoodGroup": "NUT AND SEED PRODUCTS"
+    },
+    {
+        "foodGroupCount": 113,
+        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
+    },
+    {
+        "foodGroupCount": 64,
+        "upperFoodGroup": "SPICES AND HERBS"
+    }
+]
 ```
 
 This query uses both keywords and system functions in the item property expression:
@@ -154,16 +167,18 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 The results are:
 
 ```json
-[{
-  "correctVersion": true,
-  "containsOrangeTag": false,
-  "foodGroupCount": 8608
-},
-{
-  "correctVersion": true,
-  "containsOrangeTag": true,
-  "foodGroupCount": 10
-}]
+[
+    {
+        "foodGroupCount": 10,
+        "containsOrangeTag": true,
+        "correctVersion": true
+    },
+    {
+        "foodGroupCount": 8608,
+        "containsOrangeTag": false,
+        "correctVersion": true
+    }
+]
 ```
 
 ## Next steps

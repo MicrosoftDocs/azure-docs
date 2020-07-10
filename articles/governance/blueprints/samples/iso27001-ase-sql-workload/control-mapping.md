@@ -1,11 +1,8 @@
 ---
-title: ISO 27001 ASE/SQL workload blueprint sample - Control mapping
+title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and RBAC.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
 
@@ -44,7 +41,7 @@ appropriate separation of duties.
 
 ## A.8.2.1 Classification of information
 
-Azure's [SQL Vulnerability Assessment service](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+Azure's [SQL Vulnerability Assessment service](../../../../azure-sql/database/sql-vulnerability-assessment.md)
 can help you discover sensitive data stored in your databases and includes recommendations to
 classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
@@ -299,7 +296,7 @@ deploy this sample:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

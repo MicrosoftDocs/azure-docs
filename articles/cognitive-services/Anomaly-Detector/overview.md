@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
 ---
 
 # What is the Anomaly Detector API?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
@@ -22,7 +24,7 @@ Using the Anomaly Detector doesn't require any prior experience in machine learn
 
 ## Features
 
-With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time. 
+With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
 
 |Feature  |Description  |
 |---------|---------|
@@ -47,7 +49,7 @@ To run the Notebook, complete the following steps:
 1. Un-check the "public" option in the dialog box before completing the clone operation, otherwise your notebook, including any subscription keys, will be public.
 1. Click **Run on free compute**
 1. Select one of the notebooks.
-1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable. 
+1. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
 1. Change the `endpoint` variable to your endpoint. For example: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. On the top menu bar, click **Cell**, then **Run All**.
 
@@ -67,8 +69,12 @@ After signing up:
 
 ## Algorithms
 
-* Please refer to this technical blog [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) about the algorithms under the hood.
-* Please refer to this paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) for the cutting-edge SR-CNN algorithms developed by Microsoft.
+* See the following technical blogs for information about the algorithms used:
+    * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+You can read the paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) to learn more about the SR-CNN algorithms developed by Microsoft.
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 

@@ -1,20 +1,19 @@
 ---
-title: Install the application access panel browser extension - Azure | Microsoft Docs
+title: Install application access panel browser extension - Azure AD
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/04/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ---
@@ -59,7 +58,7 @@ To install the access panel browser extension, do the following:
 You can also download the extension for Chrome and Microsoft Edge directly from following sites:
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Microsoft Edge extension](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 - [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## Use the My Apps Secure Sign-in Extension

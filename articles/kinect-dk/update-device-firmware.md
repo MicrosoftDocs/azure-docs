@@ -1,6 +1,6 @@
 ---
 title: Update Azure Kinect DK firmware
-description: Instructions for updating Azure Kinect DK device firmware
+description: Learn how to update the Azure Kinect DK device firmware using the Azure Kinect firmware tool.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -52,15 +52,15 @@ Azure Kinect DK doesn't update firmware automatically. You can use [Azure Kinect
 
     ```console
        >AzureKinectFirmwareTool.exe -q
-        == Azure Kinect DK Firmware Tool ==
-        Device Serial Number: 000036590812
-        Current Firmware Versions:
-        RGB camera firmware:      1.5.92
-        Depth camera firmware:    1.5.66
-        Depth config file:        6109.7
-        Audio firmware:           1.5.14
-        Build Config:             Production
-        Certificate Type:         Microsoft
+ == Azure Kinect DK Firmware Tool ==
+Device Serial Number: 000805192412
+Current Firmware Versions:
+  RGB camera firmware:      1.6.102
+  Depth camera firmware:    1.6.75
+  Depth config file:        6109.7
+  Audio firmware:           1.6.14
+  Build Config:             Production
+  Certificate Type:         Microsoft
     ```
 
 3. If you see the above output, your firmware is updated.

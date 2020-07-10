@@ -8,9 +8,10 @@
   expanded: true
   items:
   - name: Create Unity app
-    href: unity-overview.yml
     expanded: true
     items:
+    - name: Unity overview
+      href: unity-overview.md
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
     - name: Android
@@ -57,6 +58,20 @@
       href: how-tos/create-locate-anchors-cpp-ndk.md
     - name: In C++/WinRT
       href: how-tos/create-locate-anchors-cpp-winrt.md
+  - name: Use coarse relocalization to discover nearby anchors
+    items:
+    - name: In C#/Unity
+      href: how-tos/set-up-coarse-reloc-unity.md
+    - name: In Objective-C
+      href: how-tos/set-up-coarse-reloc-objc.md
+    - name: In Swift
+      href: how-tos/set-up-coarse-reloc-swift.md
+    - name: In Java
+      href: how-tos/set-up-coarse-reloc-java.md
+    - name: In C++/NDK
+      href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+    - name: In C++/WinRT
+      href: how-tos/set-up-coarse-reloc-cpp-winrt.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)
@@ -71,6 +86,8 @@
     href: concepts/guidelines-effective-anchor-experiences.md
   - name: Logging and diagnostics
     href: concepts/logging-diagnostics.md
+  - name: Coarse relocalization
+    href: concepts/coarse-reloc.md
 - name: References
   items:
   - name: SDK for Unity
@@ -83,10 +100,14 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
   - name: SDK for HoloLens C++/WinRT
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+  - name: Azure CLI
+    href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: Resources
   items:
+  - name: Release Notes
+    href: https://github.com/Azure/azure-spatial-anchors-samples/releases
   - name: Azure Mixed Reality Resource Management REST API
-    href: https://docs.microsoft.com/en-us/rest/api/mixedreality/
+    href: https://docs.microsoft.com/rest/api/mixedreality/
   - name: FAQ
     href: spatial-anchor-faq.md
   - name: Provide Product Feedback

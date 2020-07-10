@@ -1,12 +1,11 @@
 ---
 title: Container Monitoring solution in Azure Monitor | Microsoft Docs
 description: The Container Monitoring solution in Azure Monitor helps you view and manage your Docker and Windows container hosts in a single location.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
+ms.date: 07/06/2020
 
 ---
 
@@ -246,7 +245,32 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 
     `oc describe secret omsagent-secret`  
 
-    and the  output should resemble:  
+    and the output should resemble:  
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
+    ```
+
+5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+
+6. Verify deployment by running the following:
+
+    `oc describe ds oms`
+
+    and the output should resemble:
 
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
@@ -262,31 +286,6 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     Number of Nodes Misscheduled: 0  
     Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
     No events.  
-    ```
-
-5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
-
-    `oc create -f ocp-ds-omsagent.yaml`  
-
-6. Verify deployment by running the following:
-
-    `oc describe ds oms`
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-     Data  
-     ====  
-     KEY:    89 bytes  
-     WSID:   37 bytes  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes
@@ -615,7 +614,6 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 - **KubeEvents_CL**  Use this type to see the Kubernetes events.
 - **KubePodInventory_CL**  Use this type when you want to understand the cluster hierarchy information.
 
-
 ### To query logs for container data
 
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -625,7 +623,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 ## Example log queries
 
-It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
+It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **SAMPLE QUERIES** area on the far right of the solution page, to help you build more advanced queries.
 
 ![Containers queries](./media/containers/containers-queries.png)
 

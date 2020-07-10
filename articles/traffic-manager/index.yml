@@ -10,8 +10,8 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
+  author: rohinkoul
+  ms.author: rohink
   ms.date: 08/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -87,7 +87,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logging
+          - text: Enable resource logging
             url: traffic-manager-diagnostic-logs.md
           - text: Troubleshoot degraded state
             url: traffic-manager-troubleshooting-degraded.md

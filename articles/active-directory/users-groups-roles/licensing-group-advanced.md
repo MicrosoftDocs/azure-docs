@@ -1,17 +1,16 @@
 ---
-title: Group-based licensing additional scenarios - Azure Active Directory | Microsoft Docs
+title: Group-based licensing additional scenarios - Azure AD | Microsoft Docs
 description: More scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
-  
+manager: daveba  
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -96,7 +95,7 @@ Initially, the user inherits the license only from the *E3 basic services* group
 
 ## Managing new services added to products
 
-When Microsoft adds a new service to a product license plan, it is enabled by default in all groups to which you have assigned the product license. Users in your tenant who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
+When Microsoft adds a new service to a product license plan, it is enabled by default in all groups to which you have assigned the product license. Users in your organization who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
 
 As an administrator, you can review all groups affected by the change and take action, such as disabling the new service in each group. For example, if you created groups targeting only specific services for deployment, you can revisit those groups and make sure that any newly added services are disabled.
 
@@ -104,7 +103,7 @@ Here is an example of what this process may look like:
 
 1. Originally, you assigned the *Office 365 Enterprise E5* product to several groups. One of those groups, called *O365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
 
-2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your tenant, you can do the following:
+2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can do the following:
 
 3. Go to the [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) blade and select *Office 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
@@ -124,9 +123,9 @@ Here is an example of what this process may look like:
 ## Use PowerShell to see who has inherited and direct licenses
 You can use a PowerShell script to check if users have a license assigned directly or inherited from a group.
 
-1. Run the `connect-msolservice` cmdlet to authenticate and connect to your tenant.
+1. Run the `connect-msolservice` cmdlet to authenticate and connect to your organization.
 
-2. `Get-MsolAccountSku` can be used to discover all provisioned product licenses in the tenant.
+2. `Get-MsolAccountSku` can be used to discover all provisioned product licenses in the Azure AD organization.
 
    ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

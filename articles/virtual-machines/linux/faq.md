@@ -1,18 +1,9 @@
 ---
-title: Frequently asked questions for Linux VMs in Azure | Microsoft Docs
+title: Frequently asked questions for Linux VMs in Azure 
 description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-management
-
-ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
@@ -50,10 +41,10 @@ The two new regions of Canada Central and Canada East are not automatically regi
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 64 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) for more information around naming your resources.
+Yes. The computer name can be a maximum of 64 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 
@@ -61,24 +52,48 @@ Usernames should be 1 - 32 characters in length.
 
 The following usernames are not allowed:
 
-| | | | |
-|-----------------|-----------|--------------------|----------|
-| `administrator` | `admin`   | `user`             | `user1`  |
-| `test`          | `user2`   | `test1`            | `user3`  |
-| `admin1`        | `1`       | `123`              | `a`      |
-| `actuser`       | `adm`     | `admin2`           | `aspnet` |
-| `backup`        | `console` | `david`            | `guest`  |
-| `john`          | `owner`   | `root`             | `server` |
-| `sql`           | `support` | `support_388945a0` | `sys`    |
-| `test2`         | `test3`   | `user4`            | `user5`  |
-| `video`         |
+- `1`
+- `123`
+- `a`
+- `actuser`
+- `adm`
+- `admin`
+- `admin1`
+- `admin2`
+-`administrator`
+- `aspnet`
+- `backup`
+- `console`
+- `david`
+- `guest`
+- `john`
+- `owner`
+- `root`
+- `server`
+- `sql`
+- `support_388945a0`
+- `support`
+- `sys`
+- `test`
+- `test1`
+- `test2`
+- `test3`
+- `user`
+- `user1`
+- `user2`
+- `user3`
+- `user4`
+- `user5`
+- `video`
+
 
 ## What are the password requirements when creating a VM?
 
 There are varying password length requirements, depending on the tool you are using:
  - Portal - between 12 - 72 characters
  - PowerShell - between 8 - 123 characters
- - CLI - between 12 - 123
+ - CLI - between 12 - 123 characters
+ - Azure Resource Manager (ARM) templates - 12 - 72 characters and control characters are not allowed
  
 
 Passwords must also meet 3 out of the following 4 complexity requirements:

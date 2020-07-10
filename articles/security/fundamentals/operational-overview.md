@@ -5,17 +5,17 @@ description: This article provides an overview of Azure operational security.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
 
 ---
@@ -32,7 +32,7 @@ An IT operations team is responsible for managing datacenter infrastructure, app
 
 ### Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export. 
+[Azure Monitor](/azure/azure-monitor/overview) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export.
 
 You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Azure Monitor logs also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
 
@@ -42,11 +42,11 @@ You can consolidate data from a variety of sources and combine data from your Az
 
 ### Backup
 
-[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) is the Azure-based service that you can use to back up (or protect) and restore your data in the Microsoft Cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that's reliable, secure, and cost-competitive. 
+[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) is the Azure-based service that you can use to back up (or protect) and restore your data in the Microsoft Cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that's reliable, secure, and cost-competitive.
 
-Azure Backup offers components that you download and deploy on the appropriate computer or server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (whether you're protecting data on-premises or in the cloud) can be used to back up data to an Azure Recovery Services vault in Azure. 
+Azure Backup offers components that you download and deploy on the appropriate computer or server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (whether you're protecting data on-premises or in the cloud) can be used to back up data to an Azure Recovery Services vault in Azure.
 
-For more information, see the [Azure Backup components table](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+For more information, see the [Azure Backup components table](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### Site Recovery
 
@@ -58,7 +58,7 @@ For more information, see the [Azure Backup components table](/azure/backup/back
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
--	Supports integrated access management for [thousands of applications](https://azure.microsoft.com/marketplace/active-directory/) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
+-	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
 Azure AD also includes a full suite of [identity management capabilities](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
@@ -100,7 +100,7 @@ Performance issues in your cloud app can affect your business. With multiple int
 
 [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing your apps all in Azure and deciding whether to scale up or down resources, Azure Monitor is the place to start.
 
-You can also use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention. 
+You can also use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
 Azure Monitor includes the following components.
 
@@ -152,15 +152,15 @@ For more information, see [Configure Network Watcher](/azure/network-watcher/net
 
 ## Cloud Service Provider Access Transparency
 
-[Customer Lockbox for Microsoft Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue. 
+[Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue.
 There are very few instances, such as a debugging remote access issue, where a Microsoft Support Engineer requires elevated permissions to resolve this issue. In such cases, Microsoft engineers use just-in-time access service that provides limited, time-bound authorization with access limited to the service.  
 While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure Portal. Microsoft support engineers will not be granted access until you approve the request.
 
 ## Standardized and Compliant Deployments
 
 [Azure Blueprints](/azure/governance/blueprints/overview) enable cloud architects and central information technology groups to define a repeatable set of Azure resources that implement and adhere to an organization's standards, patterns, and requirements.  
-This makes it possible for DevOps teams to rapidly build and stand up new environments and trust that they're building them with infrastructure that maintains organizational compliance. 
-Blueprints provide a declarative way to orchestrate the deployment of various resource templates and other artifacts such as: 
+This makes it possible for DevOps teams to rapidly build and stand up new environments and trust that they're building them with infrastructure that maintains organizational compliance.
+Blueprints provide a declarative way to orchestrate the deployment of various resource templates and other artifacts such as:
 
 - Role Assignments
 - Policy Assignments
@@ -189,6 +189,6 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 
 To learn about the Security and Audit solution, see the following articles:
 
-- [Security and compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Security and compliance](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Azure Security Center](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

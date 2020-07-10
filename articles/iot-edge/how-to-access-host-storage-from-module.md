@@ -4,7 +4,7 @@ description: Use environment variables and create options to enable module acces
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,7 +18,7 @@ In addition to storing data using Azure storage services or in your device's con
 
 To enable a link from module storage to the storage on the host system, create an environment variable for your module that points to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine.
 
-For example, if you wanted to enable the IoT Edge hub to store messages in your device's local storage and retrieve them later, you can configure the environment variables and the create options in the Azure portal in the **Configure advanced Edge Runtime settings** section.
+For example, if you wanted to enable the IoT Edge hub to store messages in your device's local storage and retrieve them later, you can configure the environment variables and the create options in the Azure portal in the **Runtime Settings** section.
 
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:

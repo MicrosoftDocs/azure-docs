@@ -1,27 +1,25 @@
 ---
-title: Planning for migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
+title: Planning for migration from classic to Azure Resource Manager
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: ''
-author: singhkays
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
+author: tanmaygore
+manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ---
 
-# Planning for migration of IaaS resources from classic to Azure Resource Manager
-While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities. 
 
-> [!NOTE] 
+# Planning for migration of IaaS resources from classic to Azure Resource Manager
+
+> [!IMPORTANT]
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+
+While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities.
+
+> [!NOTE]
 > The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large environments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
 
 There are four general phases of the migration journey:
@@ -66,13 +64,13 @@ Successful customers have detailed plans where the preceding questions are discu
 - Not planning potential application outage for end users.  Plan enough buffer to adequately warn end users of potentially unavailable application time.
 
 
-## Lab Test 
+## Lab Test
 
 **Replicate your environment and do a test migration**
   > [!NOTE]
   > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
-  
+
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
 
 - A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
@@ -92,19 +90,19 @@ The following were issues discovered in many of the larger migrations. This is n
 
 - **VM Extensions** - Virtual Machine extensions are potentially one of the biggest roadblocks to migrating running VMs. Remediation of VM Extensions could take upwards of 1-2 days, so plan accordingly.  A working Azure agent is needed to report back VM Extension status of running VMs. If the status comes back as bad for a running VM, this will halt migration. The agent itself does not need to be in working order to enable migration, but if extensions exist on the VM, then both a working agent AND outbound internet connectivity (with DNS) will be needed for migration to move forward.
   - If connectivity to a DNS server is lost during migration, all VM Extensions except BGInfo v1.\* need to first be removed from every VM before migration prepare, and subsequently re-added back to the VM after Azure Resource Manager migration.  **This is only for VMs that are running.**  If the VMs are stopped deallocated, VM Extensions do not need to be removed. **Note:** Many extensions like Azure diagnostics and security center monitoring will reinstall themselves after migration, so removing them is not a problem.
-  - In addition, make sure Network Security Groups are not restricting outbound internet access. This can happen with some Network Security Groups configurations. Outbound internet access (and DNS) is needed for VM Extensions to be migrated to Azure Resource Manager. 
-  - There are two versions of the BGInfo extension: v1 and v2.  If the VM was created using the Azure portal or PowerShell, the VM will likely have the v1 extension on it. This extension does not need to be removed and will be skipped (not migrated) by the migration API. However, if the Classic VM was created with the new Azure portal, it will likely have the JSON-based v2 version of BGInfo, which can be migrated to Azure Resource Manager provided the agent is working and has outbound internet access (and DNS). 
-  - **Remediation Option 1**. If you know your VMs will not have outbound internet access, a working DNS service, and working Azure agents on the VMs, then uninstall all VM extensions as part of the migration before Prepare, then reinstall the VM Extensions after migration. 
+  - In addition, make sure Network Security Groups are not restricting outbound internet access. This can happen with some Network Security Groups configurations. Outbound internet access (and DNS) is needed for VM Extensions to be migrated to Azure Resource Manager.
+  - There are two versions of the BGInfo extension: v1 and v2.  If the VM was created using the Azure portal or PowerShell, the VM will likely have the v1 extension on it. This extension does not need to be removed and will be skipped (not migrated) by the migration API. However, if the Classic VM was created with the new Azure portal, it will likely have the JSON-based v2 version of BGInfo, which can be migrated to Azure Resource Manager provided the agent is working and has outbound internet access (and DNS).
+  - **Remediation Option 1**. If you know your VMs will not have outbound internet access, a working DNS service, and working Azure agents on the VMs, then uninstall all VM extensions as part of the migration before Prepare, then reinstall the VM Extensions after migration.
   - **Remediation Option 2**. If VM extensions are too big of a hurdle, another option is to shutdown/deallocate all VMs before migration. Migrate the deallocated VMs, then restart them on the Azure Resource Manager side. The benefit here is that VM extensions will migrate. The downside is that all public facing Virtual IPs will be lost (this may be a non-starter), and obviously the VMs will shut down causing a much greater impact on working applications.
 
-    > [!NOTE] 
+    > [!NOTE]
     > If an Azure Security Center policy is configured against the running VMs being migrated, the security policy needs to be stopped before removing extensions, otherwise the security monitoring extension will be reinstalled automatically on the VM after removing it.
 
-- **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming. 
+- **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming.
 
 - **Web/Worker Role Deployments** -  Cloud Services containing web and worker roles cannot migrate to Azure Resource Manager. The web/worker roles must first be removed from the virtual network before migration can start.  A typical solution is to just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit, or to migrate the code to newer PaaS App Services (this discussion is beyond the scope of this document). In the former redeploy case, create a new Classic virtual network, move/redeploy the web/worker roles to that new virtual network, then delete the deployments from the virtual network being moved. No code changes required. The new [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md) capability can be used to peer together the classic virtual network containing the web/worker roles and other virtual networks in the same Azure region such as the virtual network being migrated (**after virtual network migration is completed as peered virtual networks cannot be migrated**), hence providing the same capabilities with no performance loss and no latency/bandwidth penalties. Given the addition of [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md), web/worker role deployments can now easily be mitigated and not block the migration to Azure Resource Manager.
 
-- **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits. 
+- **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits.
 
     > [!NOTE]
     > These limits need to be raised in the same region as your current environment to be migrated.
@@ -122,27 +120,27 @@ The following were issues discovered in many of the larger migrations. This is n
 
     **Compute** *(Cores, Availability Sets)*
 
-    ```bash
-    az vm list-usage -l <azure-region> -o jsonc 
+    ```azurecli
+    az vm list-usage -l <azure-region> -o jsonc
     ```
 
     **Network** *(Virtual Networks, Static Public IPs, Public IPs, Network Security Groups, Network Interfaces, Load Balancers, Route Tables)*
-    
-    ```bash
+
+    ```azurecli
     az network list-usages -l <azure-region> -o jsonc
     ```
 
     **Storage** *(Storage Account)*
-    
-    ```bash
+
+    ```azurecli
     az storage account show-usage
     ```
 
 - **Azure Resource Manager API throttling limits** - If you have a large enough environment (eg. > 400 VMs in a VNET), you might hit the default API throttling limits for writes (currently **1200 writes/hour**) in Azure Resource Manager. Before starting migration, you should raise a support ticket to increase this limit for your subscription.
 
-- **Provisioning Timed Out VM Status** - If any VM has the status of **provisioning timed out**, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM). 
+- **Provisioning Timed Out VM Status** - If any VM has the status of **provisioning timed out**, this needs to be resolved pre-migration. The only way to do this is with downtime by deprovisioning/reprovisioning the VM (delete it, keep the disk, and recreate the VM).
 
-- **RoleStateUnknown VM Status** - If migration halts due to a **role state unknown** error message, inspect the VM using the portal and ensure it is running. This error will typically go away on its own (no remediation required) after a few minutes and is often a transient type often seen during a Virtual Machine **start**, **stop**, **restart** operations. **Recommended practice:** re-try migration again after a few minutes. 
+- **RoleStateUnknown VM Status** - If migration halts due to a **role state unknown** error message, inspect the VM using the portal and ensure it is running. This error will typically go away on its own (no remediation required) after a few minutes and is often a transient type often seen during a Virtual Machine **start**, **stop**, **restart** operations. **Recommended practice:** re-try migration again after a few minutes.
 
 - **Fabric Cluster does not exist** -  In some cases, certain VMs cannot be migrated for various odd reasons. One of these known cases is if the VM was recently created (within the last week or so) and happened to land an Azure cluster that is not yet equipped for Azure Resource Manager workloads.  You will get an error that says **fabric cluster does not exist** and the VM cannot be migrated. Waiting a couple of days will usually resolve this particular problem as the cluster will soon get Azure Resource Manager enabled. However, one immediate workaround is to `stop-deallocate` the VM, then continue forward with migration, and start the VM back up in Azure Resource Manager after migrating.
 
@@ -176,7 +174,7 @@ Not fully testing may cause issues and delay in the migration.
 
 ### Technical considerations and tradeoffs
 
-Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) to find out about additional benefits.
+Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../../azure-resource-manager/management/overview.md) to find out about additional benefits.
 
 Things to consider:
 
@@ -189,9 +187,9 @@ Things to consider:
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
 - [Role Based Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/template-deployment-overview.md).
-- [Tags](../../azure-resource-manager/resource-group-using-tags.md).
-- [Activity Control](../../azure-resource-manager/resource-group-audit.md)
+- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/templates/overview.md).
+- [Tags](../../azure-resource-manager/management/tag-resources.md).
+- [Activity Control](../../azure-resource-manager/management/view-activity-logs.md)
 - [Azure Policies](../../governance/policy/overview.md)
 
 ### Pitfalls to avoid

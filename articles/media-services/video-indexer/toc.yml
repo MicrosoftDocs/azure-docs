@@ -15,16 +15,22 @@
   items:
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
+  - name: Logic Apps connector
+    href: logic-apps-connector-tutorial.md
+- name: Samples
+  items:
+  - name: Video Indexer samples
+    href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
-  - name: Overview
-    href: video-indexer-concepts.md
   - name: Compare Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md  
   - name: Language identification model
     href: language-identification-model.md
+  - name: Live stream analysis
+    href: live-stream-analysis.md
   - name: Customizing content models
     items:
     - name: Overview
@@ -43,7 +49,7 @@
     href: connect-to-azure.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
-  - name: Use API to upload and index videos
+  - name: Upload and index videos
     href: upload-index-videos.md
   - name: Examine Video Indexer output
     href: video-indexer-output-json-v2.md
@@ -103,3 +109,7 @@
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 
   - name: Release notes
     href: release-notes.md
+  - name: User voice
+    href: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - name: Blogs
+    href: https://azure.microsoft.com/blog/tag/video-indexer/

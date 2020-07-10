@@ -2,10 +2,8 @@
 title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -26,10 +24,8 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Create an action group by using the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
-    ![The "Monitor" service](./media/action-groups/home-monitor.png)
-    
 1. Select **Alerts** then select **Manage actions**.
 
     ![Manage Actions button](./media/action-groups/manage-action-groups.png)
@@ -50,7 +46,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     1. **Name**: Enter a unique identifier for this action.
 
-    1. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+    1. **Action Type**: Select Automation Runbook, Azure Function, Email Azure Resource Manager Role, Email/SMS/Push/Voice, ITSM, Logic App, Secure Webhook, Webhook.
 
     1. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
@@ -60,7 +56,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Manage your action groups
 
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
@@ -68,10 +64,10 @@ After you create an action group, it's visible in the **Action groups** section 
 ## Action specific information
 
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 ### Automation Runbook
-Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
+Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads.
 
 You may have a limited number of Runbook actions in an Action Group. 
 
@@ -87,12 +83,12 @@ Emails will be sent from the following email addresses. Ensure that your email f
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Email Azure Resource Manager Role
-Send email to the members of the subscription's role.
+Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Function
-The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”. For more information, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -105,8 +101,6 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
-**The Secure Webhook functionality is currently in Preview.**
-
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
@@ -118,7 +112,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
     > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
     
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
-    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
+    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
     - Run the modified script.
     
 1. Configure the Action Group Secure Webhook action.
@@ -130,16 +124,16 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
-	
+    
 # This is your Azure AD Application's ObjectId. 
 $myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
-	
+    
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
-	
+    
 # This is the name of the new role we will add to your Azure AD Application
 $actionGroupRoleName = "ActionGroupsSecureWebhook"
-	
+    
 # Create an application role of given name and description
 Function CreateAppRole([string] $Name, [string] $Description)
 {
@@ -153,7 +147,7 @@ Function CreateAppRole([string] $Name, [string] $Description)
     $appRole.Value = $Name;
     return $appRole
 }
-	
+    
 # Get my Azure AD Application, it's roles and service principal
 $myApp = Get-AzureADApplication -ObjectId $myAzureADApplicationObjectId
 $myAppRoles = $myApp.AppRoles
@@ -161,7 +155,7 @@ $actionGroupsSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $actionGro
 
 Write-Host "App Roles before addition of new role.."
 Write-Host $myAppRoles
-	
+    
 # Create the role if it doesn't exist
 if ($myAppRoles -match "ActionGroupsSecureWebhook")
 {
@@ -170,13 +164,13 @@ if ($myAppRoles -match "ActionGroupsSecureWebhook")
 else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
-	
+    
     # Add our new role to the Azure AD Application
     $newRole = CreateAppRole -Name $actionGroupRoleName -Description "This is a role for Action Groups to join"
     $myAppRoles.Add($newRole)
     Set-AzureADApplication -ObjectId $myApp.ObjectId -AppRoles $myAppRoles
 }
-	
+    
 # Create the service principal if it doesn't exist
 if ($actionGroupsSP -match "AzNS AAD Webhook")
 {
@@ -187,26 +181,42 @@ else
     # Create a service principal for the Action Groups Azure AD Application and add it to the role
     $actionGroupsSP = New-AzureADServicePrincipal -AppId $actionGroupsAppId
 }
-	
+    
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
-	
+    
 Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
 ### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information.
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. 
 
-You may have a limited number of SMS actions in an Action Group.  
+You may have a limited number of SMS actions in an Action Group.
+
+> [!NOTE]
+> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
+
+Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+  
 
 ### Voice
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article for additional important behavior.
 
 You may have a limited number of Voice actions in an Action Group.
 
+> [!NOTE]
+> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+
+Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+
 ### Webhook
-Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
+Webhooks are processed using the following rules
+- A webhook call is attempted a maximum of 3 times.
+- The call will be retried if a response is not received within the timeout period or one of the following HTTP status codes is returned: 408, 429, 503 or 504.
+- The first call will wait 10 seconds for a response.
+- The second and third attempts will wait 30 seconds for a response.
+- After the 3 attempts to call the webhook have failed no action group will call the endpoint for 15 minutes.
 
 Source IP address ranges
  - 13.72.19.232
@@ -234,7 +244,7 @@ You may have a limited number of Webhook actions in an Action Group.
 ## Next steps
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
+* Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md).
 * Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

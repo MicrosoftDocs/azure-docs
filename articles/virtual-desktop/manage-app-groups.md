@@ -1,17 +1,24 @@
 ---
-title: Manage app groups for Windows Virtual Desktop - Azure
-description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
+title: Manage app groups for Windows Virtual Desktop portal - Azure
+description: How to manage Windows Virtual Desktop app groups with the Azure portal.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 04/30/2020
 ms.author: helohr
+manager: lizross
 ---
-# Tutorial: Manage app groups for Windows Virtual Desktop
+# Tutorial: Manage app groups with the Azure portal
 
-The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual **Start** menu apps.
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
 In this tutorial, learn how to:
 
@@ -19,56 +26,111 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApp programs.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 ## Create a RemoteApp group
 
-1. Run the following PowerShell cmdlet to create a new empty RemoteApp app group.
+If you've already created a host pool and session host VMs using the Azure
+portal or PowerShell, you can add application groups from the Azure portal with
+the following process:
 
-   ```powershell
-   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
-   ```
+1.  Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. (Optional) To verify that the app group was created, you can run the following cmdlet to see a list of all app groups for the host pool.
+2.  Search for and select **Windows Virtual Desktop**.
 
-   ```powershell
-   Get-RdsAppGroup <tenantname> <hostpoolname>
-   ```
+3.  Select **Application Groups** in the menu on the left side of the page, then select **+ Add**.
 
-3. Run the following cmdlet to get a list of **Start** menu apps on the host pool's virtual machine image. Write down the values for **FilePath**, **IconPath**, **IconIndex**, and other important information for the application that you want to publish.
+4. On the **Basics** tab, select the subscription group and resource group you want to create the app group for. You can also choose to create a new resource group instead of selecting an existing one.
 
-   ```powershell
-   Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+5. Select the host pool that will be associated with the application group from the drop-down menu next to **Host pool**.
+
+    >[!NOTE]
+    >You must select the host pool associated with the application group. App groups have apps or desktops that are served from a session host and session hosts are part of host pools. The app group needs to be associated with a host pool during creation.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Basics tab in the Azure portal.](media/basics-tab.png)
+
+6. If you want to add application groups to your host pool, select **Host pools** in the menu on the left side of the screen.
    
-4. Run the following cmdlet to install the application based on `AppAlias`. `AppAlias` becomes visible when you run the output from step 3.
+    Next, select the name of the host pool you want to add application groups to.
+   
+    After that, select **Application groups** from the menu on the left side of the screen, then select **+Add**.
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
-   ```
+    Finally, select the subscription group and resource group you want to create the app group in. You can either select the name of an existing resource group from the drop-down menu or select **Create new** to make a new one.
 
-5. (Optional) Run the following cmdlet to publish a new RemoteApp program to the application group created in step 1.
+      >[!NOTE]
+      >When you add application groups to your host pool, the host pool that's related to the application group is already selected because you navigated from it.
+      > 
+      > [!div class="mx-imgBorder"]
+      >![A screenshot of the Basics tab with the host pool preselected.](media/host-pool-selected.png)
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
-   ```
+7. Select **RemoteApp** under Application group type, then enter a name for your RemoteApp.
 
-6. To verify that the app was published, run the following cmdlet.
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the Application group type fields. "RemoteApp" is highlighted.](media/remoteapp-button.png)
 
-   ```powershell
-   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+8.  Select the **Assignments** tab.
 
-7. Repeat steps 1–5 for each application that you want to publish for this app group.
-8. Run the following cmdlet to grant users access to the RemoteApp programs in the app group.
+9.  To publish individual users or user groups to the app group, select **+Add Azure AD users or user groups**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
-   ```
+10.  Select the number of users you want to add the apps to. You can select single or multiple users and user groups.
+
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the user selection menu.](media/select-users.png)
+
+11.  Select **Select**.
+
+12.  Select the **Applications** tab, then select **+Add applications**.
+
+13.  To add an application from the start menu: 
+
+      - Go to **Application source** and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
+
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the add application screen with the Start menu selected.](media/add-app-start.png)
+
+      - In **Display name**, enter the name for the application that will be shown to the user on their client.
+
+      - Leave the other options as-is and select **Save**.
+
+14. To add an application from specific file path:
+
+      - Go to **Application source** and select **File path** from the drop-down menu.
+
+      - Enter the path to the application on the session host, registered with the associated host pool.
+
+      - Enter the application's details in the **Application name**, **Display name**, **Icon path**, and **Icon index** fields.
+
+      - Select **Save**.
+
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the add application page with file path selected.](media/add-app-file.png)
+
+     Repeat this process for every application you want to add to the application group.
+
+15.  Next, select the **Workspace** tab.
+
+16.  If you want to register the app group to a workspace, go to **Register application group** and select **Yes**. If you'd rather register the app group at a later time, select **No**.
+
+17.  If you select **Yes**, you can select an existing workspace to register your app group to.
+       
+       >[!NOTE]
+       >You can only register the app group to workspaces created in the same location as the host pool. Also. if you've previously registered another app group from the same host pool as your new app group to a workspace, it will be selected and you can't edit it. All app groups from a host pool must be registered to the same workspace.
+
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the register application group page for an already existing workspace. The host pool is preselected.](media/register-existing.png)
+
+18. Optionally, if you want to create tags to make your workspace easy to organize, select the **Tags** tab and enter your tag names.
+
+19. When you're done, select the **Review + create** tab.
+
+20. Wait a bit for the validation process to complete. When it's done, select **Create** to deploy your app group.
+
+The deployment process will do the following things for you:
+
+- Create the RemoteApp app group.
+- Add your selected apps to the app group.
+- Publish the app group published to users and user groups you selected.
+- Register the app group, if you chose to do so.
+- Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 ## Next steps
 

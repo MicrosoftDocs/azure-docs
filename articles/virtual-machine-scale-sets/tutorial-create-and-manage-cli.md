@@ -1,22 +1,14 @@
 ---
-title: Tutorial - Create and manage an Azure virtual machine scale set | Microsoft Docs
+title: Tutorial - Create and manage an Azure virtual machine scale set
 description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI
@@ -73,7 +65,7 @@ az vmss list-instances \
 
 The following example output shows two VM instances in the scale set:
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -104,7 +96,7 @@ az vmss list-instance-connection-info \
 
 The following example output shows the instance name, public IP address of the load balancer, and port number that the NAT rules forward traffic to:
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -113,13 +105,13 @@ The following example output shows the instance name, public IP address of the l
 
 SSH to your first VM instance. Specify your public IP address and port number with the `-p` parameter, as shown from the preceding command:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Once logged in to the VM instance, you could perform some manual configuration changes as needed. For now, close the SSH session as normal:
 
-```bash
+```console
 exit
 ```
 
@@ -133,7 +125,7 @@ az vm image list --output table
 
 The following example output shows the most common VM images on Azure. The *UrnAlias* can be used to specify one of these common images when you create a scale set.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -157,7 +149,7 @@ az vm image list --offer CentOS --all --output table
 
 The following condensed output shows some of the CentOS 7.3 images available:
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -169,6 +161,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
 To deploy a scale set that uses a specific image, use the value in the *Urn* column. When you specify the image, the image version number can be replaced with *latest*, which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image.
+
+> [!IMPORTANT]
+> We recommend using the *latest* image version. Specify 'latest' to use the latest version of an image available at deploy time. Note, even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 
 As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
@@ -206,7 +201,7 @@ az vm list-sizes --location eastus --output table
 
 The output is similar to the following condensed example, which shows the resources assigned to each VM size:
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168

@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # How to use Blob storage from C++
@@ -28,10 +28,14 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
-  
-     Install-Package wastorage
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+
+You can find a guide for how to build the source code and export to NuGet in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## Configure your application to access Blob storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  

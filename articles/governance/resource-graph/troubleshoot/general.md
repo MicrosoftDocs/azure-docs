@@ -1,11 +1,8 @@
 ---
 title: Troubleshoot common errors
-description: Learn how to troubleshoot issues querying Azure resources with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/18/2019
+description: Learn how to troubleshoot issues with the various SDKs while querying Azure resources with Azure Resource Graph.
+ms.date: 05/20/2020
 ms.topic: troubleshooting
-ms.service: resource-graph
 ---
 # Troubleshoot errors using Azure Resource Graph
 
@@ -20,12 +17,35 @@ it can be fixed and a later query succeeds.
 
 ## General errors
 
+### <a name="throttled"></a>Scenario: Throttled requests
+
+#### Issue
+
+Customers making large or frequent resource queries have requests throttled.
+
+#### Cause
+
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
+user can send at most 15 queries within every 5-second window without being throttled. The quota
+value is determined by many factors and is subject to change. For more information, see
+[Throttling in Azure Resource Graph](../overview.md#throttling).
+
+#### Resolution
+
+There are several methods of dealing with throttled requests:
+
+- [Grouping queries](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Staggering queries](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Query in Parallel](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Pagination](../concepts/guidance-for-throttled-requests.md#pagination)
+
 ### <a name="toomanysubscription"></a>Scenario: Too many subscriptions
 
 #### Issue
 
-Customers with access to more than 1000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](../../../lighthouse/overview.md),
-can't fetch data across all subscriptions in a single call to Azure Resource Graph.
+Customers with access to more than 1000 subscriptions, including cross-tenant subscriptions with
+[Azure Lighthouse](../../../lighthouse/overview.md), can't fetch data across all subscriptions in a
+single call to Azure Resource Graph.
 
 #### Cause
 
@@ -87,21 +107,23 @@ _403_ (Forbidden) response.
 #### Cause
 
 If the customer doesn't have read permission to all the provided subscriptions, the request is
-denied due to lack of appropriate security rights.
+denied because of lack of appropriate security rights.
 
 #### Resolution
 
 Include at least one subscription in the subscription list that the customer running the query has
-at least read access to. For more information, see [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
+at least read access to. For more information, see
+[Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following
 channels for more support:
 
-- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+- Get answers from Azure experts through
+  [Azure Forums](https://azure.microsoft.com/support/forums/).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure
   account for improving customer experience by connecting the Azure community to the right
   resources: answers, support, and experts.
-- If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/)
-  and select **Get Support**.
+- If you need more help, you can file an Azure support incident. Go to the
+  [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

@@ -1,21 +1,19 @@
 ### YamlMime:Landing
 
 title: Language Understanding (LUIS) documentation
-summary: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
+summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words.
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/19/2019
+  ms.date: 06/15/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
-  ms.subservice: language-understanding 
+  ms.subservice: language-understanding
   services: cognitive-services
-  ms.topic: landing-page
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure Cognitive Services
-  description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. 
-
+  description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 landingContent:
@@ -26,46 +24,48 @@ landingContent:
         links:
           - text: What is language understanding?
             url: what-is-luis.md
-          - text: What's new
-            url: whats-new.md
           - text: LUIS portal
             url: https://www.luis.ai
       - linkListType: concept
         links:
           - text: Plan your app
-            url: luis-how-plan-your-app.md  
-          - text: The authoring cycle of your app
+            url: luis-how-plan-your-app.md
+          - text: Iterative app design
             url: luis-concept-app-iteration.md
-
+          - text: DevOps practices
+            url: luis-concept-devops-sourcecontrol.md
+      - linkListType: whats-new
+        links:
+          - text: What's new?
+            url: whats-new.md
       - linkListType: video
         links:
-          - text: "AI Roadshow: LUIS"
-            url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+          - text: "Ignite 2019: Advanced Natural Language Understanding (NLU) models using LUIS"
+            url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 
   - title: Create intents, entities, and features
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Intents
             url: luis-concept-intent.md
           - text: Entities
             url: luis-concept-entity-types.md
-          - text: A good example utterance
-            url: luis-concept-utterance.md   
-          - text: Phrase lists features
+          - text: Utterances
+            url: luis-concept-utterance.md
+          - text: Phrase list features
             url: luis-concept-feature.md
-
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: sdk-python-quickstart-authoring-app.md
+            url: sdk-authoring.md?pivots=programming-language-csharp
           - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md
+            url: sdk-authoring.md?pivots=programming-language-python
 
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Create a new LUIS app
             url: luis-how-to-start-new-app.md
           - text: Add intent with example utterances
@@ -76,7 +76,7 @@ landingContent:
             url: luis-how-to-add-features.md
 
   - title: Version, train, test, and publish
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Versioning
@@ -87,54 +87,51 @@ landingContent:
             url: luis-concept-batch-test.md
 
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
-          - text: Using C# SDK
-            url: sdk-python-quickstart-authoring-app.md#train-the-app
-          - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md#train-the-app
-
+          - text: Using SDK
+            url: sdk-authoring.md
 
       - linkListType: how-to-guide
-        links: 
-          - text: Versioning your app
+        links:
+          - text: Version your app
             url: luis-how-to-manage-versions.md
-          - text: Interactive testing
+          - text: Perform interactive testing
             url: luis-interactive-test.md
-          - text: Batch testing
+          - text: Perform batch testing
             url: luis-how-to-batch-test.md
-          - text: Training your app
+          - text: Train your app
             url: luis-how-to-train.md
-          - text: Publish to use prediction endpoint 
+          - text: Publish prediction endpoint
             url: luis-how-to-publish-app.md
-            
+
   - title: Get prediction from endpoint
-    linkLists:   
+    linkLists:
       - linkListType: quickstart
-        links: 
-          - text: With C# .NET SDK
-            url: sdk-csharp-quickstart-query-prediction-endpoint.md
+        links:
+          - text: Using SDK
+            url: sdk-query-prediction-endpoint.md
       - linkListType: quickstart
-        links: 
+        links:
           - text: With C# using REST
-            url: luis-get-started-cs-get-intent.md   
+            url: luis-get-started-cs-get-intent.md
           - text: With Go using REST
-            url: luis-get-started-go-get-intent.md 
+            url: luis-get-started-go-get-intent.md
           - text: With Java using REST
-            url: luis-get-started-java-get-intent.md 
+            url: luis-get-started-java-get-intent.md
           - text: With Node.js using REST
-            url: luis-get-started-node-get-intent.md 
+            url: luis-get-started-node-get-intent.md
           - text: With Python using REST
             url: luis-get-started-python-get-intent.md
   - title: Reference
-    linkLists:   
+    linkLists:
       - linkListType: reference
-        links: 
+        links:
           - text: Developer resources
             url: developer-reference-resource.md
-          - text: App limits
-            url: luis-boundaries.md
+          - text: App limitations
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities
@@ -143,9 +140,9 @@ landingContent:
             url: luis-reference-prebuilt-domains.md
 
   - title: Help and feedback
-    linkLists: 
+    linkLists:
       - linkListType: reference
-        links: 
+        links:
           - text: Troubleshooting
             url: troubleshooting.md
           - text: Ask questions on Stack Overflow

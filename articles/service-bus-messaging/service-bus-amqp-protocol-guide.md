@@ -1,22 +1,10 @@
 ---
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
 
 The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It is the primary protocol of Azure Service Bus Messaging and Azure Event Hubs. Both services also support HTTPS. The proprietary SBMP protocol that is also supported is being phased out in favor of AMQP.
@@ -77,6 +65,15 @@ This window-based model is roughly analogous to the TCP concept of window-based 
 Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256-K bytes) for Service Bus Standard and Event Hubs. It is 1,048,576 (1 MB) for Service Bus Premium. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see [the next section](#links)).
 
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
+
+### AMQP outbound port requirements
+
+Clients that use AMQP connections over TCP require ports 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) feature is enabled. `EnableLinkRedirect` is a new messaging feature that helps skip one-hop while receiving messages, thus helping to boost throughput. The client would start communicating directly with the back-end service over port range 104XX as shown in the following image. 
+
+![List of destination ports][4]
+
+A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connectiong string, which forces the clients to communicate with the remote service over port 5671.
+
 
 ### Links
 
@@ -262,8 +259,8 @@ Every connection has to initiate its own control link to be able to start and en
 
 To begin transactional work. the controller must obtain a `txn-id` from the coordinator. It does this by sending a `declare` type message. If the declaration is successful, the coordinator responds with a disposition outcome, which carries the assigned `txn-id`.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
@@ -275,8 +272,8 @@ The controller concludes the transactional work by sending a `discharge` message
 
 > Note: fail=true refers to Rollback of a transaction, and fail=false refers to Commit.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Transactional work<br/>on other links<br/> . . . |
@@ -287,8 +284,8 @@ The controller concludes the transactional work by sending a `discharge` message
 
 All transactional work is done with the transactional delivery state `transactional-state` that carries the txn-id. In the case of sending messages, the transactional-state is carried by the message's transfer frame. 
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
@@ -298,8 +295,8 @@ All transactional work is done with the transactional delivery state `transactio
 
 Message disposition includes operations like `Complete` / `Abandon` / `DeadLetter` / `Defer`. To perform these operations within a transaction, pass the `transactional-state` with the disposition.
 
-| Client (Controller) | | Service Bus (Coordinator) |
-| --- | --- | --- |
+| Client (Controller) | Direction | Service Bus (Coordinator) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -397,8 +394,8 @@ With this functionality, you create a sender and establish the link to the `via-
 
 > Note: Authentication has to be performed for both *via-entity* and *destination-entity* before establishing this link.
 
-| Client | | Service Bus |
-| --- | --- | --- |
+| Client | Direction | Service Bus |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 

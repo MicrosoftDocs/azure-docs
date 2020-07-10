@@ -1,7 +1,7 @@
 ---
-title: Examine the Azure Media Services Video Indexer output produced by v2 API
-titlesuffix: Azure Media Services
-description: This topic examines the Video Indexer output produced by v2 API.
+title: Examine the  Video Indexer output produced by v2 API - Azure
+titleSuffix: Azure Media Services
+description: This topic examines the Azure Media Services Video Indexer output produced by v2 API.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,13 +9,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by API
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, OCRs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+
+1. To retrieve the JSON file, call [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. If you are also interested in specific artifacts, call [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+	In the API call, specify the requested artifact type (OCR, Faces, Key frames etc.)
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -80,12 +85,12 @@ This section shows the summary of the insights.
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioEffects).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
 |emotions| May contain zero or more emotions. For More detailed information, see [emotions](#emotions).|
-|topics|May contain zero or more topics. The [topics](#topics) dimension.|
+|topics|May contain zero or more topics. The [topics](#topics) insight.|
 
 ## videos
 
@@ -141,7 +146,7 @@ This section shows the summary of the insights.
 ```
 ### insights
 
-The insights are a set of dimensions (for example, transcript lines, faces, brands, etc.), where each dimension is a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list of its instances (which are time ranges with additional optional metadata).
+Each insight (for example, transcript lines, faces, brands, etc.), contains a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list of its instances (which are time ranges with additional optional metadata).
 
 A face might  have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Each temporal instance can have additional metadata. For example, the face’s rectangle coordinates (20,230,60,60).
 
@@ -149,20 +154,20 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |---|---|
 |sourceLanguage|The video's source language (assuming one master language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |language|The insights language (translated from the source language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
-|transcript|The [transcript](#transcript) dimension.|
-|ocr|The [OCR](#ocr) dimension.|
-|keywords|The [keywords](#keywords) dimension.|
+|transcript|The [transcript](#transcript) insight.|
+|ocr|The [OCR](#ocr) insight.|
+|keywords|The [keywords](#keywords) insight.|
 |blocks|May contain one or more [blocks](#blocks)|
-|faces|The [faces](#faces) dimension.|
-|labels|The [labels](#labels) dimension.|
-|shots|The [shots](#shots) dimension.|
-|brands|The [brands](#brands) dimension.|
-|audioEffects|The [audioEffects](#audioEffects) dimension.|
-|sentiments|The [sentiments](#sentiments) dimension.|
-|visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
-|emotions| The [emotions](#emotions) dimension.|
-|topics|The [topics](#topics) dimension.|
+|faces|The [faces](#faces) insight.|
+|labels|The [labels](#labels) insight.|
+|shots|The [shots](#shots) insight.|
+|brands|The [brands](#brands) insight.|
+|audioEffects|The [audioEffects](#audioeffects) insight.|
+|sentiments|The [sentiments](#sentiments) insight.|
+|visualContentModeration|The [visualContentModeration](#visualcontentmoderation) insight.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) insight.|
+|emotions| The [emotions](#emotions) insight.|
+|topics|The [topics](#topics) insight.|
 
 Example:
 
@@ -552,7 +557,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### <a id="audioEffects"/>audioEffects
+#### audioEffects
 
 |Name|Description|
 |---|---|

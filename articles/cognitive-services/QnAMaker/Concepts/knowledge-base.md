@@ -1,125 +1,59 @@
 ---
-title: Knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
+title: Importing from data sources - QnA Maker
 description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) pairs and optional metadata associated with each QnA pair.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 03/16/2020
 ---
 
-# What is a QnA Maker knowledge base?
+# Importing from data sources
 
-A QnA Maker knowledge base consists of a set of question-and-answer (QnA) pairs and optional metadata associated with each QnA pair.
+A knowledge base consists of question and answer pairs brought in by public URLs and files.
 
-## Key knowledge base concepts
+## Data source locations
 
-* **Questions**: A question contains text that best represents a user query. 
-* **Answers**: An answer is the response that's returned when a user query is matched with the associated question.  
-* **Metadata**: Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata tags are used to filter QnA pairs and limit the set over which query matching is performed.
+Content is brought into a knowledge base from a data source. Data source locations are **public URLs or files**, which do not require authentication.
 
-A single QnA, represented by a numeric QnA ID, has multiple variants of a question (alternate questions) that all map to a single answer. Additionally, each such pair can have multiple metadata fields associated with it: one key and one value.
+[SharePoint files](../how-to/add-sharepoint-datasources.md), secured with authentication, are the exception. SharePoint resources must be files, not web pages. If the URL ends with a web extension, such as .ASPX, it will not import into QnA Maker from SharePoint.
 
-![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
+## Chit chat content
 
-## Knowledge base content format
+The Chit chat QnA content set is offered as a complete content data source in several languages and conversational styles. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch. Learn [how to add](../how-to/chit-chat-knowledge-base.md) this content set to your knowledge base.
 
-When you ingest rich content into a knowledge base, QnA Maker attempts to convert the content to markdown. Read [this blog](https://aka.ms/qnamaker-docs-markdown-support) to learn about the markdown formats that are understandable by most chat clients.
+## Structured data format through import
 
-Metadata fields consist of key-value pairs separated by a colon, such as Product:Shredder. Both the key and the value must be text-only. The metadata key must not contain any spaces. Metadata supports only one value per key.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured `.tsv` file that contains questions and answer. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
 
-## How QnA Maker processes a user query to select the best answer
+| Question  | Answer  | Source| Metadata (1 key: 1 value) |
+|-----------|---------|----|---------------------|
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
+| Question2 | Answer2 | Editorial|    `Key:Value`       |
 
-The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
+## Structured multi-turn format through import
 
-![The ranking process for a user query](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+You can creating the multi-turn conversations in a `.tsv` file format. The format provides you with the ability to create the multi-turn conversations by analyzing previous chat logs (with other processes, not using QnA Maker), then create the `.tsv` file through automation. Import the file to replace the existing knowledge base.
 
-### Ranker process
+> [!div class="mx-imgBorder"]
+> ![Conceptual model of 3 levels of multi-turn question](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-The process is explained in the following table.
+The column for a multi-turn `.tsv`, specific to multi-turn is **Prompts**. An example `.tsv`, shown in Excel, show the information to include to define the multi-turn children:
 
-|Step|Purpose|
-|--|--|
-|1|The client application sends the user query to the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
-|2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
-|3|This preprocessing is taken to alter the user query for the best search results.|
-|4|This altered query is sent to Azure Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
-|5|QnA Maker applies advanced featurization to determine the correctness of the fetched Azure Search results for the user query. |
-|6|The trained ranker model uses the feature score, from step 5, to rank the Azure Search results.|
-|7|The new results are returned to the client application in ranked order.|
-|||
-
-Features used include but aren't limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
-
-## HTTP request and response with endpoint
-When you publish your knowledge base, the service creates a REST-based HTTP endpoint that can be integrated into your application, commonly a chat bot. 
-
-### The user query request to generate an answer
-
-A user query is the question that the end user asks of the knowledge base, such as `How do I add a collaborator to my app?`. The query is often in a natural language format or a few keywords that represent the question, such as `help with collaborators`. The query is sent to your knowledge base from an HTTP request in your client application.
-
-```json
-{
-    "question": "qna maker and luis",
-    "top": 6,
-    "isTest": true,
-    "scoreThreshold": 20,
-    "strictFilters": [
-    {
-        "name": "category",
-        "value": "api"
-    }],
-    "userId": "sd53lsY="
-}
+```JSON
+[
+    {"displayOrder":0,"qnaId":2,"displayText":"Level 2 Question A"},
+    {"displayOrder":0,"qnaId":3,"displayText":"Level 2 - Question B"}
+]
 ```
 
-You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+The **displayOrder** is numeric and the **displayText** is text that shouldn't include markdown.
 
-Use [conversation context](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
+> [!div class="mx-imgBorder"]
+> ![Multi-turn question example as shown in Excel](../media/qnamaker-concepts-knowledgebase/multi-turn-tsv-columns-excel-example.png)
 
-### The response from a call to generate an answer
+## Export as example
 
-The HTTP response is the answer retrieved from the knowledge base, based on the best match for a given user query. The response includes the answer and the prediction score. If you asked for more than one top answer with the `top` property, you get more than one top answer, each with a score. 
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-### Test and production knowledge base
-A knowledge base is the repository of questions and answers created, maintained, and used through QnA Maker. Each QnA Maker tier can be used for multiple knowledge bases.
-
-A knowledge base has two states: *test* and *published*.
-
-The *test knowledge base* is the version that's being edited, saved, and tested for accuracy and completeness of responses. Changes made to the test knowledge base don't affect the end user of your application or chat bot. The test knowledge base is known as `test` in the HTTP request. 
-
-The *published knowledge base* is the version that's used in your chat bot or application. The action of publishing a knowledge base puts the content of the test knowledge base in the published version of the knowledge base. Because the published knowledge base is the version that the application uses through the endpoint, make sure that the content is correct and well tested. The published knowledge base is known as `prod` in the HTTP request.
+If you are unsure how to represent your QnA pair in the `.tsv` file:
+* Use this [downloadable example from GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
+* Or create the pair in the QnA Maker portal, save, then export the knowledge base for an example of how to represent the pair.
 
 ## Next steps
 
@@ -128,12 +62,14 @@ The *published knowledge base* is the version that's used in your chat bot or ap
 
 ## See also
 
+Use the QnA Maker [Markdown reference](../reference-markdown-format.md) to help you format your answers.
+
 [QnA Maker overview](../Overview/overview.md)
 
-Create and edit a knowledge base with: 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+Create and edit a knowledge base with:
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
-Generate an answer with: 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)
+Generate an answer with:
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

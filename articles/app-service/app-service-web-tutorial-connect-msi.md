@@ -1,20 +1,11 @@
 ---
-title: Secure SQL Database connection with managed identity - Azure App Service | Microsoft Docs 
+title: 'Tutorial: Access data with managed identity'
 description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply it to other Azure services.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/16/2019
-ms.author: cephalin
-ms.custom: mvc
+ms.date: 04/27/2020
+ms.custom: mvc, cli-validate
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
@@ -28,8 +19,8 @@ When you're finished, your sample app will connect to SQL Database securely with
 > [!NOTE]
 > The steps covered in this tutorial support the following versions:
 > 
-> - .NET Framework 4.7.2 and above.
-> - .NET Core 2.2 and above.
+> - .NET Framework 4.7.2 and above
+> - .NET Core 2.2 and above
 >
 
 What you will learn:
@@ -49,13 +40,13 @@ What you will learn:
 
 This article continues where you left off in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) or [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md). If you haven't already, follow one of the two tutorials first. Alternatively, you can adapt the steps for your own .NET app with SQL Database.
 
-To debug your app using SQL Database as the back end, make sure that you've allowed client connection from your computer. If not, add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+To debug your app using SQL Database as the back end, make sure that you've allowed client connection from your computer. If not, add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Grant database access to Azure AD user
 
-First enable Azure AD authentication to SQL Database by assigning an Azure AD user as the Active Directory admin of the SQL Database server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+First enable Azure AD authentication to SQL Database by assigning an Azure AD user as the Active Directory admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
 If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -68,13 +59,13 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
 >
 
-Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the SQL Database server name (without the `.database.windows.net` suffix).
+Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
 ```
 
-For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
+For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
 
 ## Set up Visual Studio
 
@@ -108,7 +99,7 @@ The steps you follow for your project depends on whether it's an ASP.NET project
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 In *Web.config*, working from the top of the file and make the following changes:
@@ -131,7 +122,10 @@ In *Web.config*, working from the top of the file and make the following changes
 
 - Find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name.
 
-That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up the SQL Database server later to allow connection from the managed identity of your App Service app.
+> [!NOTE]
+> The SqlAuthenticationProvider you just registered is based on top of the AppAuthentication library you installed earlier. By default, it uses a system-assigned identity. To leverage a user-assigned identity, you will need to provide an additional configuration. Please see [connection string support](../key-vault/general/service-to-service-authentication.md#connection-string-support) for the AppAuthentication library.
+
+That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app.
 
 Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations from Visual Studio.
 
@@ -140,7 +134,7 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 In the [ASP.NET Core and SQL Database tutorial](app-service-web-tutorial-dotnetcore-sqldb.md), the `MyDbConnection` connection string isn't used at all because the local development environment uses a Sqlite database file, and the Azure production environment uses a connection string from App Service. With Active Directory authentication, you want both environments to use the same connection string. In *appsettings.json*, replace the value of the `MyDbConnection` connection string with:
@@ -149,40 +143,17 @@ In the [ASP.NET Core and SQL Database tutorial](app-service-web-tutorial-dotnetc
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-In *Startup.cs*, remove the code section that you added before:
-
-```csharp
-// Use SQL Database if in Azure, otherwise, use SQLite
-if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-else
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=localdatabase.db"));
-
-// Automatically perform database migration
-services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
-```
-
-And replace it with the following code:
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options => {
-    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection"));
-});
-```
-
 Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
 
 ```csharp
-var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
+var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
-> [!TIP]
-> This demonstration code is synchronous for clarity. For more information, see [Asynchronous guide for constructors](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors).
+> [!NOTE]
+> This demonstration code is synchronous for clarity and simplicity.
 
-That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up the SQL Database server later to allow connection from the managed identity of your App Service app. The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
+That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
 
 > [!TIP]
 > If the Azure AD user you configured has access to multiple tenants, call `GetAccessTokenAsync("https://database.windows.net/", tenantid)` with the desired tenant ID to retrieve the proper access token.
@@ -192,6 +163,9 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 ## Use managed identity connectivity
 
 Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity.
+
+> [!NOTE]
+> While the instructions in this section are for a system-assigned identity, a user-assigned identity can just as easily be used. To do this. you would need the change the `az webapp identity assign command` to assign the desired user-assigned identity. Then, when creating the SQL user, make sure to use the name of the user-assigned identity resource rather than the site name.
 
 ### Enable managed identity on app
 
@@ -203,47 +177,50 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 Here's an example of the output:
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "principalId": "21dfa71c-9e6f-4d17-9e90-1d28801c9735",
   "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
   "type": "SystemAssigned"
 }
-```
+</pre>
 
-### Add managed identity to an Azure AD group
+### Grant permissions to managed identity
 
-To grant this identity access to your SQL Database, you need to add it to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md). In the Cloud Shell, add it to a new group called _myAzureSQLDBAccessGroup_, shown in the following script:
+> [!NOTE]
+> If you want, you can add the identity to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant SQL Database access to the Azure AD group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
+> 
+> ```azurecli-interactive
+> groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+> msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
+> az ad group member add --group $groupid --member-id $msiobjectid
+> az ad group member list -g $groupid
+> ```
+>
 
-```azurecli-interactive
-groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiobjectid
-az ad group member list -g $groupid
-```
-
-If you want to see the full JSON output for each command, drop the parameters `--query objectId --output tsv`.
-
-### Grant permissions to Azure AD group
-
-In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your SQL Database server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials.
+In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials.
 
 ```azurecli-interactive
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
-In the SQL prompt for the database you want, run the following commands to add the Azure AD group and grant the permissions your app needs. For example, 
+In the SQL prompt for the database you want, run the following commands to grant the permissions your app needs. For example, 
 
 ```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
+CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
+*\<identity-name>* is the name of the managed identity in Azure AD. If the identity is system-assigned, the name always the same as the name of your App Service app. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
+
 Type `EXIT` to return to the Cloud Shell prompt.
+
+> [!NOTE]
+> The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
 ### Modify connection string
 

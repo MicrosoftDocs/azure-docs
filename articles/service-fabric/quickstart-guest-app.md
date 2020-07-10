@@ -1,20 +1,9 @@
 ---
-title: Quickly deploy an existing app to an Azure Service Fabric cluster 
+title: Quickly deploy an existing app to a cluster 
 description: Use an Azure Service Fabric cluster to host an existing Node.js application with Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
 ---
 
 # Host a Node.js application on Azure Service Fabric

@@ -1,21 +1,9 @@
 ---
-title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade a cluster's Azure Service Fabric version
 description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
-ms.author: atsenthi
-
 ---
 # Upgrade the Service Fabric version of a cluster
 
@@ -26,7 +14,7 @@ You can set your cluster to receive automatic fabric upgrades as they are releas
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
 > [!NOTE]
-> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose then. 
+> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose then. 
 > 
 > 
 
@@ -118,7 +106,7 @@ Output:
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->

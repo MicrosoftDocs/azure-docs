@@ -61,24 +61,8 @@ To get started, you need the following items:
 As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
-- Confluence: 6.0.1
-- Confluence: 6.1.1
-- Confluence: 6.2.1
-- Confluence: 6.3.4
-- Confluence: 6.4.0
-- Confluence: 6.5.0
-- Confluence: 6.6.2
-- Confluence: 6.7.0
-- Confluence: 6.8.1
-- Confluence: 6.9.0
-- Confluence: 6.10.0
-- Confluence: 6.10.3
-- Confluence: 6.11.0
-- Confluence: 6.12.0
-- Confluence: 6.13.5
-- Confluence: 6.15.3
-- Confluence: 6.15.4
-- Confluence: 6.15.8
+- Confluence: 6.0.1 to 6.15.9
+- Confluence: 7.0.1 to 7.4.0
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04

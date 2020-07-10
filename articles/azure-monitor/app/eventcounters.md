@@ -1,18 +1,14 @@
 ---
 title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
 ms.date: 09/20/2019
 
 ---
 
 # EventCounters introduction
 
-`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
+`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
 While users can publish any custom `EventCounters` to meet their needs, the .NET Core 3.0 runtime publishes a set of these counters by default. The document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
@@ -51,7 +47,7 @@ For apps running in .NET Core 3.0, the following counters are collected automati
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> Counters of category Microsoft.AspNetCore.Hosting are only added in Asp.Net Core Applications.
+> Counters of category Microsoft.AspNetCore.Hosting are only added in ASP.NET Core Applications.
 
 ## Customizing counters to be collected
 
@@ -91,19 +87,19 @@ The following example shows how to add/remove counters. This customization would
 
 ## Event counters in Metric Explorer
 
-To view EventCounter metrics in [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under PerformanceCounter category.
+To view EventCounter metrics in [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
 > ![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
-You can also search and display event counter reports in [Analytics](../../azure-monitor/app/analytics.md), in the **performanceCounters** table.
+You can also search and display event counter reports in [Analytics](../../azure-monitor/app/analytics.md), in the **customMetrics** table.
 
 For example, run the following query to see what counters are collected and available to query:
 
 ```Kusto
-performanceCounters | summarize avg(value) by name
+customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
@@ -112,7 +108,7 @@ performanceCounters | summarize avg(value) by name
 To get a chart of a specific counter (for example: `ThreadPool Completed Work Item Count`) over the recent period, run the following query.
 
 ```Kusto
-performanceCounters 
+customMetrics 
 | where name contains "System.Runtime|ThreadPool Completed Work Item Count"
 | where timestamp >= ago(1h)
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
@@ -121,10 +117,10 @@ performanceCounters
 > [!div class="mx-imgBorder"]
 > ![Chat of a single counter in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
-Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
+Like other telemetry, **customMetrics** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
 
 ## Alerts
-Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../../azure-monitor/platform/alerts-log.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## Frequently asked questions
 

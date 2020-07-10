@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,11 +104,10 @@ To configure Azure AD single sign-on with Accredible, perform the following step
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	|  `https://api.accredible.com/sp/admin/accredible` |
-	| `https://api.accredible.com/sp/user/accredible` |
-    | |
+    ```http
+    https://api.accredible.com/sp/admin/accredible
+    https://api.accredible.com/sp/user/accredible
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`

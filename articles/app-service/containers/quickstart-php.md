@@ -1,22 +1,12 @@
 ---
-title: Create PHP app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first PHP Hello World in App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
+title: 'Quickstart: Create a PHP app on Linux'
+description: Get started with Linux apps on Azure App Service by deploying your first PHP app to a Linux container in App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/27/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.date: 05/25/2020
+ms.custom: mvc, cli-validatem seodec18
 ---
+
 # Create a PHP app in App Service on Linux
 
 > [!NOTE]
@@ -78,7 +68,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 Browse to the site to see your newly created app with built-in image. Replace _&lt;app name>_ with your app name.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Here is what your new app should look like:
@@ -87,37 +77,35 @@ Here is what your new app should look like:
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-Counting objects: 2, done.
+<pre>
+Counting objects: 26, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (26/26), 4.95 KiB | 0 bytes/s, done.
+Total 26 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
+remote: Preparing deployment for commit id 'df425ea6ef'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote: .
+remote: .
+remote: .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
-```
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/.../log'
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+ * [new branch]      master -> master
+</pre>
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 The PHP sample code is running in App Service on Linux with built-in image.

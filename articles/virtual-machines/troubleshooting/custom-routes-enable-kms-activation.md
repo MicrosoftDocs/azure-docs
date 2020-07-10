@@ -47,7 +47,7 @@ To add the custom route, follow these steps:
 
 ### For Resource Manager VMs
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 > [!NOTE] 
 > Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Carefully review [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) to learn about the requirements.
@@ -76,11 +76,15 @@ To add the custom route, follow these steps:
     ```
 3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 
 ### For Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Run the following commands:
@@ -102,7 +106,9 @@ To add the custom route, follow these steps:
 
 3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 

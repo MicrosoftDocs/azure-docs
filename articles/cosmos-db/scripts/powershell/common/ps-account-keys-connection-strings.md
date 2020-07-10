@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Account key and connection string operations for an Azure Cosmos account
-description: Azure PowerShell script sample - Account key and connection string operations for an Azure Cosmos account
+title: PowerShell script to get key and connection string operations for an Azure Cosmos DB account
+description: Azure PowerShell script sample - Account key and connection string operations for an Azure Cosmos DB account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 
-# Connection string and account key operations for an Azure Cosmos account using PowerShell
+# Connection string and account key operations for an Azure Cosmos DB account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -17,7 +17,7 @@ ms.author: mjbrown
 ## Sample script
 
 > [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script
+> This sample demonstrates using a SQL API account. To use this sample for other APIs, copy the related properties and apply to your API-specific script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
@@ -35,8 +35,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on a resource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Gets the connection string or key (read-write or read-only) for a Cosmos DB Account. |
+| [New-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regenerate the specified key for a Cosmos DB Account. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

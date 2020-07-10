@@ -1,10 +1,10 @@
 ---
 title: Azure Active Directory Reports FAQ | Microsoft Docs
-description: Frequently asked quesitons around Azure Active Directory reports.
+description: Frequently asked questions around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: cawrites
-manager: daveba
+manager: MarkusVi
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 05/12/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk detections API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk detections API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
 ---
 
@@ -68,13 +68,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** The following table lists the data retention period for activity logs. For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
-
-| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Audit logs             | 7 days        | 30 days             | 30 days             |
-| Sign-ins               | N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 30 days       | 30 days             | 30 days             |
+**A:** For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
 
 ---
 

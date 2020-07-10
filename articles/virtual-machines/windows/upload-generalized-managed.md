@@ -1,20 +1,11 @@
 ---
-title: Create a managed Azure VM from a generalized on-premises VHD | Microsoft Docs
+title: Create a VM from an uploaded generalized VHD 
 description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/12/2019
 ms.author: cynthn
 ---
 
@@ -29,12 +20,10 @@ For a sample script, see [Sample script to upload a VHD to Azure and create a ne
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
-
+ 
 ## Generalize the source VM by using Sysprep
 
-Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see the [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+If you haven't already, you need to Sysprep the VM before uploading the VHD to Azure. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see the [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -53,40 +42,49 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 6. When Sysprep finishes, it shuts down the virtual machine. Do not restart the VM.
 
 
-## Upload the VHD to your storage account
+## Upload the VHD 
 
 You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
-## Create a managed image from the uploaded VHD 
 
-Create a managed image from your generalized OS managed disk. Replace the following values with your own information.
+Once the VHD is uploaded to the managed disk, you need to use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) to get the managed disk.
 
-
-First, set some parameters:
-
-```powershell
-$location = "East US" 
-$imageName = "myImage"
+```azurepowershell-interactive
+$disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
-Create the image using your generalized OS VHD.
+## Create the image
+Create a managed image from your generalized OS managed disk. Replace the following values with your own information.
+
+First, set some variables:
 
 ```powershell
+$location = 'East US'
+$imageName = 'myImage'
+$rgName = 'myResourceGroup'
+```
+
+Create the image using your managed disk.
+
+```azurepowershell-interactive
 $imageConfig = New-AzImageConfig `
    -Location $location
 $imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
-   -OsType Windows `
    -OsState Generalized `
-   -BlobUri $urlOfUploadedImageVhd `
-   -DiskSizeGB 20
-New-AzImage `
+   -OsType Windows `
+   -ManagedDiskId $disk.Id
+```
+
+Create the image.
+
+```azurepowershell-interactive
+$image = New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
 ```
-
 
 ## Create the VM
 
@@ -97,7 +95,7 @@ Now that you have an image, you can create one or more new VMs from the image. T
 New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
-	-ImageName $imageName `
+    -Image $image.Id `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `

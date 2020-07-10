@@ -3,12 +3,12 @@ title: Cognitive Services containers frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions and answers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -17,17 +17,7 @@ ms.author: dapine
 
 **Q: What is available?**
 
-**A:** [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) allows developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
-
-> [!div class="checklist"]
-> * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
-> * [Face][fa-containers]
-> * [Form Recognizer][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [Speech Service API][sp-containers]
-> * [Text Analytics][ta-containers]
-<!-- > * [Translator Text][tt-containers] -->
+**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. 
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
@@ -72,7 +62,11 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **Q: How should I run the Cognitive Services containers on IoT devices?**
 
-Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+**A:** Whether you don't have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+
+**Q: Are these containers compatible with OpenShift?** 
+
+We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that support Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
 
 **Q: How do I provide product feedback and feature recommendations?**
 
@@ -110,14 +104,13 @@ Explore the following tags for potential questions and answers that align with y
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [Text Analytics][ta-containers-billing]
-<!-- * [Translator Text][tt-containers-billing] -->
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
  
 **Q: What is the current support warranty for containers?**
 
-**A:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
+**A:** There is no warranty for previews. Microsoft's standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
  
 **Q: What happens to Cognitive Services containers when internet connectivity is lost?**
 
@@ -138,7 +131,6 @@ Explore the following tags for potential questions and answers that align with y
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [Text Analytics][ta-containers-recommendations]
-<!-- * [Translator Text][tt-containers-recommendations] -->
  
 **Q: Are these containers currently supported on Windows?**
 
@@ -169,7 +161,6 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-containers]: ../speech-service/speech-container-howto.md
 [ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
 
 [ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
 [cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
@@ -178,7 +169,6 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers-billing]: ../luis/luis-container-howto.md#billing
 [sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
 [ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
-<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
 
 [ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
 [cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
@@ -187,4 +177,3 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
 [sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
 [ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
-<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

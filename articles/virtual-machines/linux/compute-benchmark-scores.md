@@ -1,31 +1,72 @@
 ---
-title: Compute benchmark scores for Azure Linux VMs | Microsoft Docs
+title: Compute benchmark scores for Azure Linux VMs 
 description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 04/09/2018
-ms.author: cynthn
+ms.date: 04/29/2020
 ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Linux VMs
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+## Standard_Das_v4
+(12/11/2019 2:28:52 AM pbi 5851281)
+
+|VM Size| CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
+|---| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|Standard_D2as_v4| AMD EPYC 7452 32-Core Processor | 2 | 1 | 7.8 | 29,726 | 693 | 2.33% | 42 |
+|Standard_D4as_v4| AMD EPYC 7452 32-Core Processor | 4 | 1 | 15.7 | 59,224 | 1,595 | 2.69% | 42 |
+|Standard_D8as_v4| AMD EPYC 7452 32-Core Processor | 8 | 1 | 31.4 | 116,412 | 3,613 | 3.10% | 42 |
+|Standard_D16as_v4| AMD EPYC 7452 32-Core Processor | 16 | 2 | 62.9 | 229,489 | 7,209 | 3.14% | 35 |
+|Standard_D32as_v4| AMD EPYC 7452 32-Core Processor | 32 | 4 | 125.9 | 461,916 | 6,746 | 1.46% | 35 |
+
+## Standard_Da_v4
+(12/12/2019 12:01:48 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_D2a_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 7.8 | 30,023 | 333 | 1.11% | 35 |
+| Standard_D4a_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 15.7 | 59,685 | 1,141 | 1.91% | 77 |
+| Standard_D8a_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 31.4 | 118,346 | 1,130 | 0.95% | 42 |
+| Standard_D16a_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 62.9 | 231,131 | 3,830 | 1.66% | 35 |
+| Standard_D32a_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 125.9 | 457,266 | 10,208 | 2.23% | 35 |
+| Standard_D48a_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 188.9 | 664,078 | 17,241 | 2.60% | 35 |
+| Standard_D64a_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 251.9 | 863,911 | 24,818 | 2.87% | 35 |
+| Standard_D96a_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 377.9 | 1,290,455 | 13,640 | 1.06% | 35 |
+
+## Standard_Eas_v4
+(12/11/2019 2:28:50 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2as_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 15.7 | 29,217 | 654 | 2.24% | 42 |
+| Standard_E4as_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 31.4 | 58,356 | 480 | 0.82% | 42 |
+| Standard_E8as_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 62.9 | 115,943 | 3,526 | 3.04% | 35 |
+| Standard_E16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 125.9 | 227,383 | 5,619 | 2.47% | 35 |
+| Standard_E32as_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 251.9 | 454,609 | 12,746 | 2.80% | 35 |
+| Standard_E48as_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 377.9 | 682,769 | 9,257 | 1.36% | 35 |
+| Standard_E64as_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 503.9 | 881,311 | 28,357 | 3.22% | 35 |
+| Standard_E96as_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 661.4 | 1,299,233 | 14,997 | 1.15% | 70 |
+
+##  Standard_Ea_v4
+(12/11/2019 2:29:06 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2a_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 15.7 | 29,561 | 422 | 1.43% | 42 |
+| Standard_E4a_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 31.4 | 58,303 | 1,280 | 2.20% | 42 |
+| Standard_E8a_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 62.9 | 114,650 | 2,726 | 2.38% | 42 |
+| Standard_E16a_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 125.9 | 226,947 | 4,661 | 2.05% | 35 |
+| Standard_E32a_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 251.9 | 453,666 | 10,058 | 2.22% | 42 |
+| Standard_E48a_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 377.9 | 665,200 | 18,714 | 2.81% | 35 |
+| Standard_E64a_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 503.9 | 894,718 | 25,214 | 2.82% | 35 |
+| Standard_E96a_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 661.4 | 1,298,074 | 15,948 | 1.23% | 35 |
+
 ## Av2 - General Compute
 (3/15/2019 12:06:55 AM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 1.9 | 6,483 | 120 | 1.85% | 273 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 6,059 | 208 | 3.43% | 217 |
@@ -49,10 +90,14 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 62.9 | 49,838 | 633 | 1.27% | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 49,123 | 2,483 | 5.05% | 259 |
 
+> [!NOTE]
+> Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
+
 ## B - Burstable
 (3/15/2019 12:27:08 AM pbi 3897709)
+(updated 6/14/2019 7:09:29 AM pbi 4777081)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 13,593 | 307 | 2.26% | 28 |
 | Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 14,069 | 495 | 3.52% | 672 |
@@ -66,11 +111,23 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 54,051 | 1,260 | 2.33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 111,929 | 1,562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 109,537 | 1,354 | 1.24% | 665 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 1 | 47.1 | 170,777 | 3,421 | 2.00% | 70 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 12 | 1 | 47.1 | 166,676 | 1,368 | 0.82% | 70 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 62.9 | 208,373 | 30,383 | 14.58% | 63 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 62.9 | 223,203 | 1,232 | 0.55% | 70 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 1 | 78.6 | 269,561 | 25,095 | 9.31% | 77 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 78.6 | 274,007 | 3,669 | 1.34% | 70 |
+
+
+> [!NOTE]
+> B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
+>
+> CoreMark is a  short running test that typically completes within available burst credits.  Therefore the numbers above typically represent the burst performance of the VM, reflecting what the short, bursty, workloads (typical on B-Series) performance will typically see.
 
 ## DSv3 - General Compute + Premium Storage
 (3/12/2019 6:52:03 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,153 | 838 | 4.16% | 147 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,903 | 1,324 | 6.33% | 553 |
@@ -87,7 +144,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Dv3 - General Compute
 (3/12/2019 6:54:27 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 7.8 | 20,359 | 799 | 3.93% | 154 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 7.8 | 20,737 | 1,422 | 6.86% | 546 |
@@ -104,7 +161,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## DSv2 - Storage Optimized
 (3/15/2019 12:53:13 AM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,642 | 600 | 4.10% | 259 |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 14,808 | 904 | 6.10% | 434 |
@@ -144,7 +201,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Dv2 - General Compute
 (3/12/2019 6:53:48 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,730 | 663 | 4.50% | 385 |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 15,057 | 1,319 | 8.76% | 322 |
@@ -170,7 +227,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Esv3 - Memory Optimized + Premium Storage
 (3/12/2019 7:17:33 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 20,957 | 1,200 | 5.73% | 672 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 40,420 | 1,993 | 4.93% | 672 |
@@ -192,14 +249,14 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Eisv3 - Memory Opt + Premium Storage (isolated)
 (4/11/2019 10:07:29 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E64is_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 627,745 | 4,062 | 0.65% | 196 |
 
 ## Ev3 - Memory Optimized
 (3/12/2019 6:52:13 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 15.7 | 21,171 | 1,772 | 8.37% | 693 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 31.4 | 41,181 | 3,148 | 7.64% | 700 |
@@ -212,7 +269,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Eiv3 - Memory Optimized (isolated)
 (3/12/2019 6:57:51 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E64i_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 625,855 | 4,881 | 0.78% | 7 |
 | Standard_E64i_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 425.2 | 629,151 | 9,756 | 1.55% | 217 |
@@ -220,7 +277,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Fsv2 - Compute + Storage Optimized
 (3/12/2019 6:51:35 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 3.9 | 28,219 | 1,843 | 6.53% | 700 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 7.8 | 53,911 | 1,002 | 1.86% | 707 |
@@ -233,7 +290,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Fs - Compute and Storage Optimized
 (3/15/2019 12:12:51 AM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,552 | 504 | 3.46% | 350 |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 14,784 | 858 | 5.80% | 357 |
@@ -250,7 +307,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## F - Compute Optimized
 (3/12/2019 6:53:59 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,937 | 593 | 3.97% | 350 |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 15,460 | 1,326 | 8.58% | 350 |
@@ -267,7 +324,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## GS - Storage Optimized
 (3/12/2019 10:22:33 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 27.5 | 28,835 | 2,222 | 7.71% | 287 |
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 55.0 | 55,568 | 3,139 | 5.65% | 287 |
@@ -282,7 +339,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## G - Compute Optimized
 (3/12/2019 10:23:51 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 27.5 | 32,808 | 2,679 | 8.17% | 287 |
 | Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 55.0 | 62,907 | 4,465 | 7.10% | 287 |
@@ -293,7 +350,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## H - High Performance Compute (HPC)
 (3/12/2019 10:50:51 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_H8 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 55.0 | 149,859 | 734 | 0.49% | 175 |
 | Standard_H8m | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 110.2 | 149,931 | 657 | 0.44% | 147 |
@@ -305,7 +362,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Lv2 - Storage Optimized
 (3/14/2019 5:49:04 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_L8s_v2 | AMD EPYC 7551 32-Core Processor | 8 | 1 | 62.9 | 80,528 | 404 | 0.50% | 119 |
 | Standard_L16s_v2 | AMD EPYC 7551 32-Core Processor | 16 | 2 | 125.9 | 154,829 | 3,708 | 2.40% | 119 |
@@ -316,7 +373,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Ls - Storage Optimized
 (3/12/2019 10:22:29 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_L4s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 31.4 | 56,488 | 2,916 | 5.16% | 287 |
 | Standard_L8s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 62.9 | 107,017 | 2,323 | 2.17% | 287 |
@@ -326,7 +383,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## M - Memory Optimized
 (4/11/2019 7:30:39 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_M8-2ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 2 | 1 | 215.2 | 22,605 | 29 | 0.13% | 42 |
 | Standard_M8-4ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 4 | 1 | 215.2 | 44,488 | 183 | 0.41% | 42 |
@@ -357,7 +414,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## NCSv3 - GPU Enabled
 (3/21/2019 5:48:37 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 106,929 | 353 | 0.33% | 49 |
 | Standard_NC12s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 213,585 | 875 | 0.41% | 42 |
@@ -367,7 +424,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## NCSv2 - GPU Enabled
 (3/12/2019 11:19:19 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 107,115 | 321 | 0.30% | 63 |
 | Standard_NC12s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 213,814 | 656 | 0.31% | 63 |
@@ -377,7 +434,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## NC - GPU Enabled
 (3/12/2019 11:08:03 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NC6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 6 | 1 | 55.0 | 102,211 | 658 | 0.64% | 259 |
 | Standard_NC12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 12 | 1 | 110.2 | 203,523 | 2,293 | 1.13% | 259 |
@@ -387,7 +444,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## NDs- GPU Enabled
 (3/12/2019 11:19:10 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_ND6s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 1 | 110.2 | 107,095 | 353 | 0.33% | 63 |
 | Standard_ND12s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 1 | 220.4 | 212,298 | 3,457 | 1.63% | 63 |
@@ -397,7 +454,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## NV - GPU Enabled
 (3/12/2019 11:08:13 PM pbi 3897709)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_NV6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 6 | 1 | 55.0 | 101,728 | 2,094 | 2.06% | 259 |
 | Standard_NV12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 12 | 1 | 110.2 | 203,903 | 1,724 | 0.85% | 252 |

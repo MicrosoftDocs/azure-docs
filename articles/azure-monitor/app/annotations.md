@@ -1,29 +1,21 @@
 ---
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/01/2019
 
 ---
 
 # Annotations on metric charts in Application Insights
 
-Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) charts show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
-
-> [!NOTE]
-> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the current metrics experience, see [Advanced features of Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
-
-![Example of annotations](./media/annotations/0-example.png)
+Annotations show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
 
 ## Release annotations with Azure Pipelines build
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
 ### Install the Annotations extension (one time)
+
 To be able to create release annotations, you'll need to install one of the many Azure DevOps extensions available in the Visual Studio Marketplace.
 
 1. Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
@@ -49,6 +41,9 @@ Create a separate API key for each of your Azure Pipelines release templates.
 1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
    
    ![Select Add Task and select Application Insights Release Annotation.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > The Release Annotation task currently supports only Windows-based agents; it won't run on Linux, macOS, or other types of agents.
    
 1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
    
@@ -71,11 +66,26 @@ Create a separate API key for each of your Azure Pipelines release templates.
 1. Select **Save** in the main release template window to save the template.
 
 ## View annotations
-Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations appear on charts in **Metrics Explorer**.
 
-Select any annotation marker (light gray arrow) to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
-![Select a release annotation marker.](./media/annotations/8-release.png)
+   > [!NOTE]
+   > Release annotations are not currently available in the Metrics pane of Application Insights
+
+Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in the following locations:
+
+The usage pane where you also have the ability to manually create release annotations:
+
+![Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as green checkmarks above the chart indicating the moment in time that a release occurred](./media/annotations/usage-pane.png)
+
+In any log-based workbook query where the visualization displays time along the x-axis.
+
+![Screenshot of workbooks pane with time series log-based query with annotations displayed](./media/annotations/workbooks-annotations.png)
+
+To enable annotations in your workbook go to **Advanced Settings** and select **Show annotations**.
+
+![Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it.](./media/annotations/workbook-show-annotations.png)
+
+Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
 ## Create custom annotations from PowerShell
 You can use the [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell script from GitHub to create annotations from any process you like, without using Azure DevOps. 

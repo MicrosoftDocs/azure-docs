@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: QnA Maker documentation
-summary: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers. 
+summary: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers.
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/18/2019
+  ms.date: 06/08/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
-  ms.subservice: qna-maker 
+  ms.subservice: qna-maker
   services: cognitive-services
   title: QnA Maker Documentation
-  description: QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge . 
+  description: QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge .
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -26,7 +26,7 @@ landingContent:
           - text: QnA Maker portal
             url: https://www.qnamaker.ai
       - linkListType: whats-new
-        links:      
+        links:
           - text: What's new
             url: whats-new.md
       - linkListType: concept
@@ -34,7 +34,7 @@ landingContent:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
           - text: Data sources
-            url: concepts/data-sources-supported.md
+            url: concepts/knowledge-base.md
       - linkListType: video
         links:
           - text: Build a bot in minutes
@@ -42,9 +42,9 @@ landingContent:
   - title: Create and edit knowledge base
     linkLists:
       - linkListType: concept
-        links: 
+        links:
           - text: What is a knowledge base
-            url: concepts/knowledge-base.md        
+            url: concepts/knowledge-base.md
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
@@ -52,35 +52,33 @@ landingContent:
           - text: "Quickstart: Add questions and answer"
             url: quickstarts/add-question-metadata-portal.md
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Use follow-up prompts to create multiple turns of a conversation
             url: how-to/multiturn-conversation.md
           - text: Add chit-chit
-            url: how-to/chit-chat-knowledge-base.md     
+            url: how-to/chit-chat-knowledge-base.md
           - text: Add a secured SharePoint data source
-            url: how-to/add-sharepoint-datasources.md  
+            url: how-to/add-sharepoint-datasources.md
 
   - title: Get answer from knowledge base
     linkLists:
       - linkListType: get-started
         links:
-          - text: "Quickstart: Using Postman"
-            url: quickstarts/get-answer-from-kb-using-postman.md
-          - text: "Quickstart: Using cURL"
-            url: quickstarts/get-answer-from-kb-using-curl.md  
-          - text: "Quickstart: Using REST and C#"
-            url: quickstarts/get-answer-from-knowledge-base-csharp.md     
-          - text: "Quickstart: Using NuGet and C#"
-            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base   
+          - text: "Quickstart: With Postman or cURL"
+            url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+          - text: "Quickstart: Using REST and cURL"
+            url: quickstarts/quickstart-rest-curl.md
+          - text: "Quickstart: Using SDK"
+            url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
-        links:              
+        links:
           - text: Get an answer with metadata
             url: how-to/metadata-generateanswer-usage.md
 
   - title: Test and publish
-    linkLists:  
+    linkLists:
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Test your knowledge base interactively
             url: how-to/test-knowledge-base.md
           - text: Publish a knowledge base
@@ -98,40 +96,42 @@ landingContent:
             url: how-to/improve-knowledge-base.md
           - text: Get analytics on your knowledge base
             url: how-to/get-analytics-knowledge-base.md
-                 
+
   - title: QnA Maker bots
     linkLists:
       - linkListType: get-started
         links:
 
-          - text: "Portal: Create a QnA Bot"
+          - text: "Portal: Create an Azure Bot service bot"
             url: tutorials/create-qna-bot.md
-          - text: ".Net: Create a bot with QnA Maker and Language Understanding"
-            url: tutorials/integrate-qnamaker-luis.md
+          - text: "Power apps: Create a QnA Maker powered bot"
+            url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+          - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
+            url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 
   - title: Reference
-    linkLists:   
+    linkLists:
       - linkListType: reference
-        links: 
+        links:
           - text: Limits of knowledge base
             url: limits.md
           - text: Authoring APIs
             url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
             url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
-          - text: .Net SDK reference documentation 
+          - text: .Net SDK reference documentation
             url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 
   - title: Help and feedback
-    linkLists: 
+    linkLists:
       - linkListType: reference
-        links: 
+        links:
           - text: Troubleshooting
             url: troubleshooting.md
           - text: Ask questions on Stack Overflow

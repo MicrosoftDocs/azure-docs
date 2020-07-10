@@ -1,18 +1,14 @@
 ---
-title: State storage options on Azure Service Fabric Mesh | Microsoft Docs
+title: State storage options on Azure Service Fabric Mesh 
 description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords:  
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: jeconnoc 
 ---
 # State management with Service Fabric
 
-Service Fabric supports many different options for state storage. For a conceptual overview of the state management patterns and Service Fabric, see [Service Fabric Concepts: State](/azure/service-fabric/service-fabric-concepts-state). All these same concepts apply whether your services run inside or outside of Service Fabric Mesh. 
+Service Fabric supports many different options for state storage. For a conceptual overview of the state management patterns and Service Fabric, see [Service Fabric Concepts: State](../service-fabric/service-fabric-concepts-state.md). All these same concepts apply whether your services run inside or outside of Service Fabric Mesh. 
 
 With Service Fabric Mesh, you can easily deploy a new application and connect it to an existing data store hosted in Azure. Besides using any remote database, there are several options for storing data, depending on whether the service desires local or remote storage. 
 

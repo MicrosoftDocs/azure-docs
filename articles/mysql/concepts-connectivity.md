@@ -1,12 +1,12 @@
 ---
-title: Handle transient errors and connect efficiently to Azure Database for MySQL | Microsoft Docs
+title: Transient connectivity errors - Azure Database for MySQL
 description: Learn how to handle  transient connectivity errors and connect efficiently to Azure Database for MySQL.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error,connect efficiently
-author: jan-eng
-ms.author: janeng
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 3/18/2020
 ---
 
 # Handle transient errors and connect efficiently to Azure Database for MySQL
@@ -47,7 +47,7 @@ Database connections are a limited resource, so making effective use of connecti
 
 Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths. We strongly recommend using database connection pooling or persistent connections to connect to Azure Database for MySQL. Database connection pooling handles the creation, management, and allocation of database connections. When a program requests a database connection, it prioritizes the allocation of existing idle database connections, rather than the creation of a new connection. After the program has finished using the database connection, the connection is recovered in preparation for further use, rather than simply being closed down.
 
-For better illustration, this article provides [a piece of sample code](./sample-scripts-java-connection-pooling.md) that uses JAVA as an example. For more information, see [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
+For better illustration, this article provides [a piece of sample code](./sample-scripts-java-connection-pooling.md) that uses JAVA as an example. For more information, see [Apache common DBCP](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > The server configures a timeout mechanism to close a connection that has been in an idle state for some time to free up resources. Be sure to set up the verification system to ensure the effectiveness of persistent connections when you are using them. For more information, see [Configure verification systems on the client side to ensure the effectiveness of persistent connections](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
@@ -90,7 +90,7 @@ public class SimpleTestOnBorrowExample {
             // The pool itself doesn't timeout the query, it is still up to the JDBC driver to enforce query timeouts. 
             // A value less than or equal to zero will disable this feature.
           p.setValidationQueryTimeout(1);
-            // set other usefull pool properties.
+            // set other useful pool properties.
           DataSource datasource = new DataSource();
           datasource.setPoolProperties(p);
 

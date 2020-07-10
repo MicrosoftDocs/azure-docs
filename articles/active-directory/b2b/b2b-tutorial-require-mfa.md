@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Multi-factor authentication for B2B - Azure Active Directory | Microsoft Docs'
-description: Learn how to require multi-factor authentication (MFA) when you use Azure AD B2B to collaborate with external users and partner organizations.
+title: 'Tutorial - Multi-factor authentication for B2B - Azure AD'
+description: In this tutorial, learn how to require multi-factor authentication (MFA) when you use Azure AD B2B to collaborate with external users and partner organizations.
 
 services: active-directory
 ms.service: active-directory

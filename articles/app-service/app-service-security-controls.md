@@ -1,11 +1,7 @@
 ﻿---
 title: Security controls for Azure App Service
-description: A checklist of security controls for evaluating Azure App Service
-services: app-service
-documentationcenter: ''
+description: Find a checklist of security controls for evaluating Azure App Service for your organization.
 author: msmbaldwin
-manager: rkarlin
-ms.service: app-service
 
 ms.topic: conceptual
 ms.date: 09/04/2019
@@ -22,7 +18,7 @@ This article documents the security controls built into Azure App Service.
 
 | Security control | Yes/No | Notes | Documentation
 |---|---|--|
-| Service endpoint support| Yes | Currently available in preview for App Service.| [Azure App Service Access Restrictions](app-service-ip-restrictions.md)
+| Service endpoint support| Yes | Available for App Service.| [Azure App Service Access Restrictions](app-service-ip-restrictions.md)
 | VNet injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. | [Introduction to the App Service Environments](environment/intro.md)
 | Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. | [Azure App Service Access Restrictions](app-service-ip-restrictions.md)
 | Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. | [Configure your App Service Environment with forced tunneling](environment/forced-tunnel-support.md)
@@ -39,8 +35,8 @@ This article documents the security controls built into Azure App Service.
 
 | Security control | Yes/No | Notes |  Documentation
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
-| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
 
 ## Data protection
 

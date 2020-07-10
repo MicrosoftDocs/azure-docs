@@ -1,11 +1,11 @@
 ---
-title: Import and export in Azure Database for MySQL
+title: Import and export - Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 2/27/2020
 ---
 
 # Migrate your MySQL database by using import and export
@@ -14,10 +14,10 @@ This article explains two common approaches to importing and exporting data to a
 ## Before you begin
 To step through this how-to guide, you need:
 - An Azure Database for MySQL server, by following [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md).
-- MySQL Workbench [downloaded](https://dev.mysql.com/downloads/workbench/), or another MySQL tool to import and export.
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do the import/export.
 
 ## Use common tools
-Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. 
+Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and import or export data into Azure Database for MySQL. 
 
 Use such tools on your client machine with an Internet connection to connect to Azure Database for MySQL. Use an SSL-encrypted connection for best security practices, as described in [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md).
 

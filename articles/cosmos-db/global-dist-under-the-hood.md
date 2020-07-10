@@ -1,11 +1,11 @@
 ---
 title: Global distribution with Azure Cosmos DB- under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 07/02/2020
+ms.author: sngun
 ms.reviewer: sngun
 
 ---
@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
 
-![System Topology](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="System Topology" border="false":::
 
 **Global distribution in Azure Cosmos DB is turnkey:** At any time, with a few clicks or programmatically with a single API call, you can add or remove the geographical regions associated with your Cosmos database. A Cosmos database, in turn, consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema-agnostic and provide a scope for a query. Data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without the hassles of schema or index management, especially in a globally distributed setup.  
 
@@ -26,7 +26,7 @@ When an app using Cosmos DB elastically scales throughput on a Cosmos container 
 
 As shown in the following image, the data within a container is distributed along two dimensions - within a region and across regions, worldwide:  
 
-![physical partitions](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="physical partitions" border="false":::
 
 A physical partition is implemented by a group of replicas, called a *replica-set*. Each machine hosts hundreds of replicas that correspond to various physical partitions within a fixed set of processes as shown in the image above. Replicas corresponding to the physical partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
 
@@ -48,7 +48,7 @@ A physical partition is materialized as a self-managed and dynamically load-bala
 
 A group of physical partitions, one from each of the configured with the Cosmos database regions, is composed to manage the same set of keys replicated across all the configured regions. This higher coordination primitive is called a *partition-set* - a geographically distributed dynamic overlay of physical partitions managing a given set of keys. While a given physical partition (a replica-set) is scoped within a cluster, a partition-set can span clusters, data centers, and geographical regions as shown in the image below:  
 
-![Partition Sets](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Partition Sets" border="false":::
 
 You can think of a partition-set as a geographically dispersed “super replica-set”, which is composed of multiple replica-sets owning the same set of keys. Similar to a replica-set, a partition-set’s membership is also dynamic – it fluctuates based on implicit physical partition management operations to add/remove new partitions to/from a given partition-set (for instance, when you scale out throughput on a container, add/remove a region to your Cosmos database, or when failures occur). By virtue of having each of the partitions (of a partition-set) manage the partition-set membership within its own replica-set, the membership is fully decentralized and highly available. During the reconfiguration of a partition-set, the topology of the overlay between physical partitions is also established. The topology is dynamically selected based on the consistency level, geographical distance, and available network bandwidth between the source and the target physical partitions.  
 

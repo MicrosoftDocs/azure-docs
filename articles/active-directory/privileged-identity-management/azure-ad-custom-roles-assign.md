@@ -1,5 +1,5 @@
 ---
-title: Assign an Azure AD custom role in Privileged Identity Management (PIM) | Microsoft Docs
+title: Assign Azure AD custom role - Privileged Identity Management (PIM)
 description: How to assign an Azure AD custom role for assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,8 +8,9 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -30,7 +31,9 @@ This article tells you how to use Privileged Identity Management (PIM) to create
 - For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Assign a role
 

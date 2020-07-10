@@ -1,11 +1,11 @@
 ---
-title: Time sync for Linux VMs in Azure | Microsoft Docs
+title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
@@ -23,10 +23,10 @@ Time sync is important for security and event correlation. Sometimes it is used 
 
 Azure is backed by infrastructure running Windows Server 2016. Windows Server 2016 has improved algorithms used to correct time and condition the local clock to synchronize with UTC.  The Windows Server 2016 Accurate Time feature greatly improved how the VMICTimeSync service that governs VMs with the host for accurate time. Improvements include more accurate initial time on VM start or VM restore and interrupt latency correction. 
 
->[!NOTE]
->For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
+> [!NOTE]
+> For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
 >
-> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## Overview
 
@@ -36,7 +36,7 @@ Azure hosts are synchronized to internal Microsoft time servers that take their 
 
 On stand-alone hardware, the Linux OS only reads the host hardware clock on boot. After that, the clock is maintained using the interrupt timer in the Linux kernel. In this configuration, the clock will drift over time. In newer Linux distributions on Azure, VMs can use the VMICTimeSync provider, included in the Linux integration services (LIS), to query for clock updates from the host more frequently.
 
-Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompts for changes to happen on the VMs to compensate.
+Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompts for changes to happen on the VMs to compensate.
 
 Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following effects:
 
@@ -130,27 +130,38 @@ This should return **hyperv**.
 
 ### chrony
 
-On Red Hat Enterprise Linux and CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) configured to use a PTP source clock. The Network Time Protocol daemon (ntpd) doesn’t support PTP sources, so using **chronyd** is recommended. To enable PTP, update **chrony.conf**.
+On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following code:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-For more information on Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+For more information about Ubuntu and NTP, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-For more information on chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
-If both chrony and TimeSync sources are enabled simultaneously, you can mark one as **prefer** which sets the other source as a backup. Because NTP services do not update the clock for large skews except after a long period, the VMICTimeSync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+For more information about chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
+If both chrony and TimeSync sources are enabled simultaneously, you can mark one as **prefer**, which sets the other source as a backup. Because NTP services do not update the clock for large skews except after a long period, the VMICTimeSync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+
+By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a timesync if the drift exceeds the threshold specified.
+
+ ```bash
+makestep 1.0 -1
+```
+
+Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service:
+
+```bash
+systemctl restart chronyd
+```
 
 ### systemd 
 
-On Ubuntu and SUSE time sync is configured using [systemd](https://www.freedesktop.org/wiki/Software/systemd/). For more information on Ubuntu, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html). For more information on SUSE, see Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
-
-
+On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd](https://www.freedesktop.org/wiki/Software/systemd/). For more information about Ubuntu, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html). For more information about SUSE, see Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 ## Next steps
 
-For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
 
 

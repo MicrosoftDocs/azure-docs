@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
-description: Overview of message enrichments for Azure IoT Hub messages
+description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.date: 05/10/2019
 ms.author: robinsh
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT Hub, based on the destination endpoint.   
 ---
-# Message enrichments for device-to-cloud IoT Hub messages (preview)
+# Message enrichments for device-to-cloud IoT Hub messages
 
 *Message enrichments* is the ability of the IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information.
 
@@ -49,11 +49,21 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT Hub, or messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can also add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. We create a default route in IoT Hub to device telemetry, based on your Event Grid subscription. This single route can handle all of your Event Grid subscriptions. You can configure enrichments for the event grid endpoint after you have created the event grid subscription to device telemetry. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
-To see how to try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
+Enrichments can be configured using the the following methods:
+
+| **Method** | **Command** |
+| ----- | -----| 
+| Portal | [Azure portal](https://portal.azure.com) | See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
+| Azure CLI   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+Adding message enrichments doesn't add latency to the message routing.
+
+To try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
 
 ## Limitations
 
@@ -76,10 +86,6 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 ## Pricing
 
 Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT Hub. You are only charged once for that message, even if the message goes to multiple endpoints.
-
-## Availability
-
-This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## Next steps
 

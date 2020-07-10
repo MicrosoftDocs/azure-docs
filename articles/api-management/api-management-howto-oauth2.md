@@ -1,5 +1,6 @@
 ---
-title: Authorize developer accounts using OAuth 2.0 in Azure API Management | Microsoft Docs
+title: Authorize developer accounts using OAuth 2.0 in API Management
+titleSuffix: Azure API Management
 description: Learn how to authorize users using OAuth 2.0 in API Management.
 services: api-management
 documentationcenter: ''
@@ -11,13 +12,16 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
+
+> [!IMPORTANT]
+> OAuth 2.0 authorization is not yet available in the interactive console of the new developer portal.
 
 ## <a name="prerequisites"> </a>Prerequisites
 
@@ -88,11 +92,11 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 settings](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>Test the OAuth 2.0 user authorization in the Developer Portal
+## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 
-Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API.  Click **Developer portal** in the top menu from your Azure API Management instance **Overview** page.
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![Developer portal][api-management-developer-portal-menu]
+Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Click **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
 
 Click **APIs** in the top menu and select **Echo API**.
 
@@ -124,18 +128,17 @@ For more information about using OAuth 2.0 and API Management, see the following
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/
@@ -146,4 +149,3 @@ For more information about using OAuth 2.0 and API Management, see the following
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-

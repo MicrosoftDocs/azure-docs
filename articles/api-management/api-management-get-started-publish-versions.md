@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 
 ---
 # Publish multiple versions of your API 
 
-There are times when it is impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach. It is possible to do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
+There are times when it is impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach. It is possible to do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/).
 
 In this tutorial, you learn how to:
 
@@ -90,11 +90,10 @@ In order for callers to see the new version, it must be added to a **product**.
 ## Browse the developer portal to see the version
 
 1. Select **Developer Portal** from the top menu.
-2. Select **APIs**, notice that **Demo Conference API** shows **Original** and **v1** versions.
-3. Select **v1**.
-4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
-
-    ![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. Select **APIs** and click on the **Demo Conference API**.
+3. You should see a dropdown with multiple versions next to the API name.
+4. Select **v1**.
+5. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
 ## Next steps
 

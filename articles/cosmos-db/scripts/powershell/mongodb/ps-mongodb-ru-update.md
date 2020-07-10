@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
-description: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
+title: PowerShell script to update RU/s for Azure Cosmos DB's API for MongoDB
+description: Learn how to use a PowerShell script to update the throughput for a database or a container in Azure Cosmos DB's API for MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 05/01/2020
 ms.author: mjbrown
 ---
 
@@ -33,8 +33,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Gets the throughput value of the MongoDB API Collection. |
+| [Update-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Updates the throughput value of the MongoDB API Collection. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

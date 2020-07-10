@@ -1,8 +1,8 @@
 ---
-title: Add an HTML Marker to Azure Maps | Microsoft Docs
-description: How to add an HTML Marker to the Azure Maps Web SDK.
-author: jingjing-z
-ms.author: jinzh
+title: Add an HTML Marker to map | Microsoft Azure Maps
+description: In this article, you will learn about how to add an HTML Marker to a map using the Microsoft Azure Maps Web SDK.
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -19,7 +19,7 @@ This article shows you how to add a custom HTML such as an image file to the map
 > HTML Markers do not connect to data sources. Instead position information is added directly to the marker and the marker is added to the maps `markers` property which is a [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Unlike most layers in the Azure Maps Web control which use WebGL for rendering, HTML Markers use traditional DOM elements for rendering. As such, the more HTML markers added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers. For larger data sets consider either clustering your data or using a Symbol or Bubble layer.
+> Unlike most layers in the Azure Maps Web control which use WebGL for rendering, HTML Markers use traditional DOM elements for rendering. As such, the more HTML markers added to a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers. For larger data sets consider either clustering your data or using a Symbol or Bubble layer.
 
 ## Add an HTML marker
 
@@ -28,7 +28,7 @@ The [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 The following code creates an HTML marker, and sets the color property to "DodgerBlue" and the text property to "10". A popup is attached to the marker and `click` event is used to toggle the visibility of the popup.
 
 ```javascript
-//Create a HTML marker and add it to the map.
+//Create an HTML marker and add it to the map.
 var marker = new atlas.HtmlMarker({
     color: 'DodgerBlue',
     text: '10',

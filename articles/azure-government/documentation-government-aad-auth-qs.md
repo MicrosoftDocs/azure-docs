@@ -1,20 +1,16 @@
 ---
 title: Azure Government Integrate Azure AD Authentication | Microsoft Docs
-description: Integrating Azure AD Authentication on Azure Government Quickstart
+description: This article demonstrates how to integrating Azure AD Authentication on Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
-manager: zakramer
 
-ms.assetid: 47e5e535-baa0-457e-8c41-f9fd65478b38
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/2/2017
-ms.author: yujhong
 
 ---
 # Integrate Azure AD Authentication with Web Apps on Azure Government

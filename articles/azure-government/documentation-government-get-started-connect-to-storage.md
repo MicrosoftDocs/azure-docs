@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: yujhong
+ms.author: femila
 ---
 
 # Develop with Storage API on Azure Government
 
-Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you’re already familiar with.
+Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you're already familiar with.
 To use these services in Azure Government, you must define different endpoint mappings, as shown below for the Storage service. 
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
@@ -35,7 +35,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 ### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
 
-2. You'll be prompted to add an Azure account; in the dropdown choose the “Azure US Government” option:
+2. You'll be prompted to add an Azure account; in the dropdown choose the "Azure US Government" option:
 
     ![storage1](./media/documentation-government-get-started-connect-with-storage-img1.png)
 3. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
@@ -52,10 +52,10 @@ If you don't have an Azure Government subscription, create a [free account](http
 * Download Visual Studio 2019
 
 ### Getting Started with Storage API
-One important difference to note when connecting with the Storage API is that the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
+One important difference to note when connecting with the Storage API is that the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with "core.usgovcloudapi.net", rather than "core.windows.net".
 
 These endpoint differences must be taken into account when you connect to storage in Azure Government with C#.
-1. Go to the [Azure Government portal](https://portal.azure.us) and select your storage account and then click the “Access Keys” tab:
+1. Go to the [Azure Government portal](https://portal.azure.us) and select your storage account and then click the "Access Keys" tab:
 
     ![storage4](./media/documentation-government-get-started-connect-with-storage-img4.png)
 2. Copy/paste the storage account connection string.
@@ -64,13 +64,13 @@ These endpoint differences must be taken into account when you connect to storag
 1. Open up Visual Studio and create a new project. Add a reference to the [WindowsAzure.Storage NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/). This NuGet package contains classes we will need to connect to your storage account.
 
 2. Add these two lines of C# code to connect:
-	```cs
-	var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
+    ```cs
+    var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
 
     var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
     ```
 
-    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.cloudstorageaccount) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
+    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount) – enabling us to explicitly pass in the endpoint suffix of "core.usgovcloudapi.net". This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
 3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
 
@@ -109,7 +109,7 @@ These endpoint differences must be taken into account when you connect to storag
                 this.email = email;
             }
     
-    	}
+        }
     ``` 
 3. Create a "test" class where we'll access Azure Table Storage using the Azure Storage API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
@@ -117,42 +117,42 @@ These endpoint differences must be taken into account when you connect to storag
     ```java
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.table.*;
-	
+    
     public class test {
 
-	    public static final String storageConnectionString = //Paste in your Storage Account connection string
+        public static final String storageConnectionString = //Paste in your Storage Account connection string
 
-	    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-		try
-		{
-		    // Retrieve storage account from connection-string.
-		    CloudStorageAccount storageAccount =
-			CloudStorageAccount.parse(storageConnectionString);
+        try
+        {
+            // Retrieve storage account from connection-string.
+            CloudStorageAccount storageAccount =
+            CloudStorageAccount.parse(storageConnectionString);
 
-		    // Create the table client.
-		    CloudTableClient tableClient = storageAccount.createCloudTableClient();
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-		    // Create the table if it doesn't exist.
-		    String tableName = "Contacts";
-		    CloudTable cloudTable = tableClient.getTableReference(tableName);
-		    cloudTable.createIfNotExists();
-		    // Create a new customer entity.
-		    CustomerEntity customer1 = new CustomerEntity("Brown", "Walter");
-		    customer1.setEmail("Walter@contoso.com");
+            // Create the table if it doesn't exist.
+            String tableName = "Contacts";
+            CloudTable cloudTable = tableClient.getTableReference(tableName);
+            cloudTable.createIfNotExists();
+            // Create a new customer entity.
+            CustomerEntity customer1 = new CustomerEntity("Brown", "Walter");
+            customer1.setEmail("Walter@contoso.com");
 
-		    // Create an operation to add the new customer to the people table.
-		    TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
+            // Create an operation to add the new customer to the people table.
+            TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-		    // Submit the operation to the table service.
-		    cloudTable.execute(insertCustomer1);
-		}
-		catch (Exception e)
-		{
-		    // Output the stack trace.
-		    e.printStackTrace();
-		}
-	  }	
+            // Submit the operation to the table service.
+            cloudTable.execute(insertCustomer1);
+        }
+        catch (Exception e)
+        {
+            // Output the stack trace.
+            e.printStackTrace();
+        }
+      }    
     }   
     ```
 
@@ -161,15 +161,15 @@ These endpoint differences must be taken into account when you connect to storag
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
-	```javascript
-	var azure = require('azure-storage');
-	var storageConnectionString = //Paste Azure Storage connection string here
-	var blobSvc = azure.createBlobService(storageConnectionString);
-	blobSvc.createContainerIfNotExists('testing', function(error, result, response){
-	if(!error){
-	// Container exists and is private
-	}
-	});
+    ```javascript
+    var azure = require('azure-storage');
+    var storageConnectionString = //Paste Azure Storage connection string here
+    var blobSvc = azure.createBlobService(storageConnectionString);
+    blobSvc.createContainerIfNotExists('testing', function(error, result, response){
+    if(!error){
+    // Container exists and is private
+    }
+    });
     ```
 
 #### Python
@@ -177,13 +177,13 @@ These endpoint differences must be taken into account when you connect to storag
 2. When using the Storage SDK for Python to connect to Azure Government, you **must separately define an "endpoint_suffix" parameter**. 
     **Paste** in your Azure storage account name and key in the placeholders below.
     
-	```python
-	# Create the BlockBlockService that is used to call the Blob service for the storage account
-	block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
-	container_name ='ml-gov-demo'
-	generator = block_blob_service.list_blobs(container_name)
-	for blob in generator:
-		print(blob.name)
+    ```python
+    # Create the BlockBlockService that is used to call the Blob service for the storage account
+    block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
+    container_name ='ml-gov-demo'
+    generator = block_blob_service.list_blobs(container_name)
+    for blob in generator:
+        print(blob.name)
     ```
 
 #### PHP
@@ -199,7 +199,7 @@ These endpoint differences must be taken into account when you connect to storag
      > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
      > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
      >
-	
+    
      ```php
      <?php
      require_once "vendor/autoload.php";

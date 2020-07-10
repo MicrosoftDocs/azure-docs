@@ -1,14 +1,15 @@
 ---
-title: Create a resilient access control management strategy - Azure Active Directory
+title: Create a resilient access control management strategy - Azure AD
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/19/2018
+ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
@@ -58,10 +59,11 @@ To unlock admin access to your tenant, you should create emergency access accoun
 
 Incorporate the following access controls in your existing Conditional Access policies for organization:
 
-1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic).
+1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Azure MFA authentication method analysis](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
 3. Use trusted devices via [Azure AD Hybrid Join](https://docs.microsoft.com/azure/active-directory/devices/overview) or [Microsoft Intune Managed devices](https://docs.microsoft.com/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
 4. Use Azure AD identity protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
+5. If you are protecting VPN access using Azure MFA NPS extension, consider federating your VPN solution as a [SAML app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) and determine the app category as recommended below. 
 
 >[!NOTE]
 > Risk-based policies require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
@@ -84,7 +86,8 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 
 ### Contingencies for user lockout
 
-Alternatively, your organization can also create contingency policies. To create contingency policies, you must define tradeoff criteria between business continuity, operational cost, financial cost, and security risks. For example, you may activate a contingency policy only to a subset of users, for a subset of apps, for a subset of clients, or from a subset of locations. Contingency policies will give administrators and end users access to apps and resources, during a disruption when no mitigation method was implemented.
+Alternatively, your organization can also create contingency policies. To create contingency policies, you must define tradeoff criteria between business continuity, operational cost, financial cost, and security risks. For example, you may activate a contingency policy only to a subset of users, for a subset of apps, for a subset of clients, or from a subset of locations. Contingency policies will give administrators and end users access to apps and resources, during a disruption when no mitigation method was implemented. Microsoft recommends enabling contingency policies in [report-only mode](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) when not in use so that administrators can monitor the potential impact of the policies should they need to be turned on.
+
  Understanding your exposure during a disruption helps reduce your risk and is a critical part of your planning process. To create your contingency plan, first determine the following business requirements of your organization:
 
 1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? Build a list of these apps and make sure your other stakeholders (business, security, legal, leadership) all agree that if all access control goes away, these apps still must continue to run. You are likely going to end up with categories of:
@@ -103,12 +106,12 @@ Alternatively, your organization can also create contingency policies. To create
 
 #### Microsoft recommendations
 
-A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Then, when your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
+A contingency Conditional Access policy is a **backup policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. In order to minimize unexpected disruption when a contingency policy is enabled, the policy should remain in report-only mode when not in use. Administrators can monitor the potential impact of their contingency policies using the Conditional Access Insights workbook. When your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
 
 >[!IMPORTANT]
 > Disabling policies that enforce security on your users, even temporarily, will reduce your security posture while the contingency plan is in place.
 
-* Configure a set of fallback policies if a disruption in one credential type or one access control mechanism impacts access to your apps. Configure a policy in disabled state that requires Domain Join as a control, as a backup for an active policy that requires a third-party MFA provider.
+* Configure a set of fallback policies if a disruption in one credential type or one access control mechanism impacts access to your apps. Configure a policy in report-only state that requires Domain Join as a control, as a backup for an active policy that requires a third-party MFA provider.
 * Reduce the risk of bad actors guessing passwords, when MFA is not required, by following the practices in the [password guidance](https://aka.ms/passwordguidance) white paper.
 * Deploy [Azure AD Self-Service Password Reset (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) and [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) to make sure users don’t use common password and terms you choose to ban.
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
@@ -139,28 +142,28 @@ The following example: **Example A - Contingency CA policy to restore Access to 
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Any
   * Grant Control: Require Domain Joined
-  * State: Disabled
+  * State: Report-only
 * Policy 2: Block platforms other than Windows
   * Name: EM002 - ENABLE IN EMERGENCY: MFA Disruption[2/4] - Exchange SharePoint - Block access except Windows
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Device Platform Include All Platforms, exclude Windows
   * Grant Control: Block
-  * State: Disabled
+  * State: Report-only
 * Policy 3: Block networks other than CorpNetwork
   * Name: EM003 - ENABLE IN EMERGENCY: MFA Disruption[3/4] - Exchange SharePoint - Block access except Corporate Network
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Locations Include any location, exclude CorpNetwork
   * Grant Control: Block
-  * State: Disabled
+  * State: Report-only
 * Policy 4: Block EAS Explicitly
   * Name: EM004 - ENABLE IN EMERGENCY: MFA Disruption[4/4] - Exchange - Block EAS for all users
   * Users and Groups: Include all users
   * Cloud Apps: Include Exchange Online
   * Conditions: Client apps: Exchange Active Sync
   * Grant Control: Block
-  * State: Disabled
+  * State: Report-only
 
 Order of activation:
 
@@ -181,14 +184,14 @@ In this next example, **Example B - Contingency CA policies to allow mobile acce
   * Cloud Apps: Salesforce.
   * Conditions: None
   * Grant Control: Block
-  * State: Disabled
+  * State: Report-only
 * Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
   * Name: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Block All platforms except iOS and Android
   * Users and Groups: Include SalesforceContingency. Exclude SalesAdmins
   * Cloud Apps: Salesforce
   * Conditions: Device Platform Include All Platforms, exclude iOS and Android
   * Grant Control: Block
-  * State: Disabled
+  * State: Report-only
 
 Order of activation:
 
@@ -196,6 +199,26 @@ Order of activation:
 2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. Verify users in the SalesAdmins and SalesforceContingency can access Salesforce.
 3. Enable Policy 2: Verify users in the SalesContingency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. Verify SalesAdmin can still access Salesforce from any device.
 4. Disable the existing device compliance policy for Salesforce.
+
+### Contingencies for user lockout from on-prem resources (NPS extension)
+
+If you are protecting VPN access using Azure MFA NPS extension, consider federating your VPN solution as a [SAML app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) and determine the app category as recommended below. 
+
+If you have deployed Azure AD MFA NPS extension to protect on-prem resources, such as VPN and Remote Desktop Gateway, with MFA - you should consider in advance if you are ready to disable MFA in a case of emergency.
+
+In this case, you can disable the NPS extension, as a result, the NPS server will only verify primary authentication and will not enforce MFA on the users.
+
+Disable NPS extension: 
+-	Export the HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters registry key as a backup. 
+-	Delete the registry values for “AuthorizationDLLs” and “ExtensionDLLs”, not the Parameters key. 
+-	Restart the Network Policy Service (IAS) service for the changes to take effect 
+-	Determine if primary authentication for VPN is successful.
+
+Once the service has recovered and you are ready to enforce MFA on your users again, enable the NPS extension: 
+-	Important the registry key from backup HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-	Restart the Network Policy Service (IAS) service for the changes to take effect 
+-	Determine if primary authentication as well as secondary authentication for VPN is successful.
+-	Review NPS server and the VPN log to determine which users have signed in during the emergency window.
 
 ### Deploy password hash sync even if you are federated or use pass-through authentication
 
@@ -233,7 +256,7 @@ Depending on which mitigations or contingencies are used during a disruption, yo
 Undo the changes you made as part of the activated contingency plan once the service is restored that caused the disruption. 
 
 1. Enable the regular policies
-2. Disable your contingency policies. 
+2. Disable your contingency policies back to report-only mode. 
 3. Roll back any other changes you made and documented during the disruption.
 4. If you used an emergency access account, remember to regenerate credentials and physically secure the new credentials details as part of your emergency access account procedures.
 5. Continue to [triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) after the disruption for suspicious activity.
@@ -264,3 +287,4 @@ Undo the changes you made as part of the activated contingency plan once the ser
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [What is Conditional Access report-only mode?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)

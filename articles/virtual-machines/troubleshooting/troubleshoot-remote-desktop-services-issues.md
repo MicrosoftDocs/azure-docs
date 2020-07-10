@@ -20,8 +20,6 @@ ms.author: genli
 
 This article describes how to troubleshoot issues when you connect to an Azure virtual machine (VM) and Remote Desktop Services, or TermService, isn't starting or fails to start.
 
-> [!NOTE]  
-> Azure has two different deployment models to create and work with resources: [Azure Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of the classic deployment model.
 
 ## Symptoms
 
@@ -47,7 +45,9 @@ When you try to connect to a VM, you experience the following scenarios:
 
     You can also use the Serial Access Console feature to look for these errors by running the following query: 
 
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+    ```console
+   wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+    ```
 
 ## Cause
  
@@ -179,22 +179,37 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
 1. This problem occurs if the startup account of this service was changed. Changed this back to its default: 
 
-        sc config TermService obj= 'NT Authority\NetworkService'
+    ```console
+    sc config TermService obj= 'NT Authority\NetworkService'
+    ```
+
 2. Start the service:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 3. Try to connect to VM by using Remote Desktop.
 
 #### TermService service crashes or hangs
 1. If the service status is stuck in **Starting** or **Stopping**, then try to stop the service: 
 
-        sc stop TermService
+    ```console
+    sc stop TermService
+    ```
+
 2. Isolate the service on its own ‘svchost’ container:
 
-        sc config TermService type= own
+    ```console
+    sc config TermService type= own
+    ```
+
 3. Start the service:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 4. If the service is still failing to start, [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Repair the VM offline

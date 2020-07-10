@@ -1,13 +1,10 @@
 ---
-title: Exception handling & error logging scenario - Azure Logic Apps
+title: Exception handling & error logging scenario
 description: Real use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: estfan
-ms.reviewer: LADocs
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ---
@@ -28,7 +25,7 @@ Here's the story as the use case for this scenario:
 A well-known healthcare organization engaged us to develop an Azure solution 
 that would create a patient portal by using Microsoft Dynamics CRM Online. 
 They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce. 
-We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+We were asked to use the [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 
@@ -512,5 +509,5 @@ The source code for the Logic Apps exception management API application is avail
 ## Next steps
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Monitor logic apps](../logic-apps/monitor-logic-apps.md)
 * [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

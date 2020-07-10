@@ -1,14 +1,14 @@
 ---
-title: 'Configure Network Performance Monitor for ExpressRoute circuits - Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure NPM for circuits'
 description: Configure cloud-based network monitoring (NPM) for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # Configure Network Performance Monitor for ExpressRoute

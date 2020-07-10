@@ -1,6 +1,6 @@
 ---
-title: Register a confidential client application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a confidential client application in Azure Active Directory.
+title: Register a confidential client app in Azure AD - Azure API for FHIR
+description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -12,7 +12,9 @@ ms.author: mihansen
 
 # Register a confidential client application in Azure Active Directory
 
-In this article, you'll learn how to register a confidential client application in Azure Active Directory. A client application registration is an Azure Active Directory representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications.
+In this tutorial, you'll learn how to register a confidential client application in Azure Active Directory. 
+
+A client application registration is an Azure Active Directory representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications.
 
 To register a new confidential application in the portal, follow the steps below.
 
@@ -66,7 +68,9 @@ Next add API permissions:
 
 ## Next steps
 
-In this article, you've learned how to register a confidential client application in Azure Active Directory. Next, deploy a FHIR API in Azure.
+In this article, you've learned how to register a confidential client application in Azure Active Directory. You are now ready to deploy the [Azure API for FHIR](fhir-paas-powershell-quickstart.md).
+
+Once you have deployed the Azure API for FHIR, you can review additional available settings.
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)
+>[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)

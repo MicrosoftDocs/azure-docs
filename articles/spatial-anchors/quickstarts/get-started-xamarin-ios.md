@@ -1,17 +1,16 @@
 ---
-title: Quickstart - Create a Xamarin iOS app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a Xamarin iOS app'
 description: In this quickstart, you learn how to build an iOS app with Xamarin using Spatial Anchors.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Xamarin iOS app that can place and locate a 3D object that persists across devices and platforms.
 ---
+
 # Quickstart: Create a Xamarin iOS app with Azure Spatial Anchors
 
 This quickstart covers how to create an iOS app with Xamarin using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an iOS app that can save and recall a spatial anchor.
@@ -31,7 +30,8 @@ To complete this quickstart, make sure you have:
 - A Mac running macOS High Sierra (10.13) or above with:
   - The latest version of Xcode and iOS SDK installed from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
   - An up-to-date version of <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
-  - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>
+  - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
+  - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -50,6 +50,10 @@ Open `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Open `Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs`
+
+Locate `StartSession()` and add the following line, substituting in your account domain from earlier: `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";`.
 
 ## Deploy the app to your iOS device
 

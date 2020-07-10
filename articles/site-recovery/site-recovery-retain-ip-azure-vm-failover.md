@@ -1,5 +1,5 @@
 ---
-title: Retain IP addresses during Azure VM failover with Azure Site Recovery | Microsoft Docs
+title: Keep IP addresses after Azure VM failover with Azure Site Recovery 
 description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: site-recovery
 ms.date: 4/9/2019

@@ -1,11 +1,9 @@
 ---
 title: Connect to Azure Government with SQL Server Management Studio | Microsoft Docs
-description: Manage your subscription in Azure Government by connecting with SSMS.
+description: Manage your subscription in Azure Government by connecting with SQL Server Management Studio (SSMS).
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
-manager: zakramer
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 02/07/2019
-ms.author: yujhong
 ---
 
 # Develop with SQL Server Management Studio 
@@ -33,7 +30,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 Before you connect to Azure Government from SSMS, you must set up an Azure SQL Server firewall rule to allow your local IP address to access your computer that's running SQL Server. 
 
-Follow these steps to [Manage firewall rules by using the Azure portal](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+Follow these steps to [Manage firewall rules by using the Azure portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 ## Specify Azure Government as the environment to connect
 

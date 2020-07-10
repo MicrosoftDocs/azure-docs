@@ -1,18 +1,17 @@
 ---
-title: How to change license assignments for users and groups - Azure Active Directory | Microsoft Docs
-description: Describes the recommended process to migrate users within a group to different service licenses (Office 365 Enterprise E1 and E3) using group licensing
+title: Change license plans for users and groups - Azure AD | Microsoft Docs
+description: How to migrate users within a group to different service plans using group licensing in Azure Active Directory
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 07/07/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -45,7 +44,7 @@ On the **Update license assignments** page, if you see that some checkboxes are 
 1. Select **Azure Active Directory** > **Users**, and then open the **Profile** page for a user.
 1. Select **Licenses**.
 1. Select **Assignments** to edit license assignment for the user or group. The **Assignments** page is where you can resolve license assignment conflicts.
-1. Select the check box for Office 366 E3 and ensure that at minimum the all of the E1 services that are assigned to the user are selected.
+1. Select the check box for Office 365 E3 and ensure that at minimum the all of the E1 services that are assigned to the user are selected.
 1. Clear the check box for Office 365 E1.
 
     ![license assignments page for a user showing Office 365 E1 cleared and Office 365 E3 selected](media/licensing-groups-change-licenses/update-user-license-assignments.png)
@@ -60,7 +59,7 @@ Azure AD applies the new licenses and removes the old licenses simultaneously to
 1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group.
-1. Select the check box for Office 366 E3. To maintain continuity of service, ensure that you select all of the E1 services that are already assigned to the user.
+1. Select the check box for Office 365 E3. To maintain continuity of service, ensure that you select all of the E1 services that are already assigned to the user.
 1. Clear the check box for Office 365 E1.
 
     ![Select the Assignments command on a user or group Licenses page](media/licensing-groups-change-licenses/update-group-license-assignments.png)

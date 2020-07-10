@@ -1,13 +1,9 @@
 ---
-title: Connect to Azure Event Hubs - Azure Logic Apps
-description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps 
+title: Connect to Azure Event Hubs
+description: Create automated tasks and workflows that monitor and manage events by using Azure Event Hubs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
@@ -230,10 +226,12 @@ or [Add Event Hubs action](#add-action).
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
-see the [connector's reference page](/connectors/eventhubs/).
+For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/eventhubs/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
-Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

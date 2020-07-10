@@ -3,27 +3,41 @@
   - name: Overview
     expanded: true
     items:
-     - name: What is cloud app management and single sign-on?
+     - name: What is application management?
        href: what-is-application-management.md
-     - name: What is automatic user provisioning?
-       href: user-provisioning.md
-     - name: What is Application Proxy for on-premises apps?
-       href: what-is-application-proxy.md
+     - name: What is single sign-on (SSO)?
+       href: what-is-single-sign-on.md
   - name: Quickstarts
     items:
-    - name: Add a cloud app from the gallery
-      href: add-application-portal.md
-    - name: View your enterprise applications
+    - name: View your apps
       href: view-applications-portal.md
+    - name: Add an app
+      href: add-application-portal.md
+    - name: Configure an app
+      href: add-application-portal-configure.md
+    - name: Set up single sign-on
+      href: add-application-portal-setup-sso.md
+    - name: Delete an app
+      href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: SaaS apps tutorials
+    - name: Add an app not listed in the gallery
+      href: add-non-gallery-app.md
+    - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+  - name: Samples
+    items: 
+    - name: Azure PowerShell samples for Application Proxy
+      href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
     items: 
+    - name: App management best practices
+      href: application-management-fundamentals.md
+    - name: App management common scenarios
+      href: common-scenarios.md
     - name: Cloud apps and single sign-on
       items:
       - name: Planning a cloud app integration
@@ -36,8 +50,6 @@
           href: developer-guidance-for-integrating-applications.md
       - name: Single sign-on
         items:  
-        - name: What is single sign-on
-          href: what-is-single-sign-on.md
         - name: Enable SSO for your multi-tenant application 
           href: isv-sso-content.md
         - name: Create an Azure tenant for multi-tenant application
@@ -62,20 +74,18 @@
           href: manage-certificates-for-federated-single-sign-on.md
         - name: Tenant restrictions
           href: tenant-restrictions.md
-        - name: Configure SAML token encryption (Preview)
+        - name: Configure SAML token encryption
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
-    - name: Automatic user provisioning
-      items:
-       - name: Plan an automatic user provisioning deployment
-         href: plan-auto-user-provisioning.md
-       - name: Automatic provisioning for SCIM-enabled apps
-         href: use-scim-to-provision-users-and-groups.md
+    - name: Cloud app visibility and control
+      href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
          href: application-proxy.md
+       - name: What is application proxy for on-premises apps?
+         href: what-is-application-proxy.md
        - name: Planning an Application Proxy deployment
          href: application-proxy-deployment-plan.md
        - name: Connectors
@@ -95,14 +105,6 @@
     items:
     - name: Cloud apps and single sign-on
       items:
-      - name: Add a cloud app
-        items:
-        - name: Add a gallery app
-          href: add-gallery-app.md
-        - name: Add a non-gallery app
-          href: add-non-gallery-app.md
-        - name: Change the app name or logo
-          href: change-name-or-logo-portal.md
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on
@@ -131,12 +133,21 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
-        - name: Methods for assigning users and groups to an app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Assign a user to an app
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
+        - name: Assign a user or group to an app
           href: assign-user-or-group-access-portal.md
+<<<<<<< HEAD
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
+=======
+        - name: Create collections on My Apps
+          href: access-panel-collections.md
+>>>>>>> b8f626fedd8eb2d82c95093889bec18716a19786
         - name: Use self-service app access
           href: access-panel-manage-self-service-access.md
         - name: Methods for removing a user's access to an app
@@ -151,12 +162,16 @@
           href: manage-self-service-access.md
         - name: Home Realm Discovery
           href: configure-authentication-for-federated-users-portal.md
+      - name: Automate SAML-based single sign-on using MS Graph APIs
+        href: application-saml-sso-configure-api.md
       - name: Migrate apps to Azure AD
         items:
         - name: Migration resources
           href: migration-resources.md
         - name: Migrate an ADFS app to Azure
           href: migrate-adfs-apps-to-azure.md
+        - name: Use the AD FS application activity report (preview)
+          href: migrate-adfs-application-activity.md
       - name: Troubleshoot
         items:
         - name: Troubleshoot adding apps
@@ -219,46 +234,6 @@
             href: access-panel-extension-problem-installing.md
           - name: Error using self-service app access
             href: access-panel-troubleshoot-self-service-access.md
-    - name: Automatic user provisioning
-      items:
-      - name: Configure user provisioning
-        items:
-        - name: User provisioning for gallery apps
-          href: application-provisioning-config-how-to.md
-        - name: Enable automatic user provisioning for multi-tenant apps
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-        - name: Configure automatic user provisioning
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Customize application attributes
-          href: Customize-application-attributes.md
-        - name: Scoping filters
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Skip deletion for out-of-scope users
-          href: skip-out-of-scope-deletions.md
-        - name: Check provisioning status
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Report on automatic user provisioning
-          href: check-status-user-account-provisioning.md
-        - name: Exporting and importing your configuration
-          href: export-import-provisioning-configuration.md  
-      - name: Troubleshoot user provisioning
-        items:
-        - name: Troubleshoot user provisioning
-          href: application-provisioning-config-problem.md
-        - name: Quarantine status
-          href: application-provisioning-quarantine-status.md
-        - name: Provisioning logs
-          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-        - name: Sync an attribute for mapping - gallery app
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Taking hours - gallery app
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Problem saving administrator credentials while configuring user provisioning gallery app
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Users are not provisioned - gallery app
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Wrong users provisioned - gallery app
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Application Proxy for on-premises apps
       items:
       - name: Configure connectors
@@ -299,6 +274,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Application Proxy on an NDES server
+            href: active-directory-app-proxy-protect-ndes.md
           - name: Integrate with Azure AD Domain Services
             href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
           - name: Integrate with Power BI
@@ -329,8 +306,6 @@
           href: application-proxy-page-load-speed-problem.md
         - name: Links on application page not working
           href: application-proxy-page-links-broken-problem.md
-        - name: What ports to open for my app
-          href: application-proxy-connectivity-ports-how-to.md
         - name: No working connector in a connector group for my app
           href: application-proxy-connectivity-no-working-connector.md
         - name: Configure in admin portal
@@ -351,30 +326,24 @@
           href: application-sign-in-problem-on-premises-application-proxy.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md
+    - name: Secure hybrid access (cloud and on-premises)
+      items:
+        - name: Secure legacy apps with app delivery controllers or networks
+          href: secure-hybrid-access.md
   - name: Reference
     items:
-    - name: Automatic user provisioning
-      items:
-        - name: Write expressions for attribute mappings
-          href: functions-for-customizing-application-data.md
-    - name: Azure AD Connect Provisioning Agent
-      items:
-       - name: Provisioning Agent version history
-         href: provisioning-agent-release-version-history.md
-    - name: Application Proxy for on-premises apps
-      items:
-       - name: Application Proxy FAQ
-         href: application-proxy-faq.md
-       - name: Application Proxy version history
-         href: application-proxy-release-version-history.md
+    - name: Application Proxy FAQ
+      href: application-proxy-faq.md
+    - name: Application Proxy version history
+      href: application-proxy-release-version-history.md
   - name: Resources
     items:
         - name: Support and help options for developers
           href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
-        - name: MSDN forum
-          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Microsoft Q&A question page
+          href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
         - name: Pricing
           href: https://azure.microsoft.com/pricing/details/active-directory
         - name: Service updates

@@ -1,6 +1,6 @@
 ---
-title: Review the cost estimation report in the Azure Site Recovery Deployment Planner | Microsoft Docs
-description: This articles describes how to review the cost estimation report in the Azure Site Recovery Deployment Planner for VMware to Azure disaster recovery.
+title: Review cost estimations in the Azure Site Recovery Deployment Planner
+description: This articles describes how to review the cost estimations in the Azure Site Recovery Deployment Planner for VMware disaster recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -9,7 +9,7 @@ ms.date: 7/29/2019
 ms.author: mayg
 
 ---
-# Review the cost estimation report in the Site Recovery Deployment Planner for VMware disaster recovery to Azure
+# Review cost estimations in the VMware Deployment Planner 
 
 The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
 
@@ -164,4 +164,4 @@ The Azure Site Recovery Deployment Planner can generate the cost report with any
 |TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
 
 ## Next steps
-Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).
+Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](./vmware-azure-tutorial.md).

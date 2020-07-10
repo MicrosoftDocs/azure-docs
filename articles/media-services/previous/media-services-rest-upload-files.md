@@ -41,6 +41,7 @@ In this tutorial, you learn how to upload a file and other operation associated 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
 - Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
+- Also for more information Review the [Use Azure AD authentication to access the Media Services API with REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) article.
 - Configure **Postman** as described in [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## Considerations
@@ -145,7 +146,7 @@ To receive the actual upload URL, create a SAS Locator (shown below). Locators d
 
 A SAS URL has the following format:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### Considerations
 
@@ -208,15 +209,17 @@ To validate that the file has been uploaded successfully, you might want to quer
 
 For example, the following **GET** operation brings file data for your asset file (in or case, the BigBuckBunny.mp4 file). The query is using the [environment variables](postman-environment.md) that you set earlier.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 Response will contain size, name, and other information.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).

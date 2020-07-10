@@ -1,16 +1,16 @@
 ---
-title: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines
+title: 'Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Performance tuning guidance for Hive on HDInsight and Azure Data Lake Storage Gen2
+# Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2
 
 The default settings have been set to provide good performance across many different use cases.  For I/O intensive queries, Hive can be tuned to get better performance with Azure Data Lake Storage Gen2.  
 
@@ -52,17 +52,18 @@ I/O intensive workloads can benefit from more parallelism by decreasing the Tez 
 
 The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.  The number of YARN containers will dictate how many concurrent tasks can run.  To find the YARN memory per node, you can go to Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
 
-		Total YARN memory = nodes * YARN memory per node
-		# of YARN containers = Total YARN memory / Tez container size
+- Total YARN memory = nodes * YARN memory per node
+- \# of YARN containers = Total YARN memory / Tez container size
+
 The key to improving performance using Data Lake Storage Gen2 is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
 ## Example calculation
 
 Let's say you have an 8 node D14 cluster.  
 
-	Total YARN memory = nodes * YARN memory per node
-	Total YARN memory = 8 nodes * 96GB = 768GB
-	# of YARN containers = 768GB / 3072MB = 256
+- Total YARN memory = nodes * YARN memory per node
+- Total YARN memory = 8 nodes * 96GB = 768GB
+- \# of YARN containers = 768GB / 3072MB = 256
 
 ## Further information on Hive tuning
 

@@ -1,19 +1,13 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure - Azure portal
-description: Quickly learn to create a private Docker container registry with the Azure portal.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Quickstart - Create registry in portal
+description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 ms.topic: quickstart
-ms.date: 01/22/2019
-ms.author: danlep
+ms.date: 06/11/2020
 ms.custom: "seodec18, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure portal
 
-An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+An Azure container registry is a private Docker registry in Azure where you can store and manage private Docker container images and related artifacts. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -27,26 +21,28 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 Select **Create a resource** > **Containers** > **Container Registry**.
 
-![Creating a container registry in the Azure portal][qs-portal-01]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navigate to container registry in portal":::
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+In the **Basics** tab, enter values for **Resource group** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'.
 
-![Create container registry in the Azure portal][qs-portal-03]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Create container registry in the portal":::
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
+
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers (SKUs), see [Container registry service tiers][container-registry-skus].
 
 When the **Deployment succeeded** message appears, select the container registry in the portal. 
 
-![Container registry Overview in the Azure portal][qs-portal-05]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Container registry Overview in the portal":::
 
-Take note of the value of the **Login server**. You use this value in the following steps while working with your registry with the Azure CLI and Docker.
+Take note of the value of the **Login server**. You use this value in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. (Specify only the registry name when logging in with the Azure CLI. Don't include the 'azurecr.io' suffix.)
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 The command returns `Login Succeeded` once completed. 
@@ -55,34 +51,30 @@ The command returns `Login Succeeded` once completed.
 
 ## List container images
 
-To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
+To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the  **hello-world** repository you created with `docker push`.
 
-In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **TAGS**.
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="List container images in the portal":::
 
-![List container images in the Azure portal][qs-portal-09]
+By selecting the **hello-world** repository, you see the `v1`-tagged image under **Tags**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## Clean up resources
 
-To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the container registry, and the container images stored there.
+To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded, click on **Delete resource group** to remove the resource group, the container registry, and the container images stored there.
 
-![Delete resource group in the Azure portal][qs-portal-08]
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Delete resource group in the portal":::
+
 
 ## Next steps
 
 In this quickstart, you created an Azure Container Registry with the Azure portal, pushed a container image, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+> [Azure Container Registry tutorials][container-registry-tutorial-prepare-registry]
 
-<!-- IMAGES -->
-[qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
-[qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
-[qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
-[qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
-[qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
-[qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+> [!div class="nextstepaction"]
+> [Azure Container Registry Tasks tutorials][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -95,7 +87,9 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
+[get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

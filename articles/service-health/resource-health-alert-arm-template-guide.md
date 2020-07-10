@@ -1,10 +1,7 @@
 ---
-title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
+title: Template to create Resource Health alerts
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 9/4/2018
 
 ---
@@ -16,7 +13,7 @@ This article will show you how to create Resource Health Activity Log Alerts pro
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
 > [!NOTE]
-> Resource Health alerts are currently in preview.
+> Resource Health alerts currently are in preview.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,45 +27,55 @@ To follow the instructions on this page, you'll need to set up a few things in a
 ## Instructions
 1. Using PowerShell, log in to Azure using your account, and select the subscription you want to interact with
 
-        Login-AzAccount
-        Select-AzSubscription -Subscription <subscriptionId>
+    ```azurepowershell
+    Login-AzAccount
+    Select-AzSubscription -Subscription <subscriptionId>
+    ```
 
     > You can use `Get-AzSubscription` to list the subscriptions you have access to.
 
 2. Find and save the full Azure Resource Manager ID for your Action Group
 
-        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```azurepowershell
+    (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```
 
 3. Create and save a Resource Manager template for Resource Health alerts as `resourcehealthalert.json` ([see details below](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Create a new Azure Resource Manager deployment using this template
 
-        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```azurepowershell
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```
 
 5. You'll be prompted to type in the Alert Name and Action Group Resource ID you copied earlier:
 
-        Supply values for the following parameters:
-        (Type !? for Help.)
-        activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```azurepowershell
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    activityLogAlertName: <Alert Name>
+    actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```
 
 6. If everything worked successfully, you'll get a confirmation in PowerShell
 
-        DeploymentName          : ExampleDeployment
-        ResourceGroupName       : <resourceGroup>
-        ProvisioningState       : Succeeded
-        Timestamp               : 11/8/2017 2:32:00 AM
-        Mode                    : Incremental
-        TemplateLink            :
-        Parameters              :
-                                Name                     Type       Value
-                                ===============          =========  ==========
-                                activityLogAlertName     String     <Alert Name>
-                                activityLogAlertEnabled  Bool       True
-                                actionGroupResourceId    String     /...
-        
-        Outputs                 :
-        DeploymentDebugLogLevel :
+    ```output
+    DeploymentName          : ExampleDeployment
+    ResourceGroupName       : <resourceGroup>
+    ProvisioningState       : Succeeded
+    Timestamp               : 11/8/2017 2:32:00 AM
+    Mode                    : Incremental
+    TemplateLink            :
+    Parameters              :
+                            Name                     Type       Value
+                            ===============          =========  ==========
+                            activityLogAlertName     String     <Alert Name>
+                            activityLogAlertEnabled  Bool       True
+                            actionGroupResourceId    String     /...
+
+    Outputs                 :
+    DeploymentDebugLogLevel :
+    ```
 
 Note that if you are planning on fully automating this process, you simply need to edit the Resource Manager template to not prompt for the values in Step 5.
 
@@ -176,12 +183,12 @@ Alerts at the subscription or resource group level may have different kinds of r
             "anyOf": [
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Compute/virtualMachines",
+                    "equals": "MICROSOFT.COMPUTE/VIRTUALMACHINES",
                     "containsAny": null
                 },
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Storage/storageAccounts",
+                    "equals": "MICROSOFT.STORAGE/STORAGEACCOUNTS",
                     "containsAny": null
                 },
                 ...
@@ -227,6 +234,9 @@ You may only want to be notified when a resource becomes unhealthy, in which cas
 ```
 
 If you want to be notified for all four stages of health events, you can remove this condition all together, and the alert will notify you irrespective of the `status` property.
+
+> [!NOTE]
+> Each "anyOf" section should contain just one field type values.
 
 ### Adjusting the Resource Health alerts to avoid "Unknown" events
 

@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 06/29/2020
 ---
 
 # Pricing model in Azure Cosmos DB 
@@ -23,22 +23,22 @@ Provisioned throughput, specified as [Request Units](request-units.md) per secon
 
 For more information, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and [Understanding your Azure Cosmos DB bill](understand-your-bill.md).
 
-The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput by $6 for each 100 RU/s.
+The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput for each 100 RU/s.
 
-Currently the minimum price for both database and the container-based throughput is $24/month (see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest information. If your workload uses multiple containers, it can be optimized for cost by using database level throughput because database level throughput allows you to have any number of containers in a database sharing the throughput among the containers. The following table summarizes  provisioned throughput and the costs for different entities:
+If you deploy your Azure Cosmos DB account to a non-government region in the US, currently the minimum price for both database and the container-based throughput is approximately $24/month. The pricing varies depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information. If your workload uses multiple containers, it can be optimized for cost by using database level throughput because database level throughput allows you to have any number of containers in a database sharing the throughput among the containers. The following table summarizes  provisioned throughput and the costs for different entities:
 
-|**Entity**  | **Minimum throughput & cost** |**Scale increments & cost** |**Provisioning Scope** |
+|**Entity**  | **Minimum throughput** |**Scale increments** |**Provisioning Scope** |
 |---------|---------|---------|-------|
-|Database    | 400 RU/s ($24/month)    | 100 RU/s ($6/month)   |Throughput is reserved for the database and is shared by containers within the database |
-|Container     | 400 RU/s ($24/month)    | 100 RU/s ($6/month)  |Throughput is reserved for a specific container |
+|Database    | 400 RU/s    | 100 RU/s   |Throughput is reserved for the database and is shared by containers within the database |
+|Container     | 400 RU/s   | 100 RU/s  |Throughput is reserved for a specific container |
 
-As shown in the previous table, the minimum throughput in Azure Cosmos DB starts at a price of $24/month. If you start with the minimum throughput and scale up over time to support your production workloads, your costs will rise smoothly, in the increments of $6/month. The pricing model in Azure Cosmos DB is elastic and there is a smooth increase or decrease in the price as you scale up or down.
+As shown in the previous table, the minimum throughput in Azure Cosmos DB starts at a price of approximately $24/month. If you start with the minimum throughput and scale up over time to support your production workloads, your costs will rise smoothly, in the increments of approximately $6/month. The pricing varies depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information. The pricing model in Azure Cosmos DB is elastic and there is a smooth increase or decrease in the price as you scale up or down.
 
-## Try Azure Cosmos DB for free 
+## Try Azure Cosmos DB for free
 
 Azure Cosmos DB offers several options for developers to it for free. These options include:
 
-* **Azure free account**: Azure offers a [free tier](https://azure.microsoft.com/free/) that gives you $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months. For more information, see [Azure free account](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB is a part of Azure free account. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RUs of provisioned throughput for the entire year. 
+* **Azure free account**: Azure offers a [free tier](https://azure.microsoft.com/free/) that gives you $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months. For more information, see [Azure free account](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB is a part of Azure free account. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RUs of provisioned throughput for the entire year. 
 
 * **Try Azure Cosmos DB for free**: Azure Cosmos DB offers a time-limited experience by using try Azure Cosmos DB for free accounts. You can create an Azure Cosmos DB account, create database and collections and run a sample application by using the Quickstarts and tutorials. You can run the sample application without subscribing to an Azure account or using your credit card. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) offers Azure Cosmos DB for one month, with the ability to renew your account any number of times.
 

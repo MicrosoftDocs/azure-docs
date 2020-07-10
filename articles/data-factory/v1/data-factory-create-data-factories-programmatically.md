@@ -1,5 +1,5 @@
 ---
-title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
+title: Create data pipelines by using Azure .NET SDK 
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
 documentationcenter: ''
@@ -9,7 +9,7 @@ manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ---
@@ -496,6 +496,6 @@ while (response != null);
 ```
 
 ## Next steps
-See the following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage to an Azure SQL database: 
+See the following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage to Azure SQL Database: 
 
 - [Create a pipeline to copy data from Blob Storage to SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

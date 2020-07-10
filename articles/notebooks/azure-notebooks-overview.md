@@ -1,22 +1,15 @@
 ---
-title: Overview of Azure Notebooks
-description: Run Jupyter notebooks in the cloud using the free Azure Notebooks service, where no setup or configuration is required.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Overview of Azure Notebooks Preview
+description: Run Jupyter notebooks in the cloud using the free Azure Notebooks Preview service, where no setup or configuration is required.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.author: kraigb
 ---
 
-# Overview of Azure Notebooks
+# Overview of Azure Notebooks Preview
 
-Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, called the *notebook* (image courtesy of jupyter.org):
 
 [![Examples of Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
@@ -113,4 +106,4 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
   - [Present a slide show](present-jupyter-notebooks-slideshow.md)
   - [Work with data files](work-with-project-data-files.md)
   - [Access data resources](access-data-resources-jupyter-notebooks.md)
-  - [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+  - [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

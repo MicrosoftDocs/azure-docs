@@ -1,6 +1,6 @@
 ---
-title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
+title: Map virtual networks between two regions in Azure Site Recovery 
+description: Learn about mapping virtual networks between two Azure regions for Azure VM disaster recovery with Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -89,5 +89,5 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 ## Next steps
 
-- Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
+- Review [networking guidance](./azure-to-azure-about-networking.md) for Azure VM disaster recovery.
 - [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.

@@ -1,24 +1,24 @@
 ---
-title: Create an Azure virtual network peering - Resource Manager - different subscriptions
+title: Create a VNet peering - different subscriptions
 titlesuffix: Azure Virtual Network
-description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions.
+description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Azure Active Directory tenant.
 services: virtual-network
 documentationcenter: ''
-author: anavinahar
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: anavin
+ms.author: kumud
 ---
 
-# Create a virtual network peering - Resource Manager, different subscriptions
+# Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants
 
-In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
+In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Azure Active Directory (Azure AD) tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
-The steps to create a virtual network peering are different, depending on whether the virtual networks are in the same, or different, subscriptions, and which [Azure deployment model](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the virtual networks are created through. Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
+The steps to create a virtual network peering are different, depending on whether the virtual networks are in the same, or different, subscriptions, and which [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the virtual networks are created through. Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
 
 |Azure deployment model  | Azure subscription  |
 |--------- |---------|
@@ -271,7 +271,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
    }
    ```
 
-3. Log in to Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
+3. Log in to Azure as UserA and deploy the template using the [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), or the [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
 4. Copy the example json from step 2 to a file on your computer and make changes to the lines that begin with:
    - **name**: Change *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*.
    - **id**: Replace `<subscription ID>` with UserB's subscription ID and change *myVnetB* to *myVnetA*.
@@ -325,4 +325,4 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
-- Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
+- Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) with virtual network peering.

@@ -1,5 +1,5 @@
 ---
-title: Encode a remote file based on URL and stream using Azure Media Services - REST | Microsoft Docs
+title: Encode a remote file and stream using Azure Media Services v3
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 03/16/2020
 ms.author: juliako
 ---
 
@@ -54,7 +54,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## Access API
+
+For detailed information, see [Get credentials to access Media Services API](access-api-howto.md)
 
 ## Configure Postman
 
@@ -71,7 +73,7 @@ Clone a GitHub repository that contains the  Postman collection and environment 
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-api) steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -254,34 +256,36 @@ See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a streaming locator is called publishing. By default, the streaming locator is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
-Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each **Streaming Locator**.
+Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each streaming locator.
 
-1. In the left window of the Postman app, select "Streaming Policies".
-2. Then, select "Create a Streaming Locator".
+1. In the left window of the Postman app, select "Streaming Policies and Locators".
+2. Then, select "Create a Streaming Locator (clear)".
 3. Press **Send**.
 
     * The following **PUT** operation is sent.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * The operation has the following body:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

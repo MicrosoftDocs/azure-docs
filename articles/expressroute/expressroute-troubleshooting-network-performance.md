@@ -1,11 +1,11 @@
 ---
-title: 'Troubleshoot virtual network performance: Azure | Microsoft Docs'
+title: 'Troubleshoot network link performance: Azure'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
 author: tracsman
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
@@ -24,7 +24,7 @@ This document shows how you can easily and consistently test network latency and
 
 ## Network components
 Before digging into troubleshooting, let's discuss some common terms and components. This discussion ensures we're thinking about each component in the end-to-end chain that enables connectivity in Azure.
-[![1]][1]
+![1][1]
 
 At the highest level, I describe three major network routing domains;
 
@@ -89,7 +89,7 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 
     The PowerShell output format looks similar to:
 
-	[![4]][4]
+	![4][4]
 
 	The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
 
@@ -114,7 +114,7 @@ Also, don't forget to look at other layers of the OSI model. It's easy to focus 
 ## Advanced ExpressRoute troubleshooting
 If you're not sure where the edge of the cloud actually is, isolating the Azure components can be a challenge. When ExpressRoute is used, the edge is a network component called the Microsoft Enterprise Edge (MSEE). **When using ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop leaving the Microsoft network. When you create a connection object between your VNet gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE as the first or last hop (depending on which direction you're going) is crucial to isolating Azure Network problems to either prove the issue is in Azure or further downstream in the WAN or the Corporate Network. 
 
-[![2]][2]
+![2][2]
 
 >[!NOTE]
 > Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
@@ -165,7 +165,7 @@ Test setup:
  - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
 
-[![3]][3]
+![3][3]
 
 ### Latency/bandwidth results
 >[!IMPORTANT]

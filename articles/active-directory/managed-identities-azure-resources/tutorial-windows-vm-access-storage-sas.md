@@ -1,5 +1,5 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure Storage using a SAS credential
+title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential - Azure AD
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: daveba
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019

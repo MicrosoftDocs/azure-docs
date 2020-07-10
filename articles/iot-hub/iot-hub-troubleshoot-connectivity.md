@@ -1,26 +1,28 @@
 ---
-title: Diagnose and troubleshoot disconnects with Azure IoT Hub
-description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub 
+title: Monitor and troubleshoot disconnects with Azure IoT Hub
+description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub 
 author: jlian
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 01/30/2020
 ms.author: jlian
+ms.custom: mqtt
+
 # As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
-# Detect and troubleshoot disconnects with Azure IoT Hub
+# Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Device-side application logic, physical networks, protocols, hardware, and Azure IoT Hub can all cause problems. This article provides recommendations on how to detect and troubleshoot device connectivity issues from the cloud side (as opposed to device side).
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. To help you detect, diagnose, and troubleshoot these issues at scale, use the monitoring capabilities IoT Hub provides through Azure Monitor. These capabilities are limited to what IoT Hub can observe, so we also recommend that you follow monitoring best practices for your devices and other Azure services.
 
 ## Get alerts and error logs
 
-Use Azure Monitor to get alerts and write logs when device connections drop.
+Use Azure Monitor to get alerts and write logs when devices disconnect.
 
 ### Turn on diagnostic logs
 
-To log device connection events and errors, turn on diagnostics for IoT Hub.
+To log device connection events and errors, turn on diagnostics for IoT Hub. We recommend turning on these logs as early as possible, because if diagnostic logs aren't enabled, when device disconnects occur, you won't have any information to troubleshoot the problem with.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -38,9 +40,9 @@ To log device connection events and errors, turn on diagnostics for IoT Hub.
 
 To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md).
 
-### Set up alerts for the _connected devices_ count metric
+### Set up alerts for device disconnect at scale
 
-To get alerts when devices disconnect, configure alerts on the **connected devices (preview)** metric.
+To get alerts when devices disconnect, configure alerts on the **Connected devices (preview)** metric.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -52,49 +54,54 @@ To get alerts when devices disconnect, configure alerts on the **connected devic
 
 5. Select **Add condition**, then select "Connected devices (preview)".
 
-6. Finish setting up your desired thresholds and alerting options by following prompts.
+6. Set up threshold and alerting by following prompts.
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+To learn more, see [What are alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+
+#### Detecting individual device disconnects
+
+To detect *per-device* disconnects, such as when you need to know a factory just went offline, [configure device disconnect events with Event Grid](iot-hub-event-grid.md).
 
 ## Resolve connectivity errors
 
-When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Monitor logs for your diagnostic logs.
+When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to look for common issues when you receive an alert. The steps below assume you've set up Azure Monitor logs for your diagnostic logs.
 
-1. Go your workspace for **Log Analytics** in the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Log Search**.
+1. Browse to your IoT hub.
 
-3. To isolate connectivity error logs for IoT Hub, enter the following query and then select **Run**:
+1. Select **Logs**.
+
+1. To isolate connectivity error logs for IoT Hub, enter the following query and then select **Run**:
 
     ```kusto
-    search *
-    | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
-    | where ( Category == "Connections" and Level == "Error")
+    AzureDiagnostics
+    | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
 1. If there are results, look for `OperationName`, `ResultType` (error code), and `ResultDescription` (error message) to get more detail on the error.
 
    ![Example of error log](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-2. Use this table to understand and resolve common errors.
+1. Follow the problem resolution guides for the most common errors:
 
-    | Error | Root cause | Resolution |
-    |-------|------------|------------|
-    | 404104 DeviceConnectionClosedRemotely | The connection was closed by the device, but IoT Hub doesn't know why. Common causes include MQTT/AMQP timeout and internet connectivity loss. | Make sure the device can connect to IoT Hub by [testing the connection](tutorial-connectivity.md). If the connection is fine, but the device disconnects intermittently, make sure to implement proper keep alive device logic for your choice of protocol (MQTT/AMPQ). |
-    | 401003 IoTHubUnauthorized | IoT Hub couldn't authenticate the connection. | Make sure that the SAS or other security token you use isn't expired. [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically generate tokens without requiring special configuration. |
-    | 409002 LinkCreationConflict | A device has more than one connection. When a new connection request comes for a device, IoT Hub closes the previous one with this error. | In the most common case, a device detects a disconnect and tries to reestablish the connection, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error. This error usually appears as a side effect of a different, transient issue, so look for other errors in the logs to troubleshoot further. Otherwise, make sure to issue a new connection request only if the connection drops. |
-    | 500001 ServerError | IoT Hub ran into a server-side issue. Most likely, the issue is transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error. | To mitigate the transient fault, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md).<br><br>For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).  <br><br>If the problem persists after retries, check [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) and [Azure Status](https://azure.microsoft.com/status/history/) to see if IoT Hub has a known problem. If there's no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation. |
-    | 500008 GenericTimeout | IoT Hub couldn't complete the connection request before timing out. Like a 500001 ServerError, this error is likely transient. | Follow troubleshooting steps for a 500001 ServerError to the root cause and resolve this error.|
+    - **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
+    - **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
+    - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
+    - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+    - **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
 
-## Other steps to try
+## I tried the steps, but they didn't work
 
-If the previous steps didn't help, you can try:
+If the previous steps didn't help, try:
 
 * If you have access to the problematic devices, either physically or remotely (like SSH), follow the [device-side troubleshooting guide](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) to continue troubleshooting.
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+* Get help from [Microsoft Q&A question page for Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
 To help improve the documentation for everyone, leave a comment in the feedback section below if this guide didn't help you.
 

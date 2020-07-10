@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric reverse proxy diagnostics | Microsoft Docs
-description: Learn how to monitor and diagnose request processing at the reverse proxy.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric reverse proxy diagnostics 
+description: Learn how to monitor and diagnose request processing at the reverse proxy for an Azure Service Fabric application.
 author: kavyako
-manager: vipulm
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-
 ---
 # Monitor and diagnose request processing at the reverse proxy
 

@@ -1,5 +1,5 @@
 ---
-title: Query Store usage scenarios in Azure Database for PostgreSQL - Single Server
+title: Query Store scenarios - Azure Database for PostgreSQL - Single Server
 description: This article describes some scenarios for the Query Store in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema

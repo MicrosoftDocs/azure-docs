@@ -1,20 +1,9 @@
 ---
-title: Overview of Service Fabric and containers | Microsoft Docs
+title: Overview of Service Fabric and containers 
 description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
 ---
 
 # Service Fabric and containers
@@ -72,7 +61,7 @@ The following figure shows the different types of virtualization and isolation l
 
 Here are typical examples where a container is a good choice:
 
-* **IIS lift and shift**: You can put an existing [ASP.NET MVC](https://www.asp.net/mvc) app in a container instead of migrating it to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
+* **IIS lift and shift**: You can put an existing [ASP.NET MVC](https://www.asp.net/mvc) app in a container instead of migrating it to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
 
 * **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services for the more intensive back-end computation.
 
@@ -97,7 +86,7 @@ Service Fabric provides several container capabilities that help you build appli
 * Ability to set security credentials on the container.
 * A choice of different networking modes for containers.
 
-For a comprehensive overview of container support on Azure, such as how to create a Kubernetes cluster with Azure Kubernetes Service, how to create a private Docker registry in Azure Container Registry, and more, see [Azure for Containers](https://docs.microsoft.com/azure/containers/).
+For a comprehensive overview of container support on Azure, such as how to create a Kubernetes cluster with Azure Kubernetes Service, how to create a private Docker registry in Azure Container Registry, and more, see [Azure for Containers](../containers/index.yml).
 
 ## Next steps
 
@@ -105,6 +94,6 @@ In this article, you learned about the support Service Fabric provides for runni
 
 [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md)  
 [Create your first Service Fabric container application on Windows](service-fabric-get-started-containers.md)  
-[Learn more about Windows Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Learn more about Windows Containers](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

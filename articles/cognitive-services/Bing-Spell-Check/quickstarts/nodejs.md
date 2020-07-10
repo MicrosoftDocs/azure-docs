@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Node.js"
+title: "Quickstart: Check spelling with the REST API and Node.js - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar with this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
+ms.date: 05/21/2020
+ms.author: aahi
 ---
 
 # Quickstart: Check spelling with the Bing Spell Check REST API and Node.js
 
-Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Node application sends a request to the API and returns a list of words it didn't recognize, followed by suggested corrections. While this application is written in Node.js, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple JavaScript application sends a request to the API and returns a list of suggested corrections. 
+
+Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Create and initialize a project
 
-1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then create variables for your API endpoint's host, path, and your subscription key.
+1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then, create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     'use strict';
@@ -37,7 +39,11 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Create variables for your search parameters and the text you want to check. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
+2. Create variables for your search parameters and the text you want to check: 
+
+   1. Assign your market code to the `mkt` parameter with the `=` operator. The market code is the code of the country/region you make the request from. 
+
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. The mode can be either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling errors, but not as many grammar errors).
 
     ```javascript
     let mkt = "en-US";
@@ -48,7 +54,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Create the request parameters
 
-Create your request parameters by creating a new object with a `POST` method. Add your path by appending your endpoint path, and query string. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+Create your request parameters by creating a new object with a `POST` method. Add your path by appending your endpoint path, and query string. Then, add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
 ```javascript
 let request_params = {
@@ -65,7 +71,7 @@ let request_params = {
 
 ## Create a response handler
 
-Create a function called `response_handler` to take the JSON response from the API, and print it. Create a variable for the response body. Append the response when a `data` flag is received, using `response.on()`. When a `end` flag is received, print the JSON body to the console.
+Create a function called `response_handler` to take the JSON response from the API, and print it. Create a variable for the response body. Append the response when a `data` flag is received by using `response.on()`. After an `end` flag is received, print the JSON body to the console.
 
 ```javascript
 let response_handler = function (response) {
@@ -85,13 +91,25 @@ let response_handler = function (response) {
 
 ## Send the request
 
-Call the API using `https.request()` with your request parameters, and response handler. Write your text to the API, and end the request afterwards.
+Call the API using `https.request()` with your request parameters and response handler. Write your text to the API, and then  end the request.
 
 ```javascript
 let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## Run the application
+
+1. Build and run your project.
+
+1. If you're using the command line, use the following command to build and run the application:
+
+   ```bash
+   node <FILE_NAME>.js
+   ```
+
 
 ## Example JSON response
 
@@ -138,7 +156,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

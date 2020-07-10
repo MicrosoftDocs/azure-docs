@@ -1,16 +1,17 @@
 ---
-title: Set RBAC roles for Azure administrative access in the portal - Azure Search
-description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Search management.
-author: HeidiSteen
+title: Set RBAC roles for Azure administrative access
+titleSuffix: Azure Cognitive Search
+description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 04/05/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/03/2020
 ---
-# Set RBAC roles for administrative access
+
+# Set RBAC roles for administrative access to Azure Cognitive Search
 
 Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
@@ -19,7 +20,7 @@ Azure provides a [global role-based authorization model](../role-based-access-co
 
 ## Management tasks by role
 
-For Azure Search, roles are associated with permission levels that support the following management tasks:
+For Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
 | --- | --- |
@@ -30,8 +31,23 @@ For Azure Search, roles are associated with permission levels that support the f
 
 Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see [Manage api-keys](search-security-api-keys.md).
 
+## Permissions table
+
+The following table summarizes the operations allowed in Azure Cognitive Search and which key unlocks access a particular operation.
+
+| Operation | Permissions |
+|-----------|-------------------------|
+| Create a service | Azure subscription holder |
+| Scale a service | Admin key, RBAC Owner, or Contributor on the resource  |
+| Delete a service | Admin key, RBAC Owner, or Contributor on the resource |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters | Admin key, RBAC Owner, or Contributor on the resource |
+| Query an index | Admin or query key (RBAC not applicable) |
+| Query system information, such as returning statistics, counts, and lists of objects | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
+| Manage admin keys | Admin key, RBAC Owner or Contributor on the resource |
+| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource  |
+
 ## See also
 
 + [Manage using PowerShell](search-manage-powershell.md) 
-+ [Performance and optimization in Azure Search](search-performance-optimization.md)
++ [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
 + [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).

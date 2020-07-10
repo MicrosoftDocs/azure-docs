@@ -3,18 +3,18 @@ title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # Sizes for Cloud Services
 This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://azure.microsoft.com/pricing/details/cloud-services/) page.
 
 > [!NOTE]
-> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
 >
 >
 
@@ -142,6 +142,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_D8_v3  | 8         | 32            | 200                  | 4 / high |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremely high |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremely high |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8 / extremely high |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremely high |
 
 ## Ev3-series
@@ -153,6 +154,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_E8_v3  | 8         | 64            | 200                  | 4 / high |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremely high |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8 / extremely high |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
 
 
@@ -209,5 +211,8 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* Learn about [azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+
+
+

@@ -1,18 +1,10 @@
 ---
-title: Create FQDN for a Linux VM in the Azure portal | Microsoft Docs
+title: Create FQDN for a VM in the Azure portal 
 description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure portal.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
@@ -33,5 +25,5 @@ You can now connect remotely to the VM using this DNS name such as with `ssh azu
 ## Next steps
 Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, Docker, etc.
 
-You can also read more about [using Resource Manager](../../azure-resource-manager/resource-group-overview.md) for tips on building your Azure deployments.
+You can also read more about [using Resource Manager](../../azure-resource-manager/management/overview.md) for tips on building your Azure deployments.
 

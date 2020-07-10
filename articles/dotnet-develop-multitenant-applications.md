@@ -18,7 +18,7 @@ ms.author: wpickett
 
 ---
 # Multitenant Applications in Azure
-A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
+A multitenant application is a shared resource that allows "users in separate tenants" to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application from different tenants may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
 
 From an application provider's perspective, the benefits of multitenancy mostly relate to operational and cost efficiencies. One version of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups.
 
@@ -44,7 +44,7 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Isolation**
 
-* Segment Website Tenants by Host Headers with or without SSL communication
+* Segment Website Tenants by Host Headers with or without TLS communication
 * Segment Website Tenants by Query Parameters
 * Web Services in Worker Roles
   * Worker Roles that typically process data on the backend of an application.
