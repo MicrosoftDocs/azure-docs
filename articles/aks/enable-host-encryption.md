@@ -100,7 +100,7 @@ If you want to create new node pools without the host-based encryption feature, 
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
-Read more about [host-based encryption](../virtual-machines/linux/disk-encryption.md#host-based-encryption).
+Read more about [host-based encryption](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 
 <!-- LINKS - external -->
