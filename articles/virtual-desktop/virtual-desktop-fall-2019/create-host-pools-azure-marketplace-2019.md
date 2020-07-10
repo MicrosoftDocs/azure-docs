@@ -149,7 +149,7 @@ Users you add to the desktop application group can sign in to Windows Virtual De
 
 Here are the current supported clients:
 
-* [Remote Desktop client for Windows 7 and Windows 10](../connect-windows-7-10.md)
+* [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-10-2019.md)
 * [Windows Virtual Desktop web client](connect-web-2019.md)
 
 ## Next steps
