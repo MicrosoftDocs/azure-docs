@@ -38,10 +38,10 @@ After you select your cloud service, you should have the cloud service blade vis
 1. On the cloud service blade, on the **Roles and Instances** tile, select the name of the cloud service.   
    **IMPORTANT**: Make sure to click the cloud service role, not the role instance that is below the role.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Screenshot of the Roles and instances tile with the Worker Role With S B Queue 1 option outlined in red.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Select the **scale** tile.
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Screenshot of the Operations page with the Sale tile outlined in red.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## Automatic scale
 You can configure scale settings for a role with either two modes **manual** or **automatic**. Manual is as you would expect, you set the absolute count of instances. Automatic however allows you to set rules that govern how and by how much you should scale.
@@ -84,7 +84,7 @@ Rules are added to a profile and represent a condition that triggers the scale.
 
 The rule trigger is based on a metric of the cloud service (CPU usage, disk activity, or network activity) to which you can add a conditional value. Additionally you can have the trigger based on a message queue or the metric of some other Azure resource associated with your subscription.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Screenshot of the Rule dialog box with the Metric name option outlined in red.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 After you have configured the rule, select the **OK** button at the bottom of the rule blade.
 
