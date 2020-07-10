@@ -30,34 +30,8 @@ Where applicable, you can reference properties of the output of a function by us
 ```
 
 ## Referencing functions
-These functions can be used to reference outputs from the properties or context of a CreateUiDefinition.
 
-### basics
-Returns the output values of an element that is defined in the Basics step.
 
-The following example returns the output of the element named `foo` in the Basics step:
-
-```json
-"[basics('foo')]"
-```
-
-### steps
-Returns the output values of an element that is defined in the specified step. To get the output values of elements in the Basics step, use `basics()` instead.
-
-The following example returns the output of the element named `bar` in the step named `foo`:
-
-```json
-"[steps('foo').bar]"
-```
-
-### location
-Returns the location selected in the Basics step or the current context.
-
-The following example could return `"westus"`:
-
-```json
-"[location()]"
-```
 
 ## String functions
 These functions can only be used with JSON strings.

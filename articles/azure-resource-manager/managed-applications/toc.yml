@@ -81,7 +81,11 @@
   - name: REST
     href: /rest/api/resources/
   - name: User interface functions
-    href: create-uidefinition-functions.md
+    items:
+    - name: All functions
+      href: create-uidefinition-functions.md
+    - name: Referencing functions
+      href: create-uidefinition-referencing-functions.md
   - name: User interface elements
     href: create-uidefinition-elements.md
     items:
