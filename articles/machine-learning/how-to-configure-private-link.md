@@ -108,6 +108,9 @@ To secure the Azure Storage account used by your workspace, put it inside the vi
 
 For information on putting the storage account in the virtual network, see [Use a storage account for your workspace](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
 
+> [!WARNING]
+> Azure Machine Learning does not support using an Azure Storage account that has private link enabled.
+
 ## Using Azure Key Vault
 
 To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
