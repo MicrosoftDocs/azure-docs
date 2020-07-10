@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
+ms.date: 07/09/2020
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
@@ -410,11 +410,13 @@ When you copy files from Azure Data Lake Storage Gen1/Gen2 to Gen2, you can choo
 ## Mapping data flow properties
 
 When you're transforming data in mapping data flows, you can read and write files from Azure Data Lake Storage Gen2 in the following formats:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
-* [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
 * [Common Data Model (preview)](format-common-data-model.md#mapping-data-flow-properties)
+* [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 

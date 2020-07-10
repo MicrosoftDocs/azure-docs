@@ -24,12 +24,12 @@ Common causes for this problem are:
 
 |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - CIFS utilities (cifs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
@@ -78,9 +78,9 @@ In Linux, you receive an error message that resembles the following:
 
 ### Cause
 
-You have reached the upper limit of concurrent open handles that are allowed for a file.
+You have reached the upper limit of concurrent open handles that are allowed for a file or directory.
 
-There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
+There is a quota of 2,000 open handles on a single file or directory. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
 
 ### Solution
 
