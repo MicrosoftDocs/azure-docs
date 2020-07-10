@@ -10,8 +10,6 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-
-
 # Synapse Managed private endpoints (preview)
 
 This article will explain Managed private endpoints in Azure Synapse Analytics.
