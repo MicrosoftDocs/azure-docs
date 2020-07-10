@@ -337,7 +337,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
     c. Under **desired key**, add the following key/value pair:  
 
-        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`  
+    `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`  
 
     d. Select **Save**.
 
