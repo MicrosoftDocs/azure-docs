@@ -85,7 +85,7 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 
 1. Close the browser that runs the **AzureMapDemo.html** web application.
 2. Navigate to the Azure Portal page. Select **All resources** from the main portal page. Or, click on the menu icon in the upper left-hand corner. Select **All resources**.
-3. click on your Azure Maps account. At the top of the page, click **Delete**.
+3. Click on your Azure Maps account. At the top of the page, click **Delete**.
 
 ## Next steps
 
