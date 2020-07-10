@@ -62,21 +62,77 @@ git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
 
 ## Run the sample device
 
-The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. There are three Python files in this folder:
+The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. These are the following Python files in this folder:
 
-- pnp_sample_device.py
-- pnp_helper.py  
-- pnp_methods.py
+- The Files for the Temperature Controller Sample (PnP using Components):
+    - `pnp_temp_controller_with_thermostats.py`
+    - `pnp_helper.py`
+    - `pnp_methods.py`
 
-The sample file is **pnp_sample_device.py**. This sample code uses methods from **pnp_methods.py**. The **pnp_methods.py** file uses Azure IoT Python SDK functionality to provide IoT Plug and Play compatible functionality. The **pnp_methods.py** file uses  helper functions in the **pnp_helper.py** file.
+- The files for the Thermostat sample (PnP without Components):
+    - `pnp_thermostat.py`
 
-Use the IoT Hub you created previously and create a device. Use the device connection string to create an environment variable named **IOTHUB_DEVICE_CONNECTION_STRING**. The **pnp_sample_device.py** file uses this environment variable.
+There are two samples, one that is simpler, self-contained, and uses the PnP specification without Components, based on the Thermostat DTMI. The other implements a Temperature controller that is more complex, with multiple components and a root interface, based on the Temperature Controller DTMI.
 
-Open the **pnp_sample_device.py** file in a text editor. Notice how it:
+The Thermostat sample is **pnp_thermostat.py**. This sample code implements a device that is IoT Plug and Play compatible using the Azure IoT Python Device Client Library.   
+
+The Temperature Controller sample is **pnp_temp_controller_with_thermostats.py**. This sample code uses methods from **pnp_methods.py**. The **pnp_methods.py** file uses  helper functions in the **pnp_helper.py** file. The **pnp_methods.py** file uses Azure IoT Python SDK functionality to provide IoT Plug and Play compatible functionality. 
+
+### Run the Thermostat Sample (No Component)
+
+Use the IoT Hub you created previously and create a device. Use the device connection string to create an environment variable named **IOTHUB_DEVICE_CONNECTION_STRING**. The **pnp_thermostat.py** file uses this environment variable.
+
+Open the **pnp_thermostat.py** file in a text editor. Notice how it:
+
+1. Defines a single (DTMIs) that uniquely represents the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). A DTMI must be known to the user and varies dependent on the scenario of device implementation. For the current sample, the model represents:
+    - A Thermostat that has telemetry, properties, and commands associated with monitoring temperature.
+
+
+1. Defines the DTMI for the device that's being implemented. This DTMI is user-defined and  reflects the name for the device and the name of the user's organization. In this sample, the DTMI shows that the name of the device is **Thermostat**.
+
+1. Has functions to define command handler implementations. You write these handlers to define how the device responds to command requests.
+
+1. Has a function to define a command response. You create command response functions to send a response back to your IoT hub.
+
+1. Defines an input keyboard listener function to let you quit the application.
+
+1. Has a **main** function. The **main** function:
+
+    1. Uses the device SDK to create a device client and connect to your IoT hub.
+
+    1. Updates properties. The model we are using, **Thermostat**, defines `targetTemperature` and `maxTempSinceLastReboot` as the two properties for our Thermostat, so that is what we will be using. Properties are updated using the `patch_twin_reported_properties` method defined on the `device_client`.
+
+    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`. 
+        - The `user_command_handler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
+        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. For instance, if your alarm goes off, you respond by hitting snooze, which is feedback to the service. Think of this as the reply you give to the service. You can view this response in the portal.
+
+    1. Starts sending telemetry. The **pnp_send_telemetry** is defined in the pnp_methods.py file. The sample code uses a loop to call this function every eight seconds.
+
+    1. Disables all the listeners and tasks, and exist the loop when you press **Q** or **q**.
+
+Now that you've seen the code, use the following command to run the sample:
+
+```cmd/sh
+python pnp_thermostat.py
+```
+
+The sample device sends telemetry messages every eight seconds to your IoT Hub.
+
+You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
+
+![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
+
+Keep the sample running as you complete the next steps.
+
+### Run the Temperature Controller Sample (Multiple Components, Root Interface)
+
+Use the IoT Hub you created previously and create a device. Use the device connection string to create an environment variable named **IOTHUB_DEVICE_CONNECTION_STRING**. The **pnp_temp_controller_with_thermostats.py** file uses this environment variable.
+
+Open the **pnp_temp_controller_with_thermostats.py** file in a text editor. Notice how it:
 
 1. Imports **pnp_methods** to enable access to these methods.
 
-1. Defines three digital twin model identifiers (DTMIs) that uniquely represent three different interfaces. The components in a real device should implement these three interfaces. These three interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these three interfaces represent:
+1. Defines three digital twin model identifiers (DTMIs) that uniquely represent three different interfaces, based off the (Temperature Controller model)[https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json]. The components in a real device should implement these three interfaces. These three interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these three interfaces represent:
     - An environmental sensor developed by Contoso.
     - Device information developed by Azure.
     - SDK information that relates to the SDK in use.
