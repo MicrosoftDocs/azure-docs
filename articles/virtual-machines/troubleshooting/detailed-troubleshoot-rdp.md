@@ -33,7 +33,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Components of a Remote Desktop connection
 The following components are involved in an RDP connection:
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
+![A diagram showing the components involved in a Remote Desktop (RDP) connection.](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
