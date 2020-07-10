@@ -1,12 +1,9 @@
 ---
 title: Set up a SolidWorks lab for engineering with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab for engineering courses using SolidWorks. 
-services: lab-services
 author: nicolela
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 06/26/2020
 ms.author: nicolela
 ---
 

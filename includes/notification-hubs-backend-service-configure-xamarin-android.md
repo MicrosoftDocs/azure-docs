@@ -75,6 +75,9 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetPlayServicesError());
 
+                if (string.isNullOrWhitespace(Token))
+                    throw new Exception("Unable to resolve token for FCM");
+
                 var installation = new DeviceInstallation
                 {
                     InstallationId = GetDeviceId(),
@@ -233,7 +236,7 @@
     }
     ```
 
-1. Override the **OnNewIntent** method to call **CheckIntentForNotificationActions** method.
+1. Override the **OnNewIntent** method to call **ProcessNotificationActions** method.
 
     ```csharp
     protected override void OnNewIntent(Intent intent)

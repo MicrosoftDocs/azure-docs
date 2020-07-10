@@ -310,6 +310,7 @@ In this quickstart, you learned how to use Azure Cache for Redis from a .NET Cor
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
 
+Want to optimize and save on your cloud spending?
 
-
-
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

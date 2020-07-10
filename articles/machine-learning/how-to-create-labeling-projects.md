@@ -5,6 +5,7 @@ description: Learn how to create and run labeling projects to tag data for machi
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 
@@ -139,7 +140,7 @@ For bounding boxes, important questions include:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
-## Use ML assisted labeling
+## Use ML assisted labeling (preview)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

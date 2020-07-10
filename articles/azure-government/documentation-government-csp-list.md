@@ -94,7 +94,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
-|[CorpInfo Services](https://www.corpinfo.com)|
 |[Corporate Technologies LLC](https://www.gocorptech.com/)|
 |[Cre8tive Technology Design](https://www.ctnd.com/)|
 |[Crowe Horwath LLP](https://www.crowe.com/)|
@@ -143,7 +142,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
 |[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
-|[GENOA Group LLC](https://genoagroup.com)|
 |[Gimmal](https://www.gimmal.com/)|
 |[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|

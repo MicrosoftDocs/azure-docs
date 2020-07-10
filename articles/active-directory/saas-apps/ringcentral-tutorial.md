@@ -88,17 +88,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Identifier** textbox, type a URL:
 
-	| |
-	|--|
-	|  `https://sso.ringcentral.com` |
-	| `https://ssoeuro.ringcentral.com` |
+    - `https://sso.ringcentral.com`
+    - `https://ssoeuro.ringcentral.com`
 
 	b. In the **Reply URL** textbox, type a URL:
 
-	| |
-	|--|
-	| `https://sso.ringcentral.com/sp/ACS.saml2` |
-	| `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
+    - `https://sso.ringcentral.com/sp/ACS.saml2`
+    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
