@@ -102,7 +102,7 @@ If you provide a custom domain for your cluster note the following points:
 
 Next, you will create a virtual network containing two empty subnets.
 
-1. **Set the following variables.**
+1. **Set the following variables in the shell environment in which you will execute the `az` commands.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
