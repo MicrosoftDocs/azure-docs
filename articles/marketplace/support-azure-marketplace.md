@@ -4,8 +4,9 @@ description: Support information and links for Azure Marketplace and AppSource i
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-
 ---
 
 # Support for Microsoft commercial marketplace

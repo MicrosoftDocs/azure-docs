@@ -4,6 +4,8 @@ description: Learn about advantages, resources, and next steps for offering inte
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
 ---
 

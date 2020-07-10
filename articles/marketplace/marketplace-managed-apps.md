@@ -4,8 +4,9 @@ description: This article describes the requirements for publishing a managed ap
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-
 ---
 
 # Publishing guide for Azure managed applications

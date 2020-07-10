@@ -4,8 +4,9 @@ description: Use Azure Active Directory to authenticate your Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-
 ---
 # Integrate your commercial marketplace listing with Azure Active Directory
 

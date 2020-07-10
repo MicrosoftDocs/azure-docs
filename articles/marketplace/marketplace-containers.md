@@ -5,8 +5,9 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Securit
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-
 ---
 
 # Publishing guide for container offers

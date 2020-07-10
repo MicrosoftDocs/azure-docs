@@ -4,6 +4,8 @@ description: Get an overview of tracking customer usage for Azure Marketplace so
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
 ---
 
