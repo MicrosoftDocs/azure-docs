@@ -128,7 +128,7 @@ The SDKs that are updated in the current version are not backward-compatible wit
 
 ## Authoring experience
 
-| | V2 | V1 |
+| | Version 2 | Version 1 |
 | ------ | -- | -- | 
 | **Azure portal** | [Yes](quickstart-create-data-factory-portal.md) | No |
 | **Azure PowerShell** | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
