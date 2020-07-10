@@ -55,7 +55,7 @@ The Server Migration portal experience simplifies preparation of the replication
 
 A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. To replicate VMs with CMK, you'll create a disk encryption set and pass it as an input to the replication operation.
 
-Follow the example [here](../virtual-machines/windows/disk-encryption.md#powershell) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
+Follow the example [here](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

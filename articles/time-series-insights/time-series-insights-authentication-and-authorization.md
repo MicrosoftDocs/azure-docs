@@ -144,7 +144,7 @@ Required URL query string parameters depend on API version.
 
 > [!IMPORTANT]
 >
-> The `api-version=2018-11-01-preview` version will be deprecated soon. We recommend users to switch onto the newer version. 
+> The `api-version=2018-11-01-preview` version will be deprecated soon. We recommend users to switch onto the newer version.
 
 Optional URL query string parameters include setting a timeout for HTTP request execution times.
 
