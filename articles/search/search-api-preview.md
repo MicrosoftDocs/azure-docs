@@ -12,7 +12,7 @@ ms.date: 06/30/2020
 ---
 # Preview features in Azure Cognitive Search
 
-This article is a comprehensive list of all features that are in preview so that you can determine whether to use them in production code. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article is a comprehensive list of all features that are in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it is generally available. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
