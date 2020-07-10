@@ -29,14 +29,14 @@ landingContent:
             url: https://tsiclientsample.azurewebsites.net/
       - linkListType: concept
         links:
-          - text: Visualize data in Time Series Insights Gen2 Explorer
+          - text: Visualize data in Time Series Insights Explorer
             url: concepts-ux-panels.md
           - text: Time Series Model
             url: concepts-model-overview.md
       - linkListType: video
         links:
-          - text: Using Azure Time Series Insights Gen2 for Industrial IoT
-            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Using-Azure-Time-Series-Insights-to-create-an-Industrial-IoT-analytics-platform/player
+          - text: Analyzing Data using Time Series Insights Gen2
+            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
 
   - title: Get started
     linkLists:
@@ -72,9 +72,9 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Time Series Insights
-            url: /rest/api/time-series-insights/
+          - text: Rest APIs Overview
+            url: https://docs.microsoft.com/rest/api/time-series-insights/
           - text: Data Access Concepts Gen2
-            url: https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview
+            url: https://docs.microsoft.com/rest/api/time-series-insights/preview
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
