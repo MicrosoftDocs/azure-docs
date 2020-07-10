@@ -163,7 +163,7 @@ These example code snippets show you how to do the following actions with the Az
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
 * [Add messages to a queue](#add-messages-to-a-queue)
-* [Peek at messages in a queue](#peek-at-messages -in-a-queue)
+* [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 * [Update a message in a queue](#update-a-message-in-a-queue)
 * [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 * [Delete a queue](#delete-a-queue)
