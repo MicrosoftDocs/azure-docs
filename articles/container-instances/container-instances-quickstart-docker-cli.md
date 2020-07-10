@@ -94,7 +94,7 @@ When you need to troubleshoot a container or the application it runs (or just se
 For example, run the `docker logs` command to see the logs of the *hungry-kirch* container in the ACI context:
 
 ```azurecli-interactive
-dockerd logs hungry-kirch
+docker logs hungry-kirch
 ```
 
 The output displays the logs for the container, and should show the HTTP GET requests generated when you viewed the application in your browser.
@@ -119,6 +119,8 @@ docker rm hungry-kirch
 ## Next steps
 
 In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual Studio Code for an integrated experience to develop, run, and manage containers, images, and contexts.
+
+To use Azure tools to create and manage container instances, see other quickstarts using the [Azure CLI](container-instances-quickstart.md), [Azure PowerShell](container-instances-quickstart-powershell.md), [Azure portal](container-instances-quickstart-portal.md), and [Azure Resource Manager template](container-instances-quickstart-template.md).
 
 If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
