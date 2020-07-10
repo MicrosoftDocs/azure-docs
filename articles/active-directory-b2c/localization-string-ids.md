@@ -186,7 +186,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **number_label** | Phone Number |
 | **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. |
 | **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. |
-| **countryList** | See [the countries list](localization-string-ids.md#counries-list) |
+| **countryList** | See [the countries list](#counties-list). |
 | **error_448** | The phone number you provided is unreachable. |
 | **error_449** | User has exceeded the number of retry attempts. |
 | **verification_code_input_placeholder_text** | Verification code |
