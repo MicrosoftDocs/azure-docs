@@ -133,6 +133,10 @@
         href: microsoft-network-publicipaddresscombo.md
       - name: VirtualNetworkCombo
         href: microsoft-network-virtualnetworkcombo.md
+    - name: Solutions
+      items:
+      - name: ResourceSelector
+        href: microsoft-solutions-resourceselector.md
     - name: Storage
       items:
       - name: MultiStorageAccountCombo
