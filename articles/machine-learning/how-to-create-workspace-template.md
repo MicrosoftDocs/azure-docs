@@ -173,7 +173,7 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
     ```
 
     > [!TIP]
-    > To select another subscription, use the az account set -s <subscription name or ID> command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    > To select another subscription, use the `az account set -s <subscription name or ID>` command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
 
     # [Azure PowerShell](#tab/azpowershell)
 
