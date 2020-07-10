@@ -29,21 +29,21 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ### May 2020 (Microsoft Build)
 
-+ [Debug sessions](cognitive-search-debug-session.md) feature is now in preview. Debug sessions provide a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md).
-
-+ Shield a search service endpoint from the public internet by [configuring IP rules for in-bound firewall support](service-configure-firewall.md) or by leveraging [Azure Private Link for a private search endpoint](service-create-private-endpoint.md). Both capabilities are generally available.
-
-+ Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
-
-+ Change the basis for how search scores are computed, from per-shard to all-shards, using [sessionId](index-similarity-and-scoring.md)  and the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics)query parameters. These parameters are generally available.
-
-+ Add a [featuresMode (preview)](index-similarity-and-scoring.md#featuresMode-param) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Debug sessions**](cognitive-search-debug-session.md) | AI enrichment | Debug sessions provide a portal-based interface to investigate and resolve issues with an existing skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md). | Public preview, in the portal. |
+| [**IP rules for in-bound firewall support**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. | Generally available. </br> Use [Management REST API 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) or later, or the portal. |
+| [**Azure Private Link for a private search endpoint**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Generally available. </br> Use [Management REST API 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) or later, or the portal. |
+| [**system-managed identity (preview)**](search-howto-managed-identities-data-sources.md) | Security (indexers) | Register a search service as a trusted service with Azure Active Directory to set up connections to supported Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage. | Public preview. </br> Use the portal to register the search service. |
+| [**sessionId query parameter**](index-similarity-and-scoring.md), [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | Query (relevance) | Add sessionID to a query to establish a session for computing search scores, with scoringStatistics=global to collect scores from all shards, for more consistent search score calculations. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later, or REST API 2019-05-06. |
+| [**featuresMode (preview)**](index-similarity-and-scoring.md#featuresMode-param) | Query | Add this query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial). | Public preview. </br> Use [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ### March 2020
 
-+ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
-
-+ New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now generally available. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Native blob soft delete (preview)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
+| [**Management REST API (2020-03-13)**](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API for creating and managing a search service. Adds IP firewall and Private Link support | Generally available. |
 
 ### February 2020
 
