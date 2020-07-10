@@ -168,7 +168,7 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
 
     # [Azure CLI](#tab/azcli)
 
-    ```azurecli-interactive
+    ```azurecli
     az account list --query '[].[name,id]' --output tsv
     ```
 
@@ -177,25 +177,26 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
 
     # [Azure PowerShell](#tab/azpowershell)
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzSubscription
     ```
 
     > [!TIP]
     > To select another subscription, use the `Az-SetContext -SubscriptionId <subscription ID>` command and specify the subscription name or ID to switch to. For more information about subscription selection, see [Use multiple Azure Subscriptions](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
+
     ---
 
 1. To get the object ID of the Azure Machine Learning app, use the following command. The value may be different for each of your Azure subscriptions:
 
     # [Azure CLI](#tab/azcli)
 
-    ```azurecli-interactive
+    ```azurecli
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
     ```
 
@@ -224,13 +225,13 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
     # [Azure CLI](#tab/azcli)
 
     ```Bash
-        az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
+    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
 
     ```azurepowershell
-        Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
+    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
     ```
     --- 
 
@@ -240,13 +241,13 @@ __To add an access policy to the key vault, use the following commands__:
 
     # [Azure CLI](#tab/azcli)
 
-    ```azurecli-interactive
+    ```azurecli
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
     ```
     ---
@@ -292,7 +293,7 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
     # [Azure CLI](#tab/azcli)
 
     ```azurecli
-    z keyvault key show --vault-name <keyvault-name> --name <key-name> 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> 
     ```
 
     # [Azure PowerShell](#tab/azpowershell)
@@ -420,7 +421,7 @@ To deploy a workspace with existing associated resources you have to set the **v
 
 1. Enable service endpoints for the resources.
 
-    # [Azure PowerShell](#tab/azcli)
+    # [Azure CLI](#tab/azcli)
 
     ```azurecli
     az deploy
@@ -646,7 +647,7 @@ To avoid this problem, we recommend one of the following approaches:
 
 * Examine the Key Vault access policies and then use these policies to set the `accessPolicies` property of the template. To view the access policies, use the following Azure CLI command:
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
@@ -717,7 +718,7 @@ To avoid this problem, we recommend one of the following approaches:
 
     To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
-    ```azurecli-interactive
+    ```azurecli
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
     ```
 
