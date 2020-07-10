@@ -2158,6 +2158,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/firewall/tutorial-diagnostics.md",
+      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
