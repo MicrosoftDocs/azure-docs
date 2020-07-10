@@ -63,59 +63,16 @@ TODO: Remove the location requirement
 
 
 ### ARM template
-Utilise the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for Cloud Shell in a virtual network.
+Utilise the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for Cloud Shell in a virtual network.  Take note of your resource names, primarily your file share name.
 
 TODO: Update this seciton with more details once template is live.
 
+### Connecting resources with Cloud Shell
+Open Cloud Shell in the Azure Portal or on shell.azure.com.  Select "Show advanced settings" and select the "Show VNET isolation settings" box.
+Fill in the fields in the pop-up.  Most fields will autofil to the available resources that can associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
-TODO: Remove lower section
-----------------
-
-### Create Subnets
-TODO: Update repo location
-
-Download the contents of [this repo](https://msazure.visualstudio.com/DefaultCollection/One/_git/compute-CloudShell?path=%2Fsrc%2Ftools%2FIsolatedContainers&version=GBbf-poc&_a=contents).
-
-Open a PowerShell session in Cloud Shell, or a local experience of PowerShell 7 with the latest Azure PowerShell.  Navigate to the file location of the downloaded files.
-Enter desired resource fields.
-```azurepowershell-interactive
-# Get Subscription ID using Get-AzSubscription
-$SubscriptionID = 
-
-# Resource Group where VNET is located
-$ResourceGroupName = 
-
-# Location of VNET and Resource Group
-$Location = 
-
-# Name of desired VNET
-$ExistingVNETName = 
-
-# Desired Relay Namespace name
-$RelayNamespaceName = 
-
-# Desired Storage Account name - must be all lowercase and globally unique
-$StorageAccountName = 
-
-# Desired File Share Name - must be all lowercase
-$FileShareName =
-```
-
-Next run the `Setup-CloudShellVnet.ps1` script
-```azurepowershell-interactive
-.\Setup-CloudShellVnet.ps1 -SubscriptionId $SubscriptionID -ResourceGroupName $ResourceGroupName -Location $Location -ExistingVNetName $ExistingVNETName -BootstrapCloudShell -RelayNamespace $RelayNamespaceName 
-
-.\Setup-CloudShellVnet.ps1 -SubscriptionId $SubscriptionID -ResourceGroupName $ResourceGroupName -Location $Location -ExistingVNetName $ExistingVNETName -CreateStorageAccount -StorageAccountName $StorageAccountName -FileShareName $FileShareName 
-
-```
-All of your isolated Cloud Shell resources have been created.
-
-
-TODO:
-Listener (only accessible from a set IP range) vs opening the network firewall
-
-TODO: Replace with end UX design
 ![](media/private-VNET/VNET-settings.PNG)
 
 
-TODO: Provide instructions on using UX to connect to isolated Cloud Shell.
+## Next steps
+[Learn about Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
