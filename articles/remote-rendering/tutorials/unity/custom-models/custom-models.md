@@ -1,7 +1,8 @@
 ---
 title: Interfaces and custom models
 description: Add view controllers and ingest custom models to be rendered by Azure Remote Rendering
-author: michael-house
+author: m-the-hoff
+ms.author: v-michof
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---

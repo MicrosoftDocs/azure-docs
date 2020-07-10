@@ -1,7 +1,8 @@
 ---
 title: Azure Remote Rendering tutorial landing page
 description: ARR tutorial overview and navigation
-author: michael-house
+author: m-the-hoff
+ms.author: v-michof
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---
