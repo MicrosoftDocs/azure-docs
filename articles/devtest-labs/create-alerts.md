@@ -11,6 +11,7 @@ This article explains how to create activity log alerts for labs in Azure DevTes
 ## Set alerts for activity log events
 In this example, you create an alert for all administrative operations on a lab with an action that sends an email to subscription owners. 
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar of the Azure portal, type **Monitor**, and then select **Monitor** from the results list. 
 
     :::image type="content" source="./media/activity-logs/search-monitor.png" alt-text="Search for Monitor":::        
