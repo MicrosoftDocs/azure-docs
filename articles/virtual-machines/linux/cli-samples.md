@@ -12,7 +12,7 @@ ms.author: cynthn
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| | |
+| Script | Description |
 |---|---|
 |**Create virtual machines**||
 | [Create a virtual machine](./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |

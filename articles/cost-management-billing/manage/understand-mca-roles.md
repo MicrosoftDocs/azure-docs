@@ -135,12 +135,12 @@ The following tables show what role you need to complete tasks in the context of
 
 ### Manage invoice section permissions and properties
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader | |
-|---|---|---|---|---|---|---|---|---|
-|View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔| |
-|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘| |
-|View invoice section properties|✔|✔|✔|✔|✔|✔|✔| |
-|Update invoice section properties|✔|✔|✘|✘|✘|✘|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader |
+|---|---|---|---|---|---|---|---|
+|View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔|
+|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘|
+|View invoice section properties|✔|✔|✔|✔|✔|✔|✔|
+|Update invoice section properties|✔|✔|✘|✘|✘|✘|✘|
 
 ### Manage products for invoice section
 
