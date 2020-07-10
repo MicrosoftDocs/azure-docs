@@ -90,6 +90,8 @@
     href: language-packs.md
 - name: Concepts
   items:
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
   - name: Determine user connection latency
