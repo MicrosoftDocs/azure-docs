@@ -4,7 +4,7 @@ description: The Linux Virtual Machines security baseline provides procedural gu
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
