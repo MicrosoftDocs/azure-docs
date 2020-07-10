@@ -30,18 +30,18 @@
     href: quickstarts/init-client.md
   - name: Capture a Local Video Stream
     href: quickstarts/capture-local-video-stream.md
-  - name: Place a VoIP Call
-    href: quickstarts/get-started-with-voice.md
-  - name: Place a Video Call
-    href: quickstarts/get-started-with-video.md
+ # - name: Place a VoIP Call
+ #   href: quickstarts/get-started-with-voice.md
+ # - name: Place a Video Call
+ #   href: quickstarts/get-started-with-video.md
   - name: Place a Telephone Call
     href: quickstarts/get-started-with-phone.md
   - name: Send an SMS
     href: quickstarts/get-started-with-sms.md
-  - name: Share Your Screen
-    href: quickstarts/todo.md
-  - name: Implement Two-Factor Authentication
-    href: quickstarts/todo.md
+ # - name: Share Your Screen
+ #   href: quickstarts/todo.md
+ # - name: Implement Two-Factor Authentication
+ #   href: quickstarts/todo.md
   - name: Get Started With Chat
     href: quickstarts/get-started-with-chat.md
   - name: Assign A Telephone Number To An MS Graph Bot
