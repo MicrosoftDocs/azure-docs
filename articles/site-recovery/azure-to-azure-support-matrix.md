@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
 ---
 
@@ -211,6 +211,7 @@ Cool and hot storage | Not supported | VM disks aren't supported on cool and hot
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
+Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md)
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks are not supported. <br/><br/> HSM-protected keys are not supported. <br/><br/> Encryption of individual volumes on a single disk is not supported. |
 Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks are not supported. <br/><br/> HSM-protected keys are not supported. <br/><br/> Encryption of individual volumes on a single disk is not supported. |
 Hot add    | Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Only one disk can be hot added to an Azure VM at a time. Parallel addition of multiple disks is not supported. |
@@ -229,6 +230,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Azure shared disks | Not supported
+Secure transfer option | Supported
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -277,5 +279,7 @@ IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are
 
 
 ## Next steps
+
 - Read [networking guidance](./azure-to-azure-about-networking.md)  for replicating Azure VMs.
 - Deploy disaster recovery by [replicating Azure VMs](./azure-to-azure-quickstart.md).
+
