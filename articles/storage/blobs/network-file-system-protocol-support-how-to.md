@@ -1,8 +1,8 @@
 ---
-title: Mount Azure Data Lake Storage Gen2 (Linux) - NFS 3.0 protocol (preview) | Microsoft Docs
-description: Description goes here.
+title: Mount Blob storage on Linux using the NFS 3.0 protocol (preview) | Microsoft Docs
+description: Learn how to mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/09/2020
@@ -11,12 +11,12 @@ ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)
+# Mount Blob storage on Linux using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Azure Data Lake Storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Azure Data Lake Storage Gen2, see [Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md).
+You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> Data Lake Storage Gen2 support for NFS 3.0 protocol is in public preview.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview.
 >
 > In general-purpose v2 accounts, support is available in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
 >
@@ -164,7 +164,7 @@ If you receive the error "`No such file or directory`", make sure that the conta
 
 ## See also
 
-[Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)](network-file-system-protocol-support.md)
+[Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md)
 
 
 

@@ -1,8 +1,8 @@
 ---
-title: Network File System 3.0 and Azure Data Lake Storage Gen2 (preview) | Microsoft Docs
-description: Use Blob APIs and applications that use Blob APIs with Azure Data Lake Storage Gen2.
+title: Network File System 3.0 support in Azure Blob storage (preview) | Microsoft Docs
+description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/08/2020
@@ -11,12 +11,12 @@ ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Network File System (NFS) 3.0 protocol support in Azure Data Lake Storage Gen2 (preview)
+# Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
 
-Azure Data Lake Storage Gen2 supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Azure Data Lake Storage from an Azure Virtual Machine (VM) or a computer on-premises. 
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> Data Lake Storage Gen2 support for NFS 3.0 protocol is in public preview.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview.
 >
 > In general-purpose v2 accounts, support is available in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
 >
@@ -38,7 +38,7 @@ To mount a storage account container, you'll have to do these things.
 
 6. Mount the container.
 
-For step-by-step guidance, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+For step-by-step guidance, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account.
