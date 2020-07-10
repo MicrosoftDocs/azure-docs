@@ -17,9 +17,7 @@ The weather data can be used to generate actionable insights and build AI or ML 
 
 ## Before you start
 
-To get weather data, ensure that you have installed FarmBeats. Weather integration is supported in versions 1.2.11 and higher. 
-
-To install Azure FarmBeats, see [Install FarmBeats](https://aka.ms/farmbeatsinstalldocumentation).
+To get weather data, ensure that you have [installed FarmBeats](https://aka.ms/farmbeatsinstalldocumentation). Weather integration is supported in versions 1.2.11 and higher. 
 
 ## Enable weather integration with FarmBeats
 
@@ -93,14 +91,14 @@ To start getting weather data on your FarmBeats Datahub:
 
 4. On the /JobType API, make a GET request. Check for the weather jobs that you created earlier, in the partner addition process. In the weather jobs, the **pipelineName** field has the following format: **partner-name_partner-type_job-name**.
 
-  Now your FarmBeats instance has an active weather data partner. You can run jobs to request weather data for a particular location (latitude and longitude) and a date range. The job types will have details on what parameters are required to run weather jobs.
+      Now your FarmBeats instance has an active weather data partner. You can run jobs to request weather data for a particular location (latitude and longitude) and a date range. The job types will have details on what parameters are required to run weather jobs.
 
-   For example, for DTN, the following job types will be created:
+      For example, for DTN, the following job types will be created:
    
-   - **get_dtn_daily_observations**: Get daily observations for a location and time period.
-   - **get_dtn_daily_forecasts**: Get daily forecasts for a location and time period.
-   - **get_dtn_hourly_observations**: Get hourly observations for a location and time period.
-   - **get_dtn_hourly_forecasts**: Get hourly forecasts for a location and time period.
+      - **get_dtn_daily_observations**: Get daily observations for a location and time period.
+      - **get_dtn_daily_forecasts**: Get daily forecasts for a location and time period.
+      - **get_dtn_hourly_observations**: Get hourly observations for a location and time period.
+      - **get_dtn_hourly_forecasts**: Get hourly forecasts for a location and time period.
 
 6. Make a note of the ID and the parameters of the job types.
 
