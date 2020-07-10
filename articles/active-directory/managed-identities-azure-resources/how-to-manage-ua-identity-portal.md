@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 07/13/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
