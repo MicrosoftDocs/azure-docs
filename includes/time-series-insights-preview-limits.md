@@ -15,7 +15,7 @@ ms.custom: include file
 
 The following table summarizes several key differences between Azure Time Series Insights Gen1 and Gen2 instances.
 
-| | Gen1 | Gen2 |
+| Feature | Gen1 | Gen2 |
 | --- | --- | ---|
 | First-class citizen | Event-centric | Time-series-centric |
 | Semantic reasoning | Low-level (reference data) | High-level (models) |
