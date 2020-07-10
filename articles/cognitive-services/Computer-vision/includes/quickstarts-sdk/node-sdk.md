@@ -134,7 +134,7 @@ The following code detects common objects in the image and prints them to the co
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Define the helper function `formatRectObjects`:
+Define the helper function `formatRectObjects` to return coordinate of top-left side, height and width of bounding box:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 
