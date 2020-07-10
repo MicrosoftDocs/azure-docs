@@ -75,6 +75,34 @@ module.exports = async function(context, name) {
     return `Hello ${name}!`;
 };
 ```
+# [Python](#tab/python)
+
+### `E1_HelloSequence` Orchestrator function
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    
+    output1 = yield context.call_activity('E1_SayHello', 'Tokyo')
+    context.set_custom_status('Tokyo')
+    output2 = yield context.call_activity('E1_SayHello', 'Seattle')
+    context.set_custom_status('Seattle')
+    output3 = yield context.call_activity('E1_SayHello', 'London')
+    context.set_custom_status('London')
+    
+    return [output1, output2, output3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+### `E1_SayHellos` Activity function
+```python
+def main(name: str) -> str:
+    return f"Hello {name}!"
+
+```
 
 ---
 
