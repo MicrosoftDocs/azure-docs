@@ -4,7 +4,7 @@ description: The Security Center security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -20,49 +20,17 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Document traffic configuration rules
+### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
-
-Use resource tags for network security groups and other resources like servers on your networks that are configured to send security logs to Azure Security Center. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
-
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
-
-You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+**Guidance**: Azure Security Center is a core Azure offering. You cannot associate a virtual network, subnet, or network security group directly to Security Center. However, Security Center stores the data it collects via a Log Analytics workspace, you can configure that workspace to use Private Link for access to your workspace data over a private endpoint in your virtual network. Security Center also relies on the Log Analytics agent being deployed to your servers to collect security data and provide protection to these compute resources. The Log Analytics agent requires specific ports and protocols to be opened for proper operation with Security Center. Lock down your networks to only allow these required ports and protocols and only add additional rules that your application requires to operate via network security groups.
 
 * [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
-* [Firewall requirements for using the Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
-
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
-
-* [How to create an Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-
-* [How to filter network traffic with network security group rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.1: Document traffic configuration rules
-
-**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
-
-Use resource tags for network security groups and other resources like servers on your networks that are configured to send security logs to Azure Security Center. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
-
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
-
-You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
-
-* [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+* [Filer network traffic with a network security group](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 * [Firewall requirements for using the Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
-
-* [How to create an Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-
-* [How to filter network traffic with network security group rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -72,7 +40,7 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
 
-You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to new subscriptions to deploy Security Center configurations and related networking resources consistently and securely.
+You can also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to new subscriptions to deploy Security Center configurations and related networking resources consistently and securely.
 
 * [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
@@ -83,6 +51,30 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 * [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 * [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
+### 1.10: Document traffic configuration rules
+
+**Guidance**: The Azure Security Center offering does not directly integrate with a virtual network but it can collect data from servers configured with the Log Analytics agent which are deployed on your networks. Your servers that are configured to send data to Security Center require certain ports and protocols to be allowed to communicate properly. Define and enforce standard security configurations for these network resources with Azure Policy.
+
+Use resource tags for network security groups and other resources like servers on your networks that are configured to send security logs to Azure Security Center. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
+
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+
+You can use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
+
+* [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+
+* [Firewall requirements for using the Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#firewall-requirements)
+
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
+* [How to create an Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+
+* [How to filter network traffic with network security group rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -158,7 +150,7 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 **Guidance**: Analyze and monitor logs produced by Azure Security Center and its connected sources for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
-Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -194,25 +186,15 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 *For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
-### 3.1: Regularly review and reconcile user access
+### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure Active Directory provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access related to Azure Security Center can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. Azure Security Center has a built-in role for 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations.
 
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions)
 
-* [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.1: Regularly review and reconcile user access
-
-**Guidance**: Azure Active Directory provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access related to Azure Security Center can be reviewed on a regular basis to make sure only the right users have continued access.
-
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
-
-* [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -220,7 +202,7 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts for the Azure Platform or specific to the Azure Security Center offering. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts in Azure Active Directory. Security Center also has a built-in role for 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations, ensure you review and reconcile any users who have this role assignment on a regular basis.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts for the Azure Platform or specific to the Azure Security Center offering. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts in Azure Active Directory. Security Center also has built-in roles for 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations, ensure you review and reconcile any users who have this role assignment on a regular basis.
 
 Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:
 - There should be more than one owner assigned to your subscription
@@ -237,7 +219,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-### 3.4: Use Azure Active Directory single sign-on (SSO)
+### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations.
 
@@ -247,7 +229,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 **Guidance**: Enable Azure Active Directory MFA for accessing Azure Security Center and the Azure portal, follow any Security Center identity and access recommendations.
 
@@ -259,7 +241,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Responsibility**: Customer
 
-### 3.6: Use secure, Azure-managed workstations for administrative tasks
+### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
@@ -295,11 +277,23 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system when using Azure Security Center. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials. Azure Security Center has a built-in roles that are assignable like 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system when using Azure Security Center. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials. Azure Security Center has built-in roles that are assignable like 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations.
 
 * [Permissions in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions)
 
 * [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
+### 3.10: Regularly review and reconcile user access
+
+**Guidance**: Azure Active Directory provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access related to Azure Security Center can be reviewed on a regular basis to make sure only the right users have continued access.
+
+* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+
+* [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -317,7 +311,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account sign-in behavior deviation
+### 3.12: Alert on account login behavior deviation
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -381,7 +375,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 4.6: Use Role-based access controls to control access to resources
 
-**Guidance**: Use Azure role-based access controls to manage access to Azure Security Center related data and resources. Security Center has a built-in roles that are assignable like 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations. The Log Analytics workspace that stores the data collected by Security Center also has built-in roles you can assign like 'Log Analytics Reader', 'Log Analytics Contributor', and others.
+**Guidance**: Use Azure role-based access controls to manage access to Azure Security Center related data and resources. Security Center has built-in roles that are assignable like 'Security Admin' which allows users to update security policies and dismiss alerts and recommendations. The Log Analytics workspace that stores the data collected by Security Center also has built-in roles you can assign like 'Log Analytics Reader', 'Log Analytics Contributor', and others.
 
 * [Permissions for Azure Log Analytics workspace](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)
 
@@ -430,6 +424,20 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 ## Inventory and asset management
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+
+### 6.1: Use automated asset discovery solution
+
+**Guidance**: Use Azure Resource Graph to query for and discover all resources related to Azure Security Center in your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions to discover Security Center resources.
+
+* [How to create queries with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
+* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+
+* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 6.2: Maintain asset metadata
 
@@ -519,6 +527,18 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 *For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
+### 7.1: Establish secure configurations for all Azure resources
+
+**Guidance**: Define and implement standard security configurations for Azure Security Center and its connected workspace via Azure Policy. Use Azure Policy aliases in the "Microsoft.OperationalInsights" and "Microsoft.Security" namespaces to create custom Azure Policy definitions to audit or enforce the configuration of Security Center and its Log Analytics workspace.
+
+* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
 ### 7.3: Maintain secure Azure resource configurations
 
 **Guidance**: Use Azure Policy effects for 'deny' and 'deploy if not exist' to enforce secure settings across your Azure resources. In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization.
@@ -603,13 +623,13 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back-ups
+### 9.1: Ensure regular automated back ups
 
-**Guidance**: Follow an infrastructure as code (IAC) approach and use Azure Resource Manager to deploy your Azure Security Center related resources in a Java Script Object Notation (JSON) template which can be used as backup for resource related configurations.
+**Guidance**: Follow an infrastructure as code (IAC) approach and use Azure Resource Manager to deploy your Azure Security Center related resources in a JavaScript Object Notation (JSON) template which can be used as backup for resource related configurations.
 
 * [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
-* [Azure resource manager templates for security resource](https://docs.microsoft.com/azure/templates/microsoft.security/allversions)
+* [Azure Resource Manager templates for security resource](https://docs.microsoft.com/azure/templates/microsoft.security/allversions)
 
 * [About Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
@@ -629,7 +649,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
 
 * [Manage Log Analytics workspace using Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration)
 
@@ -641,7 +661,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use role-based access control to protect customer managed keys.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use role-based access control to protect customer-managed keys.
 
 Additionally, Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store Azure Resource Manager template backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
 
