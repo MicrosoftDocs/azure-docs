@@ -233,8 +233,6 @@ The following two procedures show you how to provision an Azure Active Directory
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with server making sure that the same subscription is used for both Azure AD and the server.
 
-    ![choose-ad][8]
-
 2. Search for and select **SQL server**.
 
     ![Search for and select SQL servers](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
@@ -537,6 +535,7 @@ Guidance on troubleshooting issues with Azure AD authentication can be found in 
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
