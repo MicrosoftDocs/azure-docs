@@ -154,7 +154,7 @@ The following information can be helpful when you work with [variables](template
 
 When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
-* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency#reference-and-list-functions.md).
+* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 
