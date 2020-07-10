@@ -200,4 +200,4 @@ Consider the following points for better performance when using the bulk executo
 
 ## Next steps
 
-* To learn about the Nuget package details and the release notes, see the [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md).
+* To learn about the NuGet package details and the release notes, see the [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md).
