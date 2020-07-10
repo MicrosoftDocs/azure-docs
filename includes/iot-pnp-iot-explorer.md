@@ -30,6 +30,6 @@ ms.date: 04/27/2020
 
 1. Select the **Commands** page to view all the commands the device supports.
 
-1. Expand the **getMaxMinReport ** command and set a new blink time interval. Select **Send command** to call the command on the device.
+1. Expand the **getMaxMinReport** command and set a new time interval. Select **Send command** to call the command on the device.
 
 1. Go to the simulated device command prompt. Read through the printed confirmation messages to verify that the command executed as expected.
