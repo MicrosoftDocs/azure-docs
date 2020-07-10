@@ -195,7 +195,7 @@ Your bot framework code needs to call the Train API, if the user's query should 
 * Determine if query should be used for active learning
 * Send query back to QnA Maker's Train API for active learning
 
-In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed.
+In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
 ### Example C# code for Train API with Bot Framework 4.x
 
