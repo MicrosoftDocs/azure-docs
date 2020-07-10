@@ -86,6 +86,16 @@ The app now needs to be published to the Function app instance created in the pr
 func azure functionapp publish <your-functionapp-name>
 ```
 
+The output from the publishing command should list the URL to your newly created function.
+
+```bash
+Deployment completed successfully.
+Syncing triggers...
+Functions in <your-functionapp-name>:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://<your-functionapp-name>.azurewebsites.net/api/httptrigger
+```
+
 ## Create Azure Spring Cloud service and app
 After installing corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command `az spring-cloud create`. 
 
