@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the route service. Th
 > * Display multiple routes on your map
 
 ## Prerequisites
-Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and select the S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and select the S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new map
 
