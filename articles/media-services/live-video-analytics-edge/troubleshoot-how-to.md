@@ -27,29 +27,29 @@ As part of your Live Video Analytics deployment, you set up Azure resources such
 
 ### Pre-deployment issues
 
-If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy Live Video Analytics on IoT Edge module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the edge hub, edge agent, and other modules with their properties. If the JSON is not well formed, you might receive the following error: 
+If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy the Live Video Analytics on IoT Edge module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the IoT Edge hub, IoT Edge agent, and other modules and their properties. If the JSON code isn't well formed, you might receive the following error: 
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
 
-> Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"
+Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"
 
-If you encounter this error, we recommend that you check the JSON file for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
+If you encounter this error, we recommend that you check the JSON for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
 ### During deployment: Diagnose with media graph direct methods 
 
-After the Live Video Analytics on IoT Edge module is deployed correctly on the IoT Edge device, you can create and run the media graph by invoking [direct methods](direct-methods.md). You can use the Azure portal to run the diagnosis of media graph via direct methods:
+After the Live Video Analytics on IoT Edge module is deployed correctly on the IoT Edge device, you can create and run the media graph by invoking [direct methods](direct-methods.md). You can use the Azure portal to run a diagnosis of the media graph via direct methods:
 
 1. In the Azure portal, go to the IoT hub that's connected to your IoT Edge device.
 
-1. On the pane for the IoT hub, look for **Automatic device management**, and then select **IoT Edge**.  
+1. Look for **Automatic device management**, and then select **IoT Edge**.  
 
-1. In the list of edge devices, select the device that you want to diagnose.  
+1. In the list of Edge devices, select the device that you want to diagnose.  
          
-      ![Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
+      ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
 
-1. Check to see whether the response code is **200-OK**. Other response codes for the [IoT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) include:
+1. Check to see whether the response code is *200-OK*. Other response codes for the [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) include:
     * 400 - The deployment configuration is malformed or invalid.
     * 417 - The device doesn't have a deployment configuration set.
     * 412 - The schema version in the deployment configuration is invalid.
@@ -58,24 +58,24 @@ After the Live Video Analytics on IoT Edge module is deployed correctly on the I
 
 1. Selecting the device should also display a list of expected IoT Edge modules that have been deployed, along with their status.
 
-1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a screen where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
+1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
-    * Checking on reported and desired properties helps you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
+    * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
     * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
     
       ![Screenshot of the "Direct method" pane for the IoT Edge module.](./media/troubleshoot-how-to/direct-method.png) 
 
-1. If you get a status 501 code, check to see whether the direct method name is accurate. 
-    * If the method name and request payload are accurate, you should receive a success code of *=200*. 
-    * If the request payload is inaccurate, you will receive a status of *=400*. You also get a response payload with an error code and message that should help with diagnosing the issue. 
+1. If you get a status *501* code, check to see whether the direct method name is accurate. 
+    * If the method name and request payload are accurate, you receive a success code of *=200*. 
+    * If the request payload is inaccurate, you receive a status of *=400*. You also get a response payload with an error code and message that should help with diagnosing the issue. 
 
 ### Post deployment: Diagnose logs for issues during the run 
 
-The container logs for your IoT Edge module should contain diagnostics<!--<todo:add link to diagnostics doc>--> information to help debug your issues during module runtime. You can [check container logs for issues](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) and self-diagnose the issue. However, if you've run all the preceding checks and are still facing issues, gather logs from the IoT Edge device [with the `support bundle` command](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
+The container logs for your IoT Edge module should contain diagnostics<!--<todo:add link to diagnostics doc>--> information to help debug your issues during module runtime. You can [check container logs for issues](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) and self-diagnose the issue. However, if you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
 ## Common error resolutions
 
-Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll face with the Live Video Analytics deployment are caused by issues with the underlying IoT infrastructure. The errors include:
+Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with the Live Video Analytics deployment are caused by issues with the underlying IoT infrastructure. The errors include:
 
 * [The IoT Edge agent stops after about a minute](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-stops-after-about-a-minute).
 * [The IoT Edge agent can't access a module's image (403)](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-cant-access-a-modules-image-403).
@@ -87,7 +87,7 @@ Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, a
 
 ### Edge setup script issues
 
-As part of our documentation, we've provided a [setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy edge and cloud resources and get you started with Live Video Analytics Edge. This section presents some script errors that you might face, along with solutions for debugging them.
+As part of our documentation, we've provided a [setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy edge and cloud resources and get you started with Live Video Analytics Edge. This section presents some script errors that you might encounter, along with solutions for debugging them.
 
 Issue: The script runs partly creating few resources but fails with the following message:
 
@@ -156,21 +156,21 @@ To fix this issue:
 
 ### Sample app issues
 
-As part of our release, we've provided some .NET sample code to help get our developer community bootstrapped. This section presents some errors you might face while running the sample code, along with solutions for debugging them.
+As part of our release, we've provided some .NET sample code to help get our developer community bootstrapped. This section presents some errors you might encounter when you run the sample code, along with solutions for debugging them.
 
 Issue: Program.cs fails with the following error on the direct method invocation:
 
-    ```
-    Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedException: {"Message":"{\"errorCode\":401002,\"trackingId\":\"b1da85801b2e4faf951a2291a2c467c3-G:32-TimeStamp:04/06/2020 17:15:11\",\"message\":\"Unauthorized\",\"timestampUtc\":\"2020-04-06T17:15:11.6990676Z\"}","ExceptionMessage":""}
+```
+Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedException: {"Message":"{\"errorCode\":401002,\"trackingId\":\"b1da85801b2e4faf951a2291a2c467c3-G:32-TimeStamp:04/06/2020 17:15:11\",\"message\":\"Unauthorized\",\"timestampUtc\":\"2020-04-06T17:15:11.6990676Z\"}","ExceptionMessage":""}
     
         at Microsoft.Azure.Devices.HttpClientHelper.ExecuteAsync(HttpClient httpClient, HttpMethod httpMethod, Uri requestUri, Func`3 modifyRequestMessageAsync, Func`2 isMappedToException, Func`3 processResponseMessageAsync, IDictionary`2 errorMappingOverrides, CancellationToken cancellationToken)
     
         at Microsoft.Azure.Devices.HttpClientHelper.ExecuteAsync(HttpMethod httpMethod, Uri requestUri, Func`3 modifyRequestMessageAsync, Func`3 processResponseMessageAsync, IDictionary`2 errorMappingOverrides, CancellationToken cancellationToken)
         
         at Microsoft.Azure.Devices.HttpClientHelper.PostAsync[T,T2](Uri requestUri, T entity, TimeSpan operationTimeout, IDictionary`2 errorMappingOverrides, IDictionary`2 customHeaders, CancellationToken cancellationToken)…
-    ```
+```
 
-1. Ensure that you have [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed in your Visual Studio Code environment, and that you've set up the connection to your IoT hub. To do so, select Ctrl+Shift+P, and then choose **Select IoT Hub method** to connect to your subscription and IoT hub.
+1. Ensure that you have [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) installed in your Visual Studio Code environment, and that you've set up the connection to your IoT hub. To do so, select Ctrl+Shift+P, and then choose **Select IoT Hub method**.
 
 1. Check to see whether you can invoke a direct method on the IoT Edge module via Visual Studio Code. For example, call GraphTopologyList with the following payload {&nbsp;"@apiVersion": "1.0"}. You should receive the following response: 
 
@@ -189,7 +189,7 @@ Issue: Program.cs fails with the following error on the direct method invocation
     ![Screenshot of the response in Visual Studio Code.](./media/troubleshoot-how-to/visual-studio-code1.png)
 1. If the preceding solution fails, try the following:
 
-    a. Go to the command prompt on your IoT Edge device and run the following command:
+    a. Go to the command prompt on your IoT Edge device, and run the following command:
     
       ```
       sudo systemctl restart iotedge
@@ -209,10 +209,10 @@ Issue: Program.cs fails with the following error on the direct method invocation
     sudo iotedge support-bundle --since 2h
     ```
 
-1. If you get an error response 400 code, ensure that your method invocation payload is well formed, as per the [Direct methods](direct-methods.md) guide.
-1. If  you get a status 200 code, it indicates that your hub is functioning well and your module deployment is correct and responsive. 
+1. If you get an error response *400* code, ensure that your method invocation payload is well formed, as per the [Direct methods](direct-methods.md) guide.
+1. If  you get a status *200* code, it indicates that your hub is functioning well and your module deployment is correct and responsive. 
 
-1. Check to see whether the app configuration is accurate. Your app configuration consists of the following fields in the *appsettings.json* file. Double-check to ensure that deviceId and moduleId are accurate. An easy way to check this is via the Azure IoT Hub extension section in Visual Studio Code. The values in the *appsettings.json* file and the IoT Hub section should match.
+1. Check to see whether the app configuration is accurate. Your app configuration consists of the following fields in the *appsettings.json* file. Double-check to ensure that deviceId and moduleId are accurate. An easy way to check is by going to the Azure IoT Hub extension section in Visual Studio Code. The values in the *appsettings.json* file and the IoT Hub section should match.
     
     ```
     {
@@ -237,7 +237,7 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
 
 * Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the [parameter](http://yolov3/score) or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).  
 
-    As an example, here is a Yolo v3 container running on local machine with an IP address of 172.17.0.3. Use Docker inspect to find the IP address.
+    As an example, here is a Yolo v3 container that's running on local machine with an IP address of 172.17.0.3. Use Docker inspect to find the IP address.
 
     ```
     curl -X POST http://172.17.0.3/score -H "Content-Type: image/jpeg" --data-binary @<fullpath to jpg>
@@ -257,9 +257,9 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
     
 ### Multiple direct methods in parallel – timeout failure 
 
-Live Video Analytics on IoT Edge provides a direct method-based programming model that allows for a setup of multiple topologies and multiple graph instances. As part of the topology and graph setup, you'll invoke multiple direct method calls on the IoT Edge module. If you invoke these multiple method calls, especially the ones starting and stopping the graphs, in parallel, you might experience a timeout failure such as the following: 
+Live Video Analytics on IoT Edge provides a direct method-based programming model that allows you to set up multiple topologies and multiple graph instances. As part of the topology and graph setup, you invoke multiple direct method calls on the IoT Edge module. If you invoke these multiple method calls in parallel, especially the ones that start and stop the graphs, you might experience a timeout failure such as the following: 
 
-> Assembly Initialization method Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: Microsoft.Azure.Devices.Common.Exceptions.IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
+Assembly Initialization method Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: Microsoft.Azure.Devices.Common.Exceptions.IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
 We recommend that you not call direct methods in parallel. Call them sequentially (that is, make one direct method call only after the previous one is finished).
 
