@@ -2,7 +2,7 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/10/2020
 ms.author: azfuncdf
 ---
 
@@ -13,7 +13,7 @@ Custom orchestration status lets you set a custom status value for your orchestr
 ## Sample use cases
 
 > [!NOTE]
-> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The following samples show how to use custom status feature in C#, JavaScript, and Python. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### Visualize progress
 
@@ -170,8 +170,30 @@ module.exports = async function(context, req) {
 };
 ```
 
+# [Python](#tab/python)
+```python
+import json
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+from time import sleep
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)    
+    instance_id = await client.start_new(req.params.functionName, None, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+
+    durable_orchestration_status = await client.get_status(instance_id)
+    while durable_orchestration_status.custom_status != 'London':
+        sleep(0.2)
+        durable_orchestration_status = await client.get_status(instance_id)
+
+    return func.HttpResponse(body='Success', status_code=200, mimetype='application/json')
+```
+
 > [!NOTE]
-> In JavaScript, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
+> In JavaScript and Python, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
 
 ---
 
