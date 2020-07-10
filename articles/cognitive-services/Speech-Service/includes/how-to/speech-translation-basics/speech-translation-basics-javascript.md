@@ -243,7 +243,7 @@ and you specify target languages using a language code, rather than a locale.
 See a list of language codes for text targets in 
 [the speech translation table on the language support page](../../../language-support.md#speech-translation). You can also find details about translation into synthesized languages there.
 
-The following code adds german as a target language:
+The following code adds German as a target language:
 
 ```javascript
 translationConfig.addTargetLanguage("de");
