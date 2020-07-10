@@ -68,7 +68,8 @@ Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/temp
 Open Cloud Shell in the Azure portal or on shell.azure.com.  Select "Show advanced settings" and select the "Show VNET isolation settings" box.
 Fill in the fields in the pop-up.  Most fields will autofil to the available resources that can associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
-![](media/private-VNET/VNET-settings.PNG)
+
+::image type="content" source="media/private-VNET/VNET-settings.PNG" alt-text="Illustrates the Cloud Shell isolated VNET first experience settings.":::
 
 
 ## Next steps
