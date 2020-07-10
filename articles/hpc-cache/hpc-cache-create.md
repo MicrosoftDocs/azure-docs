@@ -121,7 +121,7 @@ nets/<cache_subnet_name>"``
   * The cache size (in GB)
   * The SKU of the virtual machines used in the cache infrastructure
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported. See the chart below for more information.
+  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
 
   This chart shows which cache size and SKU combinations are valid at the time this document is being prepared (July 2020).
 
