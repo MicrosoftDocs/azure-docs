@@ -53,7 +53,7 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 
 ## Create a Mailjet template
 
-With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
 1. Select **By coding it in HTML**, and then select **Code from scratch**.
