@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020 
+ms.date: 07/09/2020 
 ms.author: iainfou
 
 ---
@@ -38,18 +38,18 @@ To complete this article, you need the following resources and privileges:
 
 ## Service accounts overview
 
-In a managed domain, a security group named **AAD DC Service Accounts** exists as part of the *Users* organizational unit (OU). Members of this security group are delegated the following privileges:
+In a managed domain, a security group named *AAD DC Service Accounts* exists as part of the *Users* organizational unit (OU). Members of this security group are delegated the following privileges:
 
 - **Replicate Directory Changes** privilege on the root DSE.
 - **Replicate Directory Changes** privilege on the *Configuration* naming context (`cn=configuration` container).
 
-The **AAD DC Service Accounts** security group is also a member of the built-in group **Pre-Windows 2000 Compatible Access**.
+The *AAD DC Service Accounts* security group is also a member of the built-in group *Pre-Windows 2000 Compatible Access*.
 
 When added to this security group, the service account for SharePoint Server user profile synchronization service is granted the required privileges to work correctly.
 
 ## Enable support for SharePoint Server user profile sync
 
-The service account for SharePoint Server needs adequate privileges to replicate changes to the directory and let SharePoint Server user profile sync work correctly. To provide these privileges, add the service account used for SharePoint user profile synchronization to the **AAD DC Service Accounts** group.
+The service account for SharePoint Server needs adequate privileges to replicate changes to the directory and let SharePoint Server user profile sync work correctly. To provide these privileges, add the service account used for SharePoint user profile synchronization to the *AAD DC Service Accounts* group.
 
 From your Azure AD DS management VM, complete the following steps:
 

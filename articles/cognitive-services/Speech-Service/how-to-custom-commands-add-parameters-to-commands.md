@@ -55,9 +55,10 @@ Edit the existing **TurnOn** command to turn on and turn off multiple devices.
        | Configuration      | Accept predefined input values from internal catalog | For Strings, this limits inputs to a set of possible values |
        | Predefined input values     | `on`, `off`           | Set of possible values and their aliases         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. For adding predefined input values, select **Add a predefined input** and in **New Item**  window, type in **Name** as provided in the table above. In this case, we aren't using aliases, so you can leave it blank. 
+    > [!div class="mx-imgBorder"]
         > ![Create parameter](media/custom-commands/create-on-off-parameter.png)
-
    1. Select **Save** to save all configurations of the parameter.
  
  ### Add SubjectDevice parameter 

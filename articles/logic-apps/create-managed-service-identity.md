@@ -1,6 +1,6 @@
 ---
 title: Authenticate with managed identities
-description: Access resources in protected by Azure Active Directory without signing in with credentials or secrets by using a managed identity
+description: Access resources protected by Azure Active Directory without signing in with credentials or secrets by using a managed identity
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm

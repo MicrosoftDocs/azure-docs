@@ -351,9 +351,9 @@
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Cloud adoption framework
-    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Architecture center
-    href: https://docs.microsoft.com/en-us/azure/architecture/
+    href: https://docs.microsoft.com/azure/architecture/
   - name: Infrastructure example
     href: infrastructure-example.md
 - name: How-to guides
@@ -434,6 +434,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
           - name: Copy from another gallery
@@ -454,6 +456,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md
           - name: Copy from another gallery
@@ -508,6 +512,8 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
+    - name: Purchase plan information
+      href: ../marketplace-images.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
     - name: Capture VM to image

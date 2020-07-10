@@ -23,10 +23,10 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable using Azure CLI
 
-The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.  
+The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 The output will resemble the following:
@@ -37,7 +37,7 @@ provisioningState       : Succeeded
 
 ### Integrate with an existing workspace
 
-If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
+If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.
 
 1. List all the subscriptions that you have access to using the following command:
 
@@ -108,7 +108,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
 
-5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
+5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -126,15 +126,15 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 
 2. In the list of resources, begin typing **Containers**.  The list filters based on your input.
 
-3. Select **Kubernetes services**.  
+3. Select **Kubernetes services**.
 
     ![The Kubernetes services link](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. In the list of containers, select a container.
 
-5. On the container overview page, select **Monitor Containers**.  
+5. On the container overview page, select **Monitor Containers**.
 
-6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.  
+6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS container health monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -306,7 +306,21 @@ The output should resemble the following, which indicates that it was deployed p
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+If there are Windows Server nodes on the cluster then you can run the following command to verify that the agent is deployed successfully.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+The output should resemble the following, which indicates that it was deployed properly:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 To verify deployment of the solution, run the following command:
 
@@ -324,23 +338,23 @@ omsagent   1         1         1            1            3h
 
 ### Agent version earlier than 06072018
 
-To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:  
+To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-The output should resemble the following, which indicates that it was deployed properly:  
+The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## View configuration with CLI
 
-Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.  
+Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
