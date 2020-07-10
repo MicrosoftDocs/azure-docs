@@ -215,11 +215,11 @@ For VM and Local disk storage use Azure Disk Encryption where supported:
 
 Services with IaaS VMs (Windows or Linux) should use [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) to encrypt volumes containing customer data.
 
-#### PaaS v2
+#### PaaS v2 (ARM model)
 
 Services running on PaaS v2 using Service Fabric can use Azure disk encryption for Virtual Machine Scale Set [VMSS] to encrypt their PaaS v2 VMs.
 
-#### PaaS v1
+#### PaaS v1 (ASM model, also known as "Classic")
 
 Azure Disk Encryption currently is not supported on PaaS v1. Therefore, you must use application level encryption to encrypt persisted data at rest.  This includes, but is not limited to, application data, temporary files, logs, and crash dumps.
 
