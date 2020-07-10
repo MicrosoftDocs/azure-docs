@@ -8,7 +8,7 @@ ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: urosmil
-ms.author: Uros Milanovic (MSFT)
+ms.author: urmilano
 ms.reviewer: sstein, carlrab, MashaMSFT
 ms.date: 07/10/2020
 ---
