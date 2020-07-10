@@ -364,6 +364,36 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 > [!IMPORTANT]
 > Application Insights does not support deployment behind a virtual network.
 
+### Deploy workspace behind a virtual network
+
+If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a virtual network.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
+
 ### Use a new vnet
 
 To deploy a resource behind a new virtual network, set the **vnetOption** to **new** along with the virtual network settings for the respective resource. The deployment below shows how to deploy a workspace with the storage account resource behind a new virtual network.
@@ -434,6 +464,41 @@ New-AzResourceGroupDeployment `
   -containerRegistryBehindVNet "true" `
   -containerRegistryOption "new" `
   -containerRegistrySku "Premium"
+```
+
+---
+
+Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
+
+> [!IMPORTANT]
+> The deployment is only valid in regions which support private endpoints.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      vnetOption="new" \
+      vnetName="examplevnet" \
+      privateEndpointType="AutoApproval"
+```
+
+# [Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -vnetOption "new" `
+  -vnetName "examplevnet" `
+  -privateEndpointType "AutoApproval"
 ```
 
 ---
@@ -512,15 +577,11 @@ To deploy a workspace with existing associated resources you have to set the **v
     ```
     ---
 
-## Deploy a workspace with private endpoints
-
-Automated and manual approval of private endpoints is supported.
+Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
 
 > [!IMPORTANT]
 > The deployment is only valid in regions which support private endpoints.
 
-### Use a private endpoint without a virtual network
-
 # [Azure CLI](#tab/azcli)
 
 ```azurecli
@@ -530,67 +591,7 @@ az deployment group create \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
       location="eastus" \
-      privateEndpointType="AutoApproval"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -privateEndpointType "AutoApproval"
-```
-
----
-
-### Use a private endpoint with a new virtual network
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="new" \
-      vnetName="examplevnet" \
-      privateEndpointType="AutoApproval"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -vnetOption "new" `
-  -vnetName "examplevnet" `
-  -privateEndpointType "AutoApproval"
-```
-
----
-
-### Use a private endpoint with an existing virtual network
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="new" \
+      vnetOption="existing" \
       vnetName="examplevnet" \
       vnetResourceGroupName="rg" \
       privateEndpointType="AutoApproval" \
