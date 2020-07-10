@@ -147,7 +147,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notification. Your storyboard should look as follows:
 
-    ![Screenshot of a story board. Three app screens are visible: a navigation view, a home view, and an image view.][IOS4]
+    ![Screenshot of a storyboard. Three app screens are visible: a navigation view, a home view, and an image view.][IOS4]
 6. Click on the **Home View Controller** in storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
 7. Do the same for Image View Controller as **imageViewController**.
 8. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.

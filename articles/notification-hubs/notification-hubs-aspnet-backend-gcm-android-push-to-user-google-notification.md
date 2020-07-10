@@ -150,7 +150,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
     Your `main_activity.xml` graphical layout should now look like the following image:
 
-    ![Screenshot of an app that contains username, password, recipient username, and message boxes and buttons for signing in and sending notifications.][A1]
+    ![Screenshot of an app with boxes for the username, password, recipient, and message, and with buttons for signing in and sending notifications.][A1]
 3. Create a new class named `RegisterClient` in the same package as your `MainActivity` class. Use the code below for the new class file.
 
     ```java

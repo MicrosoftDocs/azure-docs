@@ -64,7 +64,7 @@ Perform the following steps to view the hardware status of a device component:
 
    Expanding the **Shared components list**, we can see that the NVRAM and the cluster are degraded.
 
-   ![Screenshot showing the Shared Components item selected. In the adjacent blade, the NVRAM and the cluster are in a warning state.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Screenshot showing the Shared Components item selected. In the adjacent blade, the N V R A M and the cluster are in a warning state.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    Expanding the **Controller 1 components** list, we can see that the cluster node has failed.  
 
