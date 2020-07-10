@@ -110,7 +110,7 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-For more details about Azure Monitor Logs Workspaces see https://aka.ms/logsdesign
+For more details about Azure Monitor Logs Workspaces see [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
