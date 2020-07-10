@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
 
 ---
@@ -55,7 +55,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using Visual Studio Code**
 
-   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the Visual Studio Code extension documentation.
+   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-manage-resources-vscode.md#endpoints) in the Visual Studio Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 

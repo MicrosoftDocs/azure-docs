@@ -212,7 +212,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the step above.
+> You'll need the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role to perform the step above.
 
 Now, you can use kubectl to, for example,  list the nodes in the cluster. The first time you run it you'll need to sign in, and subsequent commands will use the respective access token.
 

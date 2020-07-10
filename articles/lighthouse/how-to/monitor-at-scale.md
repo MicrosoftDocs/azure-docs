@@ -17,7 +17,7 @@ In order to collect data, you'll need to create Log Analytics workspaces. These 
 
 We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
 
-You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md).
+You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## Deploy policies that log data
 

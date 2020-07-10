@@ -17,16 +17,16 @@ The following table summarizes several key differences between Azure Time Series
 
 | | GA | Preview |
 | --- | --- | ---|
-| First-class citizen | Event-centric | Time-series-centric |
-| Semantic reasoning | Low-level (reference data) | High-level (models) |
-| Data contextualization | Non-device level | Device and non-device level |
-| Compute logic storage | No | Stored in type variables part of model |
-| Storage and access control | No | Enabled via model |
-| Aggregations/Sampling | No | Event weighted and time weighted |
-| Signal reconstruction | No | Interpolation |
-| Production of derived time series | No | Yes, merges and joins |
-| Language flexibility | Non-composable | Composable |
-| Expression language | Predicate string | Time series expressions (predicate strings, values, expressions, and functions) |
+| **First-class citizen** | Event-centric | Time-series-centric |
+| **Semantic reasoning** | Low-level (reference data) | High-level (models) |
+| **Data contextualization** | Non-device level | Device and non-device level |
+| **Compute logic storage** | No | Stored in type variables part of model |
+| **Storage and access control** | No | Enabled via model |
+| **Aggregations/Sampling** | No | Event weighted and time weighted |
+| **Signal reconstruction** | No | Interpolation |
+| **Production of derived time series** | No | Yes, merges and joins |
+| **Language flexibility** | Non-composable | Composable |
+| **Expression language** | Predicate string | Time series expressions (predicate strings, values, expressions, and functions) |
 
 ### Property limits
 
