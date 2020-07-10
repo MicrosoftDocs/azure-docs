@@ -6,7 +6,7 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 07//2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
@@ -91,7 +91,7 @@ Managed Identity authentication is required when your storage account is attache
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
-![Granting RBAC permission to load](./sql/media/bulk-load/rbac-load-permissions.png)
+![Granting RBAC permission to load](./media/bulk-load/rbac-load-permissions.png)
 
 4. You can now run the COPY statement specifying "Managed Identity":
 
@@ -112,7 +112,7 @@ Managed Identity authentication is required when your storage account is attache
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
 
-![Granting RBAC permission to load](./sql/media/bulk-load/rbac-load-permissions.png)
+![Granting RBAC permission to load](./media/bulk-load/rbac-load-permissions.png)
 
 2. Configure Azure AD authentication by going through the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
