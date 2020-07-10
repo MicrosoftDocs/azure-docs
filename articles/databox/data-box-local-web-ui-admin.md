@@ -38,14 +38,13 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once the Support package creation is complete, click **Download Support package**. 
+3. Once the Support package creation is complete, click **Download Support package**.
 
     ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Browse and choose the download location. Open the folder to view the contents.
 
     ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## Shut down or restart your device
 
@@ -179,5 +178,46 @@ We strongly recommend that you do not disable checksum unless the performance is
 > [!NOTE]
 > The skip checksum computation option is available only when the Azure Data Box is unlocked. You won't see this option when the device is locked.
 
-- Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
+## Enable SMB signing
 
+Server message block (SMB) signing is a feature through which communications using SMB can be digitally signed at the packet level. This signing prevents "man-in-the-middle" attacks that modify SMB packets in transit.
+
+For more information related to SMB signing, see [Overview of Server Message Block signing](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+To enable SMB signing in your Azure Device:
+
+1. In the top-right corner of the local web UI of your device, select **Settings**.
+
+    ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Enable** SMB Signing.
+
+    ![Enable SMB signing](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Select **Apply**.
+4. In the local web UI, go to **Shut down or restart**.
+5. Click **Restart**.
+
+## Enable TLS 1.1
+
+By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryption as it is more secure than TSL 1.1. However, if you or your clients are using a browser to access data that does not support TLS 1.2, you may enable TLS 1.1.
+
+For more information related to TLS, see [Azure Data Box Gateway security](../databox-online/data-box-gateway-security.md).
+
+To enable TLS 1.1 in you Azure device:
+
+1. In the top-right corner of the local web UI of your device, select **Settings**.
+
+    ![Open Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Enable** TLS 1.1.
+
+    ![Enable TLS 1.1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Select **Apply**.
+4. In the local web UI, go to **Shut down or restart**.
+5. Click **Restart**.
+
+## Next steps
+
+- Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
