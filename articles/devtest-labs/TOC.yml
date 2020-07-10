@@ -267,6 +267,10 @@
       href: troubleshoot-vm-environment-creation-failures.md
     - name: Troubleshoot artifact failures
       href: devtest-lab-troubleshoot-artifact-failure.md
+  - name: Monitor
+    items: 
+    - name: View activity logs and set alerts
+      href: activity-logs.md
 - name: Reference
   items:
   - name: CLI
