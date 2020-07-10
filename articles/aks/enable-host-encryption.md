@@ -9,7 +9,8 @@ ms.date: 07/10/2020
 
 # Host-based encryption on Azure Kubernetes Service (AKS) (preview)
 
-With encryption at host, the data stored on the VM host of your AKS agent nodes VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default on AKS those disks use platform-managed keys for their encryption, and you can specify your own managed keys following [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service](azure-disk-customer-managed-keys.md).
+With host-based encryption, the data stored on the VM host of your AKS agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default, when using AKS, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys.  You can specify your own managed keys following [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service](azure-disk-customer-managed-keys.md). The cache for these disks will then also be encrypted using the key that you specify in this step.
+
 
 ## Before you begin
 
@@ -76,25 +77,25 @@ az extension update --name aks-preview
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
 - Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 
-## Use host-based encryption` on new clusters (preview)
+## Use host-based encryption on new clusters (preview)
 
-Configure the cluster agent nodes to use encryption at host when the cluster is created. Use the `--aks-custom-headers` flag to set the `EnableEncryptionAtHost` header.
+Configure the cluster agent nodes to use host-based encryption when the cluster is created. Use the `--aks-custom-headers` flag to set the `EnableEncryptionAtHost` header.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
 ```
 
-If you want to create clusters without the encryption at host feature, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create clusters without host-based encryption, you can do so by omitting the custom `--aks-custom-headers` parameter.
 
-## Use host-based encryption` on existing clusters (preview)
+## Use host-based encryption on existing clusters (preview)
 
-You can enable host-based encryption on existing clusters by using a new node pool. Configure a new node pool to use encryption at host by using the `--aks-custom-headers` flag.
+You can enable host-based encryption on existing clusters by adding a new node pool to your cluster. Configure a new node pool to use host-based encryption by using the `--aks-custom-headers` flag.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
 ```
 
-If you want to create new node pools without the host encryption feature, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create new node pools without the host-based encryption feature, you can do so by omitting the custom `--aks-custom-headers` parameter.
 
 ## Next steps
 
