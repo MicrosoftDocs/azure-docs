@@ -198,9 +198,11 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Validating models
 
-There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+There is a sample available for validating model documents to make sure the DTDL is correct. It is language-agnostic, and recommended as a way to validate your models offline prior to uploading them to your Azure Digital Twins instance. Find it here: [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
-Or, for more information about the parser library, including an example of how to use it directly, see [How-to: Parse and validate models](how-to-use-parser.md).
+The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet.org as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can also use the library directly to design your own validation solution. When using the parser library, make sure to use a version that is compatible with the version that Azure Digital Twins is running. During public preview, this is version *3.7.0*.
+
+You can learn more about the parser library, including usage examples, in [How-to: Parse and validate models](how-to-use-parser.md).
 
 ## Next steps
 
