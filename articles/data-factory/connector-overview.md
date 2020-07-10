@@ -29,6 +29,7 @@ Azure Data Factory supports the following file formats. Refer to each article fo
 - [Binary format](format-binary.md)
 - [Common Data Model format](format-common-data-model.md)
 - [Delimited text format](format-delimited-text.md)
+- [Delta format](format-delta.md)
 - [Excel format](format-excel.md)
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
