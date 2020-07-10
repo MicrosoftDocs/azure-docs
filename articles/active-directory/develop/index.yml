@@ -40,7 +40,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Identity platform for developers
-            url: identity-videos.md#microsoft-identity-platform-for-developers.md
+            url: identity-videos.md#microsoft-identity-platform-for-developers
           - text: Authentication fundamentals
             url: identity-videos.md#authentication-fundamentals
           - text: "One Dev Question: platform basics"
