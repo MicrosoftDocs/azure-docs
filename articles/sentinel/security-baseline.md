@@ -4,7 +4,7 @@ description: The Azure Sentinel security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,20 +22,6 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 ## Network security
 
 *For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
-
-### 1.1: Protect Azure resources within virtual networks
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18695).
-
-**Guidance**: While you cannot associate a virtual network, subnet, or network security group with Azure Sentinel, Azure Sentinel is built on top of a Log Analytics workspace. You can use Private Link, which will enable you to access your Log Analytics workspace over a private endpoint in your virtual network.
-
-Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview 
-
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
