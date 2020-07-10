@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/10/2020
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -54,9 +54,6 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 ## Replicated machines
 
 Site Recovery supports replication of any workload running on a supported machine.
-
-> [!Note]
-> The following table lists the support for machines with BIOS boot. Please refer to [Storage](#storage) section for support on UEFI based machines.
 
 **Component** | **Details**
 --- | ---
@@ -176,6 +173,7 @@ Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to us
 Guest/server network multiple NICs | Yes.
 
 
+
 ## Azure VM network (after failover)
 
 **Component** | **Supported**
@@ -219,7 +217,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported. [Learn more.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Guest/server EFI/UEFI boot | - Supported for all [Azure marketplace UEFI OSes](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## Replication channels
 
@@ -241,7 +239,9 @@ Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
 Encryption-at-rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
+Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). [Learn more](../virtual-machines/windows/disk-encryption.md)
 Premium storage | Yes
+Secure transfer option | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)

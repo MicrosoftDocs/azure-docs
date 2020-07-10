@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
 ---
 
@@ -72,6 +72,7 @@ Https Proxy | No | No
 
 
 
+
 ## Azure VM network configuration (after failover)
 
 **Component** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
@@ -131,12 +132,14 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
-Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
+Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards). [Learn more](../virtual-machines/windows/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards). [Learn more](../virtual-machines/windows/disk-encryption.md)
+Double Encryption at rest <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Premium storage | Yes | Yes
 Standard storage | Yes | Yes
 Import/Export service | No | No
 Azure Storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
+Secure transfer option | Yes
 
 
 ## Azure compute features
