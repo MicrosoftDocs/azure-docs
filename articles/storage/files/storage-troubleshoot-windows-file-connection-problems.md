@@ -125,11 +125,11 @@ Revert the **LmCompatibilityLevel** value to the default value of 3 in the follo
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## Error 1816 "Not enough quota is available to process this command" when you copy to an Azure file share
+## Error 1816 - Not enough quota is available to process this command
 
 ### Cause
 
-Error 1816 happens when you reach the upper limit of concurrent open handles that are allowed for a file on the computer where the file share is being mounted.
+Error 1816 happens when you reach the upper limit of concurrent open handles that are allowed for a file or directory on the Azure file share. For more information, see [Azure Files scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
 
 ### Solution
 

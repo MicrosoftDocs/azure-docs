@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -81,17 +81,7 @@ In this step, you connect your VPN site to the hub.
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 
-In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
-
-1. On the page for your virtual WAN, click **Virtual network connections**.
-2. On the virtual network connection page, click **+Add connection**.
-3. On the **Add connection** page, fill in the following fields:
-
-    * **Connection name** - Name your connection.
-    * **Hubs** - Select the hub you want to associate with this connection.
-    * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to create the virtual network connection.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="device"></a>Download VPN configuration
 

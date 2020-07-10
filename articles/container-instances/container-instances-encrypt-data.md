@@ -21,10 +21,10 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 
 |    |    Microsoft-managed keys     |     Customer-managed keys     |
 |----|----|----|
-|    Encryption/decryption operations    |    Azure    |    Azure    |
-|    Key storage    |    Microsoft key store    |    Azure Key Vault    |
-|    Key rotation responsibility    |    Microsoft    |    Customer    |
-|    Key access    |    Microsoft only    |    Microsoft, Customer    |
+|    **Encryption/decryption operations**    |    Azure    |    Azure    |
+|    **Key storage**    |    Microsoft key store    |    Azure Key Vault    |
+|    **Key rotation responsibility**    |    Microsoft    |    Customer    |
+|    **Key access**    |    Microsoft only    |    Microsoft, Customer    |
 
 The rest of the document covers the steps required to encrypt your ACI deployment data with your key (customer-managed key). 
 
