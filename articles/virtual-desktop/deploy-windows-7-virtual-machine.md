@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -22,7 +22,7 @@ The process to deploy a Windows 7 virtual machine (VM) on Windows Virtual Deskto
 
 ## Prerequisites
 
-Before you start, follow the instructions in [Create a host pool with PowerShell](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md) to create a host pool. If you're using the portal, follow the instructions in steps 1 through 9 of [Create a hostpool using the Azure portal](create-host-pools-azure-marketplace.md). After that, select **Review + Create** to create a new host pool. 
+Before you start, follow the instructions in [Create a host pool with PowerShell](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md) to create a host pool. If you're using the portal, follow the instructions in steps 1 through 9 of [Create a hostpool using the Azure portal](create-host-pools-powershell.md). After that, select **Review + Create** to create an empty host pool. 
 
 ## Configure a Windows 7 virtual machine
 
@@ -47,6 +47,7 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
      ```
 
 12. Follow the instructions [here](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) to get a registration token.
+      - If you'd prefer to use the Azure portal, you can also go to the Overview page of the host pool you want to add the VM to and create a token there.
 13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
