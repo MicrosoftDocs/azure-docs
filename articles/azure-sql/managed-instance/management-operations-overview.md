@@ -16,7 +16,8 @@ ms.date: 07/10/2020
 # Azure SQL Managed Instance management operations overview
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed. This section provides information about management operations and their typical durations.
+## What are management operations?
+Azure SQL Managed Instance provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed.
 
 To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and provide isolation and security for customers, SQL Managed Instance relies on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture), which represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in a new virtual cluster buildout.
 
@@ -28,6 +29,7 @@ All management operations can be categorized as follows:
 - Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
+## Management operations duration
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters varies – below are the values that you can typically expect, based on existing service telemetry data:
 
 - **Virtual cluster creation**:  This is a synchronous step in instance management operations. **90% of operations finish in 4 hours**.
@@ -60,7 +62,7 @@ The following table summarizes operations and typical overall durations:
 
 \*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet, for example), see [Delete a subnet after deleting a managed instance](virtual-cluster-delete.md).
 
-### Instance availability during management operations
+## Instance availability during management operations
 
 SQL Managed Instance **is available during update operations**, except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [accelerated database recovery](../accelerated-database-recovery.md).
 
@@ -69,7 +71,7 @@ SQL Managed Instance **is available during update operations**, except a short d
 
 SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
-### Management operations cross-impact
+## Management operations cross-impact
 
 Management operations on a managed instance can affect other management operations of the instances placed inside the same virtual cluster. This includes the following:
 
@@ -82,7 +84,7 @@ Management operations on a managed instance can affect other management operatio
 > [!IMPORTANT]
 > Management operations that are put on hold because of another operation that is in progress will be automatically resumed once conditions to proceed are met. There is no user action needed to resume temporarily paused management operations.
 
-### Canceling management operations
+## Canceling management operations
 
 The following table summarizes the ability to cancel specific management operations and typical overall durations:
 
