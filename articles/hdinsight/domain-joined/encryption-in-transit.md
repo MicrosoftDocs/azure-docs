@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight Encryption in transit
-description: Learn about security features to provide encyrption in transit for your Azure HDInsight cluster.
+description: Learn about security features to provide encryption in transit for your Azure HDInsight cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -11,20 +11,15 @@ ms.date: 07/10/2020
 
 # Encryption in transit for Azure HDInsight
 
-This article discusses the HDInsight implementation of encryption in transit for all communication between cluster nodes.
+This article discusses the implementation of encryption in transit for all communication between Azure HDInsight cluster nodes.
 
 ## Background
 
-Azure HDInsight now offers enhanced encryption for your data in transit. The encryption scheme uses two independent layers of encryption to protect against the compromise of any single layer of encryption. These encryption layers are:
+Azure HDInsight offers a variety of security features for securing your enterprise data. These solutions are grouped under the pillars of perimeter security, authentication, authorization, auditing, encryption and compliance. Encryption can be applied to data both at rest and in transit.
 
-1. Service-level encryption - TLS
-2. Infrastructure-layer encryption - IPSec
+Encryption at rest is covered by server side encryption on Azure storage accounts, as well as disk encryption on the Azure VMs that are a part of your HDInsight cluster.
 
-The use of two layers of encryption will provide a mitigation against common crypto threats, such as:
-
-1. Compromising a single encryption key
-1. Misconfigurations
-1. Weaknesses/implementation flaws in encryption protocols
+Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) and [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
 
 ## Enable encryption in transit
 
@@ -32,14 +27,14 @@ The use of two layers of encryption will provide a mitigation against common cry
 
 To create a new cluster with encryption in transit enabled using the Azure portal, do the following steps:
 
-1. Begin the normal cluster creation process. See [Some article](my-url.md) for initial cluster creation steps.
+1. Begin the normal cluster creation process. See [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) for initial cluster creation steps.
 1. Complete the **Basics** and **Storage** tabs. Proceed to the **Security + Networking** tab.
 
-:::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Create cluster - security and networking tab.":::
+    :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Create cluster - security and networking tab.":::
 
 1. On the **Security + Networking** tab, click the **Enable encryption in transit** checkbox.
 
-:::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Create cluster - enable encryption in transit.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Create cluster - enable encryption in transit.":::
 
 ### Create a cluster with encryption in transit enabled through the Azure CLI
 
@@ -79,4 +74,4 @@ az group deployment create --name HDInsightEnterpriseSecDeployment \
 ## Next steps
 
 * [Overview of enterprise security in Azure HDInsight](hdinsight-security-overview.md)
-* [Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md).
+* [Synchronize Azure Active Directory users to an HDInsight cluster](../disk-encryption.md).
