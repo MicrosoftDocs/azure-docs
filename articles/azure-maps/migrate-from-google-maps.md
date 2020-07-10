@@ -70,7 +70,7 @@ Here are some related resources for Azure Maps:
 The following is a high-level migration plan.
 
 1. Take inventory of the Google Maps SDKs and services that your application uses. Verify that Azure Maps provides alternative SDKs and services.
-2. If you don’t already have one, create an Azure subscription at [https://azure.com](https://azure.com).
+2. If you don't already have one, create an Azure subscription at [https://azure.com](https://azure.com).
 3. Create an Azure Maps account ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) and authentication key or Azure Active Directory ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Migrate your application code.
 5. Test your migrated application.

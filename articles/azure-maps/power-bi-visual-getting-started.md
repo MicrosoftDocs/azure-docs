@@ -41,7 +41,7 @@ To learn more, about privacy and terms of use related to the Azure Maps visual s
 
 There are a few considerations and requirements for this Preview release of **Azure Maps**:
 
--   The **Azure Maps** visual is in Preview and must be enabled in Power BI Desktop. To enable **Azure Maps**, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it’s likely that a tenant admin switch in the Admin Portal needs to be enabled.
+-   The **Azure Maps** visual is in Preview and must be enabled in Power BI Desktop. To enable **Azure Maps**, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
 -   The data set must have fields that contain **latitude** and **longitude** information. Geocoding of location fields will be added in a future update.
 -   The built-in legend control for Power BI does not currently appear in this preview. It will be added in a future update.
 
@@ -62,7 +62,7 @@ Take the following steps to load the Azure Maps visual:
     > [!div class="mx-imgBorder"]
     > ![Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided](media/power-bi-visual/bubble-layer.png)
 
-2.  To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we’re using the **AdminDistrict** column (also known as state or province).  
+2.  To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **AdminDistrict** column (also known as state or province).  
     
     > [!div class="mx-imgBorder"]
     > ![Azure Maps visual displaying points as colored bubbles on the map after legend field provided](media/power-bi-visual/bubble-layer-with-legend-color.png)
@@ -70,7 +70,7 @@ Take the following steps to load the Azure Maps visual:
     > [!NOTE]
     > The built-in legend control for Power BI does not currently appear in this preview. It will be added in a future update.
 
-3.  To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we’re using **Sales** column.  
+3.  To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
     
     > [!div class="mx-imgBorder"]
     > ![Azure Maps visual displaying points as colored and scaled bubbles     on the map after size field provided.](media/power-bi-visual/bubble-layer-with-legend-color-and-size.png)

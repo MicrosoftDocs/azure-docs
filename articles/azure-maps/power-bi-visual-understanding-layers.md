@@ -13,7 +13,7 @@ ms.custom:
 
 # Understanding layers in the Azure Maps Power BI visual
 
-There are two types of layers available in the Azure Maps visual. The first type focuses on rendering data that is passed into the **Fields** pane of the visual and consist of the following layers, let’s call these data rendering layers.
+There are two types of layers available in the Azure Maps visual. The first type focuses on rendering data that is passed into the **Fields** pane of the visual and consist of the following layers, let's call these data rendering layers.
 
 :::row:::
     :::column span="":::
