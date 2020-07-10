@@ -16,14 +16,14 @@ FarmBeats. Once the data is available in FarmBeats, it can be used for data fusi
  > For the purpose of this documentation, we will use a reference implementation built using NOAA from Azure Open Datasets and is available at [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker).
  > The corresponding docker image is available at [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
-A weather Partner will need to provide a docker image/program (with specifications mentioned below)
+A weather partner will need to provide a docker image/program (with specifications mentioned below)
 and host the docker image in a container registry that is accessible by customers. The weather partner will need to provide the following information to its customers:
 
-1. Docker Image URL
-2. Docker Image tag
-3. Keys/Credentials to access the docker image
-4. Customer-specific API Keys/Credentials to access the data from the weather partner’s system
-5. VM SKU details (Partners can provide this in case their docker has specific VM requirements, otherwise customers can choose from supported VM SKUs in Azure)
+- Docker Image URL
+- Docker Image tag
+- Keys/Credentials to access the docker image
+- Customer-specific API Keys/Credentials to access the data from the weather partner’s system
+- VM SKU details (Partners can provide this in case their docker has specific VM requirements, otherwise customers can choose from supported VM SKUs in Azure)
 
 Using the above docker information, customer will register a weather partner in their FarmBeats instance. To know more about how customers can use the docker to ingest weather data in FarmBeats, see the guide to [get weather data](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner)
 
@@ -111,8 +111,8 @@ The docker program needs to have two components: **Bootstrap** and **Jobs**. The
 
 This component should execute when customer initiates the docker registration on FarmBeats. The arguments (arg1, arg2) that will be passed to this program are:
 
-1. FarmBeats API Endpoint: FarmBeats API endpoint for API requests: This is the endpoint for making API calls to the FarmBeats deployment.
-2. Azure Function URL: This is your own personal endpoint that will give you your access token for FarmBeats APIs. Just calling a GET on this url, will fetch you the access token in its response.
+- FarmBeats API Endpoint: FarmBeats API endpoint for API requests: This is the endpoint for making API calls to the FarmBeats deployment.
+- Azure Function URL: This is your own personal endpoint that will give you your access token for FarmBeats APIs. Just calling a GET on this url, will fetch you the access token in its response.
 
 The responsibility of the bootstrap is to create the requisite metadata so that users can run your jobs to get weather data. Refer to the reference implementation [here](https://github.com/azurefarmbeats/noaa_docker). You can update the bootstrap_manifest.json file as per your needs and the reference bootstrap program will create the required metadata for you.
 
