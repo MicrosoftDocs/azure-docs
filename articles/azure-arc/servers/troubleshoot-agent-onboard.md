@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Troubleshoot Azure Arc for server agent issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc for servers Connected Machine agent for Windows or Linux. This article covers both the interactive and at-scale installation methods when configuring its connection to the service. For general information, see [Arc for servers overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to configure the Azure Arc for servers Connected Machine agent for Windows or Linux. Both the interactive and at-scale installation methods when configuring connection to the service are included. For general information, see [Arc for servers overview](./overview.md).
 
 ## Agent connection issues to service
 
