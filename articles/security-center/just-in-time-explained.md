@@ -58,9 +58,9 @@ When Security Center finds a machine that can benefit from JIT, it adds that mac
 ![Just-in-time (JIT) virtual machine (VM) access recommendation](./media/just-in-time-explained/unhealthy-resources.png)
 
 
-# FAQ - Questions about just in time virtual machine access
+## FAQ - Questions about just in time virtual machine access
 
-## What permissions are needed to configure and use JIT?
+### What permissions are needed to configure and use JIT?
 
 If you want to create custom roles that can work with JIT, you'll need the following details:
 
