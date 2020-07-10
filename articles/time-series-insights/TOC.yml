@@ -164,7 +164,7 @@
         - name: Execute Batch
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/get
+          href: https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list
       - name: Time Series Instances
         items:
         - name: Overview
@@ -172,7 +172,7 @@
         - name: Execute Batch
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/get
+          href: https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list
         - name: Search
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search
         - name: Suggest
@@ -184,7 +184,7 @@
         - name: Execute Batch
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch
         - name: Get
-          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/get
+          href: https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list
     - name: Data Access Gen1
       items:
       - name: Overview
@@ -208,7 +208,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: https://docs.microsoft.com/ azure/iot-fundamentals/iot-support-help
+    href: https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Developer resources

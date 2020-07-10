@@ -3,10 +3,10 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
+ms.date: 07/08/2020
+ms.author: thomasge
 ---
 
 # AKS-managed Azure Active Directory integration (Preview)
@@ -21,10 +21,6 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
 Learn more about the AAD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
-
-## Limitations
-
-* You can't currently upgrade an existing AKS Azure AD-Integrated cluster to the new AKS-managed Azure AD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:

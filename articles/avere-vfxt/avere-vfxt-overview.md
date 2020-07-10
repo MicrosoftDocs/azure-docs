@@ -61,7 +61,7 @@ The Avere vFXT cluster caches files as they are requested. Repeated requests can
 
 Avere vFXT for Azure uses the following Azure resources:
 
-|Azure component|   |
+|Azure component| Resource |
 |----------|-----------|
 |Virtual machines|3 or more E32s_v3|
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |

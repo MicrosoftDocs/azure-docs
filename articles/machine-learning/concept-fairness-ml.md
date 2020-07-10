@@ -1,5 +1,5 @@
 ---
-title: Assess and mitigate fairness issues in machine learning models
+title: Assess and mitigate fairness issues in machine learning models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about fairness in machine learning models and how the Fairlearn Python package can help you build fairer models. 
 services: machine-learning
@@ -8,11 +8,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 #Customer intent: As a data scientist, I want to learn about assessing and mitigating fairness in machine learning models.
 ---
 
-# Build fairer machine learning models
+# Build fairer machine learning models (preview)
 
 Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you build models that are more fair. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results. 
 
