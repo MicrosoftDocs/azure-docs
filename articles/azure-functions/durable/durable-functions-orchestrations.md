@@ -90,8 +90,6 @@ module.exports = df.orchestrator(function*(context) {
 # [Python](#tab/python)
 
 ```python
-import logging
-import json
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -379,7 +377,6 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 #### Activity
 
 ```python
-import logging
 from collections import namedtuple
 
 Location = namedtuple('Location', ['city', 'state'])
