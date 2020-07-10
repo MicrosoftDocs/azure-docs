@@ -31,7 +31,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 * **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
 
   Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
-* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/quick-create-cli.md) or other tools.
+* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -252,7 +252,7 @@ az storage blob list \
 
 Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
 
-For example, the following [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
+For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 
 ```console
 azcopy copy \
@@ -361,6 +361,3 @@ To import single container images to an Azure container registry from a public r
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-
