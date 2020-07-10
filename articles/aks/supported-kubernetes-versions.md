@@ -81,7 +81,7 @@ Current Supported Version List
 1.17.8, 1.17.7, 1.16.10, 1.16.9
 ```
 
-If AKS releases 1.17.9 and 1.16.11, the oldest patch versions are deprecated and removed, and the supported version list becomes:
+If AKS releases `1.17.9` and `1.16.11`, the oldest patch versions are deprecated and removed, and the supported version list becomes:
 
 ```
 New Supported Version List
@@ -100,7 +100,7 @@ For new **minor** versions of Kubernetes
 
 For new **patch** versions of Kubernetes
   * Because of the urgent nature of patch versions, these can be introduced into the service as they become available.
-  * In general, AKS does not do broad communications for the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required AKS will notify users to upgrade to the newly available patch.
+  * In general, AKS does not do broad communications for the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
   * Users have **30 days** from the time a patch release is removed from AKS to upgrade into a  supported patch and continue receiving support.
 
 ### Supported versions policy exceptions
@@ -123,7 +123,7 @@ az aks get-versions --location eastus --output table
 
 ## AKS Kubernetes Release Calendar
 
-For the past release history please see [here](https://en.wikipedia.org/wiki/Kubernetes#History).
+For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
 |--------------|-------------------|--------------|---------|-------------|
@@ -163,11 +163,11 @@ The control plane must be within a window of versions from all node pools. For d
 
 **Can I skip a version when upgrading?**
 
-No, following kubernetes best practices, AKS only allows for upgrades to immediately next patch or minor version supported. The Azure Portal will only show you the versions you may upgrade to, and on the CLI you can run `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` to see the available upgrades from your current version.
+No, following kubernetes best practices, AKS only allows for upgrades to immediately next patch or minor version supported. The Azure portal will only show you the versions you may upgrade to, and on the CLI you can run `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` to see the available upgrades from your current version.
 
 **How can I upgrade to a supported version if I'm multiple versions behind the latest supported version?**
 
-You should avoid falling behind multiple versions from the currently supported list, but if you're in this situation AKS will always allow the upgrade to the minimum supported version.
+To remain within support, you must avoid falling behind multiple versions from the currently supported list, but if you're in this situation AKS will always allow the upgrade to the minimum supported version.
 
 ## Next steps
 
