@@ -79,8 +79,8 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable end-to-end encryption using encryption at host](disks-enable-host-based-encryption-powershell.md)
-- [Enable double encryption at rest for your managed disks](disks-enable-double-encryption-at-rest-powershell.md)
+- [Enable end-to-end encryption using encryption at host - PowerShell](disks-enable-host-based-encryption-powershell.md)
+- [Enable double encryption at rest for your managed disks - PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
 - [Enable customer-managed keys for your managed disks - PowerShell](disks-enable-customer-managed-keys-powershell.md)
 - [Enable customer-managed keys for your managed disks - Portal](disks-enable-customer-managed-keys-portal.md)
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
