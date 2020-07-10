@@ -76,8 +76,9 @@ Use the following command to download and build the Eclipse Mosquitto library:
 ```cmd
 .\vcpkg install mosquitto:x64-windows
 ```
+## Migrate the sample to an PnP Device
 
-## Review sample code
+### Review the non pnp sample code
 
 Update the code with details of your IoT hub and device before you build and run it.
 
@@ -91,65 +92,61 @@ In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source fi
 * `DEVICEID` identifier with the name of the device you created.
 * `PWD` identifier with the shared access signature value you generated for the device.
 
+Verify the code is working correctly, by starting IotExplorer, start listening the telemetry.
+Run the application (Ctrl+F5), after couple of seconds you should see something like:
+
+:::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
+
+in IotExplorer, you should see, clearly not an PnP device:
+
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non IoT Plug and Play device in Azure ioT explorer":::
+
+### Make the device a PnP Device
+
+As PnP is purely a convention, the simple fact that a Device presents a model-id made it a PnP device.
+In this sample we are going to add a model-id to the MQTT connection packet, the model id is passed as querystring parameter in the USERNAME and changing the api-version to 2020-05-31-preview.
+See this in the code below:
+
+```c
+// computed Host Username and Topic
+//#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2018-06-30"
+#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-05-31-preview&model-id=dtmi:com:example:Thermostat;1"
+#define PORT 8883
+#define HOST IOTHUBNAME //".azure-devices.net"
+#define TOPIC "devices/" DEVICEID "/messages/events/"
+```
+Rebuild and restart an execution (Ctrl+F5)
+You should now see the device twin with a modelId completed:
+
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="View model ID in Azure IoT explorer":::
+
+You can now navigate the IoT Plug and Play component, 
+
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
+
+Voila! It is now your duty to implement what the device declare to have. In this case no code change is needed as the device was a root component and didn't contains any other component.
+
 > [!NOTE]
 > By default a shared access signature is only valid for 60 minutes.
 
-### Modify code to use IoT Plug and Play conventions
+> [!NOTE]
+>The client uses the `IoTHubRootCA_Baltimore.pem` root certificate file to verify the identity of the IoT hub it connects to.
 
-Modify the code to use IoT Plug and Play conventions when it sends telemetry to your IoT hub.
+### MQTT topics
 
-Before you build and run the sample, review the key features of sample code:
+The following definitions are for the MQTT topics the device uses to send information to the IoT hub:
 
-### Certificate file
+* The `DEVICE_CAPABILITIES_MESSAGE` defines the topic the device uses to report the interfaces it implements.
+* The `DEVICETWIN_PATCH_MESSAGE` defines the topic the device uses to report property updates to the IoT hub.
+* The `DEVICE_TELEMETRY_MESSAGE` defines the topic the device uses to send telemetry to your IoT hub.
 
-The client uses the `IoTHubRootCA_Baltimore.pem` root certificate file to verify the identity of the IoT hub it connects to.
-
-### Main loop
-
-The `main` method first initializes the Eclipse Mosquitto library and sets up some callbacks. After it sets up the secure TLS connection to your IoT hub, it then sets up the Mosquitto processing loop.
-
-## Build and run sample code
-
-To build the project, right-click on the **TelemetryMQTTWin32** project in **Solution Explorer** and select **Build**.
-
-If it's not already running, launch the **Azure IoT explorer** tool. In the list of devices, click on the device you added to the hub. In the menu on the left-hand side, select **Telemetry**, and then **Start**. The status changes to **Receiving events**.
-
-In Visual Studio, on the main menu, select **Debug > Start Debugging**. The command prompt window shows the following output:
-
-```cmd
-Using MQTT to send message to youriothub.azure-devices.net.
-Using certificate: IoTHubRootCA_Baltimore.pem
-Setting up options OK
-Connecting...
-Connect returned OK
-Publishing....
-Publish returned OK
-Entering Mosquitto Loop...
-Connect callback returned result: No error.
-Publish OK. Now disconnecting the client.
-```
-
-In the **Azure IoT explorer** tool, you see a message on the **Telemetry** page that looks like the following JSON snippet:
-
-```json
-{
-  "body": {
-    "Temperature": 32
-  },
-  "enqueuedTime": "2020-07-07T08:49:35.521Z",
-  "properties": {
-    "iothub-message-schema": "Temperature"
-  }
-}
-```
-
-On the **IoT Plug and Play components** page, you see a list of the interfaces the device says it supports.
+For more information about MQTT visit our [MQTT Samples for Azure IoT]( https://github.com/Azure-Samples/IoTMQTTSample/)
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to connect a device that uses the IoT Plug and Play conventions to an IoT hub. The device uses an an MQTT library instead of an Azure IoT SDK. To learn more about IoT Plug and Play, see:
+In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how Azure IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)

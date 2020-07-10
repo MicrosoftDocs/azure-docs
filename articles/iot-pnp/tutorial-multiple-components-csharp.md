@@ -137,8 +137,7 @@ This class PnpHelper contains 8 sample methods, to use for multiple compoments m
 
 As a result of executtion you can see the differents compoments, follow telemetry for thermostat1 or thermostat2, same for propertis and commands:
 
-![Default component](iotexplorerMultipleComponent.JPG)
-
+:::image type="content" source="media/tutorial-multiple-components-csharp/multiple-component.png" alt-text="Mutiple component device in Azure IoT explorer":::
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
