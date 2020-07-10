@@ -20,7 +20,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.10: Regularly review and reconcile user access
 
@@ -37,7 +37,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](../../../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.6: Use Role-based access control to control access to resources
 
@@ -54,7 +54,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -98,5 +98,5 @@ Use Azure Resource Graph to query and discover all supported resources within yo
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview.md)

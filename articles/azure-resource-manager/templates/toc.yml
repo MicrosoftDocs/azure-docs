@@ -27,7 +27,7 @@
       - name: Analysis Services
         href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Databricks
-        href: ../../azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Event Hubs
         href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: HDInsight - Hadoop
