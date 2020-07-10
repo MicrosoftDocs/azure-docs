@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 07/10/2020
 ms.author: v-erkel
 ---
 
@@ -121,12 +121,9 @@ nets/<cache_subnet_name>"``
   * The cache size (in GB)
   * The SKU of the virtual machines used in the cache infrastructure
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs.
+  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported. See the chart below for more information.
 
-  > [!NOTE]
-  > Azure CLI currently does not have a method to list available cache size options. The options range from 3 TB to 48 TB, but only some values are supported. See the chart below for more information.
-
-  Some options for cache size are incompatible with some SKUs. This chart shows which combinations are valid, based on the options available when this document was prepared (July 2020).
+  This chart shows which cache size and SKU combinations are valid at the time this document is being prepared (July 2020).
 
   | Cache size | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
