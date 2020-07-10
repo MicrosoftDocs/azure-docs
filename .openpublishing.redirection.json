@@ -56602,7 +56602,7 @@
     {
       "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
       "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
-      "redirect_document_id": false
+      "redirect_document_id": true
     }
   ]
 }
