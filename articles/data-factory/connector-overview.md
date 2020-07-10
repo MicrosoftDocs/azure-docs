@@ -15,7 +15,7 @@ ms.reviewer: craigg
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory support the following data stores and formats via Copy, Data Flow, Lookup, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
+Azure Data Factory supports the following data stores and formats via Copy, Data Flow, Look-up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
 
 ## Supported data stores
 
@@ -29,6 +29,7 @@ Azure Data Factory supports the following file formats. Refer to each article fo
 - [Binary format](format-binary.md)
 - [Common Data Model format](format-common-data-model.md)
 - [Delimited text format](format-delimited-text.md)
+- [Delta format](format-delta.md)
 - [Excel format](format-excel.md)
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
