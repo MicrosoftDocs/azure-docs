@@ -64,7 +64,7 @@ Returns a signed integer value.
 DateTimeDiff will return `undefined` for the following reasons:
 
 - The DateTimePart value specified is invalid
-- The StartDate or EndDate is not a valid ISO 8601 DateTime with seven-digit fractional second precision
+- The StartDate or EndDate is not a valid ISO 8601 DateTime
 
 DateTimeDiff will always return a signed integer value and is a measurement of the number of DateTimePart boundaries crossed, not measurement of the time interval.
 

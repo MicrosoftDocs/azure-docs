@@ -20,7 +20,7 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## Arguments
   
-*numberYear*  
+*numberYear*
    Integer value for the year in the format `YYYY`
 
 *numberMonth*  
@@ -29,16 +29,16 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 *numberDay*  
    Integer value for the day in the format `DD`
 
-*numberHour*  
+*numberHour* (optional)
    Integer value for the hour in the format `hh`
 
-*numberMinute*  
+*numberMinute* (optional)
    Integer value for the minute in the format `mm`
 
-*numberSecond*  
+*numberSecond* (optional)
    Integer value for the second in the format `ss`
 
-*numberOfFractionsOfSecond*  
+*numberOfFractionsOfSecond* (optional)
    Integer value for the fractional of a second in the format `.fffffff`
 
 ## Return types
