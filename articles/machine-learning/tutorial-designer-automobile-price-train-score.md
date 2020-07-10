@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict car prices with the designer'
+title: 'Tutorial: Predict car prices with the designer (preview)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
 

@@ -18,9 +18,7 @@ A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, 
 For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Some of these capabilities may still be rolling out. If the rollout has not yet happened in your region, please use the steps in these versions of the articles in the meantime:
->* [Azure portal article](virtual-wan-route-table-nva-portal.md)
->* [PowerShell article](virtual-wan-route-table-nva.md)
+> Some of these capabilities may still be rolling out. This is expected to complete by August 3rd.
 >
 
 ## <a name="create-table"></a>Create a route table

@@ -413,6 +413,7 @@ When you're transforming data in mapping data flows, you can read and write file
 * [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties).
 * [Parquet](format-parquet.md#mapping-data-flow-properties).
 * [Common Data Model (preview)](format-common-data-model.md#mapping-data-flow-properties)
 
