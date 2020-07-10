@@ -124,9 +124,9 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
-	    storageAccountOption="existing" \
-	    storageAccountName="existingstorageaccountname"
+      location="eastus" \
+      storageAccountOption="existing" \
+      storageAccountName="existingstorageaccountname"
 ```
 
 # [Azure PowerShell](#tab/azpowershell)
@@ -139,7 +139,7 @@ New-AzResourceGroupDeployment `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -storageAccountOption "existing" `
-	-storageAccountName "existingstorageaccountname"
+  -storageAccountName "existingstorageaccountname"
 ```
 
 ---
@@ -338,7 +338,7 @@ New-AzResourceGroupDeployment `
   -workspaceName "exampleworkspace" `
   -location "eastus" `
   -encryption_status "Enabled" `
-	-cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
+  -cmk_keyvault "/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" `
   -resource_cmk_uri "https://mykeyvault.vault.azure.net/keys/mykey/{guid}"
 ```
 ---
@@ -376,7 +376,7 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       vnetOption="new" \
       vnetName="examplevnet" \
       storageAccountBehindVNet="true"
@@ -408,7 +408,7 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       vnetOption="new" \
       vnetName="examplevnet" \
       storageAccountBehindVNet="true" \
@@ -557,7 +557,7 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       vnetOption="new" \
       vnetName="examplevnet" \
       privateEndpointType="AutoApproval"
@@ -589,7 +589,7 @@ az deployment group create \
     --resource-group "examplegroup" \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
     --parameters workspaceName="exampleworkspace" \
-	    location="eastus" \
+      location="eastus" \
       vnetOption="new" \
       vnetName="examplevnet" \
       vnetResourceGroupName="rg" \
@@ -631,34 +631,6 @@ New-AzResourceGroupDeployment `
 1. In the __Review + create__ screen, agree to the listed terms and conditions and select __Create__.
 
 For more information, see [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
-
-<!-- ## Use Azure PowerShell
-
-This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
-
-```powershell
-New-AzResourceGroup -Name examplegroup -Location "East US"
-new-azresourcegroupdeployment -name exampledeployment `
-  -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
-```
-
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
-
-## Use the Azure CLI
-
-This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
-
-```azurecli-interactive
-az group create --name examplegroup --location "East US"
-az group deployment create \
-  --name exampledeployment \
-  --resource-group examplegroup \
-  --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus sku=basic
-``` 
-
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).-->
 
 ## Troubleshooting
 
