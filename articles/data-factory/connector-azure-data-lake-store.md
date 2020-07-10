@@ -203,8 +203,8 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 | type                     | The type property under `storeSettings` must be set to **AzureDataLakeStoreReadSettings**. | Yes                                          |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given folder/file path specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: name range<br>- listAfter | Retrieve the folders/files whose name is after this value alphabetically (exclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter. <br/>Data factory applies this filter to the path defined in dataset, and only one entity level is supported.<br>For example, with "a" as listAfter and "b" as listBefore, Data Factory copies those sub files/folders between "a" and "b" under the path specified in dataset, and not copy "a" but copy "b". The filter does not apply to nested folders/files. | No |
-| OPTION 2: name range<br/>- listBefore | Retrieve the folders/files whose name is before this value alphabetically (inclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter.<br>Data factory applies this filter to the path defined in dataset, and only one entity level is supported. | No |
+| OPTION 2: name range<br>- listAfter | Retrieve the folders/files whose name is after this value alphabetically (exclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter. <br/>Data factory applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
+| OPTION 2: name range<br/>- listBefore | Retrieve the folders/files whose name is before this value alphabetically (inclusive). It utilizes the service-side filter for ADLS Gen1, which provides better performance than a wildcard filter.<br>Data factory applies this filter to the path defined in dataset, and only one entity level is supported. See more examples in [Name range filter examples](#name-range-filter-examples). | No |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, do not specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |
@@ -303,6 +303,13 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
     }
 ]
 ```
+### Name range filter examples
+
+This section describes the resulting behavior of name range filters.
+
+| Sample source structure | ADF configuration | Result |
+|:--- |:--- |:--- |
+|root<br/>&nbsp;&nbsp;&nbsp;&nbsp;a<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;c<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **In dataset:**<br>- Folder path: `root`<br><br>**In copy activity source:**<br>- List after: `a`<br>- List before: `b`| Thn the following files will be copied:<br><br>root<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
 ### Folder and file filter examples
 
