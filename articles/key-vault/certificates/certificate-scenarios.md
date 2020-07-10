@@ -77,6 +77,9 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Status: completed, failed with error information or, canceled  
       -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 
+### Network security and access policies associated with integrated CA
+Key Vault service sends requests to CA (outbound traffic). Therefore, it’s fully compatible with firewall enabled key vaults. The Key Vault does not share access policies with the CA. The CA must be configured to accept signing requests independently. [Guide on integrating trusted CA](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## Import a certificate  
  Alternatively – a cert can be imported into Key Vault – PFX or PEM.  
 
