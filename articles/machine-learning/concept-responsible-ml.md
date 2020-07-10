@@ -1,5 +1,5 @@
 ---
-title: Responsible Machine Learning (ML)
+title: Responsible Machine Learning (ML) Preview
 titleSuffix: Azure Machine Learning
 description: 'Learn what Responsible ML is and how to use it in Azure Machine Learning'
 services: machine-learning
@@ -8,11 +8,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
+ms.date: 07/09/2020
 #intent: As a data scientist, I want to know learn what responsible ML is and how I can use it in Azure Machine Learning
 ---
 
-# Responsible Machine Learning (ML)
+# Responsible Machine Learning (ML) Preview
 
 In this article, you'll learn what Responsible ML is and ways you can put it into practice with Azure Machine Learning.
 

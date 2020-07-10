@@ -73,7 +73,7 @@ Azure Time Series Insights Gen2 provides a scalable pay-as-you-go pricing model 
  
 With the introduction of these key industrial IoT capabilities, Azure Time Series Insights Gen2 also provides the following key benefits:  
 
-| Key Benefit | Description |
+| Capability | Benefit |
 | ---| ---|
 | Multilayered storage for IoT-scale time series data | With a shared data processing pipeline for ingesting data, you can ingest data into both warm and cold stores. Use warm store for interactive queries and cold store for storing large volumes of data. To learn more about how to take advantage of high-performing asset-based queries, see [queries](./concepts-query-overview.md). |
 | Time Series Model to contextualize raw telemetry and derive asset-based insights | You can use the time series model to create instances, hierarchies, types, and variables for your time series data. To learn more about Time Series Model, see [Time Series Model](./concepts-model-overview.md).  |
