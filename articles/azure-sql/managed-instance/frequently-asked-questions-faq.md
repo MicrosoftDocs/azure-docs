@@ -116,56 +116,121 @@ To use another DNS zone instead of the default, for example, *.contoso.com*:
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it can be done using group policy or a script as well.
 - Use *CNAME* with the *TrustServerCertificate=true* option.
 
-## Move a database from SQL Managed Instance 
+## Migration options
 
-**How can I move a database from SQL Managed Instance back to SQL Server or Azure SQL Database?**
+**How can I migrate from Azure SQL Database single or elastic pool to SQL Managed Instance?**
 
-You can [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
+Managed instance offers the same performance levels per compute and storage size as other deployment options of Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in managed instance, you can migrate your data by using export/import (BACPAC) functionality. Here are other ways to consider for SQL Database migration to SQL Managed Instance: 
+- Using [Data Source External]()
+- Using [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Using [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-Transactional replication can be used if all tables in the database have primary keys.
+**How can I migrate my instance database to a single Azure SQL Database?**
 
-Native `COPY_ONLY` backups taken from SQL Managed Instance cannot be restored to SQL Server because SQL Managed Instance has a higher database version compared to SQL Server.
+One option is to [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
-## Migrate an instance database
+[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
 
-**How can I migrate my instance database to Azure SQL Database?**
+Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
 
-One option is to [export the database to a BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). 
+**How can I migrate my SQL Server instance to SQL Managed Instance?**
 
-This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
+To migrate your SQL Server instance, see [SQL Server instance migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+
+**How can I migrate from other platforms to SQL Managed Instance?**
+
+For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Switch hardware generation 
 
-**Can I switch my SQL Managed Instance hardware generation between Gen 4 and Gen 5 online?**
+**Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online?**
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the region where SQL Managed Instance is provisioned. In this case, you can check the [vCore model overview page](../database/service-tiers-vcore.md), which explains how to switch between hardware generations.
+Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware generations.
 
-This is a long-running operation, as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instances, with a quick failover at the end of the process. 
+This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process.
 
-**What if both hardware generations are not supported in the same region?**
+Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware. Switching from Gen5 to Gen4 is also not available.
 
-If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the wanted hardware generation is available, and manually back up and restore data between the old and new instances.
+## Performance 
 
-**What if there are not enough IP addresses for performing update operation?**
+**How can I compare Managed Instance performance to SQL Server performance?**
 
-In case there are not enough IP addresses in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. (For proper subnet size, check [how to determine the size of a VNet subnet](vnet-subnet-determine-size.md).) After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell). 
+For a performance comparison between managed instance and SQL Server, a good starting point is [Best practices for performance comparison between Azure SQL managed instance and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) article.
 
+**What causes performance differences between Managed Instance and SQL Server?**
 
-## Tune performance
+See [Key causes of performance differences between SQL managed instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). For more information about the log file size impact on General Purpose Managed Instance performance , see [Impact of log file size on General Purpose](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-**How do I tune performance of SQL Managed Instance?**
+**How do I tune performance of my managed instance?**
 
-SQL Managed Instance in the General Purpose tier uses remote storage, so the size of data and log files matters to performance. For more information, see [Impact of log file size on General Purpose SQL Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
+You can optimize the performance of your managed instance by:
+- [Automatic tuning](../database/automatic-tuning-overview.md) that provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
+-	[In-memory OLTP](../in-memory-oltp-overview.md) that improves throughput and latency on transactional processing workloads and delivers faster business insights. 
 
-If your workload consists of lots of small transactions, consider switching the connection type from proxy to redirect mode.
+To tune the performance even further, consider applying some of the *best practices* for [Application and database tuning](../database/performance-guidance.md#tune-your-database).
+If your workload consists of lots of small transactions, consider [switching the connection type from proxy to redirect mode](connection-types-overview.md#changing-connection-type) for lower latency and higher throughput.
 
-## Maximum storage size
+## Monitoring, Metrics and Alerts
+
+**What are the options for monitoring and alerting for my managed instance?**
+
+For all possible options to monitor and alert on SQL Managed Instance consumption and performance, see [Azure SQL Managed Instance monitoring options blog post](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). For the real-time performance monitoring for SQL MI, see [Real-time performance monitoring for Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+**Can I use SQL Profiler for performance tracking?**
+
+Yes, SQL Profiler is supported or SQL Managed Instance. For more details, see [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+
+**Are Database Advisor and Query Performance Insight supported for Managed Instance databases?**
+
+No, they are not supported. You can use [DMVs](../database/monitoring-with-dmvs.md) and [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) together with [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) and [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) to monitor your databases.
+
+**Can I create metric alerts on SQL Managed Instance?**
+
+Yes. For instructions, see [Create alerts for SQL Managed Instance](alerts-create.md).
+
+**Can I create metric alerts on a database in managed instance?**
+
+You cannot, alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available.
+
+## Storage size
 
 **What is the maximum storage size for SQL Managed Instance?**
 
 Storage size for SQL Managed Instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristics](../database/service-tiers-general-purpose-business-critical.md).
 
-  
+**What is the minimum storage size available for a managed instance?**
+
+The minimum amount of storage available in an instance is 32 GB. Storage can be added in increments of 32 GB up to the maximum storage size. First 32GB are free of charge.
+
+**Can I increase storage space assigned to an instance, independently from compute resources?**
+
+Yes, you can purchase add-on storage, independently from compute, to some extent. See *Max instance reserved storage* in the [Table](resource-limits.md#hardware-generation-characteristics).
+
+**How can I optimize my storage performance in General Purpose service tier?**
+
+To optimize storage performance, see [Storage best practices in General Purpose](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+
+## Backup and restore
+
+**Is the backup storage deducted from my managed instance storage?**
+
+No, backup storage is not deducted from your managed instance storage space. The backup storage is independent from the instance storage space and it is not limited in size. Backup storage is limited by the time period to retain the backup of your instance databases, configurable up to 35 days. For details, see [Automated backups](../database/automated-backups-overview.md).
+
+**How can I see when automated backups are made on my managed instance?**
+To track when automated backups have been performed on Managed Instance, see [How to track the automated backup for an Azure SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
+
+**Is on-demand backup supported?**
+Yes, you can create a copy-only full backup in their Azure Blob Storage, but it will only be restorable in Managed Instance. For details, see [Copy-only backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). However, copy-only backup is impossible if the database is encrypted by service-managed TDE since the certificate used for encryption is inaccessible. In such case, use point-in-time-restore feature to move the database to another SQL Managed Instance, or switch to customer-managed key.
+
+**Is native restore (from .bak files) to Managed Instance supported?**
+Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+
+## Business continuity
+
+**Are my system databases replicated to the secondary instance in a failover group?**
+
+System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary. For workaround, see [Enable scenarios dependent on the object from the system databases](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+ 
 ## Networking requirements 
 
 **What are the current inbound/outbound NSG constraints on the Managed Instance subnet?**
