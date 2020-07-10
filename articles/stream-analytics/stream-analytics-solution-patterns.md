@@ -97,13 +97,15 @@ In this usage pattern, Azure Stream Analytics is used as a near real-time ETL en
 
 Most data science and analytics activities still happen offline. Data can be archived by Azure Stream Analytics through Azure Data Lake Store Gen2 output and Parquet output formats. This capability removes the friction to feed data directly into Azure Data Lake Analytics, Azure Databricks, and Azure HDInsight. Azure Stream Analytics is used as a near real-time ETL engine in this solution. You can explore archived data in Data Lake using various compute engines.
 
-![ASA offline analytics](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![ASA offline analytics](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
 ## Use reference data for enrichment
 
 Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and SQL Data Warehouse.
 
-![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offlineanalyticsenriched.png)
 
 ## Operationalize insights from archived data
 
