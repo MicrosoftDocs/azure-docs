@@ -20,7 +20,6 @@ ms.author: damaerte
 # Deploy Cloud Shell into an Azure virtual network
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying Cloud Shell into an Azure virtual network, You can communicate securely with other resources in the virtual network. A regular Cloud Shell session runs in a container in a Microsoft network seporate from your resources. This means that you could not access your resources (such as VMs or storage accounts) that can only be accessed from a specific virtual network.  Using Cloud Shell in your virtual network, you can execute commands in a container running in your own Azure Virtual Network.
 
-TODO: Diagram showing customer VNET, injected subnet, browser vnet, etc.
 
 Before you can use Cloud Shell in your own Azure Virtual Network, you will need to create several resources to support this functionality. This article shows how to set up the required resources to deploy Azure Cloud Shell to a virtual network via an ARM template provided.
 
@@ -42,7 +41,6 @@ Within the selected virtual network, a dedicated subnet must be allocated for Cl
 ### Network profile
 A network profile is a network configuration template for Azure resources which specifes certain network properties for the resource.
 
-TODO: find network profile docs
 
 ## Storage requirements
 As required with standard Cloud Shell, a storage account is required while using Cloud Shell in a virtual network. Each administrator needs a file share to store their files.  The storage account needs to be accessible by the virtual network that is used by Cloud Shell. If the location of the file share is not accessible from the browser when Cloud Shell is running, the user will not be able to create the storage account and file share via Cloud Shell.  If this is the case, the user will need to create these resources ahead of time via the Azure Portal or some other management tool. 
@@ -59,13 +57,12 @@ As required with standard Cloud Shell, a storage account is required while using
 If you already have a desired VNET that you would like to connect to, skip this section.
 
 In the Azure Portal, or using Azure CLI, Azure PowerShell, etc. create a Resource Group and a virtual network in the new resource group.  These must be located in either WestCentralUS or WestUS, and the resource group and virtual network need to be in the same region.
-TODO: Remove the location requirement
+
 
 
 ### ARM template
 Utilise the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for Cloud Shell in a virtual network.  Take note of your resource names, primarily your file share name.
 
-TODO: Update this seciton with more details once template is live.
 
 ### Connecting resources with Cloud Shell
 Open Cloud Shell in the Azure Portal or on shell.azure.com.  Select "Show advanced settings" and select the "Show VNET isolation settings" box.
