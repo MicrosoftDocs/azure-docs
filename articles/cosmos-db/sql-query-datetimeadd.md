@@ -77,7 +77,7 @@ DateTimeAdd will return `undefined` for the following reasons:
 
 - The DateTimePart value specified is invalid
 - The numeric_expr specified is not a valid integer
-- The DateTime in the argument or result is not a valid ISO 8601 datetime.
+- The DateTime in the argument or result is not a valid ISO 8601 DateTime.
 - The DateTime value has either three-digit seven-digit fractional seconds of precision.
 
 ## Examples

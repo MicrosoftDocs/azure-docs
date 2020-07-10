@@ -15,7 +15,7 @@ Returns a string DateTime value constructed from input values.
 ## Syntax
   
 ```sql
-DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, numberMinute],  [, numberSecond], [, numberOfFractionsOfSecond])
+DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, numberMinute]  [, numberSecond] [, numberOfFractionsOfSecond])
 ```
 
 ## Arguments
@@ -84,7 +84,7 @@ SELECT DateTimeFromParts(2020, 9, 4) AS DateTime
 Here's another example that also uses some optional arguments to construct a DateTime:
 
 ```sql
-SELECT DateTimeFromParts(2020, 9, 4, 10,52) AS DateTime
+SELECT DateTimeFromParts(2020, 9, 4, 10, 52) AS DateTime
 ```
 
 ```json
@@ -98,7 +98,7 @@ SELECT DateTimeFromParts(2020, 9, 4, 10,52) AS DateTime
 Here's another example that also uses all optional arguments to construct a DateTime:
 
 ```sql
-SELECT DateTimeFromParts(2020, 9, 4, 10,52,12,3456789) AS DateTime
+SELECT DateTimeFromParts(2020, 9, 4, 10, 52, 12, 3456789) AS DateTime
 ```
 
 ```json
