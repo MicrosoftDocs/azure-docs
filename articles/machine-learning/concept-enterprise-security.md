@@ -106,6 +106,11 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 
 ## Data encryption
 
+> [!IMPORTANT]
+> For production grade encryption during __training__, Microsoft recommends using Azure Machine Learning compute cluster. For production grade encryption during __inference__, Microsoft recommends using Azure Kubernetes Service.
+>
+> Azure Machine Learning compute instance is a dev/test environment. When using it, we recommend that you store your files, such as notebooks and scripts, in a file share. Your data should be stored in a datastore.
+
 ### Encryption at rest
 
 > [!IMPORTANT]
@@ -113,7 +118,7 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 
 The `hbi_workspace` flag controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments. In addition it enables the following:
 
-* Starts encrypting the local scratch disk in your Amlcompute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
+* Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
