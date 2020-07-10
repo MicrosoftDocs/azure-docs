@@ -44,9 +44,19 @@
       href: set-up-mabs-for-avs.md
     - name: Back up AVS VMs with Azure Backup Server
       href: backup-avs-vms-with-mabs.md
+  - name: Azure native integration
+    items:
+    - name: API Management
+      href: concepts-api-management.md
+    - name: Hub and spoke
+      href: concepts-avs-hub-and-spoke-integration.md
 - name: Reference
   items:
 - name: Resources
-  items: 
-    - name: FAQ
-      href: faq.md
+  items:
+  - name: Troubleshooting
+    items:
+    - name: Get help with AVS deployment or provisioning failures
+      href: fix-deployment-provisioning-failures.md  
+  - name: FAQ
+    href: faq.md

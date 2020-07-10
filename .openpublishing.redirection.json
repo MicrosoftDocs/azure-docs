@@ -22632,6 +22632,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/about-microsoft-identity-platform.md",
+      "redirect_url": "/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/howto-reactivate-disabled-acs-namespaces.md",
       "redirect_url": "/azure/active-directory/azuread-dev/howto-reactivate-disabled-acs-namespaces",
       "redirect_document_id": true
@@ -28829,6 +28834,11 @@
     {
       "source_path": "articles/storage/storage-require-secure-transfer.md",
       "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-tls.md",
+      "redirect_url": "/azure/storage/common/transport-layer-security-configure-minimum-version",
       "redirect_document_id": true
     },
     {
