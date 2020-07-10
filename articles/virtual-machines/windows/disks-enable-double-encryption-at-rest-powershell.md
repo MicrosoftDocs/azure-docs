@@ -1,5 +1,5 @@
 ---
-title: Enable double encryption at rest - managed disks
+title: Azure PowerShell - Enable double encryption at rest - managed disks
 description: Enable double encryption at rest for your managed disk data using Azure PowerShell.
 author: roygara
 

@@ -1,6 +1,6 @@
 ---
-title: Enable end-to-end encryption for Azure managed disks
-description: How to enable end-to-end encryption on Azure managed disks.
+title: Azure PowerShell - Enable end-to-end encryption on your VM host
+description: How to enable end-to-end encryption for your Azure VMs using encryption at host.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
