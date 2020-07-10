@@ -78,6 +78,8 @@
     href: reference-service-limits.md
   - name: APIs and SDKs
     items:
+      - name: REST API reference
+        href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
       - name: Control plane
         items:
         - name: Swagger
@@ -104,8 +106,6 @@
           href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins
       - name: Data plane
         items:
-        - name: REST API reference
-          href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
         - name: .NET (C#) SDK - NuGet
