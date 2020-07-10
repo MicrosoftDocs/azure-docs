@@ -186,7 +186,7 @@ The following tables describe the values you need to set in the schema.
 |  diagnostics | object | No | The diagnostic information for a container group. - [ContainerGroupDiagnostics object](#containergroupdiagnostics-object) |
 |  networkProfile | object | No | The network profile information for a container group. - [ContainerGroupNetworkProfile object](#containergroupnetworkprofile-object) |
 |  dnsConfig | object | No | The DNS config information for a container group. - [DnsConfiguration object](#dnsconfiguration-object) |
-| sku | enum | No | The SKU for a ocntainer group - Standard or Dedicated |
+| sku | enum | No | The SKU for a container group - Standard or Dedicated |
 | encryptionProperties | object | No | The encryption properties for a container group. - [EncryptionProperties object](#encryptionproperties-object) | 
 | initContainers | array | No | The init containers for a container group. - [InitContainerDefinition object](#initcontainerdefinition-object) |
 
@@ -278,7 +278,7 @@ The following tables describe the values you need to set in the schema.
 
 | Name	| Type	| Required	| Value |
 |  ---- | ---- | ---- | ---- |
-| name	| string |	Yes	| The name | for | the | init | container. |
+| name	| string |	Yes	| The name for the init container. |
 | properties	| object	| Yes	| The properties for the init container. - [InitContainerPropertiesDefinition object](#initcontainerpropertiesdefinition-object)
 
 
