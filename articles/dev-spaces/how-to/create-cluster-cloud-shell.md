@@ -28,7 +28,7 @@ It takes a few minutes to create the cluster.  When complete, the output is show
 
 ## Next steps
 
-See [Azure Dev Spaces](/azure/dev-spaces/) for links to full tutorials.
+See [Azure Dev Spaces](../index.yml) for links to full tutorials.
 
 > [!IMPORTANT]
 > Many of the Azure Dev Spaces quickstarts and tutorials use the Azure Dev Spaces CLI to perform operations. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.

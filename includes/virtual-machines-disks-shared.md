@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/08/2020
+ ms.date: 07/10/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -36,7 +36,7 @@ Most Windows-based clustering build on WSFC, which handles all core infrastructu
 
 Some popular applications running on WSFC include:
 
-- SQL Server Failover Cluster Instances (FCI)
+- [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Scale-out File Server (SoFS)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
@@ -82,7 +82,12 @@ Ultra disks offer an additional throttle, for a total of two throttles. Due to t
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the ReadOnly or Read/Write access for Reservation Holder, Registered, and Others.":::
 
-## Ultra disk performance throttles
+## Performance throttles
+
+### Premium ssd performance throttles
+With premium ssd, the disk IOPS and throughput is fixed, e.g. IOPS of a P30 is 5000. This value remains whether the disk is shared across 2 VMs or 5 VMs. The disk limits can be reached from a single VM or divided across two or more VMs. 
+
+### Ultra disk performance throttles
 
 Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two additional attributes.
 
@@ -106,23 +111,23 @@ The following formulas explain how the performance attributes can be set, since 
     - The throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk
     - The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps
 
-### Examples
+#### Examples
 
 The following examples depict a few scenarios that show how the throttling can work with shared ultra disks, specifically.
 
-#### Two nodes cluster using cluster shared volumes
+##### Two nodes cluster using cluster shared volumes
 
 The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultaneous write-access to the disk, which results in the ReadWrite throttle being split across the two VMs and the ReadOnly throttle not being used.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
-#### Two node cluster without cluster share volumes
+##### Two node cluster without cluster share volumes
 
 The following is an example of a 2-node WSFC that isn't using clustered shared volumes. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle only being used by the secondary.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
 
-#### Four node Linux cluster
+##### Four node Linux cluster
 
 The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the ReadOnly throttle being split by the secondary VMs.
 
