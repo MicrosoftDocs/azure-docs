@@ -50,7 +50,7 @@ After creating a Docker context, you can create a container in Azure. In this qu
 
 First, change to the ACI context. All subsequent Docker commands run in this context.
 
-```yml
+```
 docker context use myacicontext
 ```
 
@@ -124,9 +124,6 @@ If you'd like to build a container image and deploy it from a private Azure cont
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
-
-To try out options for running containers in an orchestration system on Azure, see the [Azure Kubernetes Service (AKS)][container-service] quickstarts.
-
 
 <!-- LINKS - External -->
 
