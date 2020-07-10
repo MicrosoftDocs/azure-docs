@@ -364,9 +364,9 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 > [!IMPORTANT]
 > Application Insights does not support deployment behind a virtual network.
 
-### Only deploy workspace behind virtual network
+### Only deploy workspace behind private endpoint
 
-If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a virtual network.
+If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint.
 
 > [!IMPORTANT]
 > The deployment is only valid in regions which support private endpoints.
