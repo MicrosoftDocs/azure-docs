@@ -22,14 +22,13 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
-[Rollup 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
 > [!NOTE]
 > Update rollup 44 isn't shown in the table because it didn't include updates for the Site Recovery providers and agents.
 
-## Updates (June 2020)
+## Updates (July 2020)
 
 ### Update rollup 47
 

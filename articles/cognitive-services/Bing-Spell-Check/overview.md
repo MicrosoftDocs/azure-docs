@@ -18,8 +18,7 @@ The Bing Spell Check API enables you to perform contextual grammar and spell che
 
 ## Features
 
-
-|  |  |
+| Feature | Description |
 |---------|---------|
 |Multiple spell check modes     | Multiple spell check modes enable you to get corrections focused on grammar and/or spelling. |
 |Slang and informal language recognition     | Recognize common expressions and informal terms used in text.         |
