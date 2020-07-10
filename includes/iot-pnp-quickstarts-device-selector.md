@@ -14,3 +14,5 @@
 > * [C](../articles/iot-pnp/quickstart-connect-device-c.md)
 > * [Node.js](../articles/iot-pnp/quickstart-connect-device-node.md)
 > * [Python](../articles/iot-pnp/quickstart-connect-device-python.md)
+> * [C#](../articles/iot-pnp/quickstart-connect-device-csharp.md)
+> * [Java](../articles/iot-pnp/quickstart-connect-device-java.md)

@@ -17,6 +17,8 @@
         href: quickstart-connect-device-node.md
       - name: Python
         href: quickstart-connect-device-python.md
+      - name: Java
+        href: quickstart-connect-device-java.md
   - name: Interact with a device from your solution
     items:
       - name: Node.js
@@ -29,6 +31,8 @@
     href: tutorial-build-solution.md
   - name: Connect a multiple component device (C#)
     href: tutorial-multiple-components-csharp.md
+  - name: Connect a multiple component device (Java)
+    href: tutorial-multiple-components-java.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
 - name: Concepts
