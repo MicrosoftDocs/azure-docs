@@ -204,6 +204,11 @@ To query weather data by using a FarmBeats REST API:
 
 In the preceding example, the response shows data for two time stamps. It also shows the measure name (temperature) and values of the reported weather data in the two time stamps. Refer to the associated weather data model to interpret the type and unit of the reported values.
 
+## Troubleshoot job failures
+
+To troubleshoot job failures, you can check for the job logs. Please follow the [steps here](troubleshoot-azure-farmbeats.md#weather-data-job-failures) for the same.
+
+
 ## Appendix
 
 |        Partner   |  Details   |
