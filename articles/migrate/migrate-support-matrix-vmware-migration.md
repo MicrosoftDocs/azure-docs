@@ -157,7 +157,7 @@ Guest operating system architecture | 64-bit.
 Operating system disk size | Up to 2,048 GB. 
 Operating system disk count | 1 
 Data disk count | 64 or less. 
-Data disk size | Up to 4,095 GB 
+Data disk size | Up to 4,095 GB (Upper sections of the article list 8TB as the supported size for data disks)
 Network adapters | Multiple adapters are supported.
 Shared VHD | Not supported. 
 FC disk | Not supported. 
