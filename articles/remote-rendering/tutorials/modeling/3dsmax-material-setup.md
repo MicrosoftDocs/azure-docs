@@ -1,62 +1,63 @@
 ---
-title: Set up physically based rendering materials in 3DSMax
-description: Explains how to set up physically based rendering materials in 3DSMax and export them into FBX format.
+title: Set up PBR materials in 3ds Max
+description: Explains how to set up physically based rendering materials in 3ds Max and export them into FBX format.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
-# Tutorial: Set up physically based rendering materials in 3D Studio Max
+# Tutorial: Set up physically based rendering materials in 3ds Max
 
 ## Overview
 In this tutorial, you'll learn how to:
 
 >[!div class="checklist"]
 >
-> * Assign materials with advanced lighting to objects in the scene.
+> * Assign materials with advanced lighting to objects in a scene.
 > * Handle instancing of objects and materials.
 > * Export a scene to FBX format, and select important options.
 
-Creating [physically based rendering (PBR) materials](../../overview/features/pbr-materials.md) in 3D Studio Max (3DSMax) is a relatively straightforward task. It's similar in many ways to PBR setup in other content-creation apps like Maya. This tutorial is a guide to basic PBR shader setup and FBX export for Azure Remote Rendering projects.
+Creating [physically based rendering (PBR) materials](../../overview/features/pbr-materials.md) in 3ds Max is a straightforward task. It's similar in many ways to PBR setup in other content-creation apps like Maya. This tutorial is a guide to basic PBR shader setup and FBX export for Azure Remote Rendering projects.
 
-The sample scene in this tutorial contains a number of polygon box objects. They're assigned different materials, such as wood, metal, painted metal, plastic, and rubber. Broadly speaking, each material contains all or most of the following textures:
+The sample scene in this tutorial contains a number of polygon box objects. They're assigned different materials, like wood, metal, painted metal, plastic, and rubber. Broadly speaking, each material contains all or most of the following textures:
 
-* **Albedo**, which is the material's color map and is also called **Diffuse** or **BaseColor**.
+* **Albedo**, which is the material's color map and is also called **Diffuse** and **BaseColor**.
 * **Metalness**, which determines if a material is metallic and which parts are metallic. 
 * **Roughness**, which determines how rough or smooth a surface is.
 It also affects the sharpness or blurriness of the reflections and highlights on a surface.
-* **Normal**, which adds detail to a surface without having to add more polygons. Examples of detail might be pitting and dents on a metal surface or grain in wood.
-* **Ambient Occlusion**, which is used to add soft shading and contact shadows to a model. It's a grayscale map that indicates which areas of a model receive full lighting (white) or full shade (black).
+* **Normal**, which adds detail to a surface without adding more polygons. Examples of detail are pitting and dents on a metal surface or grain in wood.
+* **Ambient Occlusion**, which is used to add soft shading and contact shadows to a model. It's a grayscale map that indicates which areas of the model receive full lighting (white) or full shade (black).
 
 ## Prepare the scene
-In **3D Studio Max**, the process for setting up a PBR material is as follows.
+In 3ds Max, the process for setting up a PBR material is as follows.
 
-To begin with, as you will see in the Sample Scene, we have created a number of box objects, each of which represents a different type of material:
-
->[!TIP]
->It is worth noting before starting to create assets for ARR that it uses **meters** for measurement.  
->Therefore it is advisable to set your scene **System Units** to **Meters**. Furthermore, it is advisable when exporting to set Units to meters in the FBX export settings.
-
-The Following image illustrates the steps to set the System Units to meters in 3D Studio Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup** and in the **System Units Scale** dropdown select **Meters**. 
-![system units](media/3dsmax/system-units.jpg)
-
-With system units set to meters, we can begin to create our models. In our sample scene, we create several box objects, each representing a different material type - for example, metal, rubber, plastic etc. 
+To start, we've created a number of box objects in the sample scene, each of which represents a different type of material.
 
 >[!TIP]
->It is good practice when creating assets to name the appropriately as you go. This will make them easier to find later if the scene has a lot of objects
+>It's worth noting before you start to create assets for Remote Rendering that it uses meters for measurement.  
+>So it's a good idea to set your scene's system units to meters. It's also  a good idea to set **Units** to meters in the FBX export settings when you export a scene.
 
-![rename-objects](media/3dsmax/rename-objects.jpg)
+The following screenshot shows the steps to set the system units to meters in 3ds Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup**. In **System Unit Scale**, select **Meters**:
+![Screenshot that shows how to set system units.](media/3dsmax/system-units.jpg)
+
+We can now begin to create our models. In the sample scene, we create several box objects, each representing a different material type. For example, metal, rubber, and plastic. 
+
+>[!TIP]
+>When you create assets, it's a good practice to name them appropriately as you go. This will make them easier to find later if the scene contains a lot of objects.
+
+The following screenshot shows how to rename objects: 
+![Screenshot that shows how to rename objects.](media/3dsmax/rename-objects.jpg)
 
 ## Assign materials
 
-With some objects created in our scene - in this case a number of cubes, we can begin the PBR setup:
+With some objects in our scene, in this case a number of cubes, we can begin the PBR setup:
 
-* In the main tool bar, click the **Material Editor** icon as shown in the following image. You can also hit **M** on your keyboard to open the editor. The material editor has two modes that can be selected in the **Modes** dropdown - the **Compact material editor** mode and the **Slate material** mode. As this scene is relatively simple, we will use the **compact mode**.
+* On the main tool bar, select the **Material Editor** button as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that can be selected in the **Modes** list: **Compact Material Editor** mode and **Slate Material editor** mode. Because this scene is relatively simple, we'll use the compact mode.
 
-* Inside the material editor, you will see a number of spheres - these spheres are our materials. We will assign one of these materials to each object - box - in our scene. To do this assignment, first select one of the objects in the main viewport. With this selection made, click on the first sphere in the material editor window. Once assigned to an object, your selected material will be highlighted as shown in the next image.
+* In the Material Editor, you'll see a number of spheres. These spheres are the materials. We'll assign one of these materials to each object (each box) in the scene. To assign the materials, first select one of the objects in the main viewport. Then select the first sphere in the Material Editor. After it's assigned to an object, the selected material will be highlighted, as shown in the next image.
 
-* Click the **Assign Material to Selection** button as shown. The selected material has now been assigned to the selected object.
-![assign-material](media/3dsmax/assign-material.jpg)
+* Select **Assign Material to Selection**, as shown. The material is now assigned to the selected object.
+![Screenshot that shows how to assign materials.](media/3dsmax/assign-material.jpg)
 
 In the Material Editor, you can select types of materials from a wide selection, depending on your use case. Typically, the material type is set to **Standard** by default. This material is a basic material that is not suitable for PBR setup, so we will need to change the material type to a PBR material. The preferred **3DSMax** material for the Azure remote rendering projects is the **Physical Material**.
 
