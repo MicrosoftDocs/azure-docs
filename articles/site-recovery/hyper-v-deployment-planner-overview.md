@@ -99,11 +99,11 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
     set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
     ```
 
-    ```powershell
     b. PowerShell remoting enabled.
-    ```
 
-            Enable-PSRemoting -Force
+    ```powershell
+    Enable-PSRemoting -Force
+    ```
 
 ## Download and extract the deployment planner tool
 
