@@ -17,12 +17,12 @@ Azure Resource Manager will soon start automatically deleting deployments from y
 
 ## When deployments are deleted
 
-Deployments are deleted from your deployment history when you reach 775 or more deployments. Azure Resource Manager deletes deployments from the history until the history is back to 750. The oldest deployments are always deleted first.
+Deployments are deleted from your history when you reach 775 or more deployments. Azure Resource Manager deletes deployments until the history is down to 750. The oldest deployments are always deleted first.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Deletions from deployment history":::
 
 > [!NOTE]
-> The starting number for deletions (775) and the ending number (750) are subject to change.
+> The starting number (775) and the ending number (750) are subject to change.
 >
 > If your resource group is already at the 800 limit, your next deployment fails with an error. The automatic deletion process starts immediately. You can try your deployment again after a short wait.
 
