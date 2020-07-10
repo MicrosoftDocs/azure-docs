@@ -1,28 +1,27 @@
 ---
-title: Connect IoT Plug and Play Preview Python sample device with components and root interface to Azure IoT Hub | Microsoft Docs
-description: Use Python to build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play Preview sample Python component device code to IoT Hub | Microsoft Docs
+description: Build and run IoT Plug and Play Preview sample Python device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 7/8/2020
+ms.date: 7/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
 
-# As a device developer, I want to see a working IoT Plug and Play device sample with components and root interface connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+# As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Tutorial: Connect a sample IoT Plug and Play Preview device with components and root interface application to IoT Hub (Python)
+# Tutorial: Connect a sample IoT Plug and Play Preview multiple component device application to IoT Hub (Python)
 
-[!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
+[!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application with components and root interface, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Python and is included in the Azure IoT device SDK for Python. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-To complete this quickstart, you need Python on your development machine preferably Python 3.7. You can check your python version by running
+To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
@@ -30,16 +29,25 @@ python --version
 
 You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
 
-### Install the Azure IoT explorer
+### Azure IoT explorer
 
-Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
+To interact with the sample device in the second part of this tutorial, you use the **Azure IoT explorer** tool. [Download and install the latest release of Azure IoT explorer](./howto-install-iot-explorer.md) for your operating system.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this tutorial:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
+
+> [!TIP]
+> You can also use the Azure IoT explorer tool to find the IoT hub connection string.
+
+Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this tutorial:
+
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
 
 ## Set up your environment
@@ -58,62 +66,60 @@ Clone the Python SDK IoT repository and check out **master**:
 git clone https://github.com/Azure/azure-iot-sdk-python -b master
 ```
 
-## Overview of relevant files
+## Review the code
 
-The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. These are the following Python files in this folder:
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
-- The Files for the Temperature Controller Sample (PnP using Components):
-    - `pnp_temp_controller_with_thermostats.py`
-    - `pnp_helper_summer_refresh.py`
+The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 
-Temperature controller has multiple components and a root interface, based on the Temperature Controller DTMI.
+- pnp_temp_controller_with_thermostats.py
+- pnp_helper_summer_refresh.py
 
-The Temperature Controller sample is **pnp_temp_controller_with_thermostats.py**. This sample code uses helper methods from **pnp_helper_summer_refresh.py**.
+Temperature controller has multiple components and a root interface, based on the temperature controller DTDL model.
 
-## Advanced Multiple Components, Root Interface Scenario (Temperature Controller Sample)
+Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
 
-Use the IoT Hub you created previously and create a device. Use the device connection string to create an environment variable named **IOTHUB_DEVICE_CONNECTION_STRING**. The **pnp_temp_controller_with_thermostats.py** file uses this environment variable.
+1. Imports `pnp_helper_summer_refresh` to get access to helper methods.
 
-Open the **pnp_temp_controller_with_thermostats.py** file in an editor of your choice. Notice how it:
+1. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
 
-1. Imports **pnp_helper_summer_refresh** to enable access to some helper methods.
+  - A thermostat
+  - Device information developed by Azure.
 
-2. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, based off the (Temperature Controller model)[https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json]. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
-    - Thermostat.
-    - Device information developed by Azure.
+. Defines the DTMI `model_id`for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
 
-3. Defines the `model_id` which is the DTMI for the device that's being implemented. This DTMI is user-defined and must match the DTMI of the above DTDL file.
+1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
 
-4. Defines some component names given to the components in the DTDL file. There are 2 thermostats in the DTDL and 1 device information component. A constant called `serial_number` is also defined at top. A `serial_number` can not change for any device.
+1. Defines command handler implementations. These define what the device does when it receives command requests.
 
-5. Defines command handler implementations. These define what the device does once it receives PnP command requests.
+1. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
 
-6. Defines functions to create a command response. These define what the device responds with to the service with once it receives PnP command requests. Command response functions are created by the user if a command needs to send a custom response back to the IoT hub. If a response function for a command is not provided, a generic response is sent instead. In the current sample, only the **getMaxMinReport** command has a custom response.
+1. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
 
-7. Defines a function to send telemetry from this device. Both the thermostats and the root are going to send telemetry, so this function takes in a optional component name parameter as well to differentiate from which component the telemetry is being sent.
+1. Defines a listener for command requests.
 
-8. Defines a listener that listens for command requests. Defines another listener that listens for desired property updates.
+1. Defines a listener for desired property updates.
 
-9. Defines an input keyboard listener function to let you quit the application.
+1. Has a `main` function that:
 
-10. Has a **main** function. The **main** function:
+    1. Uses the device SDK to create a device client and connect to your IoT hub. The device sends the `model_id` so that the IoT hub can identify the device as an IoT Plug and Play device.
 
-    1. Uses the device SDK to create a device client and connect to your IoT hub. At this point the device also supplies the `model_id` so that the Hub can identify the device as a PnP device.
+    1. Uses the `create_reported_properties` function in the helper file to create the properties. Pass the component name, and the properties as key value pairs to this function.
 
-    2. The **main** function uses the **create_reported_properties** function defined in the helper file to create the PnP properties. The component name, and the properties as key value pairs needs to be passed to this function. Updates the readable properties for its components by calling **patch_twin_reported_properties**.
+    1. Updates the readable properties for its components by calling `patch_twin_reported_properties`.
 
-    3. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for PnP command requests coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler`.
-        - The `method_name` defines the command request. Our DTMI defines two PnP commands that our Temperature Controller responds to: `reboot`, and `getMaxMinReport`.
-        - The `user_command_handler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
-        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. For instance, if your alarm goes off, you respond by hitting snooze, which is feedback to the service. Think of this as the reply you give to the service. You can view this response in the portal. If this fucntion is not provided a generic response will be sent back to the service.
+    1. Starts listening for command requests using the `execute_command_listener` function. The function sets up a listener for command requests from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler` as parameters.
+        - The `method_name` defines the command request. In this sample the model defines the commands **reboot**, and **getMaxMinReport**.
+        - The `user_command_handler` function defines what the device should do when it receives a command.
+        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. You can view this response in the portal. If this function isn't provided, a generic response is sent to the service.
 
-    4. The **main** also uses **execute_property_listener** to listen for property updates.
+    1. Uses `execute_property_listener` to listen for property updates.
 
-    5. Starts sending telemetry using **send_telemetry**. The sample code uses a loop to call 3 telemetry sending functions which individually are called every eight seconds.
+    1. Starts sending telemetry using `send_telemetry`. The sample code uses a loop to call three telemetry sending functions. Each one is called every eight seconds
 
-    6. Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
+    1. Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
 
-Now that you've seen the code, use the following command to run the sample:
+Now that you've seen the code, create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.Use the following command to run the sample:
 
 ```cmd/sh
 python pnp_temp_controller_with_thermostats.py
@@ -123,7 +129,7 @@ The sample device sends telemetry messages every few seconds to your IoT hub.
 
 You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
-![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
+![Device confirmation messages](media/tutorial-multiple-components-python/multiple-component.png)
 
 Keep the sample running as you complete the next steps.
 
@@ -137,7 +143,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Next steps
 
-In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
+In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [Interact with an IoT Plug and Play Preview device that's connected to your solution](quickstart-service-python.md)
+> [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md)

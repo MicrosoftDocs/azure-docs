@@ -17,7 +17,7 @@
         href: quickstart-connect-device-node.md
       - name: Python
         href: quickstart-connect-device-python.md
-      - name: (C#)
+      - name: C#
         href: quickstart-connect-device-csharp.md
       - name: Java
         href: quickstart-connect-device-java.md

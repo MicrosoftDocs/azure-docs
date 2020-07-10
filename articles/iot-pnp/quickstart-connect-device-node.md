@@ -73,7 +73,7 @@ You use the device SDK to build the included sample code. The application you bu
     npm install
     ```
 
-1. Configure the _device connection string_:
+1. Configure the environment variable with the device connection string you made a note of previously:
 
     ```cmd/sh
     set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
