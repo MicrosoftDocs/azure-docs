@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/12/2020
 ms.author: memildin
 
 ---
@@ -21,7 +21,7 @@ This page teaches you how to include JIT in your security program. You'll learn 
 
 - **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Security Center, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
 - **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Security Center still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Security Center, Azure virtual machines, PowerShell, or the REST API.
-- **Auditing the activity**
+- **Auditing the activity** - To ensure your VMs are secured appropriately, review the accesses to your JIT-enabled VMs as part of your regular security checks.   
 
 
 
@@ -31,11 +31,10 @@ This page teaches you how to include JIT in your security program. You'll learn 
 - Pricing: **Standard tier**. [Learn more about pricing](/azure/security-center/security-center-pricing).
 - Required roles and permissions:
     - **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
-    - To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](faq-just-in-time.md#what-permissions-are-needed-to-configure-and-use-jit).
+    - To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).
 - Supported VMs: 
-    - ✔ VMs deployed through Azure Resource Manager (ARM).
-    - ✘ VMs deployed with classic deployment models.<br>
-    [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+    - ✔ VMs deployed through Azure Resource Manager.
+    - ✘ VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).
     - ✘ VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
 - Clouds: 
     - ✔ Commercial clouds
@@ -52,7 +51,7 @@ You can enable JIT VM access with your own custom options for one or more VMs us
 
 ### Enable JIT on your VMs from Azure Security Center <a name="jit-asc"></a>
 
-![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-asc.gif)
+![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-security-center.gif)
 
 From Security Center, you can enable and configure the JIT VM access.
 
@@ -68,7 +67,7 @@ From Security Center, you can enable and configure the JIT VM access.
     - **Not configured** - VMs without JIT enabled, but that can support JIT. We recommend that you enable JIT for these VMs.
     - **Unsupported** - VMs without JIT enabled and which don't support the feature. Your VM might be in this tab for the following reasons:
       - Missing network security group (NSG) - JIT requires an NSG to be configured
-      - Classic VM - JIT supports VMs that are deployed through Azure Resource Manager, not 'classic deployment'. [Learn more about classic vs ARM deployment models](../azure-resource-manager/management/deployment-models.md).
+      - Classic VM - JIT supports VMs that are deployed through Azure Resource Manager, not 'classic deployment'. [Learn more about classic vs Azure Resource Manager deployment models](../azure-resource-manager/management/deployment-models.md).
       - Other - Your VM might be in this tab if the JIT solution is disabled in the security policy of the subscription or the resource group, or if the VM doesn't have a public IP and doesn't have an NSG in place.
 
 1. From the **Not configured** tab, mark the VMs to protect with JIT and select **Enable JIT on VMs**. 
@@ -108,7 +107,7 @@ To edit the existing JIT rules for a VM:
 
 1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
-    ![Editing a JIT VM access configuration in Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-asc.png)
+    ![Editing a JIT VM access configuration in Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
 1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port.
 
@@ -120,7 +119,7 @@ To edit the existing JIT rules for a VM:
 
 You can enable JIT on a VM from the Azure virtual machines pages of the Azure portal.
 
-![Configuring JIT VM access in Azure Virtual machines](./media/security-center-just-in-time/jit-config-avm.gif)
+![Configuring JIT VM access in Azure Virtual machines](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
 2. Select the virtual machine you want to protect with JIT.
@@ -220,7 +219,7 @@ You can request access to a JIT-enabled VM from the Azure portal (in Security Ce
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-![Requesting JIT access from Security Center](./media/security-center-just-in-time/jit-request-asc.gif)
+![Requesting JIT access from Security Center](./media/security-center-just-in-time/jit-request-security-center.gif)
 
 1. From the **Just-in-time VM access** page, select the **Configured** tab.
 
@@ -241,9 +240,9 @@ When a VM has a JIT enabled, you have to request access to connect to it. You ca
 
 
 
-### [Azure Virtual machines](#tab/jit-request-avm)
+### [Azure virtual machines](#tab/jit-request-avm)
 
-### Request JIT VM access from the Azure Virtual machine's connect page
+### Request access to a JIT-enabled VM from the Azure virtual machine's connect page
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 

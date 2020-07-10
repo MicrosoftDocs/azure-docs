@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/12/2020
 ms.author: memildin
 
 ---
@@ -16,7 +16,7 @@ ms.author: memildin
 
 This page explains the principles behind Azure Security Center's just-in-time (JIT) VM access feature and the logic behind the recommendation.
 
-To learn how to apply JIT to your VMs using the Azure Portal (either Security Center or Azure Virtual Machines) or programatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
+To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
 
 
 ## The risk of open management ports on a virtual machine
@@ -34,6 +34,7 @@ Your legitimate users also use these ports, so it's not practical to keep them c
 To solve this dilemma, Azure Security Center offers JIT. With JIT, you can lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 
+
 ## How JIT operates with network security groups and Azure Firewall
 
 When just-in-time is enabled, Security Center creates "deny all inbound traffic" rules for the selected ports in the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) and [Azure Firewall rules](https://docs.microsoft.com/azure/firewall/rule-processing). So the NSG rule, locks down inbound traffic to your Azure VMs by restricting access to management ports and defending them from attack. You can select the ports on the VM to which inbound traffic will be blocked. If other rules already exist for the selected ports, then the existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new rules take top priority in the NSG and Azure Firewall.
@@ -45,15 +46,29 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 
 
+
 ## How Security Center identifies which VMs should have JIT applied
 
-The diagram below shows the logic that Security Center applies when deciding how to categorize your ARM deployed VMs that are on the standard pricing tier: 
+The diagram below shows the logic that Security Center applies when deciding how to categorize your supported VMs: 
 
 ![Just-in-time (JIT) virtual machine (VM) logic flow](./media/just-in-time-explained/logic-flow.png)
 
 When Security Center finds a machine that can benefit from JIT, it adds that machine to the recommendation's **Unhealthy resources** tab. 
 
 ![Just-in-time (JIT) virtual machine (VM) access recommendation](./media/just-in-time-explained/unhealthy-resources.png)
+
+
+# FAQ - Questions about just in time virtual machine access
+
+## What permissions are needed to configure and use JIT?
+
+If you want to create custom roles that can work with JIT, you'll need the following details:
+
+| To enable a user to: | Permissions to set|
+| --- | --- |
+| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> On the scope of a subscription or resource group of VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>On the scope of a subscription or resource group that is associated with the VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  On the scope of a subscription or resource group or VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Read JIT policies| *Assign these actions to the user:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
 
 
 
