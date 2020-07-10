@@ -78,7 +78,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
             "$id": "#/properties/TracingFlags",
             "type": "integer",
             "title": "The Tracingflags Schema",
-            "description": "These are the tracing flags a customer can pass to define what packets he wants to capture. Supported Bits are  CaptureESP = 1, CaptureIKE = 2, CaptureOVPN = 8. The final value is OR of the bits.",
+            "description": "Tracing flags that customer can pass to define which packets are to be captured. Supported values are CaptureESP = 1, CaptureIKE = 2, CaptureOVPN = 8. The final value is OR of the bits.",
             "default": 11,
             "examples": [
                 11
@@ -88,7 +88,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
             "$id": "#/properties/MaxPacketBufferSize",
             "type": "integer",
             "title": "The Maxpacketbuffersize Schema",
-            "description": "Max buffer size of each packet. The capture will only contain contents of each packet truncated till this size.",
+            "description": "Maximum buffer size of each packet. The capture will only contain contents of each packet truncated to this size.",
             "default": 120,
             "examples": [
                 120
@@ -98,7 +98,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
             "$id": "#/properties/MaxFileSize",
             "type": "integer",
             "title": "The Maxfilesize Schema",
-            "description": "Max allowed file size for the capture file. It is a circular buffer",
+            "description": "Maximum file size of the packet capture file. It is a circular buffer.",
             "default": 100,
             "examples": [
                 100
@@ -108,7 +108,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
             "$id": "#/properties/Filters",
             "type": "array",
             "title": "The Filters Schema",
-            "description": "An array of filters that can be passed to filter inner ESP traffic only.",
+            "description": "An array of filters that can be passed to filter inner ESP traffic.",
             "default": [],
             "examples": [
                 [
