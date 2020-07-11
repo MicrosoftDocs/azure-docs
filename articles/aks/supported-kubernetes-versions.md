@@ -71,7 +71,7 @@ And AKS releases 1.18.\*, it means that all the 1.15.\* versions will be removed
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
 > requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the
-> [AKS support policies](https://docs.microsoft.com/azure/aks/support-policies).
+> [AKS support policies](./support-policies.md).
 
 In addition to the above, AKS supports a maximum of two **patch** releases of a given minor version. So given the following supported versions:
 
