@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Synapse SQL pool (preview) using Synapse Studio  
+title: 'Quickstart: Create a Synapse SQL pool (preview) using Synapse Studio' 
 description: Create a new Synapse SQL pool using Synapse Studio by following the steps in this guide.  
 services: synapse-analytics 
 author: julieMSFT

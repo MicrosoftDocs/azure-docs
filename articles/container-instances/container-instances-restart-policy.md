@@ -85,13 +85,13 @@ Output:
  ('HAMLET', 386)]
 ```
 
-This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
+This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](./container-instances-volume-azure-files.md).
 
 ## Next steps
 
 Task-based scenarios, such as batch processing a large dataset with several containers, can take advantage of custom [environment variables](container-instances-environment-variables.md) or [command lines](container-instances-start-command.md) at runtime.
 
-For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](./container-instances-volume-azure-files.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
