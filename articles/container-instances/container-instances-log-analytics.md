@@ -2,7 +2,7 @@
 title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ---
 # Container group and instance logging with Azure Monitor logs
@@ -23,7 +23,7 @@ The following sections describe how to create a logging-enabled container group 
 To enable logging in your container instances, you need the following:
 
 * [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](../cloud-shell/overview.md))
 
 ## Get Log Analytics credentials
 
@@ -62,7 +62,7 @@ az container create \
 Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -147,7 +147,7 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search.md)
+* [Understanding log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

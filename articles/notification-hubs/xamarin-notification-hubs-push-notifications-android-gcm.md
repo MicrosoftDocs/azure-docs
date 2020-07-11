@@ -56,7 +56,7 @@ In this tutorial, you take the following steps:
 2. Enter the **server key** you noted down from the Google Firebase Console.
 3. Select **Save** on the toolbar.
 
-    ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+    ![Screenshot of Notification Hub in Azure Portal with Google G C M F C M option highlighted and outlined in red.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 

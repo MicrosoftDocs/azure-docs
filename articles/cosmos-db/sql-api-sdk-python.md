@@ -128,7 +128,7 @@ ms.custom: tracking-python
 
 * All operations that take `request_options` or `feed_options` parameters, these have been moved to keyword only parameters. In addition, while these options dictionaries are still supported, each of the individual options within the dictionary are now supported as explicit keyword arguments.
 
-* The error hierarchy is now inherited from `azure.core.AzureError` instead of, which has been removed.
+* The error hierarchy is now inherited from `azure.core.AzureError`:
 
   * `HTTPFailure` has been renamed to `CosmosHttpResponseError`
   * `JSONParseFailure` has been removed and replaced by `azure.core.DecodeError`

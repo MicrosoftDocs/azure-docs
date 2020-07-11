@@ -36,8 +36,8 @@ The configuration you provide can be divided in two categories:
 
 When creating a named application instances in Service Fabric, you have the option to pass in parameters. The way you do it depends on how you create the application instance.
 
-  - In PowerShell, the [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
-  - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
+  - In PowerShell, the [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
+  - Using sfctl, The [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
   - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Azure DevOps Services or Azure DevOps Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
 
 ## Next steps

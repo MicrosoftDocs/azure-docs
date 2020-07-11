@@ -25,7 +25,7 @@ Here's what you can migrate using Site Recovery:
 - **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
 
 > [!NOTE]
-> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-overview.md).
+> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-services-overview.md).
 
 ## What do we mean by migration?
 

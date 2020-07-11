@@ -98,7 +98,7 @@ ACI_IP=$(az container show \
 
 ## Create application gateway
 
-Create an application gateway in the virtual network, following the steps in the [application gateway quickstart](../application-gateway/quick-create-cli.md). The following [az network application-gateway create][az-network-application-gateway-create] command creates a gateway with a public frontend IP address and a route to the backend container group. See the [Application Gateway documentation](/azure/application-gateway/) for details about the gateway settings.
+Create an application gateway in the virtual network, following the steps in the [application gateway quickstart](../application-gateway/quick-create-cli.md). The following [az network application-gateway create][az-network-application-gateway-create] command creates a gateway with a public frontend IP address and a route to the backend container group. See the [Application Gateway documentation](../application-gateway/index.yml) for details about the gateway settings.
 
 ```azurecli
 az network application-gateway create \

@@ -148,6 +148,9 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
+> [!NOTE]
+> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+
 ### ISO source
 We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
     * 31 March 2020 - Image Templates with RHEL ISO sources will now longer be accepted by the resource provider.
@@ -388,7 +391,8 @@ Files in the File customizer can be downloaded from Azure Storage using [MSI](ht
 
 ### Windows Update Customizer
 This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -401,6 +405,7 @@ This customizer is built on the [community Windows Update Provisioner](https://p
             }
                ], 
 OS support: Windows
+```
 
 Customize properties:
 - **type**  – WindowsUpdate.
@@ -463,7 +468,10 @@ Azure Image Builder supports three distribution targets:
 - **sharedImage** - Shared Image Gallery.
 - **VHD** - VHD in a storage account.
 
-You can distribute an image to both of the target types in the same configuration, please see [examples](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+You can distribute an image to both of the target types in the same configuration.
+
+> [!NOTE]
+> The default AIB sysprep command does not include "/mode:vm", however this maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying a Shared Image Gallery distribution:
 
