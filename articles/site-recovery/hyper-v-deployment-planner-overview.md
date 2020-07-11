@@ -65,7 +65,7 @@ The tool provides the following details:
 
 ## Support matrix
 
-| | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
+|**Categories** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
 --|--|--|--|--|--
 Supported scenarios |Yes|Yes|No|Yes*|No
 Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
