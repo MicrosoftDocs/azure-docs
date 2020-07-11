@@ -65,6 +65,7 @@ az extension update --name aks-preview
 
 ### Limitations
 - See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- The supported size range for a Ultra disks is between 100 and 1500
 
 ## Create a new cluster that can use Ultra disks
 
