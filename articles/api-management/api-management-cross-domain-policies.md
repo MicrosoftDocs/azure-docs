@@ -53,7 +53,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 |cross-domain|Root element. Child elements must conform to the [Adobe cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
@@ -136,7 +136,7 @@ This example demonstrates how to support pre-flight requests, such as those with
 |preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache pre-flight response.|No|0|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
@@ -173,7 +173,7 @@ If you add the callback parameter `?cb=XXX` it will return a JSONP result, wrapp
 |callback-parameter-name|The cross-domain JavaScript function call prefixed with the fully qualified domain name where the function resides.|Yes|N/A|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** outbound
 - **Policy scopes:** all scopes
@@ -184,5 +184,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)
