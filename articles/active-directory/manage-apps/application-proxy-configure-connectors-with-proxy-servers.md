@@ -151,7 +151,7 @@ To enable this, please follow the next steps:
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
 
 > [!NOTE]
-> There are different ways to configure the Internet proxy in the operating system. Proxy settings configured via NETSH WINHHTP (run NETSH WINHTTP SHOW PROXY to verify it) ovveride the proxy settings you configured in Step 2. 
+> There are different ways to configure the Internet proxy in the operating system. Proxy settings configured via NETSH WINHHTP (run NETSH WINHTTP SHOW PROXY to verify it) override the proxy settings you configured in Step 2. 
 
 The connector updater service will use the machine proxy as well. This behavior can be changed by modifying the file ApplicationProxyConnectorUpdaterService.exe.config.
 
