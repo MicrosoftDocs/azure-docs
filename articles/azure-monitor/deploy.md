@@ -8,11 +8,13 @@ ms.date: 07/10/2020
 ---
 
 # Deploy Azure Monitor
-This article describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for complete details. Some of the steps need to be performed only once or a limited number of times for a particular subscription, while others need to be performed for each resource or virtual machine. For these resources, see [Deploy Azure Monitor at scale](platform/deploy-scale.md) after going through this guide.
+Enabling Azure Monitor for monitoring of all your Azure resources is a combination of understanding what data is collected automatically, configuring Azure Monitor components to support particular features, and configuring Azure resources to generate monitoring data for Azure Monitor to collect. This article describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for complete details. 
 
-The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step will identify whether there is potential cost, and you should assess these costs before determining how broadly to implement your monitoring.
+The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding.
 
-As you enable features in Azure Monitor, data will be collected to either [Azure Monitor Metrics](platform/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md). Each stores different kinds of data and enable kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types.
+## Understand data in Azure Monitor
+
+As you enable features in Azure Monitor, data will be sent to either [Azure Monitor Metrics](platform/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md), while some data is sent to both. Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. Each of the configuration steps below 
 
 ## Collect data from Azure resources
 
