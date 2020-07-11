@@ -2,7 +2,7 @@
 title: Manually install or update Azure Functions binding extensions
 description: Learn how to install or update Azure Functions binding extensions for deployed function apps.
 
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/26/2018
 ---
 
