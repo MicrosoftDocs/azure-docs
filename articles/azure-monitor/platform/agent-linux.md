@@ -152,10 +152,10 @@ If authentication is required in either case, you need to specify the username a
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
-## Supported Linux Hardening
+## Supported Linux hardening
 The OMS Agent has limited customization support for Linux. 
 
-Supported customizations: 
+The following are currently supported: 
 - FIPs
 
 The following are planned but not yet supported:
