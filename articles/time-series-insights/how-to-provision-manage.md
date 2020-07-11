@@ -32,10 +32,10 @@ You will learn how to:
 
 1.  Associate each Azure Time Series Insights Gen 2 environment with an event source. You will also provide a Timestamp ID property and a unique consumer group to ensure that the environment has access to the appropriate events.
 
-   > [!NOTE]
-   > The preceding step is optional when provisioning an environment. If you skip this step, you must attach an event source to the environment later so data can start flowing into your environment and can be accessed through query.
-
 1. After provisioning is complete, you can modify your access policies and other environment attributes to suit your business needs.
+
+   > [!NOTE]
+   > The first step is optional when provisioning an environment. If you skip this step, you must attach an event source to the environment later so data can start flowing into your environment and can be accessed through query.
 
 ## Create the environment
 
