@@ -55,23 +55,23 @@ A single IoT Connector can be used to ingest data from a large number of differe
 - **Scale**: For public preview, IoT Connector resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more IoT Connectors, if higher throughput is needed.
 - **Device type**: You may setup a separate IoT Connector for each type of IoMT devices you have for device management reasons.
 
-### Is there a limit on IoT Connector during public preview?
-Yes, you can create only two IoT Connectors per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is free during the preview. On request this limit could be raised up to a maximum of five IoT Connectors.
+### Is there a limit on number of IoT Connectors during public preview?
+Yes, you can create only two IoT Connectors per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is available for free during the preview. On request this limit could be raised up to a maximum of five IoT Connectors.
 
 ### What Azure regions IoT Connector feature is available during public preview?
-IoT Connector is available only in the following three Azure regions during public preview: West US 2, East US 2, and UK South. More regions will be added when the feature is released for General Availability (GA).
+IoT Connector is available in all Azure regions where Azure API for FHIR is available.
 
 ### Can I configure scaling capacity for IoT Connector?
 Since IoT Connector is free of charge during public preview, its scaling capacity is fixed and limited. IoT Connector configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
 
-### Why can't I see IoT Connector feature under Azure API for FHIR?
-You will not see IoT Connector if one of the following is true:
-- Your Azure API for FHIR service is not installed on one of the supported regions.
-- Your Azure API for FHIR service is running on a FHIR version STU3.
-- Your Azure API for FHIR service has Private link enabled.
+### What FHIR version does IoT Connector support?
+IoT Connector currently supports only FHIR version R4. Hence, this feature is visible only on the R4 instances of Azure API for FHIR and Microsoft doesn't plan to support version STU3 at this time.
+
+### Why can't I install IoT Connector when Private Link is enabled on Azure API for FHIR?
+IoT Connector doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install IoT Connector and vice-versa. This limitation is expected to go away when IoT Connector is available for General Availability (GA).
 
 ### What's the difference between the open-source IoMT FHIR Connector for Azure and IoT Connector feature of Azure API for FHIR service?
-IoT Connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates. 
+IoT Connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates.
 
 When you're running IoMT FHIR Connector for Azure, you have direct access to the underlying resources. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
