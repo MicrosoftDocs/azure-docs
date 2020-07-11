@@ -16,7 +16,7 @@ ms.date: 07/10/2020
 This feature can only be set at cluster creation or node pool creation time.
 
 > [!IMPORTANT]
-> Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd#ga-scope-and-limitations)
+> Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### Limitations
-- See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd#ga-scope-and-limitations)
+- See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 
 ## Create a new cluster that can use Ultra disks
 
