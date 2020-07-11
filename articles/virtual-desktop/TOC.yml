@@ -23,7 +23,7 @@
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-and-10.md
+        href: connect-windows-7-10.md
       - name: Connect with the web client
         href: connect-web.md
       - name: Connect with the Android client
@@ -38,6 +38,8 @@
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy a Windows 7 virtual machine
+        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
