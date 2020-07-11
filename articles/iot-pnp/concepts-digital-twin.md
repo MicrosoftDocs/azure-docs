@@ -22,7 +22,6 @@ Below is an example of how properties are exposed in a device twin that's create
 
 ```json
 {
-    ...
     "deviceId": "PnPDevice",
     "modelId": "dtmi:contoso:macaw;1",
     "properties": {
@@ -67,7 +66,6 @@ For the device twin example we had above, the corresponding digital twin looks l
 
 ```json
 {
-     ...
     "deviceId": "PnPDevice",
     "modelId": "dtmi:contoso:macaw;1",
     "properties": {
@@ -122,7 +120,7 @@ Once the device completes the update with the desired value, the digital twin is
 
 
 ```json
-{    ...
+{    
     "settings": {
         "fanSpeed": 5,
         "$metadata": {
@@ -135,7 +133,6 @@ Once the device completes the update with the desired value, the digital twin is
             },
         }
     },
-...
 }
 ```
 
