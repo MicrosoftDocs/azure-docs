@@ -23,9 +23,8 @@ The tables below show Azure Security Center features that are available for virt
 
 ### [Windows machines](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
 |[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
@@ -48,9 +47,8 @@ The tables below show Azure Security Center features that are available for virt
 
 ### [Linux machines](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
 |[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
