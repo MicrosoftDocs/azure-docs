@@ -201,7 +201,7 @@ The route API allows users to plan routes in the future using Azure's extensive 
 
 All of the following code blocks should be added **within the map load eventListener** to ensure they load after the map completely loads.
 
-1. In the GetMap function, add the following to Javascript code.
+1. In the GetMap function, add the following to JavaScript code.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
