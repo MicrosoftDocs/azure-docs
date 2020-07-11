@@ -31,7 +31,7 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 - `~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
+- `~/logs/sys/master.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
