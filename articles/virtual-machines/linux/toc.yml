@@ -953,7 +953,7 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable host-based encryption - CLI
+      - name: Enable encryption at host - CLI
         href: disks-enable-host-based-encryption-cli.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
