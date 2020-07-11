@@ -18,7 +18,7 @@ Click the resource provider name in the following table to see the list of opera
 
 ## All
 
-|  |
+| Resource Provider Name  |
 | --- |
 | **General** |
 | [Microsoft.Addons](#microsoftaddons) |
