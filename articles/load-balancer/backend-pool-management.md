@@ -17,9 +17,9 @@ There are two ways of configuring a backend pool:
 * Network Interface Card (NIC)
 * Combination IP address and Virtual Network (VNET) Resource ID
 
-Configure your backend pool by NIC when using virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
+Configure your backend pool by NIC when using existing virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
 
-In scenarios where a NIC is unavailable, such as containers or Kubernetes Pods, configure your backend pool by IP address and VNET ID combination.
+When preallocating your backend pool with an IP address range which you plan to later create virtual machines and virtual machine scale sets, configure your backend pool by IP address and VNET ID combination.
 
 The configuration sections of this article will focus on:
 
@@ -244,7 +244,7 @@ JSON request body:
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
 ## Configure backend pool by IP address and virtual network
-In scenarios with containers or a pre-populated backend pool with IPs, use IP and virtual network.
+In scenarios with pre-populated backend pools, use IP and virtual network.
 
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 

@@ -23,7 +23,7 @@ The dedicated sku is appropriate for container workloads that require workload i
 > Using the dedicated sku is only available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template.
 >
 
-Starting with API version 2019-12-01, there is a `sku` property under the container group properties section of a deployment template, which is required for an ACI deployment. Currently, you can use this property as part of an Azure Resource Manager deployment template for ACI. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Starting with API version 2019-12-01, there is a `sku` property under the container group properties section of a deployment template, which is required for an ACI deployment. Currently, you can use this property as part of an Azure Resource Manager deployment template for ACI. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
 
 The `sku` property can have one of the following values:
 * `Standard` - the standard ACI deployment choice, which still guarantees hypervisor-level security 
