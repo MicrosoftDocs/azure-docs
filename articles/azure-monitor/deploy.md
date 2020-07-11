@@ -10,7 +10,7 @@ ms.date: 07/10/2020
 # Deploy Azure Monitor
 Enabling Azure Monitor for monitoring of all your Azure resources is a combination of understanding what data is collected automatically, configuring Azure Monitor components to support particular features, and configuring Azure resources to generate monitoring data for Azure Monitor to collect. This article describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for complete details. 
 
-The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding.
+The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
 
 ## Understand data in Azure Monitor
 
