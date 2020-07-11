@@ -108,7 +108,6 @@ A storage class is used to define how a unit of storage is dynamically created w
 In this case, we'll create a storage class that references ultra disks. Create a file named `azure-ultra-disk-sc.yaml`, and copy in the following manifest.
 
 ```yaml
-  
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -129,7 +128,7 @@ Create the storage class with the [kubectl apply][kubectl-apply] command and spe
 $ kubectl apply -f azure-ultra-disk-sc.yaml
 
 
-storageclass/ultra-disk-sc created
+storageclass.storage.k8s.io/ultra-disk-sc created
 ```
 
 ## Create a persistent volume claim
@@ -188,7 +187,7 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: azure-managed-disk
+        claimName: ultra-disk
 ```
 
 Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
