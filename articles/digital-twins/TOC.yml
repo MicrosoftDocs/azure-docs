@@ -86,6 +86,8 @@
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
+        - name: .NET (C#) SDK - reference
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview  
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK

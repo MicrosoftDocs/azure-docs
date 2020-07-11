@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Azure Service Fabric Reliable Services 
 description: Learn about configuring stateful Reliable Services in an Azure Service Fabric application globally and for a single service.
 author: sumukhs
@@ -180,5 +180,4 @@ possible should specify the same shared log. Shared log files should be placed o
 
 ## Next steps
 * [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
-* [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Developer reference for Reliable Services](/previous-versions/azure/dn706529(v=azure.100))
