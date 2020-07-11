@@ -63,5 +63,5 @@ To learn how to create a host pool, check out these articles:
 To learn how to configure host pool settings, check out these articles:
 
 - [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md)
-- [Configure the Windows Virtual Desktop load-balancing method](load-balanc)
+- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
 - [Configure the personal desktop host pool assignment type](configure-host-pool-personal-desktop-assignment-type.md)
