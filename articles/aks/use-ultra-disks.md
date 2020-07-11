@@ -18,7 +18,7 @@ This feature can only be set at cluster creation or node pool creation time.
 > [!IMPORTANT]
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd#ga-scope-and-limitations)
 
-### Prerequistes
+### Prerequisites
 
 - Ensure you have the `EnableUltraSSD` feature flag enabled.
 - Ensure you have the latest `aks-preview` [CLI extension][az-extension-add] installed.
@@ -53,7 +53,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### Install aks-preview CLI extension
 
-To create an AKS cluster or a nodepool that can leverage Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
+To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -66,7 +66,7 @@ az extension update --name aks-preview
 ### Limitations
 - See the [**Ultra disks GA scope and limitations**](../virtual-machines/linux/disks-enable-ultra-ssd#ga-scope-and-limitations)
 
-## Create a new cluster that can leverage Ultra disks
+## Create a new cluster that can use Ultra disks
 
 Create an AKS cluster that is able to leverage Ultra Disks by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableUltraSSD` feature.
 
@@ -99,13 +99,13 @@ If you want to create new node pools without support for ultra disks, you can do
 
 ## Use ultra disks dynamically with a storage class
 
-To leverage ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-dynamic-pv.md).
+To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-dynamic-pv.md).
 
 ### Create the storage class
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-In this case we'll create a storage class that references ultra disks. Create a file named `azure-ultra-disk-sc.yaml`, and copy in the following manifest.
+In this case, we'll create a storage class that references ultra disks. Create a file named `azure-ultra-disk-sc.yaml`, and copy in the following manifest.
 
 ```yaml
   
@@ -136,7 +136,7 @@ storageclass/ultra-disk-sc created
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *5GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
+Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *5 GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
 
 ```yaml
 apiVersion: v1
