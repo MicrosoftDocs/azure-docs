@@ -19,7 +19,7 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 [Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
-Azure Monitor ensures that all data is encrypted at rest using Azure-managed keys. Azure Monitor also provides an option for data encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key (CMK) can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Azure Monitor use of encryption is identical to the way [Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) operates.
 
@@ -186,7 +186,8 @@ Create or use an Azure Key Vault that you already have to generate, or import a 
 
 ![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
 
-These settings are available via CLI and PowerShell:
+These settings can be updated via CLI and PowerShell:
+
 - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
@@ -465,12 +466,12 @@ All your data remains accessible after the key rotation operation, since data al
 
 ## CMK for queries
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries in your own storage account that you connect to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
 > CMK for queries used in workbooks and Azure dashboards isn't supported yet. These queries remain encrypted with Microsoft key.  
 
-When you configure to [Bring Your Own Storage](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+When you [Bring Your Own Storage](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) and associate it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
 **Considerations before setting CMK for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
@@ -696,32 +697,30 @@ After the configuration, any new alert query will be saved in your storage.
 
 ## Limitations and constraints
 
-- The CMK is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
+- The CMK is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
 
-- The max number of *Cluster* resources per region and subscription is 2
+- The max number of *Cluster* resources per region and subscription is 2
 
-- You can associate a workspace to your *Cluster* resource and then disassociate it if CMK isn't required for the workspace. The number of workspace association on particular workspace in a period of 30 days is limited to 2
+- You can associate a workspace to your *Cluster* resource and then disassociate it if CMK isn't required for the workspace. The number of workspace association on particular workspace in a period of 30 days is limited to 2
 
-- Workspace association to *Cluster* resource should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
+- Workspace association to *Cluster* resource should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
 
-- CMK encryption applies to newly ingested data after the CMK
-    configuration. Data that was ingested prior to the CMK
-    configuration, remains encrypted with Microsoft key. You can query
-    data ingested before and after the CMK configuration seamlessly.
+- CMK encryption applies to newly ingested data after the CMK
+    configuration. Data that was ingested prior to the CMK
+    configuration, remains encrypted with Microsoft key. You can query
+    data ingested before and after the CMK configuration seamlessly.
 
-- The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:
+- The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
+  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+  - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete.
 
-  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-    must be turned on
-  - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete.
+- *Cluster* resource move to another resource group or subscription
+    isn't supported currently.
 
-- *Cluster* resource move to another resource group or subscription
-    isn't supported currently.
+- Your Azure Key Vault, *Cluster* resource and associated workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
-- Your Azure Key Vault, *Cluster* resource and associated workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
-
-- Workspace association to *Cluster* resource will fail if it is
-    associated to another *Cluster* resource
+- Workspace association to *Cluster* resource will fail if it is
+    associated to another *Cluster* resource
 
 ## Troubleshooting
 
@@ -752,3 +751,42 @@ After the configuration, any new alert query will be saved in your storage.
   2. Send GET request to *Cluster* or workspace and observe the response. For example, disassociated workspace won't have the *clusterResourceId* under *features*.
 
 - For support and help related to customer managed key, use your contacts into Microsoft.
+
+- Error messages
+  
+  *Cluster* resource Create:
+  -  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
+  -  400 -- The body of the request is null or in bad format.
+  -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
+  -  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
+  -  400 -- Missing Capacity in SKU. Set Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Capacity in SKU is not in range. Should be minimum 1000 and up to the max allowed capacity which is available under ‘Usage and estimated cost’ in your workspace.
+  -  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
+  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- Identity is null or empty. Set Identity with systemAssigned type.
+  -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
+  -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
+
+  *Cluster* resource Update
+  -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-resource-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](#grant-key-vault-permissions) in Key Vault.
+  -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+  -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
+  -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
+
+    *Cluster* resource Get:
+    -  404 -- Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+
+  *Cluster* resource Delete
+    -  409 -- Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+
+  Workspace association:
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace association or disassociation operation in process.
+  -  400 -- Cluster not found, the cluster you specified doesn’t exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+
+  Workspace disassociation:
+  -  404 -- Workspace not found. The workspace you specified doesn’t exist or was deleted.
+  -  409 -- Workspace association or disassociation operation in process.
+

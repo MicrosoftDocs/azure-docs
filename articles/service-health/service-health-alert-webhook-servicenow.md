@@ -135,9 +135,10 @@ This article shows you how to integrate Azure service health alerts with Service
      ![The "Base API Path" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  Your full Integration URL looks like:
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## Create an alert using ServiceNow in the Azure portal
 ### For a new action group:
