@@ -39,6 +39,23 @@ Your data can be protected whether it's stored as blob containers, file shares, 
 Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
 
 
+### Two security recommendations for SQL advanced data security deprecated
+
+Two security recommendations related to advanced data security for SQL machines are being deprecated: 
+
+- Advanced data security should be enabled on your managed instances
+    (Related policy: Advanced data security should be enabled on SQL Managed Instance)
+- Advanced data security should be enabled on your SQL servers
+    (Related policy: Advanced data security should be enabled on your SQL servers)
+
+These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
+
+Learn more about [security recommendations](recommendations-reference.md).
+
+
+
+
+
 ## June 2020
 
 Updates in June include:
