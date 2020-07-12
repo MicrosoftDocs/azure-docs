@@ -1,6 +1,6 @@
 ---
-title: 'Concepts: Mapping templates in IoMT connector (preview) feature of Azure API for FHIR'
-description: Learn to create two types of mapping templates in IoMT connector. Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
+title: 'Concepts: Mapping templates in IoT Connector (preview) feature of Azure API for FHIR'
+description: Learn to create two types of mapping templates in IoT Connector. Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
@@ -10,12 +10,12 @@ ms.date: 05/14/2020
 ms.author: punagpal
 ---
 
-# IoMT connector (preview) mapping templates
-This article details how to configure IoMT connector using mapping templates.
+# IoT Connector (preview) mapping templates
+This article details how to configure IoT Connector using mapping templates.
 
-The IoMT connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+The IoT Connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoMT connector through the Azure portal. The Device mapping document is added through the **Configure Device mapping** page and the FHIR mapping document through the **Configure FHIR mapping** page.
+The mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoT Connector through the Azure portal. The Device mapping document is added through the **Configure Device mapping** page and the FHIR mapping document through the **Configure FHIR mapping** page.
 
 > [!NOTE]
 > Mapping templates are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
@@ -32,7 +32,7 @@ Device mapping provides mapping functionality to extract device content into a c
 
 Below is a conceptual example of what happens during normalization.
 
-![Normalization Example](media/concepts-iomt-mapping-templates/normalization-example.png)
+![Normalization Example](media/concepts-iot-mapping-templates/normalization-example.png)
 
 The content payload itself is an Azure Event Hub message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hub framework with entries automatically populated by it.
 
@@ -554,5 +554,13 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 }
 ```
 ---
+
+## Next steps
+
+Check out frequently asked questions on IoT Connector
+
+>[!div class="nextstepaction"]
+>[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
+
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
