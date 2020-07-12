@@ -41,8 +41,8 @@ As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 m
 
 ## FAQ
 ### Q: Is the size going to get retired or only "isolation" feature is?
-**A**: If the virtual machine size does not have the "i" subscript than only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
-If the virtual machine size includes "i" subscript than the size is going to get retired.
+**A**: If the virtual machine size does not have the "i" subscript then only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
+If the virtual machine size includes "i" subscript then the size is going to get retired.
 
 ### Q: Is there a downtime when my vm lands on a non-isolated hardware?
 **A**: If there is no need of isolation, no action is needed and there will be no downtime.
