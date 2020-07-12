@@ -32,7 +32,7 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Make sure that the Azure VMs are in the Azure region from which you want to move.
-- Verify that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), and make an informed decision about the target region.
+- Verify that your choice of [source region - target region combination is supported](./azure-to-azure-support-matrix.md#region-support), and make an informed decision about the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 - Verify account permissions. If you created your free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need. To enable replication for a VM and essentially copy data by using Azure Site Recovery, you must have:
@@ -65,10 +65,10 @@ In this tutorial, you will:
      > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enable replication. As mentioned later, you need to manually create any other resources in the target region.
 
     To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
-    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+    - [Network security groups](../virtual-network/manage-network-security-group.md)
+    - [Load balancers](../load-balancer/index.yml)
     -  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
-    - For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network).
+    - For any other networking components, see the [networking documentation](../index.yml?pivot=products&panel=network).
 
 
 
@@ -141,4 +141,3 @@ In this tutorial, you moved an Azure VM to a different Azure region. Now you can
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
-

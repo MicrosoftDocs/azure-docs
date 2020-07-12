@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ---
 
@@ -57,7 +57,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
     |Folder |Description |
     |-------|------------|
-    |C:\Program Files\AzureConnectedMachineAgent |Default installation path containing the agent support files.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Default installation path containing the agent support files.|
     |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
@@ -94,7 +94,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
 * During uninstall of the agent, the following artifacts are not removed.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent and subdirectories
     * %ProgramData%\GuestConfig
 
@@ -165,9 +165,9 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Required permissions
 
-- To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
+* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 
-- To read, modify, re-onboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, re-onboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
 
 ### Azure subscription and service limits
 
@@ -190,19 +190,20 @@ If outbound connectivity is restricted by your firewall or proxy server, make su
 
 Service Tags:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URLs:
 
 | Agent resource | Description |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Guest Configuration|
-|*-agentservice-prod-1.azure-automation.net|Guest Configuration|
-|*.his.arc.azure.com|Hybrid Identity Service|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|Guest Configuration|
+|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
+|`*.guestconfiguration.azure.com` |Guest Configuration|
+|`*.his.arc.azure.com`|Hybrid Identity Service|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/security-overview.md#service-tags).
 
@@ -212,8 +213,8 @@ The URLs in the previous table are required in addition to the Service Tag IP ad
 
 Azure Arc for servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 If they are not registered, you can register them using the following commands:
 
