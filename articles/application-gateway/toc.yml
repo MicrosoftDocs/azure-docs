@@ -70,8 +70,6 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers
       href: rewrite-http-headers.md
-    - name: Custom error pages
-      href: custom-error.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -240,6 +238,8 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+  - name: Custom error pages
+    href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference

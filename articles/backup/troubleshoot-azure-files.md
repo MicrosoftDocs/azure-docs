@@ -20,6 +20,7 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the recovery services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Please ensure that the combined length of storage account name and resource group name doesn't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts. 
 - Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
 
 ### Error in portal states discovery of storage accounts failed
@@ -51,6 +52,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 >A recovery services vault can only be deleted after unregistering all storage accounts registered with the vault.
 
 ## Common backup or restore errors
+
+>[!NOTE]
+>Refer to [this document](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
 
 ### FileShareNotFound- Operation failed as the file share is not found
 
@@ -271,8 +275,6 @@ Error Code: BMSUserErrorObjectLocked
 Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
-
-From the file: troubleshoot-azure-files.md
 
 ## Common Soft Delete Related Errors
 

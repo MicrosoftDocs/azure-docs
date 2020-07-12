@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
+ms.date: 6/18/2020
 
 ---
 
@@ -67,11 +67,11 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option.  Expres
 
 As mentioned, VNet peering is one way to access your private cluster. To use VNet peering you need to set up a link between virtual network and the private DNS zone.
     
-1. Go to the MC_* resource group in the Azure portal.  
+1. Go to the node resource group in the Azure portal.  
 2. Select the private DNS zone.   
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-5. Go back to the MC_* resource group in the Azure portal.  
+5. In the Azure portal, navigate to the resource group that contains your cluster's VNet.  
 6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
@@ -79,7 +79,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 
 ## Hub and spoke with custom DNS
 
-[Hub and spoke architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) are commonly used to deploy networks in Azure. In many of these deployments, DNS settings in the spoke VNets are configured to reference a central DNS forwarder to allow for on-premises and Azure-based DNS resolution. When deploying an AKS cluster into such a networking environment, there are some special considerations that must be taken into account.
+[Hub and spoke architectures](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) are commonly used to deploy networks in Azure. In many of these deployments, DNS settings in the spoke VNets are configured to reference a central DNS forwarder to allow for on-premises and Azure-based DNS resolution. When deploying an AKS cluster into such a networking environment, there are some special considerations that must be taken into account.
 
 ![Private cluster hub and spoke](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -96,7 +96,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 
 ## Limitations 
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
-* Availability Zones are currently supported for certain regions, see the beginning of this document 
+* [Availability Zones][availability-zones] are currently supported for certain regions. 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
@@ -112,8 +112,9 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

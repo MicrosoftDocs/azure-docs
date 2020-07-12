@@ -216,6 +216,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 The additional webhook properties are optional. You can get back the contents of an Activity Log Alert using `Get-AzActivityLogAlert`.
 
 ## Create and manage AutoScale settings
+
+> [!NOTE] 
+> For Cloud Services (Microsoft.ClassicCompute), autoscale supports a time grain of 5 minutes (PT5M). For the other services autoscale supports a time grain of minimum of 1 minute (PT1M)
+
 A resource (a Web app, VM, Cloud Service, or Virtual Machine Scale Set) can have only one autoscale setting configured for it.
 However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../../cloud-services/cloud-services-how-to-scale-portal.md).
 

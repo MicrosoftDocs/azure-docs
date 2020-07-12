@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -59,19 +59,6 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 ## File system support in SDKs, PowerShell, and Azure CLI
 
 - Get and set ACL operations are not currently recursive.
-
-
-## Lifecycle management policies
-
-The deletion of blob snapshots is not yet supported. 
-
-## Archive Tier
-
-There is currently a bug that affects the archive access tier.
-
-## Blobfuse
-
-Blobfuse is not supported.
 
 <a id="known-issues-tools"></a>
 

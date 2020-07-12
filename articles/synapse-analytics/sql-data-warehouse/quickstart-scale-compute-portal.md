@@ -6,7 +6,7 @@ author: Antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick

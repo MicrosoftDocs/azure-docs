@@ -59,6 +59,7 @@ and duplicates will be removed.
 
 For example, consider the following duplicate ingress resources defined
 namespaces `staging` and `production` for `www.contoso.com`:
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -131,6 +132,7 @@ options:
   - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
 
 ## Sample Helm config file
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -182,5 +184,5 @@ options:
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 
