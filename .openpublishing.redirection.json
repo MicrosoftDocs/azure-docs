@@ -2158,6 +2158,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/firewall/tutorial-diagnostics.md",
+      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
@@ -13372,8 +13377,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-vmware/tutorial-deploy-vm-content-library.md",
-      "redirect_url": "/azure-vmware/deploy-vm-content-library",
+      "source_path": "articles/azure-vmware/deploy-vm-content-library.md",
+      "redirect_url": "/azure-vmware/tutorial-deploy-vm-content-library",
       "redirect_document_id": false
     },
     {
@@ -17974,6 +17979,11 @@
     {
       "source_path": "articles/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy",
       "redirect_document_id": true
     },
     {
@@ -22629,6 +22639,11 @@
     {
       "source_path": "articles/active-directory/develop/howto-get-appsource-certified.md",
       "redirect_url": "/azure/active-directory/azuread-dev/howto-get-appsource-certified",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/about-microsoft-identity-platform.md",
+      "redirect_url": "/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
       "redirect_document_id": true
     },
     {
@@ -56583,6 +56598,11 @@
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
+      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
+      "redirect_document_id": true
     }
   ]
 }
