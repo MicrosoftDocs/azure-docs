@@ -48,7 +48,7 @@ Enter settings for the new IoT Connector. Click on **Create** button and await I
 |Setting|Value|Description |
 |---|---|---|
 |Connector name|A unique name|Enter a name to identify your IoT Connector. This name should be unique within an Azure API for FHIR resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
-|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html)and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. IoT Connector will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want IoT Connector to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
+|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. IoT Connector will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want IoT Connector to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
 
 Once installation is complete, the newly created IoT Connector will show up on the **IoT Connectors** page.
 
