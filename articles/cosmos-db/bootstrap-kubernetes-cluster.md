@@ -28,7 +28,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 
    The Azure Kubernetes Engine (**aks-engine**) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file that describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is similar to the public API for Azure Kubernetes Service.
 
-1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version at: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. 
+1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version at: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be allowed to use the Azure Cosmos etcd API. 
 
 ## Deploy the cluster with Azure Cosmos DB
 
@@ -38,7 +38,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
    az login 
    ```
 
-1. If you have more than one subscription, switch to the subscription that has been whitelisted for Azure Cosmos DB etcd API. You can switch to the required subscription using the following command:
+1. If you have more than one subscription, switch to the subscription that has been allowed for Azure Cosmos DB etcd API. You can switch to the required subscription using the following command:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"
