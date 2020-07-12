@@ -45,7 +45,11 @@ This page teaches you how to include JIT in your security program. You'll learn 
 
 ## Enable JIT VM access <a name="jit-configure"></a>
 
-You can enable JIT VM access with your own custom options for one or more VMs using Security Center or programmatically. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure Virtual machines.
+You can enable JIT VM access with your own custom options for one or more VMs using Security Center or programmatically. 
+
+Alternatively, you can enable JIT with default, hard-coded parameters, from Azure Virtual machines.
+
+Each of these options is explained in a separate tab below.
 
 ### [Security Center](#tab/jit-config-asc)
 
@@ -97,7 +101,7 @@ From Security Center, you can enable and configure the JIT VM access.
 
 
 
-### Edit the JIT configuration on a JIT-enabled VM using Security Center
+### Edit the JIT configuration on a JIT-enabled VM using Security Center <a name="jit-modify"></a>
 
 You can modify a VM's just-in-time configuration by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
@@ -122,9 +126,9 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 ![Configuring JIT VM access in Azure Virtual machines](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
-2. Select the virtual machine you want to protect with JIT.
-3. In the menu, select **Configuration**.
-4. Under **Just-in-time access**, select **Enable just-in-time**. 
+1. Select the virtual machine you want to protect with JIT.
+1. In the menu, select **Configuration**.
+1. Under **Just-in-time access**, select **Enable just-in-time**. 
 
     This enables just-in-time access for the VM using the following default settings:
 
@@ -136,7 +140,9 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
         - SSH port 22
         - Three hours of maximum allowed access
         - Allowed source IP addresses is set to Any
-     
+        - 
+1. To edit any of these values, or add more ports to your JIT configuration, go to [Azure Security Center's just-in-time page](#jit-modify).  
+
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Security Center, and view and change the settings.
 
@@ -212,6 +218,8 @@ Learn more at [JIT network access policies](https://docs.microsoft.com/rest/api/
 ## Request access to a JIT-enabled VM
 
 You can request access to a JIT-enabled VM from the Azure portal (in Security Center or Azure Virtual machines) or programmatically.
+
+Each of these options is explained in a separate tab below.
 
 ### [Azure Security Center](#tab/jit-request-asc)
 
