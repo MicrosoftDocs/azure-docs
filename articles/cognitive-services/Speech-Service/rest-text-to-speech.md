@@ -181,10 +181,11 @@ This is a list of supported audio formats that are sent in each request as the `
 | `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
 | `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
 | `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+| `audio-24khz-48kbitrate-mono-mp3` | `ogg-24khz-16bit-mono-opus` |
 
 > [!NOTE]
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24 kHz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
+> ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
 
 ### Request body
 
