@@ -115,8 +115,8 @@ For more details about Azure Monitor Logs Workspaces see [Designing your Azure M
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
 > [!WARNING]
-> Enabling auditing on a server that has a SQL Database pool on it **results in the SQL Database pool being resumed and re-paused again** which may incur billing charges.
-> Enabling auditing on a paused SQL Database pool is not possible. To enable it, un-pause the SQL Database pool.
+> Enabling auditing on a server that has a SQL elastic pool on it **results in the SQL elastic pool being resumed and re-paused again** which may incur billing charges.
+> Enabling auditing on a paused SQL elastic pool is not possible. To enable it, un-pause the SQL elastic pool.
 
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
