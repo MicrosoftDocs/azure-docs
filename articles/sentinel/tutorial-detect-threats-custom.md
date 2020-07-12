@@ -72,34 +72,27 @@ You can create custom analytics rules to help you search for the types of threat
     
     1. Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
 
-       - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs if the query returns at least one event. The alert includes a count of the number of events represented. 
+       - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results. 
 
        - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or others. You can define these parameters in the query.
     
-       Currently the number of alerts a rule can generate is capped at 10. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 10 events, each of the first 9 events will generate a unique alert, and the tenth alert will summarize the entire count of returned events. In other words, the tenth alert is what would have been generated under the **Group all events into a single alert** option.
+       Currently the number of alerts a rule can generate is capped at 10. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 10 events, each of the first 9 events will generate a unique alert, and the tenth alert will summarize the entire set of returned events. In other words, the tenth alert is what would have been generated under the **Group all events into a single alert** option.
 
        > [!NOTE]
        > What's the difference between **Events** and **Alerts**?
        >
-       > - An **event** is a description of a single occurrence of an action. For example, a single entry in a log file could count as an event.  In this context an event also refers to a single result returned by a query in an analytics rule.
+       > - An **event** is a description of a single occurrence. For example, a single entry in a log file could count as an event.  In this context an event refers to a single result returned by a query in an analytics rule.
        >
        > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
        >
-       > - The flow of events and alerts in Azure Sentinel looks like this:
-       >
-       >    - **Data** flows into Azure Sentinel from connected data sources.
-       >
-       >    - **Rules** run on the **data** to detect threats.
-       >
-       >    - The **rules** execute **queries**.
-       >
-       >    - The **queries** return **events**.
-       >
-       >    - The **rules** generate **alerts** from the **events** (the query results).
-       >
-       >    - Azure Sentinel's internal logic creates **incidents** from the **alerts**. Incidents are cases for investigation and remediation.
+       > - By the way, what are **incidents**? Azure Sentinel's internal logic creates **incidents** from **alerts** or groups of alerts. The incidents queue is the focal point of analysts' work - triage, investigation and remediation.
        > 
        > Azure Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
+
+       > [!IMPORTANT]
+       > Event grouping is currently in public preview.
+       > This feature is provided without a service level agreement, and it's not recommended for production workloads.
+       > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
     
     1. In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
