@@ -219,7 +219,7 @@ SecurityEvent
 ### Avoid multiple scans of same source data using conditional aggregation functions and materialize function
 When a query has several sub-queries that are merged using join or union operators, each sub-query scans the entire source seperately and then merge the results. This multiples the number of times data is scanned - critical factor in very large data sets.
 
-A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
+A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
 
 For example, the following queries show the number of login events and the number of process execution events for each account. They return the same results but the first is scanning the data twice, the second scan it only once:
 
