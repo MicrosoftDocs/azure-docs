@@ -1,5 +1,5 @@
 ---
-title: 'Set up alerts on Azure VPN Gateway metrics'
+title: 'View Azure VPN Gateway metrics'
 description: Steps to view VPN Gateway metrics
 services: vpn-gateway
 author: anzaman
