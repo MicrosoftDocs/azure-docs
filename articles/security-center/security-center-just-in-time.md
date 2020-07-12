@@ -51,7 +51,7 @@ Alternatively, you can enable JIT with default, hard-coded parameters, from Azur
 
 Each of these options is explained in a separate tab below.
 
-### [Security Center](#tab/jit-config-asc)
+### [**Azure Security Center**](#tab/jit-config-asc)
 
 ### Enable JIT on your VMs from Azure Security Center <a name="jit-asc"></a>
 
@@ -117,7 +117,7 @@ To edit the existing JIT rules for a VM:
 
 
 
-### [Azure Virtual Machines](#tab/jit-config-avm)
+### [**Azure virtual machines**](#tab/jit-config-avm)
 
 ### Enable JIT on your VMs from Azure virtual machines
 
@@ -140,15 +140,15 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
         - SSH port 22
         - Three hours of maximum allowed access
         - Allowed source IP addresses is set to Any
-        - 
-1. To edit any of these values, or add more ports to your JIT configuration, go to [Azure Security Center's just-in-time page](#jit-modify).  
+
+1. To edit any of these values, or add more ports to your JIT configuration, go to [Azure Security Center's just-in-time page](#edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-).
 
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Security Center, and view and change the settings.
 
 
 
-### [PowerShell](#tab/jit-config-powershell)
+### [**PowerShell**](#tab/jit-config-powershell)
 
 ### Enable JIT on your VMs using PowerShell
 
@@ -163,11 +163,11 @@ To enable just-in-time VM access from PowerShell, use the official Azure Securit
 
 The following PowerShell commands create this JIT configuration:
 
-1.    Assign a variable that holds the just-in-time VM access rules for a VM:
+1. Assign a variable that holds the just-in-time VM access rules for a VM:
 
-        ```azurepowershell
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+    ```azurepowershell
+    $JitPolicy = (@{
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
              protocol="\*";
@@ -178,28 +178,28 @@ The following PowerShell commands create this JIT configuration:
              protocol="\*";
              allowedSourceAddressPrefix=@("\*");
              maxRequestAccessDuration="PT3H"})})
-        ```
+    ```
 
-1.    Insert the VM just-in-time VM access rules into an array:
+1. Insert the VM just-in-time VM access rules into an array:
     
-        ```azurepowershell
-        $JitPolicyArr=@($JitPolicy)
-        ```
+    ```azurepowershell
+    $JitPolicyArr=@($JitPolicy)
+    ```
 
-1.    Configure the just-in-time VM access rules on the selected VM:
+1. Configure the just-in-time VM access rules on the selected VM:
     
-        ```azurepowershell
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr
-        ```
+    ```azurepowershell
+    Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr
+    ```
 
-        Use the -Name parameter to specify a VM. For example, to establish the JIT configuration for two different VMs, VM1 and VM2, use: ```Set-AzJitNetworkAccessPolicy -Name VM1``` and ```Set-AzJitNetworkAccessPolicy -Name VM2```.
+    Use the -Name parameter to specify a VM. For example, to establish the JIT configuration for two different VMs, VM1 and VM2, use: ```Set-AzJitNetworkAccessPolicy -Name VM1``` and ```Set-AzJitNetworkAccessPolicy -Name VM2```.
 
 
-### [REST API](#tab/jit-config-api)
+### [**REST API**](#tab/jit-config-api)
 
 ### Enable JIT on your VMs using the REST API
 
-The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. 
+The just-in-time VM access feature can be used via the Azure Security Center API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
 Learn more at [JIT network access policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
 
@@ -221,7 +221,7 @@ You can request access to a JIT-enabled VM from the Azure portal (in Security Ce
 
 Each of these options is explained in a separate tab below.
 
-### [Azure Security Center](#tab/jit-request-asc)
+### [**Azure Security Center**](#tab/jit-request-asc)
 
 ### Request access to a JIT-enabled VM from Azure Security Center 
 
@@ -248,29 +248,33 @@ When a VM has a JIT enabled, you have to request access to connect to it. You ca
 
 
 
-### [Azure virtual machines](#tab/jit-request-avm)
+### [**Azure virtual machines**](#tab/jit-request-avm)
 
 ### Request access to a JIT-enabled VM from the Azure virtual machine's connect page
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-In the Azure portal, when you try to connect to a VM, Azure checks to see if JIT is enabled on that VM. If the VM has JIT enabled, open the **Connect** page and select **Request access** to grant access in accordance with the JIT configuration defined for the VM. 
-
   >![jit request](./media/security-center-just-in-time/jit-request-vm.png)
 
-  By default, the following parameters are included in the access request:
 
-  - **source IP**: 'Any' (*) (cannot be changed)
-  - **time range**: Three hours (cannot be changed)
-  - **port number** RDP port 3389 for Windows / port 22 for Linux (can be changed)
+To request access from Azure virtual machines:
 
-    > [!NOTE]
-    > After a request is approved for a VM protected by Azure Firewall, Security Center provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
+1. In the Azure portal, open the virtual machines pages.
 
-- If you don't have JIT configured on a VM, you'll be prompted to enable JIT.
+1. Select the VM to which you want to connect, and open the **Connect** page.
+
+    Azure checks to see if JIT is enabled on that VM.
+
+    - If JIT isn't enabled for the VM, you'll be prompted to enable it.
+
+    - If JIT's enabled, select **Request access** to pass an access request with the source IP, time range, and ports that were configured for that VM.
+
+> [!NOTE]
+> After a request is approved for a VM protected by Azure Firewall, Security Center provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
 
 
-### [PowerShell](#tab/jit-request-powershell)
+
+### [**PowerShell**](#tab/jit-request-powershell)
 
 ### Request access to a JIT-enabled VM using PowerShell
 
@@ -278,38 +282,38 @@ In the following example, you can see a just-in-time VM access request to a spec
 
 Run the following in PowerShell:
 
-1.    Configure the VM request access properties
+1. Configure the VM request access properties:
 
-        ```azurepowershell
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+    ```azurepowershell
+    $JitPolicyVm1 = (@{
+        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           endTimeUtc="2020-07-15T17:00:00.3658798Z";
            allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-        ```
+    ```
 
-1.    Insert the VM access request parameters in an array:
+1. Insert the VM access request parameters in an array:
 
-        ```azurepowershell
-        $JitPolicyArr=@($JitPolicyVm1)
-        ```
+    ```azurepowershell
+    $JitPolicyArr=@($JitPolicyVm1)
+    ```
         
-1.    Send the request access (use the resource ID from step 1)
+1. Send the request access (use the resource ID from step 1)
 
-        ```azurepowershell
-        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
-        ```
+    ```azurepowershell
+    Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+    ```
 
 Learn more in the [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
-### [Rest API](#tab/jit-request-api)
+### [**REST API**](#tab/jit-request-api)
 
 ### Request access to a JIT-enabled VMs using the REST API
 
-The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. 
+The just-in-time VM access feature can be used via the Azure Security Center API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
 Learn more at [JIT network access policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
 
