@@ -90,7 +90,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A question page for VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 

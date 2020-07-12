@@ -4,29 +4,35 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
 > [!NOTE]
-> This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via Github may be written over without warning. Contact the author of this article for details on how to make permanent updates.
+> This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via GitHub may be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. 
 
-This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list was last updated March 27th, 2020. Metrics changed or added after this date may not appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list was last updated March 27th, 2020. Metrics changed or added after this date may not appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Other metrics not on this list may be available in the portal or using legacy APIs.
 
-Other metrics may be available in the portal or using legacy APIs. Metrics for the guest operating system (guest os) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Those must be collected through one or more agents which run on or as part of the operating system. You can send the agent metrics into the platform metrics database using the [custom metrics](metrics-custom-overview.md) API, which are currently in public preview. Then you can chart, alert and otherwise use guest os metrics like platform metrics. For more information, see [Monitoring Agents Overview](agents-overview.md).    
+The metrics are organized by resource providers and resource type. For a list of services and the resource providers that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
->
-> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
->
-> For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
+## Guest OS Metrics
+
+Metrics for the guest operating system (guest os) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Instead, guest os performance metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest os metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting.  Using the [Azure Diagnostics extension](diagnostics-extension-overview.md), you can send guest os performance metrics into the same database where platform metrics are stored. It routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. For more information, see [Monitoring Agents Overview](agents-overview.md).    
+
+## Routing platform metrics to other locations
+
+You can use [diagnostics settings](diagnostic-settings.md) to route platform metrics to Azure Storage, Azure Monitor Logs (and thus Log Analytics), and Event hubs.  
+
+There are some limitations in what can be routed and the form in which they are stored. 
+- Not all metrics are exportable to other locations. For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
+
+- Sending multi-dimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+*For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 
 
 ## Microsoft.AnalysisServices/servers
@@ -2001,9 +2007,9 @@ The metrics are organized by namespace. For a list of services and the namespace
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
 |sqlserver_process_core_percent<sup>1</sup> |SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
 |sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
-|tempdb_data_size<sup>2</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
-|tempdb_log_size<sup>2</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
-|tempdb_log_used_percent<sup>2</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
+|tempdb_data_size<sup>1</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>1</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
+|tempdb_log_used_percent<sup>1</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
@@ -2028,9 +2034,7 @@ The metrics are organized by namespace. For a list of services and the namespace
 |snapshot_backup_size_bytes|Snapshot backup storage size|Bytes|Maximum|Cumulative snapshot backup storage size. Applies to Hyperscale databases.|None|
 |base_blob_size_bytes|Base blob storage size|Bytes|Maximum|Base blob storage size. Applies to Hyperscale databases.|None|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
-
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing model. 
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -2062,27 +2066,14 @@ The metrics are organized by namespace. For a list of services and the namespace
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
 |sqlserver_process_memory_percent<sup>1</sup>|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
-|tempdb_data_size<sup>2</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
-|tempdb_log_size<sup>2</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
-|tempdb_log_used_percent<sup>2</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
+|tempdb_data_size<sup>1</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>1</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
+|tempdb_log_used_percent<sup>1</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
-
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
-
-
-## Microsoft.Sql/servers
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Data space used|Bytes|Average|Data space used|ElasticPoolResourceId|
-|database_storage_used|Data space used|Bytes|Average|Data space used|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|DTU used|Count|Average|DTU used|DatabaseResourceId|
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing model. 
 
 ## Microsoft.Sql/managedInstances
 
@@ -2401,7 +2392,7 @@ The metrics are organized by namespace. For a list of services and the namespace
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|ResponseTime|Response Time|Seconds|Total|Response Time|Instance|
+|HttpResponseTime|Response Time|Seconds|Total|Response Time|Instance|
 |AverageResponseTime|Average Response Time (deprecated)|Seconds|Average|Average Response Time|Instance|
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|

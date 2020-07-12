@@ -189,16 +189,16 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 2. After you mount the system disk as a data disk on the recovery VM, back up the fstab file before you make changes, and then follow the next steps to correct the fstab file.
 
-3.    Look for the error that indicates the disk wasn't mounted. In the following example, the system was trying to attach a disk that was no longer present:
+3. Look for the error that indicates the disk wasn't mounted. In the following example, the system was trying to attach a disk that was no longer present:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. Connect to the VM by using the root password (Red Hat-based VMs).
 
@@ -239,4 +239,3 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
 * [Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
-

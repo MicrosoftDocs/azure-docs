@@ -1,19 +1,8 @@
 ---
 title: Read Azure Event Hubs captured data from a Python app (latest)
 description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account. 
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/30/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub version 5)
@@ -43,7 +32,7 @@ In this quickstart, you:
 - An Azure storage account, a blob container in the storage account, and a connection string to the storage account. If you don't have these items, do the following:  
     1. [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
     Be sure to record the connection string and container name for later use in this quickstart.  
 - Enable the Capture feature for the event hub. To do so, follow the instructions in [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Select the storage account and the blob container you created in the preceding step. You can also enable the feature when you create an event hub.  

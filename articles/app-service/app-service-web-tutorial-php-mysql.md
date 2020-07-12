@@ -165,10 +165,10 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "&lt;mysql_server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -180,9 +180,9 @@ When the MySQL server is created, the Azure CLI shows information similar to the
   },
   "sslEnforcement": "Enabled",
   ...    +  
-  -  < Output has been truncated for readability >
+  -  &lt; Output has been truncated for readability &gt;
 }
-```
+</pre>
 
 ### Configure server firewall
 
@@ -396,7 +396,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -408,8 +408,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 > [!NOTE]
 > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
@@ -626,3 +626,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

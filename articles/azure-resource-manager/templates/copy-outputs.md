@@ -10,7 +10,7 @@ This article shows you how to create more than one value for an output in your A
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
-## Outputs iteration
+## Syntax
 
 The copy element has the following general format:
 
@@ -24,6 +24,21 @@ The copy element has the following general format:
 The **count** property specifies the number of iterations you want for the output value.
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
+
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
+
+* Azure PowerShell **2.6** or later
+* Azure CLI **2.0.74** or later
+* REST API version **2019-05-10** or later
+* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+
+Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+## Outputs iteration
 
 The following example creates a variable number of storage accounts and returns an endpoint for each storage account:
 

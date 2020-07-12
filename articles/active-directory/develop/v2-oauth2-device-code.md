@@ -3,7 +3,7 @@ title: OAuth 2.0 device code flow | Azure
 titleSuffix: Microsoft identity platform
 description: Sign in users without a browser. Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory
@@ -36,7 +36,7 @@ The client must first check with the authentication server for a device and user
 > Try executing this request in Postman!
 > [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
@@ -77,7 +77,7 @@ If the user authenticates with a personal account (on /common or /consumers), th
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
-```
+```HTTP
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 

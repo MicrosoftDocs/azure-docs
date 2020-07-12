@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 03/11/2020
+ms.topic: how-to
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -29,7 +29,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 1. Add the `Localization` element with the supported languages: English (default) and Spanish.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -47,7 +47,7 @@ You configure localized resources elements for the content definition and any la
 > [!NOTE]
 > In the following sample we added the pound `#` symbol at the begging of each line, so you can easly find the localized labels on the screen.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -214,7 +214,7 @@ Paste the entire contents of the ContentDefinitions element that you copied as a
 
 In the following example, English (en) and Spanish (es) custom strings are added to the sign-up or sign-in page, and to the local account sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the corresponding **LocalizedResources** you previously created.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -251,7 +251,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Switch your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authorization request. For example: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## Next steps

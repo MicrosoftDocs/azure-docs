@@ -63,6 +63,9 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: App Service plans
@@ -109,8 +112,14 @@
     items:
     - name: Configure common settings
       href: configure-common.md
+    - name: Configure ASP.NET
+      href: configure-language-dotnet-framework.md
+    - name: Configure ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configure Node.js
+      href: configure-language-nodejs.md
     - name: Configure PHP
-      href: web-sites-php-configure.md
+      href: configure-language-php.md
     - name: Configure Java
       href: configure-language-java.md
     - name: Connect to on-prem resources
@@ -167,6 +176,8 @@
         href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
+      - name: Authenticate with an OpenID Connect provider (Preview)
+        href: configure-authentication-provider-openid-connect.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict access
@@ -197,6 +208,8 @@
       href: web-sites-monitor.md
     - name: Enable logs
       href: troubleshoot-diagnostic-logs.md
+    - name: Get resource events
+      href: get-resource-events.md
   - name: Manage app
     items:
     - name: Manage the hosting plan
@@ -211,6 +224,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted App Service
       href: app-service-undelete.md
+    - name: Restore from downed region
+      href: manage-disaster-recovery.md
   - name: Move app
     items:
     - name: Move between regions

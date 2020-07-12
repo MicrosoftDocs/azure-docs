@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](/azure/azure-portal/supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/resource-manager-core-quotas-request.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -168,8 +168,6 @@ Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate l
 
 For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
-### Issue 1: Failed to register Azure VM with Site Recovery (151195)
-
 #### Possible causes
 
 - A connection can't be established to Site Recovery endpoints because of a Domain Name System (DNS) resolution failure.
@@ -199,7 +197,7 @@ A connection can't be established to Office 365 authentication and identity IP4 
 #### Fix the problem
 
 Azure Site Recovery required access to Office 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](/azure/virtual-network/security-overview#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
@@ -257,8 +255,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [Initialize a new data disk in Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
 
 If the problem persists, contact support.
 

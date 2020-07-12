@@ -310,7 +310,7 @@ Notice that the Azure Maps control supports zooming out more and provides more o
 
 ## Localizing the map
 
-Localization is important if your audience is spread across multiple countries or speak different languages.
+Localization is important if your audience is spread across multiple countries/regions or speak different languages.
 
 **Before: Google Maps**
 

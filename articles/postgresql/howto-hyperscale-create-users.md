@@ -4,7 +4,8 @@ description: This article describes how you can create new user accounts to inte
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.topic: conceptual
+ms.subservice: hyperscale-citus
+ms.topic: how-to
 ms.date: 1/8/2019
 ---
 
@@ -82,18 +83,12 @@ GRANT SELECT ON mytable TO db_user;
 ```
 
 Hyperscale (Citus) propagates single-table GRANT statements through the entire
-cluster, applying them on all worker nodes. However GRANTs that are system-wide
-(for example, for all tables in a schema) need to be run on every date node.  Use the
-`run_command_on_workers()` helper function:
+cluster, applying them on all worker nodes. It also propagates GRANTs that are
+system-wide (e.g. for all tables in a schema):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## How to delete a user role or change their password

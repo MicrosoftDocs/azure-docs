@@ -7,8 +7,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 11/08/2019
+ms.topic: how-to
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,7 +22,7 @@ For more information about Azure AD admin roles, see [Assigning administrator r
 
 ## Required permissions
 
-Connect to your Azure AD tenant using a global administrator account to assign or remove roles.
+Connect to your Azure AD organization using a global administrator account to assign or remove roles.
 
 ## Prepare PowerShell
 

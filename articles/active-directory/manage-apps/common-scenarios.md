@@ -2,20 +2,18 @@
 title: Common application management scenarios for Azure Active Directory | Microsoft Docs
 description: Centralize application management with Azure AD
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -50,7 +48,7 @@ Most applications require a user to be provisioned into the application before a
 
 |Feature  |Description|Recommendation |
 |---------|---------|---------|
-|SCIM Provisioning|[SCIM](https://aka.ms/SICMOverview) is an industry best practice for automating user provisioning. Any SCIM-compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on-prem solutions.|Check out the growing list of [pre-integrated](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) apps in the Azure AD app gallery|
+|SCIM Provisioning|[SCIM](https://aka.ms/SCIMOverview) is an industry best practice for automating user provisioning. Any SCIM-compliant application can be integrated with Azure AD. Automatically create, update, and delete user accounts without having to maintain CSV files, custom scripts, or on-prem solutions.|Check out the growing list of [pre-integrated](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) apps in the Azure AD app gallery|
 |Microsoft Graph|Leverage the breath and depth of data that Azure AD has to enrich your application with the data that it needs.|Leverage the [Microsoft graph](https://developer.microsoft.com/graph/) to get data from across the Microsoft ecosystem. |
 
 

@@ -1,18 +1,9 @@
 ---
 title: Azure Virtual Machine PowerShell Samples 
 description: Azure Virtual Machine PowerShell Samples
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: sample
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
@@ -22,7 +13,7 @@ ms.custom: mvc
 
 The following table provides links to PowerShell script samples that create and manage Windows virtual machines (VMs).
 
-| | |
+| Script | Description |
 |---|---|
 |**Create virtual machines**||
 | [Quickly create a virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a resource group, a virtual machine, and all related resources, with a minimum of prompts.|

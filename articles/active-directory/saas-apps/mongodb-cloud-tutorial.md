@@ -34,7 +34,7 @@ To learn more about software as a service (SaaS) app integration with Azure AD, 
 To get started, you need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A MongoDB Cloud subscription that is enabled for single sign-on (SSO).
+* A MongoDB Cloud organization that is enabled for single sign-on (SSO), you can signup for a [free cluster](https://www.mongodb.com/cloud)
 
 ## Scenario description
 
@@ -101,11 +101,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to the preceding attributes, the MongoDB Cloud application expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them per your requirements.
 	
-	| Name | |  Source attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.userprincipalname |
-	| firstName | | user.givenname |
-	| lastName | | user.surname |
+	| Name | Source attribute|
+	| ---------------| --------- |
+	| email | user.userprincipalname |
+	| firstName | user.givenname |
+	| lastName | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it on your computer.
 
@@ -146,7 +146,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure MongoDB Cloud SSO
 
-To configure single sign-on on the MongoDB Cloud side, you need the appropriate URLs copied from the Azure portal. You also need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud documentation](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). If you have a problem, contact the [MongoDB Cloud support team](https://support.mongodb.com/).
+To configure single sign-on on the MongoDB Cloud side, you need the appropriate URLs copied from the Azure portal. You also need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud documentation](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). If you have a problem, contact the [MongoDB Cloud support team](https://support.mongodb.com/).
 
 ### Create a MongoDB Cloud test user
 
@@ -166,7 +166,7 @@ When you select the MongoDB Cloud tile in Access Panel, you're automatically sig
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Sign up for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
+- [Sign up for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Try MongoDB Cloud with Azure AD](https://aad.portal.azure.com/)
 

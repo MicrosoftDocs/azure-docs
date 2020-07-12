@@ -83,11 +83,11 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -315,3 +315,39 @@ This issue can occur if any maintenance activities are being done on the Sentine
 1. Go to your FarmBeats Datahub resource group.
 2. Select the **App service**.  
 3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
+
+## Weather data job failures
+
+**Error**: You run Jobs to get weather data but the job fails
+
+### Collect logs to troubleshoot weather data job failures
+
+1. Go to your FarmBeats resource group in the Azure portal.
+2. Click on the Data Factory service that is part of the resource group. The service will have a tag "sku: Datahub"
+
+> [!NOTE]
+> To view the tags of the services within the resource group, click on "Edit Columns" and add "Tags" to the resource group view
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Project FarmBeats":::
+
+3. On the Overview page of the Data factory, click on **Author and Monitor**. A new tab opens on your browser. Click on **Monitor**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Project FarmBeats":::
+
+4. You will see a list of pipeline runs that are part of the weather job execution. Click on the Job that you want to collect logs for
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Project FarmBeats":::
+
+5. On the pipeline overview page, you will see the list of activity runs. Make a note of the Run IDs of the activities that you want to collect logs for
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Project FarmBeats":::
+
+6. Go back to your FarmBeats resource group in Azure portal and click on the Storage Account with the name **datahublogs-XXXX**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Project FarmBeats":::
+
+7. Click on **Containers** -> **adfjobs**. In the Search box, enter the job Run ID that you noted in step 5 above.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Project FarmBeats":::
+
+8. The search result will contain the folder which has the logs pertaining to the job. Download the logs and send it to farmbeatssupport@microsoft.com for assistance in debugging the issue.

@@ -3,7 +3,7 @@ title: Migrate data from Cassandra to Azure Cosmos DB Cassandra API using Blitzz
 description: Learn how to migrate data from Apache Cassandra database to Azure Cosmos DB Cassandra API using Blitzz. 
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
@@ -47,9 +47,9 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
 1. You can get the Blitzz installation and the binary files either by requesting a demo on the [Blitzz website](https://www.blitzz.io). Alternatively, you can also send an [email](mailto:success@blitzz.io) to the team.
 
-   ![Blitzz replicant tool download](./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Blitzz replicant tool download":::
 
-   ![Blitzz replicant files](./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Blitzz replicant files":::
 
 1. From the CLI terminal, set up the source database configuration. Open the configuration file using **`vi conf/conn/cassandra.yml`** command and add a comma-separated list of IP addresses of the Cassandra nodes, port number, username, password, and any other required details. The following is an example of contents in the configuration file:
 
@@ -66,9 +66,9 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    ```
 
-   ![Open Cassandra connection editor](./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Open Cassandra connection editor":::
 
-   ![Cassandra connection configuration](./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Cassandra connection configuration":::
 
    After filling out the configuration details, save and close the file.
 
@@ -87,7 +87,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time.
 
-   ![Scale Azure Cosmos container throughout](./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Scale Azure Cosmos container throughout":::
 
    Decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
 
@@ -123,7 +123,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    The replicant UI shows the replication progress. Once the schema migration and snapshot operation are done, the progress shows 100%. After the migration is complete, you can validate the data on the target Azure Cosmos database.
 
-   ![Cassandra data migration output](./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png)
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Cassandra data migration output":::
 
 
 1. Because you have used full mode for migration, you can perform operations such as insert, update, or delete data on the source Apache Cassandra database. Later validate that they are replicated real time on the target Azure Cosmos database. After the migration, make sure to decrease the throughput configured for your Azure Cosmos container.

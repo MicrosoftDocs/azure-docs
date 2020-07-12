@@ -51,7 +51,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
-* Copy data from an on-premises SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy data from a SQL Server database and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
 * Copy zipped files from an on-premises file system, decompress them on-the-fly, and write extracted files to Azure Data Lake Storage Gen2.
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
@@ -246,4 +246,4 @@ See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)
 - [Copy data from Azure Blob storage to Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copy data from an on-premises SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)
+- [Copy data from a SQL Server database to Azure](tutorial-hybrid-copy-powershell.md)

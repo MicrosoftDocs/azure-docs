@@ -115,9 +115,9 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.4 or later| Supported. | Full fidelity.* |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Supported. | Doesn't copy metadata. [Data Box can be used with Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Supported. | Doesn't copy metadata. |
-|![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Storage Explorer | Supported. | Doesn't copy metadata. |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||
 

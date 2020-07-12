@@ -33,7 +33,7 @@ To complete this quickstart, you must have:
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).   
 
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
 
@@ -57,7 +57,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
+   This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
@@ -139,6 +139,8 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
     > * Don't include keys in your tagged fields&mdash;only the values.
     > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
 ![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
 
@@ -160,6 +162,27 @@ The following value types and variations are currently supported:
     * default, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> See these rules for date formatting:
+> 
+> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> The day and month can each be written as one or two digits, and the year can be two or four digits:
+> * 1-1-2020
+> * 1-01-20
+>
+> If a DMY date string has eight digits, the delimiter is optional:
+> * 01012020
+> * 01 01 2020
+>
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
 
 ## Train a custom model
 

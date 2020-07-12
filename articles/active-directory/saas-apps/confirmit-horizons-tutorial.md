@@ -105,25 +105,23 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>` |
-	| `https://sso.us.confirmit.com/<UNIQUEID>` |
-	| |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://sso.us.confirmit.com/<UNIQUEID>/saml/acs` |
-	| |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+    https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -131,14 +129,13 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>` |
-	| `https://sso.us.confirmit.com/<UNIQUEID>` |
-	| | 
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Confirmit Horizons Client support team](mailto:support@confirmit.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

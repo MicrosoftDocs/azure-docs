@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/06/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
 ---
 
 # Ports used by Apache Hadoop services on HDInsight
@@ -151,7 +151,7 @@ Examples:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Worker nodes |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Used for client communication |
+| Broker |Worker nodes |9092 |Kafka Wire Protocol |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
 | REST proxy | Kafka management nodes |9400 |HTTPS |[Kafka REST specification](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 

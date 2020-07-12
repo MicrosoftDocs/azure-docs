@@ -195,7 +195,7 @@ Your bot framework code needs to call the Train API, if the user's query should 
 * Determine if query should be used for active learning
 * Send query back to QnA Maker's Train API for active learning
 
-In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed.
+In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
 ### Example C# code for Train API with Bot Framework 4.x
 
@@ -325,11 +325,6 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
     }
 ]
 ```
-
-You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
 

@@ -1,10 +1,11 @@
 ---
 title: Manage Python 2 packages in Azure Automation
-description: This article describes how to manage Python 2 packages in Azure Automation.
+description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
+ms.custom: tracking-python
 ---
 # Manage Python 2 packages in Azure Automation
 
@@ -26,11 +27,11 @@ Once a package has been imported, it's listed on the Python 2 packages page in y
 
 ## Import packages with dependencies
 
-Azure automation doesn't resolve dependencies for python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation account.
+Azure automation doesn't resolve dependencies for Python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation account.
 
 ### Manually download
 
-On a Windows 64-bit machine with [python2.7](https://www.python.org/downloads/release/latest/python2) and [pip](https://pip.pypa.io/en/stable/) installed, run the following command to download a package and all its dependencies:
+On a Windows 64-bit machine with [Python2.7](https://www.python.org/downloads/release/latest/python2) and [pip](https://pip.pypa.io/en/stable/) installed, run the following command to download a package and all its dependencies:
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
@@ -40,7 +41,7 @@ Once the packages are downloaded, you can import them into your automation accou
 
 ### Runbook
 
-Import the python runbook [Import Python 2 packages from pypi into Azure Automation account](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) from the gallery into your Automation account. Make sure the Run Settings are set to **Azure** and start the runbook with the parameters. The runbook requires a Run As account for the Automation account to work. For each parameter make sure you start it with the switch as seen in the following list and image:
+ To obtain a runbook, [import Python 2 packages from pypi into Azure Automation account](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) from the gallery into your Automation account. Make sure the Run Settings are set to **Azure** and start the runbook with the parameters. The runbook requires a Run As account for the Automation account to work. For each parameter make sure you start it with the switch as seen in the following list and image:
 
 * -s \<subscriptionId\>
 * -g \<resourceGroup\>
@@ -79,8 +80,8 @@ for group in groups:
 
 ## Develop and test runbooks offline
 
-To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on GitHub. This module allows you to reference your shared resources such as credentials, variables, connections, and certificates.
+To develop and test your Python 2 runbooks offline, you can use the [Azure Automation Python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on GitHub. This module allows you to reference your shared resources such as credentials, variables, connections, and certificates.
 
 ## Next steps
 
-To get started with Python 2 runbooks, see [My first Python 2 runbook](automation-first-runbook-textual-python2.md).
+To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

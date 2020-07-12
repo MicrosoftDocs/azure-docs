@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 2/24/2020
+ms.date: 7/9/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -1515,7 +1515,9 @@ This section will describe Azure Resource Manager templates for three scenarios 
 
 > [!NOTE]
 >
-> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> In a metric alert rule that monitors multiple resources, the following limitations apply:
+> - The scope of the alert rule must contain at least one resource of the selected resource type.
+> - The alert rule can only contain one condition.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 
@@ -3543,7 +3545,6 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",

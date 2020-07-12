@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Azure Data Box Gateway limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Data Box Gateway solution. 
+Consider these limits as you deploy and operate your Microsoft Azure Data Box Gateway solution.
 
 ## Data Box Gateway service limits
 

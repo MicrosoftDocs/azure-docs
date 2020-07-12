@@ -1,21 +1,14 @@
 ---
 title: Azure VM sizes - HPC | Microsoft Docs
 description: Lists the different sizes available for high performance computing virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
-ms.reviewer: jonbeck
+ms.reviewer: jushiman
 ---
 
 # High performance computing VM sizes
@@ -35,18 +28,18 @@ Azure H-series virtual machines (VMs) are designed to deliver leadership-class p
 
 ## RDMA-capable instances
 
-Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series] (https://docs.microsoft.com/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
+Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series](https://docs.microsoft.com/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
 
 This interface allows the RDMA-capable instances to communicate over an InfiniBand (IB) network, operating at HDR rates for HBv2, EDR rates for HB, HC, FDR rates for H16r, H16mr, and RDMA-capable N-series virtual machines, and QDR rates for A8 and A9 VMs. These RDMA capabilities can boost the scalability and performance of certain Message Passing Interface (MPI) applications. For more information on speed, see the details in the tables on this page.
 
 > [!NOTE]
-> In Azure HPC, there are two classes of VMs depending on whether they are SR-IOV enabled for InfiniBand. Currently, the SR-IOV for InfiniBand enabled VMs are: HBv2, HB, HC and NCv3. Rest of the InfiniBand enabled VMs are not SR-IOV enabled.
+> In Azure HPC, there are two classes of VMs depending on whether they are SR-IOV enabled for InfiniBand. Currently, the SR-IOV for InfiniBand enabled VMs are: HBv2, HB, HC, NCv3 and NDv2. Rest of the InfiniBand enabled VMs are not SR-IOV enabled.
 > RDMA over IB is supported for all RDMA-capable VMs.
 > IP over IB is only supported on the SR-IOV enabled VMs.
 
-- **Operating system** - Linux is very well supported for HPC VMs, distros such as CentOS, RHEL, Ubuntu, SUSE are common. Regarding Windows support, Windows Server 2016 is supported on all the HPC series VMs. Windows Server 2012 R2, Windows Server 2012 are also supported on the non-SR-IOV enabled VMs.
+- **Operating system** - Linux is very well supported for HPC VMs; distros such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Regarding Windows support, Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2, Windows Server 2012 are also supported on the non-SR-IOV enabled VMs (H16r, H16mr, A8 and A9). Note that [Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **MPI** - The SR-IOV enabled VM sizes on Azure (HBv2, HB, HC, NCv3) allow almost any flavor of MPI to be used with Mellanox OFED.
+- **MPI** - The SR-IOV enabled VM sizes on Azure (HBv2, HB, HC, NCv3, NDv2) allow almost any flavor of MPI to be used with Mellanox OFED.
 On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Microsoft MPI (MS-MPI) 2012 R2 or later and Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers.
 
 - **InfiniBandDriver<Linux|Windows> VM extension** - On RDMA-capable VMs, add the InfiniBandDriver<Linux|Windows> extension to enable InfiniBand. On Linux, the InfiniBandDriverLinux VM extension installs the Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. On Windows, the InfiniBandDriverWindows VM extension installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity.
@@ -88,7 +81,7 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 - **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same scale set or availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service.
 
-- **Virtual machine scale sets** - In a virtual machine scale set (VMSS), ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. Note that the maximum VMSS size that can be spun up with `singlePlacementGroup` property to `true` is capped at 100 VMs by default. If your HPC job scale needs are higher than 100 VMs in a single VMSS tenant, you may request an increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+- **Virtual machine scale sets** - In a virtual machine scale set (VMSS), ensure that you limit the deployment to a single placement group for InfiniBand communication within the VMSS. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. Note that the maximum VMSS size that can be spun up with `singlePlacementGroup` property to `true` is capped at 100 VMs by default. If your HPC job scale needs are higher than 100 VMs in a single VMSS tenant, you may request an increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge. The limit on the number of VMs in a single VMSS can be increased to 300. Note that when deploying VMs using Availability Sets the maximum limit is at 200 VMs per Availability Set.
 
 - **MPI among virtual machines** - If RDMA (e.g. using MPI communication) is required between virtual machines (VMs), ensure that the VMs are in the same virtual machine scale set or availability set.
 
@@ -125,6 +118,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

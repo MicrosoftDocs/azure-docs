@@ -1,16 +1,15 @@
 ### YamlMime:Landing
 title: Azure Arc
-summary: Azure Arc extends Azure Resource Manager capabilities to Linux and Windows servers, as well as Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and edge. With Azure Arc, customers can also run Azure data services anywhere, realizing the benefits of cloud innovation, including always up-to-date data capabilities, deployment in seconds (rather than hours), and dynamic scalability on any infrastructure. Azure Arc for servers is currently in public preview.
+summary: Azure Arc extends Azure Resource Manager capabilities to Linux and Windows servers, as well as Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and edge. With Azure Arc, customers can also run Azure data services anywhere, realizing the benefits of cloud innovation, including always up-to-date data capabilities, deployment in seconds (rather than hours), and dynamic scalability on any infrastructure.
 
 metadata:
   title: Azure Arc for servers
   description: Learn about how to manage on-premises machines in Azure
-  author: bobbytreed
-  manager: carmonm
+  author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 11/04/2019
-  ms.author: robreed
+  ms.date: 06/26/2020
+  ms.author: magoedte
 
 landingContent:
   
@@ -35,3 +34,25 @@ landingContent:
             url: ./servers/onboard-service-principal.md
           - text: Connect machines to Azure with PowerShell DSC
             url: ./servers/onboard-dsc.md
+  - title: Connect Kubernetes clusters to Azure using Azure Arc
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc enabled Kubernetes?
+            url: ./kubernetes/overview.md 
+      - linkListType: how-to-guide
+        links:
+          - text: Connect cluster
+            url: ./kubernetes/connect-cluster.md
+          - text: Use GitOps in a connected cluster
+            url: ./kubernetes/use-gitops-connected-cluster.md
+          - text: Use GitOps with Helm
+            url: ./kubernetes/use-gitops-with-helm.md
+          - text: Use Azure monitor for containers
+            url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+          - text: Use Azure Policy
+            url: ./kubernetes/use-azure-policy.md
+          - text: Deploy Azure IoT edge workloads
+            url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+          - text: Onboarding service principal
+            url: ./kubernetes/create-onboarding-service-principal.md
