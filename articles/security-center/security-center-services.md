@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
 ---
 
 # Feature coverage for machines
 
-The tables below show Azure Security Center features that are available for virtual machines and servers.
+The two tabs below show the features of Azure Security Center that are available for Windows and Linux virtual machines and servers.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
@@ -38,9 +38,9 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
-|Missing OS patches assessment|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|Free|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |Disk encryption assessment|✔|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
@@ -63,8 +63,8 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
-|Missing OS patches assessment|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
 |Disk encryption assessment|✔|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
