@@ -1,6 +1,6 @@
 ---
-title: Configure Windows ASP.NET Core apps
-description: Learn how to configure a ASP.NET Core app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
+title: Configure ASP.NET Core apps
+description: Learn how to configure a ASP.NET Core app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: dotnet
 ms.topic: article
@@ -8,14 +8,16 @@ ms.date: 06/02/2020
 
 ---
 
-# Configure a Windows ASP.NET Core app for Azure App Service
+# Configure an ASP.NET Core app for Azure App Service
 
 > [!NOTE]
 > For ASP.NET in .NET Framework, see [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md)
 
-ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries. For information about Linux apps, see [Configure a Linux ASP.NET Core app for Azure App Service](containers/configure-language-dotnetcore.md).
+ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET Core quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+
+# [Windows](#tab/windows)
 
 ## Show supported .NET Core runtime versions
 
@@ -25,9 +27,67 @@ In App Service, the Windows instances already have all the supported .NET Core v
 dotnet --info
 ```
 
+# [Linux](#tab/linux)
+
+## Show .NET Core version
+
+To show the current .NET Core version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+To show all supported .NET Core versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep DOTNETCORE
+```
+
+---
+
 ## Set .NET Core version
 
+# [Windows](#tab/windows)
+
 Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](https://docs.microsoft.com/dotnet/core/versions/selection) in .NET Core documentation.
+
+# [Linux](#tab/linux)
+
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 2.1:
+
+```azurecli-interactive
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
+```
+
+---
+
+# [Windows](#tab/windows)
+
+# [Linux](#tab/linux)
+
+## Customize build automation
+
+If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+
+1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `dotnet restore` to restore NuGet dependencies.
+1. Run `dotnet publish` to build a binary for production.
+1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
+
+The following example specifies the two variables to a series of commands, separated by commas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+For more information on how App Service runs and builds ASP.NET Core apps in Linux, see [Oryx documentation: How .NET Core apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
+
+---
 
 ## Access environment variables
 
@@ -143,7 +203,22 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
+# [Windows](#tab/windows)
+
+# [Linux](#tab/linux)
+
+## Open SSH session in browser
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](faq-app-service-linux.md)

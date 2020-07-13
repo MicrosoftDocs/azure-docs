@@ -11,7 +11,7 @@ ms.reviewer: ushan
 
 # Deploy a custom container to App Service using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the [Azure App Service Action for Containers](https://github.com/Azure/webapps-container-deploy), you can automate your workflow to deploy apps as [custom containers to App Service](https://azure.microsoft.com/services/app-service/containers/) using GitHub Actions.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the [Azure App Service Action for Containers](https://github.com/Azure/webapps-container-deploy), you can automate your workflow to deploy custom containers [App Service](overview.md) using GitHub Actions.
 
 > [!IMPORTANT]
 > GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
@@ -29,19 +29,17 @@ For an Azure App Service container workflow, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name> \
                             --sdk-auth
-                            
-# Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
-The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object to authenticate from GitHub.
+In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
 
- ```output 
+```output 
   {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -56,31 +54,22 @@ The output is a JSON object with the role assignment credentials that provide ac
 
 ## Configure the GitHub secret
 
-The below example uses user-level credentials i.e. Azure Service Principal for deployment. Follow the steps to configure the secret:
+In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-1. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**
+Paste the contents of the JSON output from [Create a service principal](#create-a-service-principal) as the value of secret variable. Give the secret the name like `AZURE_CREDENTIALS`.
 
-2. Paste the contents of the below `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
+When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
-    
-    ```azurecli
-    az ad sp create-for-rbac --name "myApp" --role contributor \
-                                --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                                --sdk-auth
-                                
-    # Replace {subscription-id}, {resource-group} with the subscription, resource group details
-    ```
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
-3. Now in the workflow file in your branch: `.github/workflows/workflow.yml` replace the secret in Azure login action with your secret.
+Similarly, define the following additional secrets for the container registry credentials and set them in Docker login action.
 
-4. Similarly, define the following additional secrets for the container registry credentials and set them in Docker login action. 
-
-    - REGISTRY_USERNAME
-    - REGISTRY_PASSWORD
-
-5. You see the secrets as shown below once defined.
-
-    ![container secrets](../media/app-service-github-actions/app-service-secrets-container.png)
+- REGISTRY_USERNAME
+- REGISTRY_PASSWORD
 
 ## Build the Container image
 
@@ -127,7 +116,7 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 | **configuration-file** | (Optional) Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
 | **container-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
-Below is the sample workflow to build and deploy a Node.js app to a custom container in App Service.
+Below is the sample workflow to build and deploy a Node.js app to a custom container in App Service. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 on: [push]
@@ -171,6 +160,8 @@ jobs:
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
+- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+
 - [Azure login](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
@@ -183,6 +174,4 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 
-- [Starter CI Workflows](https://github.com/actions/starter-workflows)
-
-- [Starter workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+- [Starter Workflows](https://github.com/actions/starter-workflows)

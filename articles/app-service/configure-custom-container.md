@@ -10,7 +10,7 @@ ms.date: 03/28/2019
 
 This article shows you how to configure a custom Linux container to run on Azure App Service.
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-docker-go.md) and [tutorial](tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](containers/quickstart-docker-go.md) and [tutorial](containers/tutorial-custom-docker-image.md) first. There's also a [multi-container app quickstart](containers/quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md).
 
 ## Configure port number
 
@@ -43,7 +43,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 ```
 
 > [!NOTE]
-> You can also [configure your own persistent storage](how-to-serve-content-from-azure-storage.md).
+> You can also [configure your own persistent storage](configure-connect-to-azure-storage.md).
 
 ## Enable SSH
 
@@ -88,7 +88,25 @@ SSH enables secure communication between a container and a client. In order for 
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+## Change the Docker image of a custom container
+
+To change an existing custom container app from the current Docker image to a new image, use the following command:
+
+```azurecli-interactive
+az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
+```
+
+## Use an image from a private registry
+
+To use an image from a private registry, such as Azure Container Registry, run the following command:
+
+```azurecli-interactive
+az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <image-name> --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
+```
+
+For *\<username>* and *\<password>*, supply the login credentials for your private registry account.
 
 ## Configure multi-container apps
 
@@ -154,14 +172,14 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 ## Configure VNet integration
 
-Using a custom container with VNet integration may require additional container configuration. See [Integrate your app with an Azure Virtual Network](../web-sites-integrate-with-vnet.md).
+Using a custom container with VNet integration may require additional container configuration. See [Integrate your app with an Azure Virtual Network](web-sites-integrate-with-vnet.md).
 
-[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](tutorial-custom-docker-image.md)
+> [Tutorial: Deploy from private container repository](containers/tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)

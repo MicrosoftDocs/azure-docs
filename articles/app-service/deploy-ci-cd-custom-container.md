@@ -49,6 +49,14 @@ In your Container Registry, click on Webhooks to view the current webhooks.
 
 Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks for Docker Hub</a>.
 
+## Automate with CLI
+
+To configure CI/CD using the Azure CLI, run the [az webapp deployment container config](https://docs.microsoft.com/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) command to generate the webhook URL. The URL can be used to configure your DockerHub or Azure Container Registry.
+
+```azurecli-interactive
+az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true
+```
+
 ## Next steps
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
@@ -56,4 +64,4 @@ Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://d
 * [Create a Ruby web app in App Service on Linux](quickstart-ruby.md)
 * [Deploy a Docker web app in Web App for Containers](containers/quickstart-docker-go.md)
 * [App Service on Linux FAQ](faq-app-service-linux.md)
-* [Manage Web App for Containers using Azure CLI](containers/app-service-linux-cli.md)
+* [Configure custom Linux containers](configure-custom-container.md)

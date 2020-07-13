@@ -352,7 +352,7 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure custom container](configure-custom-container.md)
+> [Configure custom container](../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)

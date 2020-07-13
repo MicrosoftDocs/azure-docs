@@ -1,26 +1,39 @@
 ---
-title: Add custom storage (Windows container)
-description: Learn how to attach custom network share in a custom Windows container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
+title: Add Azure Storage (container)
+description: Learn how to attach custom network share in a containerized app in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
 
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 ---
-# Configure Azure Files in a Windows Container on App Service
+# Access Azure Storage as a network share from a container in App Service
 
-> [!NOTE]
-> This article applies to custom Windows containers. To deploy to App Service on _Linux_, see [Serve Content from Azure Storage](./containers/how-to-serve-content-from-azure-storage.md).
->
+# [Windows container](#tab/wincontainer)
 
-This guide shows how to access Azure Storage in Windows Containers. Only [Azure Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) and [Premium Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) are supported. You use Azure Files Shares in this how-to. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
+This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-premium-fileshare.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
+
+# [Linux container](#tab/lincontainer)
+
+This guide shows how to attach Azure Storage to a Linux container App Service. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+
+---
 
 ## Prerequisites
 
-- [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
-- [An existing Windows Container app in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
-- [Create Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli)
-- [Upload files to Azure File share](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
+# [Windows container](#tab/wincontainer)
+
+- [An existing Windows Container app in Azure App Service](app-service-web-get-started-windows-container.md)
+- [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
+- [Upload files to Azure File share](../storage/files/storage-files-deployment-guide.md)
+
+# [Linux container](#tab/lincontainer)
+
+- An existing [App Service on Linux app](index.yml).
+- An [Azure Storage Account](../storage/common/storage-account-create.md?tabs=azure-cli)
+- An [Azure file share and directory](../storage/files/storage-how-to-use-files-cli.md).
+
+---
 
 > [!NOTE]
 > Azure Files is non-default storage and billed separately, not included with the web app. It doesn't support using Firewall configuration due to infrastructure limitations.
@@ -28,32 +41,73 @@ This guide shows how to access Azure Storage in Windows Containers. Only [Azure 
 
 ## Limitations
 
-- Azure Storage in Windows containers is **in preview** and **not supported** for **production scenarios**.
-- Azure Storage in Windows containers supports mounting **Azure Files containers** (Read / Write) only.
-- Azure Storage in Windows containers is currently **not supported** for bring your own code scenarios on Windows App Service plans.
-- Azure Storage in Windows containers **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
-- Azure Storage in Windows containers lets you specify **up to five** mount points per app.
+# [Windows container](#tab/wincontainer)
+
+- Azure Storage in App Service is **in preview** and **not supported** for **production scenarios**.
+- Azure Storage in App Service is currently **not supported** for bring your own code scenarios (non-containerized Windows apps).
+- Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- Azure Storage with App Service lets you specify **up to five** mount points per app.
 - Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
-- Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
-## Link storage to your web app (preview)
+# [Linux container](#tab/lincontainer)
 
- To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
+- Azure Storage in App Service is **in preview** for App Service on Linux and Web App for Containers. It's **not supported** for **production scenarios**.
+- Azure Storage in App Service supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
+- Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- Azure Storage in App Service lets you specify **up to five** mount points per app.
+- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+---
+
+## Link storage to your app
+
+# [Windows container](#tab/wincontainer)
+
+Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
+
+To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
 
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory of form c:<directory name> >
+az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
 ```
 
 You should do this for any other directories you want to be linked to an Azure Files share.
 
-## Verify
+# [Linux container](#tab/lincontainer)
 
-Once an Azure Files share is linked to a web app, you can verify this by running the following command:
+Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
+
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder you would like to mount from Azure Storage. Setting it to '/' mounts the entire Azure Storage.
+
+
+> [!CAUTION]
+> The directory specified as the mount path in your web app should be empty. Any content stored in this directory will be deleted when an external mount is added. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
+>
 
 ```azurecli
-az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
+```
+
+You should do this for any other directories you want to be linked to a storage account.
+
+---
+
+## Verify linked storage
+
+Once the share is linked to the app, you can verify this by running the following command:
+
+```azurecli
+az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
 ## Next steps
 
+# [Windows container](#tab/wincontainer)
+
 - [Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)](app-service-web-tutorial-windows-containers-custom-fonts.md).
+
+# [Linux container](#tab/lincontainer)
+
+- [Configure web apps in Azure App Service](configure-custom-container.md).
+
+___

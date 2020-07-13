@@ -25,7 +25,7 @@ You can also connect to the container directly from your local development machi
 
 ## Use SSH support with custom Docker images
 
-See [Configure SSH in a custom container](containers/configure-custom-container.md#enable-ssh).
+See [Configure SSH in a custom container](configure-custom-container.md#enable-ssh).
 
 ## Open SSH session from remote shell
 
