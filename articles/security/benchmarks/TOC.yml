@@ -94,7 +94,7 @@
     href: ../../logic-apps/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
-  - name: Service Fabrics baseline
+  - name: Service Fabric baseline
     href: ../../service-fabric/security-baseline.md
   - name: Stream Analytics baseline
     href: ../../stream-analytics/security-baseline.md
