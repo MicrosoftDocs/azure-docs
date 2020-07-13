@@ -45,4 +45,4 @@ When a work or school account (for example, student1@school.edu) is added as rol
 
 ## Next steps
 
-- [Support options](./includes/educator-service-desk.md)
+- [Support options](educator-service-desk.md)
