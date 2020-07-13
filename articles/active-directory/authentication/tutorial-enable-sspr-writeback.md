@@ -13,6 +13,7 @@ author: iainfoulds
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use password writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
 ---
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P2 trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or P2 trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
 * An account with *global administrator* privileges.
@@ -41,7 +42,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
     * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
-    * To use Password Writeback, your Domain Controllers must be Windows Server 2008 R2 or later.
+    * To use Password Writeback, your Domain Controllers must be Windows Server 2012 or later.
 
 ## Configure account permissions for Azure AD Connect
 

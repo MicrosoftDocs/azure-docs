@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
 
 ---
@@ -191,73 +191,25 @@ When copying data from JSON files, copy activity can automatically detect and pa
 
 ## Mapping data flow properties
 
-JSON file types can be used as both a sink and a source in mapping data flow.
+In mapping data flows, you can read and write to JSON format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-### Creating JSON structures in a derived column
+### Source properties
 
-You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.
+The below table lists the properties supported by a json source. You can edit these properties in the **Source options** tab.
 
-#### Using the expression builder UX
-
-In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
-
-![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
-
-You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
-
-![Complex column](media/data-flow/complexcolumn.png "Complex column")
-
-#### Entering the JSON structure manually
-
-To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
-
-```
-@(
-	field1=0,
-	field2=@(
-		field1=0
-	)
-)
-```
-
-If this expression were entered for a column named "complexColumn", then it would be written to the sink as the following JSON:
-
-```
-{
-	"complexColumn": {
-		"field1": 0,
-		"field2": {
-			"field1": 0
-		}
-	}
-}
-```
-
-#### Sample manual script for complete hierarchical definition
-```
-@(
-	title=Title,
-	firstName=FirstName,
-	middleName=MiddleName,
-	lastName=LastName,
-	suffix=Suffix,
-	contactDetails=@(
-		email=EmailAddress,
-		phone=Phone
-	),
-	address=@(
-		line1=AddressLine1,
-		line2=AddressLine2,
-		city=City,
-		state=StateProvince,
-		country=CountryRegion,
-		postCode=PostalCode
-	),
-	ids=[
-		toString(CustomerID), toString(AddressID), rowguid
-	]
-)
-```
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Wild card paths | All files matching the wildcard path will be processed. Overrides the folder and file path set in the dataset. | no | String[] | wildcardPaths |
+| Partition root path | For file data that is partitioned, you can enter a partition root path in order to read partitioned folders as columns | no | String | partitionRootPath |
+| List of files | Whether your source is pointing to a text file that lists files to process | no | `true` or `false` | fileList |
+| Column to store file name | Create a new column with the source file name and path | no | String | rowUrlColumn |
+| After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Single document | Mapping data flows read one JSON document from each file | no | `true` or `false` | singleDocument |
+| Unquoted column names | If **Unquoted column names** is selected, mapping data flows reads JSON columns that aren't surrounded by quotes. | no | `true` or `false` |  unquotedColumnNames
+| Has comments | Select **Has comments** if the JSON data has C or C++ style commenting | no | `true` or `false` | asComments |
+| Single quoted | Reads JSON columns that aren't surrounded by quotes | no | `true` or `false` | singleQuoted |
+| Backslash escaped | Select **Backslash escaped** if backslashes are used to escape characters in the JSON data | no | `true` or `false` | backslashEscape |
 
 ### Source format options
 
@@ -328,12 +280,87 @@ Select **Single quoted** if the JSON fields and values use single quotes instead
 
 #### Backslash escaped
 
-Select **Single quoted** if backslashes are used to escape characters in the JSON data.
+Select **Backslash escaped** if backslashes are used to escape characters in the JSON data.
 
 ```
 { "json": "record 1" }
 { "json": "\} \" \' \\ \n \\n record 2" }
 { "json": "record 3" }
+```
+
+### Sink Properties
+
+The below table lists the properties supported by a json sink. You can edit these properties in the **Settings** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> As data in column: String <br> Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### Creating JSON structures in a derived column
+
+You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.
+
+#### Using the expression builder UX
+
+In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
+
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
+
+![Complex column](media/data-flow/complexcolumn.png "Complex column")
+
+#### Entering the JSON structure manually
+
+To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
+
+```
+@(
+	field1=0,
+	field2=@(
+		field1=0
+	)
+)
+```
+
+If this expression were entered for a column named "complexColumn", then it would be written to the sink as the following JSON:
+
+```
+{
+	"complexColumn": {
+		"field1": 0,
+		"field2": {
+			"field1": 0
+		}
+	}
+}
+```
+
+#### Sample manual script for complete hierarchical definition
+```
+@(
+	title=Title,
+	firstName=FirstName,
+	middleName=MiddleName,
+	lastName=LastName,
+	suffix=Suffix,
+	contactDetails=@(
+		email=EmailAddress,
+		phone=Phone
+	),
+	address=@(
+		line1=AddressLine1,
+		line2=AddressLine2,
+		city=City,
+		state=StateProvince,
+		country=CountryRegion,
+		postCode=PostalCode
+	),
+	ids=[
+		toString(CustomerID), toString(AddressID), rowguid
+	]
+)
 ```
 
 ## Next steps

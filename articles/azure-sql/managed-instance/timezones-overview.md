@@ -2,7 +2,8 @@
 title: Azure SQL Managed Instance time zones
 description: Learn about the time zone specifics of Azure SQL Managed Instance
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual

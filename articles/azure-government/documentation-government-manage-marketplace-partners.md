@@ -4,17 +4,13 @@ description: This article provides guidance on publishing solutions to the Azure
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 05/07/2020
-ms.author: gsacavdm
 
 ---
 # Publishing to the Azure Government Marketplace

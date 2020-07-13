@@ -4,7 +4,7 @@ description: This article explains how to encrypt your private data used by an A
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ---
 

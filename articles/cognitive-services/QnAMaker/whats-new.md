@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 07/13/2020
 ms.author: diberry
 ---
 
@@ -19,6 +19,15 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes
 
 Learn what's new with QnA Maker.
+
+### July 2020
+
+* [Steps](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) to configure Cognitive Search endpoints to be private, but still accessible to QnA Maker.
+* Free Cognitive Search resources are removed after [90 days of inactivity](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources).
+
+### June 2020
+
+* Updated [Power Virtual Agent](tutorials/integrate-with-power-virtual-assistant-fallback-topic.md) tutorial for faster and easier steps
 
 ### May 2020
 

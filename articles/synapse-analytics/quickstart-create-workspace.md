@@ -1,5 +1,5 @@
 ---
-title: Quickstart - create a Synapse workspace  
+title: 'Quickstart: create a Synapse workspace'  
 description: Create an  Synapse workspace by following the steps in this guide. 
 services: synapse-analytics
 author: pimorano
@@ -11,7 +11,7 @@ ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Create an Azure Synapse Analytics workspace (preview)
+# Quickstart: Create a Synapse workspace
 
 This quickstart describes the steps to create an Azure Synapse workspace by using the Azure portal.
 

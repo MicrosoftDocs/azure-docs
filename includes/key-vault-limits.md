@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020	
 ms.author: jroth
@@ -41,7 +41,10 @@ For information on how to handle throttling when these limits are exceeded, see 
 
 ### Azure Private Link integration
 
+> [!NOTE]
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+
 | Resource | Limit |
 | -------- | ----- |
 | Private endpoints per key vault | 64 |
-| Key vaults with private endpoints per subscription | 64 |
+| Key vaults with private endpoints per subscription | 400 |

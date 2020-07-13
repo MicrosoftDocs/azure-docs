@@ -5,7 +5,7 @@ description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 
 ms.author: joflore
@@ -143,7 +143,7 @@ To delete a device, you have two options:
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
    - Represents a non-recoverable activity and is not recommended unless it is required.
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](device-management-azure-portal.md) before deleting any devices.
+If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](manage-stale-devices.md) before deleting any devices.
 
 ### View or copy device ID
 

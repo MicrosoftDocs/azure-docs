@@ -108,6 +108,12 @@ Now that you have access to the data you want to have labeled, create your label
 
 1. Select **Next** to continue creating the project.
 
+### Incremental refresh
+
+If you plan to add new images to your dataset,  incremental refresh will find these new images and add them to your project.  When you enable this feature, the project will periodically check for new images.  You won't be adding new images to the datastore for this tutorial, so leave this feature unchecked.
+
+Select **Next** to continue.
+
 ### Label classes
 
 1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **Cat**, **Dog**, and **Uncertain**.

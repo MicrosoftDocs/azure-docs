@@ -28,7 +28,7 @@ On this page, you'll learn how to visually inspect the quality of Microsoft's ba
 Follow these instructions to create a test:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > Testing**.
+2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
 3. Click **Add Test**.
 4. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
 5. Select up to two models that you'd like to test.

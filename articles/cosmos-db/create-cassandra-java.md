@@ -1,5 +1,5 @@
 ---
-title: Build a Java app with Azure Cosmos DB Cassandra API
+title: Build a Java app with Azure Cosmos DB Cassandra API using the Java 3.0 SDK
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
 ms.service: cosmos-db
 author: TheovanKraay
@@ -141,9 +141,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
+    :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="View and copy a username from the Azure portal, Connection String page":::
 
-2. Use the ![Copy button](./media/create-cassandra-java/copy-button-azure-portal.png) button on the right side of the screen to copy the CONTACT POINT value.
+2. Use the :::image type="icon" source="./media/create-cassandra-java/copy-button-azure-portal.png"::: button on the right side of the screen to copy the CONTACT POINT value. 
 
 3. Open the *config.properties* file from the *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources* folder. 
 
@@ -197,7 +197,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    ![View the data in Data Explorer - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="View the data in Data Explorer - Azure Cosmos DB":::
 
 ## Review SLAs in the Azure portal
 

@@ -9,7 +9,7 @@ ms.date: 08/26/2019
 # Instrument web apps at runtime with Application Insights Codeless Attach
 
 > [!IMPORTANT]
-> Status Monitor is no longer recommended for use. It has been replaced by the Azure Monitor Application Insights Agent (formerly named Status Monitor v2). See our documentation for [on-premises server deployments](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) or [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Status Monitor is no longer recommended for use, and **starting June 1st 2021** this version of Status monitor will not be supported. It has been replaced by the Azure Monitor Application Insights Agent (formerly named Status Monitor v2). See our documentation for [on-premises server deployments](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) or [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
 
@@ -35,14 +35,14 @@ Here's a summary of what you get by each route:
 
 |  | Build time | Run time |
 | --- | --- | --- |
-| Requests & exceptions |Yes |Yes |
-| [More detailed exceptions](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
-| [Dependency diagnostics](../../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
-| [System performance counters](../../azure-monitor/app/performance-counters.md) |Yes |Yes |
-| [API for custom telemetry][api] |Yes |No |
-| [Trace log integration](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |No |
-| [Page view & user data](../../azure-monitor/app/javascript.md) |Yes |No |
-| Need to rebuild code |Yes | No |
+| **Requests & exceptions** |Yes |Yes |
+| **[More detailed exceptions](../../azure-monitor/app/asp-net-exceptions.md)** | |Yes |
+| **[Dependency diagnostics](../../azure-monitor/app/asp-net-dependencies.md)** |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
+| **[System performance counters](../../azure-monitor/app/performance-counters.md)** |Yes |Yes |
+| **[API for custom telemetry][api]** |Yes |No |
+| **[Trace log integration](../../azure-monitor/app/asp-net-trace-logs.md)** |Yes |No |
+| **[Page view & user data](../../azure-monitor/app/javascript.md)** |Yes |No |
+| **Need to rebuild code** |Yes | No |
 
 
 
@@ -88,13 +88,14 @@ These are some steps that you can perform to confirm that your installation was 
 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
-- If you suspect that data is missing you can run a simple query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
+- If you suspect that data is missing, you can run a query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- If you need to confirm that Application Insights is successfully attached you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
-  ```cmd
+- If you need to confirm that Application Insights is successfully attached, you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -105,7 +106,7 @@ These are some steps that you can perform to confirm that your installation was 
 
 ### Unable to login
 
-* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command:
+If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -189,7 +190,9 @@ You can start and stop monitoring by using PowerShell on your IIS server.
 
 First import the Application Insights module:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Find out which apps are being monitored:
 
@@ -218,12 +221,14 @@ Find out which apps are being monitored:
     To download the latest version, use Update-ApplicationInsightsVersion.
 * Returns `ApplicationInsightsApplication` on success. If it fails, it logs a trace to stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -295,7 +300,7 @@ For applications already instrumented at compile time:
  * Dependency calls (.NET 4.5); return values in dependency calls (.NET 4.6).
  * Exception stack trace values.
 
-[Learn more](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Learn more](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## Video
 

@@ -30,7 +30,7 @@ This document details the supported platforms and deployment options for the Net
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases. Nano Server is not supported at this time.
+The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, 2016 and 2019 releases. Nano Server is not supported at this time.
 
 ### Internet connectivity
 
