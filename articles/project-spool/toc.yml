@@ -3,10 +3,10 @@
 - name: Meta [Temporary]
   expanded: true
   items:
-  - name: Docs Philosophy
-    href: docs-philosophy.md
   - name: Contributor Quickstart
     href: contribute.md
+  - name: Docs Philosophy
+    href: docs-philosophy.md
   - name: Docs FAQ
     href: docs-faq.md
   - name: Generating Reference Docs
