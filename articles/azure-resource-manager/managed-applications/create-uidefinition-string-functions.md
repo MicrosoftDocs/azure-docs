@@ -4,7 +4,7 @@ description: Describes the string functions to use when constructing UI definiti
 author: tfitzmac
 
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/13/2020
 ms.author: tomfitz
 
 ---
@@ -16,10 +16,10 @@ These functions to use with JSON strings.
 
 Concatenates one or more strings.
 
-For example, if the output value of `element1` if `"bar"`, then this example returns the string `"foobar!"`:
+For example, if the output value of `element1` if `"Contoso"`, then this example returns the string `"Demo Contoso app"`:
 
 ```json
-"[concat('foo', steps('step1').element1, '!')]"
+"[concat('Demo ', steps('step1').element1, ' app')]"
 ```
 
 ## endsWith
@@ -59,17 +59,17 @@ Returns the last position of a value in a string or -1 if not found.
 The following sample returns 3.
 
 ```json
-"[lastIndexOf('test', 't')]" 
+"[lastIndexOf('test', 't')]"
 ```
 
 ## replace
 
 Returns a string in which all occurrences of the specified string in the current string are replaced with another string.
 
-The following example returns `"Everything is awesome!"`:
+The following example returns `"Contoso.com web app"`:
 
 ```json
-"[replace('Everything is terrible!', 'terrible', 'awesome')]"
+"[replace('Contoso.net web app', '.net', '.com')]"
 ```
 
 ## startsWith
@@ -86,37 +86,31 @@ The following sample returns true.
 
 Returns the substring of the specified string. The substring starts at the specified index and has the specified length.
 
-The following example returns `"ftw"`:
+The following example returns `"web"`:
 
 ```json
-"[substring('azure-ftw!!!1one', 6, 3)]"
+"[substring('Contoso.com web app', 12, 3)]"
 ```
 
 ## toLower
 
 Returns a string converted to lowercase.
 
-The following example returns `"foobar"`:
+The following example returns `"contoso"`:
 
 ```json
-"[toLower('FOOBAR')]"
+"[toLower('CONTOSO')]"
 ```
 
 ## toUpper
 
 Returns a string converted to uppercase.
 
-The following example returns `"FOOBAR"`:
+The following example returns `"CONTOSO"`:
 
 ```json
-"[toUpper('foobar')]"
+"[toUpper('contoso')]"
 ```
-
- 
-
-
-
- 
 
 ## Next steps
 

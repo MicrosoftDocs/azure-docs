@@ -4,14 +4,14 @@ description: Describes the Microsoft.Common.ResourceSelector UI element for Azur
 author: tfitzmac
 
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/13/2020
 ms.author: tomfitz
 
 ---
 
 # Microsoft.Common.ResourceSelector UI element
 
-A control that can be used to edit unformatted text.
+ResourceSelector lets users select an existing resource from a subscription.
 
 ## UI sample
 
@@ -39,13 +39,16 @@ A control that can be used to edit unformatted text.
 ```json
 "value": {
     "name": "{resource-name}",
-    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{resource-name}",
-    "location": "centralus"
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}",
+    "location": "{deployed-location}"
 }
 ```
 
 ## Remarks
 
+In the `resourceType` property, provide the resource provider namespace and resource type name for the resource you wish to show in the list.
+
+The `filter` property restricts the available options for the resources. You can restrict the results by location or subscription. To show only resources that match the selection in basics, use `onBasics`. To show all resource, use `all`. The default value is `all`.
 
 ## Next steps
 
