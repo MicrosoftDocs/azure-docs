@@ -200,7 +200,7 @@ Follow these steps to add or remove permissions for your custom role.
 
 ### Add wildcard permissions
 
-Depending on how you chose to start, you might have permissions with wildcards (`*`) in your list of permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, the following wildcard permission adds all permissions related to Azure Cost Management and exports. This would also include any future export permissions that might be added.
+Depending on how you chose to start, you might have permissions with wildcards (`*`) in your list of permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, the following wildcard string adds all permissions related to Azure Cost Management and exports. This would also include any future export permissions that might be added.
 
 ```
 Microsoft.CostManagement/exports/*
