@@ -6,7 +6,7 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ---
-# Azure CLI Samples
+# Azure CLI Samples for Azure Managed Applications
 
 The following table includes links to bash scripts for Azure Managed Applications that use the Azure CLI.
 
