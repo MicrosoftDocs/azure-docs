@@ -476,7 +476,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-ris
 How to configure and enable Identity Protection risk policies:
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-How to onboard Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: Currently not available
 

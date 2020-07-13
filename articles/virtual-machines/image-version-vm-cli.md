@@ -101,3 +101,5 @@ az sig image-version create \
 ## Next steps
 
 Create a VM from the [generalized image](vm-generalized-image-version-cli.md) using the Azure CLI.
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

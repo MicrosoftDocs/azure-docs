@@ -119,7 +119,7 @@ As soon as a write request for a sequential set of pages succeeds in the blob se
 
 The below diagram shows 2 separate write operations:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![A diagram showing the two separate write options.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.	A Write operation starting at offset 0 of length 1024 bytes 
 2.	A Write operation starting at offset 4096 of length 1024 
@@ -147,7 +147,7 @@ This allows you to download the full blob or range of bytes starting from any of
 
 The following figure shows a Read operation with an offset of 256 and a range size of 4352. Data returned is highlighted in orange. Zeros are returned for NUL pages.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![A diagram showing a Read operation with an offset of 256 and a range size of 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  
 
