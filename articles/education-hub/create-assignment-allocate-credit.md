@@ -37,11 +37,11 @@ When a work or school account (for example, student1@school.edu) is added as rol
 
 ## Create an assignment and invite students to the course
 
-1. Choose the amount of funds to credit to the student's subscription. If not all students will receive the same amount, you can select **change** and apply a custom amount to each student or project group.
+1. Choose the amount of funds to credit to the student's subscription. If not all students will receive the same amount, you can select **Change** and apply a custom amount to each student or project group.
 
 1. Select **Create assignment**.
 1. (Optional) You can also remove existing students by clicking **Remove** next to the student's name.
-1. Select the **Close** button when finished. The additional permissions should now appear on the Sponsor Credit Management page.
+1. Select the **Close** button when finished. The additional permissions appear on the Sponsor Credit Management page.
 
 ## Next steps
 
