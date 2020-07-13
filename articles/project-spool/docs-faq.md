@@ -1,43 +1,21 @@
 
-Q: How do we support code snippets across multiple languages within docs?
-              
-An example of tabs:
+**Q:** How do we add code to our docs?
 
-# [C#](#tab/c-sharp)
-
-<!--- Content here  -->
-
-# [JavaScript](#tab/javascript)
-
-<!--- Content here  -->
-
----
+See: [How to include code in docs](https://review.docs.microsoft.com/en-us/help/contribute/code-in-docs?branch=master)
 
 
-This was generated with the following markdown:
+For Tabs and Pivots guidance, see: [Tabbed Conceptual](https://review.docs.microsoft.com/en-us/help/onboard/admin/tabbed-conceptual?branch=master&tabs=windows%2Cazure-cli)
 
-``` 
-#### [C#](#tab/c-sharp)
-
-<!--- Content here  -->
-
-#### [Javascript](#tab/javascript)
-
-<!--- Content here  -->
---- 
-```
-
-The three dashes close out the tabbed conceptual entry.
 
 ~
 
-Q: How do I get my avatar listed as a contributor under the public-facing docs?
+**Q:** How do I get my avatar listed as a contributor under the public-facing docs?
 
 A: 
 
 ~
 
-Q: How should we think about our samples?
+**Q:** How should we think about our samples?
 
 A: https://review.docs.microsoft.com/en-us/help/contribute/samples/concepts/basics?branch=master
                                                                                                                                                                                                                                                 
