@@ -9023,7 +9023,17 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-cli.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-cli",
+      "redirect_url": "/azure/app-service/configure-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-cli.md",
+      "redirect_url": "/azure/app-service/configure-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-custom-container.md",
+      "redirect_url": "/azure/app-service/configure-custom-container",
       "redirect_document_id": false
     },
     {
@@ -9697,6 +9707,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/deploy-container-github-action.md",
+      "redirect_url": "/azure/app-service/deploy-container-github-action",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md",
       "redirect_url": "/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase",
       "redirect_document_id": false
@@ -10338,6 +10353,11 @@
     },
     {
       "source_path": "articles/app-service/web-sites-php-configure.md",
+      "redirect_url": "/azure/app-service/configure-language-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-php.md",
       "redirect_url": "/azure/app-service/configure-language-php",
       "redirect_document_id": false
     },
@@ -13353,12 +13373,27 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-configure.md",
-      "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+      "redirect_url": "/azure/app-service/configure-language-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/web-sites-python-configure.md",
-      "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+      "redirect_url": "/azure/app-service/configure-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/how-to-configure-python.md",
+      "redirect_url": "/azure/app-service/configure-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-dotnetcore.md",
+      "redirect_url": "/azure/app-service/configure-language-dotnetcore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-nodejs.md",
+      "redirect_url": "/azure/app-service/configure-language-nodejs",
       "redirect_document_id": false
     },
     {

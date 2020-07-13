@@ -125,7 +125,7 @@ We don't support exposing more than one port.
 
 **Can I bring my own storage?**
 
-Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) is in preview.
+Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) is in preview.
 
 **Why can't I browse my custom container's file system or running processes from the SCM site?**
 

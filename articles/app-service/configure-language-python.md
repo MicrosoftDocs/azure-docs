@@ -9,9 +9,9 @@ ms.custom: mvc, seodec18, tracking-python
 
 # Configure a Linux Python app for Azure App Service
 
-This article describes how [Azure App Service](../overview.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](overview.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), or a [Zip package](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) with build processes switched on.
+The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build processes switched on.
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Python quickstart](quickstart-python.md) and [Python with PostgreSQL tutorial](tutorial-python-postgresql-app.md) first.
 
@@ -116,7 +116,7 @@ If your main app module is contained in a different file, use a different name f
 
 If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder. The default app appears as follows:
 
-![Default App Service on Linux web page](media/how-to-configure-python/default-python-app.png)
+![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)
 
 ## Customize startup command
 
@@ -151,7 +151,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](configure-common.md#configure-app-settings) outside of your app code. Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -170,11 +170,11 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Open SSH session in browser
 
-[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ## Troubleshooting
 

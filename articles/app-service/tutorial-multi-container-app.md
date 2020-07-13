@@ -35,7 +35,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 ## Download the sample
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](containers/configure-custom-container.md#docker-compose-options).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -174,7 +174,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 ```
 
 > [!TIP]
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 ### Create the WordPress database
@@ -239,7 +239,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 ]
 </pre>
 
-For more information on environment variables, see [Configure environment variables](containers/configure-custom-container.md#configure-environment-variables).
+For more information on environment variables, see [Configure environment variables](configure-custom-container.md#configure-environment-variables).
 
 ### Use a custom image for MySQL SSL and other configurations
 
@@ -300,7 +300,7 @@ Browse to the deployed app at (`http://<app-name>.azurewebsites.net`). The app i
 
 ## Add persistent storage
 
-Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This happens because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container don't persist beyond app restart. In this section, you'll [add persistent storage](containers/configure-custom-container.md#use-persistent-shared-storage) to your WordPress container.
+Your multi-container is now running in Web App for Containers. However, if you install WordPress now and restart your app later, you'll find that your WordPress installation is gone. This happens because your Docker Compose configuration currently points to a storage location inside your container. The files installed into your container don't persist beyond app restart. In this section, you'll [add persistent storage](configure-custom-container.md#use-persistent-shared-storage) to your WordPress container.
 
 ### Configure environment variables
 
@@ -525,7 +525,7 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure custom container](containers/configure-custom-container.md)
+> [Configure custom container](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

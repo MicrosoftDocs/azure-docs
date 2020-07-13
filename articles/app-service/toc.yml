@@ -130,10 +130,14 @@
       href: configure-language-nodejs.md
     - name: Configure PHP
       href: configure-language-php.md
+    - name: Configure Python
+      href: configure-language-python.md
     - name: Configure Java
       href: configure-language-java.md
     - name: Configure Ruby
       href: configure-language-ruby.md
+    - name: Configure custom Linux container
+      href: configure-custom-container.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
     - name: Configure Azure Storage (container)
@@ -156,8 +160,10 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: Deploy with GitHub Actions
+      - name: GitHub Action
         href: deploy-github-actions.md
+      - name: GitHub Action for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials

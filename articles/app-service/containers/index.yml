@@ -33,7 +33,3 @@ landingContent:
         links:
           - text: Run a container from Azure Container Registry
             url: tutorial-custom-docker-image.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect a container to Storage Files
-            url: how-to-serve-content-from-azure-storage.md

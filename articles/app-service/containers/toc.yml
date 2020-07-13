@@ -11,10 +11,6 @@
     href: quickstart-nodejs.md
   - name: Create Java app
     href: quickstart-java.md
-  - name: Create Python app
-    href: quickstart-python.md
-  - name: Create Ruby app
-    href: quickstart-ruby.md
   - name: Run custom container
     href: quickstart-docker.md
   - name: Create multi-container app
@@ -27,27 +23,11 @@
   items:
   - name: Configure app
     items:
-    - name: Configure common settings
-      href: ../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Configure ASP.NET Core
-      href: configure-language-dotnetcore.md
-    - name: Configure Node.js
-      href: configure-language-nodejs.md
-    - name: Configure PHP
-      href: configure-language-php.md
     - name: Configure Java
       href: configure-language-java.md
-    - name: Configure Python
-      href: how-to-configure-python.md
-    - name: Configure custom container
-      href: configure-custom-container.md
-    - name: Serve content with Storage
-      href: how-to-serve-content-from-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
       items:
-      - name: Deploy with GitHub Actions
-        href: deploy-container-github-action.md
       - name: Java SE with Maven
         href: https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
