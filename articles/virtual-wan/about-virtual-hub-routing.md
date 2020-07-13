@@ -9,6 +9,7 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
+ms.custom: fasttrack-edit
 
 ---
 # About virtual hub routing
@@ -76,6 +77,15 @@ To use  new route table capabilities, please wait until week of August 3rd for t
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 To use the new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+
+## <a name="considerations"></a>Virtual WAN Routing Considerations
+
+Please take these caveats into account when configuring Virtual WAN Routing:
+
+* All branch connections (point-to-site, site-to-site and ExpressRoute) need to be associated to the Default route table. As a consequence, all branches will learn the same prefixes
+* All branch connections need to propagate to the same set of route tables (it can be as well the Default route table, but not necessarily). As a consequence, you cannot configure selective learning from a subset of branches.
+* Branch-to-branch via Azure Firewall is currently not supported
+* When using Azure Firewall in multiple regions, spoke virtual networks must be associated to the same route tables. In other words, the red/blue vnet and the Secured Virtual Hub scenarios are not compatible with each other if using multiple hubs
 
 ## Next steps
 
