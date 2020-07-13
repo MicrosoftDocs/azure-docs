@@ -28,8 +28,8 @@ In this article, use the Service Fabric RM powershell or Azure CLI modules to de
 * [Azure CLI version 2.0 and above][azure-CLI]
 
 You can find the reference documentation for the Service Fabric modules here:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [Az.ServiceFabric](/powershell/module/az.servicefabric)
+* [az SF CLI module](/cli/azure/sf?view=azure-cli-latest)
 
 ### Sign in to Azure
 

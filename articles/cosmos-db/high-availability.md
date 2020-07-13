@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -18,15 +18,15 @@ Azure Cosmos DB transparently replicates your data across all the Azure regions 
 
 - The data within Azure Cosmos containers is [horizontally partitioned](partitioning-overview.md).
 
-- Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
+- A partition-set is a collection of multiple replica-sets. Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
 
 - Each partition across all the regions is replicated. Each region contains all the data partitions of an Azure Cosmos container and can accept writes and serve reads.  
 
-If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. In addition to providing low latency data access and scaling write/read throughput across the regions associated with your Azure Cosmos account, having more regions (higher *N*) further improves availability.  
+If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. Generally having an Azure Cosmos account in more than 2 regions improves the availability of your application and provides low latency across the associated regions. 
 
 ## SLAs for availability
 
-As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions.
+As a globally distributed database, Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. The table below shows the guarantees for high availability provided by Azure Cosmos DB for single and multi-region accounts. For high availability, always configure your Azure Cosmos accounts to have multiple write regions(also called multi-master).
 
 |Operation type  | Single region |Multi-region (single region writes)|Multi-region (multi-region writes) |
 |---------|---------|---------|-------|
@@ -42,7 +42,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 
 - With Azure Cosmos DB, before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations.
 
-- Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
+- Multi-region accounts configured with multiple-write regions/multi-master will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
 - Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Azure Cosmos account to ensure high availability at all times.
 
@@ -71,7 +71,7 @@ In addition to cross region resiliency, you can now enable **zone redundancy** w
 
 With Availability Zone support, Azure Cosmos DB will ensure replicas are placed across multiple zones within a given region to provide high availability and resiliency during zonal failures. There are no changes to latency and other SLAs in this configuration. In the event of a single zone failure, zone redundancy provides full data durability with RPO=0 and availability with RTO=0.
 
-Zone redundancy is a *supplemental capability* to the [multi-master replication](how-to-multi-master.md) feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it's advised to have multiple write regions in addition to zone redundancy.
+Zone redundancy is a *supplemental capability* to the [replication in multi-region writes](how-to-multi-master.md) feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it's advised to have multiple write regions in addition to zone redundancy.
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
@@ -91,12 +91,12 @@ The following table summarizes the high availability capability of various accou
 |Zone failures – availability | Availability loss | No availability loss | No availability loss |
 |Read latency | Cross region | Cross region | Low |
 |Write latency | Cross region | Cross region | Low |
-|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multi master and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
+|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multiple write regions and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
 |Regional outage – availability | Availability loss | Availability loss | No availability loss |
 |Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
 
 > [!NOTE]
-> To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-master writes enabled.
+> To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-region writes writes enabled.
 
 You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following PowerShell snippet enables zone redundancy for the "Southeast Asia" region:
 

@@ -1,5 +1,5 @@
 ---
-title: API versions for REST and SDKs
+title: API versions
 titleSuffix: Azure Cognitive Search
 description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
 
@@ -26,24 +26,24 @@ The same rule applies for SDK updates. The Azure Cognitive Search SDK follows th
 
 This table provides the version history of current and previously released versions of the Search Service REST API. Documentation is published for the current stable and preview versions.
 
-| API version | Status | Backward compatibility issue |
+| Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Backward compatibility issue |
 |-------------|--------|------------------------------|
-| [**Search 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Modifies relevance scoring. |
-| [**Search 2020-06-30-Preview**](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Preview | Preview version associated with stable version. |
-| [**Management 2020-03-13**](https://docs.microsoft.com/rest/api/searchmanagement/) | Generally Available | Major functional enhancements in endpoint protection. Adds private endpoint, private link support, and network rules for new  services. |
-| **Management 2019-10-01-Preview** | Preview  | Despite its version number, this is still the more recent preview version of the Management REST API. There are currently no preview features at this time. All preview features have recently transitioned to general availability. |
-| **Search 2019-05-06** | Stable | Adds complex types. |
-| **Search 2019-05-06-Preview** | Preview | Preview version associated with stable version. |
-| **Search 2017-11-11** | Stable  | Adds skillsets and AI enrichment. |
-| **Search 2017-11-11-Preview** | Preview | Preview version associated with stable version. |
-| **Search 2016-09-01** |Stable | Adds indexers|
-| **Search 2016-09-01-Preview** | Preview | Preview version associated with stable version.|
-| **Management 2015-08-19**  | Stable| The first generally available version of the Management REST API. Provides service provisioning, scale up, and api-key management. |
-| **Management 2015-08-19-Preview** | Preview| The first preview version of the Management REST API. |
-| **Search 2015-02-28** | Stable  | First generally available release.  |
-| **Search 2015-02-28-Preview** | Preview | Preview version associated with stable version. |
-| **Search 2014-10-20-Preview** | Preview | Second public preview. |
-| **Search 2014-07-31-Preview** | Preview | First public preview. |
+| [Management 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) | Generally Available | Newest stable release of the Management REST APIs, with  advancements in endpoint protection. Adds private endpoint, private link support, and network rules for new  services. |
+| [Management 2019-10-01-Preview](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) | Preview  | Despite its version number, this is still the current preview version of the Management REST APIs. There are no preview features at this time. All preview features have recently transitioned to general availability. |
+| Management 2015-08-19  | Stable| The first generally available version of the Management REST APIs. Provides service provisioning, scale up, and api-key management. |
+| Management 2015-08-19-Preview | Preview| The first preview version of the Management REST APIs. |
+| [Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Newest stable release of the Search Search REST APIs, with advancements in relevance scoring. |
+| [Search 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Preview | Preview version associated with stable version. |
+| Search 2019-05-06 | Stable | Adds complex types. |
+| Search 2019-05-06-Preview | Preview | Preview version associated with stable version. |
+| Search 2017-11-11 | Stable  | Adds skillsets and AI enrichment. |
+| Search 2017-11-11-Preview | Preview | Preview version associated with stable version. |
+| Search 2016-09-01 |Stable | Adds indexers|
+| Search 2016-09-01-Preview | Preview | Preview version associated with stable version.|
+| Search 2015-02-28 | Stable  | First generally available release.  |
+| Search 2015-02-28-Preview | Preview | Preview version associated with stable version. |
+| Search 2014-10-20-Preview | Preview | Second public preview. |
+| Search 2014-07-31-Preview | Preview | First public preview. |
 
 ## Azure SDK for .NET
 

@@ -4,7 +4,7 @@ description: IP Groups allow you to group and manage IP addresses for Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ---
