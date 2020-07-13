@@ -31,7 +31,7 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
   * Use the [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
   * Access many other capabilities, all from a first-class programming model in several programming languages.
 * A simple model for running your own code that feels like other familiar programming models. Your code has a well-defined entry point and easily managed lifecycle.
-* A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, or anything else. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
+* A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, custom TCP protocols, or anything else. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
 * For stateful services, the Reliable Services programming model allows you to consistently and reliably store your state right inside your service by using [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Reliable Collections are a simple set of highly available and reliable collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for Reliable state management. With Reliable Collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores. This model also improves latency because you are co-locating the compute and state it needs to function.
 
 ## What makes Reliable Services different
@@ -47,7 +47,7 @@ Reliable Services are different from services you may have written before, becau
 
 Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug in your code and get started.  Getting a new service up and running requires you to implement two methods:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This method is where the service defines the communication stack(s) that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients reach the service). It also defines how the messages that appear interact with the rest of the service code.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This method is where the service defines the communication stack(s) that it wants to use. The communication stack, such as [Web API](./service-fabric-reliable-services-communication-aspnetcore.md), is what defines the listening endpoint or endpoints for the service (how clients reach the service). It also defines how the messages that appear interact with the rest of the service code.
 * **RunAsync** - This method is where your service runs its business logic, and where it would kick off any background tasks that should run for the lifetime of the service. The cancellation token that is provided is a signal for when that work should stop. For example, if the service needs to pull messages out of a Reliable Queue and process them, this is where that work happens.
 
 If you're learning about reliable services for the first time, read on! If you're looking for a detailed walkthrough of the lifecycle of reliable services, check out [Reliable Services lifecycle overview](service-fabric-reliable-services-lifecycle.md).
@@ -62,7 +62,7 @@ A *stateless service* is one where there is no state maintained within the servi
 
 For example, consider a calculator that has no memory and receives all terms and operations to perform at once.
 
-In this case, the `RunAsync()` (C#) or `runAsync()` (Java) of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it returns an `ICommunicationListener` (C#) or `CommunicationListener` (Java) (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) that opens up a listening endpoint on some port. This listening endpoint hooks up to the different calculation methods (example: "Add(n1, n2)") that define the calculator's public API.
+In this case, the `RunAsync()` (C#) or `runAsync()` (Java) of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it returns an `ICommunicationListener` (C#) or `CommunicationListener` (Java) (for example [Web API](./service-fabric-reliable-services-communication-aspnetcore.md)) that opens up a listening endpoint on some port. This listening endpoint hooks up to the different calculation methods (example: "Add(n1, n2)") that define the calculator's public API.
 
 When a call is made from a client, the appropriate method is invoked, and the calculator service performs the operations on the data provided and returns the result. It doesn't store any state.
 
