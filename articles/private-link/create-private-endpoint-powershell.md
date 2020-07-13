@@ -164,8 +164,8 @@ Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)
 ```azurepowershell
 Get-AzPublicIpAddress `
   -Name myPublicIpAddress `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress 
+  -ResourceGroupName myResourceGroup |
+  Select-Object IpAddress 
 ```  
 Open a command prompt on your local computer. Run the mstsc command. Replace <publicIpAddress> with the public IP address returned from the last step: 
 
