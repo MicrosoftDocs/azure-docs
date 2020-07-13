@@ -643,6 +643,9 @@
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -879,6 +882,9 @@
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=managed-instance
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -959,6 +965,8 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Migrate storage to UltraSSD
+          href: virtual-machines/windows/storage-migrate-to-ultradisk.md
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:

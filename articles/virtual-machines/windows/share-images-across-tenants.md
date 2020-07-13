@@ -1,13 +1,14 @@
 ---
 title: Share gallery images across tenants in Azure 
 description: Learn how to share VM images across Azure tenants using Shared Image Galleries.
-author: cynthn
+author: axayjo
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: cynthn
+ms.author: akjosh
+ms.reviewer: cynthn
 ---
 # Share gallery VM images across Azure tenants
 
