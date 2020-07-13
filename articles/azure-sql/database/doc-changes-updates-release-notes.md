@@ -44,7 +44,6 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| New Fsv2-series and M-series hardware generations| For information, see [Hardware generations](service-tiers-vcore.md#hardware-generations).|
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../accelerated-database-recovery.md).|
 | Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
