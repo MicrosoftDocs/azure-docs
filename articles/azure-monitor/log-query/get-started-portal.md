@@ -185,7 +185,7 @@ To save a query:
    
    To save a query as a function, provide a **Function Alias**, which is a short name for other queries to use to call this query.
    
-1. Provide a **Category** for **Query explorer** to use for the query.
+1. If you are in a Log Analytics workspace, provide a **Category** for **Query explorer** to use for the query. (Categories aren't available for Applications Insights queries)
    
 1. Select **Save**.
    
