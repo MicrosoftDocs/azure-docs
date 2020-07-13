@@ -110,7 +110,7 @@ If you've set up GRUB and root access by using the preceding instructions, you c
 
    You'll be prompted for the administrator password before you can enter single-user mode. This password is the one you created in the previous instructions.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and then enters the specified text.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### Enter single-user mode without root account enabled in RHEL
 If you didn't enable the root user by following the earlier instructions, you can still reset your root password by doing the following:
@@ -134,7 +134,7 @@ If you didn't enable the root user by following the earlier instructions, you ca
 1. You're now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode. 
 1. After you're done, enter `reboot -f` to reboot.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and enters the specified commands.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Running through the preceding instructions drops you into the emergency shell so that you can also perform tasks such as editing `fstab`. However, we ordinarily suggest that you reset your root password and use it to enter single-user mode.

@@ -34,7 +34,7 @@ Below are the alternatives that the customer can choose from to ensure that thei
 - Option 1 (Recommended): Choose to [start using Azure as the DR target](hyper-v-vmm-azure-tutorial.md).
 
 
-- Option 2: Choose to continue with site-to-site replication  using the underlying [Hyper-V Replica solution](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), but you will be unable to manage DR configurations using Azure Site Recovery in the Azure portal. 
+- Option 2: Choose to continue with site-to-site replication  using the underlying [Hyper-V Replica solution](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), but you will be unable to manage DR configurations using Azure Site Recovery in the Azure portal. 
 
 
 ## Remediation steps

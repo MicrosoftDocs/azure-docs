@@ -18,7 +18,7 @@ ms.custom: contperfq4, tracking-python
 # Network isolation during training & inference with private virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you'll learn how to secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure Virtual Network (vnet). Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
+In this article, you'll learn how to secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure Virtual Network (vnet). Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train, and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
 
 A __virtual network__ acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
@@ -64,6 +64,9 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
+> [!IMPORTANT]
+> While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
+
 If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
 
 * Preview data in the studio.
@@ -82,7 +85,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 Add your workspace and storage account to the same virtual network so that they can access each other.
 
-1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md).
+1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in the US East, US West 2, US South Central regions.
 
 1. To connect your storage account to the virtual network, [configure the Firewalls and virtual networks settings](#use-a-storage-account-for-your-workspace).
 
@@ -103,6 +106,24 @@ After you add your workspace and storage service account to the virtual network,
 
 For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) so that it can read data from blob storage.
 
+
+### Azure Machine Learning designer default datastore
+
+The designer uses the storage account attached to your workspace to store output by default. However, you can specify it to store output to any datastore that you have access to. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible.
+
+To set a new default storage for a pipeline:
+
+1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
+1. Select **Select default datastore**.
+1. Specify a new datastore.
+
+You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
+
+1. Select the module whose output you want to specify.
+1. Expand the **Output settings** section.
+1. Select **Override default output settings**.
+1. Select **Set output settings**.
+1. Specify a new datstore.
 
 ### Azure Data Lake Storage Gen2 access control
 
@@ -542,9 +563,59 @@ The contents of the `body.json` file referenced by the command are similar to th
 } 
 ```
 
-> [!NOTE]
-> Currently, you cannot configure the load balancer when performing an __attach__ operation on an existing cluster. You must first attach the cluster, and then perform an update operation to change the load balancer.
+When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer.
 
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+
+After attaching the existing cluster, you can then update the cluster to use a private IP.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__Network contributor role__
+
+> [!IMPORTANT]
+> If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
+>
+> To add the identity as network contributor, use the following steps:
+
+1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    If this command returns a value of `msi`, use the following command to identify the principal ID for the managed identity:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. To find the ID of the resource group that contains your virtual network, use the following command. Replace `<resource-group-name>` with the name of the resource group that _contains the virtual network_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. To add the service principal or managed identity as a network contributor, use the following command. Replace `<SP-or-managed-identity>` with the ID returned for the service principal or managed identity. Replace `<resource-group-id>` with the ID returned for the resource group that contains the virtual network:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
 For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
 ## Use Azure Container Instances (ACI)

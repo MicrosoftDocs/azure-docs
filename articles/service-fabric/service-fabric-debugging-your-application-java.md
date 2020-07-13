@@ -36,5 +36,5 @@ If the application is crashing, you may also want to enable coredumps. Execute `
 
 ### Next steps
 
-* [Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Collect logs using Linux Azure Diagnostics](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

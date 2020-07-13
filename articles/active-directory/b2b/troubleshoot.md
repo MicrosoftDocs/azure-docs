@@ -82,7 +82,9 @@ If this scenario is important to you, you can suppress our API invitation email,
 
 A user who has a guest account cannot log on, and is receiving the following error message:
 
+```plaintext
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+```
 
 The user has an Azure user account and is a viral tenant who has been abandoned or unmanaged. Additionally, there are no global or company administrators in the tenant.
 

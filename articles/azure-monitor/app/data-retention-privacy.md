@@ -58,7 +58,7 @@ The main categories are:
 ## How can I verify what's being collected?
 If you're developing the app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the Output window. From there, you can copy it and format it as JSON for easy inspection. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 There's also a more readable view in the Diagnostics window.
 
