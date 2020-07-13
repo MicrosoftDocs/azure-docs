@@ -86,7 +86,7 @@ A bot personality is recommended if your bot connects to your knowledge base. Yo
 
 ### Conversation flow with a knowledge base
 
-Conversation flow usually begins with a salutation from a user, such as `Hi` or `Hello`. Your knowledge base can answer with a general answer, such as `Hi, how can I help you`, and it can also provide a selection of follow-up prompts, to continue the conversation.
+Conversation flow usually begins with a salutation from a user, such as `Hi` or `Hello`. Your knowledge base can answer with a general answer, such as `Hi, how can I help you`, and it can also provide a selection of follow-up prompts to continue the conversation.
 
 You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multiturn-conversation.md) provide linking between QnA pairs, which allow for the conversational flow.
 
@@ -100,7 +100,7 @@ Knowledge base authoring supports several [role-based access permissions](../how
 
 Integration with [client applications](integration-with-other-applications.md) is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
-To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure theses settings as part of the bot configuration in the Azure portal.
+To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
@@ -176,7 +176,7 @@ A knowledge base shares the Cognitive Search index with all other knowledge base
 
 To have the _same score_ on the `test` and `production` knowledge bases, isolate a QnA Maker resource to a single knowledge base. In this architecture, the resource only needs to live as long as the isolated batch test.
 
-## Next step
+## Next steps
 
 * [Azure resources](../how-to/set-up-qnamaker-service-azure.md)
 * [Question and answer pairs](question-answer-set.md)
