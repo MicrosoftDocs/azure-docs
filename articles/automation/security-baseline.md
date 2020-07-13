@@ -916,7 +916,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 * [Understanding Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-* [Deploy an Automation Account using an Azure Resource Manager template](./automation-create-account-template.md#deploy-the-template)
+* [Deploy an Automation Account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
 
@@ -1122,7 +1122,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Azure Resource Manager template reference for Azure Automation resources](/azure/templates/microsoft.automation/allversions)
 
-* [Create an Automation account using an Azure Resource Manager template](./automation-create-account-template.md)
+* [Create an Automation account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1148,7 +1148,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Azure Resource Manager template reference for Azure Automation resources](/azure/templates/microsoft.automation/allversions)
 
-* [Create an Automation account using an Azure Resource Manager template](./automation-create-account-template.md)
+* [Create an Automation account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 

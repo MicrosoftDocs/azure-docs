@@ -23,6 +23,8 @@ Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md
 
 This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
 ## Create relationships
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
