@@ -12,7 +12,8 @@ ms.service: azure-project-spool
 
 ---
 
-*The purpose of this doc is to collaboratively brainstorm and articulate the **purpose of docs** and how we can use docs to **unify our thinking**.*
+> [!WARNING]
+> This is a temporary page.  **This will not be published.*** 
 
 ~
 
@@ -57,12 +58,12 @@ ms.service: azure-project-spool
 - Twilio started using **Wagtail** to build their docs because it gave them the ability to grant selective permissions to docs, and also because of a feature called **streamfields**. This allowed them to treat their docs not just as rich text, but as interactive, usable products that help devs **get shit done**.
 - They started hosting all of their code samples on github and embedding them within the docs so that developers could click-to-source and submit issues, prs, etc. This also made it easy to continuously test their samples.
 
-### Docs We Can Use To Compare
+### Docs We Can Use For Inspiration
 - References we can use as we develop our docs:
   - Twilio: [Link](https://www.twilio.com/docs/glossary/what-is-voip)
   - MSFT Cognitive Services: [Link](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?pivots=programming-language-javascript&tabs=version-3#sentiment-analysis)
   - Nexmo: [Link](https://developer.nexmo.com/documentation)
   - Firebase: [Link](https://firebase.google.com/docs?gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVEA7WidBpgSSFMLqD1J7X1E9h9vqhrjwyZb2qtOzGpNl_mQQz4KcAaAuqgEALw_wcB)
   - Stripe: [Link](https://stripe.com/docs?utm_campaign=paid_brand-US%20|%20Search%20|%20Category%20|%20Stripe_sitelinkNov1-1803852691&utm_medium=cpc&utm_source=google&ad_content=344587125070&utm_term=stripe%20docs&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVSUUXEM4Bihhj0E37fKdMJMq9IYzs5-E2dU4fJQGG_arU6UekNcXYaAtW-EALw_wcB)
-""
+
 
