@@ -42,7 +42,6 @@ To increase redundancy and high availability, the SQL Server VMs should either b
 | **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 The **SQL Server AlwaysOn Cluster (preview)** template has been removed from the Azure Marketplace and is no longer available. 
 
