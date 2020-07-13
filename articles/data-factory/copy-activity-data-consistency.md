@@ -29,11 +29,11 @@ When you move data from source to destination store, Azure Data Factory copy act
 
 ## Supported data stores and scenarios
 
--   Data consistency verification is supported by all the connectors except FTP, sFTP and HTTP. 
+-   Data consistency verification is supported by all the connectors except FTP, sFTP, and HTTP. 
 -   Data consistency verification is not supported in staging copy scenario.
 -   When copying binary files, data consistency verification is only available when 'PreserveHierarchy' behavior is set in copy activity.
--   When copying multiple binary files in single copy activity, you have an option to either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. 
--   When copying a table in single copy activity, copy activity fails if the number of rows read from the source is different from the number of rows copied to sink plus the number of incompatible rows that were skipped.
+-   When copying multiple binary files in single copy activity with data consistency verification enabled, you have an option to either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. 
+-   When copying a table in single copy activity with data consistency verification enabled, copy activity fails if the number of rows read from the source is different from the number of rows copied to the destination plus the number of incompatible rows that were skipped.
 
 
 ## Configuration
@@ -70,7 +70,7 @@ The following example provides a JSON definition to enable data consistency veri
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | If you set true for this property, when copying binary files, copy activity will check file size, lastModifiedDate, and MD5 checksum for each binary file copied from source to destination store to ensure the data consistency between source and destination store. When copying tabular data, copy activity will check the total row count after copy completes to ensure the total number of rows read from the source is same as the number of rows copied to sink plus the number of incompatible rows that were skipped. Be aware the copy performance will be affected by enabling this option.  | True<br/>False (default) | No
+validateDataConsistency | If you set true for this property, when copying binary files, copy activity will check file size, lastModifiedDate, and MD5 checksum for each binary file copied from source to destination store to ensure the data consistency between source and destination store. When copying tabular data, copy activity will check the total row count after job completes to ensure the total number of rows read from the source is same as the number of rows copied to the destination plus the number of incompatible rows that were skipped. Be aware the copy performance will be affected by enabling this option.  | True<br/>False (default) | No
 dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent files. <br/> -True: you want to copy the rest by skipping inconsistent files.<br/> - False: you want to abort the copy activity once inconsistent file found.<br/>Be aware this property is only valid when you are copying binary files and set validateDataConsistency as True.  | True<br/>False (default) | No
 logStorageSettings | A group of properties that can be specified to enable session log to log skipped files. | | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` types linked service, which refers to the instance that you use to store the log files. | No
