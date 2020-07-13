@@ -118,14 +118,14 @@ The following table gives an example of how any resources an FSLogix profile nee
 | Steady state IOPS | 10 |
 | Sign in/sign out IOPS | 5 |
 
-The example in this table is of a single user, but can be used to estimate requiremnts for the total number of users in your environemnt. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign in and sign out.
+The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign-in and sign-out.
 
 ## Is there a scale limit for host pools created in the Azure portal?
 
-These are the factors that affect scale limit for host pools:
+These factors can affect scale limit for host pools:
 
 - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
 
 - There are restrictions on how many cores you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, you can create 350 cores. You'll need to divide 350 by either the default number of cores per VM or your own core limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
-- The VM prefix name and the number of VMs is less than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+- The VM prefix name and the number of VMs is fewer than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
