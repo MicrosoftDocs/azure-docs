@@ -5,7 +5,8 @@ author: mayurigupta13
 ms.author: mayg
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 07/13/2020
+ms.custom: references_regions
 ---
 # Replicate machines with private endpoints
 
@@ -66,7 +67,7 @@ Below is a reference architecture on how the replication workflow changes with p
 > do so may lead to the vault being rendered unable to use private endpoints and requiring you to
 > restart the process with a new vault.
 
-## Create a Recovery Services vault.
+## Create a Recovery Services vault
 
 A recovery services vault is an entity that contains the replication information of machines and is
 used to trigger Site Recovery operations. For more information, see
