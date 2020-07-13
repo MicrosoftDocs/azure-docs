@@ -52,8 +52,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fix for support of web url data sources that don't support range headers and/or head requests.
     + Stability improvements for file dataset mount and download.
     + Stability improvements for all adds gen-1 operations.
-  + **azureml-parallel-run**
-    + For argparse error in entry script, it will show the failed reason in additional to a number. Before this, it will only show the number.
   + **azureml-train-automl-client**
     + Fixed issues related to removal of `RequirementParseError` from setuptools.
     + Use docker instead of conda for local runs submitted using "compute_target='local'"
