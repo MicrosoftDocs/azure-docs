@@ -68,19 +68,19 @@ Navigate to the **camera-001** device and select the **Manage** tab.
 
 Use the following tables to set the device properties:
 
+**Camera settings**
+
+| Property | Description | Suggested Value |
+|-|-|-|
+| Video Playback Host | Host for the Azure Media Player viewer | http://localhost:8094 |
+
 **AI Object Detection**
 
 | Property | Description | Suggested Value |
 |-|-|-|
 | Confidence Threshold | Qualification percentage to determine if the object detection is valid | 70 |
 | Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck,car,bicycle |
-| Sensitivity | Motion detection trigger, it also applies for object detection | Medium |
-
-**Camera settings**
-
-| Property | Description | Suggested Value |
-|-|-|-|
-| Video Playback Host | Host for the Azure Media Player viewer | http://localhost:8094 |
+| Inference Frame Sample Rate (fps) | [Description Here] | [Default Here] |
 
 **LVA Operations and Diagnostics**
 
@@ -88,6 +88,7 @@ Use the following tables to set the device properties:
 |-|-|-|
 | Auto Start | Start the Object detection when the LVA Gateway restarts | Checked |
 | Debug Telemetry | Event Traces | Optional |
+|Inference Timeout (sec)| he amount of time used to determine that inferences have stopped | 20 |
 
 Select **Save**.
 
@@ -113,7 +114,7 @@ The **Inference Event Video** is a list of links to the assets in Azure Media Se
 
 ## Start the streaming endpoint
 
-Before you try to view the video, make sure that the streaming endpoint for your media services account is running:
+You need to start the endpoint to deliver content directly to your client Media Player application
 
 * In the Azure portal, navigate to the **lva-rg** resource group.
 * Click on the **Streaming Endpoint** resource.
