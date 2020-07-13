@@ -1,6 +1,8 @@
 # Quickstart: Start an audio call (.NET/C#)
 This quickstart helps you make an audio call with a .NET sample application. You will be able to call an echo bot which repeats your audio message, or another instance of the sample application on another PC.
 
+Once you've gotten this sample working, you may want to learn more about Calling concepts [here](../concepts/calling-client-samples.md).
+
 ## Prerequisites
 
 If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
