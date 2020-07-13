@@ -32,7 +32,8 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 5. If prompted, enter your login credentials. 
 
-    **Note** one-time passcode (OTP) accounts are not supported. 
+   > [!NOTE]
+   > One-time passcode (OTP) accounts aren't supported. 
 
 6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
