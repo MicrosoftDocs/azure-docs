@@ -4,11 +4,15 @@
   items:
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: Service Fabric Managed clusters
+    href: managed-cluster-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: ARM template
     displayName: Resource Manager
+  - name: Managed cluster (preview)
+    href: quickstart-managed-cluster.md
     href: quickstart-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
@@ -24,6 +28,7 @@
       href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutorials
   items:
+  - name: 
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
@@ -64,6 +69,18 @@
       href: service-fabric-tutorial-package-containers.md
     - name: 3- Fail over and scale
       href: service-fabric-tutorial-containers-failover.md
+  - name: Create a Managed Service Fabric cluster (preview)
+    items:
+    - name: 1- Deploy a Managed Service Fabric cluster (preview)
+      href: tutorial-managed-cluster-deploy.md
+    - name: 2- Scale out a managed cluster node type (preview)
+      href: tutorial-managed-cluster-scale.md
+    - name: 3- Add and remove managed cluster node types (preview)
+      href: tutorial-managed-cluster-add-remove-node-type.md
+    - name: 4- Upgrade a managed cluster (preview)
+      href: tutorial-managed-cluster-upgrade.md
+    - name: 5- Add a managed cluster client certificate
+      href: tutorial-managed-cluster-certificate.md
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
