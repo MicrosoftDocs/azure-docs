@@ -78,7 +78,7 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 ## View data collected
 
-7. Click on your virtual machine and then select the **Performance** tab. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
+7. Click on your virtual machine and then select the **Performance** tab that's under **Monitoring** menu **Insights** tile. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
 
     ![Performance](media/quick-monitor-azure-vm/performance.png)
 

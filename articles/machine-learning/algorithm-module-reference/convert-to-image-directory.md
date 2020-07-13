@@ -19,22 +19,36 @@ This article describes how to use the Convert to Image Directory module to help 
 
 1.  Add the **Convert to Image Directory** module to your experiment. You can find this module in the 'Computer Vision/Image Data Transformation' category in the module list. 
 
-2.  Connect an image dataset as input. Please make sure there is image in input dataset.
+2.  [Register an image dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) and connect it to the module input port. Please make sure there is image in input dataset. 
     Following dataset formats are supported:
 
     - Compressed file in these extensions: '.zip', '.tar', '.gz', '.bz2'.
-    - Folder containing 1 compressed file in above valid extensions. 
-    - Folder containing images.
+    - Folder containing images. **Highly recommend compressing such folder first then use the compressed file as dataset**.
+
+    > [!WARNING]
+    > You **cannot** use **Import Data** module to import image dataset, because the output type of **Import Data** module is DataFrame Directory, which only contains file path string.
+    
 
     > [!NOTE]
-    > Image category can be recorded in module output if this image dataset is organized in torchvision ImageFolder format, please refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information. Otherwise, only images are saved.
+    > If use image dataset in supervised learning, label is required.
+    > For image classification task, label can be generated as image 'category' in module output if this image dataset is organized in torchvision ImageFolder format. Otherwise, only images are saved without label. Here is an example of how you could organize image dataset to get label, use image category as subfolder name. Please refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
+    >
+    > ```
+    > root/dog/xxx.png
+    > root/dog/xxy.png
+    > root/dog/xxz.png
+    >
+    > root/cat/123.png
+    > root/cat/nsdf3.png
+    > root/cat/asd932_.png
+    > ```
 
 3.  Submit the pipeline.
 
 ## Results
 
 The output of **Convert to Image Directory** module is in Image Directory format, and can be connected to other image related modules of which the input port format is also Image Directory.
-​
+
 ## Technical notes 
 
 ###  Expected inputs  

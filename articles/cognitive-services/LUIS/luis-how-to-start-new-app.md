@@ -40,7 +40,7 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 ## Create new app in LUIS
 
-1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. If you are using free trial key, learn how to [create an authoring resource](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. 
 
 > [!div class="mx-imgBorder"]
 > ![LUIS apps list](./media/create-app-in-portal.png)

@@ -1,6 +1,6 @@
 ﻿---
 title: Investigate alerts with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to investigate alerts with Azure Sentinel.
+description: Learn how to use out-of-the-box, built-in Azure threat detection templates that notify you when something suspicious happens.
 services: sentinel
 documentationcenter: na
 author: yelevin

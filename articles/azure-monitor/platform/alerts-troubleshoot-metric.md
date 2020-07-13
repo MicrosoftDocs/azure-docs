@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -106,7 +106,7 @@ The allowed number of metric alert rules per subscription is subject to [quota l
 If you have reached the quota limit, the following steps may help resolve the issue:
 1. Try deleting or disabling metric alert rules that aren’t used anymore.
 
-2. Switch to using metric alert rules that monitor multiple resources. With this capability, a single alert rule can monitor multiple resources using only one alert rule counted against the quota. For more information about this capability and the supported resource types, see [multiple](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Switch to using metric alert rules that monitor multiple resources. With this capability, a single alert rule can monitor multiple resources using only one alert rule counted against the quota. For more information about this capability and the supported resource types, see [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. If you need the quota limit to be increased, open a support request, and provide the following information:
 
@@ -185,6 +185,33 @@ To create a metric alert rule, you’ll need to have the following permissions:
 - Read permission on the target resource of the alert rule
 - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
+
+
+## Naming restrictions for metric alert rules
+
+Please note the following restrictions for metric alert rule names:
+
+- Metric alert rule names can’t be changed (renamed) once created
+- Metric alert rule names must be unique within a resource group
+- Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
+- Metric alert rule names can’t end with the following character: .
+
+
+## Restrictions when using dimensions in a metric alert rule with multiple conditions
+
+Metric alerts support alerting on multi-dimensional metrics as well as support defining multiple conditions (up to 5 conditions per alert rule).
+
+Please note the following constraints when using dimensions in an alert rule that contains multiple conditions:
+1. You can only select one value per dimension within each condition.
+2. You can't use the option to "Select all current and future values" (Select \*).
+3. When metrics that are configured in different conditions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant conditions).
+For example:
+	- Consider a metric alert rule that is defined on a storage account and monitors two conditions:
+		* Total **Transactions** > 5
+		* Average **SuccessE2ELatency** > 250 ms
+	- I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
+	- Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
+
 
 ## Next steps
 
