@@ -27,4 +27,4 @@ Education Hub and use subscriptions within the classroom that will access your A
 ## Next steps
 
 - [Access the Education Hub](access-education-hub.md)
-- [Support options](includes/educator-service-desk.md)
+- [Support options](educator-service-desk.md)
