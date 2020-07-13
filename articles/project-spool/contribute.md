@@ -1,6 +1,5 @@
-*Note: This is a temporary page.  **This will not be published**.  If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.*
-
-## Intro
+> [!WARNING]
+> This is a temporary page.  **This will not be published.*** 
 
 The status of ACS Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
 

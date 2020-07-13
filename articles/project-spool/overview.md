@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 > [!WARNING]
-> Azure Communication Services is currently in a private preview. Documentation and APIs may rapidly change, and access to the service requires entry in our partner program.  
+> This is a temporary page.  **This will not be published.*** 
 
 
 # About Azure Communication Services
