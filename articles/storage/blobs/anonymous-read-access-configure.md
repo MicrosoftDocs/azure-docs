@@ -37,21 +37,21 @@ Disallowing public access for the storage account prevents anonymous access to a
 > [!IMPORTANT]
 > Disallowing public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously. For more information, see [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
-To allow or deny public access for a storage account, use the Azure portal or Azure CLI to configure the account's **blobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To allow or disallow public access for a storage account, use the Azure portal or Azure CLI to configure the account's **blobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
 # [Azure portal](#tab/portal)
 
-To allow or deny public access for a storage account in the Azure portal, follow these steps:
+To allow or disallow public access for a storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Blob public access** to **Enabled** or **Disabled**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or deny blob public access for account":::
+    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow blob public access for account":::
 
 # [Azure CLI](#tab/azure-cli)
 
-To allow or deny public access for a storage account with Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **allowBlobPublicAccess** property for the storage account. To permit public access, set the **allowBlobPublicAccess** property to true; to disallow, set it to **false**.
+To allow or disallow public access for a storage account with Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **allowBlobPublicAccess** property for the storage account. To permit public access, set the **allowBlobPublicAccess** property to true; to disallow, set it to **false**.
 
 The following example disallows public blob access for the storage account. Remember to replace the placeholder values in brackets with your own values:
 
