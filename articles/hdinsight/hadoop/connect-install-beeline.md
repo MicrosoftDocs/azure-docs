@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 05/27/2020
 ---

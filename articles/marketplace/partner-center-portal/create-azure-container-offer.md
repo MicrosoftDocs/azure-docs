@@ -1,12 +1,12 @@
 ---
 title: Create an Azure container offer - Azure Marketplace
 description: Learn how to create and publish a container offer to Azure Marketplace. 
-author: mingshen 
-ms.author: mingshen 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+author: mingshen
+ms.author: mingshen
+ms.date: 06/17/2020
 ---
 
 # Create an Azure container offer in Azure Marketplace
@@ -77,8 +77,8 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 Here are some additional lead management resources:
 
 - [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.
@@ -89,7 +89,12 @@ This page lets you define the categories used to group your offer on the marketp
 
 #### Category
 
-Select a minimum of one and a maximum to five categories. These categories are used to place your offer in the appropriate marketplace search areas, and are shown on your offer details page. In the offer description, explain how your offer supports these categories. Containers appear under **Containers** and then the **Container Images** category.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Containers always appear under **Containers** and then the **Container Images** category.
 
 #### Legal
 
@@ -98,13 +103,13 @@ You must provide terms and conditions for the offer. There are two options:
 - Use the Standard Contract for the Microsoft commercial marketplace.
 - Provide your own terms and conditions.
 
-##### Standard contract for the Microsoft commercial marketplace
+#### Standard contract for the Microsoft commercial marketplace
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to create custom terms and conditions.
 
-To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
-To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace** check box, and then click **Accept**.
+To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace](../standard-contract.md)
 
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
@@ -175,7 +180,7 @@ In the **CSP Program contact** section, provide the link ( **CSP Program Marketi
 
 #### Additional marketplace listing resources
 
-To learn more about creating offer listings, see [Offer listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md)
 
 ### Marketplace images
 
@@ -273,11 +278,11 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 #### Azure regions
 
-All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
-Select the [**Azure Government**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the [**Azure Government**](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, s](../marketplace-geo-availability-currencies.md)em. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
-Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > After your plan is published and available in a specific region, you can't remove that region.
@@ -343,11 +348,11 @@ Provide the following information on the **Image repository details** tab.
 
 **Azure subscription ID** – Provide the subscription ID where usage is reported and services are billed for the Azure Container Registry that includes your container image. You can find this ID on the [Subscriptions page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 
-**Azure resource group name** – Provide the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
+**Azure resource group name** – Provide the [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
 
-**Azure Container Registry name** – Provide the name of the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
+**Azure Container Registry name** – Provide the name of the [Azure Container Registry](../../container-registry/container-registry-intro.md) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-**Admin username for the Azure Container Registry** – Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) linked with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in Azure portal.
+**Admin username for the Azure Container Registry** – Provide the [admin username](../../container-registry/container-registry-authentication.md#admin-account)) linked with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in Azure portal.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrates the Update container registry dialog box.":::
 
@@ -355,7 +360,7 @@ Provide the following information on the **Image repository details** tab.
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrates the Access Key menu.":::
 
-**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. Include the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories** page. For more information, see [View container registry repositories in Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. Include the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories** page. For more information, see [View container registry repositories in Azure portal](../../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > After the name is set, it can't be changed. Use a unique name for each offer in your account.

@@ -23,7 +23,7 @@ To submit a query to the service from a client app, you will use the Azure Digit
 
 ## Query language features
 
-Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
+Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, in a query language similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
 Here are the operations available in Azure Digital Twins Query Store language:
 * Get twins by digital twins' properties.
@@ -31,10 +31,10 @@ Here are the operations available in Azure Digital Twins Query Store language:
 * Get twins by relationship properties.
 * Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
 * Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on the twin's [model](concepts-models.md). It supports inheritance.
-* Use any combination (`AND`, `OR`, `NOT` operator) of the above.
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
-* Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time, by repeating calls to the `nextAsTwin` method.
+* Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
+* Use any combination (`AND`, `OR`, `NOT` operator) of the above.
+* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time by providing the continuation token in subsequent calls to the API.
 
 ## Next steps
 

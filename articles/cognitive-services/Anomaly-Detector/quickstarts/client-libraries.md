@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-seventeen
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: tracking-python
 ---

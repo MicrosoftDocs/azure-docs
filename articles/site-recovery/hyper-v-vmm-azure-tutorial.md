@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Enable replication for a VM.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](/azure/site-recovery/).
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](./index.yml).
 
 ## Prerequisites
 

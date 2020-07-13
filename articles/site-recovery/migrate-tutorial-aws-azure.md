@@ -130,7 +130,7 @@ In **Have you completed deployment planning**, select **I will do it later**, an
 On the **Prepare source** page, select **+ Configuration Server**.
 
 1. Use an EC2 instance that's running Windows Server 2012 R2 to create a configuration server and register it with your recovery vault.
-2. Configure the proxy on the EC2 instance VM you're using as the configuration server so that it can access the [service URLs](site-recovery-support-matrix-to-azure.md).
+2. Configure the proxy on the EC2 instance VM you're using as the configuration server so that it can access the [service URLs](./vmware-physical-azure-support-matrix.md).
 3. Download [Microsoft Azure Site Recovery Unified Setup](https://aka.ms/unifiedinstaller_wus). You can download it to your local machine and then copy it to the VM you're using as the configuration server.
 4. Select the **Download** button to download the vault registration key. Copy the downloaded file to the VM you're using as the configuration server.
 5. On the VM, right-click the installer you downloaded for Microsoft Azure Site Recovery Unified Setup, and then select **Run as administrator**.
