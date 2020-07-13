@@ -30,7 +30,7 @@ For further details, see [Azure Monitor overview](https://docs.microsoft.com/azu
 Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets.
 
 * **Storage Account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
+* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
 * **Log Analytics**: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
   * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
   * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
@@ -57,11 +57,20 @@ Create or add diagnostic settings for your data factory.
 
     * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
 
-    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the _ADFActivityRun_, _ADFPipelineRun_, _ADFTriggerRun_, _ADFSSISIntegrationRuntimeLogs_, _ADFSSISPackageEventMessageContext_, _ADFSSISPackageEventMessages_, _ADFSSISPackageExecutableStatistics_, _ADFSSISPackageExecutionComponentPhases_, and _ADFSSISPackageExecutionDataStatistics_ tables.
+    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the following tables:
+      - _ADFActivityRun_
+      - _ADFPipelineRun_
+      - _ADFTriggerRun_
+      - _ADFSSISIntegrationRuntimeLogs_
+      - _ADFSSISPackageEventMessageContext_
+      - _ADFSSISPackageEventMessages_
+      - _ADFSSISPackageExecutableStatistics_
+      - _ADFSSISPackageExecutionComponentPhases_
+      - _ADFSSISPackageExecutionDataStatistics_
 
-      You can select various logs relevant to your workloads to send to Log Analytics tables. For example, if you don't use SQL Server Integration Services (SSIS) at all, you need not select any SSIS logs. If you want to log SSIS Integration Runtime (IR) start/stop/maintenance operations, you can select SSIS IR logs. If you invoke SSIS package executions only via T-SQL, you can select only SSIS package logs. If you invoke SSIS package executions via Execute SSIS Package activities in ADF pipelines, you can select all logs.
+      You can select various logs relevant to your workloads to send to Log Analytics tables. For example, if you don't use SQL Server Integration Services (SSIS) at all, you need not select any SSIS logs. If you want to log SSIS Integration Runtime (IR) start/stop/maintenance operations, you can select SSIS IR logs. If you invoke SSIS package executions via T-SQL on SQL Server Management Studio (SSMS), SQL Server Agent, or other designated tools, you can select SSIS package logs. If you invoke SSIS package executions via Execute SSIS Package activities in ADF pipelines, you can select all logs.
 
-    * If you select _AllMetrics_, the metrics for ADF entity count/size, activity/pipeline/trigger runs, Integration Runtime (IR) CPU utilization/memory/node count/queue, as well as for SSIS package executions and SSIS IR start/stop operations will be made available for you to monitor/raise alerts on.
+    * If you select _AllMetrics_, various ADF metrics will be made available for you to monitor or raise alerts on, including those for ADF activity, pipeline, and trigger runs, as well as those for SSIS IR operations and SSIS package executions.
 
    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -94,7 +103,7 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
 ### Monitor Data Factory metrics
 
-Installing Azure Data Factory Analytics creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. This results in the following metrics become enabled:
+Installing this solution creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. This results in the following metrics become enabled:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
 * ADF Runs - 2) Activity Runs by Data Factor
@@ -144,7 +153,7 @@ Here are some of the metrics emitted by Azure Data Factory version 2:
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 > [!NOTE]
-> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. On the other hand, all events from SSIS package executions are emitted, including those that are completed, in progress, and invoked via T-SQL on SSMS/SQL Server Agent/other designated tools or as triggered/sandbox/debug runs of Execute SSIS Package activities in ADF pipelines.
+> Only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
 ## Data Factory Alerts
 
@@ -535,7 +544,7 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 
 #### SSIS integration runtime log attributes
 
-These are the log attributes/properties of SSIS Integration Runtime (IR) start/stop/maintenance operations.
+These are the log attributes of SSIS Integration Runtime (IR) start/stop/maintenance operations.
 
 ```json
 {
@@ -569,7 +578,7 @@ These are the log attributes/properties of SSIS Integration Runtime (IR) start/s
 
 #### SSIS event message context log attributes
 
-These are the log attributes/properties of conditions related to event messages generated by SSIS package executions on your SSIS IR. They convey similar information as [SSIS catalog (SSISDB) event message context table/view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) that shows run-time values of many SSIS package properties. They're generated when you select `Basic/Verbose` logging level and useful for debugging/compliance checking.
+These are the log attributes of conditions related to event messages that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSIS catalog (SSISDB) event message context table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) that shows run-time values of many SSIS package properties. They're generated when you select `Basic/Verbose` logging level and useful for debugging/compliance checking.
 
 ```json
 {
@@ -615,7 +624,7 @@ These are the log attributes/properties of conditions related to event messages 
 
 #### SSIS event messages log attributes
 
-These are the log attributes/properties of event messages generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB event messages table/view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) that shows the detailed text/metadata of event messages. They're generated at any logging level except `None`.
+These are the log attributes of event messages that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB event messages table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) that shows the detailed text/metadata of event messages. They're generated at any logging level except `None`.
 
 ```json
 {
@@ -669,7 +678,7 @@ These are the log attributes/properties of event messages generated by SSIS pack
 
 #### SSIS executable statistics log attributes
 
-These are the log attributes/properties of executable statistics generated by SSIS package executions on your SSIS IR, where executables are containers/tasks in package control flows. They convey similar information as [SSISDB executable statistics table/view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) that shows a row for each running executable, including its iterations. They're generated at any logging level except `None` and useful for identifying task-level bottlenecks/failures.
+These are the log attributes of executable statistics that are generated by SSIS package executions on your SSIS IR, where executables are containers or tasks in the control flow of packages. They convey similar information as [SSISDB executable statistics table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) that shows a row for each running executable, including its iterations. They're generated at any logging level except `None` and useful for identifying task-level bottlenecks/failures.
 
 ```json
 {
@@ -713,7 +722,7 @@ These are the log attributes/properties of executable statistics generated by SS
 
 #### SSIS execution component phases log attributes
 
-These are the log attributes/properties of run-time statistics for data flow components generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution component phases table/view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) that shows the time spent by data flow components in all execution phases. They're generated when you select `Performance/Verbose` logging level and useful for capturing data flow execution statistics.
+These are the log attributes of run-time statistics for data flow components that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution component phases table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) that shows the time spent by data flow components in all their execution phases. They're generated when you select `Performance/Verbose` logging level and useful for capturing data flow execution statistics.
 
 ```json
 {
@@ -759,7 +768,7 @@ These are the log attributes/properties of run-time statistics for data flow com
 
 #### SSIS execution data statistics log attributes
 
-These are the log attributes/properties of data movements through each leg of data flow pipelines, from upstream to downstream components, generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution data statistics table/view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) that shows row counts of data moved through data flow tasks. They're generated when you select `Verbose` logging level and useful for computing data flow throughput.
+These are the log attributes of data movements through each leg of data flow pipelines, from upstream to downstream components, that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution data statistics table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) that shows row counts of data moved through data flow tasks. They're generated when you select `Verbose` logging level and useful for computing data flow throughput.
 
 ```json
 {
@@ -831,24 +840,24 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
 
 ## Monitor SSIS operations with Azure Monitor
 
-To lift & shift your SQL Server Integration Services (SSIS) workloads, you can [provision SSIS Integration Runtime (IR) in Azure Data Factory (ADF)](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) that supports:
+To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) that supports:
 
 - Running packages deployed into SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance (Project Deployment Model)
 - Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
 
-Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables/views, so they can be queried, analyzed, and visually presented using designated tools like SQL Server Management Studio (SSMS). With Package Deployment Model, SSIS package execution logs can be stored in file system/Azure Files as CSV files that still need to be parsed and processed using other designated tools before they can be queried, analyzed, and visually presented.
+Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables or views, so you can query, analyze, and visually present them using designated tools like SSMS. With Package Deployment Model, SSIS package execution logs can be stored in file system or Azure Files as CSV files that you still need to parse and process using other designated tools before you can query, analyze, and visually present them.
 
-Now with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) integration, all metrics and logs generated from SSIS IR operations and SSIS package executions can be queried, analyzed, and visually presented on Azure portal, while alerts can also be raised on them.
+Now with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. On top of that, you can also raise alerts on them.
 
 ### Configure diagnostic settings and workspace for SSIS operations
 
-To send all metrics and logs generated from SSIS IR operations and SSIS package executions to Azure Monitor, follow the step-by-step instructions provided to [configure diagnostics settings and workspace for your ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
+To send all metrics and logs generated from SSIS IR operations and SSIS package executions to Azure Monitor, you need to [configure diagnostics settings and workspace for your ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
 
 ### SSIS operational metrics
 
-SSIS operational [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) are performance counters/numerical values describing the status of SSIS IR start/stop operations and SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics), including those for ADF entity count/size, activity/pipeline/trigger runs, and IR CPU utilization/memory/node count/queue.
+SSIS operational [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics).
 
-When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerting](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
 
 ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -864,9 +873,9 @@ To raise alerts on SSIS operational metrics from Azure portal, [select the **Ale
 
 ### SSIS operational logs
 
-SSIS operational [logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) are events generated by SSIS IR operations and SSIS package executions that provide enough context/information on any issues identified and are useful for root cause analysis. 
+SSIS operational [logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) are events generated by SSIS IR operations and SSIS package executions that provide enough context on any identified issues and are useful for root cause analysis. 
 
-When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer, where they'll be made available for [analysis using rich query language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerting](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer. In there, they'll be made available for [analysis using rich query language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
 ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -883,7 +892,7 @@ The schemas and content of SSIS package execution logs in Azure Monitor and Log 
 
 For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
 
-Your selected SSIS package execution logs are always sent to Log Analytics regardless of your invocation methods, for example on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS/SQL Server Agent/other designated tools, or as triggered/sandbox/debug runs of Execute SSIS Package activities in ADF pipelines.
+Your selected SSIS package execution logs are always sent to Log Analytics regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SSDT, via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
 When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName** and **ResultType** properties that are set to `Start/Stop/Maintenance` and `Started/InProgress/Succeeded/Failed`, respectively. 
 
