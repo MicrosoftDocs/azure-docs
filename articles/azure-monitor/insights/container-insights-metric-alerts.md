@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/13/2020
 
 ---
 
@@ -110,6 +110,8 @@ This section walks through enabling Azure Monitor for containers metric alert (p
     ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
 After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
+
+5. Alert rules are not associated with an [action group](../platform/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
 
 ### Enable with a Resource Manager template
 
