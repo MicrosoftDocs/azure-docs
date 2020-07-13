@@ -101,23 +101,31 @@ There are multiple options in Azure for handling backup. You can use Azure backu
 
 ## Does Windows Virtual Desktop support third-party collaboration apps?
 
-Windows Virtual Desktop is currently optimized for Teams. Microsoft currently doesn't support third-party collaboration apps like Zoom. Third-party organizations are responsible for giving their customers guidelines for compatibility. Windows Virtual Desktop also doesn't support Skype for Business.
+Windows Virtual Desktop is currently optimized for Teams. Microsoft currently doesn't support third-party collaboration apps like Zoom. Third-party organizations are responsible for giving compatibility guidelines to their customers. Windows Virtual Desktop also doesn't support Skype for Business.
 
-## Can I change from pooled to personal host pool?
+## Can I change from pooled to personal host pools?
 
 Once you create a host pool, you can't change its type. However, you can move any VMs you register to a host pool to a different type of host pool.
 
 ## What's the largest profile size FSLogix can handle?
 
-In general, FSLogix doesn't limit profile size, although there is a limit based on the VHD/VHDx spec.
+Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
 
-The size limit depends on the underlying storage fabric you use to store your FSLogix profiles. The following table lists how much space FSLogix needs per user.
+The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile. 
 
-| Spec type |IOPS needed|
+| Resource | Requirement |
 |---|---|
-| Steady IOPS | 10 |
-| Boot IOPS | 50 |
-| Steady throughput (MBPS) | 1.5 |
-| Boot throughput (MBPS) | 7.5 |
+| Steady state IOPS | 10 |
+| Sign in/sign out IOPS | 5 |
 
-For example, if you want to support 100 users , you'll need 1000 IOPS for steady us, 5000 IOPS for logon storm, and so on.
+The example in this table is of a single user, but can be used to estimate requiremnts for the total number of users in your environemnt. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign in and sign out.
+
+## Is there a scale limit for host pools created in the Azure portal?
+
+These are the factors that affect scale limit for host pools:
+
+- The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
+
+- There are restrictions on how many cores you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, you can create 350 cores. You'll need to divide 350 by either the default number of cores per VM or your own core limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+
+- The VM prefix name and the number of VMs is less than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
