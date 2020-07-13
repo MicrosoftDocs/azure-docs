@@ -15,7 +15,7 @@ ms.date: 11/07/2019
 In this quickstart, you work with an Azure Database for PostgreSQL using Python on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
 
 > [!TIP]
-> If you are looking to build a Django Application with PostgreSQL then checkout  [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
+> If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
 
 
 ## Prerequisites
