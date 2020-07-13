@@ -5,13 +5,13 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 7/13/2020
 ---
 # Azure Government authorized reseller list
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
-Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **March 11, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
+Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **July 10, 2020** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 
 ## Approved direct CSPs
 
@@ -361,6 +361,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
+|[Carahsoft Technology Corporation](https://www.carahsoft.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
 |[Synnex](https://www.synnexcorp.com)|
@@ -373,35 +374,38 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |LSP Name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
-|CompuCom Systems Inc.|sales\@compucom.com|972-856-3600|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
-|En Pointe Technologies|govsales@enpointe.com|310-337-5977|
-|Hewlett Packard||877-686-9637|
-|Insight Direct||800-467-4448|
+|Insight Public Sector||800-467-4448|
 |PC Connection|govccollections@govconnection.com|800-998-0009|
-|PCM, Inc.|sales@pcmallgov.com|800-625-5468|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
-|SoftChoice|gov@softchoice.com|877-333-7638|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
-|SoftwareONE|sales@softwareone.com|800-444-9890|
-|Zones International|publicsector@zones.com|253-205-3000|
 
-## Approved 2020 AOS-G Partners
+## Approved AOS-G Partners
 
-|Partner Name|Phone|
-|----------------------------|---------------------------|
-|Accenture Federal Services|571-414-4292|
-|American Technology Services|703-876-0300|
-|Arctic Information Technology, Inc.|907-261-9500|
-|C3 Integrated Solutions, Inc.|571-384-7950|
-|Catapult Systems, LLC|512-225-6916|
-|Cloud Navigator, Inc - formerly ISC|800-619-7377|
-|KTL Solutions, Inc.|301-360-0001|
-|LiftOff LLC|410-419-1591|
-|Permuta Technologies, Inc.|703-650-5040|
-|Planet Technologies, Inc.|301-721-0100|
-|Summit 7 Services, Inc.|256-585-6868|
-|VLCM|801-262-9277|
-|VC3|800-787-1160|
+|Partner Name|
+|----------------------------|
+|[Accenture Federal Service](https://www.accenture.com/us-en/industries/afs-index)|
+|[Agile IT, Inc](https://www.agileit.com)|
+|[American Technical Services](https://networkats.com)|
+|[Applied Information Sciences](https://www.appliedis.com)|
+|[Arctic Information Technology, Inc.](https://arcticit.com)|
+|[C3 Integrated Solutions, Inc.](https://www.c3isit.com)|
+|[Catapult Systems, LLC](https://www.catapultsystems.com)|
+|[CGI Federal Inc.](https://www.cgi.com/us/en-us/federal)|
+|[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
+|[Dox Electornics Inc.](https://www.doxnet.com)|
+|[F1 Soluitions Inc](https://www.f1networks.com)|
+|[Four Points Technolgy, LLC](https://www.4points.com)|
+|[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
+|[LiftOff LLC](https://www.liftoffllc.com)|
+|[Permuta Technologies, Inc.](https://www.permuta.com/)|
+|[Planet Technologies, Inc.](https://go-planet.com)|
+|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
+|[Smartronix](https://www.smartronix.com)|
+|[SAIC](https://www.saic.com)|
+|[Summit 7 Services, Inc.](https://summit7systems.com)|
+|[TechTrend, Inc](https://techtrend.us)|
+|[VLCM](https://www.vlcmtech.com)|
+|[VC3](https://www.vc3.com)|
 
 If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](https://docs.microsoft.com/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](https://docs.microsoft.com/azure/azure-government/documentation-government-csp-application). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).
