@@ -57,4 +57,5 @@ can sign up for the [Azure for Students offer](azure-students-program.md) withou
 
 ## Next steps
 
-- [Enroll now!](enroll-renew-subscription.md)
+> [!div class="nextstepaction"]
+> [Enroll now!](enroll-renew-subscription.md)
