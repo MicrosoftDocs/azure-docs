@@ -1,6 +1,6 @@
 ---
 title: Plan your app - QnA Maker
-description: Learn how to plan your QnA Maker app by understanding how QnA Maker works and interacts with other Azure services as well as some knowledge base concepts.
+description: Learn how to plan your QnA Maker app. Understand how QnA Maker works and interacts with other Azure services and some knowledge base concepts.
 ms.topic: conceptual
 ms.date: 07/2/2020
 ---
@@ -11,10 +11,10 @@ To plan your QnA Maker app, you need to understand how QnA Maker works and inter
 
 ## Azure resources
 
-Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Because each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations), it's important to understand the function of these resources so that you can use that knowledge into your planning process.
+Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
 
 | Resource | Purpose |
-| -- | -- |
+|--|--|
 | [QnA Maker](azure-resources.md#qna-maker-resource) resource | Authoring and query prediction |
 | [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
 | [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
@@ -30,7 +30,7 @@ A single QnA Maker resource can host more than one knowledge base. The number of
 
 #### Knowledge base size and throughput
 
-When you plan to build a real app, allocate resources for the size of your knowledge base and for your expected query prediction requests.
+When you build a real app, plan sufficient resources for the size of your knowledge base and for your expected query prediction requests.
 
 A knowledge base size is controlled by the:
 * [Cognitive Search resource](../../../search/search-limits-quotas-capacity.md) pricing tier limits
@@ -40,7 +40,7 @@ The knowledge base query prediction request is controlled by the Web app plan an
 
 ### Resource sharing
 
-If you already have some of these resources in use, you may consider sharing resources. See which resources [can be shared](azure-resources.md#share-services-with-qna-maker), but be aware that resource sharing is an advanced scenario.
+If you already have some of these resources in use, you may consider sharing resources. See which resources [can be shared](azure-resources.md#share-services-with-qna-maker) with the understanding that resource sharing is an advanced scenario.
 
 All knowledge bases created in the same QnA Maker resource share the same **test** query prediction endpoint.
 
@@ -54,13 +54,13 @@ Improper resource selection requires investigation to determine which [resource 
 
 ## Knowledge bases
 
-A knowledge base is directly tied its QnA Maker resource and holds the question and answer (QnA) pairs used to answer query prediction requests.
+A knowledge base is directly tied its QnA Maker resource. It holds the question and answer (QnA) pairs that are used to answer query prediction requests.
 
 ### Language considerations
 
 The first knowledge base created on your QnA Maker resource sets the language for the resource. You can only have one language for a QnA Maker resource.
 
-Structure your QnA Maker resources by language or use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
+You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-info-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
 ### Ingest data sources
 
@@ -76,13 +76,13 @@ The ingestion process converts [supported content types](content-types.md) to ma
 
 Because the final format of a QnA pair is markdown, it's important to understand [markdown support](../reference-markdown-format.md).
 
-Linked images must be available from a public URL in order to display in the test pane of the QnA Maker portal or in a client application. QnA Maker doesn't provide authentication for content, including images.
+Linked images must be available from a public URL to be displayed in the test pane of the QnA Maker portal or in a client application. QnA Maker doesn't provide authentication for content, including images.
 
 ### Bot personality
 
 Add a bot personality to your knowledge base with [chit-chat](../how-to/chit-chat-knowledge-base.md). This personality comes through with answers provided in a certain conversational tone such as *professional* and *friendly*. This chit-chat is provided as a conversational set, which you have total control to add, edit, and remove.
 
-A bot personality is recommended if your bot connects to your knowledge base. You can choose to use chit-chat in your knowledge base even if you connect to other services in addition to your knowledge base, but you should review how the bot service interacts to know if that is the correct architectural design for your use.
+A bot personality is recommended if your bot connects to your knowledge base. You can choose to use chit-chat in your knowledge base even if you also connect to other services, but you should review how the bot service interacts to know if that is the correct architectural design for your use.
 
 ### Conversation flow with a knowledge base
 
@@ -100,13 +100,13 @@ Knowledge base authoring supports several [role-based access permissions](../how
 
 Integration with [client applications](integration-with-other-applications.md) is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
-In order to authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you are using an Azure Bot Service, configure theses settings as part of the bot configuration in the Azure portal.
+To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure theses settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
 Conversation flow in a [client application](integration-with-other-applications.md), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
 
-Does your client application support conversation flow, either by providing alternate means to handle follow-up prompts or including chit-chit? If so, design these early and make sure that the client application query is handled correctly by another service or when sent to your knowledge base.
+Does your client application support conversation flow, either by providing alternate means to handle follow-up prompts or including chit-chit? If so, design these early and make sure the client application query is handled correctly by another service or when sent to your knowledge base.
 
 ### Dispatch between QnA Maker and Language Understanding (LUIS)
 
@@ -124,7 +124,7 @@ QnA Maker uses _active learning_ to improve your knowledge base by suggesting al
 
 If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page in the QnA Maker portal or in the [APIs](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
-This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold is not met.
+This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold isn't met.
 
 ## Prediction
 
@@ -139,7 +139,7 @@ A score can change based on several factors:
 * Filtering for metadata
 * Query sent to `test` or `production` knowledge base
 
-There is a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
+There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
 - Cognitive Search - first rank. Set the number of _answers allowed_ high enough that the best answers are returned by Cognitive Search and then passed into the QnA Maker ranker.
 - QnA Maker - second rank. Apply featurization and machine learning to determine best answer.
 
@@ -166,7 +166,7 @@ Your [QnA pairs](question-answer-set.md) should be designed and developed based 
 Each pair can contain:
 * Metadata - filterable when querying to allow you to tag your QnA pairs with additional information about the source, content, format, and purpose of your data.
 * Follow-up prompts - helps to determine a path through your knowledge base so the user arrives at the correct answer.
-* Alternate questions - important to allow search to match to your answer from a variety of forms of the question. [Active learning suggestions](active-learning-suggestions.md) turn into alternate questions.
+* Alternate questions - important to allow search to match to your answer from different  forms of the question. [Active learning suggestions](active-learning-suggestions.md) turn into alternate questions.
 
 ### DevOps development
 
@@ -174,7 +174,7 @@ Developing a knowledge base to insert into a DevOps pipeline requires that the k
 
 A knowledge base shares the Cognitive Search index with all other knowledge bases on the QnA Maker resource. While the knowledge base is isolated by partition, sharing the index can cause a difference in the score when compared to the published knowledge base.
 
-In order to have the _same score_ on the `test` and `production` knowledge bases, isolate a QnA Maker resource to a single knowledge base. In this architecture, the resource only needs to live as long as the isolated batch test.
+To have the _same score_ on the `test` and `production` knowledge bases, isolate a QnA Maker resource to a single knowledge base. In this architecture, the resource only needs to live as long as the isolated batch test.
 
 ## Next step
 
