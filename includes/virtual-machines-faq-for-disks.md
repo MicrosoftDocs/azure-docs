@@ -159,11 +159,11 @@ You will receive email notifications 30 days prior to expiration and again on th
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
 
-No, it is only supported for premium SSD managed disks.
+No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-Currently only West Central US.
+For regional information, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -171,9 +171,9 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-Only premium SSDs that are P15 or greater support shared disks.
+For supported sizes, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
-**If I have an existing premium SSD, can I enable shared disks on it?**
+**If I have an existing disk, can I enable shared disks on it?**
 
 All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
 
