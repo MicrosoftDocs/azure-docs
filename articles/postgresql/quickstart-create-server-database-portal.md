@@ -80,7 +80,7 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
 > If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
 
 >[!div class="mx-imgBorder"]
-> ![Open Azure Cloud Shell](./media/quickstart-create-database-portal/use-in-cloud-shell.png)
+> ![Open Azure Cloud Shell](media/quickstart-create-database-portal/use-in-cloud-shell.png)
 
 - Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database **postgres** with admin user in this format '<admin-username>@<servername> as shown below for Azure Database for PostgreSQL.
     
