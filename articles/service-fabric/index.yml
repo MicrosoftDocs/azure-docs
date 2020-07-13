@@ -8,11 +8,42 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
+  ms.date: 07/31/2020
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+  # Card
+  - title: Try Service Fabric Managed clusters (preview)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What are Service Fabric Managed clusters (preview)
+            url: managed-cluster-overview.md
+          - text: Deploy a Service Fabric Managed cluster (preview)
+            url: service-fabric-get-started.md
+
+      - linkListType: tutorial
+        links:
+          - text: Create a Managed Service Fabric cluster (preview)
+            url: tutorial-managed-cluster-deploy.md
+          - text: Scale out a managed cluster node type (preview)
+            url: tutorial-managed-cluster-scale.md
+          - text: Add and remove managed cluster node types (preview)
+            url: tutorial-managed-cluster-add-remove-node-type.md
+          - text: Upgrade a managed cluster (preview)
+            url: tutorial-managed-cluster-upgrade.md
+          - text: Add a managed cluster client certificate (preview)
+            url: tutorial-managed-cluster-certificate.md
+      - linkListType: sample
+        links:
+          - text: Managed cluster template - Basic SKU (preview)
+            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
+          - text: Managed cluster template - Standard SKU, 1 Node Type (preview)
+            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
+          - text: Managed cluster template - Standard SKU, 3 Node Type (preview)
+            url: https://github.com/microsoft/service-fabric-scripts-and-templates/
+
   # Card
   - title: About Service Fabric
     linkLists:

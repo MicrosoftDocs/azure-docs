@@ -79,7 +79,7 @@
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Upgrade a managed cluster (preview)
       href: tutorial-managed-cluster-upgrade.md
-    - name: 5- Add a managed cluster client certificate
+    - name: 5- Add a managed cluster client certificate (preview)
       href: tutorial-managed-cluster-certificate.md
   - name: Create and manage a cluster
     items:
