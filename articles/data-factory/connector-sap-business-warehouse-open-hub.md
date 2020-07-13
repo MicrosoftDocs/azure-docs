@@ -33,10 +33,10 @@ You can copy data from SAP Business Warehouse via Open Hub to any supported sink
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW4/HANA is not supported by this connector.
 - Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
-- Connecting to Application Server.
+- Connecting to an SAP application server or SAP message server.
 
 ## SAP BW Open Hub Integration 
 
