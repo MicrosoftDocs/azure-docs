@@ -178,3 +178,4 @@ In this example you will use an address in the 192.168.0.0/24 range.
 In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
+For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

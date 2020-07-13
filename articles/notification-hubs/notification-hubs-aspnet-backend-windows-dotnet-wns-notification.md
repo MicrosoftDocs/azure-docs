@@ -327,11 +327,11 @@ In this section, you update the code in the project you completed for the [Tutor
 2. Enter a **Username** and **Password** as shown in the screen below. It should differ from the user name and password you enter on Windows Phone.
 3. Click **Log in and register** and verify a dialog shows that you have logged in. This code also enables the **Send Push** button.
 
-    ![][14]
+    ![Screenshot of the Notification Hubs application showing the username and password filled in.][14]
 5. Then in the **Recipient Username Tag** field, enter the user name registered. Enter a notification message and click **Send Push**.
 6. Only the devices that have registered with the matching username tag receive the notification message.
 
-    ![][15]
+    ![Screenshot of the Notification Hubs application showing the message that was pushed.][15]
 
 ## Next steps
 
