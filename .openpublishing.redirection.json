@@ -2149,7 +2149,7 @@
     },
     {
       "source_path": "articles/hpc-cache/hpc-cache-prereqs.md",
-      "redirect_url": "/azure/hpc-cache/hpc-cache-prerequisites.md",
+      "redirect_url": "/azure/hpc-cache/hpc-cache-prerequisites",
       "redirect_document_id": false
     },
     {
