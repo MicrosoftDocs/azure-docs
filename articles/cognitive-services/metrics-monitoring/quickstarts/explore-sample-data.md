@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: aahi
 ---
 
-# Quickstart: Explore the sample data in Project "Gualala"
+# Quickstart: Explore the Metrics Monitor sample data
 
 ## Pivot to Project "Gualala" demo site
 

@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 07/08/2020
+ms.date: 07/13/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 
 # What is Project Monitoring? 
 
-Metrics Monitoring is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. 
+Metrics Monitoring is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use metrics monitoring to:
+* Analyze multi-dimensional data from multiple data sources 
+* Simplify model building & customization
+* Identify and correlate anomalies
+* Build scalable root cause analysis. 
 
-Metrics monitoring can ingest multi-dimensional data from multiple data stores, orchestrate the model building & customization, identify anomalies, correlate them, and build root cause analysis in an automatic and scalable way. The key capabilities are exposed through RESTful APIs (application programming interfaces) and developers can easily build solutions without the heavy lifting of data engineering and building ML (Machine Learning) pipeline. This would significantly reduce the cost of building a solution and reduce the customer's time to market. 
-
-scalable real-time time series monitoring, alerting, and root cause analysis platform.
 
 :::image type="content" source="media/metrics-monitoring-overview.png" alt-text="Metrics Monitoring overview":::
 
