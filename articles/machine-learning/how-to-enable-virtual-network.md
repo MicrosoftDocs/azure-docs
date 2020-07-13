@@ -109,9 +109,21 @@ For __Azure Blob storage__, the workspace managed identity is also added as a [B
 
 ### Azure Machine Learning designer default datastore
 
-The designer uses your workspace's attached storage to store output by default. However, you can set a new default storage for each pipeline. In a pipeline draft, select the **Settings gear icon** > **Select default datastore**.
+The designer uses the storage account attached to your workspace to store output by default. However, you can specify it to store output to any datastore that you have access to. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible.
 
-You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible.
+To set a new default storage for a pipeline:
+
+1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
+1. Select **Select default datastore**.
+1. Specify a new datastore.
+
+You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
+
+1. Select the module whose output you want to specify.
+1. Expand the **Output settings** section.
+1. Select **Override default output settings**.
+1. Select **Set output settings**.
+1. Specify a new datstore.
 
 ### Azure Data Lake Storage Gen2 access control
 
