@@ -66,10 +66,10 @@ You can complete the renewal process as early as 90 days before the expiration d
 
 ## Next steps	
 
-> [Set up access for Azure Dev Tools](set-up-access.md)
+- [Set up access for Azure Dev Tools](set-up-access.md)
 
-> [Manage student access](manage-students.md)
+- [Manage student access](manage-students.md)
 
-> [Download software](download-software.md)
+- [Download software](download-software.md)
 
-> [Support options](educator-service-desk.md)
+- [Support options](educator-service-desk.md)
