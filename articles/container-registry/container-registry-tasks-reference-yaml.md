@@ -283,7 +283,6 @@ The `cmd` step type supports the following properties:
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
-| `volume` | 
 | `volumeMount` | object | Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
@@ -428,7 +427,7 @@ The volume object has the following properties.
 | Property | Type | Optional | Description | Default value |
 | -------- | ---- | -------- | ----------- | ------- | 
 | Name | string | No | The name of the volume to mount. Must exactly match the name from a `volumes` property. | None |
-| mountPath	| string | no | The absolute path to mount files in the container.	| None |
+| mountPath	|string | no | The absolute path to mount files in the container.	| None |
 
 ### Examples: Task step properties
 
