@@ -42,6 +42,12 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```  
+
 ## Upgrade all nodes in all node pools
 
 Upgrading the node image is done with `az aks upgrade`. To upgrade the node image, use the following command:
@@ -141,3 +147,5 @@ az aks nodepool show \
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
