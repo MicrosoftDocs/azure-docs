@@ -106,15 +106,15 @@ Type "help" for help.
 
 postgres=>
 ```
-
-- In the same Azure Cloud Shell terminal, create a database **mydatabase** 
+- In the same Azure Cloud Shell terminal, create a database **guests**
 ```
-postgres=> CREATE DATABASE mydatabase;
+postgres=> CREATE DATABASE guests;
 ```
 
-- Now to switch connections to the newly created database **mydatabase**
+- Now to switch connections to the newly created database **guests**
+
 ```bash
- \c mydatabase
+ \c guests
 ```
 
 - Type `\q`, and then select the Enter key to quit psql. 
