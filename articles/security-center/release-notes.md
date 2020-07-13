@@ -29,6 +29,9 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in July include:
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
 
@@ -39,18 +42,18 @@ Your data can be protected whether it's stored as blob containers, file shares, 
 Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
 
 
-### Two security recommendations for SQL advanced data security deprecated
+### Six policies for SQL advanced data security deprecated
 
-Two security recommendations related to advanced data security for SQL machines are being deprecated: 
+Six policies related to advanced data security for SQL machines are being deprecated:
 
-- Advanced data security should be enabled on your managed instances
-    (Related policy: Advanced data security should be enabled on SQL Managed Instance)
-- Advanced data security should be enabled on your SQL servers
-    (Related policy: Advanced data security should be enabled on your SQL servers)
+- Advanced threat protection types should be set to 'All' in SQL managed instance advanced data security settings
+- Advanced threat protection types should be set to 'All' in SQL server advanced data security settings
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
 
-These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
-
-Learn more about [security recommendations](recommendations-reference.md).
+Learn more about [built-in policies](security-center-policy-definitions.md).
 
 
 
