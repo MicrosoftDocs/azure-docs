@@ -113,8 +113,8 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 }
 ```
 
-## Connect to PostgreSQL database using psql
-[**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) is popular client used to connect to PostgreSQL servers. You can connect to your server using psql with [Azure Cloud Shell](../cloud-shell/overview.md).Alternatively, you can use psql on your local environment if you have it available. An empty database, 'postgres' is already created with your new PostgreSQL server that you can use to connect with psql as shown below 
+## Connect to Azure Database for PostgreSQL server using psql
+[**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) is popular client used to connect to PostgreSQL servers. You can connect to your server using **psql** with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use psql on your local environment if you have it available. An empty database, 'postgres' is already created with your new PostgreSQL server that you can use to connect with psql as shown below 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
