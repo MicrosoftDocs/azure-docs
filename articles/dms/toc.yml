@@ -38,9 +38,9 @@
         - name: SQL Server on Azure VM
           items: 
             - name: Overview
-              href: /migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md
+              href: migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md
             - name: Database Migration Assistant
-              href: /migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
+              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
             
 
 - name: Tutorials

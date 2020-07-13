@@ -1102,11 +1102,11 @@
   - name: Migration guides
     items: 
       - name: Overview
-        href: /virtual-machines/migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md 
+        href: virtual-machines/migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md 
       - name: From SQL Server
         items: 
         - name: Database Migration Assistant
-          href: /virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
         
 - name: Reference
   items:
