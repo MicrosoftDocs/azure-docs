@@ -382,7 +382,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Allowing the option to regenerate_outputs when using a module that is embedded in a ModuleStep.
   + **azureml-train-automl-client**
     + Deprecated Tensorflow models for AutoML.
-    + Fix users whitelisting unsupported algorithms in local mode
+    + Fix users allow listing unsupported algorithms in local mode
     + Doc fixes to AutoMLConfig.
     + Enforcing datatype checks on cv_split_indices input in AutoMLConfig.
     + Fixed issue with AutoML run failing in show_output
@@ -969,7 +969,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + We have also made enhancements to Azure Machine Learning Compute - you can now view metrics for your clusters (like total nodes, running nodes, total core quota) in Azure Monitor, besides viewing Diagnostic logs for debugging. In addition, you can also view currently running or queued runs on your cluster and details such as the IPs of the various nodes on your cluster. You can view these either in the portal or by using corresponding functions in the SDK or CLI.
 
   + **Preview features**
-    + We are releasing preview support for disk encryption of your local SSD in Azure Machine Learning Compute. Please raise a technical support ticket to get your subscription whitelisted to use this feature.
+    + We are releasing preview support for disk encryption of your local SSD in Azure Machine Learning Compute. Please raise a technical support ticket to get your subscription allow listed to use this feature.
     + Public Preview of Azure Machine Learning Batch Inference. Azure Machine Learning Batch Inference targets large inference jobs that are not time-sensitive. Batch Inference provides cost-effective inference compute scaling, with unparalleled throughput for asynchronous applications. It is optimized for high-throughput, fire-and-forget inference over large collections of data.
     + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
         + Enabled functionalities for labeled dataset
@@ -1649,7 +1649,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Fixed the bug about losing columns types after the transformation.
     + Fixed the bug to allow y_query to be an object type containing None(s) at the beginning.
     + Fixed the issue in the Ensemble selection procedure that was unnecessarily growing the resulting ensemble even if the scores remained constant.
-    + Fixed the issue with whitelist_models and blacklist_models settings in AutoMLStep.
+    + Fixed the issue with allow list_models and block list_models settings in AutoMLStep.
     + Fixed the issue that prevented the usage of preprocessing when AutoML would have been used in the context of Azure ML Pipelines.
   + **azureml-opendatasets**
     + Moved azureml-contrib-opendatasets to azureml-opendatasets.

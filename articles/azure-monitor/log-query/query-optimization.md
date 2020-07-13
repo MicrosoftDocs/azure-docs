@@ -216,6 +216,64 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
+### Avoid multiple scans of same source data using conditional aggregation functions and materialize function
+When a query has several sub-queries that are merged using join or union operators, each sub-query scans the entire source seperately and then merge the results. This multiples the number of times data is scanned - critical factor in very large data sets.
+
+A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
+
+For example, the following queries show the number of login events and the number of process execution events for each account. They return the same results but the first is scanning the data twice, the second scan it only once:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Another case where sub-queries are unnecessary is pre-filtering for [parse operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) to make sure that it processes only records that match specific pattern. This is unessary as the parse operator and other similar operators return empty results when the pattern doesn't match. Here are two queries that return exactly the same results while the second query scan data only once. In the second query, each parse command is relevant only for its events. The extend operator afterwards shows how to refer to empty data situation.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](https://docs.microsoft.com/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query.
+
+
+
 ### Reduce the number of columns that is retrieved
 
 Since Azure Data Explorer is a columnar data store, retrieval of every column is independent of the others. The number of columns that are retrieved directly influences the overall data volume. You should only include the columns in the output that are needed by [summarizing](/azure/kusto/query/summarizeoperator) the results or [projecting](/azure/kusto/query/projectoperator) the specific columns. Azure Data Explorer has several optimizations to reduce the number of retrieved columns. If it determines that a column isn't needed, for example if it's not referenced in the [summarize](/azure/kusto/query/summarizeoperator) command, it won't retrieve it.
