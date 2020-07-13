@@ -68,7 +68,7 @@ which replaces the BizTalk Adapter Service for BizTalk Services.
 Sources in BizTalk Services are limited to FTP, SFTP, 
 and Service Bus Queue or Topic subscription.
 
-![](media/logic-apps-move-from-mabs/sources.png)
+![Diagram that shows the BizTalk Services flow.](media/logic-apps-move-from-mabs/sources.png)
 
 By default, each bridge has an HTTP endpoint, 
 which is configured with the Runtime Address 
@@ -97,7 +97,7 @@ This image shows how processing is split between request and reply,
 which provides control over the request and the reply paths separately, 
 for example, by using different maps for each path:
 
-![](media/logic-apps-move-from-mabs/xml-request-reply.png)
+![Screenshot that shows how processing is split between request and reply.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
 Also, an XML One-Way bridge adds Decode and Encode stages 
 at the start and end of processing. 
@@ -143,7 +143,7 @@ or connector to send incoming messages or data.
 The ability to select from pre-configured endpoints 
 is possible using the routing filter option:
 
-![](media/logic-apps-move-from-mabs/route-filter.png)
+![Screenshot that shows the routing filter option.](media/logic-apps-move-from-mabs/route-filter.png)
 
 In BizTalk Services, if there are only two options, 
 using a *condition* is the best way for 

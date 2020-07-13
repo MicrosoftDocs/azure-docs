@@ -21,8 +21,6 @@ az account set --subscription <your-Azure-subscription-ID>
 > You can also set your subscription by using your subscription name. Use this command: 
 > ```azurecli
 > az account set --subscription "your-Azure-subscription-name"
-> ```
-
 
 If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
 
