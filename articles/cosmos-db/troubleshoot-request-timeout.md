@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosServiceRequestTimeout
+# Diagnose and troubleshoot Cosmos DB service request timeout
 
 | Http Status Code | Name | Category |
 |---|---|---|

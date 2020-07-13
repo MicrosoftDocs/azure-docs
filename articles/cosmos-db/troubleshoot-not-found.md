@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosNotFound
+# Diagnose and troubleshoot Cosmos DB not found
 
 | Http Status Code | Name | Category |
 |---|---|---|

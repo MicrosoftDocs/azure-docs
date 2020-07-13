@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosRequestRateTooLarge
+# Diagnose and troubleshoot Cosmos DB request rate too large
 
 | Http Status Code | Name | Category |
 |---|---|---|

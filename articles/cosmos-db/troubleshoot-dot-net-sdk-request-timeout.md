@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosDotNetRequestTimeout
+# Diagnose and troubleshoot Cosmos DB request timeout
 
 | Http Status Code | Name | Category |
 |---|---|---|
@@ -31,8 +31,12 @@ The application should be scaled up/out.
 ### 2. Socket / Port availability might be low
 When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port exhaustion.
 
-#### Solution:
+#### Solution 1:
 Follow the CosmosSNATPortExhuastion guide.
+
+#### Solution 2:
+If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
+Otherwise, you face connection issues.
 
 ### 3. Creating multiple Client instances
 This might lead to connection contention and timeout issues.

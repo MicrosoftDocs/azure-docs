@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosUnauthorized
+# Diagnose and troubleshoot Cosmos DB unauthorized
 
 | Http Status Code | Name | Category |
 |---|---|---|

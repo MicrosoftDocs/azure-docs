@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosServiceUnavailable
+# Diagnose and troubleshoot Cosmos DB service unavailable
 
 | Http Status Code | Name | Category |
 |---|---|---|
