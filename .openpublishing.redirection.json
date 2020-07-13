@@ -26032,6 +26032,15 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-manage-using-azure-automation.md",
       "redirect_url": "/azure/virtual-machines/windows/manage-using-azure-automation",
       "redirect_document_id": false
