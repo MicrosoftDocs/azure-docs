@@ -91,7 +91,7 @@ Conditional Access administrators can also create policies that factor in sign-i
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
 | --- | --- | --- | --- | --- |
 | Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
 | Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |
