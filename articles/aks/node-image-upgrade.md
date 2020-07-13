@@ -5,7 +5,7 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/13/2020
 ---
 
 # Preview - Azure Kubernetes Service (AKS) node image upgrades
