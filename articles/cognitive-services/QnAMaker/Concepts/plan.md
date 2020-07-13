@@ -36,7 +36,7 @@ A knowledge base size is controlled by the:
 * [Cognitive Search resource](../../../search/search-limits-quotas-capacity.md) pricing tier limits
 * [QnA Maker limits](../limits.md)
 
-The knowledge base query prediction request is controlled by the Web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.
+The knowledge base query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.
 
 ### Resource sharing
 
