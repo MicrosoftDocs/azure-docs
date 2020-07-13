@@ -45,7 +45,7 @@ The following steps use the collaborator role but any of the [roles](../referenc
     |Cognitive Services QnA Maker Editor|
     |Cognitive Services User|
 
-    :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.png" alt-text="QnA Maker IAM add role.":::
+    :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM add role.":::
 
 1. Enter the user's email address and press **Save**.
 
