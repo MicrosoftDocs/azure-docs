@@ -660,6 +660,8 @@
         href: security-recommendations.md
       - name: Access control (directories and files)
         href: data-lake-storage-access-control.md
+      - name: Setting ACLs recursively
+        href: recursive-access-control-lists.md
     - name: Compatibility
       items:
       - name: Multi-protocol access
