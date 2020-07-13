@@ -27,7 +27,7 @@ This release tag for the July 2020 refresh of the module is:
 Note: in the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge devices.
 
 ### New features
-* You can now create graph topologies that have an asset sink node as well as a file sink node downstream of a signal gate processor node. See [this](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-files-assets) for an example.
+* You can now create graph topologies that have an asset sink node as well as a file sink node downstream of a signal gate processor node. See [this](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) for an example.
 
 ### Bug fixes
 * Improvements to validation of desired properties
