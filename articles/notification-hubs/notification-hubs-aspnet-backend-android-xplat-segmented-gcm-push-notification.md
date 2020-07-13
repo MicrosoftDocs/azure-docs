@@ -116,7 +116,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
     Your `main_activity.xml` graphical layout should look like in the following image:
 
-    ![][A1]
+    ![Screenshot of a development environment, with an app screen visible. The app lists the news categories that were added to the code.][A1]
 3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java

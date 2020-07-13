@@ -3,8 +3,8 @@ title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
+ms.date: 07/13/2020
+ms.author: magoedte
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
@@ -186,7 +186,7 @@ The portal collects the following input:
 
 - **Configuration Arguments**: If the configuration function takes arguments, enter them here in the format **argumentName1=value1,argumentName2=value2**. This format is a different format in which configuration arguments are accepted in PowerShell cmdlets or Resource Manager templates.
 
-- **Configuration Data PSD1 File**: Your configuration requires a configuration data file in .psd1, use this field to select the data file and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
+- **Configuration Data PSD1 File**: If your configuration requires a configuration data file in `.psd1`, use this field to select the data file and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
 - **WMF Version**: Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to latest installs the most recent version of WMF. Currently, the only possible values for this property are 4.0, 5.0, 5.1, and latest. These possible values are subject to updates. The default value is **latest**.
 

@@ -1,12 +1,10 @@
 ---
 title: Create an Azure application offer - Microsoft commercial marketplace 
 description: Learn the steps and considerations for creating a new Azure application offer in the commercial marketplace portal in Partner Center. You can list or sell your Azure application offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/17/2020
 ---
 
 # Create an Azure application offer
@@ -146,9 +144,16 @@ Select **Save draft** before continuing.
 
 ## Properties
 
-The **Properties** page is where you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
+The **Properties** page is where you define the categories used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
 
-Select at least one and up to three categories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description.
+### Category
+
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Legal
 

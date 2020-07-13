@@ -1,12 +1,12 @@
 ---
 title: Create a Dynamics 365 for Operations offer in the Commercial Marketplace 
 description: How to create a new Dynamics 365 for Operations offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
+author: navits09
+ms.author: navits
+ms.date: 06/17/2020
 ---
 
 # Create a Dynamics 365 for Operations offer
@@ -84,7 +84,12 @@ This page lets you define the categories and industries used to group your offer
 
 ### Category
 
-Select a minimum of one and a maximum of three categories. These categories will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industry
 

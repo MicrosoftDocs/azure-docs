@@ -27,7 +27,7 @@ This tutorial shows you how to create indoor maps. In this tutorial, you'll lear
 
 To create indoor maps:
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -104,6 +104,8 @@ The Data Upload API is a long running transaction that implements the pattern de
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
 
