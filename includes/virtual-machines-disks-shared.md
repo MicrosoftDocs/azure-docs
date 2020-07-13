@@ -28,7 +28,9 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## Supported OS
+## Operating system requirements
+
+Azure shared disks is supported with the following operating systems:
 
 - SUSE SLE 15 SP1 and newer
 - Ubuntu 18.04 and newer
