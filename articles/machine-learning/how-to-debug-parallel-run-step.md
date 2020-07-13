@@ -60,7 +60,7 @@ ParallelRunStep may run multiple processes on one node based on process_count_pe
 
 **A sample entry script using the logger:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""

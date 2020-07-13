@@ -390,7 +390,9 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## View the results
 
-The results from above run are written to the DataStore specified in the PipelineData object as the output data, which in this case is called *inferences*. You can download this data to view the results. Below is the sample code to view the first 10 rows.
+The results from above run are written to the DataStore specified in the PipelineData object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+
+You can also download this data to view the results. Below is the sample code to view the first 10 rows.
 
 ```python
 import pandas as pd
