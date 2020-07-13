@@ -29,6 +29,9 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in July include:
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
 
@@ -37,6 +40,23 @@ Threat protection for Azure Storage detects potentially harmful activity on your
 Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
 
 Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### Six policies for SQL advanced data security deprecated
+
+Six policies related to advanced data security for SQL machines are being deprecated:
+
+- Advanced threat protection types should be set to 'All' in SQL managed instance advanced data security settings
+- Advanced threat protection types should be set to 'All' in SQL server advanced data security settings
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+
+Learn more about [built-in policies](security-center-policy-definitions.md).
+
+
+
 
 
 ## June 2020
