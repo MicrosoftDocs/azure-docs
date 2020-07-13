@@ -16,7 +16,7 @@ ms.reviewer: fryu
 
 Anonymous public read access to containers and blobs in Azure Storage is a convenient way to share data, but may also present a security risk. It's important to manage anonymous access judiciously and to understand how to evaluate anonymous access to your data. Operational complexity, human error, or malicious attack against data that is publicly accessible can result in costly data breaches. Microsoft recommends that you enable anonymous access only when necessary for your application scenario.
 
-By default, a user with appropriate permissions can configure public access to containers and blobs. You can disable this functionality at the level of the storage account. When you disallow public blob access for the storage account, then containers in the account cannot be configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
+By default, a user with appropriate permissions can configure public access to containers and blobs. You can prevent all public access at the level of the storage account. When you disallow public blob access for the storage account, then containers in the account cannot be configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 This article describes how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
 
@@ -24,7 +24,7 @@ This article describes how to analyze anonymous requests against a storage accou
 
 When you disallow public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disallowing public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail.
 
-To understand how disabling public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
+To understand how disallowing public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
 
 ### Monitor anonymous requests with Metrics Explorer
 

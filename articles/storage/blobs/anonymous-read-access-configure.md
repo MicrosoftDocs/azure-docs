@@ -72,7 +72,7 @@ az resource update \
 ---
 
 > [!NOTE]
-> Disabling the option for public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
+> Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 
 ## Check whether public access is allowed for a storage account
 
@@ -80,7 +80,7 @@ To check whether public access is allowed for a storage account, get the value o
 
 The **allowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account defaults to permitting public access when the property value is null.
 
-### whether public access is allowed for a single storage account
+### Check whether public access is allowed for a single storage account
 
 To check whether public access is allowed for a single storage account using Azure CLI, call the [az resource show](/cli/azure/resource#az-resource-show) command and query for the **allowBlobPublicAccess** property:
 
