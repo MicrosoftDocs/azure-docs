@@ -49,7 +49,7 @@ Admin username |*myadmin*| Your own login account to use when you connect to the
 Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
 Location|The region closest to your users| The location that is closest to your users.
 Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information see [Pricing Details](https://azure.microsoft.com/pricing/details/postgresql/server/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/postgresql/server/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
 
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. 
@@ -58,7 +58,7 @@ Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 
 
 6. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is complete, select **Go to resource** opens the server's **Overview** page.
 
-An empty database, **postgres** is created. You will also find **azure_maintenance** database that is used to separate the managed service processes from user actions. Note that you cannot access **azure_maintenance** database.
+An empty database, **postgres** is created. You will also find **azure_maintenance** database that is used to separate the managed service processes from user actions.You cannot access **azure_maintenance** database.
 
 ## Configure a server-level firewall rule
 By default the server created is not publicly accessible and you need to give permissions to your IP. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left side menu for your server resource. If you are not sure how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
@@ -72,7 +72,7 @@ Now select **Add current client IP address** and then select **Save**. You can a
 > Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
 
 ## Connect to PostgreSQL database using psql in Azure Cloud Shell
-You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will walk through how to connect to the newly created PostgreSQL server with psql using [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the portal. 
+You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will connect using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
 
 -  Make a note of your server name, server admin login name, password, and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 - Launch Azure Cloud Shell in the portal by selecting the icon on the top-left side as highlighted in the image below.
@@ -106,21 +106,21 @@ Type "help" for help.
 
 postgres=>
 ```
-- In the same Azure Cloud Shell terminal, create a database **guests**
+- In the same Azure Cloud Shell terminal, create a database **guest**
 ```
-postgres=> CREATE DATABASE guests;
+postgres=> CREATE DATABASE guest;
 ```
 
-- Now to switch connections to the newly created database **guests**
+- Now to switch connections to the newly created database **guest**
 
 ```bash
- \c guests
+ \c guest
 ```
 
 - Type `\q`, and then select the Enter key to quit psql. 
 
 ## Clean up resources
-You have successfully created an Azure Database for PostgreSQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the PostgreSQL server. To delete the resource group follow these steps:
+You have successfully created an Azure Database for PostgreSQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the PostgreSQL server. To delete the resource group, follow these steps:
 
 - In the Azure portal, search for and select **Resource groups**. 
 - In the resource group list, choose the name of your resource group.
