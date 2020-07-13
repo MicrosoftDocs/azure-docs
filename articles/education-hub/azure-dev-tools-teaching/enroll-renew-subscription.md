@@ -72,4 +72,4 @@ You can complete the renewal process as early as 90 days before the expiration d
 
 - [Download software](download-software.md)
 
-- [Support options](educator-service-desk.md)
+- [Support options](program-support.md)
