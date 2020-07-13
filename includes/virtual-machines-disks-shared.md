@@ -28,6 +28,12 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
+## Supported OS
+
+- SUSE SLE 15 SP1 and newer
+- Ubuntu 18.04 and newer
+- RHEL 8 and newer
+
 ## Sample workloads
 
 ### Windows
