@@ -39,9 +39,12 @@
           items: 
             - name: Overview
               href: migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md
-            - name: Database Migration Assistant
+            - name: DMS 
               href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
-            
+            - name: DMA
+              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
+            - name: Log shipping
+              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
 
 - name: Tutorials
   expanded: true

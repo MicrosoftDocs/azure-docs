@@ -1107,6 +1107,23 @@
         items: 
         - name: Database Migration Assistant
           href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+        - name: Azure Database Migration Service
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+        - name: Log shipping
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+      - name: From SQL Database
+        items: 
+        - name: Database Migration Assistant
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+        - name: Azure Database Migration Service
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+      - name: From SQL Managed Instance
+        items: 
+        - name: Database Migration Assistant
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+        - name: Azure Database Migration Service
+          href: virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
+
         
 - name: Reference
   items:
