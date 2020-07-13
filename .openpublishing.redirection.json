@@ -49856,6 +49856,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/lab-services/class-type-mobile-dev-android-studio.md",
+      "redirect_url": "/azure/lab-services/class-types",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-shell-scripting-linux.md",
       "redirect_url": "/azure/lab-services/class-type-shell-scripting-linux",
       "redirect_document_id": true
