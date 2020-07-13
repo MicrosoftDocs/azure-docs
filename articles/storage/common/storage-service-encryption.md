@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/08/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -30,7 +30,7 @@ For more information about the cryptographic modules underlying Azure Storage en
 
 For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows VMs or [Server-side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux VMs.
 
-## Encryption key management
+## About encryption key management
 
 Data in a new storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 

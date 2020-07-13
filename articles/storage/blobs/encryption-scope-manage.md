@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 06/05/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -45,10 +45,10 @@ For more information on configuring customer-managed keys with Azure Key Vault f
 
 To create an encryption scope with PowerShell, first install the Az.Storage preview module version. Using the latest preview version is recommended, but encryption scopes are supported in version 1.13.4-preview and later. Remove any other versions of the Az.Storage module.
 
-The following command installs Az.Storage [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) module:
+The following command installs Az.Storage [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) module:
 
 ```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
+Install-Module -Name Az.Storage -RequiredVersion 2.1.1-preview -AllowPrerelease
 ```
 
 ### Create an encryption scope protected by Microsoft-managed keys
