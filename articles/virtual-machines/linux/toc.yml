@@ -301,7 +301,7 @@
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
-      href: isolation.md
+      href: ../isolation.md
     - name: Azure compute units (ACU)
       href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: vCPU quotas

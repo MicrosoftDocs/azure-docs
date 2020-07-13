@@ -1,14 +1,15 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: ayshakeen
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 09/18/2019
- ms.author: azcspmt;ayshak;cynthn
- ms.custom: include file
+title: Isolation for VMs in Azure 
+description: Learn about VM isolation works in Azure.
+author: ayshakeen
+ms.service: virtual-machines
+ms.topic: article
+ms.workload: infrastructure-services
+ms.date: 09/18/2019
+ms.author: ayshak
 ---
+
+# Virtual machine isolation in Azure
 
 Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -109,3 +110,8 @@ Likewise, for Dsv2 series.
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
+
+
+## Next steps
+
+Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
