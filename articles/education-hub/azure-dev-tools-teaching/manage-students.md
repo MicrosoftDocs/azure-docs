@@ -19,4 +19,4 @@ You can manage access for students based on the domain they use to log into Azur
 ## Next steps	
 - [Learn how to troubleshoot issues with logging in](troubleshoot-login.md)
 
-- [Support options](includes/educator-service-desk.md)
+- [Support options](program-support.md)
