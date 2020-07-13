@@ -60,7 +60,7 @@
         - name: Create Automation account using Azure portal
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
-          href: quickstart-create-automation-acct-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
