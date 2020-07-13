@@ -123,7 +123,11 @@ The restore process remains the same. If the recovery point is of a point-in-tim
 
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
-### Can I restore the VM that's been deleted?
+### If the restore fails to create the VM, what happens to the disks included in the restore?
+
+In the event of a managed VM restore, even if the VM creation fails, the disks will still be restored.
+
+### Can I restore a VM that's been deleted?
 
 Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and restore from a recovery point.
 
