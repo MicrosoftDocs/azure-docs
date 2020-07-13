@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-## CosmosRequestHeaderTooLarge
+# Diagnose and troubleshoot Cosmos DB request header too large exception
 
 | Http Status Code | Name | Category |
 |---|---|---|

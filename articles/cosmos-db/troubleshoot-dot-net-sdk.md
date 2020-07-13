@@ -43,7 +43,22 @@ Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v
 * You may run into connectivity/availability issues due to lack of resources on your client machine. We recommend monitoring your CPU utilization on nodes running the Azure Cosmos DB client, and scaling up/out if they're running at high load.
 
 ### Check the portal metrics
-Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client-side issue or if there is an issue with the service. For example, if the metrics contain a high rate of rate-limited requests(HTTP status code 429) which means the request is getting throttled then check the [Request rate too large] section. 
+Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client-side issue or if there is an issue with the service. For example, if the metrics contain a high rate of rate-limited requests(HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
+
+## Common error status codes <a id="error-codes"></a>
+
+| Status Code | Title | Description |
+|----------|-------------|------|
+| 400 | Bad request | User's need to troubleshoot this based on the error message as this mostly points to a bug in user's code which causes the request to be invalid. For example passing the wrong partition key for an item will result in an bad request. | 
+| 401 | [Not authorized](troubleshoot-unauthorized.md) | User's application should have retry logic for some corner scenarios, but most likely require user to manually fix | 
+| 404 | [Resource is not found](troubleshoot-not-found.md) | User's application should handle this scenario. |
+| 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md)| There are many transient scenarios that can cause this. |
+| 409 | Conflict (Only for Create/Replace/Upsert) | User's application should handle the conflict |
+| 410 | Gone exceptions | SDK handles the retries. If the retry logic is exceeded it will get converted to a 503 error. This can be caused by many scenarios like partition was moved to a larger machine because of a scaling operation. This is an expected exception and will not impact the Cosmos DB SLA. |
+| 413 | [Request Entity Too Large](https://docs.microsoft.com/azure/cosmos-db/concepts-limits#per-item-limits) | User's application should handle the payload being to large |
+| 429 | [Too many requests](troubleshoot-request-rate-too-large.md) | The SDK has built in logic, and it is user configurable for most SDKs |
+| 500 | Azure Cosmos DB failure | User's application should have retry logic. |
+| 503 | Was not able to reach Azure Cosmos DB | User's application should have retry logic. |
 
 ### <a name="high-network-latency"></a>High network latency
 High network latency can be identified by using the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) in the V2 SDK or [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
@@ -68,22 +83,6 @@ This latency can have multiple causes:
 The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it is being spent on the back-end vs the client.
 * If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
 * If the back-end query is slow try [optimizing the query](optimize-cost-queries.md) and looking at the current [indexing policy](index-overview.md) 
-
-## Common error status codes <a id="error-codes"></a>
-
-| Status Code | Title | Description |
-|----------|-------------|------|
-| 400 | Bad request | User's need to troubleshoot this based on the error message as this mostly points to a bug in user's code which causes the request to be invalid. For example passing the wrong partition key for an item will result in an bad request. | 
-| 401 | [Not authorized](troubleshoot-mac-signature.md) | User's application should have retry logic for some corner scenarios, but most likely require user to manually fix | 
-| 404 | [Resource is not found](troubleshoot-not-found.md) | User's application should handle this scenario. |
-| 408 | [Request timed out](troubleshoot-request-timeout.md)| There are many transient scenarios that can cause this. |
-| 409 | Conflict (Only for Create/Replace/Upsert) | User's application should handle the conflict |
-| 410 | Gone exceptions | SDK handles the retries. If the retry logic is exceeded it will get converted to a 503 error. This can be caused by many scenarios like partition was moved to a larger machine because of a scaling operation. This is an expected exception and will not impact the Cosmos DB SLA. |
-| 413 | [Request Entity Too Large](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits#per-item-limits) | User's application should handle the payload being to large |
-| 429 | [Too many requests](troubleshoot-request-rate-too-large.md) | The SDK has built in logic, and it is user configurable for most SDKs |
-| 500 | Azure Cosmos DB failure | User's application should have retry logic. |
-| 503 | Was not able to reach Azure Cosmos DB | User's application should have retry logic. |
-
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
