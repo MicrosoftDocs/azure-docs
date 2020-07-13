@@ -90,7 +90,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 
-    ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
+    ![Example result when deployment is complete](media/quickstart-create-automation-acct-template/template-output.png)
 
 ## Clean up resources
 
