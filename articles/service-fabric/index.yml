@@ -19,7 +19,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: What are Service Fabric Managed clusters (preview)
-            url: managed-cluster-overview.md
+            url: overview-managed-cluster.md
           - text: Deploy a Service Fabric Managed cluster (preview)
             url: service-fabric-get-started.md
 

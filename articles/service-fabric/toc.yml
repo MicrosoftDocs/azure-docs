@@ -5,15 +5,15 @@
   - name: What is Service Fabric?
     href: service-fabric-overview.md
   - name: Service Fabric Managed clusters
-    href: managed-cluster-overview.md
+    href: overview-managed-cluster.md
 - name: Quickstarts
   expanded: true
   items:
   - name: ARM template
     displayName: Resource Manager
+    href: quickstart-cluster-template.md
   - name: Managed cluster (preview)
     href: quickstart-managed-cluster.md
-    href: quickstart-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -28,7 +28,6 @@
       href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutorials
   items:
-  - name: 
   - name: Deploy a .NET app
     items:
     - name: 1- Build a .NET application
