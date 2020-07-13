@@ -221,4 +221,4 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 > [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](app-service-linux-faq.md)
+> [App Service Linux FAQ](faq-app-service-linux.md)

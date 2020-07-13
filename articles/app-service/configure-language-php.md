@@ -255,7 +255,7 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 </IfModule>
 ```
 
-If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-docker-go.md) instead.
+If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](containers/quickstart-docker-go.md) instead.
 
 ---
 
@@ -316,7 +316,7 @@ php_value display_errors On
 php_value upload_max_filesize 10M
 ```
 
-Redeploy your app with the changes and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), it's automatically restarted after deployment.
+Redeploy your app with the changes and restart it. If you deploy it with Kudu (for example, using [Git](deploy-local-git.md)), it's automatically restarted after deployment.
 
 As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
@@ -467,3 +467,6 @@ When a working PHP app behaves differently in App Service or has errors, try the
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](faq-app-service-linux.md)
