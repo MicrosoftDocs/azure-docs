@@ -922,7 +922,7 @@
     },
     {
       "source-path": "articles/automation/automation-create-account-template.md",
-      "redirect_url": "/azure/automation/quickstart-create-automation-acct-template",
+      "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
       "redirect_document": false
     },
     {

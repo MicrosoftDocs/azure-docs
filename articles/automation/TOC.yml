@@ -15,7 +15,7 @@
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
     - name: Create Automation account - ARM template
-      href: quickstart-create-automation-acct-template.md
+      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
