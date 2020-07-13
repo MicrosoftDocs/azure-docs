@@ -29,4 +29,4 @@ Students and faculty alike can get access to all the software download benefits 
 ## Next steps
 - [Learn how to manage student accounts](manage-students.md)
 
-- [Support options](includes/educator-service-desk.md)
+- [Support options](program-support.md)
