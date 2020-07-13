@@ -43,8 +43,8 @@ With inheritance, any changes to the parent policy are automatically applied dow
 Azure Firewall supports both traditional rules and policies. The following table compares policies and rules:
 
 
-|         |Policy  |Rules  |
-|---------|---------|---------|
+| Subject | Policy  | Rules |
+| ------- | ------- | ----- |
 |Contains     |NAT, Network, Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list)|NAT, Network, and Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list)|
 |Protects     |Virtual hubs and Virtual Networks|Virtual Networks only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
