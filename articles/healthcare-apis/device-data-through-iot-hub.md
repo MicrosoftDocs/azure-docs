@@ -42,7 +42,7 @@ Setting up a message routing consists of two steps.
 This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?#az-iot-hub-routing-endpoint-create) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
-|PowerShell Parameter|CLI Parameter|Description |
+|PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
 |ResourceGroupName|resource-group|Resource group name of your IoT Hub resource.|
 |Name|hub-name|Name of your IoT Hub resource.|
@@ -56,7 +56,7 @@ Here is the list of parameters to use with the command to create an endpoint:
 This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
-|PowerShell Parameter|CLI Parameter|Description |
+|PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
 |ResourceGroupName|g|Resource group name of your IoT Hub resource.|
 |Name|hub-name|Name of your IoT Hub resource.|
