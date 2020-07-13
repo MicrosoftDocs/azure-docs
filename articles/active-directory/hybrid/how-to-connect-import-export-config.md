@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -91,7 +91,8 @@ To migrate the settings, do the following:
 Comparing the originally imported settings file, with the exported settings file, of the newly deployed server is an essential step in understanding any differences between the intended, versus the resulting deployment. Using your favorite side-by-side text comparison application yields an instant visualization that quickly highlights any desired or accidental changes. While many formerly manual configuration steps are now eliminated, you should still follow your organization’s certification process to ensure no additional configuration is required. This configuration may occur if you leverage advanced settings, which are not currently captured in the public preview release of settings management. 
 
 Known limitations include the following: 
-- **Synchronization Rules** – the precedence for a custom rule must be in the reserved range of 0-99 to avoid conflicts with Microsoft’s standard rules. Placing a custom rule outside the reserved range may result in your custom rule being shifted around as standard rules are added to the configuration. A similar issue will occur if your configuration contains modified standard rules. Modifying a standard rule is strongly discouraged and rule placement is likely to be incorrect. Device Writeback – these settings are cataloged however they are not currently applied during configuration. If device writeback was enabled for your original server, you must manually configure the feature on the newly deployed server. 
+- **Synchronization Rules** – the precedence for a custom rule must be in the reserved range of 0-99 to avoid conflicts with Microsoft’s standard rules. Placing a custom rule outside the reserved range may result in your custom rule being shifted around as standard rules are added to the configuration. A similar issue will occur if your configuration contains modified standard rules. Modifying a standard rule is strongly discouraged and rule placement is likely to be incorrect. 
+- **Device Writeback** – these settings are cataloged however they are not currently applied during configuration. If device writeback was enabled for your original server, you must manually configure the feature on the newly deployed server. 
 - **Synchronized Object Types** – although it is possible to constrain the list of synchronized object types (users, contacts, groups, etc.) using the Synchronization Service Manager, this feature is currently not supported via synchronization settings. After completing installation, you must manually reapply the advanced configuration. 
 - **Custom Run Profiles** - although it is possible to modify the default set of run profiles using the Synchronization Service Manager, this feature is currently not supported via synchronization settings. After completing installation, you must manually reapply the advanced configuration. 
 - **Configuring the Provisioning Hierarchy** – this advanced feature of the Synchronization Service Manager is not supported via synchronization settings and must be manually reconfigured after completing the initial deployment. 
