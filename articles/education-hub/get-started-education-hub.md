@@ -18,5 +18,6 @@ After subsequent logins, you'll see the Overview page by default.
 
 ## Next steps
 
-[Manage your Academic Grant using the Overview page](hub-overview-page.md)<br />
-[Support options](../includes/educator-service-desk.md)
+- [Manage your Academic Grant using the Overview page](hub-overview-page.md)
+
+- [Support options](educator-service-desk.md)
