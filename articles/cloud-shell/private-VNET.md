@@ -63,14 +63,14 @@ In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a Resourc
 Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for creating Cloud Shell resources in a virtual network, and the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template/storage) for creating necessary storage. Take note of your resource names, primarily your file share name.
 
 ### Open relay firewall
-Nagivate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay.
+Navigate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay.
 
 ### Connecting resources with Cloud Shell
 Open Cloud Shell in the Azure portal or on shell.azure.com.  Select "Show advanced settings" and select the "Show VNET isolation settings" box.
 Fill in the fields in the pop-up.  Most fields will autofil to the available resources that can associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
 
-::image type="content" source="media/private-VNET/VNET-settings.PNG" alt-text="Illustrates the Cloud Shell isolated VNET first experience settings.":::
+::image type="content" source="media/private-vnet/vnet-settings.PNG" alt-text="Illustrates the Cloud Shell isolated VNET first experience settings.":::
 
 
 ## Next steps
