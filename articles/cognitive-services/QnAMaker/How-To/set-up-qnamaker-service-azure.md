@@ -245,10 +245,10 @@ Learn more about how to configure the App Service [General settings](../../../ap
 The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
 1. Create an App service and an Azure search service.
 2. Expose the app service and allow QnA Maker availability as:
-    1. Publicly available - default
-    1. DNS service tag:
+    * Publicly available - default
+    * DNS service tag:
         * `CognitiveServicesManagement`
-    1. IPs associated with QnA Maker are:
+    * IPs associated with QnA Maker are:
         * 13.91.138.229
         * 40.88.22.25
         * 13.86.184.142
