@@ -1,5 +1,5 @@
 ---
-title: IoT Plug and Play message conventions | Microsoft Docs
+title: The IoT Plug and Play Conventions | Microsoft Docs
 description: Description of the conventions IoT Plug and Play expects devices to use when they send telemetry and properties, and handle commands and property updates.
 author: rido-min
 ms.author: rmpablos
@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play Preview message conventions
+# The IoT Plug and Play Convention
 
 IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices communicate with an IoT hub using the MQTT protocol.
 
@@ -73,7 +73,7 @@ A device can send any valid JSON that follows the DTDL v2 rules.
 
 ### Sample multiple components read-only property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it's not required if the device adds or updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it's not required if the device updates a property.
 
 :::row:::
    :::column span="":::
@@ -124,7 +124,7 @@ The device should acknowledge that it received the property by sending a reporte
 
 - `ac` - an acknowledgment code that uses an HTTP status code.
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
-- `ad` - an optional acknowledgment version.
+- `ad` - an optional acknowledgment description.
 -
 
 ### Sample no component writeable property
@@ -178,7 +178,7 @@ A device can send any valid JSON that follows the DTDL v2 rules:
 
 ### Sample multiple components writeable property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it is not required if the device adds or updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it is not required if the device updates a property.
 
 There's no guarantee that a desired property update includes the marker `{"__t": "c"}`, so devices mustn't check for the flag.
 

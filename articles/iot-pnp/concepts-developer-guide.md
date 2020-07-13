@@ -19,7 +19,9 @@ To build an IoT Plug and Play device, you create a _model_ to describe the devic
 
 With DTDL, you create a model to describe your device in terms of Telemetry, Properties and Commands. These elements can be combined in different interfaces. A device model can be defined with one or more interfaces. To use more than one interface DTDL allows to use __components__ as the mechanism to create interface instances. 
 
-## Interfaces 
+## Components 
+
+Components are described with DTDL interface, each interfaces is composed by one or more elements of type Telemetry, Properties and Commands:
 
 ### Properties
 
@@ -27,7 +29,7 @@ By default, properties are read-only. Read-only properties mean that the device 
 
 You can also mark a property as writeable on an interface. A device can receive an update to a writeable property from your IoT hub as well as reporting property value updates to your hub.
 
-Devices don't have to be connected to set property values. The updated values can be transferred when the device next connects to the hub. This behavior applies to both read-only and writeable properties.
+Devices don't have to be connected to receive property value updates. The updated values can be transferred when the device next connects to the hub.
 
 Don't use properties to send telemetry from your device. For example, a readonly property such as `temperatureSetting=80` should mean that the device temperature has been set to 80, and the device is trying to get to, or stay at, this temperature.
 

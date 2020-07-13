@@ -56,12 +56,12 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 1. The device announces the Model Id as part of the MQTT connection. The Azure IoT SDK includes new constructs to provide the Model Id at connection time.
 
->[!Important] 
+>[!Important]
 >Plug and Play devices must use MQTT or MQTT over WebSockets, any other protocols such as AMQP or HTTP are not valid to implement Plug and Play devices.
 
 ## Regional availability
 
-This release of IoT Plug and Play, the Summer Refresh, is available in all Azure Regions.
+This release of IoT Plug and Play, the Public Preview Refresh, is available in all Azure Regions.
 
 ## Next steps
 
