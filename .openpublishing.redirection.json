@@ -2148,6 +2148,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hpc-cache/hpc-cache-prereqs.md",
+      "redirect_url": "/azure/hpc-cache/hpc-cache-prerequisites",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
       "redirect_document_id": false
