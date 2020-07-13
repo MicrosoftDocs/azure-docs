@@ -52,33 +52,33 @@ The following screenshot shows how to rename objects:
 
 With some objects in our scene, in this case a number of cubes, we can begin the PBR setup:
 
-* On the main tool bar, select the **Material Editor** button as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that can be selected in the **Modes** list: **Compact Material Editor** mode and **Slate Material editor** mode. Because this scene is relatively simple, we'll use the compact mode.
+1. On the main toolbar, select the **Material Editor** icon as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that you can select in the **Modes** list: **Compact Material Editor** mode and **Slate Material editor** mode. Because this scene is relatively simple, we'll use the compact mode.
 
-* In the Material Editor, you'll see a number of spheres. These spheres are the materials. We'll assign one of these materials to each object (each box) in the scene. To assign the materials, first select one of the objects in the main viewport. Then select the first sphere in the Material Editor. After it's assigned to an object, the selected material will be highlighted, as shown in the next image.
+1. In the Material Editor, you'll see a number of spheres. These spheres are the materials. We'll assign one of these materials to each object (each box) in the scene. To assign the materials, first select one of the objects in the main viewport. Then select the first sphere in the Material Editor. After it's assigned to an object, the selected material will be highlighted, as shown in the next image.
 
-* Select **Assign Material to Selection**, as shown. The material is now assigned to the selected object.
+1. Select **Assign Material to Selection**, as shown. The material is now assigned to the selected object.
 ![Screenshot that shows how to assign materials.](media/3dsmax/assign-material.jpg)
 
-In the Material Editor, you can select types of materials from a wide selection, depending on your use case. Typically, the material type is set to **Standard** by default. This material is a basic material that is not suitable for PBR setup, so we will need to change the material type to a PBR material. The preferred **3DSMax** material for the Azure remote rendering projects is the **Physical Material**.
+    In the Material Editor, you can choose from a wide selection of material types, depending on your needs. Typically, the material type is set to **Standard** by default. This material is a basic material that's not suitable for PBR setup, so we'll need to change the material type to a PBR material. **Physical Material** is the preferred 3ds Max material for Azure Remote Rendering projects.
 
-* In the material editor, click on the **Standard** tab and in the material/map browser that opens up select **Physical Material**. This action will convert the assigned **Standard** material to a PBR **Physical Material**.
-![physical-material](media/3dsmax/physical-material.jpg)
+1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser** that opens, select **Physical Material**. This action will convert the assigned **Standard** material to a PBR **Physical Material**.
+![Screenshot that shows how to change the material.](media/3dsmax/physical-material.jpg)
 
-* In the material editor, you will now see the properties for the physical material (see below) and we can begin assigning textures to the asset.
-![textures-list](media/3dsmax/textures-list.jpg)
+    In the Material Editor, you now see the properties for the physical material, as shown in the following screenshot.) You can now start to assign textures to the asset.
+![Screenshot that shows the list of textures.](media/3dsmax/textures-list.jpg)
 
-As can be seen from the above image, there are a wide range of maps and textures that can be added to the material. For our purposes though, we will use only five texture slots in the material.
+As you can see, there are a wide range of maps and textures that can be added to the material. For this tutorial, we'll use only five texture slots in the material.
 
 >[!TIP]
->It is good practice to name your materials appropriately, as shown in the image above.
+>It's good practice to name your materials appropriately, as shown in the preceding screenshot.
 
-We can now begin to consider assigning textures to our material. How you generate your textures may vary according to preference or even  according to usage. For example, you may be happy to use tiling textures that can be applied to any asset or you may require specific parts of a project/asset to have their own custom set of textures. You may want to use generic tiling textures obtained online or create them yourself in apps such as **Photoshop**, **Quixel Suite**, **Substance Suite** etc. 
+How you generate your textures can vary according to preference or usage. For example, you might be happy to use tiling textures that can be applied to any asset. Or you might need specific parts of a project or asset to have their own custom sets of textures. You might want to use generic tiling textures that you can get online or create them yourself in apps like Photoshop, Quixel Suite, and Substance Suite.
 
-Before we begin to assign our textures though we will need to consider our assets texture coordinates (UVW). While it is best practice when applying any textures to a model to ensure that the model has been unwrapped (textures will not display properly without proper UV unwrapping), it is important for our purposes if we intend to use an **Ambient Occlusion** map on our model. Unlike the **Stingray Shader** in **Maya**, the **Physical Material** in **3DSMax** does not have a dedicated **Ambient Occlusion** texture slot. Therefore we will apply the AO map to another slot and to allow it to be used separately from the other textures (tiling textures for example), we will assign it a UVW map channel of its own. 
+Before we start to assign textures, we'll need to consider the asset's texture coordinates (UVW). It's a best practice when applying any textures to a model to ensure that the model is unwrapped. (Textures won't display properly without proper UV unwrapping.) It's especially important for our purposes because we want to use an Ambient Occlusion map on our model. Unlike Stingray Shader in Maya, Physical Material in 3ds Max doesn't have a dedicated Ambient Occlusion texture slot. So we'll apply the Ambient Occlusion map to another slot. To allow it to be used separately from the other textures (tiling textures for example), we'll assign it a UVW map channel of its own. 
 
-We will begin by assigning an **Unwrap UVW modifier** to our model as shown below:
+We'll start by assigning an unwrap UVW modifier to the model, as shown in the following screenshot. 
 
-* In the selected objects properties editor, click the Modifier List and in the drop-down that opens up scroll down and select Unwrap UVW. This action will apply an Unwrap UVW modifier to our asset.
+1. In the selected objects properties editor, select the Modifier List and in the drop-down that opens up scroll down and select Unwrap UVW. This action will apply an Unwrap UVW modifier to our asset.
 ![unwrap-modifier](media/3dsmax/unwrap-modifier.jpg)
 
 * The map channel is set to one. It is in map channel one that your main unwrapping will typically be done. In our case, the object has been unwrapped with no overlapping texture coordinates (UV).
