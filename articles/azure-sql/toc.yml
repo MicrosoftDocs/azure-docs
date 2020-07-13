@@ -1107,8 +1107,6 @@
         items: 
         - name: Database Migration Assistant
           href: /virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
-
-      - name: Database Migration Assistant
         
 - name: Reference
   items:
