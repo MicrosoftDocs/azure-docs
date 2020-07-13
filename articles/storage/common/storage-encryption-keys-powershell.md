@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -81,7 +81,7 @@ When you configure encryption with customer-managed keys, you can choose to auto
 
 ### Configure encryption for automatic rotation of customer-managed keys
 
-To configure encryption for automatic rotation of customer-managed keys, install [Az.Storage version 1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview) or a later preview module.
+To configure encryption for automatic rotation of customer-managed keys, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later.
 
 To automatically rotate customer-managed keys, omit the key version when you configure customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
