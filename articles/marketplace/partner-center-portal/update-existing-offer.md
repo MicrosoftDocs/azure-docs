@@ -16,8 +16,8 @@ You can view your existing offers on the **Overview** tab of the [Commercial Mar
 To update an existing offer that's currently live in the marketplace:
 
 1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
-2. Select **Update** from the card on the offer overview page, or the menu item on the left navigation for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**. 
-3. Make your changes and then select **Save draft**. Repeat this process until all your changes are complete.
+2. Select **Update** from the card on the offer overview page, or the menu item on the left navigation for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**.
+3. Make your changes and select **Save draft**. Repeat this process until all your changes are complete.
 
 ## Review and publish an updated offer
 
@@ -46,10 +46,10 @@ To add a new plan within an existing offer that you've already published:
 To make changes to a plan within an existing offer that you've already published:
 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
-1. You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
-1. Select **Save draft** after making any necessary changes to the plan name, description, or audience availability.
+1. Select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
+1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
 1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
-1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the the updated offer is available for you to review and sign off.
+1. Submit the updated plan for publishing by selecting **Publish**. We'll email you when a preview version of the the updated offer is available for you to review and sign off.
 
 ## Compare changes to marketplace offers
 
@@ -138,11 +138,11 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 ## Stop selling an offer or plan
 
-To stop selling an offer after you've already published it, select **Stop selling** from the **Offer overview** page.
+To stop selling an offer after you've published it, select **Stop selling** from the **Offer overview** page.
 
 Once you confirm that you want to stop selling the offer, within a few hours it will no longer be visible in the marketplace and no new customers will be able to download it.
 
-To stop selling a plan, select **Stop selling** from the **Plan overview** page. The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer. Once you confirm you want to stop selling the plan, you must republish the offer for the request to take effect. Once the offer is republished, the plan will no longer be visible in the marketplace and no new customers will be able to download it.
+To stop selling a plan, select **Stop selling** from the **Plan overview** page. The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer. Once you confirm you want to stop selling the plan, you must republish the offer for the change to take effect. After the offer is republished, the plan will no longer be visible in the marketplace and no new customers will be able to download it.
 
 Any customers who previously acquired the offer or plan can still use it. They can download it again, but they won't get updates if you update and republish the offer or plan at a later time.
 
