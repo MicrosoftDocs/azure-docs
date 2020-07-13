@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 07/10/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
@@ -73,15 +73,15 @@ To create a read replica, follow these steps:
 
 6. Select **OK** to confirm the creation of the replica.
 
-A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
-
-> [!IMPORTANT]
-> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
-
 After the read replica is created, it can be viewed from the **Replication** window:
 
 ![View the new replica in the Replication window](./media/howto-read-replicas-portal/list-replica.png)
  
+
+> [!IMPORTANT]
+> Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
+>
+> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ## Stop replication
 You can stop replication between a master server and a read replica.

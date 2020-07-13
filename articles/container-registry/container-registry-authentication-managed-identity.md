@@ -234,7 +234,7 @@ In this article, you learned about using managed identities with Azure Container
 > * Grant the identity access to an Azure container registry
 > * Use the managed identity to access the registry and pull a container image
 
-* Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
+* Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
 
 
 <!-- LINKS - external -->
