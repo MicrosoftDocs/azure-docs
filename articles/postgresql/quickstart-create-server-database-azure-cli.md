@@ -59,7 +59,7 @@ admin-password | *secure password* | The password of the administrator user. It 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
->- The default PostgreSQL version on your server is 9.6. See all our versions supported [here](https://docs.microsoft.com/en-us/azure/postgresql/concepts-supported-versions).
+>- The default PostgreSQL version on your server is 9.6. See all our versions supported [here](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 >- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
 >- SSL is enabled by default on your server. For more infroamtion on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
