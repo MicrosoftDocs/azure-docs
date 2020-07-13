@@ -32,7 +32,7 @@ To get detailed terms of use for Azure for Students, see the [offer terms](https
 
 
 ## Next steps
-- [Help with login errors](troubleshoot-login.md)
-- [How to download software (Azure for Students)](download-software.md)
-- [Azure for Students Starter](azure-students-starter-program.md)
+- [Get help with login errors](troubleshoot-login.md)
+- [Download software (Azure for Students)](download-software.md)
+- [Azure for Students Starter overview](azure-students-starter-program.md)
 - [Microsoft Learn: a free online learning platform](https://docs.microsoft.com/learn/)

@@ -35,7 +35,7 @@ any time to a pay-as-you-go subscription to get access to all Azure services, us
 Account portal](https://account.azure.com/).
 
 ## Next steps
-- [Help with login errors](troubleshoot-login.md)
-- [How to download software (Azure for Students Starter)](download-software.md)
+- [Get help with login errors](troubleshoot-login.md)
+- [Download software (Azure for Students Starter)](download-software.md)
 - [Azure for Students program](azure-students-program.md)
 - [Microsoft Learn: a free online learning platform](https://docs.microsoft.com/learn/)
