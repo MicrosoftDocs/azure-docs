@@ -1,6 +1,6 @@
 ---
 title: 'Best practices for choosing a Time Series ID - Azure Time Series Insights | Microsoft Docs'
-description: Learn about best practices when choosing a Time Series ID in Azure Time Series Insights Preview.
+description: Learn about best practices when choosing a Time Series ID in Azure Time Series Insights Gen2.
 author: shipramishra
 ms.author: shmishr
 manager: diviso
@@ -14,11 +14,11 @@ ms.custom: seodec18
 
 # Best practices for choosing a Time Series ID
 
-This article summarizes the importance of the Time Series ID for your Azure Time Series Insights Preview environment, and best practices for choosing one.
+This article summarizes the importance of the Time Series ID for your Azure Time Series Insights Gen2 environment, and best practices for choosing one.
 
 ## Choose a Time Series ID
 
-Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create a Time Series Insights Preview environment. 
+Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create a Azure Time Series Insights Gen2 environment. 
 
 > [!IMPORTANT]
 > Time Series IDs are:
@@ -77,4 +77,4 @@ In the Azure portal, you can then enter the composite key as follows:
 
 * Read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored.
 
-* Plan your [Azure Time Series Insights Preview environment](./time-series-insights-update-plan.md).
+* Plan your [Azure Time Series Insights Gen2 environment](./time-series-insights-update-plan.md).
