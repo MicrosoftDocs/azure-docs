@@ -34,8 +34,8 @@ To create an encryption scope in the Azure portal, follow these steps:
 1. Click the **Add** button to add a new encryption scope.
 1. In the Create **Encryption Scope** pane, enter a name for the new scope.
 1. Select the type of encryption, either **Microsoft-managed keys** or **Customer-managed keys**.
-    1. If you selected **Microsoft-managed keys**, click **Create** to create the encryption scope.
-    1. If you selected **Customer-managed keys**, specify a key vault, key, and key version to use for this encryption scope, as shown in the following image.
+    - If you selected **Microsoft-managed keys**, click **Create** to create the encryption scope.
+    - If you selected **Customer-managed keys**, specify a key vault, key, and key version to use for this encryption scope, as shown in the following image.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Screenshot showing how to create encryption scope in Azure portal":::
 
