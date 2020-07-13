@@ -328,7 +328,7 @@
       href: disk-encryption.md
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Virtual Machine and disk performance
+    - name: Virtual machine and disk performance
       href: virtual-machine-disk-performance-linux.md
     - name: Designing for high performance
       href: premium-storage-performance.md
