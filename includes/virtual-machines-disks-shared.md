@@ -33,6 +33,7 @@ Shared managed disks do not natively offer a fully managed file system that can 
 - SUSE SLE 15 SP1 and newer
 - Ubuntu 18.04 and newer
 - RHEL 8 and newer
+- Windows Server 2008 and newer
 
 ## Sample workloads
 
