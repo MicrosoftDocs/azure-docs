@@ -10,7 +10,7 @@ ms.service: automation
 ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -18,7 +18,7 @@ ms.custom: mvc,subject-armqs
 
 # Quickstart: Create an Automation account by using Azure Resource Manager template
 
-Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This quickstart shows you how to deploy an Azure Resource Manager template that creates an Automation account. Using Resource Manager template takes fewer steps comparing to other deployment methods.
+Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This quickstart shows you how to deploy an Azure Resource Manager template that creates an Automation account. Using a Resource Manager template takes fewer steps compared to other deployment methods.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
