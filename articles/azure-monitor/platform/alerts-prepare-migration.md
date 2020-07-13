@@ -22,8 +22,8 @@ The APIs that create and manage classic alert rules (`microsoft.insights/alertru
 
 The following table is a reference to the programmatic interfaces for both classic and new alerts:
 
-|         |Classic alerts  |New metric alerts |
-|---------|---------|---------|
+| Deployment script type | Classic alerts | New metric alerts |
+| ---------------------- | -------------- | ----------------- |
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
@@ -35,8 +35,8 @@ The notification payload format is slightly different between [classic alert rul
 
 Use the following table to map the webhook payload fields from the classic format to the new format:
 
-|  |Classic alerts  |New metric alerts |
-|---------|---------|---------|
+| Notification endpoint type | Classic alerts | New metric alerts |
+| -------------------------- | -------------- | ----------------- |
 |Was the alert activated or resolved?    | **status**       | **data.status** |
 |Contextual information about the alert     | **context**        | **data.context**        |
 |Time stamp at which the alert was activated or resolved     | **context.timestamp**       | **data.context.timestamp**        |
