@@ -283,7 +283,8 @@ The `cmd` step type supports the following properties:
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
-| `volumeMounts` |[volumeMount, volumeMount, ...]	| Optional |
+| `volume` | 
+| `volumeMount` | object | Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
 
@@ -358,6 +359,38 @@ By using the standard `docker run` image reference convention, `cmd` can run ima
       - cmd: $Registry/myimage:mytag
     ```
 
+#### Access secret volumes
+
+The `volumes` property allows volumes and their secret contents to be specified for a task. Inside each `cmd` step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's path.
+
+Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+<!--[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+
+```yml
+# This template demonstrates mounting a custom volume into a container at a CMD step
+secrets:
+  - id: sampleSecret
+    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
+
+volumes:
+  - name: mysecrets
+    secret:
+      mysecret1: {{.Secrets.sampleSecret | b64enc}}
+      mysecret2: {{.Values.mysecret | b64enc}}
+
+steps:
+  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
+    volumeMounts:
+      - name: mysecrets
+        mountPath: /run/test
+```
+
 ## Task step properties
 
 Each step type supports several properties appropriate for its type. The following table defines all of the available step properties. Not all step types support all properties. To see which of these properties are available for each step type, see the [cmd](#cmd), [build](#build), and [push](#push) step type reference sections.
@@ -385,8 +418,17 @@ Each step type supports several properties appropriate for its type. The followi
 | `timeout` | int (seconds) | Yes | Maximum number of seconds a step may execute before being terminated. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Yes | Configures a step's dependency on one or more other steps within the task. | None |
 | `user` | string | Yes | The user name or UID of a container | None |
-| `volumeMount` | string |	No	| The volume name to mount. Must exactly match name from `volumes` property.	| None |
+| `volumeMounts` | object |	No | Array of [volumeMount](#volumemount) objects. | None |
 | `workingDirectory` | string | Yes | Sets the working directory for a step. By default, ACR Tasks creates a root directory as the working directory. However, if your build has several steps, earlier steps can share artifacts with later steps by specifying the same working directory. | `/workspace` |
+
+### volumeMount
+
+The volume object has the following properties.
+
+| Property | Type | Optional | Description | Default value |
+| -------- | ---- | -------- | ----------- | ------- | 
+| Name | string | No | The name of the volume to mount. Must exactly match the name from a `volumes` property. | None |
+| mountPath	| string | no | The absolute path to mount files in the container.	| None |
 
 ### Examples: Task step properties
 
@@ -445,38 +487,6 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel-dependent.yaml -->
 [!code-yml[task](~/acr-tasks/when-parallel-dependent.yaml)]
-
-#### Example: volumes
-
-The `volumes` property allows volumes and their secret contents to be specified for the task. Inside each step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's path.
-
-Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
-
-```azurecli
-az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
-```
-
-<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
-<!--[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
-
-```yml
-# This template demonstrates mounting a custom volume into a container at a CMD step
-secrets:
-  - id: sampleSecret
-    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
-
-volumes:
-  - name: mysecrets
-    secret:
-      mysecret1: {{.Secrets.sampleSecret | b64enc}}
-      mysecret2: {{.Values.mysecret | b64enc}}
-
-steps:
-  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
-    volumeMounts:
-      - name: mysecrets
-        mountPath: /run/test
-```
 
 ## Run variables
 
