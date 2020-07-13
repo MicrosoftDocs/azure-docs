@@ -1,4 +1,5 @@
 # Quickstart: Start an audio call (C#)
+This quickstart helps you make an audio call with a .NET sample application. You will be able to call an echo bot which repeats your audio message, or another instance of the sample application on another PC.
 
 ## Prerequisites
 
