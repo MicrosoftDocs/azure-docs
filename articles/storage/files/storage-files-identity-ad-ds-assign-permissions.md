@@ -4,8 +4,8 @@ description: Learn how to assign permissions to an Active Directory Domain Servi
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ---
 
@@ -72,5 +72,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## Next steps
+
+Now that you've assigned share-level permissions, you must configure directory and file-level permissions. Continue to the next article.
 
 [Part three: configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)

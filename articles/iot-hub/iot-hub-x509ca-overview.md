@@ -44,7 +44,7 @@ The owner of an X.509 CA certificate can cryptographically sign an intermediate 
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
+The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** (`CN=deviceId`) that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
 
 Learn here how to [create a certificate chain](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) as done when signing devices.
 

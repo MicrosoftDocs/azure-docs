@@ -157,7 +157,7 @@ Public IP SKUs and Load Balancer SKUs must match. For Standard Load Balancer , u
     | Availability zone | 2 |3|
     |Public IP| **Standard** SKU|**Standard** SKU|
     | Public IP - Availability zone| **Zone redundant** |**Zone redundant**|
-    | Network security group | Select the existing *myNetworkSecurity Group*| Select the existing *myNetworkSecurity Group*|
+    | Network security group | Select the existing *myNetworkSecurityGroup*| Select the existing *myNetworkSecurityGroup*|
 
  ### Create NSG rule
 

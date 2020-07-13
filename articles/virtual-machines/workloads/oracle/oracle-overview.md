@@ -3,7 +3,7 @@ title: Oracle solutions on Microsoft Azure | Microsoft Docs
 description: Learn about options to deploy Oracle Applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
+author: rgardler
 tags: azure-resource-management
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
-ms.author: borisb
+ms.author: rogardle
 ---
 
 # Overview of Oracle Applications and solutions on Azure
@@ -52,7 +52,7 @@ Run enterprise applications in Azure on supported Oracle Linux images. The follo
 
 * Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your physical servers. 
 
-* Enable Oracle Real Application Clusters (RAC) in Azure using [Azure VMWare Solution](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) or [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Enable Oracle Real Application Clusters (RAC) in Azure using [Azure VMware Solution](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) or [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## Backup Oracle Workloads
 

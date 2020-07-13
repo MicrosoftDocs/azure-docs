@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/25/2020
 ---
 # Monitoring in Azure Database for MariaDB
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
@@ -22,7 +22,7 @@ These metrics are available for Azure Database for MariaDB:
 |---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Percent|The percentage of IO in use.|
+|io_consumption_percent|IO percent|Percent|The percentage of IO in use. (Not applicable for Basic tier servers.)|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |serverlog_storage_percent|Server Log storage percent|Percent|The percentage of server log storage used out of the server's maximum server log storage.|

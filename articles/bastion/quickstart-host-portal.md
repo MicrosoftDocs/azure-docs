@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH without using a public IP address.

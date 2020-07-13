@@ -88,7 +88,7 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 * **operationTimeoutInMilliseconds** – This setting allows you to override the syncTimeout setting in the StackExchange.Redis client. If not specified, the default syncTimeout setting of 1000 is used. For more information, see [StackExchange.Redis configuration model](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** - This setting allows you to specify custom serialization of session content that is sent to Redis. The type specified must implement `Microsoft.Web.Redis.ISerializer` and must declare public parameterless constructor. By default  `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` is used.
 
-For more information about these properties, see the original blog post announcement at [Announcing ASP.NET Session State Provider for Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+For more information about these properties, see the original blog post announcement at [Announcing ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
 Don’t forget to comment out the standard InProc session state provider section in your web.config.
 

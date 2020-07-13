@@ -17,7 +17,7 @@ ms.custom: tracking-python
 
 In this article, learn how to configure Azure Firewall for use with an Azure Machine Learning workspace.
 
-Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace.
+Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace, which are described in this article.
 
 ## Network rules
 
@@ -36,16 +36,18 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
+| **default.exp-tas.com** | Used by the Azure Machine Learning studio |
 | **\*.azureml.ms** | Used by Azure Machine Learning APIs |
-| **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning|
+| **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning |
 | **\*.modelmanagement.azureml.net** | Used to register and deploy models|
 | **mlworkspace.azure.ai** | Used by the Azure portal when viewing a workspace |
 | **\*.aether.ms** | Used when running Azure Machine Learning pipelines |
 | **\*.instances.azureml.net** | Azure Machine Learning compute instances |
+| **\*.instances.azureml.ms** | Azure Machine Learning compute instances when workspace has Private Link enabled |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ## Python hosts
 

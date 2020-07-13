@@ -1,7 +1,7 @@
 ---
 title: Azure N-series AMD GPU driver setup for Windows 
 description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -27,7 +27,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 EVD - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+| Windows 10 Enterprise multi-session - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
 
 
 ## Driver installation
@@ -48,7 +48,7 @@ You can verify driver installation in Device Manager. The following example show
 
 You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output file will show the information related to AMD MI25 GPU.
 
