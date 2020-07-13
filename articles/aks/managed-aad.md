@@ -5,7 +5,7 @@ services: container-service
 manager: gwallace
 author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/13/2020
 ms.author: thomasge
 ---
 
@@ -15,6 +15,13 @@ ms.author: thomasge
 > Existing AKS (Azure Kubernetes Service) clusters with Azure Active Directory (Azure AD) integration are not affected by the new AKS-managed Azure AD experience.
 
 AKS-managed Azure AD integration is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+
+## Region availability
+
+AKS-managed Azure Active Directory integration is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government isn't currently supported.
+* Azure China 21Vianet isn't currently supported.
 
 ## Azure AD authentication overview
 
