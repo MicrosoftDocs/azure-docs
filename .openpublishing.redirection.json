@@ -2148,6 +2148,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hpc-cache/hpc-cache-prereqs.md",
+      "redirect_url": "/azure/hpc-cache/hpc-cache-prerequisites",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
       "redirect_document_id": false
@@ -31672,6 +31677,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/time-series-insights/time-series-insights-update-overview.md",
+      "redirect_url": "/azure/time-series-insights/overview-what-is-tsi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-use-cases.md",
+      "redirect_url": "/azure/time-series-insights/overview-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-quickstart.md",
+      "redirect_url": "/azure/time-series-insights/quickstart-explore-tsi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-create-environment.md",
+      "redirect_url": "/azure/time-series-insights/tutorials-set-up-tsi-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-data-access.md",
+      "redirect_url": "/azure/time-series-insights/concepts-access-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/time-series-insights/time-series-insights-update-storage-ingress.md",
       "redirect_url": "/azure/time-series-insights/concepts-ingestion-overview",
       "redirect_document_id": false
@@ -31684,6 +31714,51 @@
     {
       "source_path": "articles/time-series-insights/time-series-insights-update-tsq.md",
       "redirect_url": "/azure/time-series-insights/concepts-query-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-explorer.md",
+      "redirect_url": "/azure/time-series-insights/concepts-ux-panels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-plan.md",
+      "redirect_url": "/azure/time-series-insights/how-to-plan-your-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-how-to-manage.md",
+      "redirect_url": "/azure/time-series-insights/how-to-provision-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-how-to-troubleshoot.md",
+      "redirect_url": "/azure/time-series-insights/how-to-diagnose-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub.md",
+      "redirect_url": "/azure/time-series-insights/how-to-ingest-data-event-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md",
+      "redirect_url": "/azure/time-series-insights/how-to-ingest-data-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-how-to-shape-events.md",
+      "redirect_url": "/azure/time-series-insights/how-to-shape-json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-how-to-id.md",
+      "redirect_url": "/azure/time-series-insights/how-to-select-tsid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-how-to-tsm.md",
+      "redirect_url": "/azure/time-series-insights/how-to-edit-model",
       "redirect_document_id": false
     },
     {
