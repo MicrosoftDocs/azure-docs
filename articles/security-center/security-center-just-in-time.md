@@ -281,7 +281,7 @@ To request access from Azure virtual machines:
 
     - If JIT isn't enabled for the VM, you'll be prompted to enable it.
 
-    - If JIT's enabled, select **Request access** to pass an access request with the source IP, time range, and ports that were configured for that VM.
+    - If JIT's enabled, select **Request access** to pass an access request with the requesting IP, time range, and ports that were configured for that VM.
 
 > [!NOTE]
 > After a request is approved for a VM protected by Azure Firewall, Security Center provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
