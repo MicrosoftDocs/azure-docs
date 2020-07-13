@@ -15,7 +15,7 @@ services: iot-pnp
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application that doesn't use _components_, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in CSharp and is included in the Azure IoT device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in CSharp and is included in the Azure IoT device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -58,11 +58,9 @@ Open a command prompt in the directory of your choice. Execute the following com
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
-Expect this operation to take several minutes to complete.
-
 ## Build the code
 
-Open the **azureiot.sln** solution file in Visual Studio 2019 and set the **thermostat** project as the startup project. In **Solution Explorer**, you can find this project file in **iothub > device > samples**.
+Open the *azure-iot-sdk-csharp/iothub/device/samples/PnpDeviceSamples/Thermostat/Thermostat.csproj* project file in Visual Studio 2019.
 
 You can now build the sample in Visual Studio and run it in debug mode.
 

@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application that doesn't use _components_, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Node.js and is included in the Azure IoT device SDK for Node.js. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Node.js and is included in the Azure IoT device SDK for Node.js. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -58,10 +58,8 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
-
-Expect this operation to take several minutes to complete.
 
 ## Install required libraries
 
@@ -81,20 +79,19 @@ You use the device SDK to build the included sample code. The application you bu
 
 ## Run the sample device
 
-Open the _sample_device.js_ file. In this file, you can see how to:
+Open the _simple_thermostat.js_ file. In this file, you can see how to:
 
 1. Import the required interfaces.
 1. Write a property update handler and command handler.
-1. Create instances of the **EnvironmentalSensor** and **DeviceInformation** components.
-1. Create the digital twin client for the device from its connection string.
-1. Add the interfaces to the newly created digital twin client.
+1. Use the **DigitalTwinClient** class to connect to your IoT hub.
+1. Use the **DigitalTwinClient** class to configure the IoT Plug and Play components the device implements.
 1. Enable the command and property update handlers.
 1. Report interface-specific properties and telemetry.
 
 Run the sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
-node sample_device.js
+node simple_thermostat.js
 ```
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
