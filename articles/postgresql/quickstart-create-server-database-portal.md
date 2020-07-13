@@ -82,7 +82,7 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
 >[!div class="mx-imgBorder"]
 > ![Open Azure Cloud Shell](./media/quickstart-create-database-portal/use-in-cloud-shell.png)
 
-- Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database 'postgres' with admin username in this format '<user>@<servername> as shown below for Azure Database for PostgreSQL.
+- Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database **postgres** with admin user in this format '<admin-username>@<servername> as shown below for Azure Database for PostgreSQL.
     
  ```azurecli-interactive
      psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
