@@ -21,6 +21,12 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
 - name: How to
   items:
   - name: Manage Data Lake Analytics
