@@ -4,7 +4,7 @@ description: The Azure Database for PostgreSQL - Hyperscale security baseline pr
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
