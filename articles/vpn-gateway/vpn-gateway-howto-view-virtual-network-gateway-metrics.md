@@ -28,7 +28,7 @@ You can monitor Azure VPN gateways using Azure Monitor. This article discusses m
 |**TunnelIngressPackets** | Count | 5 minutes | Count of incoming packets on tunnels created on the gateway.   |
 |**TunnelIngressPacketDropTSMismatch** | Count | 5 minutes | Count of incoming packets dropped on tunnels caused by traffic-selector mismatch. |
 
-The following steps help you locate and view metrics:
+# The following steps help you locate and view metrics:
 
 1. Navigate to the virtual network gateway resource in the Portal
 2. Select **Overview** to see the Total tunnel ingress and egress metrics.
