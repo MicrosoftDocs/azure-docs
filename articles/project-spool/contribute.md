@@ -4,8 +4,6 @@
 
 The status of ACS Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
 
-Open issues are being discussed in [this document](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/Eer2632Xk-hHgCtvPAj6kgkBPlV42XZmsZ8TG4GwsvZf0A?e=p3yxen).
-
 
 --------------
 
@@ -41,12 +39,16 @@ For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.
 - **Quickstarts** are for explaining things in less than 10 minutes.
 - **Tutorials** are for more in-depth explanations that explain how to complete a commonly encountered customer task.
 - **Concepts** are for the foundational ideas that developers need to know before diving into the code.
-- Assume that all developers are under incredible time-pressure to find solutions to problems, and make sure the solutions are ridiculously easy to find by articulating the customer intent in the title and in the first paragraph.
+- Assume that all developers are under incredible time-pressure to find easy solutions to real problems, and make sure the solutions are ridiculously easy to find by articulating the customer intent in the title and in the first paragraph.
 - Don't assume that developers are familiar with technical terminology or jargon. Use everyday words as much as possible.
-- Try to emphasize the plain-english benefits as much as possible, not the technologies. For example, don't talk about "PSTN integration", talk about "phone calls".
+- Try to emphasize the plain-English benefits as much as possible, not the technologies. For example, in an introduction to ACS calling, it might be easier for a new dev to read about "phone calls" than "PSTN integration".
+- Docs are as much of a product as the product itself. Try to apply principles of user experience to your guidance: Progressively disclose information, incrementally introduce complexity, strive for simplicity, clarity, and a clutter-free, lovable user experience.
 - Try to write as you speak.
-- Relentlessly simplify and minimize. Fewer words = more engagement.
-- Prioritize minimal code over words and diagrams whenever possible.
+- Relentlessly simplify and minimize. Fewer words translate to more engagement.
+- Try to adopt the perspective of a new developer - not an experienced developer - and solve their problems through the power of customer empathy.
+- If you have code snippets to share, try keep them as simple and as minimal as possible, and put them at the top of the page.
+- KISS - Keep It Simple, Smarty
+- Prioritize minimal code snippets over words and diagrams whenever possible.
 - Make your content easy to scan with thoughtful headers and other formatting.
 
 
