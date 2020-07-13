@@ -1,38 +1,38 @@
 ---
-title: 'Visualize data in the Preview explorer - Azure Time Series Insights | Microsoft Docs'
-description:  Learn about features and options available in the Azure Time Series Insights Preview explorer.
+title: 'Visualize data in the Gen2 Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
+description:  Learn about features and options available in the Azure Time Series Insights Gen2 Explorer.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Preview explorer
+# Azure Time Series Insights Gen2 Explorer
 
-This article describes the various features and options available within the Azure Time Series Insights Preview [demo web application](https://insights.timeseries.azure.com/preview/demo).
+This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
-To get started with the Azure Time Series Insights Preview explorer, you must:
+To get started with the Azure Time Series Insights Gen2 Explorer, you must:
 
-* Have a Time Series Insights environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) tutorial.
-* [Provide data access](./time-series-insights-data-access.md) to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
-* Add an event source to the Time Series Insights environment to push data to the environment:
+* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) tutorial.
+* [Provide data access](./time-series-insights-data-access.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
+* Add an event source to the Azure Time Series Insights Gen2 environment to push data to the environment:
   * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
   * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## Explore the Time Series Insights Preview explorer
+## Explore the Azure Time Series Insights Gen2 Explorer
 
-The Azure Time Series Insights Preview explorer consists of the following seven elements:
+The Azure Time Series Insights Gen2 Explorer consists of the following seven elements:
 
-[![Time Series Insights Preview explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Azure Time Series Insights Gen2 Explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
-1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights environments.
+1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights Gen2 environments.
 1. [Navigation bar](#2-navigation-bar): Lets you switch between the **Analyze** and **Model** pages.
 1. [Hierarchy tree and search panel](#3-hierarchy-tree-and-search-panel): Lets you select and search for specific data elements to be charted.
 1. [Time series well](#4-time-series-well): Shows all your currently selected data elements.
@@ -43,7 +43,7 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 ## 1. Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply select the Time Series Insights environment you want to use to immediately be taken there.
+The environment panel displays all the Azure Time Series Insights Gen2 environments you have access to. The list includes Gen2 environments as well as Gen 1 environments. Simply select the environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -58,16 +58,16 @@ The environment panel displays all the Time Series Insights environments you hav
 Use the navigation bar to select between two views:
 
 * **Analyze**: Use it to chart and perform rich analytics on your modeled or unmodeled time series data.
-* **Model**: Use it to push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
+* **Model**: Use it to push new Azure Time Series Insights Gen2 types, hierarchies, and instances to your Time Series Model.
 
 ### Model authoring
 
-The Azure Time Series Insights Preview supports full create, read, update, and delete (CRUD) operations on your Time Series Model.
+The Azure Time Series Insights Gen2 supports full create, read, update, and delete (CRUD) operations on your Time Series Model.
 
 [![The model search panel](media/v2-update-explorer/model-search-panel.png)](media/v2-update-explorer/model-search-panel.png#lightbox)
 
-* **Time Series Model type**: You can use Time Series Insights types to define variables or formulas for doing computations. They're associated with a given Time Series Insights instance. A type can have one or more variables.
-* **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
+* **Time Series Model type**: You can use Time Series Model types to define variables or formulas for doing computations. They're associated with a given Time Series Model instance. A type can have one or more variables.
+* **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different instances in your Time Series Model.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
 To learn more about the Time Series Model, read [Times Series Models](./concepts-model-overview.md).
@@ -82,9 +82,9 @@ The search results pane also lets you view your results in a hierarchy view or a
  
 ## 4. Time series well
 
-The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. 
+The well displays instance fields and other metadata associated with selected Time Series Model instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. 
 
-  [![The Preview well](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
+  [![The Gen2 well](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner. 
 
@@ -101,11 +101,11 @@ Additionally, The explorations control lets you create time shifts and scatter p
 
 The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger. 
 
-  [![Preview chart overview](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
+  [![Gen2 chart overview](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **Chart type**: Controls which data elements are available for visualization.
 
-1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
 1. **Zoom and pan**: Select this control to zoom and pan the chart.
 
@@ -119,11 +119,11 @@ The chart enables you to display time series instances as lines. You can collaps
 
 You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and then select **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
-  [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
+  [![Gen2 chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-After you perform the **Zoom** action, your selected data set will be displayed. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
+After you perform the **Zoom** action, your selected data set will be displayed. Select the format control to cycle through the three y-axis representations of your data.
 
-  [![Preview chart y-axis](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
+  [![Gen2 chart y-axis](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
 Here, an example of an **overlapping chart** is provided:
 
@@ -133,18 +133,18 @@ The **More actions** button expands to display the **Download as CSV**, **Connec
 
   [![More actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Learn more about the **Connect to Power BI** option in [Time Series Insights native Power BI connector](concepts-power-bi.md).
+Learn more about the **Connect to Power BI** option in [Power BI connector](concepts-power-bi.md).
 
 ## 6. Time editor panel
 
-When working with Time Series Insights you first will select a time span. The selected time span will control the data set that is available for manipulation with the Time Series Insights update widgets.
+When working with Azure Time Series Insights Gen2 you first will select a time span. The selected time span will control the data set that is available for manipulation with the Azure Time Series Insights Gen2 update widgets.
 
   [![Time selection panel](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > A portion of the timeline is highlighted in an amber or orange color to indicate the span of data that is available in warm store.
 
-The following web controls are available in the Time Series Insights update for selecting your working time span. 
+The following web controls are available in Azure Time Series Insights Gen2 for selecting your working time span. 
 
   [![Exploration well control](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -162,7 +162,7 @@ The following web controls are available in the Time Series Insights update for 
 
 ## 7. App bar
 
-The Time Series Insights Preview navigation panel appears at the top of your Time Series Insights app. It provides the following functionalities:
+The Azure Time Series Insights Gen2 navigation panel appears at the top of your app. It provides the following functionalities:
 
 ### Current session share link control
 
@@ -176,9 +176,9 @@ Select the new **Share** icon to share a URL link with your team.
 
   [![Tenant selection](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
-* Displays your current Time Series Insights sign-in account information.
-* Use it to switch between the available Time Series Insights themes.
-* Use it to view the Preview [demo web app](https://insights.timeseries.azure.com/preview/demo).
+* Displays your current Azure Time Series Insights Gen2 sign-in account information.
+* Use it to switch between the available themes.
+* Use it to view the Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ### Theme selection
 
@@ -189,28 +189,28 @@ To select a new theme, select your profile icon located in the upper-right corne
 > [!TIP]
 > Language selection is also available by selecting your profile icon.
 
-Azure Time Series Insights Preview supports two themes:
+Azure Time Series Insights Gen2 Explorer supports two themes:
 
 * **Light theme**: The default theme shown throughout this document.
-* **Dark theme**: Renders the explorer as shown here:
+* **Dark theme**: Renders the Explorer as shown here:
 
   [![Selected dark theme](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## S1/S2 environment controls
+## Gen 1 environment controls
 
-### Preview terms panel
+### Gen2 terms panel
 
-This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the generally available product and Preview in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer. 
+This section applies only to existing Gen 1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen 1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen 1 environment in the new Azure Time Series Insights Gen2 Explorer. 
 
-Instead of the hierarchy, the Time Series Insights terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
+Instead of the hierarchy, the Azure Time Series Insights Gen2 terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 
   [![Where query panel](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
-The Time Series Insights Preview terms editor panel takes the following parameters:
+The Azure Time Series Insights Gen2 terms editor panel takes the following parameters:
 
 **Where**: Use the where clause to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting an operand, the predicate is automatically updated based on that search. Supported operand types include the following:
 
-| Operation	| Supported types	| Notes |
+| Operation    | Supported types    | Notes |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
@@ -237,8 +237,8 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 - Learn about [ingesting data](./concepts-ingestion-overview.md) into your environment.
 
-- Check out the article on [storage](concepts-storage.md)
+- Check out the article on [storage](concepts-storage.md).
 
-- Read the Time Series Insights Preview document on [data modeling](./concepts-model-overview.md).
+- Read about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
 
-- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.
+- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your environment.
