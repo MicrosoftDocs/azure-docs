@@ -14,7 +14,7 @@ The default answer for a knowledge base is meant to be returned when an answer i
 There are two types of default answer in your knowledge base. It is important to understand how and when each is returned from a prediction query:
 
 
-|Type of question|Description of Answer|
+|Type of question|Description of answer|
 |--|--|
 |KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question, this is the text returned.<br>Change this text in the App Service's Application Settings for your QnA Maker service. All knowledge bases in the same QnA Maker service share the same default answer text. Can update `DefaultAnswer` setting with [REST API](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings)|
 |Follow-up prompt instruction text|When using a follow-up prompt in a conversation flow, you may not need an answer in the QnA pair because you want the user to select from the follow-up prompts. In this case, set specific text by setting the default answer text, which is returned with each prediction for follow-up prompts. The text is meant to display as instructional text to the selection of follow-up prompts. An example for this default answer text is `Please select from the following choices`. This configuration is explained in the next few sections of this document. Can also set as part of knowledge base definition of `defaultAnswerUsedForExtraction` using [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
