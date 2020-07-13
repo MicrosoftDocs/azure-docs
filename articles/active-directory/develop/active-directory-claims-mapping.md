@@ -357,7 +357,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|email or UPN|UPN|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
+|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
