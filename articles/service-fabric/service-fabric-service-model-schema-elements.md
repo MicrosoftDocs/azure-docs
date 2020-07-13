@@ -5503,8 +5503,7 @@ The setting to override.
 
 #### IsEncrypted
 
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
-                    
+If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
 
 |Attribute|Value|
 |---|---|
@@ -5514,17 +5513,15 @@ The setting to override.
 
 #### Type
 
-                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
-                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
-                    
+This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
 
 |Attribute|Value|
 |---|---|
 |name|Type|
 |type|xs:string|
 |use|optional|
-
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInSectionelement"></a>
 ## Parameter element (defined in Section) 

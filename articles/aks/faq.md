@@ -133,7 +133,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 
 ## Can I move/migrate my cluster between Azure tenants?
 
-The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
+The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](./update-credentials.md) and then [update aks cluster with new credentials](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
 
 ## Can I move/migrate my cluster between subscriptions?
 
@@ -141,7 +141,11 @@ Movement of clusters between subscriptions is currently unsupported.
 
 ## Can I move my AKS clusters from the current Azure subscription to another? 
 
-Moving your AKS cluster and it's associated resources between Azure subscriptions is not supported.
+Moving your AKS cluster and its associated resources between Azure subscriptions is not supported.
+
+## Can I move my AKS cluster or AKS infrastructure resources to other resource groups or rename them?
+
+Moving or renaming your AKS cluster and its associated resources is not supported.
 
 ## Why is my cluster delete taking so long? 
 
@@ -161,11 +165,11 @@ Most commonly, this is caused by users having one or more Network Security Group
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
 ## My cluster was working, but suddenly cannot provision LoadBalancers, mount PVCs, etc.? 
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
 ## Can I use the virtual machine scale set APIs to scale manually?
 
@@ -186,9 +190,9 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
-[aks-cluster-autoscale]: ./autoscaler.md
+[aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./azure-ad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
