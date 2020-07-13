@@ -73,14 +73,14 @@ Once again starting from your subscription in [Azure portal][portal], create the
 
 ![New, Data, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Make sure that the database server allows access to Azure services:
+Make sure that the server allows access to Azure services:
 
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## Create a table in Azure SQL DB
+## Create a table in Azure SQL Database
 Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
-![](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Connect to Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Create a new query, and execute the following T-SQL:
 
@@ -122,7 +122,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-![](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
+![Create PageViewsTable](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
 In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](../../azure-monitor/app/export-data-model.md).
 
@@ -131,7 +131,7 @@ From the [Azure portal](https://portal.azure.com/), select the Azure Stream Anal
 
 ![Stream analytics settings](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![New stream analytics job](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 

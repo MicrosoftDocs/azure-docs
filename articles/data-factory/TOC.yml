@@ -271,6 +271,8 @@
       href: connector-db2.md
     - name: Delimited text format
       href: format-delimited-text.md
+    - name: Delta format
+      href: format-delta.md
     - name: Drill
       href: connector-drill.md
     - name: Dynamics 365
@@ -728,6 +730,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Diagnose connectivity in Azure-SSIS IR
+      href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Reference
   items:
   - name: Data flow script

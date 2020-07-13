@@ -70,6 +70,10 @@
       items:
       - name: Xamarin.Forms
         href: notification-hubs-backend-service-xamarin-forms.md
+      - name: Flutter
+        href: notification-hubs-backend-service-flutter.md
+      - name: React Native
+        href: notification-hubs-backend-service-react-native.md
   - name: Windows Phone
     items:
     - name: Send push notifications to apps
