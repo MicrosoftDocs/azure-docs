@@ -21,7 +21,7 @@ ms.author: kumud
 
 The following table includes links to bash scripts with Azure CLI commands:
 
-| | |
+| Script | Description |
 |----|----|
 | [Create a virtual network for multi-tier applications](./scripts/virtual-network-cli-sample-multi-tier-application.md) | Creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. |
 | [Peer two virtual networks](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Creates and connects two virtual networks in the same region. |

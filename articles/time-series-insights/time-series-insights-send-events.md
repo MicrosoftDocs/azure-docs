@@ -5,15 +5,15 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 ---
 
-# Send events to a Time Series Insights environment by using an event hub
+# Send events to a Azure Time Series Insights Gen1 environment by using an event hub
 
 This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -33,10 +33,10 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
     [![Create a consumer group](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-1. Make sure you create a consumer group that's used exclusively by your Time Series Insights event source.
+1. Make sure you create a consumer group that's used exclusively by your Azure Time Series Insights event source.
 
     > [!IMPORTANT]
-    > Make sure this consumer group isn't used by any other service, such as an Azure Stream Analytics job or another Time Series Insights environment. If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
+    > Make sure this consumer group isn't used by any other service, such as an Azure Stream Analytics job or another Azure Time Series Insights environment. If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
 1. On the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
@@ -48,11 +48,11 @@ This article explains how to create and configure an event hub in Azure Event Hu
 
 1. Under **Claim**, select the **Send** check box.
 
-## Add a Time Series Insights instance
+## Add an Azure Time Series Insights instance
 
-The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about Time Series Insight instances and **Time Series ID**, read [Time Series Models](./concepts-model-overview.md).
+In Azure Time Series Insights Gen 2 you can add contextual data to incoming telemetry using the Time Series Model (TSM). In TSM, your tags or signals are refered to as *instances,* and you can store contextual data in *instance fields.* The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about storing data in instance fields read the [Time Series Model](./concepts-model-overview.md) overview.
 
-### Create a Time Series Insights event source
+### Create a Azure Time Series Insights event source
 
 1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -76,7 +76,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 1. Select **Click to start**. 
 
     > [!TIP]
-    > The windmill simulator also creates JSON you can use as a payload with the [Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
 
     > [!NOTE]
     > The simulator will continue to send data until the browser tab is closed.
@@ -198,6 +198,6 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 ## Next steps
 
-- [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer.
+- [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
 
 - Read more about [IoT Hub device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

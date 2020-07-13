@@ -35,6 +35,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [What Azure Cache for Redis offering and size should I use?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Azure Cache for Redis performance](#azure-cache-for-redis-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
+* [Where do my cached data reside?](#where-do-my-cached-data-reside)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -143,6 +144,13 @@ For instructions on setting up stunnel or downloading the Redis tools such as `r
 ### In what region should I locate my cache?
 For best performance and lowest latency, locate your Azure Cache for Redis in the same region as your cache client application.
 
+### Where do my cached data reside?
+Azure Cache for Redis stores your application data in the RAM of the VM or VMs, depending on the tier, that host your cache. Your data reside strictly in the Azure region you've selected by default. There are two cases where your data may leave a region:
+  1. When you enable persistence on the cache, Azure Cache for Redis will backup your data to an Azure Storage account you own. If the storage account you provide happens to be in another region, a copy of your data will end up there.
+  1. If you set up geo-replication and your secondary cache is in a different region, which would be the case normally, your data will be replicated to that region.
+
+You'll need to explicitly configure Azure Cache for Redis to use these features. You also have complete control over the region that the storage account or secondary cache is located.
+
 <a name="cache-billing"></a>
 
 ### How am I billed for Azure Cache for Redis?
@@ -209,20 +217,20 @@ There is no local emulator for Azure Cache for Redis, but you can run the MSOpen
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 You can optionally configure a [redis.conf](https://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Cache for Redis if desired.
@@ -361,11 +369,11 @@ Basically, it means that when the number of Busy threads is greater than Min thr
 
 If we look at an example error message from StackExchange.Redis (build 1.0.450 or later), you will see that it now prints ThreadPool statistics (see IOCP and WORKER details below).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 In the previous example, you can see that for IOCP thread there are six busy threads and the system is configured to allow four minimum threads. In this case, the client would have likely seen two 500-ms delays, because 6 > 4.
@@ -380,20 +388,20 @@ How to configure this setting:
 
 * We recommend changing this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method in `global.asax.cs`. For example:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads(200, 200)**.
+    > [!NOTE]
+    > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads(200, 200)**.
 
 * It is also possible to specify the minimum threads setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Setting the number of minimum threads in this way is generally not recommended, because it is a System-wide setting.**
 
@@ -449,7 +457,7 @@ The following are some common reason for a cache disconnect.
   * The bandwidth threshold limits were reached.
   * CPU bound operations took too long to complete.
 * Server-side causes
-  * On the standard cache offering, the Azure Cache for Redis service initiated a fail-over from the primary node to the secondary node.
+  * On the standard cache offering, the Azure Cache for Redis service initiated a fail-over from the primary node to the replica node.
   * Azure was patching the instance where the cache was deployed
     * This can be for Redis server updates or general VM maintenance.
 
