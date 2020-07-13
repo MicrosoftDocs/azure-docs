@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -16,7 +16,7 @@ ms.reviewer: fryu
 
 Anonymous public read access to containers and blobs in Azure Storage is a convenient way to share data, but may also present a security risk. It's important to enable anonymous access judiciously and to understand how to evaluate anonymous access to your data. Operational complexity, human error, or malicious attack against data that is publicly accessible can result in costly data breaches. Microsoft recommends that you enable anonymous access only when necessary for your application scenario.
 
-By default, a storage account enables a user with appropriate permissions to configure public access to containers and blobs. You can disable this functionality at the level of the storage account, so that containers and blobs in the account cannot be configured for public access.
+By default, a storage account enables a user with appropriate permissions to configure public access to containers and blobs. You can disable this functionality at the level of the storage account, so that containers and blobs in the account cannot be configured for public access. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 This article describes how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
 
@@ -102,7 +102,7 @@ You can also configure an alert rule based on this query to notify you about ano
 
 After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to limit or prevent public access. If some containers in your storage account may need to be available for public access, then you can configure the public access setting for each container in your storage account. This option provides the most granular control over public access. For more information, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-For enhanced security, you can disable public access for an entire storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable or disable public read access for a storage account](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+For enhanced security, you can disable public access for an entire storage account. The option to allow or deny public access for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable the option to allow public read access for an account](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
 
 If your scenario requires that certain containers are available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disable public access for any other storage accounts.
 
@@ -140,7 +140,7 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 If public access is disabled for the storage account, then you will not be able to create a new container with public access enabled. To verify, you can attempt to create a container with public access enabled.
 
 The following example shows how to use PowerShell to attempt to create a container with public access enabled. Remember to replace the placeholder values in brackets with your own values:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
