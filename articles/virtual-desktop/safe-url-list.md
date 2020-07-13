@@ -6,7 +6,7 @@ author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -29,6 +29,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
+| 169.254.169.254 | 443 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md)) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
