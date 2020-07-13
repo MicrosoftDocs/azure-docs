@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 05/25/2020
+ms.date: 07/13/2020
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store
@@ -49,11 +49,27 @@ When browsing your Azure-SSIS IR on SSMS, you can right-click on any package sto
 
       Depending on the **Package location** to import from, select the relevant **Server**/**Authentication type**, enter the access credentials if necessary, select the **Package path**, and enter the new **Package name**. When importing packages, their protection level can't be changed. To change it, use SQL Server Data Tools (SSDT) or `dtutil` command-line utility.
 
+      > [!NOTE]
+      > Importing SSIS packages into Azure-SSIS IR package stores can only be done one-by-one and will simply copy them into the underlying MSDB/file system/Azure Files while preserving their SQL Server/SSIS version. 
+      >
+      > Since Azure-SSIS IR currently has a default compatibility level of 140 (**SQL Server 2017**), executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time, while executing higher-version packages on it is unsupported.
+      >
+      > Additionally, since legacy SSIS package stores are bound to specific SQL Server version and accessible only on SSMS for that version, lower-version packages in legacy SSIS package stores need to be exported into file system first using the designated SSMS version before they can be imported into Azure-SSIS IR package stores using SSMS 2019 or later versions.
+      >
+      > Alternatively, to import multiple SSIS packages into Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
+
    *  Select **Export Package** to export packages from your package store into **File System**, **SQL Server** (MSDB), or the legacy **SSIS Package Store**.
 
       ![Export Package](media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png)
 
       Depending on the **Package location** to export into, select the relevant **Server**/**Authentication type**, enter the access credentials if necessary, and select the **Package path**. When exporting packages, if they're encrypted, enter the passwords to decrypt them first and then you can change their protection level, for example to not save sensitive data or to encrypt all/sensitive data with user key/password.
+
+      > [!NOTE]
+      > Exporting SSIS packages from Azure-SSIS IR package stores can only be done one-by-one and doing so without switching their protection level will simply copy them while preserving their SQL Server/SSIS version, otherwise it will upgrade them into SSIS 2019 or later-version packages.
+      >
+      > Since Azure-SSIS IR currently has a default compatibility level of 140 (**SQL Server 2017**), executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time, while executing higher-version packages on it is unsupported.
+      >
+      > Alternatively, to export multiple SSIS packages from Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
 
    *  Select **Delete** to delete existing folders/packages from your package store.
 
@@ -96,6 +112,63 @@ When browsing your Azure-SSIS IR on SSMS, you can right-click on it to pop up a 
       ![Edit package stores](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png)
 
    *  Select **Refresh** to show newly added folders/packages in your package stores and running packages from your package stores.
+
+## Deploying multiple packages with dtutil
+
+To lift & shift your on-premises SSIS workloads onto SSIS in ADF while maintaining the legacy Package Deployment Model, you need to deploy your packages from file system/MSDB hosted by SQL Server/legacy SSIS package stores into file system/Azure Files/MSDB hosted by Azure SQL Managed Instance/Azure-SSIS IR package stores while switching their protection level from encryption by user-key to no encryption/encryption by password if you haven't done so already.
+
+You can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility that comes with SQL Server/SSIS installation to deploy multiple packages in batches. It's bound to specific SSIS version, so using it to deploy lower-version packages without switching their protection level will simply copy them while preserving their SSIS version, otherwise it will upgrade them into its SSIS version.
+
+ Since Azure-SSIS IR currently has a default compatibility level of 140 (**SQL Server 2017**), executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time, while executing higher-version packages on it is unsupported.
+
+Consequently, to avoid run-time upgrades, deploying packages to run on Azure-SSIS IR in Package Deployment Model should use dtutil 2017 that comes with SQL Server/SSIS 2017 installation. You can download and install the free [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) for this purpose. Once installed, you can find dtutil 2017 on this folder: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn`.
+
+ To deploy multiple packages from file system into Azure Files while switching their protection level, you can run the following commands at a command prompt after replacing all strings that are specific to your case:  
+  
+```dos
+REM Persist the access credentials for Azure Files on your local machine
+cmdkey /ADD:YourStorageAccountName.file.core.windows.net /USER:azure\YourStorageAccountName /PASS:YourStorageAccountKey
+
+REM Connect Azure Files to a drive on your local machine
+net use Z: \\YourStorageAccountName.file.core.windows.net\YourFileShare /PERSISTENT:Yes
+
+REM Go to a local folder where you store your packages
+cd YourLocalDrive:\...\YourPackageFolder
+
+REM Run dtutil in a loop to deploy your packages from the local folder into Azure Files while switching their protection level
+for %f in (*.dtsx) do dtutil.exe /FILE %f /ENCRYPT FILE;Z:\%f;2;YourEncryptionPassword
+```
+
+To run the above commands in a batch file, replace `%f` with `%%f`.
+
+To deploy multiple packages from legacy SSIS package stores on top of file system into Azure Files while switching their protection level, you can use the same commands, but replace `YourLocalDrive:\...\YourPackageFolder` with a local folder used by legacy SSIS package stores: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder`. For example, if your legacy SSIS package store is bound to SQL Server 2016, go to `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder`.  You can find the value for `YourSQLServerDefaultCompatibilityLevel` from a [list of SQL Server default compatibility levels](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
+
+If you've configured Azure-SSIS IR package stores on top of Azure Files, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
+
+ To deploy multiple packages from MSDB hosted by SQL Server/legacy SSIS package stores on top of MSDB into MSDB hosted by Azure SQL Managed Instance/Azure-SSIS IR package stores on top of MSDB while switching their protection level, you can connect to your SQL Server on SSMS, right-click on `Databases->System Databases->msdb` node on the **Object Explorer** of SSMS to open a **New Query** window, and run the following T-SQL script after replacing all strings that are specific to your case:  
+  
+```sql
+BEGIN
+  SELECT 'dtutil /SQL '+f.foldername+'\'+NAME+' /ENCRYPT SQL;'+f.foldername+'\'+NAME+';2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourSQLAuthUsername /DestPassword YourSQLAuthPassword'
+  FROM msdb.dbo.sysssispackages p
+  inner join msdb.dbo.sysssispackagefolders f
+  ON p.folderid = f.folderid
+END
+```
+
+To use the private/public endpoint of your Azure SQL Managed Instance, replace `YourSQLManagedInstanceEndpoint` with `YourSQLMIName.YourDNSPrefix.database.windows.net`/`YourSQLMIName.public.YourDNSPrefix.database.windows.net,3342`, respectively.
+
+The script will generate dtutil command lines for all packages in MSDB that you can multiselect, copy, paste, and run at a command prompt.
+
+![Generate dtutil command lines](media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png)
+
+```dos
+dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+dtutil /SQL YourFolder\YourPackage2 /ENCRYPT SQL;YourFolder\YourPackage2;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+dtutil /SQL YourFolder\YourPackage3 /ENCRYPT SQL;YourFolder\YourPackage3;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+```
+
+If you've configured Azure-SSIS IR package stores on top of MSDB, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
 
 ## Next steps
 
