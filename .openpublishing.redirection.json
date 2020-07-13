@@ -636,6 +636,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-create-account-template.md",
+      "redirect_url": "/azure/automation/quickstart-create-automation-acct-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": false
