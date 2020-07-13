@@ -340,6 +340,8 @@
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machines-windows-security-controls.md
     - name: Bastion
@@ -859,6 +861,16 @@
       href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
+    - name: Encryption
+      items:
+      - name: Enable host-based encryption - PowerShell
+        href: disks-enable-host-based-encryption-powershell.md
+      - name: Enable customer-managed keys - PowerShell
+        href: disks-enable-customer-managed-keys-powershell.md
+      - name: Enable customer-managed keys - Portal
+        href: disks-enable-customer-managed-keys-portal.md
+      - name: Enable double encryption-at-rest
+        href: disks-enable-double-encryption-at-rest-powershell.md
     - name: Migration and conversion
       items:
         - name: Convert disk between Standard and Premium

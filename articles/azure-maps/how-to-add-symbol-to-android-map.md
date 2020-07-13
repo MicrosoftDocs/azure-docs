@@ -167,6 +167,8 @@ At this point, if you run your application you should see a marker on the map, a
 
 ![Android map pin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
+> [!TIP]
+> By default, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in, the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `iconAllowOverlap` option to `true`.
 
 ## Next steps
 
