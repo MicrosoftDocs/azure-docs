@@ -1,7 +1,7 @@
 ---
 title: Access the Azure Education Hub
 description: This describes the prerequisites for using the Azure Education hub.
-author: rymend
+author: tfosmark
 ms.author: rymend
 ms.topic: quickstart
 ms.prod: azure
@@ -34,4 +34,4 @@ To access the Azure Education Hub, you should have already received an email not
 ## Next steps
 
 [Get started with the Azure Education Hub](get-started-education-hub.md)
-[Support options](../includes/educator-service-desk.md)
+[Support options](../../includes/educator-service-desk.md)
