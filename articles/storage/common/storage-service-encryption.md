@@ -37,8 +37,8 @@ Data in a new storage account is encrypted with Microsoft-managed keys. You can 
 
 The following table compares key management options for Azure Storage encryption.
 
-|                                        |    Microsoft-managed keys                             |    Customer-managed keys                                                                                                                        |    Customer-provided keys                                                          |
-|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| Category | Microsoft-managed keys | Customer-managed keys | Customer-provided keys |
+| -------- | ---------------------- | --------------------- | ---------------------- |
 |    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files<sup>1,2</sup>                                                                                                               |    Blob storage                                                                  |
 |    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Customer's own key store                                                                 |
