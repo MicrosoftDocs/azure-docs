@@ -32,7 +32,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality.
 
-Add the Azure IoT extension to the cloud shell instance.
+Add the Azure IoT extension to the Cloud Shell instance.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ Create a device identity for your IoT Edge device so that it can communicate wit
 
 Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag.
 
-1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
+1. In the Azure Cloud Shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-iot extension.
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the azure-iot extension.
 
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two. We'll refer to this connection string again in the next section when you set up your IoT Edge device.
 
@@ -108,7 +108,7 @@ This section uses an Azure Resource Manager template to create a new virtual mac
 
 Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) template.
 
-* For bash or cloud shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or cloud shell window:
+* For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
    az deployment group create \

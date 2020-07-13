@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
 
-Add the Azure IoT extension to the cloud shell instance.
+Add the Azure IoT extension to the Cloud Shell instance.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -97,13 +97,13 @@ Create a device identity for your simulated device so that it can communicate wi
 
 Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag.
 
-1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
+1. In the Azure Cloud Shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-iot extension.
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the azure-iot extension.
 
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two.
 
