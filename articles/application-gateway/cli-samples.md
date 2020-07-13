@@ -13,8 +13,7 @@ ms.author: victorh
 
 The following table includes links to Azure CLI script examples for Azure Application Gateway.
 
-| | |
-|---|---|
+| Example | Description |
+|-------- | ----------- |
 | [Manage web traffic](./scripts/create-vmss-cli.md) | Creates an application gateway and all related resources. |
 | [Restrict web traffic](./scripts/create-vmss-waf-cli.md) | Creates an application gateway that restricts traffic using OWASP rules.|
-| | |

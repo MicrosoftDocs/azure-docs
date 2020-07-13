@@ -1,5 +1,5 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI
+title: Create an internal Load Balancer - Azure CLI
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to create an internal load balancer using Azure CLI
 services: load-balancer
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 07/02/2020
 ms.author: allensu
 ---
 # Create an internal load balancer to load balance VMs using Azure CLI
@@ -46,7 +46,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --subnet-name mySubnet
 ```
 
-## Create Basic Load Balancer
+## Create Standard Load Balancer
 
 This section details how you can create and configure the following components of the load balancer:
   - a frontend IP configuration that receives the incoming network traffic on the load balancer.
@@ -56,12 +56,15 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7**. 
+
+Use `--sku basic` to create a Basic Load Balancer. Microsoft recommends Standard SKU for production workloads.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myResourceGroupILB \
     --name myLoadBalancer \
+    --sku standard \
     --frontend-ip-name myFrontEnd \
     --private-ip-address 10.0.0.7 \
     --backend-pool-name myBackEndPool \
@@ -79,7 +82,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
 ### Create the load balancer rule
@@ -97,6 +100,12 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
+```
+
+You can also create an [HA ports](load-balancer-ha-ports-overview.md) load balancer rule using configuration below with Standard Load Balancer.
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroupILB --lb-name myLoadBalancer --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name myFrontEnd --backend-address-pool-name myBackEndPool
 ```
 
 ## Create servers for the backend address pool

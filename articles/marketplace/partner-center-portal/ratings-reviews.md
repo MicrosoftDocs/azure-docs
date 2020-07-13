@@ -1,8 +1,6 @@
 ---
 title: Ratings & Reviews analytics dashboard in Partner Center
 description: Learn how to access a consolidated view of customer feedback for your offers on Microsoft AppSource and Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

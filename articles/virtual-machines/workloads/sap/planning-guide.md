@@ -540,7 +540,7 @@ Within a storage account, you have a type of a folder concept called 'containers
 
 Within Azure, a disk/VHD name follows the following naming connection that needs to provide a unique name for the VHD within Azure:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 The string above needs to uniquely identify the disk/VHD that is stored on Azure Storage.
 
@@ -1002,7 +1002,7 @@ An SAP system or even a dedicated DBMS server supporting an SAP application laye
 
 Data disks can be stored as VHD files in an Azure Storage Account and can be directly attached to a virtual machine or be used as an image. In this case, the VHD is copied to another location before being attached to the virtual machine. The full name of the VHD file in Azure must be unique within Azure. As mentioned earlier already, the name is kind of a three-part name that looks like:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 Data disks can also be Managed Disks. In this case, the Managed Disk is used to create a new Managed Disk before being attached to the virtual machine. The name of the Managed Disk must be unique within a resource group.
 
@@ -1946,7 +1946,7 @@ The architecture for SAP HA on Linux on Azure is basically the same as for Windo
 
 SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not critical and can be enabled by adding this parameter:
 
-    Autostart = 1
+`Autostart = 1`
 
 Into the start profile of the SAP ABAP and/or Java instance.
 

@@ -1,12 +1,10 @@
 ---
 title: Publish an offer - Azure Marketplace
 description: API to publish the specified offer.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 04/08/2020
-ms.author: dsindona
 ---
 
 

@@ -265,4 +265,4 @@ Now that you have completed setting up monitoring and diagnostics for your ASP.N
 
 * [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
 * [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
+* To learn more about Application Insights, see [Application Insights Documentation](/azure/application-insights/)

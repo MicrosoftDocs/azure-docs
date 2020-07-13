@@ -8,7 +8,7 @@ ms.author: saveenr
 
 ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ---
 # Manage Azure Data Lake Analytics using a Java app
