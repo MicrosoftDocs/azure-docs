@@ -96,7 +96,7 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows Desktop](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-10.md)
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
