@@ -109,7 +109,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
     ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
-After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
+    After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
     ![Enable alert rule](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
