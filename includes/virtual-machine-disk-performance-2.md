@@ -31,7 +31,7 @@ Set up:
 
 Now, The application using this Standard_D8s_v3 virtual machine with caching enabled makes a request for 15,000 IOPS. Those requests are broken down as 5,000 IOPS to each underlying disk attached and no throttling occurs.
 
-### Metrics for disk performance
+## Metrics for disk performance
 We have metrics on Azure that provides insight on how your virtual machines and disks are performing. These metrics can be viewed visually through the Azure portal or they can be retrieved through an API call. Metrics are calculated over one-minute intervals. The following Metrics are available to get insight on VM and Disk IO and throughput performance:
 - **OS Disk Queue Depth** – The number of current outstanding IO requests that waiting to be read from or written to the OS disk.
 - **OS Disk Read Bytes/Sec** – The number of Bytes that are read in a second from the OS disk.
@@ -48,7 +48,7 @@ We have metrics on Azure that provides insight on how your virtual machines and 
 - **Disk Write Bytes/Sec** – The number of Bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec** – The number of output operations that are written in a second from all disks attached to a VM.
 
-### Throttling metrics
+## Throttling metrics
 Metrics that help diagnose virtual machine throttling:
 - **VM Cached IOPS Consumed Percentage** - the percentage calculated by the total IOPS completed over the provisioned cached virtual machine IOPS limit. If this amount is at 100%, you'll experience throttling from your VM's cached IOPS limit.
 - **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the cached provisioned virtual machine throughput. If this amount is at 100%, you'll experience throttling from your VM's cached throughput limit.
