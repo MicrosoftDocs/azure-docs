@@ -186,6 +186,8 @@
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
       - name: Enable replication for an added disk
         href: azure-to-azure-enable-replication-added-disk.md
+      - name: Enable replication with private endpoints
+        href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
       - name: Exclude disks
         href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover
