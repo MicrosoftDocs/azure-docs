@@ -71,7 +71,7 @@ Now select **Add current client IP address** and then select **Save**. You can a
 >[!Note] 
 > Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
 
-## Connect to PostgreSQL database using psql in Azure Cloud Shell
+## Connect to Azure Database for PostgreSQL server using psql
 You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will connect using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
 
 -  Make a note of your server name, server admin login name, password, and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
