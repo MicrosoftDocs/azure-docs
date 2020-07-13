@@ -38,12 +38,16 @@
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy a Windows 7 virtual machine
+        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
