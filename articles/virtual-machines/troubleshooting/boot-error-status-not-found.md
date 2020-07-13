@@ -174,7 +174,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
          sel disk <DISK #>
 	     ```
 
-         The following image shows the results of listing and selecting a disk. Disk 0 (127 GB | Online), Disk 1 (32 GB | Online), and Disk 2 (127 GB | Online) are listed, with Disk 2 being selected using the command `sel disk 2`.
+         The following image shows the results of listing and selecting a disk. Disk 0 (127 GB / Online), Disk 1 (32 GB / Online), and Disk 2 (127 GB / Online) are listed, with Disk 2 being selected using the command `sel disk 2`.
 
          ![The results of listing and then selecting a disk. Disk 0 (127 GB | Online), Disk 1 (32 GB | Online), and Disk 2 (127 GB | Online) are listed, with Disk 2 being selected.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -185,7 +185,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
          sel partition <PARTITION #>
 	     ```
 
-         The following image shows the results of listing and selecting a partition. Partition 1 (Reserved | 16MB), Partition 2 (System | 100MB), and Partition 3 (Primary | 126 GB) are listed, with Partition 2 being selected using the command `sel part 2`.
+         The following image shows the results of listing and selecting a partition. Partition 1 (Reserved / 16MB), Partition 2 (System / 100MB), and Partition 3 (Primary / 126 GB) are listed, with Partition 2 being selected using the command `sel part 2`.
 
          ![The results of listing and then selecting a partition. Partition 1 (Reserved | 16MB), Partition 2 (System | 100MB), and Partition 3 (Primary | 126 GB) are listed, with Partition 2 being selected.](./media/troubleshoot-boot-error-status-not-found/10.png)
 

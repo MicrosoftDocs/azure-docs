@@ -34,7 +34,7 @@ The accepted token version depends on the **Supported account types** value you 
 After you create the application, you can determine or change the accepted token version by following these steps:
 
 1. In the Azure portal, select your app and then select **Manifest**.
-1. Find the property **accessTokenAcceptedVersion** in the manifest. The property's default value is 2.
+1. Find the property **accessTokenAcceptedVersion** in the manifest.
 1. The value specifies to Azure Active Directory (Azure AD) which token version the web API accepts.
     - If the value is 2, the web API accepts v2.0 tokens.
     - If the value is **null**, the web API accepts v1.0 tokens.
