@@ -16,6 +16,8 @@
   - name: Create logic apps - ARM template
     displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
+  - name: Create and manage logic apps - Azure CLI
+    href: quickstart-logic-apps-azure-cli.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
