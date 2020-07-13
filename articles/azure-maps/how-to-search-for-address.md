@@ -14,13 +14,13 @@ manager: philmea
 
 The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of RESTful APIs for searching addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, search services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
 
-In this article you will learn, how to:
+In this article you will learn how to:
 
-* Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
-* Search for an address or Point of Interest (POI) using the [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Search for an address. as well as its properties and coordinates
-* Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address
-* Search for a cross street using the [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
+* Search for an address or Point of Interest (POI) using the [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+* Search for an address, its properties and coordinates.
+* Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address.
+* Search for a cross street using the [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Request latitude and longitude for an address (geocoding)
 
-In this example, we're using the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert a both a complete and partial street address into latitude and longitude coordinates. The response will return detailed address properties such as street, postal code, and county/state/country region information. In addition, the response will contain positional values in latitude and longitude.
+In this example, we're using the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert a both a complete and partial street address into latitude and longitude coordinates. The response will return detailed address properties such as street, postal code, and county/state/country region information. Also, the response will contain positional values in latitude and longitude.
 
 >[!TIP]
 >If you have a set of addresses to geocode, you can use [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
@@ -40,7 +40,7 @@ In this example, we're using the Azure Maps [Get Search Address API](https://doc
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
 
-3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key.
+3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=400 Broad St, Seattle, WA 98109
@@ -84,7 +84,7 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 
 1. Open the Postman app, click **New** and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=pizza
@@ -98,7 +98,7 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
   
     The results are varied for this query, not tied to any particular reference location. Next, we'll use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage.
 
-4. In this example, we'll search for `pizza` only the United States. Add the following key/value pair to the **Params** section and click **Send**:
+4. In this example, we'll search for `pizza` only the United States. Add the following key/value pair to the **Params** section:
 
     | Key | Value |
     |------------------|-------------------------|
@@ -106,9 +106,9 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
   
     The results are now bounded by the country code and the query returns pizza restaurants in the United States.
 
-5. Now, we'll search for `pizza` with an orientation bias at the Seattle Space Needle. Before, we can do a search on pizza, we'll get the coordinates for the Seattle Space Needle. In the **Params** section, replace the `pizza` value with `Seattle Space Needle` for the `query` key. Click **Send**.
+5. Now, we'll search for `pizza` with an orientation bias at the Seattle Space Needle. Before we do a search for `pizza`, we'll get the coordinates for the Seattle Space Needle. In the **Params** section, replace the `pizza` value with `Seattle Space Needle` for the `query` key. Click **Send**.
 
-6. Review the response results. Copy the the coordinates pair from the response. Enter them as key/value pairs in the **Params** section. They should be the following values:
+6. Review the response results. Copy the coordinates pair from the response. Enter them as key/value pairs in the **Params** section. They should be the following values:
 
     | Key | Value |
     |-----|------------|
@@ -131,7 +131,7 @@ In this example, we'll be making reverse searches using a few of the optional pa
 
 1. In the Postman app, click **New** and select **Request**. Enter a **Request name** for the request. Select the collection you created in the first section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
 
     ```http
    https://atlas.microsoft.com/search/address/reverse/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=47.591180,-122.332700
@@ -148,29 +148,29 @@ In this example, we'll be making reverse searches using a few of the optional pa
     | returnRoadUse | true |
     | roadUse | Arterial |
 
-    The `number` parameter does this.
+    The `number` parameter does this great thing.
 
-    The `returnSpeedLimit` parameter tells the API return the speed limit at the address.
+    The `returnSpeedLimit` parameter tells the API to return the speed limit at the address.
 
-    The `returnRoadUse` parameter tells the API to return an array road use types at the address. To see all of the possible values see the `returnRoadUse` parameter in the [Reverse Search Parameters section](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
+    The `returnRoadUse` parameter tells the API to return an array of road use types at the address. To see all of the possible values see the `returnRoadUse` parameter in the [Reverse Search Parameters section](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
 
-    The `roadUse` parameter tells the API to restrict reversegeocodes to a specific type of `roaduse`.
+    The `roadUse` parameter tells the API to restrict reverse geocodes to a specific type of `roaduse`.
 
 5. Click **Send**.
 
 ## Search for cross street using Reverse Address Cross Street Search
 
-In this example, we will search for a cross street based on the coordinates of an address.
+In this example, we'll search for a cross street based on the coordinates of an address.
 
-1. In the Postman app, click **New** and select **Request**. Enter a **Request name** for the request. Select the collection you created in the first section or created a new one, and then select **Save**.
+1. In the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the first section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
   
     ```http
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=47.591180,-122.332700
     ```
   
-3. Click **Send** and review the response body. You will notice that the response contains a `crossStreet` value of `Occidental Avenue South`.
+3. Click **Send** and review the response body. You'll notice that the response contains a `crossStreet` value of `Occidental Avenue South`.
 
 ## Next steps
 
