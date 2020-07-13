@@ -1,6 +1,6 @@
 ---
 title: Deploy management tool with an Azure Resource Manager template - Azure
-description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop resources.
+description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop (Classic) resources.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Deploy a management tool with an Azure Resource Manager template
+# Deploy a Windows Virtual Desktop (Classic) management tool with an Azure Resource Manager template
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.

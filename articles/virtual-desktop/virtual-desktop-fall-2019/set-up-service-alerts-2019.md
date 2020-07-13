@@ -1,6 +1,6 @@
 ---
-title: Set up service alerts for Windows Virtual Desktop - Azure
-description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop.
+title: Set up service alerts for Windows Virtual Desktop Classic - Azure
+description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop (Classic).
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Set up service alerts
+# Tutorial: Set up service alerts for Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../set-up-service-alerts.md).

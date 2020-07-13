@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop personal desktop assignment type - Azure
-description: How to configure the assignment type for a Windows Virtual Desktop personal desktop host pool.
+title: Windows Virtual Desktop Classic personal desktop assignment type - Azure
+description: How to configure the assignment type for a Windows Virtual Desktop (Classic) personal desktop host pool.
 services: virtual-desktop
 author: HeidiLohr
 
@@ -10,7 +10,7 @@ ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
 ---
-# Configure the personal desktop host pool assignment type
+# Configure the personal desktop host pool assignment type for Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../configure-host-pool-personal-desktop-assignment-type.md).

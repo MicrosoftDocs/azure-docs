@@ -1,6 +1,6 @@
 ---
-title: Configure GPU for Windows Virtual Desktop - Azure
-description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop.
+title: Configure GPU for Windows Virtual Desktop Classic - Azure
+description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop (Classic).
 services: virtual-desktop
 author: gundarev
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: denisgun
 ---
 
-# Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop
+# Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../configure-vm-gpu.md).

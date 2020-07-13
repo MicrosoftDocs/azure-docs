@@ -1,6 +1,6 @@
 ---
-title: Windows 7 virtual machines Windows Virtual Desktop - Azure
-description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop environment.
+title: Windows 7 virtual machines Windows Virtual Desktop Classic - Azure
+description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop (Classic) environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
+# Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.

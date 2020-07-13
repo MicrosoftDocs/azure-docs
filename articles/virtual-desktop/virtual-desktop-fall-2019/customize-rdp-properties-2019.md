@@ -1,6 +1,6 @@
 ---
 title: Customize RDP Properties with PowerShell - Azure
-description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
+description: How to customize RDP Properties for  Windows Virtual Desktop (Classic) with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize Remote Desktop Protocol properties for a host pool
+# Customize Remote Desktop Protocol properties for a  Windows Virtual Desktop (Classic) host pool
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-rdp-properties.md).

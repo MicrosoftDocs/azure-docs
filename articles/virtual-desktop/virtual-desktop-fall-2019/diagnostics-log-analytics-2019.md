@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop diagnostics log analytics - Azure
-description: How to use log analytics with the Windows Virtual Desktop diagnostics feature.
+title: Windows Virtual Desktop Classic diagnostics log analytics - Azure
+description: How to use log analytics with the Windows Virtual Desktop (Classic) diagnostics feature.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Use Log Analytics for the diagnostics feature
+# Use Log Analytics for the diagnostics feature in Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../diagnostics-log-analytics.md).

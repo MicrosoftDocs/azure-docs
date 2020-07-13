@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop diagnose issues - Azure
-description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
+title: Windows Virtual Desktop Classic diagnose issues - Azure
+description: How to use the Windows Virtual Desktop (Classic) diagnostics feature to diagnose issues.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
 ---
-# Identify and diagnose issues
+# Identify and diagnose issues in Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../diagnostics-role-service.md).

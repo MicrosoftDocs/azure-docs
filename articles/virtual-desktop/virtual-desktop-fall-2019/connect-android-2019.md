@@ -1,6 +1,6 @@
 ---
-title: Connect to Windows Virtual Desktop from Android - Azure
-description: How to connect to Windows Virtual Desktop using the Android client.
+title: Connect to Windows Virtual Desktop Classic from Android - Azure
+description: How to connect to Windows Virtual Desktop (Classic) using the Android client.
 services: virtual-desktop
 author: heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the Android client
+# Connect to Windows Virtual Desktop (Classic) with the Android client
 
 > Applies to: Android 4.1 and later, Chromebooks with ChromeOS 53 and later.
 

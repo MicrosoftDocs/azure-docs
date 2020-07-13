@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop host pool load-balancing - Azure
+title: Windows Virtual Desktop Classic host pool load-balancing - Azure
 description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Host pool load-balancing methods
+# Host pool load-balancing methods in Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../host-pool-load-balancing.md).

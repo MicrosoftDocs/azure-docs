@@ -1,6 +1,6 @@
 ---
-title: Data locations for Windows Virtual Desktop - Azure
-description: A brief overview of which locations Windows Virtual Desktop's data and metadata are stored in.
+title: Data locations for Windows Virtual Desktop Classic - Azure
+description: A brief overview of which locations Windows Virtual Desktop (Classic) data and metadata are stored in.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Data locations for Windows Virtual Desktop
+# Data locations for Windows Virtual Desktop (Classic)
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../data-locations.md).

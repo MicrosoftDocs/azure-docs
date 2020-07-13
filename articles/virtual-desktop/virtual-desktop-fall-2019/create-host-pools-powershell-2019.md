@@ -1,6 +1,6 @@
 ---
-title: Create Windows Virtual Desktop host pool PowerShell - Azure
-description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
+title: Create Windows Virtual Desktop Classic host pool PowerShell - Azure
+description: How to create a host pool in Windows Virtual Desktop (Classic) with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create a host pool with PowerShell
+# Create a host pool in Windows Virtual Desktop (Classic) with PowerShell
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../create-host-pools-powershell.md).

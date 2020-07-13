@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Windows Virtual Desktop session host - Azure
-description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
+title: Troubleshoot Windows Virtual Desktop Classic session host - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop (Classic) session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ---
-# Session host virtual machine configuration
+# Windows Virtual Desktop (Classic) session host virtual machine configuration
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-vm-configuration.md).

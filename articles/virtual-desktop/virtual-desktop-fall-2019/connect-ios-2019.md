@@ -1,6 +1,6 @@
 ---
-title: Connect to Windows Virtual Desktop from iOS - Azure
-description: How to connect to Windows Virtual Desktop using the iOS client.
+title: Connect to Windows Virtual Desktop (Classic) from iOS - Azure
+description: How to connect to Windows Virtual Desktop (Classic) using the iOS client.
 services: virtual-desktop
 author: heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the iOS client
+# Connect to Windows Virtual Desktop (Classic) with the iOS client
 
 > Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
