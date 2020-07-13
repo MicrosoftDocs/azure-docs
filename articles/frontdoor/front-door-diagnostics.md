@@ -6,7 +6,7 @@ documentationcenter: ''
 author: sharad4u
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
@@ -83,6 +83,7 @@ Front Door currently provides diagnostic logs (batched hourly). Diagnostic logs 
 | RequestUri | URI of the received request. |
 | ResponseBytes | Bytes sent by the backend server as the response.  |
 | RoutingRuleName | The name of the routing rule that the request matched. |
+| RulesEngineMatchNames | The names of the rules that the request matched. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. |
 | SentToOriginShield | Boolean field representing if there was a cache miss on the first environment and the request was sent to the regional cache. Ignore this field if the routing rule is a redirect or when doesn't have caching enabled. |
 | TimeTaken | The length of time that the action took, in milliseconds. |

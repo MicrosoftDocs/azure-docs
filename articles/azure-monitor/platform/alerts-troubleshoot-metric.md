@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -195,7 +195,23 @@ Please note the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with the following character: .
- 
+
+
+## Restrictions when using dimensions in a metric alert rule with multiple conditions
+
+Metric alerts support alerting on multi-dimensional metrics as well as support defining multiple conditions (up to 5 conditions per alert rule).
+
+Please note the following constraints when using dimensions in an alert rule that contains multiple conditions:
+1. You can only select one value per dimension within each condition.
+2. You can't use the option to "Select all current and future values" (Select \*).
+3. When metrics that are configured in different conditions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant conditions).
+For example:
+	- Consider a metric alert rule that is defined on a storage account and monitors two conditions:
+		* Total **Transactions** > 5
+		* Average **SuccessE2ELatency** > 250 ms
+	- I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
+	- Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
+
 
 ## Next steps
 

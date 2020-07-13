@@ -90,7 +90,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 > [!WARNING]
 > Before you enable security defaults, make sure your administrators aren't using older authentication protocols. For more information, see [How to move away from legacy authentication](concept-fundamentals-block-legacy-authentication.md).
 
-- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### Protecting privileged actions
 
@@ -120,7 +120,7 @@ The following additional considerations are related to deployment of security de
 
 These free security defaults allow registration and use of Azure Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
-|   | Security defaults | Conditional Access |
+| Method | Security defaults | Conditional Access |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token | X** | X |

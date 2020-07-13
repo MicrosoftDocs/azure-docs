@@ -84,7 +84,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 ### Azure CLI
 
-As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can skip this step if you're already working with the Azure CLI. 
+As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
 
 There's a few things you need know about this command:
 

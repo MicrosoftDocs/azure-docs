@@ -4,7 +4,7 @@ description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/
 author: yanancai
 ms.author: yanacai
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2018
 ---
 

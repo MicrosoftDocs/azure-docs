@@ -44,7 +44,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 >
 > When copying data from Azure SQL Database or SQL Server or Azure SQL Data Warehouse, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-The following walkthrough uses the Stored Procedure Activity in a pipeline to invoke a stored procedure in an Azure SQL database.
+The following walkthrough uses the Stored Procedure Activity in a pipeline to invoke a stored procedure in Azure SQL Database.
 
 ## Walkthrough
 ### Sample table and stored procedure
@@ -101,7 +101,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
-After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and usp_sample stored procedure, to your data factory.
+After creating the data factory, you create an Azure SQL linked service that links your database in Azure SQL Database, which contains the sampletable table and usp_sample stored procedure, to your data factory.
 
 1. Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor.
@@ -202,7 +202,7 @@ Notice the following properties:
 3. In the Diagram View, double-click the dataset `sprocsampleout`. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
 
     ![diagram tile](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. When a slice is in **Ready** state, run a `select * from sampletable` query against the Azure SQL database to verify that the data was inserted in to the table by the stored procedure.
+4. When a slice is in **Ready** state, run a `select * from sampletable` query against the database to verify that the data was inserted in to the table by the stored procedure.
 
    ![Output data](./media/data-factory-stored-proc-activity/output.png)
 
@@ -305,7 +305,7 @@ The following table describes these JSON properties:
 | type | Must be set to: **SqlServerStoredProcedure** | Yes |
 | inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
 | outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
-| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse or SQL Server database that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureName |Specify the name of the stored procedure in Azure SQL Database, Azure SQL Data Warehouse, or SQL Server that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 ## Passing a static value

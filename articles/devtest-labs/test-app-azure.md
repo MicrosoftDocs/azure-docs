@@ -1,21 +1,10 @@
 ---
 title: How to test your app in Azure | Microsoft Docs
 description: Learn how to create a file share in a lab and mount it on your local machine and a virtual machine in the lab, and then deploy desktop/web applications to the file share and test them.  
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
-ms.author: spelluru
-
-
+ms.date: 06/26/2020
 ---
+
 # Test your app in Azure 
 This article provides steps for testing your application in Azure using DevTest Labs. First, you set up a file share within a lab and mount it as a drive on your local development machine and a VM inside a lab. Then, you use Visual Studio 2019 to deploy your app to the file share so that you can run the app on the VM in the lab.  
 
@@ -28,7 +17,7 @@ This article provides steps for testing your application in Azure using DevTest 
 4. Create a file share in your Azure storage by following instructions in the [Create a file share in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
 
 ## Mount the file share on your local machine
-1. On your local machine, use the script from [Persisting Azure file share credentials in Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
+1. On your local machine, use the script from [Mount the Azure file share](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
 2. Then, use `net use` command to mount the file share on your machine. Here is the sample command: Specify your Azure storage name and file share name before running the command. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`

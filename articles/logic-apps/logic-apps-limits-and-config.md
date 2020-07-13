@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
+ms.date: 06/25/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -97,9 +97,9 @@ Here are the limits for a single logic app definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. |
-| Action: Concurrent outgoing calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Runtime endpoint: Read calls per 5 minutes  | 60,000 | You can distribute workload across more than one app as necessary. |
+| Action: Concurrent outbound calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Runtime endpoint: Concurrent inbound calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one app as necessary. |
 | Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute workload across more than one app as necessary. |
 | Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. |
 ||||
@@ -118,8 +118,8 @@ Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-v
 To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
 > [!NOTE]
-> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 
-> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU 
+> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
+> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU
 > only for experimenting, development, and testing, not production or performance testing.
 
 <a name="gateway-limits"></a>
@@ -177,7 +177,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 ### Authentication limits
 
-Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+Here are the limits for a logic app that starts with a Request trigger and enables [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -213,7 +213,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -267,7 +267,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 
 | Runtime endpoint | Free | Basic | Standard | Notes |
 |------------------|------|-------|----------|-------|
-| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | You can distribute the workload across more than one account as necessary. |
+| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one account as necessary. |
 | Invoke calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Tracking calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Blocking concurrent calls | ~1,000 | ~1,000 | ~1,000 | Same for all SKUs. You can reduce the number of concurrent requests or reduce the duration as necessary. |
@@ -301,9 +301,9 @@ When you delete a logic app, no new runs are instantiated. All in-progress and p
 The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](https://docs.microsoft.com/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use 
-> [service tags](../virtual-network/service-tags-overview.md), rather than 
-> specify the Logic Apps IP addresses for each region, described later in this section. 
+> To help reduce complexity when you create security rules, you can optionally use
+> [service tags](../virtual-network/service-tags-overview.md), rather than
+> specify the Logic Apps IP addresses for each region, described later in this section.
 > These tags work across the regions where the Logic Apps service is available:
 >
 > * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
@@ -328,9 +328,9 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 This section lists the inbound IP addresses for the Azure Logic Apps service only. If you have Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
 
 > [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use the 
-> [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, 
-> rather than specify inbound Logic Apps IP address prefixes for each region. 
+> To help reduce complexity when you create security rules, you can optionally use the
+> [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
+> rather than specify inbound Logic Apps IP address prefixes for each region.
 > This tag works across the regions where the Logic Apps service is available.
 
 <a name="multi-tenant-inbound"></a>
@@ -391,10 +391,10 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 This section lists the outbound IP addresses for the Azure Logic Apps service and managed connectors. If you have Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound).
 
 > [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use the 
-> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**, 
-> rather than specify outbound Logic Apps IP address prefixes for each region. 
-> This tag works across the regions where the Logic Apps service is available. 
+> To help reduce complexity when you create security rules, you can optionally use the
+> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
+> rather than specify outbound Logic Apps IP address prefixes for each region.
+> This tag works across the regions where the Logic Apps service is available.
 > For managed connectors, you must continue to use the IP addresses.
 
 <a name="multi-tenant-outbound"></a>
@@ -450,5 +450,5 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 
 ## Next steps
 
-* Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * Learn about [common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
