@@ -885,9 +885,13 @@ For more info on SSIS operational log attributes/properties, see [Azure Monitor 
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of your invocation methods, for example on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS/SQL Server Agent/other designated tools, or as triggered/sandbox/debug runs of Execute SSIS Package activities in ADF pipelines.
 
-When querying SSIS package execution logs on Logs Analytics, you can join them using OperationId/ExecutionId/CorrelationId properties. OperationId/ExecutionId are always set to 1 for all operations/executions related to packages **not** stored in SSISDB.
+When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName**/**ResultType** properties that are set to `Start/Stop/Maintenance`/`Started/InProgress/Succeeded/Failed`, respectively. 
 
-![Querying SSIS package execution logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+When querying SSIS package execution logs on Logs Analytics, you can join them using **OperationId**/**ExecutionId**/**CorrelationId** properties. OperationId/ExecutionId are always set to `1` for all operations/executions related to packages **not** stored in SSISDB.
+
+![Querying SSIS package execution logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
 ## Next steps
 [Monitor and manage pipelines programmatically](monitor-programmatically.md)
