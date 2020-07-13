@@ -120,7 +120,7 @@ To apply course credits, you must create a new account that's outside of the EA,
 Once the Sponsorship period ends, you can associate that subscription back into the EA.
 
 > [!WARNING]
-If you associate the account to your EA prior to the end of the sponsorship, all sponsorship funds will be terminated. Refer to the terms and conditions of the [Azure Sponsorship Offer](https://azure.microsoft.com/offers/ms-azr-0143p/) for more information.
+> If you associate the account to your EA prior to the end of the sponsorship, all sponsorship funds will be terminated. Refer to the terms and conditions of the [Azure Sponsorship Offer](https://azure.microsoft.com/offers/ms-azr-0143p/) for more information.
 
 ### Can I apply my course credits to my CSP subscription?
 
