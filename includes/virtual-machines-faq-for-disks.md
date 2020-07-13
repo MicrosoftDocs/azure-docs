@@ -159,11 +159,11 @@ You will receive email notifications 30 days prior to expiration and again on th
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
 
-No, it is only supported for premium SSD managed disks.
+No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-Currently only West Central US.
+See our [conceptual article](../articles/virtual-machines/linux/disks-shared.md) for a list of regions.
 
 **Can shared disks be used as an OS disk?**
 
