@@ -13,9 +13,9 @@ The functions to use when referencing outputs from the properties or context of 
 
 ## basics
 
-Returns the output values of an element that is defined in the [Basics](create-uidefinition-overview#basics) step. Pass in the name of the element as a parameter to this function.
+Returns the output values of an element that is defined in the [Basics](create-uidefinition-overview.md#basics) step. Pass in the name of the element as a parameter to this function.
 
-To get the output values of elements in other steps, use the [step()](#step) function.
+To get the output values of elements in other steps, use the [steps()](#steps) function.
 
 The following example returns the output of the element named `clusterName` in the Basics step:
 

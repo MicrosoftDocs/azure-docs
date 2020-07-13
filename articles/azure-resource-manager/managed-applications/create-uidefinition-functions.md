@@ -30,27 +30,6 @@ Where applicable, you can reference properties of the output of a function by us
 "[func().prop1]"
 ```
 
-## Referencing functions
-
-* [basics](create-uidefinition-referencing-functions.md#basics)
-* [location](create-uidefinition-referencing-functions.md#location)
-* [resourceGroup](create-uidefinition-referencing-functions.md#resourceGroup)
-* [steps](create-uidefinition-referencing-functions.md#steps)
-* [subscription](create-uidefinition-referencing-functions.md#subscription)
-
-## String functions
-
-* [concat](create-uidefinition-string-functions.md#concat)
-* [endsWith](create-uidefinition-string-functions.md#endsWith)
-* [guid](create-uidefinition-string-functions.md#guid)
-* [indexOf](create-uidefinition-string-functions.md#indexOf)
-* [lastIndexOf](create-uidefinition-string-functions.md#lastIndexOf)
-* [replace](create-uidefinition-string-functions.md#replace)
-* [startsWith](create-uidefinition-string-functions.md#startsWith)
-* [substring](create-uidefinition-string-functions.md#substring)
-* [toLower](create-uidefinition-string-functions.md#toLower)
-* [toUpper](create-uidefinition-string-functions.md#toUpper)
-
 ## Collection functions
 
 These functions can be used with collections, like JSON strings, arrays and objects.
@@ -63,6 +42,27 @@ These functions can be used with collections, like JSON strings, arrays and obje
 * [skip](create-uidefinition-collection-functions.md#skip)
 * [take](create-uidefinition-collection-functions.md#take)
 
+## Conversion functions
+
+These functions can be used to convert values between JSON data types and encodings.
+
+* [bool](create-uidefinition-conversion-functions.md#bool)
+* [decodeBase64](create-uidefinition-conversion-functions.md#decodebase64)
+* [decodeUriComponent](create-uidefinition-conversion-functions.md#decodeuricomponent)
+* [encodeBase64](create-uidefinition-conversion-functions.md#encodebase64)
+* [encodeUriComponent](create-uidefinition-conversion-functions.md#encodeuricomponent)
+* [float](create-uidefinition-conversion-functions.md#float)
+* [int](create-uidefinition-conversion-functions.md#int)
+* [parse](create-uidefinition-conversion-functions.md#parse)
+* [string](create-uidefinition-conversion-functions.md#string)
+
+## Date functions
+
+* [addHours](create-uidefinition-date-functions.md#addhours)
+* [addMinutes](create-uidefinition-date-functions.md#addminutes)
+* [addSeconds](create-uidefinition-date-functions.md#addseconds)
+* [utcNow](create-uidefinition-date-functions.md#utcnow)
+
 ## Logical functions
 
 These functions can be used in conditionals. Some functions may not support all JSON data types.
@@ -71,25 +71,11 @@ These functions can be used in conditionals. Some functions may not support all 
 * [coalesce](create-uidefinition-logical-functions.md#coalesce)
 * [equals](create-uidefinition-logical-functions.md#equals)
 * [greater](create-uidefinition-logical-functions.md#greater)
-* [greaterOrEquals](create-uidefinition-logical-functions.md#greaterOrEquals)
+* [greaterOrEquals](create-uidefinition-logical-functions.md#greaterorequals)
 * [less](create-uidefinition-logical-functions.md#less)
-* [lessOrEquals](create-uidefinition-logical-functions.md#lessOrEquals)
+* [lessOrEquals](create-uidefinition-logical-functions.md#lessorequals)
 * [not](create-uidefinition-logical-functions.md#not)
 * [or](create-uidefinition-logical-functions.md#or)
-
-## Conversion functions
-
-These functions can be used to convert values between JSON data types and encodings.
-
-* [bool](create-uidefinition-conversion-functions.md#bool)
-* [decodeBase64](create-uidefinition-conversion-functions.md#decodeBase64)
-* [decodeUriComponent](create-uidefinition-conversion-functions.md#decodeUriComponent)
-* [encodeBase64](create-uidefinition-conversion-functions.md#encodeBase64)
-* [encodeUriComponent](create-uidefinition-conversion-functions.md#encodeUriComponent)
-* [float](create-uidefinition-conversion-functions.md#float)
-* [int](create-uidefinition-conversion-functions.md#int)
-* [parse](create-uidefinition-conversion-functions.md#parse)
-* [string](create-uidefinition-conversion-functions.md#string)
 
 ## Math functions
 
@@ -105,13 +91,26 @@ These functions can be used to convert values between JSON data types and encodi
 * [range](create-uidefinition-math-functions.md#range)
 * [sub](create-uidefinition-math-functions.md#sub)
 
+## Referencing functions
 
-## Date functions
+* [basics](create-uidefinition-referencing-functions.md#basics)
+* [location](create-uidefinition-referencing-functions.md#location)
+* [resourceGroup](create-uidefinition-referencing-functions.md#resourcegroup)
+* [steps](create-uidefinition-referencing-functions.md#steps)
+* [subscription](create-uidefinition-referencing-functions.md#subscription)
 
-* [addHours](create-uidefinition-date-functions.md#addHours)
-* [addMinutes](create-uidefinition-date-functions.md#addMinutes)
-* [addSeconds](create-uidefinition-date-functions.md#addSeconds)
-* [utcNow](create-uidefinition-date-functions.md#utcNow)
+## String functions
+
+* [concat](create-uidefinition-string-functions.md#concat)
+* [endsWith](create-uidefinition-string-functions.md#endswith)
+* [guid](create-uidefinition-string-functions.md#guid)
+* [indexOf](create-uidefinition-string-functions.md#indexof)
+* [lastIndexOf](create-uidefinition-string-functions.md#lastindexof)
+* [replace](create-uidefinition-string-functions.md#replace)
+* [startsWith](create-uidefinition-string-functions.md#startswith)
+* [substring](create-uidefinition-string-functions.md#substring)
+* [toLower](create-uidefinition-string-functions.md#tolower)
+* [toUpper](create-uidefinition-string-functions.md#toupper)
 
 ## Next steps
 

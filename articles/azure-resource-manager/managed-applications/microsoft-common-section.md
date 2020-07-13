@@ -45,7 +45,7 @@ A control that groups one or more elements under a heading.
 - This element doesn't support the `toolTip` property.
 
 ## Sample output
-To access the output values of elements in `elements`, use the [basics()](create-uidefinition-functions.md#basics) or [steps()](create-uidefinition-functions.md#steps) functions and dot notation:
+To access the output values of elements in `elements`, use the [basics()](create-uidefinition-referencing-functions.md#basics) or [steps()](create-uidefinition-referencing-functions.md#steps) functions and dot notation:
 
 ```json
 steps('configuration').section1.text1
