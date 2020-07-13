@@ -3,7 +3,7 @@ title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
 description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service (DPS), IoT Hub, and client SDKs.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
@@ -12,27 +12,33 @@ manager: timlt
 
 # Auto-provisioning concepts
 
-As described in the [Overview](about-iot-dps.md), the Device Provisioning Service is a helper service that enables just-in-time provisioning of devices to an IoT hub, without requiring human intervention. After successful provisioning, devices connect directly with their designated IoT Hub. This process is referred to as auto-provisioning, and provides an out-of-the-box registration and initial configuration experience for devices.
+As described in the [Overview](about-iot-dps.md), the Device Provisioning Service (DPS) is a helper service that enables just-in-time provisioning of devices to an IoT hub, without requiring human intervention. After successful provisioning, devices connect directly with their designated IoT Hub. This process is referred to as auto-provisioning, and provides an out-of-the-box registration and initial configuration experience for devices.
 
 ## Overview
 
-Azure IoT auto-provisioning can be broken into three phases:
+Azure IoT auto-provisioning can be broken into the following phases:
 
-1. **Service configuration** - a one-time configuration of the Azure IoT Hub and IoT Hub Device Provisioning Service instances, establishing them and creating linkage between them.
+1. **Service configuration** - a one-time configuration of the Azure IoT Hub and Device Provisioning Service instances, establishing them and creating linkage between them.
 
    > [!NOTE]
    > Regardless of the size of your IoT solution, even if you plan to support millions of devices, this is a **one-time configuration**.
 
-2. **Device enrollment** - the process of making the Device Provisioning Service instance aware of the devices that will attempt to register in the future. [Enrollment](concepts-service.md#enrollment) is accomplished by configuring device identity information in the provisioning service, as either an "individual enrollment" for a single device, or a "group enrollment" for multiple devices. Identity is based on the [attestation mechanism](concepts-security.md#attestation-mechanism) the device is designed to use, which allows the provisioning service to attest to the device's authenticity during registration:
+2. **Device enrollment** - the process of making the Device Provisioning Service instance aware of the devices that will attempt to register in the future. [Enrollment](concepts-service.md#enrollment) is accomplished by configuring device identity information in the provisioning service, as either an "individual enrollment" for a single device, or a "group enrollment" for multiple devices. Identity is based on the [attestation mechanism](concepts-security.md#attestation-mechanism) the device is designed to use, which allows the provisioning service to attest to the device's authenticity during registration. The attestation mechanisms supported are:
+
+   - **X.509 / Certificate**: configured as either an "individual enrollment" or "group enrollment", the device identity is based on an [X.509 digital certificate](concepts-security#x509-certificates), which is uploaded to the enrollment as a .pem or .cer file.
 
    - **TPM**: configured as an "individual enrollment", the device identity is based on the TPM registration ID and the public endorsement key. Given that TPM is a [specification](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), the service only expects to attest per the specification, regardless of TPM implementation (hardware or software). See [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) for details on TPM-based attestation. 
 
-   - **X509**: configured as either an "individual enrollment" or "group enrollment", the device identity is based on an X.509 digital certificate, which is uploaded to the enrollment as a .pem or .cer file.
+   - **Symmetric Key**:  configured as either an "individual enrollment" or a "group enrollment". This attestation method is based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-devguide-security.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+
 
    > [!IMPORTANT]  
    > Although not a prerequisite for using Device Provisioning Services, we strongly recommend that your device use a Hardware Security Module (HSM) to store sensitive device identity information, such as keys and X.509 certificates.
 
 3. **Device registration and configuration** - initiated upon boot up by registration software, which is built using a Device Provisioning Service client SDK appropriate for the device and attestation mechanism. The software establishes a connection to the provisioning service for authentication of the device, and subsequent registration in the IoT Hub. Upon successful registration, the device is provided with its IoT Hub unique device ID and connection information, allowing it to pull its initial configuration and begin the telemetry process. In production environments, this phase can occur weeks or months after the previous two phases.
+
+4. **Reprovisioning** - During the lifecycle of an IoT solution, it's common to move devices between IoT hubs and IoT solutions. The Device Provisioning Service provides policy configurations to help meet this need. For more information, see, [Reprovisioning](concepts-device-reprovision.md).
+
 
 ## Roles and operations
 

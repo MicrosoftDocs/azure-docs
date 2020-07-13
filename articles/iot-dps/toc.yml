@@ -87,8 +87,8 @@
         href: quick-enroll-device-tpm-node.md
       - name: Python
         href: quick-enroll-device-tpm-python.md
-    - name: Provisioning samples in the Azure IoT C SDK
-      href: provisioning-client-samples.md
+  - name: Provisioning samples in the Azure IoT C SDK
+    href: provisioning-client-samples.md
 - name: Concepts
   items:
   - name: Auto-provisioning
