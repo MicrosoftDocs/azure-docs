@@ -34,4 +34,4 @@ To access the Azure Education Hub, you should have already received an email not
 ## Next steps
 
 [Get started with the Azure Education Hub](get-started-education-hub.md)
-[Support options](../../includes/educator-service-desk.md)
+[Support options](educator-service-desk.md)
