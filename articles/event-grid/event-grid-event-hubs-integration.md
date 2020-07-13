@@ -1,15 +1,10 @@
 ---
 title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a SQL Data Warehouse. It uses an Azure Function to retrieve a Capture file.'
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
+
 # Tutorial: Stream big data into a data warehouse
 Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a SQL Data Warehouse.
 
@@ -168,7 +163,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 2. In the SQL data warehouse page, select **Query editor (preview)** in the left menu. 
 
     ![SQL data warehouse page](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Enter the name of **user** and **password** for the SQL server, and select **OK**. You many need to your client IP address to the firewall to successfully log in to SQL server. 
+2. Enter the name of **user** and **password** for the SQL server, and select **OK**. You may need to add your client IP address to the firewall to successfully log in to SQL server. 
 
     ![SQL server authentication](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. In the query window, copy and run the following SQL script: 

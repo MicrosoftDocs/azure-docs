@@ -21,7 +21,7 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+Models are written using the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
@@ -198,14 +198,19 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Validating models
 
-There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator).
+> [!TIP]
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance.
 
-Or, for more information about the parser library, including an example of how to use it directly, see [How-to: Parse and validate models](how-to-use-parser.md).
+There is a language-agnostic sample available for validating model documents to make sure the DTDL is correct. It is located here: [**DTDL Validator sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+
+The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet as a client-side library: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can also use the library directly to design your own validation solution. When using the parser library, make sure to use a version that is compatible with the version that Azure Digital Twins is running. During preview, this is version *3.7.0*.
+
+You can learn more about the parser library, including usage examples, in [How-to: Parse and validate models](how-to-use-parser.md).
 
 ## Next steps
 
 See how to manage models with the DigitalTwinsModels APIs:
-* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage custom models](how-to-manage-model.md)
 
 Or, learn about how digital twins are created based on models:
 * [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)

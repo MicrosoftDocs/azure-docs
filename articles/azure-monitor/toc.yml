@@ -12,6 +12,13 @@
   items:
   - name: Monitor Azure resource
     href: learn/quick-monitor-azure-resource.md
+  - name: Send Activity log to a workspace
+    items: 
+    - name: Azure portal
+      href: learn/quick-collect-activity-log-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: learn/quick-collect-activity-log-arm.md
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
@@ -74,6 +81,10 @@
         href: samples/resource-manager-alerts-metric.md
       - name: Action groups
         href: samples/resource-manager-action-groups.md
+    - name: Application Insights
+      items:
+        - name: Create a resource
+          href: samples/resource-manager-app-resource.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -113,7 +124,9 @@
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
       displayname: latency
-      href: platform/data-ingestion-time.md         
+      href: platform/data-ingestion-time.md 
+    - name: Stream data to Event Hubs
+      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Insights
     href: insights/insights-overview.md
   - name: Data security
@@ -299,36 +312,12 @@
       displayName: Platform logs, Resource logs, Activity log
       href: platform/platform-logs-overview.md 
     - name: Activity log
-      items:
-      - name: View in Azure portal
-        displayName: Platform logs, Activity log
-        href: platform/activity-log-view.md
-      - name: Collect and analyze
-        displayName: Platform logs, Activity log
-        href: platform/activity-log-collect.md
-      - name: Export (legacy)
-        displayname: Activity log
-        href: platform/activity-log-export.md
-    - name: Send to Log Analytics workspace
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-workspace.md
-    - name: Send to Azure storage
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-storage.md
-    - name: Send to Event Hubs
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-stream-event-hubs.md
-    - name: Create diagnostic setting
+      href: platform/activity-log.md
+    - name: Resource logs
+      href: platform/resource-logs.md
+    - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: platform/diagnostic-settings.md
-    - name: Create diagnostic setting with Resource Manager
-      displayName: diagnostic setting, Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings-template.md
-    - name: Change to blob storage format
-      displayname: Diagnostic settings
-      href: platform/resource-logs-blob-format.md
-    - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Log Analytics
     items:
     - name: Log query overview
@@ -404,6 +393,8 @@
         href: log-query/unify-app-resource-data.md
     - name: Examples and guidance
       items:
+      - name: Example queries
+        href: log-query/saved-queries.md
       - name: Log query examples
         href: log-query/examples.md
       - name: Smart analytics examples
@@ -477,7 +468,7 @@
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
       - name: Troubleshoot log alerts
-        href: platform/alert-log-troubleshoot.md
+        href: platform/alerts-troubleshoot-log.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -528,6 +519,8 @@
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
       href: platform/alerts-troubleshoot.md
+    - name: Alerts and region moves
+      href: platform/alerts-resource-move.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -637,6 +630,8 @@
         href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
+      - name: Overview
+        href: app/codeless-overview.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
@@ -946,6 +941,8 @@
         href: insights/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for Arc enabled cluster
+        href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: insights/container-insights-hybrid-setup.md
       - name: Enable for Azure Red Hat OpenShift v3
@@ -1013,6 +1010,8 @@
       href: insights/storage-insights-overview.md
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Solutions
     items:
     - name: Overview
@@ -1132,6 +1131,8 @@
         href: learn/tutorial-logs-dashboards.md
       - name: Dashboard using application data
         href: learn/tutorial-app-dashboards.md
+      - name: Upgrading Log Analytics Dashboards
+        href: log-query/dashboard-upgrade.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Custom data collection and analysis
@@ -1183,12 +1184,12 @@
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Supported resource log types and categories
-      href: platform/resource-logs-categories.md
-    - name: Resource log schemas
-      href: platform/resource-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
+    - name: Resource log schemas
+      href: platform/resource-logs-schema.md
+    - name: Supported resource log categories
+      href: platform/resource-logs-categories.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
@@ -1207,6 +1208,10 @@
       href: app/custom-endpoints.md
     - name: Azure Functions
       href: app/azure-functions-supported-features.md 
+    - name: Release notes
+      items:
+      - name: Web app extension
+        href: app/web-app-extension-release-notes.md
     - name: Data model
       items:
       - name: Overview
@@ -1240,9 +1245,14 @@
   - name: Azure CLI
     items:
     - name: Azure Monitor
-      href: /cli/azure/monitor?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-monitor
+      displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
+      href: /cli/azure/ext/application-insights/monitor/app-insights
+    - name: Activity Logs
+      href: /cli/azure/monitor/activity-log
+    - name: Log Analytics
+      href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
     - name: Azure Monitor
@@ -1275,6 +1285,9 @@
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation
       href: platform/portal-disk-metrics-deprecation.md
+    - name: Change to blob storage format
+      displayname: Diagnostic settings
+      href: platform/resource-logs-blob-format.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -2,7 +2,7 @@
 title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 ms.topic: conceptual
-ms.date: 09/29/2019
+ms.date: 06/30/2020
 
 ---
 
@@ -14,8 +14,8 @@ First, the short answer:
 
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply a thorough review process to all the code you write.
-* While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
+* While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser.
+* You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 *	Review the collected data, as this may include data that is allowed in some circumstances but not others.  A good example of this is Device Name. The device name from a server has no privacy impact and is useful, but a device name from a phone or laptop may have a privacy impact and be less useful. An SDK developed primarily to target servers, would collect device name by default, and this may need to be overwritten in both normal events and exceptions.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
@@ -58,7 +58,7 @@ The main categories are:
 ## How can I verify what's being collected?
 If you're developing the app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the Output window. From there, you can copy it and format it as JSON for easy inspection. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 There's also a more readable view in the Diagnostics window.
 
@@ -199,8 +199,8 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
-| Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions, refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |

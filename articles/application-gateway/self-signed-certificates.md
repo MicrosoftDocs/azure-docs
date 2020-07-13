@@ -5,7 +5,7 @@ description: Learn how to generate an Azure Application Gateway self-signed cert
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ---

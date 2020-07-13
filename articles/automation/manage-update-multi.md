@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Manage updates for multiple VMs
 
-You can use Azure Automation Update Management to manage updates and patches for your Windows and Linux VMs. From your [Azure Automation](automation-offering-get-started.md) account, you can:
+You can use Azure Automation Update Management to manage updates and patches for your Windows and Linux VMs. From your [Azure Automation](./index.yml) account, you can:
 
 - Enable VMs for update management.
 - Assess the status of available updates.

@@ -77,9 +77,9 @@ The information in this section helps you complete the offline-backup workflow s
    The description of the inputs is as follows:
 
    * **Staging Location**: The temporary storage location to which the initial backup copy is written. The staging location might be on a network share or a local computer. If the copy computer and source computer are different, specify the full network path of the staging location.
-   * **Azure Storage Account**: The name of the storage account in the Azure subscription associated with the Azure publish settings file.
-   * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported.
-   * **Azure Subscription ID**: The Azure subscription ID for the subscription from where you downloaded the Azure Publish settings file.
+   * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account (general purpose v1 or general purpose v2) in any Azure subscription.
+   * **Azure Storage Container**: The name of the destination blob storage container in the Azure storage account where the backup data is imported.
+   * **Azure Subscription ID**: The ID for the Azure subscription where the Azure storage account is created.
    * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure.
 
     Save the **Staging Location** and the **Azure Import Job Name** information you provided. It's required to prepare the disks.
@@ -96,9 +96,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 ## Prepare SATA drives and ship to Azure
 
-The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path):
-
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path): `*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Go to the directory and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure:
 
@@ -113,14 +111,14 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
 1. Open an elevated command prompt on the copy computer with the *AzureOfflineBackupDiskPrep* utility directory as the current directory. Run the following command:
 
-        ```cmd
-        .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
-        ```
+    ```console
+    .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
+    ```
 
     | Parameter | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file that you entered in the workflow in the "Initiate offline backup" section. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file. |
 
     When you run the command, the utility requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a screen like the one that follows.
 

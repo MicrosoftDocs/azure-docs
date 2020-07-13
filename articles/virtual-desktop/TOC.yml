@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Fall 2019 Release documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
@@ -21,7 +23,7 @@
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-and-10.md
+        href: connect-windows-7-10.md
       - name: Connect with the web client
         href: connect-web.md
       - name: Connect with the Android client
@@ -36,12 +38,16 @@
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy a Windows 7 virtual machine
+        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -82,10 +88,14 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts
   items:
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
   - name: Determine user connection latency
@@ -138,6 +148,8 @@
   items:
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+  - name: REST API reference
+    href: /rest/api/desktopvirtualization/
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator

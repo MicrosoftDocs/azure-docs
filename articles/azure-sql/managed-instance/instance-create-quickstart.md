@@ -2,8 +2,8 @@
 title: "Quickstart: Create a managed instance of SQL Managed Instance (portal)"
 description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart. 
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Azure SQL** on the left menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, and then enter **Azure SQL** in the search box.
-1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Managed Instance by selecting **Show details** on the **SQL Managed instance** tile.
+1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Managed Instance by selecting **Show details** on the **SQL managed instances** tile.
 1. Select **Create**.
 
    ![Create a managed instance](./media/instance-create-quickstart/create-managed-instance.png)

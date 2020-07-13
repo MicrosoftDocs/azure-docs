@@ -3,7 +3,7 @@ title: Manage Azure Cosmos DB resources using Azure CLI
 description: Use Azure CLI to manage your Azure Cosmos DB account, database and containers. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
 

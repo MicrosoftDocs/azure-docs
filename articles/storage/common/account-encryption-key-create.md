@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -233,7 +233,7 @@ $account.Encryption.Services.Table
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify that a service in a storage account is using the account encryption key, call the [az storage account](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
+To verify that a service in a storage account is using the account encryption key, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command. This command returns a set of storage account properties and their values. Look for the `keyType` field for each service within the encryption property and verify that it is set to `Account`.
 
 ```azurecli
 az storage account show /

@@ -10,7 +10,7 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2017
 ---
 # Enable logging for Azure Machine Learning Studio (classic) web services

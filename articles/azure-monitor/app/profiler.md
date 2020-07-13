@@ -21,9 +21,9 @@ To enable Profiler for an app, follow the instructions below. If you're running 
 
 Application Insights Profiler is pre-installed as part of the App Services runtime. The steps below will show you how to enable it for your App Service. Follow these steps even if you've included the App Insights SDK in your application at build time.
 
-1. Enable "Always On" setting for your app service. You can update the setting in the Configuration page of your App Service under General Settings.
-1. Go to the **App Services** pane in the Azure portal.
-1. Navigate to **Settings > Application Insights** pane.
+1. Navigate to the Azure control panel for your App Service.
+1. Enable "Always On" setting for your app service. You can find this setting under **Settings**, **Configuration** page (see screenshot in the next step), and click the **General settings** tab.
+1. Navigate to **Settings > Application Insights** page.
 
    ![Enable App Insights on App Services portal](./media/profiler/AppInsights-AppServices.png)
 
@@ -46,7 +46,7 @@ Here are the settings needed to enable the profiler:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-You can set these values using [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp),  [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+You can set these values using [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp),  [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### Enabling Profiler for other clouds manually
 

@@ -117,6 +117,10 @@ Workbooks are saved within a resource group, either in the **My Reports** sectio
 
 ![Launch workbook gallery from command bar](./media/cosmosdb-insights-overview/gallery.png)
 
+## Troubleshooting
+
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+
 ## Next steps
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.

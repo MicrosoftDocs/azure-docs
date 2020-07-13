@@ -72,7 +72,7 @@ The top-level element of the diagnostics configuration file.
 |----------------|-----------------|  
 | **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|
-|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data for all child elements that support sinks. Sink example is Application Insights or Event Hubs.|  
+|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data for all child elements that support sinks. Sink example is Application Insights or Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID. |  
 
 
 <br /> <br />
@@ -185,7 +185,7 @@ The top-level element of the diagnostics configuration file.
 
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
 
- The **resourceId** attribute is required.  The resource ID of the Virtual Machine or Virtual Machine Scale Set you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
+ The **resourceId** attribute is required.  The resource ID of the Virtual Machine or Virtual Machine Scale Set you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  This resourceID property is used for both sending custom metrics and for adding a resourceID property to data sent to Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID.
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
@@ -205,7 +205,7 @@ The top-level element of the diagnostics configuration file.
 |Child Element|Description|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter. Values are available at [UnitType Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Azure Monitor or Event Hubs.|    
+|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Azure Monitor or Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID.|    
 
 
 
@@ -235,7 +235,7 @@ The top-level element of the diagnostics configuration file.
 |**bufferQuotaInMB**|**unsignedInt**|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**, which transfers all logs. Other possible values (in order of most to least information) are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
-|**sinks** |**string**| Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Application Insights or Event Hubs.|  
+|**sinks** |**string**| Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Application Insights or Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID.|  
 
 ## DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -323,7 +323,7 @@ The top-level element of the diagnostics configuration file.
 The *PublicConfig* and *PrivateConfig* are separated because in most JSON usage cases, they are passed as different variables. These cases include Resource Manager templates, PowerShell, and Visual Studio.
 
 > [!NOTE]
-> The public config Azure Monitor sink definition has two properties, *resourceId* and *region*. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for other resources.
+> The public config Azure Monitor sink definition has two properties, *resourceId* and *region*. These are only required for Classic VMs and Classic Cloud services. The *region* property should not be used for other resources, the *resourceId* property is used on ARM VMs to populate the resourceID field in logs uploaded to Event Hubs.
 
 ```json
 "PublicConfig" {
