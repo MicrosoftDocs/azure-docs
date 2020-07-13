@@ -1,35 +1,37 @@
 ---
-author: dominicbetts
-ms.author: dominicbetts
+author: ericmitt
+ms.author: ericmitt
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 04/27/2020
+ms.date: 07/13/2020
 ---
 
-1. Open Azure IoT explorer. You see the **App configurations** page.
+1. Open Azure IoT explorer.
 
-1. Enter your _IoT Hub connection string_ and select **Connect**.
+1. On the **IoT hubs** page, if you haven't already added a connection to your IoT hub, select **+ Add connection**. Enter the connection string for the IoT hub you created previously and select **Save**.
 
-1. After you connect, you see the **Devices** overview page.
+1. On the **IoT Plug and Play Settings** page, select **+ Add > Local folder** and select the local folder where you saved your model files.
 
-1. To ensure the tool can read the model definition from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it. To save any changes you made, select **Save and Connect**.
+1. On the **IoT hubs**page, click on the name of the hub you want to work with. You see a list of devices registered to the IoT hub.
 
-1. Back on the **Devices** overview page, find the device identity you created previously. With the sample device application still running in the command prompt, check that the device **Connection state** in Azure IoT explorer is **Connected**. If the connection state is **Disconnected**, select **Refresh** until it is. Click on the device ID to view more details about the device.
+1. Click on the **Device ID** of the device you created previously.
+
+1. The menu on the left shows the different types of information available for the device.
 
 1. Select **IoT Plug and Play components** to view the model information for your device.
 
-1. Select the **Telemetry** page and then select **Start** to view the telemetry data the device is sending.
+1. You can view the different components of the device. The default component and any additional ones. Select a component to work with.
 
-1. Select the **Properties (non-writable)** page to view the non-writable properties reported by the device.
+1. Select the **Telemetry** page and then select **Start** to view the telemetry data the device is sending for this component.
 
-1. Select the **Properties (writable)** page to view the writable properties you can update.
+1. Select the **Properties (non-writable)** page to view the non-writable properties reported for this component.
 
-1. Expand property **name**, enter a new name, and select **Update writable property**.
+1. Select the **Properties (writable)** page to view the writable properties you can update  for this component.
 
-1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
+1. Select a property by it's **name**, enter a new value for it, and select **Update desired value**.
 
-1. Select the **Commands** page to view all the commands the device supports.
+1. To see the new value show up  select the **Refresh** button.
 
-1. Expand the **getMaxMinReport** command and set a new time interval. Select **Send command** to call the command on the device.
+1. Select the **Commands** page to view all the commands for this component.
 
-1. Go to the simulated device command prompt. Read through the printed confirmation messages to verify that the command executed as expected.
+1. Select the command you want to test set the parameter if any. Select **Send command** to call the command on the device. You can see your device respond to the command in the command prompt window where the sample code is running.
