@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
+ms.date: 07/21/2020
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ The [serverless compute tier](serverless-tier-overview.md) auto-scales compute r
 
 ## Hardware generations
 
-Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
 ### Gen4/Gen5
 
@@ -71,7 +71,7 @@ Hardware generation options in the vCore model include Gen 4/5, M-series (previe
 
 For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
 
-### Fsv2-series (preview)
+### Fsv2-series
 
 - Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
@@ -80,7 +80,7 @@ For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5
 Fsv2-series in only supported in the General Purpose tier.  For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
 
 
-### M-series (preview)
+### M-series
 
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
@@ -98,8 +98,8 @@ To enable M-series hardware for a subscription and region, a support request mus
 |:---------|:---------|:---------|
 |Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 |Gen5     |**Provisioned compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake)* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake)* processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
-|Fsv2-series     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
-|M-series     |- Intel Xeon E7-8890 v3 2.5 GHz and Intel Xeon Platinum 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
+|Fsv2-series     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
+|M-series     |- Intel Xeon E7-8890 v3 2.5 GHz and Intel Xeon Platinum 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
 
 \* In the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for Gen5 databases using Intel SP-8160 (Skylake) processors appears as Gen6. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell or Skylake).
 
