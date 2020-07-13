@@ -49,6 +49,7 @@ For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.
 - KISS - Keep It Simple, Smarty
 - Prioritize minimal code snippets over words and diagrams whenever possible.
 - Make your content easy to scan with thoughtful headers and other formatting.
+- Try not to make assumptions about what your customers want or need. Whenever possible, drive the evolution of your content with feedback from real developers.
 
 
 ~~
