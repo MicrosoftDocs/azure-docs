@@ -120,9 +120,9 @@ resources
 
 ## Set the public access level for a container
 
-To grant anonymous users read access to a container and its blobs, first enable public access for the storage account, then set the container's public access level. If public access is disabled for the storage account, you will not be able to configure public access for a container.
+To grant anonymous users read access to a container and its blobs, first enable the option to allow public access for the storage account, then set the container's public access level. If the option to allow public access is disabled for the storage account, you will not be able to configure public access for a container.
 
-When public access is enabled for a storage account, you can configure a container with the following permissions:
+When the option to allow public access is enabled for a storage account, you can configure a container with the following permissions:
 
 - **No public read access:** The container and its blobs can be accessed only with an authorized request. This option is the default for all new containers.
 - **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available anonymously. Anonymous clients cannot enumerate the blobs within the container.
@@ -144,7 +144,7 @@ To update the public access level for one or more existing containers in the Azu
 
     ![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
-When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is forbidden for the account.
+When the option to allow public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is forbidden for the account.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disabled":::
 
@@ -163,7 +163,7 @@ az storage container set-permission \
     --auth-mode key
 ```
 
-When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs indicating that public access is not permitted on the storage account.
+When the option to allow public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs indicating that public access is not permitted on the storage account.
 
 ---
 

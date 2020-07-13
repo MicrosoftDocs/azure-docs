@@ -22,7 +22,7 @@ This article describes how to analyze anonymous requests against a storage accou
 
 ## Detect anonymous requests from client applications
 
-When you disable public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disabling public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
+When you disable the option to allow public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disabling the option to allow public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disabled for the storage account, any future anonymous requests to that account will fail.
 
 To understand how disabling public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
 
@@ -102,9 +102,9 @@ You can also configure an alert rule based on this query to notify you about ano
 
 After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to limit or prevent public access. If some containers in your storage account may need to be available for public access, then you can configure the public access setting for each container in your storage account. This option provides the most granular control over public access. For more information, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-For enhanced security, you can disable public access for an entire storage account. The option to allow or deny public access for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable the option to allow public read access for an account](anonymous-read-access-configure.md#enable-the-option-to-allow-public-read-access-for-an-account).
+For enhanced security, you can disable the option to allow public access for an entire storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disable public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Enable the option to allow public read access for an account](anonymous-read-access-configure.md#enable-the-option-to-allow-public-read-access-for-an-account).
 
-If your scenario requires that certain containers are available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disable public access for any other storage accounts.
+If your scenario requires that certain containers are available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disable the option to allow public access for any other storage accounts.
 
 ### Verify that public access to a blob is not permitted
 
