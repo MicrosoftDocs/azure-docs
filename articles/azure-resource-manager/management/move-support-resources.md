@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/13/2020
 ---
 
 # Move operation support for resources
@@ -2183,7 +2183,7 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | locations / validateresourceownership | No | No |
 > | locations / virtualnetworkavailableendpointservices | No | No |
-> | natgateways | Yes | Yes |
+> | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
 > | networkintentpolicies | Yes | Yes |
 > | networkinterfaces | Yes | Yes |
