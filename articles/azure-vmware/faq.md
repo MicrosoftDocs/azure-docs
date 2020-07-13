@@ -213,7 +213,7 @@ You can request a quota increase by [submitting a support request](..\azure-port
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> For additional ways to register the resource provider, see [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
    - **Issue type:** Technical
