@@ -17,13 +17,13 @@ The following table lists the Java Message Service (JMS) features that Azure Ser
 |---|---|
 | Queues   | Supported |
 | Topics   | Supported |
-| Temporary Queues | Supported |
-| Temporary Topics | Supported |
-| Message Selectors | Supported |
-| Queue Browsers | Supported |
-| Shared Durable Subscriptions | Supported|
-| Unshared Durable Subscriptions | Supported |
-| Shared Non-durable Subscriptions | Supported |
-| Unshared Non-durable Subscriptions | Supported |
-| Distributed Transactions | Not supported |
-| Durable Terminus | Not supported |
+| Temporary queues | Supported |
+| Temporary topics | Supported |
+| Message selectors | Supported |
+| Queue browsers | Supported |
+| Shared durable subscriptions | Supported|
+| Unshared durable subscriptions | Supported |
+| Shared non-durable subscriptions | Supported |
+| Unshared non-durable subscriptions | Supported |
+| Distributed transactions | Not supported |
+| Durable terminus | Not supported |

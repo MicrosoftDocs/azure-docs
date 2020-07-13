@@ -94,7 +94,7 @@ For each Service Bus namespace, you publish metrics onto Azure Monitor. You can 
 
 For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](service-bus-metrics-azure-monitor.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md).
 
-### Metrics - NewRelic
+### Metrics - New Relic
 
 You can correlate which metrics from ActiveMQ map to which metrics in Azure Service Bus. See the following from the New Relic website:
 
@@ -102,7 +102,7 @@ You can correlate which metrics from ActiveMQ map to which metrics in Azure Serv
   * [Azure Service Bus New Relic Metrics](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
 
 > [!NOTE]
-> Currently, New Relic doesn't have direct, seamless integration with ActiveMQ, but they do have metrics available for Amazon MQ. Because Amazon MQ is derived from ActiveMQ, the following table maps the New Relic metrics from AmazonMQ to Azure Service Bus.
+> Currently, New Relic doesn't have direct, seamless integration with ActiveMQ, but they do have metrics available for Amazon MQ. Because Amazon MQ is derived from ActiveMQ, the following table maps the New Relic metrics from Amazon MQ to Azure Service Bus.
 >
 
 |Metric grouping| Amazon MQ/ActiveMQ metric | Azure Service Bus metric |
