@@ -15,15 +15,15 @@ ms.subservice: B2C
 
 # User flow versions in Azure Active Directory B2C
 
-User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](user-flow-overview.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. The tables below describe the user flows that are available in Azure AD B2C. 
+User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](user-flow-overview.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. The tables below describe the user flows that are available in Azure AD B2C.
 
 > [!IMPORTANT]
 > We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions:
 >
->- **Recommended** user flows are thoroughly-tested, preview versions of user flows. They combine all the features of the previous **V2** and **V1.1** versions. Going forward, these new, recommended versions will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
+>- **Recommended** user flows are the new preview versions of user flows. They're thoroughly tested and combine all the features of the **V2** and **V1.1** versions. Going forward, these versions will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
 >- **Standard** user flows, previously known as **V1**, are generally available, production-ready user flows. If your user flows are mission-critical and depend on highly stable versions, you can continue to use standard user flows, realizing that these versions won't be maintained and updated.
 >
->Wherever possible, we highly recommend that you [switch](#how-do-i-switch-from-v2-to-the-new-preview-policies) to the new **Recommended** versions as soon as possible so you can always take advantage of the latest features and updates.
+>All legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. Wherever possible, we highly recommend that you [switch](#how-do-i-switch-from-v2-to-the-new-preview-policies) to the new **Recommended** versions as soon as possible so you can always take advantage of the latest features and updates.
 
 ## Recommended user flows
 
@@ -75,7 +75,8 @@ The V2 versions of user flows will continue to be fully supported.
 
 Switch to the new **Recommended** preview version of a user flow with these steps:
 
-1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure Active Directory](tutorial-create-user-flows.md) and selecting the **Recommended** version.
-2. Copy the configuration from the older policy to the newly created policy.
-3. Update your application sign-in URL to the newly created policy.
-4. Once you've testing the user flow and confirmed it's working, delete the existing v2 or V1.1 user flow.
+1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure Active Directory](tutorial-create-user-flows.md) and
+2. Select the **Recommended** version.
+3. Use the same settings that were configured in the older policy
+5. Update your application sign-in URL to the newly created policy.
+6. Once you've testing the user flow and confirmed it's working, delete the existing v2 or V1.1 user flow.

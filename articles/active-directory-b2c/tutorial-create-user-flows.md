@@ -28,6 +28,9 @@ This tutorial shows you how to create some recommended user flows by using the A
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!IMPORTANT]
+> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into **Recommended** (next-generation preview) and **Standard** (generally available) versions. All V1.1 and V2 legacy preview user flows are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md).
+
 ## Prerequisites
 
 [Register your applications](tutorial-register-applications.md) that are part of the user flows you want to create.
@@ -50,7 +53,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
-1. Under **Version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
+1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
     ![Create user flow page in Azure portal with properties highlighted](./media/tutorial-create-user-flows/select-version.png)
 
@@ -81,7 +84,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
-1. Under **Version**, select **Recommended**, and then select **Create**.
+1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
 2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
@@ -100,7 +103,7 @@ To enable users of your application to reset their password, you use a password 
 
 1. In the Azure AD B2C tenant overview menu, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Password reset** user flow. 
-1. Under **Version**, select **Recommended**, and then select **Create**.
+1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.
 2. Under Application claims, click **Show more** and choose the claims that you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.

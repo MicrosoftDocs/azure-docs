@@ -36,7 +36,7 @@ In the user flow **Properties**, you can enable JavaScript. Enabling JavaScript 
 
 ## Select a page layout version
 
-Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **LAYOUT NAME**, select a user flow page and choose the **Page Layout Version**.
+Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **Layout name**, select a user flow page and choose the **Page Layout Version (Preview)**.
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 
