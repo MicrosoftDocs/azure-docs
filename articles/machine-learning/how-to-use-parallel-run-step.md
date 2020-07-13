@@ -29,6 +29,7 @@ In this article, you learn the following tasks:
 > * Write your inference script.
 > * Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
 > * Resubmit a batch inference run with new data input and parameters. 
+> * View the results.
 
 ## Prerequisites
 
@@ -155,9 +156,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## Prepare the model
@@ -262,17 +261,17 @@ Now you have everything you need: the data inputs, the model, the output, and yo
 
 ### Prepare the environment
 
-First, specify the dependencies for your script. Doing so allows you to install pip packages as well as configure the environment. Always include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages.
+First, specify the dependencies for your script. Doing so allows you to install pip packages as well as configure the environment.
 
-If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
+Please always include **azureml-defaults** in the pip package list, otherwise may result in job failures during execution. If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-defaults"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -388,6 +387,26 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## View the results
+
+The results from above run are written to the DataStore specified in the PipelineData object as the output data, which in this case is called *inferences*. You can download this data to view the results. Below is the sample code to view the first 10 rows.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## Next steps
