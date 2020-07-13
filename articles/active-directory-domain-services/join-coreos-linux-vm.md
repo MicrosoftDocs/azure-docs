@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 
 ---
@@ -81,7 +81,7 @@ sudo vi /etc/sssd/sssd.conf
 Specify your own managed domain name for the following parameters:
 
 * *domains* in ALL UPPER CASE
-* *[domain/AADDS]* where AADDS is in ALL UPPER CASE
+* *[domain/AADDSCONTOSO]* where AADDSCONTOSO is in ALL UPPER CASE
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -93,7 +93,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad

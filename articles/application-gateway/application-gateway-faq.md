@@ -333,6 +333,39 @@ For multiple domain-based (host-based) routing, you can create multisite listene
 
 No, use only alphanumeric characters in your .pfx file password.
 
+### My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
+
+As per DigiCert's announcement on 07/11/2020, there has been an inconsistency in one of their recent audits and they are retiring/revoking EV certificates issued by intermediate CAs as listed [here](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement). Please note that Organization Validation (OV), Domain Validation (DV) certificates are not impacted.
+
+If you are using an EV certificate issued by one of the revoked ICAs, your application’s availability might be interrupted and depending on your application, you may receive a variety of error messages including but not limited to: 
+
+1.	Invalid certificate/revoked certificate
+2.	Connection timed out
+3.	HTTP 502
+
+To avoid any interruption to your application due to this issue, or to re-issue a CA which has been revoked, you need to take the following actions: 
+1.	Check [DigiCert's alert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) for more information on how to re-issue your certificates
+2.	Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you are using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
+3.	Update your backend application servers to use the re-issued certificate. Depending on the backend server that you are using, your certificate update steps may vary. Please check for the documentation from your vendor.
+
+To update the certificate in your listener –
+1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+2.	Open the listener settings that’s associated with your certificate
+3.	Click “Renew or edit selected certificate”
+4.	Upload your new PFX certificate with the password and click Save
+5.	Access the website and verify if the site is working as expected
+For more information, check documentation [here](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+To update the certificate in your HTTP Settings –
+If you are using V1 SKU of the Application Gateway/WAF service, then you would have to upload the new certificate as your backend authentication certificate.
+1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+2.	Open the HTTP settings that’s associated with your certificate
+3.	Click on “Add certificate” and upload the reissued certificate and click save
+4.	You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
+For more information, check documentation [here](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+If you are using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.
+
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?

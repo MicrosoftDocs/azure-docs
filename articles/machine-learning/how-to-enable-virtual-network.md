@@ -64,6 +64,9 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
+> [!IMPORTANT]
+> While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
+
 If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
 
 * Preview data in the studio.
@@ -82,7 +85,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 Add your workspace and storage account to the same virtual network so that they can access each other.
 
-1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md).
+1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md). This capability is currently in preview, and is available in the US East, US West 2, US South Central regions.
 
 1. To connect your storage account to the virtual network, [configure the Firewalls and virtual networks settings](#use-a-storage-account-for-your-workspace).
 
@@ -103,6 +106,24 @@ After you add your workspace and storage service account to the virtual network,
 
 For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) so that it can read data from blob storage.
 
+
+### Azure Machine Learning designer default datastore
+
+The designer uses the storage account attached to your workspace to store output by default. However, you can specify it to store output to any datastore that you have access to. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible.
+
+To set a new default storage for a pipeline:
+
+1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
+1. Select **Select default datastore**.
+1. Specify a new datastore.
+
+You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
+
+1. Select the module whose output you want to specify.
+1. Expand the **Output settings** section.
+1. Select **Override default output settings**.
+1. Select **Set output settings**.
+1. Specify a new datstore.
 
 ### Azure Data Lake Storage Gen2 access control
 

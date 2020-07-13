@@ -58,7 +58,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Windows Desktop client
-            url: connect-windows-7-and-10.md
+            url: connect-windows-7-10.md
           - text: Web client
             url: connect-web.md
           - text: Android client

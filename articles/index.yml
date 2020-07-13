@@ -1206,7 +1206,7 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
-    - title: Spatial Anchors (Preview)
+    - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
       azureCategories:

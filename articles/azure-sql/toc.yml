@@ -61,7 +61,11 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -639,6 +643,9 @@
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=single-database
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -875,6 +882,9 @@
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
       href: database/arm-templates-content-guide.md?tabs=managed-instance
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./database/policy-samples.md
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
@@ -899,6 +909,7 @@
       - name: PowerShell
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
       - name: ARM template
+        displayName: Resource Manager
         href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
@@ -955,6 +966,8 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Migrate storage to UltraSSD
+          href: virtual-machines/windows/storage-migrate-to-ultradisk.md
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:
@@ -1018,8 +1031,6 @@
             items: 
             - name: Create DNN for FCI
               href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: Feature interoperability with DNN 
-              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
             - name: FCI DNN & SQL Server features
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: Configure connectivity

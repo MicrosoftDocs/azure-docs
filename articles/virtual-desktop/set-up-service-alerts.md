@@ -50,4 +50,4 @@ To configure service alerts:
 In this tutorial, you learned how to set up and use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. To learn about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Connect to the Remote Desktop client on Windows 7 and Windows 10](./connect-windows-7-and-10.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](./connect-windows-7-10.md)
