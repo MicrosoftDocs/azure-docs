@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 06/24/2020
 ms.author: v-erkel
 ---
 
@@ -154,6 +154,10 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
   * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
 
 * NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+
+## Set up Azure CLI access (optional)
+
+If you want to create or manage Azure HPC Cache from the Azure command-line interface (Azure CLI), you need to install the CLI software and the hpc-cache extension. Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md).
 
 ## Next steps
 
