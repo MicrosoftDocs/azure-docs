@@ -1098,7 +1098,18 @@
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+  
+  - name: Migration guides
+    items: 
+      - name: Overview
+        href: /virtual-machines/migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md 
+      - name: From SQL Server
+        items: 
+        - name: Database Migration Assistant
+          href: /virtual-machines/migration-guides/sql-server/use-database-migration-assistant-guide.md
 
+      - name: Database Migration Assistant
+        
 - name: Reference
   items:
   - name: T-SQL language reference
