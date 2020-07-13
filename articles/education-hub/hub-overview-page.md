@@ -10,7 +10,7 @@ ms.date: 06/30/2020
 
 # Managing your Academic Grant
 
-Your main landing page in the Education Hub is the Overview page. This page contains all relevant information on your Academic Grant, such as the number of classes you have established and your total running credit allocated and used from those classes. It also displays shortcuts to other benefits provided by the Education Hub: Software, Learning, and Quickstart templates.
+Your main landing page in the Azure Education Hub is the Overview page. This page contains all relevant information on your Academic Grant, such as the number of classes you have established and your total running credit allocated and used from those classes. It also displays shortcuts to other benefits provided by the Education Hub: Software, Learning, and Quickstart templates.
 
 ## Overview page
 :::image type="content" source="media/hub-overview-page/overview.png" alt-text="Sign in error message." border="false":::
@@ -24,5 +24,6 @@ Your main landing page in the Education Hub is the Overview page. This page cont
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 > [Set up a course, allocate credit, and invite students](create-assignment-allocate-credit.md)
-> [Support options](../includes/educator-service-desk.md)
+
