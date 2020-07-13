@@ -921,6 +921,11 @@
       "redirect_document_id": false
     },
     {
+      "source-path": "articles/automation/automation-create-account-template.md",
+      "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
+      "redirect_document": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -2145,6 +2150,11 @@
     {
       "source_path": "articles/avere-vfxt/avere-vfxt-controller-role.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy-plan#vm-access-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-prereqs.md",
+      "redirect_url": "/azure/hpc-cache/hpc-cache-prerequisites",
       "redirect_document_id": false
     },
     {
