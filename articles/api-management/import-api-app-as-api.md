@@ -29,7 +29,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is an API App in your subscription. For more information, see [App Service Documentation](https://docs.microsoft.com/azure/app-service/)
++ Make sure there is an API App in your subscription. For more information, see [App Service Documentation](../app-service/index.yml)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
