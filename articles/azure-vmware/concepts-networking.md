@@ -18,14 +18,14 @@ The use cases for AVS private clouds include:
 - disaster recovery
 - consumption of Azure services
 
- All use cases for the AVS service are enabled with on-premises to private cloud connectivity. The basic interconnectivity model is best suited for AVS evaluations or implementations that don't require access from on-premises environments.
+ All use cases for the AVS service are enabled with on-premises to private cloud connectivity. The basic interconnectivity model is best suited for AVS evaluations or implementations that don't require access from on-premises environments. [what is this sentence saying?]
 
 The two types of AVS private cloud interconnectivity are described in the sections below.  The most basic interconnectivity is "Azure virtual network connectivity"; it enables you to manage and use your private cloud with only a single virtual network in Azure. The interconnectivity described in "On-premises connectivity" extends the virtual network connectivity to also include interconnectivity between on-premises environments and AVS private clouds.
 
 ## Azure virtual network interconnectivity
 
 The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It shows the logical, ExpressRoute-based networking between a virtual network in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:  
-- Inbound access to management networks where vCenter server and NSX-T manager are located.
+- Inbound access to management networks where vCenter server and NSX-T manager are located. 
     - Accessible from VMs within your Azure subscription, not from your on-premises systems.
 - Outbound access from VMs to Azure services.
 - Inbound access and consumption of workloads running a private cloud.
