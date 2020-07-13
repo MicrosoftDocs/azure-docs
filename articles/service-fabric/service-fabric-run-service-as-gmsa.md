@@ -36,7 +36,7 @@ Pre-requisites:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Configure the User principal, and configure the `RunAsPolicy` to reference the [User](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
+3. Configure the User principal, and configure the `RunAsPolicy` to reference the [User](./service-fabric-cluster-fabric-settings.md#runas).
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

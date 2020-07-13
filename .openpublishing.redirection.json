@@ -17982,6 +17982,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-data-warehouse/load-data-wideworldimportersdw.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw",
       "redirect_document_id": true
@@ -56593,6 +56598,11 @@
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
+      "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
+      "redirect_document_id": true
     }
   ]
 }
