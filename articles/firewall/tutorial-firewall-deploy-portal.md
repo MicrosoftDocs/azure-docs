@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 06/24/2020
+ms.date: 07/13/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -22,13 +22,12 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with three subnets for easy deployment.
+For this tutorial, you create a simplified single VNet with two subnets for easy deployment.
 
 For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-* **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
 
 ![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
@@ -40,6 +39,7 @@ In this tutorial, you learn how to:
 > * Create a default route
 > * Configure an application rule to allow access to www.google.com
 > * Configure a network rule to allow access to external DNS servers
+> * Configure a NAT rule to allow a remote desktop to the test server
 > * Test the firewall
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
@@ -48,7 +48,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up the network
 
-First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
+First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and a test server.
 
 ### Create a resource group
 
@@ -79,9 +79,9 @@ This VNet will contain three subnets.
 1. For **Address range**, type **10.0.1.0/26**.
 1. Accept the other default settings, and then select **Create**.
 
-### Create additional subnets
+### Create an additional subnet
 
-Next, create subnets for the jump server, and a subnet for the workload servers.
+Next, create a subnet for the workload servers.
 
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Test-FW-RG**.
 2. Select the **Test-FW-VN** virtual network.
@@ -90,11 +90,9 @@ Next, create subnets for the jump server, and a subnet for the workload servers.
 5. For **Address range**, type **10.0.2.0/24**.
 6. Select **OK**.
 
-Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
+### Create a virtual machine
 
-### Create virtual machines
-
-Now create the jump and workload virtual machines, and place them in the appropriate subnets.
+Now create the workload virtual machine, and place it in the **Workload-SN** subnet.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
@@ -103,29 +101,19 @@ Now create the jump and workload virtual machines, and place them in the appropr
    |Setting  |Value  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
-   |Virtual machine name     |**Srv-Jump**|
+   |Virtual machine name     |**Srv-Work**|
    |Region     |Same as previous|
-   |Administrator user name     |**azureuser**|
-   |Password     |**Azure123456!**|
+   |Administrator user name     |Type a user name|
+   |Password     |Type a password|
 
-4. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
-5. For **Select inbound ports**, select **RDP (3389)**.
-
+4. Under **Inbound port rules**, **Public inbound ports**, select **None**.
 6. Accept the other defaults and select **Next: Disks**.
 7. Accept the disk defaults and select **Next: Networking**.
-8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Jump-SN**.
-9. For **Public IP**, accept the default new public ip address name (Srv-Jump-ip).
+8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
+9. For **Public IP**, select **None**.
 11. Accept the other defaults and select **Next: Management**.
 12. Select **Off** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
-
-Use the information in the following table to configure another virtual machine named **Srv-Work**. The rest of the configuration is the same as the Srv-Jump virtual machine.
-
-|Setting  |Value  |
-|---------|---------|
-|Subnet|**Workload-SN**|
-|Public IP|**None**|
-|Public inbound ports|**None**|
 
 ## Deploy the firewall
 
@@ -150,7 +138,7 @@ Deploy the firewall into the VNet.
 
    This will take a few minutes to deploy.
 7. After deployment completes, go to the **Test-FW-RG** resource group, and select the **Test-FW01** firewall.
-8. Note the private IP address. You'll use it later when you create the default route.
+8. Note the firewall private IP address. You'll use it later when you create the default route.
 
 ## Create a default route
 
@@ -218,6 +206,25 @@ This is the network rule that allows outbound access to two IP addresses at port
 1. For **Destination Ports**, type **53**.
 2. Select **Add**.
 
+## Configure a DNAT rule
+
+This rule allows you to connect a remote desktop to the Srv-Work virtual machine through the firewall.
+
+1. Select the **NAT rule collection** tab.
+2. Select **Add NAT rule collection**.
+3. For **Name**, type **rdp**.
+4. For **Priority**, type **200**.
+5. Under **Rules**, for **Name**, type **rdp-nat**.
+6. For **Protocol**, select **TCP**.
+7. For **Source type**, select **IP address**.
+8. For **Source**, type **\***.
+9. For **Destination address**, type the firewall public IP address.
+10. For **Destination Ports**, type **3389**.
+11. For **Translated address**, type the **Srv-work** private IP address.
+12. For **Translated port**, type **3389**.
+13. Select **Add**.
+
+
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
 For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
@@ -234,8 +241,7 @@ For testing purposes in this tutorial, configure the server's primary and second
 
 Now, test the firewall to confirm that it works as expected.
 
-1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
-2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
+1. Connect a remote desktop to firewall public IP address and sign in to the **Srv-Work** virtual machine. 
 3. Open Internet Explorer and browse to https://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
