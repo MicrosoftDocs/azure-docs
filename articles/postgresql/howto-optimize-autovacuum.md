@@ -5,13 +5,15 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
+ms.date: 07/09/2020
 ---
 
 # Optimize autovacuum on an Azure Database for PostgreSQL - Single Server
+
 This article describes how to effectively optimize autovacuum on an Azure Database for PostgreSQL server.
 
 ## Overview of autovacuum
+
 PostgreSQL uses multiversion concurrency control (MVCC) to allow greater database concurrency. Every update results in an insert and delete, and every delete results in rows being soft-marked for deletion. Soft-marking identifies dead tuples that will be purged later. To carry out these tasks, PostgreSQL runs a vacuum job.
 
 A vacuum job can be triggered manually or automatically. More dead tuples exist when the database experiences heavy update or delete operations. Fewer dead tuples exist when the database is idle. You need to vacuum more frequently when the database load is heavy, which makes running vacuum jobs *manually* inconvenient.
@@ -31,6 +33,7 @@ If you don't vacuum from time to time, the dead tuples that accumulate can resul
 - Increased I/O.
 
 ## Monitor bloat with autovacuum queries
+
 The following sample query is designed to identify the number of dead and live tuples in a table named XYZ:
 
 ```sql
@@ -38,7 +41,9 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## Autovacuum configurations
+
 The configuration parameters that control autovacuum are based on answers to two key questions:
+
 - When should it start?
 - How much should it clean after it starts?
 
@@ -50,10 +55,10 @@ autovacuum_vacuum_threshold|Specifies the minimum number of updated or deleted t
 autovacuum_vacuum_scale_factor|Specifies a fraction of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a vacuum operation. The default is 0.2, which is 20 percent of table size. Set this parameter only in the postgresql.conf file or on the server command line. To override the setting for individual tables, change the table storage parameters.|0.2
 autovacuum_vacuum_cost_limit|Specifies the cost limit value used in automatic vacuum operations. If -1 is specified, which is the default, the regular vacuum_cost_limit value is used. If there's more than one worker, the value is distributed proportionally among the running autovacuum workers. The sum of the limits for each worker doesn't exceed the value of this variable. Set this parameter only in the postgresql.conf file or on the server command line. To override the setting for individual tables, change the table storage parameters.|-1
 autovacuum_vacuum_cost_delay|Specifies the cost delay value used in automatic vacuum operations. If -1 is specified, the regular vacuum_cost_delay value is used. The default value is 20 milliseconds. Set this parameter only in the postgresql.conf file or on the server command line. To override the setting for individual tables, change the table storage parameters.|20 ms
-autovacuum_nap_time|Specifies the minimum delay between autovacuum runs on any given database. In each round, the daemon examines the database and issues VACUUM and ANALYZE commands as needed for tables in that database. The delay is measured in seconds, and the default is one minute (1 min). Set this parameter only in the postgresql.conf file or on the server command line.|15 s
-autovacuum_max_workers|Specifies the maximum number of autovacuum processes, other than the autovacuum launcher, that can run at any one time. The default is three. Set this parameter only at server start.|3
+autovacuum_naptime | Specifies the minimum delay between autovacuum runs on any given database. In each round, the daemon examines the database and issues VACUUM and ANALYZE commands as needed for tables in that database. The delay is measured in seconds. Set this parameter only in the postgresql.conf file or on the server command line.| 15 s
+autovacuum_max_workers | Specifies the maximum number of autovacuum processes, other than the autovacuum launcher, that can run at any one time. The default is three. Set this parameter only at server start.|3
 
-To override the settings for individual tables, change the table storage parameters. 
+To override the settings for individual tables, change the table storage parameters.
 
 ## Autovacuum cost
 
@@ -77,12 +82,14 @@ The default scale factor of 20 percent works well on tables with a low percentag
 With PostgreSQL, you can set these parameters at the table level or instance level. Today, you can set these parameters at the table level only in Azure Database for PostgreSQL.
 
 ## Estimate the cost of autovacuum
+
 Running autovacuum is "costly," and there are parameters for controlling the runtime of vacuum operations. The following parameters help estimate the cost of running vacuum:
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-The vacuum process reads physical pages and checks for dead tuples. Every page in shared_buffers is considered to have a cost of 1 (vacuum_cost_page_hit). All other pages are considered to have a cost of 20 (vacuum_cost_page_dirty), if dead tuples exist, or 10 (vacuum_cost_page_miss), if no dead tuples exist. The vacuum operation stops when the process exceeds the autovacuum_vacuum_cost_limit. 
+The vacuum process reads physical pages and checks for dead tuples. Every page in shared_buffers is considered to have a cost of 1 (vacuum_cost_page_hit). All other pages are considered to have a cost of 20 (vacuum_cost_page_dirty), if dead tuples exist, or 10 (vacuum_cost_page_miss), if no dead tuples exist. The vacuum operation stops when the process exceeds the autovacuum_vacuum_cost_limit.
 
 After the limit is reached, the process sleeps for the duration specified by the autovacuum_vacuum_cost_delay parameter before it starts again. If the limit isn't reached, autovacuum starts after the value specified by the autovacuum_nap_time parameter.
 
