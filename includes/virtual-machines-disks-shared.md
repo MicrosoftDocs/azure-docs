@@ -24,18 +24,13 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
+## Operating system requirements
+
+[!INCLUDE [virtual-machines-disks-shared-supported-os](virtual-machines-disks-shared-supported-os.md)]
+
 ## Disk sizes
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
-
-## Operating system requirements
-
-Azure shared disks is supported with the following operating systems:
-
-- [SUSE SLE HA 15SP1 and above](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
-- [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL developer preview on any RHEL 8 version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- Windows Server 2008 and newer
 
 ## Sample workloads
 

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/08/2020
+ ms.date: 07/14/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -13,6 +13,10 @@
 ## Limitations
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+## Operating system requirements
+
+[!INCLUDE [virtual-machines-disks-shared-supported-os](virtual-machines-disks-shared-supported-os.md)]
 
 ## Disk sizes
 
