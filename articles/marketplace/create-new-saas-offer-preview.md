@@ -30,8 +30,6 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure
 
 1. On the **Preview Audience** tab, add a single Azure AD or MSA email address and an optional description in the boxes provided.
 2. To add another email address, select the **Add another email** link.
-3. Select **Save draft** before continuing to the next tab, **Technical configuration**.
-4. Go to [Provide technical details](#provide-technical-details).
 
 **Add email addresses using the CSV file**
 
@@ -44,7 +42,8 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure
 7. On the **Preview Audience** tab, select the **Import Audience (csv)** link.
 8. In the **Confirm** dialog box, select **Yes**.
 9. Select the .CSV file and then select **Open**.
-10. Select **Save draft** before continuing to the next tab: **Technical configuration**.
+
+Select **Save draft** before continuing to the next tab: **Technical configuration**.
 
 ## Next steps
 
