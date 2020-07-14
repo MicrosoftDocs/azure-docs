@@ -34,7 +34,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 > [!NOTE]
 > Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0. Also constrained Virtual Machine sizes scale up/down is not supported. You can choose to scale between the following pairs of sizes:
 > 
-> | VM sizes scaling pair |  |
+> | VM sizes scaling pair member | Member |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |

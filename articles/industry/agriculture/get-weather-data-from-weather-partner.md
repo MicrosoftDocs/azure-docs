@@ -11,8 +11,6 @@ ms.author: sunasing
 
 Azure FarmBeats helps you to bring weather data from your weather data providers by using a Docker-based Connector Framework. Using this framework, weather data providers implement a Docker that can be integrated with FarmBeats. Currently, only the [DTN](https://www.dtn.com/dtn-content-integration/) weather data provider is supported.
 
-![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
-
 The weather data can be used to generate actionable insights and build AI or ML models in FarmBeats.
 
 ## Before you start

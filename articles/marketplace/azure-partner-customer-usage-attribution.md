@@ -7,6 +7,7 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
+ms.custom: devx-track-terraform
 ---
 
 # Commercial Marketplace partner and customer usage attribution

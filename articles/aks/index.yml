@@ -89,8 +89,8 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Kubernetes Service
-            url: https://docs.microsoft.com/learn/modules/intro-to-azure-kubernetes-service/
+            url: /learn/modules/intro-to-azure-kubernetes-service/
           - text: Introduction to containers on Azure
-            url: https://docs.microsoft.com/learn/modules/intro-to-containers/
+            url: /learn/modules/intro-to-containers/
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/
+            url: /learn/modules/build-and-store-container-images/
