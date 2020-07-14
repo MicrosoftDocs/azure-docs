@@ -252,7 +252,7 @@ After you create your plans, the **Plan overview** tab shows:
 
 - Plan names
 - Pricing model
-- Cloud availability (Global or Government)
+- Azure regions (Global or Government)
 - Current publishing status
 - Any available actions
 
@@ -289,7 +289,7 @@ Before [publishing](../../azure-government/documentation-government-manage-marke
 
 #### Azure Government certifications
 
-This option can only be seen if **Azure Government** is selected under **Cloud availability**.
+This option can only be seen if **Azure Government** is selected under **Azure regions**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.
 

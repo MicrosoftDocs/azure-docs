@@ -25,7 +25,7 @@ The `atlas.io.core.CsvReader` class reads strings that contain delimited data se
 
 By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
-| | |
+| Delimiter | Character |
 | :-- | :-- |
 | Comma | `,` |
 | Tab | `\t` |

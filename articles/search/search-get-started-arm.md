@@ -9,7 +9,7 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 03/20/2020
+ms.date: 07/15/2020
 ---
 
 # Quickstart: Deploy Cognitive Search using an ARM template

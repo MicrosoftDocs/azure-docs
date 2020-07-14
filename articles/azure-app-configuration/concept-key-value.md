@@ -72,7 +72,7 @@ You can use any unicode character in labels except for `*`, `,`, and `\`. These 
 
 Each key value is uniquely identified by its key plus a label that can be `null`. You query an App Configuration store for key values by specifying a pattern. The App Configuration store returns all key values that match the pattern and their corresponding values and attributes. Use the following key patterns in REST API calls to App Configuration:
 
-| Key | |
+| Key | Description |
 |---|---|
 | `key` is omitted or `key=*` | Matches all keys |
 | `key=abc` | Matches key name **abc** exactly |
@@ -81,7 +81,7 @@ Each key value is uniquely identified by its key plus a label that can be `null`
 
 You also can include the following label patterns:
 
-| Label | |
+| Label | Description |
 |---|---|
 | `label` is omitted or `label=*` | Matches any label, which includes `null` |
 | `label=%00` | Matches `null` label |
