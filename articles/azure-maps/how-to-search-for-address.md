@@ -109,14 +109,14 @@ In this example, we'll be making reverse searches using a few of the optional pa
     ```http
     https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
     ```
-  
+
 3. Click **Send** and review the response body. You should see one query result. The response includes key address information about Safeco Field.
   
 4. Now, we'll add the following key/value pairs to the **Params** section:
 
     | Key | Value | Returns
     |-----|------------|------|
-    | number | 1 ||
+    | number | 1 |The response may include the side of the street (Left/Right) and also an offset position for the number.|
     | returnSpeedLimit | true | Returns the speed limit at the address.|
     | returnRoadUse | true | Returns road use types at the address. For all possible road use types, see [Road Use Types](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Returns the type of match. For all possible values, see [Reverse Address Search Results](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
