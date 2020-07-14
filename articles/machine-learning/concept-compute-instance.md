@@ -26,7 +26,7 @@ For production grade model training use an [Azure Machine Learning compute clust
 
 A compute instance is a fully-managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
 
-|Key benefits||
+|Key benefits|Description|
 |----|----|
 |Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace. You can also setup VS Code remote development using [SSH](how-to-set-up-vs-code-remote.md) |
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Auto-provisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Role-based access control (RBAC)](/azure/role-based-access-control/overview)<br/>- [Virtual network support](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH policy to enable/disable SSH access<br/>TLS 1.2 enabled |

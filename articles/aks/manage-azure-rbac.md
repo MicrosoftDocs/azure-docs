@@ -32,14 +32,14 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 - Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
 - Ensure you have the `AAD-V2` feature flag enabled.
-- Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
+- Ensure you have the `aks-preview` [CLI extension][az-extension-add] v0.4.55 or higher installed
 - Ensure you have installed [kubectl v1.18.3+][az-aks-install-cli].
 
 #### Register `EnableAzureRBACPreview` and `AAD-V2` preview features
 
 To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` and `AAD-V2` feature flags on your subscription.
 
-Register the `EnableAzureRBACPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+Register the `EnableAzureRBACPreview` and `AAD-V2` feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
@@ -63,7 +63,7 @@ az provider register --namespace Microsoft.ContainerService
 
 #### Install aks-preview CLI extension
 
-To create an AKS cluster that uses Azure RBAC, you need the *aks-preview* CLI extension version 0.4.55 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+To create an AKS cluster that uses Azure RBAC, you need the *aks-preview* CLI extension version 0.4.55 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
