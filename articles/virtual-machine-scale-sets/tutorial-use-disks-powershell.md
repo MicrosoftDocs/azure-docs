@@ -39,12 +39,12 @@ When a scale set is created or scaled, two disks are automatically attached to e
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
 |----|----|----|
-| [General purpose](../virtual-machines/windows/sizes-general.md) | A, B, and D series | 1600 |
-| [Compute optimized](../virtual-machines/windows/sizes-compute.md) | F series | 576 |
-| [Memory optimized](../virtual-machines/windows/sizes-memory.md) | D, E, G, and M series | 6144 |
-| [Storage optimized](../virtual-machines/windows/sizes-storage.md) | L series | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N series | 1440 |
-| [High performance](../virtual-machines/windows/sizes-hpc.md) | A and H series | 2000 |
+| [General purpose](../virtual-machines/sizes-general.md) | A, B, and D series | 1600 |
+| [Compute optimized](../virtual-machines/sizes-compute.md) | F series | 576 |
+| [Memory optimized](../virtual-machines/sizes-memory.md) | D, E, G, and M series | 6144 |
+| [Storage optimized](../virtual-machines/sizes-storage.md) | L series | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N series | 1440 |
+| [High performance](../virtual-machines/sizes-hpc.md) | A and H series | 2000 |
 
 
 ## Azure data disks
@@ -53,12 +53,12 @@ Additional data disks can be added if you need to install applications and store
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
 |----|----|----|
-| [General purpose](../virtual-machines/windows/sizes-general.md) | A, B, and D series | 64 |
-| [Compute optimized](../virtual-machines/windows/sizes-compute.md) | F series | 64 |
-| [Memory optimized](../virtual-machines/windows/sizes-memory.md) | D, E, G, and M series | 64 |
-| [Storage optimized](../virtual-machines/windows/sizes-storage.md) | L series | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N series | 64 |
-| [High performance](../virtual-machines/windows/sizes-hpc.md) | A and H series | 64 |
+| [General purpose](../virtual-machines/sizes-general.md) | A, B, and D series | 64 |
+| [Compute optimized](../virtual-machines/sizes-compute.md) | F series | 64 |
+| [Memory optimized](../virtual-machines/sizes-memory.md) | D, E, G, and M series | 64 |
+| [Storage optimized](../virtual-machines/sizes-storage.md) | L series | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N series | 64 |
+| [High performance](../virtual-machines/sizes-hpc.md) | A and H series | 64 |
 
 
 ## VM disk types
@@ -130,7 +130,7 @@ Update-AzVmss `
 ## Prepare the data disks
 The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. To prepare the disks, you create a partition, create a filesystem, and mount them.
 
-To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-windows.md).
 
 
 The following example executes a script from a GitHub sample repo on each VM instance with [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) that prepares all the raw attached data disks:
