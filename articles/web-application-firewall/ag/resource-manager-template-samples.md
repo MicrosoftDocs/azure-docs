@@ -13,7 +13,6 @@ ms.author: victorh
 
 The following table includes links to Azure Resource Manager templates for Azure Web Application Firewall.
 
-| | |
-|---|---|
+| Template | Description |
+| -------- | ----------- |
 | [Application Gateway v2 with Web Application Firewall](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/) | Creates an Application Gateway v2 with Web Application Firewall v2.|
-| | |

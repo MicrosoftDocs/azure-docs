@@ -3,10 +3,10 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
+ms.date: 07/13/2020
+ms.author: thomasge
 ---
 
 # AKS-managed Azure Active Directory integration (Preview)
@@ -22,9 +22,12 @@ Cluster administrators can configure Kubernetes role-based access control (RBAC)
 
 Learn more about the AAD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
 
-## Limitations
+## Region availability
 
-* You can't currently upgrade an existing AKS Azure AD-Integrated cluster to the new AKS-managed Azure AD experience.
+AKS-managed Azure Active Directory integration is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government isn't currently supported.
+* Azure China 21Vianet isn't currently supported.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -70,13 +73,13 @@ Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
 ```
 
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -130,7 +133,7 @@ The cluster is created within a few minutes.
 
 ## Access an Azure AD enabled cluster
 
-You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to do the following steps.
+You'll need the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role to do the following steps.
 
 Get the user credentials to access the cluster:
  
@@ -149,7 +152,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to configure additional security groups for your clusters.
+Configure [Role Based Access Control (RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
@@ -158,7 +161,7 @@ Configure [Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/ak
 
 If you're permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
 
-To do these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
+To do these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) built-in role.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
@@ -179,7 +182,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
+[aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
 [azure-rbac-integration]: manage-azure-rbac.md
@@ -194,4 +197,3 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
-

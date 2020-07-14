@@ -19,7 +19,7 @@ There are two tiers of keys for the Custom Vision service. You can sign up for a
 
 The number of training images per project and tags per project are expected to increase over time for S0 projects.
 
-||**F0**|**S0**|
+|Factor|**F0**|**S0**|
 |-----|-----|-----|
 |Projects|2|100|
 |Training images per project |5,000|100,000|

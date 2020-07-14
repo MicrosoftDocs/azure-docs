@@ -28,8 +28,8 @@ The most current control plane API version for public preview is _**2020-03-01-p
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.
 * You can currently access SDKs for control APIs in...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([reference [auto-generated]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([reference [auto-generated]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go - source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
@@ -72,7 +72,7 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
 * Using the .NET command-line tool, you can run:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 

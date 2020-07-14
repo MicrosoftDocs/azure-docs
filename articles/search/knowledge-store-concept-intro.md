@@ -2,7 +2,6 @@
 title: Knowledge store concepts
 titleSuffix: Azure Cognitive Search
 description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -134,8 +133,8 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 REST API version `2020-06-30` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
 
-+ [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## Next steps
