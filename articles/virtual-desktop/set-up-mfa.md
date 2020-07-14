@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -45,7 +45,12 @@ This section will show you how to create a Conditional Access policy that requir
    - If you're using the Fall 2019 release, choose these two apps:
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - If you're using the Spring 2020 release, choose **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07).
+   - If you're using the Spring 2020 release, choose these two apps instead:
+       -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Windows Virtual Desktop Client** (App ID a85cf173-4192-42f8-81fa-777a763e6e2c)
+
+   >[!IMPORTANT]
+   > The Windows Virtual Desktop Client apps are used for the web client. However, don't select the app called Windows Virtual Desktop ARM Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have MFA.
   
    Once you've selected your app, choose **Select**, and then select **Done**.
 
