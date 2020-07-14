@@ -40,7 +40,7 @@ The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 
 
 ## Routing and subnet requirements
 
-The routing is Border Gateway Protocol (BGP) based, which is automatically provisioned and enabled by default for each private cloud deployment. For AVS private clouds, it's required to plan private cloud network address spaces. AVS private clouds require a minimum of /22 prefix length CIDR network address blocks for subnets, shown in the table below. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks are provisioned automatically.
+The routing is Border Gateway Protocol (BGP) based, which is automatically provisioned and enabled by default for each private cloud deployment. For AVS private clouds, it’s required to plan private cloud network address spaces with a minimum of /22 prefix length CIDR network address blocks for subnets, shown in the table below. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks are provisioned automatically.
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 
@@ -48,10 +48,10 @@ The subnets:
 
 | Network usage             | Subnet | Example        |
 | ------------------------- | ------ | -------------- |
-| Private cloud management            | `/24`    | `10.10.0.0/24`   |
-| vMotion network       | `/24`    | `10.10.1.0/24`   |
-| VM workloads | `/24`   | `10.10.2.0/24`   |
-| ExpressRoute peering | `/24`    | `10.10.3.8/30`   |
+| Private cloud management  | `/24`  | `10.10.0.0/24` |
+| vMotion network           | `/24`  | `10.10.1.0/24` |
+| VM workloads              | `/24`  | `10.10.2.0/24` |
+| ExpressRoute peering      | `/24`  | `10.10.3.8/30` |
 
 
 ## Azure virtual network interconnectivity
