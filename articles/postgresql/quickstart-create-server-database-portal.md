@@ -89,34 +89,34 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
  
-  Here is how the experience looks like in the Cloud Shell terminal
-  ```bash
-  Requesting a Cloud Shell.Succeeded.
-  Connecting terminal...
+   Here is how the experience looks like in the Cloud Shell terminal
+   ```bash
+    Requesting a Cloud Shell.Succeeded.
+    Connecting terminal...
 
-  Welcome to Azure Cloud Shell
+    Welcome to Azure Cloud Shell
+ 
+    Type "az" to use Azure CLI
+    Type "help" to learn about Cloud Shell
 
-  Type "az" to use Azure CLI
-  Type "help" to learn about Cloud Shell
+    user@Azure:~$psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+    Password for user myadmin@mydemoserver.postgres.database.azure.com:
+    psql (12.2 (Ubuntu 12.2-2.pgdg16.04+1), server 11.6)
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+    Type "help" for help.
 
-  user@Azure:~$psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-  Password for user myadmin@mydemoserver.postgres.database.azure.com:
-  psql (12.2 (Ubuntu 12.2-2.pgdg16.04+1), server 11.6)
-  SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
-  Type "help" for help.
-
-  postgres=>
-  ```
+    postgres=>
+    ```
 4. In the same Azure Cloud Shell terminal, create a database **guest**
-  ```bash
-  postgres=> CREATE DATABASE guest;
-  ```
+   ```bash
+   postgres=> CREATE DATABASE guest;
+   ```
 
 5. Now to switch connections to the newly created database **guest**
 
-  ```bash
-  \c guest
-  ```
+   ```bash
+   \c guest
+   ```
 6. Type `\q`, and then select the Enter key to quit psql. 
 
 ## Clean up resources
