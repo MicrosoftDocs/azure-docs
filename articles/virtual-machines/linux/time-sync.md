@@ -130,7 +130,7 @@ This should return **hyperv**.
 
 ### chrony
 
-On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following code:
+On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following code:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
