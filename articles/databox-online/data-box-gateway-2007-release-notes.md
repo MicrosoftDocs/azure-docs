@@ -19,17 +19,23 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 This release corresponds to the software versions:
 
-- **Azure Stack Edge 2007 (1.6.xxxx.xxx)**
-- **Data Box Gateway 2007 (1.6.xxxx.xxx)**
+- **Azure Stack Edge 2007 (1.6.1280.1667)** - KB 4566549
+- **Data Box Gateway 2007 (1.6.1280.1667)** - KB 4566550
 
 > [!NOTE]
 > Update 2007 can be applied only to all devices that are running general availability (GA) versions of the software or later.
 
 ## What's new
 
-This is a bug fix only release.
+This release contains the following bug fix:
 
 - **Upload issue** - This release fixes an upload problem where upload restarts due to failures can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large in size relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures that sufficient opportunity is given for upload completion before restarting upload for a given file.
+
+The release contains the following updates:
+
+- The base image for the Windows VHD has been updated.
+- All cumulative Windows updates and .NET framework updates are included that were released through May 2020.
+- This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.
 
 ## Known issues in this release
 
