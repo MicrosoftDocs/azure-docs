@@ -10,7 +10,9 @@ ms.author: tomfitz
 ---
 # CreateUiDefinition functions
 
-This section contains the signatures for all supported functions of a CreateUiDefinition.
+This article provides an overview of the supported functions for CreateUiDefinition.
+
+## Function syntax
 
 To use a function, surround the invocation with square brackets. For example:
 

@@ -4,18 +4,38 @@ description: Describes the Microsoft.Common.DropDown UI element for Azure portal
 author: tfitzmac
 
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/14/2020
 ms.author: tomfitz
 
 ---
 
 # Microsoft.Common.DropDown UI element
 
-A selection control with a dropdown list.
+A selection control with a dropdown list. You can allow selection of only a single item or multiple items. You can also optionally include a description with the items.
 
 ## UI sample
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+The DropDown element has different options which determine its appearance in the portal.
+
+When only a single item is allowed for selection, the control appears as:
+
+![Microsoft.Common.DropDown single selection](./media/managed-application-elements/microsoft.common.dropdown1.png)
+
+When descriptions are included, the control appears as:
+
+![Microsoft.Common.DropDown single selection with descriptions](./media/managed-application-elements/microsoft.common.dropdown2.png)
+
+When multi-select is enabled, the control adds a **Select all** option and checkboxes for selecting more than one item:
+
+![Microsoft.Common.DropDown multi-select](./media/managed-application-elements/microsoft.common.dropdown3.png)
+
+Descriptions can be included with multi-select enabled.
+
+![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown4.png)
+
+When filtering is enabled, the control includes a text box for adding the filtering value.
+
+![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown5.png)
 
 ## Schema
 
@@ -26,14 +46,22 @@ A selection control with a dropdown list.
   "label": "Example drop down",
   "defaultValue": "Value two",
   "toolTip": "",
+  "multiselect": true,  
+  "selectAll": true,  
+  "filter": true,  
+  "filterPlaceholder": "Filter items ...",  
+  "multiLine": true,  
+  "defaultDescription": "A value for selection",  
   "constraints": {
     "allowedValues": [
       {
         "label": "Value one",
+        "description": "The value to select for option 1.",
         "value": "one"
       },
       {
         "label": "Value two",
+        "description": "The value to select for option 2.",
         "value": "two"
       }
     ],
@@ -51,10 +79,14 @@ A selection control with a dropdown list.
 
 ## Remarks
 
+- Use `multiselect` to specify whether users can select more than one item.
+- By default, `selectAll` is `true` when multi-select is enabled.
+- The `filter` property enables users to search within a long list of options.
 - The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
 - If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected. The default value is **null**.
 - `constraints.allowedValues` must have at least one item.
 - To emulate a value not being required, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
+- The `defaultDescription` property is used for items that don't have a description.
 
 ## Next steps
 

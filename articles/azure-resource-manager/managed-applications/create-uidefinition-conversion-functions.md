@@ -1,6 +1,6 @@
 ---
-title: Create UI definition functions
-description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
+title: Create UI definition conversion functions
+description: Describes the functions to use when converting values between data types and encodings.
 author: tfitzmac
 
 ms.topic: conceptual

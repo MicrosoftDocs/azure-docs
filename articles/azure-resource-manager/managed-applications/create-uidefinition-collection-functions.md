@@ -1,6 +1,6 @@
 ---
-title: Create UI definition functions
-description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
+title: Create UI definition collection functions
+description: Describes the functions to use when working with collections, like arrays and objects.
 author: tfitzmac
 
 ms.topic: conceptual
@@ -96,12 +96,12 @@ Assume `element1` is `null` or undefined. The following example returns `true`:
 
 ## filter
 
-Returns a new array with the result of applying the filtering logic provided as a lambda function.  
+Returns a new array after applying the filtering logic provided as a lambda function. The first parameter is the array to use for filtering. The second parameter is the lambda function that specifies the filtering logic.
 
-The following sample returns the array `[ { "name": "a" } ]`.
+The following sample returns the array `[ { "name": "abc" } ]`.
 
 ```json
-"[filter(parse('[{\"name\":\"a\"},{\"name\":\"b\"}]'), (item) => contains(item.name, 'a'))]"
+"[filter(parse('[{\"name\":\"abc\"},{\"name\":\"xyz\"}]'), (item) => contains(item.name, 'abc'))]"
 ```
 
 ## first
@@ -217,7 +217,7 @@ The following example returns `2`:
 
 ## map
 
-Returns a new array with the result of calling a lambda function and a provided array.
+Returns a new array after calling a lambda function on a provided array. The first parameter is the array to use for the lambda function. The second parameter is the lambda function.
 
 The following sample returns a new array with every value doubled. The result is `[2, 4, 6]`.
 
@@ -225,10 +225,10 @@ The following sample returns a new array with every value doubled. The result is
 "[map(parse('[1, 2, 3]'), (item) => mul(2, item))]"
 ```
 
-The following sample returns a new array `["a", "b"]`.
+The following sample returns a new array `["abc", "xyz"]`.
 
 ```json
-"[map(parse('[{\"name\":\"a\"},{\"name\":\"b\"}]'), (item) => item.name)]"
+"[map(parse('[{\"name\":\"abc\"},{\"name\":\"xyz\"}]'), (item) => item.name)]"
 ```
 
 ## skip
