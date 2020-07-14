@@ -34,6 +34,10 @@ To complete this tutorial series, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 * If you're using a real camera, you need connectivity between the IoT Edge device and the camera, and you need the Real Time Streaming Protocol channel.
 
+## Initial Setup
+
+During the process you will need to collect secrets and keys from the deployed resources. For convenience create a local folder and start a text document for note taking.
+
 ## Deploy and configure Azure Media Services
 
 The solution uses an Azure Media Services account to store the object detection video clips made by the IoT Edge gateway device.
@@ -108,11 +112,11 @@ Select **API Tokens** and generate a new token called **LVAEdgeToken** for the *
 > [!TIP]
 > When the token is generated, make a note of it for later. After the dialog closes you can't view the token again.
 
-In the **Administration** section, select **Device connection**, and then select **View Keys** for **Devices**.
+In the **Administration** section, select **Device connection**, and then select **View Keys** for **SAS-IoT-Devices**.
 
 Make a note of this **Primary key** for devices. You use this *primary group shared access signature token* later when you configure the IoT Edge device.
 
-## TODO: [Copy] Clone the LvaGateway repository
+## Copy files from the LvaGateway repository
 
 <!-- TODO - No need to clone, just copy but we need the folders -->
 
@@ -121,11 +125,9 @@ The [LVA-gateway](https://hyperlink_to_the_public_facing_repo) GitHub repository
 > [!NOTE]
 > The repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-video-analytics-build-module.md).
 
-Use the following command to clone the repository to a suitable location on your local machine:
+Navigate [Here] and copy the files your local machine
 
-```cmd
-git clone https://github.com/SOMEWHERE/lva-gateway
-```
+<!-- TODO - DELETE this  -->
 
 ## Create the configuration file
 
@@ -143,9 +145,11 @@ To prepare the deployment manifest:
 
 1. Open the *deployment.amd64.json* file in the *storage* folder using a text editor.
 
-1. Locate the `\$edgeAgent` object.
+1. If you are creating custom modules follow these step, otherwise skip to step 3
 
-1. Modify the registry credentials only if you are building custom modules.
+    1. Locate the `\$edgeAgent` object.
+
+    1. Modify the registry credentials only if you are building custom modules.
 
     <!-- If you're just deploying the prebuilt modules - is this step necessary. If not, remove it. -->
 
@@ -174,7 +178,7 @@ To prepare the deployment manifest:
 
     <!-- If you're just deploying the prebuilt modules - is the next step necessary? If not, remove it. -->
 
-1. For each of the modules listed under `modules` update the image element with the desired version:
+    1. For each of the modules listed under `modules` update the image element with the desired version:
 
     | Module name | Image | Description |
     | ----------- | ----- | ------------|
@@ -195,9 +199,7 @@ To prepare the deployment manifest:
     }
     ```
 
-1. Locate the `lvaEdge` module.
-
-1. The template doesn't expose these properties in IoT Central, therefore you need to add the Media Services configuration values to the deployment manifest. Replace the placeholders with the values you made a note of when you created your Media Services account.
+1. The template doesn't expose these properties in IoT Central, therefore you need to add the Media Services configuration values to the deployment manifest. Locate the `lvaEdge` module and replace the placeholders with the values you made a note of when you created your Media Services account.
 
     The `azureMediaServicesArmId` is the **Resource Id** you made a note of when you created the Media Services account.
 
@@ -208,7 +210,7 @@ To prepare the deployment manifest:
         "lvaEdge":{
         "properties.desired": {
             "applicationDataDirectory": "/var/lib/azuremediaservices",
-            "azureMediaServicesArmId": "/subscriptions/[Subscription ID]/resourceGroups/[Resource Group]/providers/microsoft.media/mediaservices/[AMS account name]",
+            "azureMediaServicesArmId": "[Resource ID]",
             "aadTenantId": "[AAD Tenant ID]",
             "aadServicePrincipalAppId": "[AAD Client ID]",
             "aadServicePrincipalSecret": "[AAD secret]",
@@ -224,6 +226,13 @@ To prepare the deployment manifest:
         }
     }
     ```
+
+    |JSON Desire Property| AMS API access (copy JSON) |
+    |-|-|
+    |azureMediaServicesArmId| Under AMS Properties, Copy RESOURCE ID |
+    |aadTenantId| AadTenantId|
+    |aadServicePrincipalAppId| AadClientId |
+    |aadServicePrincipalSecret| AadSecret |
 
 1. Save the changes.
 

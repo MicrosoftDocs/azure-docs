@@ -30,13 +30,13 @@ You should have [Docker](https://www.docker.com/products/docker-desktop) install
 
 ## Add an object detection camera
 
-In your IoT Central application, navigate to the **LVA Gateway 001** device you created previously. Then select the **Commands** tab.
+In your IoT Central application, navigate to the **LVA Gateway 100** device you created previously. Then select the **Commands** tab.
 
 Use the values in the following table as the parameter values for the **Add Camera Request** command. The values shown in the table assume you're using the simulated camera in the Azure VM, adjust the values appropriately if you're using a real camera:
 
 | Field| Description| Sample value|
 |---------|---------|---------|
-| Camera Id      | Device ID for provisioning | camera-001 |
+| Camera Id      | Device ID for provisioning | camera-100 |
 | Camera Name    | Friendly name           | Object detection camera |
 | Rtsp Url       | Address of the stream   | rtsp://10.0.0.4:554/media/camera-300s.mkv|
 | Rtsp Username  |                         | user    |
@@ -64,9 +64,9 @@ The camera devices also appear in the list on the **Devices** page in the applic
 
 ## Configure and manage the camera
 
-Navigate to the **camera-001** device and select the **Manage** tab.
+Navigate to the **camera-100** device and select the **Manage** tab.
 
-Use the following tables to set the device properties:
+Use the default values, or modify if you need to customize the device properties:
 
 **Camera settings**
 
@@ -79,7 +79,7 @@ Use the following tables to set the device properties:
 | Property | Description | Suggested Value |
 |-|-|-|
 | Confidence Threshold | Qualification percentage to determine if the object detection is valid | 70 |
-| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck,car,bicycle |
+| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck,bus |
 | Inference Frame Sample Rate (fps) | [Description Here] | [Default Here] |
 
 **LVA Operations and Diagnostics**
@@ -98,13 +98,17 @@ After a few seconds you see the **synced** confirmation message for each setting
 
 ## Start LVA processing
 
-Navigate to the **camera-001** device and select the **Commands** tab.
+Navigate to the **camera-100** device and select the **Commands** tab.
 
 Run the **Start LVA Processing** command
 
+Make sure the command worked
+
+[Screenshot here]
+
 ## Monitor the cameras
 
-Navigate to the **camera-001** device select the **Dashboard** tab.
+Navigate to the **camera-100** device select the **Dashboard** tab.
 
 The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one second detection interval.
 
@@ -138,10 +142,19 @@ Open a command prompt and use the following command to run the video player in a
 <!-- Do we need instructions to start the streaming endpoint? It was stopped in my environment... -->
 
 ```bash
-docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FROM_AZURE_PORTAL>" -e amsAadTenantId="<FROM_AZURE_PORTAL>" -e amsArmAadAudience="https://management.core.windows.net" -e amsArmEndpoint="https://management.azure.com" -e amsAadEndpoint="https://login.microsoftonline.com" -e amsSubscriptionId="<FROM_AZURE_PORTAL>" -e amsResourceGroup="lva-rg" -e amsAccountName="<FROM_AZURE_PORTAL>" -p 8094:8094 meshams.azurecr.io/scotts/amp-viewer:1.0.8-amd64
+docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FROM_AZURE_PORTAL>" -e amsAadTenantId="<FROM_AZURE_PORTAL>" -e amsArmAadAudience="https://management.core.windows.net" -e amsArmEndpoint="https://management.azure.com" -e amsAadEndpoint="https://login.microsoftonline.com" -e amsSubscriptionId="<FROM_AZURE_PORTAL>" -e amsResourceGroup="<FROM_AZURE_PORTAL>" -e amsAccountName="<FROM_AZURE_PORTAL>" -p 8094:8094 meshams.azurecr.io/scotts/amp-viewer:1.0.8-amd64
 ```
 
-Navigate to the **Monitor** dashboard in your application. Then select one of the captured object detection events on the **Inference Event Video** tile. The video displays on a page displayed by the local video player.
+|Docker parameter | AMS API access (JSON)|
+|-|-|
+|amsAadClientId| AadClientId|
+|amsAadSecret| AadSecret |
+|amsAadTenantId| AadTenantId |
+|amsSubscriptionId| SubscriptionId|
+|amsResourceGroup| ResourceGroup |
+|amsAccountName| AccountName|
+
+Navigate to the **Monitor** dashboard in your application. Then click one of the captured object detection hyperlinks on the **Inference Event Video** tile. The video appears on a page displayed by the local video player.
 
 ## Change the simulated devices in Application Dashboard
 

@@ -38,7 +38,7 @@ To create an Azure VM with the latest IoT Edge runtime and live video analytics 
 
 <!-- TODO:  Update link when repo is live -->
 
-[![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsseiber%2Flva-gateway%2Fmaster%2Fvm_deploy%2FedgeModuleVMDeploy.json)
+[![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsseiber%2Flva-gateway%2Fuk%2Fbi8100%2Fvm_deploy%2FedgeModuleVMDeploy.json)
 
 Use the information in the following table to complete the **Custom deployment** form:
 
