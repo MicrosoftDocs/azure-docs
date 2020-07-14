@@ -57,6 +57,8 @@ Open a command prompt in the directory of your choice. Execute the following com
 git clone https://github.com/Azure/azure-iot-sdk-java.git -b pnp-preview-refresh
 ```
 
+[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
+
 ## Build the code
 
 On Windows, navigate to the root folder of the cloned Java SDK repository. Then navigate to the *\device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder.

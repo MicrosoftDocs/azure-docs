@@ -48,6 +48,8 @@ Run the following command to get the _device connection string_ for the device y
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
 
+[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
+
 ## Download the code
 
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C# SDK.

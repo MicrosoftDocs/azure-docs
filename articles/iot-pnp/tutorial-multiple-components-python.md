@@ -50,6 +50,8 @@ Run the following command to get the _device connection string_ for the device y
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```
 
+[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
+
 ## Set up your environment
 
 This package is published as a PIP for the public preview refresh. The package version should be latest or `2.1.4`

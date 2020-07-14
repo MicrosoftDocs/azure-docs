@@ -10,9 +10,9 @@ ms.date: 07/13/2020
 
 1. On the **IoT hubs** page, if you haven't already added a connection to your IoT hub, select **+ Add connection**. Enter the connection string for the IoT hub you created previously and select **Save**.
 
-1. On the **IoT Plug and Play Settings** page, select **+ Add > Local folder** and select the local folder where you saved your model files.
+1. On the **IoT Plug and Play Settings** page, select **+ Add > Local folder** and select the local *models* folder where you saved your model files.
 
-1. On the **IoT hubs**page, click on the name of the hub you want to work with. You see a list of devices registered to the IoT hub.
+1. On the **IoT hubs** page, click on the name of the hub you want to work with. You see a list of devices registered to the IoT hub.
 
 1. Click on the **Device ID** of the device you created previously.
 
