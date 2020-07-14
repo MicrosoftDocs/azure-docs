@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: jasteppe
 ---
-# Azure IoT Connector for FHIR - IoT Connector (preview) troubleshooting guide and how-to
+# IoT Connector (preview) troubleshooting guide and how-to
 
 In this article, you'll learn how to troubleshoot common IoT Connector (preview) error messages and conditions.
 
