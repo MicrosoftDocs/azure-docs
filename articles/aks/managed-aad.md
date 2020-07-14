@@ -135,7 +135,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 ```
 
 ## Upgrade from AKS Azure AD legacy integration to AKS-managed Azure AD Integration
-If you are already running a legacy Azure AD enabled cluster, you can migrate to AKS-managed integration by running the following command:
+If you already run a legacy Azure AD enabled cluster, you can migrate to AKS-managed integration by running the following command:
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -165,8 +165,8 @@ If you want to access the cluster, follow the steps [here][access-cluster].
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
 ## Limitations 
-* AKS-managed AAD integration cannot be disabled on existing clusters
-* Changing the AAD tenant associated with AKS-managed AAD integration is not supported
+* AKS-managed AAD integration can't be disabled on existing clusters
+* Changing the AAD tenant associated with AKS-managed AAD integration isn't supported
 
 ## Next steps
 
