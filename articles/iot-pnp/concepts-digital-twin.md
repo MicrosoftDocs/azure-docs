@@ -11,12 +11,12 @@ services: iot-pnp
 
 # Understand the IoT Plug and Play Digital Twins
 
-EveryIoT Plug and Play device that registered in IoT Hub has a digital twin. When a plug and play device connects to IoT Hub for the first time, initial device twin and digital twin are populated. The information captured in [device twins](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) follows the plug and play convention, where the schema is defined in the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). There are a set of device facing endpoints that are designed to interact with the device twin. Digital Twin REST APIs are provided for the service backend to interact with the digital twin as a resource. 
+EveryIoT Plug and Play device that registered in IoT Hub has a digital twin. When a plug and play device connects to IoT Hub for the first time, initial device twin and digital twin are populated. The information captured in [device twins](../iot-hub/iot-hub-devguide-device-twins.md) follows the Plug and Play convention, where the schema is defined in the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). There are a set of device facing endpoints that are designed to interact with the device twin. Digital Twin REST APIs are provided for the service backend to interact with the digital twin as a resource. 
 
 ## Device Twins
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For more detailed information please refer to [Understand and use device twins in IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-operations).
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For more detailed information please refer to [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
 
-For a Plug and Play device, device twins are created upon device connects. Both desired properties and reported properties are exposed in this JSON document and they are implemented using Plug and Play as the convention. Any device that conforms to Plug and Play convention automatically benefits from PnP features. For device twins, devices can utilize the same set of APIs and SDKs and same operations can be applied to device twins for both PnP and non-PnP devices. For more detailed information please go to [Device Operations](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-operations).
+For a Plug and Play device, device twins are created upon device connects. Both desired properties and reported properties are exposed in this JSON document and they are implemented using Plug and Play as the convention. Any device that conforms to Plug and Play convention automatically benefits from PnP features. For device twins, devices can utilize the same set of APIs and SDKs and same operations can be applied to device twins for both PnP and non-PnP devices. For more detailed information please go to [Device Operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
 
 Below is an example of how properties are exposed in a device twin that's created when a plug and play device connects. In this example, the ``PnPDevice`` has implemented model ``dtmi:contoso:macaw;1``, and within this model there is a component ``setting`` that has a reported property ``fanspeed``. The initial value for this property is ``1``. Any device reporting a component must have the ``{"t": "c"}`` marker.
 
@@ -60,7 +60,7 @@ Below is an example of how properties are exposed in a device twin that's create
 
 
 ## Digital Twins
-A digital twin is created upon connection of a plug and play device. Digital twins can be directly managed and updated by service back-end using [Digital Twin REST APIs](https://review.docs.microsoft.com/en-us/rest/api/iothub/service/digitaltwin?branch=iothubser). Operations that update digital twins trigger a Digital twin change event as well as a twin change event, which can be routed to your desired endpoint e.g. Eventhubs. For more information of how to set up the routing, please see [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c).
+A digital twin is created upon connection of a plug and play device. Digital twins can be directly managed and updated by service back-end using Digital Twin REST APIs. Operations that update digital twins trigger a Digital twin change event as well as a twin change event, which can be routed to your desired endpoint e.g. Eventhubs. For more information of how to set up the routing, please see [IoT Hub message routing](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 For the device twin example we had above, the corresponding digital twin looks like below, which shows the same information of a desired property ``fanspeed`` within component ``setting``.
 
@@ -103,7 +103,7 @@ To utilize the Digital Twin, a device needs to follow these rules:
         - “ad” or ack description is optional, when present needs to be a string.
 
 ## Digital Twin REST APIs
-A set of REST APIs are provided to interact with digital twin. Specifically these operations are available: Get Digital Twin, Invoke Component Command, Invoke Command and Update Digital Twin. For more detailed information of each operation, please refer to [Digital Twin](https://review.docs.microsoft.com/en-us/rest/api/iothub/service/digitaltwin?branch=iothubser). A few rules need to be followed for Digital Twin Patch:
+A set of REST APIs are provided to interact with digital twin. Specifically these operations are available: Get Digital Twin, Invoke Component Command, Invoke Command and Update Digital Twin. For more detailed information of each operation, please refer to [Digital Twin](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin). A few rules need to be followed for Digital Twin Patch:
 
  1. Component CRUD: Component level operations requires empty object $metadata marker within value.
     - Create or Update: Sets the desired values all properties provided and clears desired values for any properties not provided.
