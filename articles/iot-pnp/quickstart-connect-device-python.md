@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample Python device code to Azure IoT 
 description: Use Python to build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 07/10/2020
+ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -51,20 +51,18 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 ## Set up your environment
 
-**Installation for Bug Bash 5/13** 
+This package is published as a PIP for the public preview refresh. The package version should be latest or `2.1.4`
 
-For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
-
-Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
+In your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_device-2.1.0_pnp_preview_refresh.0-py2.py3-none-any.whl
+pip install azure-iot-device
 ```
 
-Clone the Python SDK IoT repository and check out the preview branch called **digitaltwins-preview**:
+Clone the Python SDK IoT repository and check out **master**:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
+git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
 ```
 
 ## Run the sample device
@@ -75,10 +73,7 @@ Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to sto
 
 Open the **pnp_thermostat.py** file in a text editor. Notice how it:
 
-1. Defines a single (DTMIs) that uniquely represents the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). A DTMI must be known to the user and varies dependent on the scenario of device implementation. For the current sample, the model represents:
-    - A Thermostat that has telemetry, properties, and commands associated with monitoring temperature.
-
-1. Defines the DTMI for the device that's being implemented. This DTMI is user-defined and  reflects the name for the device and the name of the user's organization. In this sample, the DTMI shows that the name of the device is **Thermostat**.
+1. Defines a single device twin model identifier (DTMI) that uniquely represents the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json). A DTMI must be known to the user and varies dependent on the scenario of device implementation. For the current sample, the model represents a thermostat that has telemetry, properties, and commands associated with monitoring temperature.
 
 1. Has functions to define command handler implementations. You write these handlers to define how the device responds to command requests.
 

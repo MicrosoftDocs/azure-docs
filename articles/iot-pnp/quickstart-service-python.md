@@ -1,9 +1,9 @@
 ---
 title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Python) | Microsoft Docs
 description: Use Python to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 5/4/2020
+author: elhorton
+ms.author: elhorton
+ms.date: 7/13/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -44,15 +44,14 @@ You can install the [Python service SDK preview pacakge](https://pypi.org/projec
 
 `pip3 install azure-iot-hub==2.2.1rc0`
 
-
 ## Run the sample device
 
-In this quickstart, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. For full instructions on how to set up this device, see [this page](dummy link to the Python no component device sample). The following instructions provide a quick overview of how to install and run the device:
+In this quickstart, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
 1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python
+    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
     ```
 1. This terminal window is used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-python/azure-iot-device/samples/pnp** folder. 
  
@@ -70,12 +69,12 @@ In this quickstart, you use a sample thermostat device, written in Python, as th
 
 ## Run the sample solution
 
-In this quickstart, you use a sample IoT solution in Python to interact with the sample device you just set up. 
+In this quickstart, you use a sample IoT solution in Python to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your _service_ terminal. The service SDK is in preview, so you will need to clone the samples from a [preview branch of the Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/digitaltwins-preview):
+1. Open another terminal window to use as your _service_ terminal. The service SDK is in preview, so you will need to clone the samples from a [preview branch of the Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh):
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
+    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
     ```
 1. Go to the folder of this cloned repository branch, and navigate to the **/azure-iot-sdk-python/azure-iot-hub/samples** folder.
 
@@ -96,6 +95,7 @@ After configuring the environment variables, you can run this sample with the fo
 ```cmd/sh
 python pnp_get_digital_twin_sample.py
 ```
+
 It will return your device's digital twin and print its model ID. Notice how the code achieves this:
 
 ```python
@@ -109,6 +109,7 @@ It will return your device's digital twin and print its model ID. Notice how the
 ```
 
 You should see the following output:
+
 ```cmd/sh
 {'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
 Model Id: dtmi:com:example:Thermostat;1
@@ -125,7 +126,6 @@ patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
 iothub_digital_twin_manager.update_digital_twin(device_id, patch)
 print("Patch has been succesfully applied")
 ```
-
 
 You can run this sample with the following command.
 
@@ -160,7 +160,11 @@ You can then run the sample with:
 python pnp_invoke_command_sample.py
 ```
     
-On the _service_ terminal, you should see a confirmation from the device with `min\max response`.
+On the _service_ terminal, you should see a confirmation from the device with:
+
+```cmd/sh
+{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+```
 
 On the _device_ terminal, you should see that the device received the command:
 

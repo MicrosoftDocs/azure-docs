@@ -1,9 +1,9 @@
 ---
 title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Node.js) | Microsoft Docs
 description: Use Node.js to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 05/04/2020
+author: elhorton
+ms.author: elhorton
+ms.date: 07/13/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -45,12 +45,12 @@ You can install the [Node service SDK with PnP support](https://www.npmjs.com/pa
 
 ## Run the sample device
 
-In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. For full instructions on how to set up this device, see [this page](dummy link to node no component device documentation). As a summary for using this device, you should:
+In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
 1. **Get the Node Plug and Play samples**. Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node 
+    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
     ```
 
     This operation may take a few minutes to complete.
@@ -64,7 +64,7 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
+    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Run the sample thermostat device with the following command:
@@ -79,7 +79,7 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal window to use as your _service_ terminal. The service SDK is in preview, so you will need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/public-preview-pnp):
+1. Open another terminal window to use as your _service_ terminal. The service SDK is in preview, so you will need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp

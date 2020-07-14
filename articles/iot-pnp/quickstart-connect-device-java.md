@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample Java device code to IoT Hub | Mi
 description: Build and run IoT Plug and Play Preview sample device code on that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -54,7 +54,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-java.git
+git clone https://github.com/Azure/azure-iot-sdk-java.git -b pnp-preview-refresh
 ```
 
 ## Build the code

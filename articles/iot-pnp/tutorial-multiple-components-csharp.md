@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample C# component device code to IoT 
 description: Build and run IoT Plug and Play Preview sample C# device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
@@ -55,10 +55,8 @@ In this tutorial, you prepare a development environment you can use to clone and
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+git clone https://github.com/Azure/azure-iot-sdk-c.git -b pnp-preview-refresh
 ```
-
-Expect this operation to take several minutes to complete.
 
 ## Build the code
 

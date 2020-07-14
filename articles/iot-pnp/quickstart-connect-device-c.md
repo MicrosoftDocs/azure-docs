@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample C device code to IoT Hub | Micro
 description: Build and run IoT Plug and Play Preview sample device code on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -81,7 +81,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
 ```cmd\bash
-git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git
+git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git -b pnp-preview-refresh
 ```
 
 Expect this operation to take several minutes to complete.

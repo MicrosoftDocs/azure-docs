@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample Python component device code to 
 description: Build and run IoT Plug and Play Preview sample Python device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
@@ -60,10 +60,10 @@ In your local python environment install the file as follows:
 pip install azure-iot-device
 ```
 
-Clone the Python SDK IoT repository and check out **master**:
+Clone the Python SDK IoT repository and check out **pnp-preview-refresh**:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python -b master
+git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
 ```
 
 ## Review the code

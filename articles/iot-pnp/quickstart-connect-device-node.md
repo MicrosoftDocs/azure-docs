@@ -58,14 +58,14 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node
+git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
 ```
 
 ## Install required libraries
 
 You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the */azure-iot-sdk-node/digitaltwins/samples/device/javascript* folder. Then run the following command to install the required libraries:
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Then run the following command to install the required libraries:
 
     ```cmd/sh
     npm install
@@ -74,7 +74,7 @@ You use the device SDK to build the included sample code. The application you bu
 1. Configure the environment variable with the device connection string you made a note of previously:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
+    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 ## Run the sample device
@@ -82,11 +82,18 @@ You use the device SDK to build the included sample code. The application you bu
 Open the _simple_thermostat.js_ file. In this file, you can see how to:
 
 1. Import the required interfaces.
-1. Write a property update handler and command handler.
-1. Use the **DigitalTwinClient** class to connect to your IoT hub.
-1. Use the **DigitalTwinClient** class to configure the IoT Plug and Play components the device implements.
-1. Enable the command and property update handlers.
-1. Report interface-specific properties and telemetry.
+1. Write a property update handler and a command handler.
+1. Handle desired property patches and send telemetry.
+1. Optionally, provision your device using the Azure Device Provisioning Service (DPS).
+
+In the main function, you can see how it all comes together:
+
+1. Create the device from your connection string or provision it using DPS.)
+1. Use the **modelID** option to specify the IoT Plug and Play device model.
+1. Enable the command handler.
+1. Send telemetry from the device to your hub.
+1. Get the devices twin and update the reported properties.
+1. Enable the desired property update handler.
 
 Run the sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
