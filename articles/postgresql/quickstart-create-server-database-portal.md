@@ -74,7 +74,8 @@ Now select **Add current client IP address** and then select **Save**. You can a
 ## Connect to Azure Database for PostgreSQL server using psql
 You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will connect using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
 
-1.Make a note of your server name, server admin login name, password, and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
+1. Make a note of your server name, server admin login name, password, and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
+
 2. Launch Azure Cloud Shell in the portal by selecting the icon on the top-left side as highlighted in the image below.
 >[!Note]
 > If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
