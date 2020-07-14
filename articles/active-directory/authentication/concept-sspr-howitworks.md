@@ -164,11 +164,11 @@ To improve awareness of password events, SSPR lets you configure notifications f
 
 ### Notify users on password resets
 
-If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are on file in Azure AD. No one else is notified of the reset event.
+If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. No one else is notified of the reset event.
 
 ### Notify all admins when other admins reset their passwords
 
-If this option is set to **Yes**, then *all Azure administrators* receive an email to their primary email address on file in Azure AD. The email notifies them that another administrator has changed their password by using SSPR.
+If this option is set to **Yes**, then all other Azure administrators receive an email to their primary email address stored in Azure AD. The email notifies them that another administrator has changed their password by using SSPR.
 
 Consider the following example scenario:
 
@@ -184,7 +184,7 @@ If you have a hybrid environment, you can configure Azure AD Connect to write pa
 
 Azure AD checks your current hybrid connectivity and provides one of the following messages in the Azure portal:
 
-* Your On-premises writeback client is up and running.
+* Your on-premises writeback client is up and running.
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
 * Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
@@ -201,18 +201,18 @@ To get started with SSPR writeback, complete the following tutorial:
 You can enable password writeback using the Azure portal. You can also temporarily disable password writeback without having to reconfigure Azure AD Connect.
 
 * If the option is set to **Yes**, then writeback is enabled. Federated, pass-through authentication, or password hash synchronized users are able to reset their passwords.
-* If the switch is set to **No**, then writeback is disabled. Federated, pass-through authentication, or password hash synchronized users are not able to reset their passwords.
+* If the option is set to **No**, then writeback is disabled. Federated, pass-through authentication, or password hash synchronized users aren't able to reset their passwords.
 
 ### Allow users to unlock accounts without resetting their password
 
-To provide flexibility, you can choose to allow users to unlock their on-premises accounts without having to reset their password. By default, Azure AD unlocks accounts when it performs a password reset. You use this setting to separate those two operations.
+By default, Azure AD unlocks accounts when it performs a password reset. To provide flexibility, you can choose to allow users to unlock their on-premises accounts without having to reset their password. Use this setting to separate those two operations.
 
 * If set to **Yes**, users are given the option to reset their password and unlock the account, or to unlock their account without having to reset the password.
 * If set to **No**, users are only be able to perform a combined password reset and account unlock operation.
 
 ### On-premises Active Directory password filters
 
-Azure AD self-service password reset performs the equivalent of an admin-initiated password reset in Active Directory. If you use a third-party password filter to enforce custom password rules, and you require that this password filter is checked during Azure AD self-service password reset, ensure that the third-party password filter solution is configured to apply in the admin password reset scenario. [Azure AD password protection for Active Directory Domain Services](concept-password-ban-bad-on-premises.md) is supported by default.
+SSPR performs the equivalent of an admin-initiated password reset in Active Directory. If you use a third-party password filter to enforce custom password rules, and you require that this password filter is checked during Azure AD self-service password reset, ensure that the third-party password filter solution is configured to apply in the admin password reset scenario. [Azure AD password protection for Active Directory Domain Services](concept-password-ban-bad-on-premises.md) is supported by default.
 
 ## Password reset for B2B users
 
@@ -235,12 +235,6 @@ To get started with SSPR, complete the following tutorial:
 > [Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
 The following articles provide additional information regarding password reset through Azure AD:
-
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Do you have a licensing question?](concept-sspr-licensing.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
 [Registration]: ./media/concept-sspr-howitworks/configure-registration-options.png "Configure SSPR registration options in the Azure portal"
