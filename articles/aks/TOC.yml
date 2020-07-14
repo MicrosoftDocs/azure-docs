@@ -246,7 +246,7 @@
       items:
         - name: AKS-managed AAD
           href: managed-aad.md
-        - name: Use the Azure CLI
+        - name: AAD integration (legacy)
           href: azure-ad-integration-cli.md
     - name: Use Azure RBAC for Kubernetes Authorization (preview)
       href: manage-azure-rbac.md
