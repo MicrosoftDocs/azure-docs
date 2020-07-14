@@ -31,7 +31,7 @@ This release contains the following bug fix:
 
 - **Upload issue** - This release fixes an upload problem where upload restarts due to failures can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large in size relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures that sufficient opportunity is given for upload completion before restarting upload for a given file.
 
-The release contains the following updates:
+This release also contains the following updates:
 
 - The base image for the Windows VHD has been updated.
 - All cumulative Windows updates and .NET framework updates are included that were released through May 2020.
