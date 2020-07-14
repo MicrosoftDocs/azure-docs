@@ -4,7 +4,8 @@ description: This describes the prerequisites for using the Azure Education hub.
 author: tfosmark
 ms.author: rymend
 ms.topic: quickstart
-ms.prod: azure
+ms.service: azure-education
+ms.subservice: education-hub
 ms.date: 06/30/2020
 ---
 
