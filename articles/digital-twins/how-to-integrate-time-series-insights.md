@@ -69,48 +69,35 @@ See the following document for reference info: [Azure Event Grid trigger for Azu
 Replace the function code with the following code. It will filter out only updates, read the full twin state, and send that information to Time Series Insights.
 
 ```C#
-using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventHubs;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Threading.Tasks;
-using System.Net.Http;
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-using Azure.Core.Pipeline;
+using System.Text;
+using System.Collections.Generic;
 
 namespace SampleFunctionsApp
 {
     public static class ProcessDTUpdatetoTSI
-    {   //Read our ADT info from application settings on function startup
-        private static HttpClient httpClient = new HttpClient();
-        const string adtAppId = "https://digitaltwins.azure.net";
-        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-
+    { 
         [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubConnectionAppSetting")] IAsyncCollector<string> outputEvents, ILogger log)
+        public static async Task Run([EventHubTrigger("twins-fx-hub", Connection = "EventHubConnectionAppSetting-Twins")]EventData myEventHubMessage, [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubConnectionAppSetting-TSI")] IAsyncCollector<string> outputEvents, ILogger log)
         {
-            JObject message = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-            log.LogInformation("Reading event from twinID:" + eventGridEvent.Subject.ToString() + ": " +
-                eventGridEvent.EventType.ToString() + ": " + message["data"]);
-            
-            ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+            JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
+            log.LogInformation("Reading event:" + message.ToString());
 
             // Read properties which values have been changed in each operation
-            bool hasreplace = false;
-            foreach (var operation in message["data"]["patch"]){
+            Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
+            foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace")
-                    hasreplace = true;
+                    tsiUpdate.Add(operation["path"].ToString(), operation["value"]);
             }
             //Send an update to TSI if the twin has been updated
-            if (hasreplace){
-                var twinInfo = client.GetDigitalTwin(eventGridEvent.Subject.ToString());
-                log.LogInformation("Updating with value: " + twinInfo.Value);
-                await outputEvents.AddAsync(twinInfo.Value);
+            if (tsiUpdate.Count>0){
+                tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
+                await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
             }
         }
     }
