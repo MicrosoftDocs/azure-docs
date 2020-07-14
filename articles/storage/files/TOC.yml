@@ -85,6 +85,40 @@
       href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
+  - name: Data protection
+    items:
+    - name: Enable soft delete
+      href: storage-files-enable-soft-delete.md
+    - name: Backup file shares
+      items:
+      - name: Portal
+        href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Restore file shares
+      items:
+      - name: Portal
+        href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage file shares
+      items:
+      - name: Portal
+        href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Deploy
     items:
     - name: Deploy Azure Files
@@ -121,40 +155,6 @@
       href: storage-files-configure-p2s-vpn-windows.md
     - name: Configure Point-to-Site VPN on Linux
       href: storage-files-configure-p2s-vpn-linux.md
-  - name: Data protection
-    items:
-    - name: Enable soft delete
-      href: storage-files-enable-soft-delete.md
-    - name: Backup file shares
-      items:
-      - name: Portal
-        href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: CLI
-        href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: PowerShell
-        href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: REST API
-        href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Restore file shares
-      items:
-      - name: Portal
-        href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: CLI
-        href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: PowerShell
-        href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: REST API
-        href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Manage file shares
-      items:
-      - name: Portal
-        href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: CLI
-        href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: PowerShell
-        href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: REST API
-        href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Manage
     items:
     - name: Register a server with Azure File Sync
