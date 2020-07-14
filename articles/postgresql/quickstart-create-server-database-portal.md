@@ -27,16 +27,16 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
->[!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
 
 3. Select the **Single server** deployment option.
 
->[!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Select Azure Database for PostgreSQL - Single server deployment option](./media/quickstart-create-database-portal/select-deployment-option.png)
 
 4. Fill out the **Basics** form with the following information:
->[!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Create a server](./media/quickstart-create-database-portal/create-basics.png)
 
 Setting|Suggested Value|Description
@@ -63,13 +63,13 @@ An empty database, **postgres** is created. You will also find **azure_maintenan
 ## Configure a server-level firewall rule
 By default the server created is not publicly accessible and you need to give permissions to your IP. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left side menu for your server resource. If you are not sure how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
->[!div class="mx-imgBorder"]
-> ![Connection security - Firewall rules](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
+   > [!div class="mx-imgBorder"]
+   > ![Connection security - Firewall rules](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
   
 Now select **Add current client IP address** and then select **Save**. You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules](./concepts-firewall-rules.md)
    
->[!Note] 
-> Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
+   > [!NOTE]
+   > Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
 
 ## Connect to Azure Database for PostgreSQL server using psql
 You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will connect using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
@@ -77,58 +77,59 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
 1. Make a note of your server name, server admin login name, password, and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 
 2. Launch Azure Cloud Shell in the portal by selecting the icon on the top-left side as highlighted in the image below.
->[!Note]
-> If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
+   > [!NOTE]
+   > If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
 
->[!div class="mx-imgBorder"]
-> ![Open Azure Cloud Shell](media/quickstart-create-database-portal/use-in-cloud-shell.png)
+   > [!div class="mx-imgBorder"]
+   > ![Open Azure Cloud Shell](media/quickstart-create-database-portal/use-in-cloud-shell.png)
 
 3. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database **postgres** with admin user in this format '<admin-username>@<servername> as shown below for Azure Database for PostgreSQL.
 
-```azurecli-interactive
-  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
- ```
-Here is how the experience looks like in the Cloud Shell terminal
-```
-Requesting a Cloud Shell.Succeeded.
-Connecting terminal...
+   ```azurecli-interactive
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
+ 
+  Here is how the experience looks like in the Cloud Shell terminal
+  ```bash
+  Requesting a Cloud Shell.Succeeded.
+  Connecting terminal...
 
-Welcome to Azure Cloud Shell
+  Welcome to Azure Cloud Shell
 
-Type "az" to use Azure CLI
-Type "help" to learn about Cloud Shell
+  Type "az" to use Azure CLI
+  Type "help" to learn about Cloud Shell
 
-user@Azure:~$psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-Password for user myadmin@mydemoserver.postgres.database.azure.com:
-psql (12.2 (Ubuntu 12.2-2.pgdg16.04+1), server 11.6)
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
-Type "help" for help.
+  user@Azure:~$psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+  Password for user myadmin@mydemoserver.postgres.database.azure.com:
+  psql (12.2 (Ubuntu 12.2-2.pgdg16.04+1), server 11.6)
+  SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+  Type "help" for help.
 
-postgres=>
-```
+  postgres=>
+  ```
 4. In the same Azure Cloud Shell terminal, create a database **guest**
-```
-postgres=> CREATE DATABASE guest;
-```
+  ```bash
+  postgres=> CREATE DATABASE guest;
+  ```
 
 5. Now to switch connections to the newly created database **guest**
 
-```bash
- \c guest
-```
+  ```bash
+  \c guest
+  ```
 6. Type `\q`, and then select the Enter key to quit psql. 
 
 ## Clean up resources
 You have successfully created an Azure Database for PostgreSQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the PostgreSQL server. To delete the resource group, follow these steps:
 
-- In the Azure portal, search for and select **Resource groups**. 
-- In the resource group list, choose the name of your resource group.
-- In the Overview page of your resource group, select **Delete resource group**.
-- In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+1. In the Azure portal, search for and select **Resource groups**. 
+2. In the resource group list, choose the name of your resource group.
+3. In the Overview page of your resource group, select **Delete resource group**.
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
 
->[!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Delete your resources](media/quickstart-create-database-portal/12-delete.png)
 
 ## Next steps
