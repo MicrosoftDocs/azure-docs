@@ -439,8 +439,8 @@ The wizard guides you through setting the required parameters to create the virt
 1. **Settings**:
    * **Storage**
      * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
-     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) in the planning guide.
-     * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) in the planning guide.
+     * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Network**
      * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
@@ -496,7 +496,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see these resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **Admin username** and **Admin password**: A username and password.
@@ -542,7 +542,7 @@ You use different steps to create a private image for Linux than to create one f
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) to do this.
+> To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) to do this.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -559,7 +559,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 #### Create a virtual machine by using the Azure portal
 
-The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../windows/capture-image-resource.md)
 
 1.  Go to <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Or, in the Azure portal menu, select **Images**.
 1.  Select the Managed Disk image you want to deploy and click on **Create VM**
@@ -580,7 +580,7 @@ The wizard guides you through setting the required parameters to create the virt
 1. **Settings**:
    * **Storage**
      * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
-     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) in the planning guide.
+     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) in the planning guide.
    * **Network**
      * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
@@ -633,7 +633,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure virtual machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **User image VHD URI** (unmanaged disk image template only): The URI of the private OS image VHD, for example, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
@@ -726,7 +726,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
@@ -779,9 +779,9 @@ This section has detailed steps for doing specific tasks in the configuration an
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
 
-Follow the steps described in the article [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
-Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. Follow the steps described in [this](https://docs.microsoft.com/powershell/azure/install-az-ps#update-the-azure-powershell-module) article. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
+Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. Follow the steps described in [this](/powershell/azure/install-az-ps#update-the-azure-powershell-module) article. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
 
 To check the version of the Azure PowerShell cmdlets that are installed on your computer, run this PowerShell command:
 
@@ -791,7 +791,7 @@ To check the version of the Azure PowerShell cmdlets that are installed on your 
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
 
-Follow the steps described in the article [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Follow the steps described in the article [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 Check frequently for updates to Azure CLI, which usually is updated monthly.
 
