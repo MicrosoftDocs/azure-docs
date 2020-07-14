@@ -51,7 +51,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get the VM
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$sourceVM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -128,7 +128,7 @@ New-AzGalleryImageVersion `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $vm.Id.ToString() `
+   -Source $sourceVM.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01'
 ```
 

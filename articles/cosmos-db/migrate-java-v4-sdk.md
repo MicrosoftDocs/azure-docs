@@ -4,7 +4,7 @@ description: Learn how to upgrade your existing Java application from using the 
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
 ---

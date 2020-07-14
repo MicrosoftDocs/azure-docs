@@ -3,7 +3,7 @@ title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
 ---
@@ -94,7 +94,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a id="dotnet-cassandra"></a>MongoDB API
+### <a id="dotnet-mongodb"></a>MongoDB API
 
 ```csharp
 // refer to MongoDB .NET Driver

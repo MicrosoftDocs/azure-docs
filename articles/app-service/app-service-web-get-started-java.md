@@ -55,7 +55,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 A sample process looks like:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -175,7 +175,7 @@ Once deployment has completed, browse to the deployed application using the foll
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL Database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)

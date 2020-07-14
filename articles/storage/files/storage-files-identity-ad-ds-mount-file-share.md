@@ -4,8 +4,8 @@ description: Learn how to mount a file share to your on-premises Active Director
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ---
 

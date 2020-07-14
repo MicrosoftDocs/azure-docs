@@ -4,7 +4,7 @@ description: This article describes how you can configure you application to con
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/8/2020
 ---
 

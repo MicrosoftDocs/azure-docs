@@ -80,52 +80,58 @@ This section lists the Media Analytics media processors and shows how to use .NE
 ### .NET
 The following function takes one of the specified MP names and returns an MP object.
 
-    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors
-            .Where(p => p.Name == mediaProcessorName)
-            .ToList()
-            .OrderBy(p => new Version(p.Version))
-            .LastOrDefault();
+```csharp
+static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+{
+    var processor = _context.MediaProcessors
+        .Where(p => p.Name == mediaProcessorName)
+        .ToList()
+        .OrderBy(p => new Version(p.Version))
+        .LastOrDefault();
 
-        if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                                       mediaProcessorName));
+    if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor",
+                                                  mediaProcessorName));
 
-        return processor;
-    }
+    return processor;
+}
+```
 
 
 ### REST
 Request:
 
-    GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <token>
-    x-ms-version: 2.19
-    Host: media.windows.net
+```http
+GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <token>
+x-ms-version: 2.19
+Host: media.windows.net
+```
 
 Response:
 
-    . . .
+```http
+. . .
 
-    {  
-       "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
-       "value":[  
-          {  
-             "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
-             "Description":"Azure Media OCR",
-             "Name":"Azure Media OCR",
-             "Sku":"",
-             "Vendor":"Microsoft",
-             "Version":"1.1"
-          }
-       ]
-    }
+{  
+    "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+    "value":[  
+        {  
+            "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
+            "Description":"Azure Media OCR",
+            "Name":"Azure Media OCR",
+            "Sku":"",
+            "Vendor":"Microsoft",
+            "Version":"1.1"
+        }
+    ]
+}
+```
 
 ## Demos
 See [Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).

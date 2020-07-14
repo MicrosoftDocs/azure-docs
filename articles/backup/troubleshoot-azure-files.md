@@ -53,6 +53,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 ## Common backup or restore errors
 
+>[!NOTE]
+>Refer to [this document](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
+
 ### FileShareNotFound- Operation failed as the file share is not found
 
 Error Code: FileShareNotFound
@@ -272,8 +275,6 @@ Error Code: BMSUserErrorObjectLocked
 Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
-
-From the file: troubleshoot-azure-files.md
 
 ## Common Soft Delete Related Errors
 

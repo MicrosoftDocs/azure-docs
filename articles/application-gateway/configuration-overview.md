@@ -4,7 +4,7 @@ description: This article describes how to configure the components of Azure App
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: absha
 ---
@@ -353,7 +353,7 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 > [!NOTE]
 > The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
 
-### <a id="pick"/></a>Pick host name from back-end address
+### <a name="pick"></a>Pick host name from back-end address
 
 This capability dynamically sets the *host* header in the request to the host name of the back-end pool. It uses an IP address or FQDN.
 

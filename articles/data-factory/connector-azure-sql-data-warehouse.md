@@ -124,7 +124,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
    - Application ID
    - Application key
@@ -685,7 +685,9 @@ When transforming data in mapping data flow, you can read and write to tables fr
 
 Settings specific to Azure Synapse Analytics are available in the **Source Options** tab of the source transformation.
 
-**Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+**Input** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+
+**Enable Staging** It is highly recommended that you use this option in production workloads with Synapse DW sources. When you execute a data flow activity with Synapase sources from a pipeline, ADF will prompt you for a staging location storage account and will use that for staged data loading. It is the fastest mechanism to load data from Synapse DW.
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 
