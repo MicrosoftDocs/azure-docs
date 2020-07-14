@@ -46,7 +46,7 @@ You can define filters for your assets with Media Services. These filters are se
 
 For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
-## <a name="Locators"></a>Locators
+## <a name="locators"></a>Locators
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
@@ -78,7 +78,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 
 You can only stream over TLS if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support TLS. If your URL is in the old format and you want to be able to stream over TLS, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over TLS.
 
-## <a name="id"></a>Streaming URL formats
+## <a name="URLs"></a>Streaming URL formats
 
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
