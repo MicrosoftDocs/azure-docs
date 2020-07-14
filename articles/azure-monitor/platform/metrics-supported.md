@@ -744,21 +744,6 @@ There are some limitations in what can be routed and the form in which they are 
 |HyperVMemoryUtilization|Edge Compute - Memory Usage|Percent|Average|Amount of RAM in Use|InstanceName|
 
 
-## Microsoft.DataCatalog/datacatalogs
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Asset distribution by classification|Count|Total|Indicates the number of assets with a certain classification assigned, i.e. they are classified with that label.|Classification,Source|
-|AssetDistributionByStorageType|Asset distribution by storage type|Count|Total|Indicates the number of assets with a certain storage type.|StorageType|
-|NumberOfAssetsWithClassifications|Number of assets with at least one classification|Count|Average|Indicates the number of assets with at least one tag classification.|None|
-|ScanCancelled|Scan Cancelled|Count|Total|Indicates the number of scans cancelled.|None|
-|ScanCompleted|Scan Completed|Count|Total|Indicates the number of scans completed successfully.|None|
-|ScanFailed|Scan Failed|Count|Total|Indicates the number of scans failed.|None|
-|ScanTimeTaken|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|None|
-|CatalogActiveUsers|Daily Active Users|Count|Total|Number of active users daily|None|
-|CatalogUsage|Usage Distribution by Operation|Count|Total|Indicate the number of operation user makes to the catalog, i.e., Access, Search, Glossary.|Operation|
-
-
 ## Microsoft.DataFactory/datafactories
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
