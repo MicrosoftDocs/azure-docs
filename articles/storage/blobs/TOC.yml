@@ -387,6 +387,8 @@
               href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Provide an encryption key on a request
           href: storage-blob-customer-provided-key.md
+        - name: Manage encryption scopes
+          href: encryption-scope-manage.md
         - name: Enable infrastructure encryption for a storage account
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure client-side encryption

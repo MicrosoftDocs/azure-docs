@@ -100,3 +100,7 @@
     href: ../../stream-analytics/security-baseline.md
   - name: Synapse Analytics security baseline
     href: ../../synapse-analytics/security-baseline.md
+  - name: Virtual Machines Linux security baseline
+    href: ../../virtual-machines/linux/security-baseline.md
+  - name: Virtual Machines Windows security baseline
+    href: ../../virtual-machines/windows/security-baseline.md

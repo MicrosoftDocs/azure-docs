@@ -77,6 +77,8 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
 
+In cases where you provide your own subnet for your AKS cluster and you wish to modify the flow of traffic, do not modify the subnet-level network security group managed by AKS. You may create additional subnet-level network security groups to modify the flow of traffic as long as they do not interfere with traffic needed for managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
+
 ### Kubernetes network policy
 
 To limit network traffic between pods in your cluster, AKS offers support for [Kubernetes network policies][network-policy]. With network policies, you can choose to allow or deny specific network paths within the cluster based on namespaces and label selectors.
@@ -118,6 +120,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
