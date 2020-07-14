@@ -22987,6 +22987,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/conditional-access/concept-baseline-protection.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-dev-glossary.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-dev-glossary",
       "redirect_document_id": false
@@ -49856,6 +49861,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/lab-services/class-type-mobile-dev-android-studio.md",
+      "redirect_url": "/azure/lab-services/class-types",
+      "redirect_document_id": true
+    },    
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-shell-scripting-linux.md",
       "redirect_url": "/azure/lab-services/class-type-shell-scripting-linux",
       "redirect_document_id": true
@@ -49868,11 +49878,6 @@
     {
       "source_path": "articles/lab-services/classroom-labs/class-type-sql-server.md",
       "redirect_url": "/azure/lab-services/class-type-sql-server",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/lab-services/classroom-labs/class-types.md",
-      "redirect_url": "/azure/lab-services/class-types",
       "redirect_document_id": true
     },
     {
