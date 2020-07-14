@@ -50,7 +50,7 @@ Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 * Locate your Azure Account tenant ID by navigating to the Azure portal and select Azure Active Directory > Properties > Directory ID
 
-For your cluster you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
+For your cluster, you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -135,7 +135,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 ```
 
 ## Upgrade from AKS Azure AD legacy integration to AKS-managed Azure AD Integration
-If you are already running a legacy Azure AD enabled cluster you can simple migrate to AKS-managed integration by running the following command:
+If you are already running a legacy Azure AD enabled cluster, you can migrate to AKS-managed integration by running the following command:
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -155,6 +155,8 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
     "tenantId": "72f9****-****-****-****-****d011db47"
   }
 ```
+
+Once completed you may want to remove your previous App registrations in case they aren’t used anymore.
 
 If you want to access the cluster, follow the steps [here][access-cluster].
 
