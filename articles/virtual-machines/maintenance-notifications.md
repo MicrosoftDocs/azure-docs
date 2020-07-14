@@ -72,7 +72,7 @@ It is best to use self-service maintenance in the following cases:
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Availability for virtual machines in Azure](./linux/availability.md).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
