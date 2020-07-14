@@ -24,7 +24,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-2. The Recovery Services vault is an Azure Resource Manager (ARM) resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
+2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
 
     ```powershell
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
