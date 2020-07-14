@@ -244,7 +244,7 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD (preview)
+        - name: AKS-managed AAD
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
