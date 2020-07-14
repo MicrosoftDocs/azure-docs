@@ -97,7 +97,8 @@ The sample is also modified to run in a production environment like App Service:
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
-- For more details about the necessary changes, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/). 
+
+These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
 ## Create Postgres database in Azure
 
@@ -112,14 +113,13 @@ az extension add --name db-up
 
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command:
 
-<!-- Issue: without --location -->
 ```azurecli
-az postgres up -g DjangoPostgres-tutorial-rg -l westus2 --sku-name B_Gen4_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen4_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is *https://\<postgres-server-name>.postgres.database.azure.com*). A good pattern is to use a combination of your company name and another unique.
 - For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
-- The B_Gen4_1 (Basic, Gen4, 1 core) [pricing tier](/postgresql/concepts-pricing-tiers) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores)  tier instead.
+- The B_Gen4_1 (Basic, Gen4, 1 core) [pricing tier](/postgresql/concepts-pricing-tiers) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -145,19 +145,16 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create the App Service host
 
-<!-- validation error: Parameter 'ResourceGroup.location' can not be None. -->
-<!-- --resource-group is not respected at all -->
-
 In the terminal, make sure you're in the repository root (`djangoapp`) that contains the app code.
 
 Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
-az webapp up -g DjangoPostgres-tutorial-rg -l westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
+az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
 ```
-<!-- !!! without --sku creates PremiumV2 plan!! -->
+<!-- without --sku creates PremiumV2 plan -->
 
-- For the `-l` location argument, use the same location as you did for the database in the previous section.
+- For the `--location` argument, use the same location as you did for the database in the previous section.
 - Replace *\<app-name>* with a unique name across all Azure (the server endpoint is *https://\<app-name>.azurewebsites.net*). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
 
 This command performs the following actions, which may take a few minutes:
@@ -182,7 +179,7 @@ Upon successful deployment, the command generates JSON output like the following
 
 ### Configure environment variables to connect the database
 
-With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure and tell the app to use production settings.
+With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
 The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
