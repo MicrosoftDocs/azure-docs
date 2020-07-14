@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ---
 
@@ -144,6 +144,9 @@ This parameter specifies a resource in Azure Resource Manager representing the m
 
 A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
 
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
+
 To connect using a service principal, run the following command:
 
 `azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
@@ -159,6 +162,9 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 ### Disconnect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 To disconnect using a service principal, run the following command:
 
@@ -177,6 +183,9 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 
 This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 To reconnect using a service principal, run the following command:
 
