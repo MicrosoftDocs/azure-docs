@@ -1,6 +1,6 @@
 ---
 title: "Saas app: Monitor performance of many databases"
-description: "Monitor and manage performance of Azure SQL Databases and pools in a multi-tenant SaaS app"
+description: "Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 01/25/2019
 ---
-# Monitor and manage performance of Azure SQL Database and pools in a multi-tenant SaaS app
+# Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.

@@ -20,7 +20,7 @@ To target a resource group that is different than the one for parent template, u
 
 If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
 
-The account that deploys the template must have permission to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+The account that deploys the template must have permission to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../../active-directory/b2b/what-is-b2b.md).
 
 The following example deploys two storage accounts. The first storage account is deployed to the resource group specified in the deployment operation. The second storage account is deployed to the resource group specified in the `secondResourceGroup` and `secondSubscriptionID` parameters:
 

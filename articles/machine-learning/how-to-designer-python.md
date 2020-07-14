@@ -1,7 +1,7 @@
 ---
-title: Python
+title: Execute Python Script in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Python in Azure Machine Learning designer to transform data.
+description: Learn how to use Python in Azure Machine Learning designer (preview) to transform data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 02/28/2020
 ms.custom: designer, tracking-python
 ---
 
-# Execute Python code in Azure Machine Learning designer
+# Run Python code in Azure Machine Learning designer
 
 In this article, you learn how to use the [Execute Python Script](algorithm-module-reference/execute-python-script.md) module to add custom logic to  Azure Machine Learning designer. In the following how-to, you use the Pandas library to do simple feature engineering.
 
