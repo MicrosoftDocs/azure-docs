@@ -80,6 +80,35 @@ The code for ASP.NET is similar to the code shown for ASP.NET Core:
 - From there, it builds an MSAL.NET `IConfidentialClientApplication` object.
 - Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 
+The following code snippet is located extracted from [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) in the [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC sample:
+
+```C#
+public async Task<ActionResult> ReadMail()
+{
+    IConfidentialClientApplication app = MsalAppBuilder.BuildConfidentialClientApplication();
+    AuthenticationResult result = null;
+    var account = await app.GetAccountAsync(ClaimsPrincipal.Current.GetMsalAccountId());
+    string[] scopes = { "Mail.Read" };
+
+    try
+    {
+        // try to get token silently
+        result = await app.AcquireTokenSilent(scopes, account).ExecuteAsync().ConfigureAwait(false);
+    }
+    catch (MsalUiRequiredException)
+    {
+        ViewBag.Relogin = "true";
+        return View();
+    }
+
+    // More code here
+    return View();
+}
+```
+
+For details see the code for [BuildConfidentialClientApplication()](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs) and [GetMsalAccountId](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) in the code sample
+
+
 # [Java](#tab/java)
 
 In the Java sample, the code that calls an API is in the getUsersFromGraph method in [AuthPageController.java#L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
