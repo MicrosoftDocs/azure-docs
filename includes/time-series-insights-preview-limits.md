@@ -11,8 +11,6 @@ manager: diviso
 ms.custom: include file
 ---
 
-### Azure Time Series Insights Gen2 limits
-
 ### Property limits
 
 Azure Time Series Insights property limits have increased to 1,000 from a maximum cap of 800 in Gen1. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
