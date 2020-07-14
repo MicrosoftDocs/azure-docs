@@ -32,7 +32,9 @@ ms.author: jroth
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging slots](../articles/app-service/deploy-staging-slots.md) per app| | | |5 |20 |20 |
+| [Testing in Production](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
 | [Diagnostic Logs](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
+| Kudu | X | X | X | X | X | X |
 | [Authentication and Authorization](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |
 | [App Service Managed Certificates (Public Preview)]()<sup>12</sup> | |  | X | X | X | X |
 | SLA | |  |99.95%|99.95%|99.95%|99.95%|  
@@ -48,5 +50,4 @@ ms.author: jroth
 <sup>9</sup>The App Service Certificate quota limit per subscription can be increased via a support request to a maximum limit of 200.  
 <sup>10</sup>App Service Isolated SKUs can be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.  
 <sup>11</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. There's no predefined limit on the number of WebJobs that can run in an App Service instance. There are practical limits that depend on what the application code is trying to do.
-
 <sup>12</sup>Naked domains are not supported. Only issuing standard certificates (wildcard certificates are not available). Limited to only one free certificate per custom domain.
