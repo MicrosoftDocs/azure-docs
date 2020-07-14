@@ -20,18 +20,18 @@ Azure Monitor offers the following solutions for monitoring your networks:
     * Azure Application Gateway logs
     * Azure Application Gateway metrics
 * Solutions to monitor and audit network activity on your cloud network
-    * [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Traffic Analytics](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure Network Security Group Analytics
 
 ## Network Performance Monitor (NPM)
 
-The [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](../../networking/network-monitoring-overview.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 
 * Public cloud and on-premises
 * Data centers and user locations (branch offices)
 * Subnets hosting various tiers of a multi-tiered application.
 
-For more information, see [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+For more information, see [Network Performance Monitor](../../networking/network-monitoring-overview.md).
 
 ## Azure Application Gateway and Network Security Group analytics
 To use the solutions:
