@@ -19,7 +19,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Database and Azure S
 - Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](reserved-capacity-overview.md).
-- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
+- Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
 
 ## Service tiers
 
@@ -148,7 +148,7 @@ From the SQL Managed Instance page, select **Pricing tier** link placed under th
 
 ![change SQL Managed Instance hardware](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-On the **Pricing tier** page you will be able to change hardware generation as described in the previous steps.
+On the Pricing tier page, you will be able to change hardware generation as described in the previous steps.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -158,7 +158,7 @@ Use the following PowerShell script:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-For more details check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
+For more details, check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -168,7 +168,7 @@ Use the following CLI command:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-For more details check [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
+For more details, check [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
 
 ---
 
