@@ -50,7 +50,7 @@ In the Azure portal experience, we have improved the way that you can view passw
 
 ### Combined registration
 
-If you have enabled [combined registration](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
+If you have enabled [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), information regarding user activity in the audit logs will be found under **Security** > **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
