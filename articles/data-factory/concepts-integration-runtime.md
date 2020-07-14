@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
+ms.date: 07/14/2020
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -119,7 +119,11 @@ For more information about Azure-SSIS runtime, see the following articles:
 
 ## Integration runtime location
 
-The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
+### Relationship between factory location and IR location
+
+When customer creates a data factory instance, they need to specify the location for the data factory. The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Metadata for the factory is only stored in the region of customer’s choice and will not be stored in other regions.
+
+Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
 
 The IR Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. 
 

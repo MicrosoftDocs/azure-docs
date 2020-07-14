@@ -41,7 +41,7 @@ Before starting, review the following details to verify you meet the prerequisit
 
 The following table outlines the Docker orchestration and operating system monitoring support of container inventory, performance, and logs with Azure Monitor.   
 
-| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log |
+|Docker Orchestration | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
