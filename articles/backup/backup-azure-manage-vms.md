@@ -84,6 +84,9 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
+> [!NOTE]
+> The Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
+
 To trigger an on-demand backup:
 
 1. On the [vault item dashboard](#view-vms-on-the-dashboard), under **Protected Item**, select **Backup Item**.
