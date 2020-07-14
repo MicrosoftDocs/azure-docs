@@ -38,9 +38,9 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 The following image displays the hash-based distribution:
 
-  ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-  *Figure: Hash-based distribution*
+*Figure: Hash-based distribution*
 
 ## Application independence and transparency
 
@@ -58,7 +58,7 @@ Flows from the backend pool to public IPs are mapped to the frontend. Azure tran
 
 Standard load balancer supports additional abilities in regions where Availability Zones are available. Availability Zones configurations are available for both types of Standard Load Balancer; public and internal. A zone-redundant frontend survives zone failure by using dedicated infrastructure in all of the zones simultaneously. Additionally, you can guarantee a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Cross-zone load balancing is available for the backend pool. Any virtual machine resource in a virtual network can be part of a backend pool. Basic load balancer doesn't support zones. Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md) and [Availability Zones Overview](../availability-zones/az-overview.md) for more information.
 
-## HA Ports
+## HA ports
 
 You can configure HA port load-balancing rules to make your application scale and be highly reliable. Load balancing per flow on short-lived ports of the internal load balancer's frontend IP is provided by these rules. The feature is useful when it's impractical or undesirable to specify individual ports. An HA ports rule allows you to create active-passive or active-active n+1 scenarios. These scenarios are for network virtual appliances and any application, which requires large ranges of inbound ports. A health probe can be used to determine which back-ends should be receiving new flows.  You can use a Network Security Group to emulate a port range scenario. Basic load balancer doesn't support HA Ports. Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
@@ -71,8 +71,9 @@ Load balancer supports multiple rules with multiple frontends.  Standard Load Ba
 Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
 
 **Floating IP** is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts: 
-  - a flow topology and 
-  - an IP address mapping scheme. 
+
+- Flow topology
+- An IP address mapping scheme
 
 At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
 Without Floating IP, Azure exposes a traditional load balancing IP address mapping scheme for ease of use (the VM instances' IP). Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
