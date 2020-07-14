@@ -1,6 +1,6 @@
 ---
 title: ResourceSelector UI element
-description: Describes the Microsoft.Common.ResourceSelector UI element for Azure portal. Used for getting a list of existing resources.
+description: Describes the Microsoft.Solutions.ResourceSelector UI element for Azure portal. Used for getting a list of existing resources.
 author: tfitzmac
 
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: tomfitz
 
 ---
 
-# Microsoft.Common.ResourceSelector UI element
+# Microsoft.Solutions.ResourceSelector UI element
 
 ResourceSelector lets users select an existing resource from a subscription.
 
 ## UI sample
 
-![Microsoft.Common.ResourceSelector](./media/managed-application-elements/microsoft.solutions.resourceselector.png)
+![Microsoft.Solutions.ResourceSelector](./media/managed-application-elements/microsoft.solutions.resourceselector.png)
 
 ## Schema
 

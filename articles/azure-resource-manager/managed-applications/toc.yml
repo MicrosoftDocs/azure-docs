@@ -145,6 +145,8 @@
         href: microsoft-network-virtualnetworkcombo.md
     - name: Solutions
       items:
+      - name: ArmApiControl
+        href: microsoft-solutions-armapicontrol.md
       - name: ResourceSelector
         href: microsoft-solutions-resourceselector.md
     - name: Storage

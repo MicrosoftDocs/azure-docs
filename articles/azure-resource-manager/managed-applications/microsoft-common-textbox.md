@@ -58,6 +58,37 @@ A control that can be used to edit unformatted text.
 - The `message` property is a string to display when the text box's value fails validation.
 - It's possible to specify a value for `regex` when `required` is set to **false**. In this scenario, a value isn't required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
 
+## Example
+
+The following example uses a text box with the [Microsoft.Solutions.ArmApiControl](microsoft-solutions-armapicontrol.md) control to check the availability of a resource name.
+
+```json
+"basics": [
+    {
+        "name": "nameApi",
+        "type": "Microsoft.Solutions.ArmApiControl",
+        "request": {
+            "method": "POST",
+            "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2019-06-01')]",
+            "body": "[parse(concat('{\"name\": \"', basics('txtStorageName'), '\", \"type\": \"Microsoft.Storage/storageAccounts\"}'))]"
+        }
+    },
+    {
+        "name": "txtStorageName",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Storage account name",
+        "constraints": {
+            "validations": [
+                {
+                    "isValid": "[not(equals(basics('nameApi').nameAvailable, false))]",
+                    "message": "[concat('Name unavailable: ', basics('txtStorageName'))]"
+                }
+            ]
+        }
+    }
+]
+```
+
 ## Next steps
 
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
