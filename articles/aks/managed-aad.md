@@ -9,7 +9,7 @@ ms.date: 07/13/2020
 ms.author: thomasge
 ---
 
-# AKS-managed Azure Active Directory integration (Preview)
+# AKS-managed Azure Active Directory integration
 
 > [!NOTE]
 > Existing AKS (Azure Kubernetes Service) clusters with Azure Active Directory (Azure AD) integration are not affected by the new AKS-managed Azure AD experience.
@@ -29,36 +29,13 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
->
-> - [AKS Support Policies](support-policies.md)
-> - [Azure Support FAQ](faq.md)
+## Prerequisites
 
-## Before you begin
-
-* Locate your Azure Account tenant ID by navigating to the Azure portal and select Azure Active Directory > Properties > Directory ID
+* The Azure CLI version 2.8.1 or later
+* Kubectl with a minimum version of [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
 
 > [!Important]
 > You must use Kubectl with a minimum version of 1.18
-
-You must have the following resources installed:
-
-- The Azure CLI, version 2.5.1 or later
-- The aks-preview 0.4.38 extension
-- Kubectl with a minimum version of [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
-
-To install/update the aks-preview  extension or later, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli
-az extension update --name aks-preview
-az extension list
-```
 
 To install kubectl, use the following commands:
 
@@ -68,22 +45,6 @@ kubectl version --client
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
-
-```azurecli-interactive
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Create an AKS cluster with Azure AD enabled
 
