@@ -59,7 +59,7 @@ The `Guest` role isn't a management role. It's a term used for an account that's
 
 Follow these steps to grant guest access to an Azure Time Series Insights environment to an Azure AD user from another tenant.
 
-1. Go to Azure Portal, click on  **Azure Active Directory**, scroll down on the **Overview** tab and then select **Guest user**.
+1. Go to Azure portal, click on  **Azure Active Directory**, scroll down on the **Overview** tab and then select **Guest user**.
 
     [![Select Data Access Polices, then + Invite](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
