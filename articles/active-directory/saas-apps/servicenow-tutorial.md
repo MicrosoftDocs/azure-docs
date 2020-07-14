@@ -103,8 +103,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL|
+	|----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` | 
 
@@ -177,8 +177,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL |
+	|-----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` |
 
