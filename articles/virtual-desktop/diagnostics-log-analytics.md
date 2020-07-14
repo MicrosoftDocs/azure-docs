@@ -134,7 +134,7 @@ Access example queries through the Azure Monitor Log Analytics UI:
 
 Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-In the following is a list of queries that help you to review connection information or issues for a single user. Execute them in the Log Analytics [query editor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal#write-and-run-basic-queries). Replace userupn in each query by the actual UPN of the user you want to find out more.
+The following query list lets you review connection information or issues for a single user. You can run these queries in the [Log Analytics query editor](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). For each query, replace `userupn` with the UPN of the user you want to look up.
 
 
 To find all connections for a single user:
