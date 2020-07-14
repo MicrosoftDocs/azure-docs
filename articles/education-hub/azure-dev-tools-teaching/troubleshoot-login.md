@@ -4,7 +4,8 @@ description: This describes the actions a student should take if they receive an
 author: rymend	
 ms.author: rymend	
 ms.topic: troubleshooting	
-ms.prod: azure	
+ms.service: azure-education
+ms.subservice: education-hub
 ms.date: 06/30/2020	
 ---	
 
@@ -19,19 +20,19 @@ There are two solutions: create a new Microsoft account or use an existing Micro
 
 ## Create a new Microsoft account
 ### Use a university email address
-If you are logging in with a university email address (for example, John.Smith@university.edu), you will need to create a Microsoft Account with that email address. Creating an account is free and takes just a few minutes. Having a Microsoft Account will allow you to automatically log into all your Microsoft products with a single username and password.
+If you're logging in with a university email address (for example, `John.Smith@university.edu`), you'll need to create a Microsoft account with that email address. Creating an account is free and takes just a few minutes. Having a Microsoft account will allow you to automatically log into all your Microsoft products with a single username and password.
 
 ### Use a personal email address
-If you are logging in with a personal email address (for example, John.Smith@email.com), but also have a university email address, try using the university email address. If you previously logged into your institution's webstore with a personal email address or do not have a university email address, you will need to create or link a Microsoft Account with your personal email address.
+If you're logging in with a personal email address (for example, `John.Smith@email.com`) but also have a university email address, try using the university email address. If you previously logged into your institution's webstore with a personal email address or do not have a university email address, you'll need to create or link a Microsoft account with your personal email address.
 
 ## Use an existing Microsoft account
-If a student has an existing Microsoft account (for example, XBOX), they can connect that account to an Azure Dev Tools account.
+If a student has an existing Microsoft account (for example, Xbox), they can connect that account to an Azure Dev Tools account.
 
-1. Go to account.microsoft.com.
+1. Go to https://account.microsoft.com.
 1. Log in with your Microsoft account credentials.
 1. Select **Your info** from the top ribbon menu.
 
-1. Click **Manage how you sign into Microsoft**. You will be asked to verify your identity. You will be emailed a security code.
+1. Click **Manage how you sign into Microsoft**. You'll be asked to verify your identity. You'll be emailed a security code.
 
     :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Manage sign in." border="false":::
 
