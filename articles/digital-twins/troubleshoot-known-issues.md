@@ -27,3 +27,8 @@ The instructions for this can be found in [*How-to: Manage endpoints and routes*
 ### Possible causes
 
 You are signed into the portal with a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an *@outlook.com* account. Managing event routes in the Azure portal is currently only available to Azure users on corporate-domain accounts.
+
+## Next steps
+
+Read more about security and permissions on Azure Digital Twins:
+* [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
