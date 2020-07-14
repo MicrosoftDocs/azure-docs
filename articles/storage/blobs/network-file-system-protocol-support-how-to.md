@@ -79,7 +79,7 @@ Your storage account must be contained within a VNet. To learn more about VNet, 
 
 The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
-To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations#networking.md).
+To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 
 ## Step 4: Create and configure a storage account
@@ -112,9 +112,8 @@ You can accept the default values for all other settings.
 
 Create a container in your storage account by using any of these tools or SDKs:
 
-|||
-|---|---|
 |Tools|SDKs|
+|---|---|
 |[Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|

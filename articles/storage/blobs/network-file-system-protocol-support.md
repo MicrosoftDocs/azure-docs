@@ -61,11 +61,11 @@ A client can connect from any of these locations:
 
   This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
 
-## Account security
+## Network security
 
 The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
 
-To learn more, see [Network security recommendations for Blob storage](security-recommendations#networking.md).
+To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 ## Azure Storage features not yet supported
 
