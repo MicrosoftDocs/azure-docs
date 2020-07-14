@@ -4,8 +4,8 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 07/12/2020
 ms.author: rogarana
 ---
 
@@ -52,7 +52,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 ## Regional availability
 
-Azure Files authentication with AD DS is available in [all Public regions and Azure Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with AD DS is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview
 

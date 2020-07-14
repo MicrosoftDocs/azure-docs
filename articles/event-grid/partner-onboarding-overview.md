@@ -1,13 +1,8 @@
 ---
 title: Onboard as an Azure Event Grid partner
 description: Onboard as an Azure Event Grid partner topic type. Understand the resource model and publishing flow for partner topics.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
 
 # Onboard as an Azure Event Grid partner

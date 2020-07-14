@@ -69,11 +69,17 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 Start by creating an Azure Monitor Private Link Scope resource.
 
-1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
-2. Click **create**. 
-3. Pick a Subscription and Resource Group. 
-4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
+1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
+
+   ![Find Azure Monitor Private Link Scope](./media/private-link-security/ampls-find-1c.png)
+
+2. Click **create**.
+3. Pick a Subscription and Resource Group.
+4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem".
 5. Click **Review + Create**. 
+
+   ![Create Azure Monitor Private Link Scope](./media/private-link-security/ampls-create-1d.png)
+
 6. Let the validation pass, and then click **Create**.
 
 ## Connect Azure Monitor resources
@@ -112,7 +118,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
    a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
  
-   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. 
+   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
  
    c.    Click **Review + create**.
  
@@ -158,9 +164,8 @@ Restricting access in this manner only applies to data in the Application Insigh
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
-
-> [!NOTE]
-> Code-level diagnostics (profiler/debugger) currently do not support Private Link.
+>
+> Code-level diagnostics (profiler/debugger) need you to provide your own storage account to support private link. Here's [documentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) for how to do this.
 
 ## Use APIs and command line
 
@@ -170,7 +175,7 @@ To create and manage private link scopes, use [az monitor private-link-scope](ht
 
 To manage network access, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) or [Application Insights components](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## Collect Custom Logs over Private Link
+## Collect custom logs over Private Link
 
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -216,7 +221,14 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 
 | Cloud environment | Agent Resource | Ports | Direction |
 |:--|:--|:--|:--|
-|Azure Public     | scadvisor.blob.core.windows.net         | 443 | Outbound
+|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
+### Browser DNS settings
+
+If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resource must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
+
+## Next steps
+
+- Learn about [private storage](private-storage.md)

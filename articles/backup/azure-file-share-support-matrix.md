@@ -18,7 +18,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 
 ### Supported regions for accidental delete protection
 
-West Central US
+West Central US, Australia South East, Canada Central, West Central US, India South, North Central US, Japan East, Brazil South, South Central US, Australia East, East US, East US 2
 
 ## Supported storage accounts
 
@@ -26,7 +26,8 @@ West Central US
 | ------------------------ | ------------------------------------------------------------ |
 | Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
-| Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
+| Replication              | Azure  file shares in storage accounts with any replication type are  supported |
+| Firewall enabled         | Azure file shares in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|
 
 ## Supported file shares
 
@@ -41,14 +42,16 @@ West Central US
 
 | Setting                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maximum  number of file shares that can be protected per day per vault | 200   |
+| Maximum  number of file shares that can be protected per vault per day| 200   |
 | Maximum  number of storage accounts that can be registered per vault per day | 50    |
+| Maximum  number of file shares that can be protected  per vault | 2000   |
+| Maximum  number of storage accounts that can be registered per vault | 200   |
 
 ## Backup limits
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 4     |
+| Maximum  number of on-demand backups per day | 10   |
 | Maximum  number of scheduled backups per day | 1     |
 
 ## Restore limits

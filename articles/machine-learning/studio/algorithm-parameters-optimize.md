@@ -5,7 +5,7 @@ description: Explains how to choose the optimal parameter set for an algorithm i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

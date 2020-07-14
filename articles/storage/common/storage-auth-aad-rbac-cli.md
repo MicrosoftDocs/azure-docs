@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) authorizes access rights to secured resources 
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure CLI to list built-in RBAC roles and assign them to users. For more information about using Azure CLI, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure).
+This article describes how to use Azure CLI to list built-in RBAC roles and assign them to users. For more information about using Azure CLI, see [Azure Command-Line Interface (CLI)](/cli/azure).
 
 ## RBAC roles for blobs and queues
 

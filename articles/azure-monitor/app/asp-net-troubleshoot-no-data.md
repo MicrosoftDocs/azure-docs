@@ -121,7 +121,7 @@ Fix:
 *I ran my app and then opened the Application Insights service in Microsoft Azure, but all the charts show 'Learn how to collect...' or 'Not configured.'* Or, *only Page View and user data, but no server data.*
 
 * Run your application in debug mode in Visual Studio (F5). Use the application so as to generate some telemetry. Check that you can see events logged in the Visual Studio output window.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Screenshot that shows running your application in debug mode in Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * In the Application Insights portal, open [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md). Data usually appears here first.
 * Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 * Check the instrumentation keys match. On the main blade for your app in the Application Insights portal, in the **Essentials** drop-down, look at **Instrumentation key**. Then, in your project in Visual Studio, open ApplicationInsights.config and find the `<instrumentationkey>`. Check that the two keys are equal. If not:  
@@ -155,7 +155,6 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## I used to see data, but it has stopped
-* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## I don't see all the data I'm expecting

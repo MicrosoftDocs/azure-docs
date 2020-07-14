@@ -32,7 +32,7 @@ To further understand how these four elements of change feed processor work toge
 There are two host instances and the change feed processor is assigning different ranges of partition key values to each instance to maximize compute distribution. 
 Each range is being read in parallel and its progress is maintained separately from other ranges in the lease container.
 
-![Change feed processor example](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Change feed processor example" border="false":::
 
 ## Implementing the change feed processor
 

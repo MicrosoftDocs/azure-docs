@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 07/12/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -46,7 +46,8 @@ Synonym maps must be in the Apache Solr format which is explained below. If you 
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+```synonym-map
+	POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -56,10 +57,12 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	      USA, United States, United States of America\n
 	      Washington, Wash., WA => WA\n"
 	}
+```
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
     {
@@ -68,10 +71,12 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 	      USA, United States, United States of America\n
 	      Washington, Wash., WA => WA\n"
     }
+```
 
 ##### Apache Solr synonym format
 
 The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
+
 ```
 USA, United States, United States of America
 ```
@@ -79,30 +84,38 @@ USA, United States, United States of America
 With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
 
 Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left-hand side of "=>" will be replaced with the alternatives on the right-hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
+
 ```
 Washington, Wash., WA => WA
 ```
 
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+```synonym-map
+	GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 #### Get a synonym map under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 ### Configure a searchable field to use the synonym map in the index definition.
 
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+```synonym-map
+	POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -133,6 +146,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 	      }
 	   ]
 	}
+```
 
 **synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
 

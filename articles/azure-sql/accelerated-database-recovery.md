@@ -1,7 +1,7 @@
 ---
 title: Accelerated database recovery
 titleSuffix: Azure SQL 
-description: Accelerated database recovery provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for databases in the Azure SQL service portfolio. 
+description: Accelerated database recovery provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for databases in the Azure SQL portfolio. 
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=4
@@ -15,7 +15,7 @@ ms.date: 05/19/2020
 # Accelerated Database Recovery in Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Accelerated Database Recovery (ADR)** is a SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VMs, and databases in Azure Synapse (currently in preview). The primary benefits of ADR are:
+**Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VM, and databases in Azure Synapse Analytics (currently in preview). The primary benefits of ADR are:
 
 - **Fast and consistent database recovery**
 
@@ -47,15 +47,15 @@ Database recovery follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/c
 
   For each transaction that was active as of the time of the crash, traverses the log backwards, undoing the operations that this transaction performed.
 
-Based on this design, the time it takes the SQL database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the recovery process can take a long time in the presence of long-running transactions (such as large bulk insert operations or index build operations against a large table).
+Based on this design, the time it takes the SQL Server database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the recovery process can take a long time in the presence of long-running transactions (such as large bulk insert operations or index build operations against a large table).
 
 Also, cancelling/rolling back a large transaction based on this design can also take a long time as it is using the same Undo recovery phase as described above.
 
-In addition, the SQL database engine cannot truncate the transaction log when there are long-running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL database engine, some customers used to face the problem that the size of the transaction log grows very large and consumes huge amounts of drive space.
+In addition, the SQL Server database engine cannot truncate the transaction log when there are long-running transactions because their corresponding log records are needed for the recovery and rollback processes. As a result of this design of the SQL Server database engine, some customers used to face the problem that the size of the transaction log grows very large and consumes huge amounts of drive space.
 
 ## The Accelerated Database Recovery process
 
-ADR addresses the above issues by completely redesigning the SQL database engine recovery process to:
+ADR addresses the above issues by completely redesigning the SQL Server database engine recovery process to:
 
 - Make it constant time/instant by avoiding having to scan the log from/to the beginning of the oldest active transaction. With ADR, the transaction log is only processed from the last successful checkpoint (or oldest dirty page Log Sequence Number (LSN)). As a result, recovery time is not impacted by long running transactions.
 - Minimize the required transaction log space since there is no longer a need to process the log for the whole transaction. As a result, the transaction log can be truncated aggressively as checkpoints and backups occur.
@@ -89,11 +89,11 @@ The ADR recovery process has the same three phases as the current recovery proce
 
 The four key components of ADR are:
 
-- **Persisted Version Store (PVS)**
+- **Persisted version store (PVS)**
 
-  The persisted version store is a new SQL database engine mechanism for persisting the row versions generated in the database itself instead of the traditional `tempdb` version store. PVS enables resource isolation as well as improves availability of readable secondaries.
+  The persisted version store is a new SQL Server database engine mechanism for persisting the row versions generated in the database itself instead of the traditional `tempdb` version store. PVS enables resource isolation as well as improves availability of readable secondaries.
 
-- **Logical Revert**
+- **Logical revert**
 
   Logical revert is the asynchronous process responsible for performing row-level version-based Undo - providing instant transaction rollback and undo for all versioned operations. Logical revert is accomplished by:
 

@@ -67,20 +67,20 @@ Visual Studio Code generates an Azure Functions project with an HTTP triggered f
 
 Your app now has a project structure similar to the following example.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
 Next, you'll change the `GetMessage` function to return a message to the front-end.
 
@@ -122,7 +122,7 @@ Next, you'll change the `GetMessage` function to return a message to the front-e
 
 With the above settings, the API endpoint is:
 
-- Triggered with an HTTP request is made to the function
+- Triggered when an HTTP request is made to the function
 - Available to all requests regardless of authentication status
 - Exposed via the _/api/message_ route
 
@@ -151,7 +151,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 ### Call the API from the application
 
-When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have you configure the application settings to proxy requests to the local API.
+When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have to configure the application settings to proxy requests to the local API.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
@@ -173,7 +173,7 @@ When deployed to Azure, requests to the API are automatically routed to the Func
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>

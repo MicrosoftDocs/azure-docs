@@ -28,7 +28,7 @@ start using management groups, we allow the creation of the initial management g
 level.
 
 You can create the management group by using the portal, a
-[Resource Manager template](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group),
+[Azure Resource Manager template](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group),
 PowerShell, or Azure CLI.
 
 ### Create in portal

@@ -20,9 +20,10 @@ Customer intent: As a key vault administrator, I want to move my vault to anothe
 
 ## Overview
 
-**Moving a key vault to another subscription will cause a breaking change to your environment.**
-
-Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
+> [!IMPORTANT]
+> **Moving a key vault to another subscription will cause a breaking change to your environment.**
+> Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
+> If you are using Managed Service Identities (MSI) please read the post-move instructions at the end of the document. 
 
 When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
@@ -62,9 +63,8 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 4. Select the "Move" button
 5. Select "Move to another subscription" from the dropdown options
 6. Select the resource group where you want to move your key vault
-7. Select the resource group where you want to move your key vault
-8. Acknowledge the warning regarding moving resources
-9. Select "OK"
+7. Acknowledge the warning regarding moving resources
+8. Select "OK"
 
 ### Additional steps (post move)
 
@@ -95,6 +95,9 @@ Now that your vault is associated with the correct tenant ID and old access poli
 
 If you are using a managed identity for Azure resources, you will need to update it to the new Azure AD tenant as well. For more information on managed identities, see [Provide Key Vault authentication with a managed identity](managed-identity.md).
 
-If you are using MSI, you'll also have to update the MSI identity since the old identity will no longer be in the correct AAD tenant.
+If you are using MSI, you'll also have to update the MSI identity since the old identity will no longer be in the correct AAD tenant. See the following documents to help resolve this issue. 
+
+* [Updating MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
+* [Transfer Subscription to New Directory](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
 
 

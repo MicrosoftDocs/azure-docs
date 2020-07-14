@@ -2,22 +2,18 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
-ms.reviewer: richagi
-
+ms.author: kenwith
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---
+
 # Use tenant restrictions to manage access to SaaS cloud applications
 
 Large organizations that emphasize security want to move to cloud services like Office 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
@@ -58,7 +54,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs. Note that such inspection is only possible in TLS 1.2 and below.
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
@@ -97,7 +93,7 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 2. In the left pane, select **Azure Active Directory**. The Azure Active Directory overview page appears.
 
-3. In the **Other capabilities** heading, select **Tenant restrictions**.
+3. On the Overview page, select **Tenant restrictions**.
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 

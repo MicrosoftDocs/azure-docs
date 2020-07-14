@@ -5,8 +5,8 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout (preview)
 
-By using a staged rollout approach you can avoid a cutover of your entire domain.  This allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
 	
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
@@ -78,8 +78,8 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
->[!NOTE]
-> Because tenanted endpoints do not send login hints, they are not supported for staged rollout. 
+- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+
 
 ## Get started with staged rollout
 
@@ -171,6 +171,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
 
 ## Auditing
 

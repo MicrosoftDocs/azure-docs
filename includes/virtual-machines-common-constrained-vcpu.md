@@ -40,6 +40,15 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_E32-8s_v3  | 8    | Same as E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Same as E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Same as E64s_v3 |
+| Standard_E4-2s_v4   | 2    | Same as E4s_v4  |
+| Standard_E8-4s_v4   | 4    | Same as E8s_v4  |
+| Standard_E8-2s_v4   | 2    | Same as E8s_v4  |
+| Standard_E16-8s_v4  | 8    | Same as E16s_v4 |
+| Standard_E16-4s_v4  | 4    | Same as E16s_v4 |
+| Standard_E32-16s_v4 | 16   | Same as E32s_v4 |
+| Standard_E32-8s_v4  | 8    | Same as E32s_v4 |
+| Standard_E64-32s_v4 | 32   | Same as E64s_v4 |
+| Standard_E64-16s_v4 | 16   | Same as E64s_v4 |
 | Standard_E4-2ds_v4  | 2    | Same as E4ds_v4 |
 | Standard_E8-4ds_v4  | 4    | Same as E8ds_v4 |
 | Standard_E8-2ds_v4  | 2    | Same as E8ds_v4 |
@@ -60,3 +69,5 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_DS13-2_v2  | 2    | Same as DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Same as DS14_v2 |
 | Standard_DS14-4_v2  | 4    | Same as DS14_v2 |
+| Standard_M416-208s_v2 | 208    | Same as M416s_v2|
+| Standard_M416-208ms_v2 | 208    | Same as M416ms_v2 |

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/26/2020
 
 ---
@@ -31,7 +31,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 1. In **Step 3**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base":::
-    
+
 1. In **Step 3**, name your knowledge base **My Sample QnA KB**.
 
 1. In **Step 4**, configure the settings with the following table:
