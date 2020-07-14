@@ -71,7 +71,7 @@ For nodes running Windows, the following versions are supported:
 >[!NOTE]
 >The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product SKU does not contain an implementation of DSC. Thus it can't be managed by PowerShell DSC or Azure Automation State Configuration.
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](../../../powershell/scripting/dsc/getting-started/lnxgettingstarted.md).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted.md).
 
 ### DSC requirements
 
