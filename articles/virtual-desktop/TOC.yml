@@ -46,6 +46,8 @@
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -108,6 +110,8 @@
     href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
+  - name: Windows Virtual Desktop FAQ
+    href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
   - name: Data locations

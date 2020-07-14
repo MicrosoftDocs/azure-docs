@@ -26,6 +26,18 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## June 2020
+
+### Search by topics
+
+You can now use the search API to search for videos with specific topics (API only).
+
+Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) for details.  
+
+### Labels enhancement
+
+The label tagger was upgraded and now includes more visual labels that can be identified.
+
 ## May 2020
 
 ### Video Indexer deployed in the East US
