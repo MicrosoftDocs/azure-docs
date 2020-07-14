@@ -1,20 +1,16 @@
 ---
 title: Using Twilio for Voice, VoIP, and SMS Messaging in Azure
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Node.js.
-services: ''
 documentationcenter: nodejs
 author: georgewallace
-
 ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-
 ---
+
 # Using Twilio for Voice, VoIP, and SMS Messaging in Azure
 This guide demonstrates how to build apps that communicate with Twilio and node.js on Azure.
 
