@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 07/14/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -70,39 +70,41 @@ This VNet will contain three subnets.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 1. Select **Networking** > **Virtual network**.
-1. For **Name**, type **Test-FW-VN**.
-1. For **Address space**, type **10.0.0.0/16**.
-1. For **Subscription**, select your subscription.
-1. For **Resource group**, select **Test-FW-RG**.
-1. For **Location**, select the same location that you used previously.
-1. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Address range**, type **10.0.1.0/26**.
-1. Accept the other default settings, and then select **Create**.
+2. For **Subscription**, select your subscription.
+3. For **Resource group**, select **Test-FW-RG**.
+4. For **Name**, type **Test-FW-VN**.
+5. For **Region**, select the same location that you used previously.
+6. Select **Next: IP addresses**.
+7. For **IPv4 Address space**, type **10.0.0.0/16**.
+8. Under **Subnet**, select **default**.
+9. For **Subnet name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+10. For **Address range**, type **10.0.1.0/26**.
+11. Select **Save**.
 
-### Create an additional subnet
+   Next, create a subnet for the workload server.
 
-Next, create a subnet for the workload servers.
-
-1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Test-FW-RG**.
-2. Select the **Test-FW-VN** virtual network.
-3. Select **Subnets** > **+Subnet**.
-4. For **Name**, type **Workload-SN**.
-5. For **Address range**, type **10.0.2.0/24**.
-6. Select **OK**.
+1. Select **Add subnet**.
+4. For **Subnet name**, type **Workload-SN**.
+5. For **Subnet address range**, type **10.0.2.0/24**.
+6. Select **Add**.
+7. Select **Review + create**.
+8. Select **Create**.
 
 ### Create a virtual machine
 
 Now create the workload virtual machine, and place it in the **Workload-SN** subnet.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
-3. Enter these values for the virtual machine:
+2. Select **Compute** and then select **Virtual machine**.
+3. **Windows Server 2016 Datacenter** in the Featured list.
+4. Enter these values for the virtual machine:
 
    |Setting  |Value  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Virtual machine name     |**Srv-Work**|
    |Region     |Same as previous|
+   |Image|Windows Server 2019 Datacenter|
    |Administrator user name     |Type a user name|
    |Password     |Type a password|
 
@@ -131,14 +133,14 @@ Deploy the firewall into the VNet.
    |Name     |**Test-FW01**|
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Add new**. The Public IP address must be the Standard SKU type.|
+   |Public IP address     |**Add new**<br>**Name**:  **fw-pip**|
 
 5. Select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
 
    This will take a few minutes to deploy.
 7. After deployment completes, go to the **Test-FW-RG** resource group, and select the **Test-FW01** firewall.
-8. Note the firewall private IP address. You'll use it later when you create the default route.
+8. Note the firewall private and public IP addresses. You'll use these addresses later.
 
 ## Create a default route
 
@@ -169,7 +171,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 
 ## Configure an application rule
 
-This is the application rule that allows outbound access to www.google.com.
+This is the application rule that allows outbound access to `www.google.com`.
 
 1. Open the **Test-FW-RG**, and select the **Test-FW01** firewall.
 2. On the **Test-FW01** page, under **Settings**, select **Rules**.
@@ -182,7 +184,7 @@ This is the application rule that allows outbound access to www.google.com.
 9. For **Source type**, select **IP address**.
 10. For **Source**, type **10.0.2.0/24**.
 11. For **Protocol:port**, type **http, https**.
-12. For **Target FQDNS**, type **www.google.com**
+12. For **Target FQDNS**, type **`www.google.com`**
 13. Select **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
@@ -200,7 +202,8 @@ This is the network rule that allows outbound access to two IP addresses at port
 7. For **Protocol**, select **UDP**.
 9. For **Source type**, select **IP address**.
 1. For **Source**, type **10.0.2.0/24**.
-2. For **Destination address**, type **209.244.0.3,209.244.0.4**
+2. For **Destination type** select **IP address**.
+3. For **Destination address**, type **209.244.0.3,209.244.0.4**
 
    These are public DNS servers operated by CenturyLink.
 1. For **Destination Ports**, type **53**.
@@ -242,12 +245,12 @@ For testing purposes in this tutorial, configure the server's primary and second
 Now, test the firewall to confirm that it works as expected.
 
 1. Connect a remote desktop to firewall public IP address and sign in to the **Srv-Work** virtual machine. 
-3. Open Internet Explorer and browse to https://www.google.com.
+3. Open Internet Explorer and browse to `https://www.google.com`.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Google home page.
 
-5. Browse to https://www.microsoft.com.
+5. Browse to `https://www.microsoft.com`.
 
    You should be blocked by the firewall.
 
