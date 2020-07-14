@@ -145,7 +145,7 @@ When the command completes, it outputs a JSON object that contains different con
 
 In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host.
 
-### Create the App Service host
+### Create the App Service app
 
 In the terminal, make sure you're in the repository root (`djangoapp`) that contains the app code.
 
@@ -229,7 +229,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
 > [!NOTE]
-> When starting the app host, App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](how-to-configure-python.md).
+> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](how-to-configure-python.md).
 
 
 ## Make code changes and redeploy
