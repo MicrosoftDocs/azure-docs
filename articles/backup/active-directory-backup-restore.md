@@ -9,7 +9,7 @@ ms.date: 07/08/2020
 
 Backing up Active Directory, and ensuring successful restores in cases of corruption, compromise or disaster is a critical part of Active Directory maintenance.
 
-This article will outline the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they Azure virtual machines or on-premises servers. It discusses the scenario where you need to restore all Active Directory data, because there are no functioning domain controllers left in the forest.
+This article outlines the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they're Azure virtual machines or on-premises servers. It discusses a scenario where you need to restore an entire domain controller to its state at the time of backup. To see which restore scenario is appropriate for you, see [this article](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-determine-how-to-recover).  
 
 >[!NOTE]
 > This article does not discuss restoring items from [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). For information on restoring Azure Active Directory users, see [this article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore).
@@ -22,7 +22,7 @@ This article will outline the proper procedures for backing up and restoring Act
 
 - Have a clear disaster recovery plan that includes instructions on how to restore your domain controllers. To prepare for restoring an Active Directory forest, read the [Active Directory Forest Recovery Guide](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 
-- Only use backups to restore all of Active Directory if none of the domain controllers in the domain are functioning. If you have a functioning domain controller, you should make a new server, add the **Active Directory Domain Services** server role to make it a domain controller in the existing domain. Then the Active Directory data will replicate to the new server.
+- If you need to restore a domain controller, and have a remaining functioning domain controller in the domain, you can make a new server instead of restoring from backup. Add the **Active Directory Domain Services** server role to the new server to make it a domain controller in the existing domain. Then the Active Directory data will replicate to the new server. To remove the previous domain controller from Active Directory, follow the steps [in this article](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/ad-ds-metadata-cleanup) to perform metadata cleanup.
 
 >[!NOTE]
 >Azure Backup does not include item level restore for Active Directory. If you wish to restore deleted objects, and you can access a domain controller, use the [Active Directory Recycle Bin](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#ad_recycle_bin_mgmt). If that method is not available, you can use your domain controller backup to restore the deleted objects with the **ntdsutil.exe** tool as explained [here](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
@@ -49,7 +49,7 @@ To back up an on-premises domain controller, you need to back up the server's Sy
 
 Active Directory data can be restored in one of two modes: **authoritative** or **nonauthoritative**. In an authoritative restore, the restored Active Directory data will override the data found on the other domain controllers in the forest.
 
-However, in our scenario there are no functioning domain controllers in the forest, so a **nonauthoritative** restore should be performed.
+However, in our scenario we're rebuilding a domain controller in an existing domain, so a **nonauthoritative** restore should be performed.
 
 During the restore, the server will be started in Directory Services Restore Mode (DSRM). You'll need to provide the Administrator password for Directory Services Restore Mode.
 
@@ -60,11 +60,10 @@ During the restore, the server will be started in Directory Services Restore Mod
 
 To restore an Azure VM domain controller, see [How to restore Azure VM data in Azure portal](backup-azure-arm-restore-vms.md).
 
-If you're restoring a single domain controller VM or multiple domain controller VMs in a single domain, restore the VMs like any other. Directory Services Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable.
+If you're restoring a single domain controller VM or multiple domain controller VMs in a single domain, restore them like any other VM. Directory Services Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable.
 
-If it's the last remaining domain controller in the domain, or a recovery in an isolated network is performed, use a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
-
-If you need to restore multiple domains in one forest, we recommend a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+>[!NOTE]
+> Virtualized domain controllers, from Windows 2012 onwards use [virtualization based safeguards](https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100#virtualization-based-safeguards). With these safeguards, Active directory understands if the VM restored is a domain controller, and performs the necessary steps to restore the Active Directory data.
 
 ### Restoring on-premises domain controllers
 
