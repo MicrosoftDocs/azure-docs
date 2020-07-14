@@ -125,6 +125,3 @@ In this quick start you learned how to:
 > * Send a message to the thread
 > * Receive messages from a thread
 
-Now you can try the [chat demo sample web application](get-started-with-chat-2)
- and explore some more advanced features 
-
