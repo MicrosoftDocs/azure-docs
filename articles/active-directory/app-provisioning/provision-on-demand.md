@@ -26,6 +26,8 @@ On-demand provisioning allows you to provision a user into an application in sec
 6. Search for a user by first name, last name, display name, user principal name, or email.
 7. Select provision at the bottom of the page.
 
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="On demand provision a user.":::
+
 ## Understanding the provisioning steps
 The on-demand provisioning capability attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provisioning a user, and one or more of the steps below will be shown in the on demand provisioning experience.
 
@@ -82,6 +84,8 @@ The view details pages shows the properties of the user(s) that were matched in 
 
 ### Step 5: Perform action
 Finally, the provisioning service takes an action such as creating, updating, deleting, or skipping the user. 
+
+:::image type="content" source="media/provision-on-demand/success_on_demand_provision.jpg" alt-text="Successful provision of user.":::
 
 **View details**
 
