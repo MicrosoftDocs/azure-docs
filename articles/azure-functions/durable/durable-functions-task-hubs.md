@@ -135,6 +135,19 @@ The task hub property in the `function.json` file is set via App Setting:
 }
 ```
 
+# [Python](#tab/python)
+
+The task hub property in the `function.json` file is set via App Setting:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
 ---
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
