@@ -126,7 +126,7 @@ The following table gives the equivalent types in Spark, Scala, and PySpark for 
 For more information, see:
 
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 

@@ -78,15 +78,15 @@ Azure Logic Apps connectors help your logic app access apps, services, and syste
 
 ## Triggers
 
-Triggers are special actions that create a logic app instance when a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
+A trigger is always the first step in a logic app workflow and is a special action that creates and runs a logic app instance when specific criteria are met or a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
 
-* **Polling trigger**: This trigger continually checks an endpoint for messages that satisfy the criteria for creating a logic app instance and starting the workflow. Even when no logic app instance gets created, Logic Apps meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
+* **Recurrence trigger**: You can use this generic trigger, which isn't specific to any service or system, to start any logic app workflow and create a logic app instance that runs based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+
+* **Polling trigger**: You can use this more specialized recurrence trigger, which is usually associated with the managed connector for a specific service or system, to check for events or messages that meet the criteria for creating and running logic app instance based on the recurrence interval that you set up in the trigger. Even when no logic app instance gets created, for example, when triggers are skipped, the Logic Apps service meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook trigger**: This trigger waits for a client to send a request to a specific endpoint. Each request sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both webhook triggers.
-
-* **Recurrence trigger**: This trigger creates a logic app instance based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+* **Webhook trigger**: Rather than use a polling trigger, you can use a webhook trigger to wait for the client to send a request to your logic app at a specific endpoint URL. Each request that's sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both generic webhook triggers. Some connectors for services or systems also have webhook triggers.
 
 <a name="actions"></a>
 
