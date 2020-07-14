@@ -9,13 +9,20 @@ ms.author: mblythe
 ms.date: 06/15/2020
 ---
 
-# Quickstart: Create a dashboard in the Azure portal by using an Azure Resource Manager template
+# Quickstart: Create a dashboard in the Azure portal by using an ARM template
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying a Resource Manager template to create a dashboard. The dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a dashboard. The dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An existing VM.
 
 ## Create a virtual machine
 
@@ -58,9 +65,9 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 1. Select or enter the following values, then select **Review + create**.
 
-    ![Resource Manager template, create dashboard, deploy portal](media/quick-create-template/create-dashboard-using-template-portal.png)
+    ![ARM template, create dashboard, deploy portal](media/quick-create-template/create-dashboard-using-template-portal.png)
 
-    Unless it is specified, use the default values to create the dashboard.
+    Unless it's specified, use the default values to create the dashboard.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **SimpleWinVmResourceGroup**.
@@ -70,7 +77,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 1. Select **Create** or **Purchase**. After the dashboard has been deployed successfully, you get a notification:
 
-    ![Resource Manager template, create dashboard, deploy portal notification](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![ARM template, create dashboard, deploy portal notification](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal was used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 

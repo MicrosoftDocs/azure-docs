@@ -11,7 +11,9 @@ ms.author: sunasing
 
 Azure FarmBeats helps you to bring weather data from your weather data provider(s) using a docker-based Connector Framework. Using this framework, weather data providers implement a docker that can be integrated with FarmBeats. Currently the following weather data providers are supported:
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 The weather data can be used to generate actionable insights and build AI/ML models on FarmBeats.
 
@@ -23,7 +25,7 @@ To get weather data, ensure that you have installed FarmBeats. **Weather integra
 
 To start getting weather data on your FarmBeats Data hub, follow the steps below:
 
-1. Go to your FarmBeats Data hub swagger (https://farmbeatswebsite-api.azurewebsites.net/swagger)
+1. Go to your FarmBeats Data hub swagger ```https://farmbeatswebsite-api.azurewebsites.net/swagger```
 
 2. Navigate to /Partner API and make a POST request with the following input payload:
 
@@ -55,6 +57,9 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
    ```
 
    For example, to get weather data from DTN, use the payload below. You can modify the name and description as per your preference.
+
+   > [!NOTE]
+   > The below step requires an API key, please contact DTN to get the same for your DTN subscription.
 
    ```json
    {
@@ -136,10 +141,7 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 
 ## Query ingested weather data
 
-After the weather jobs are complete, you can query ingested weather data to build models or actionable insights. There are two ways to access and query weather data from FarmBeats:
-
-- API and
-- Time Series Insights (TSI).
+After the weather jobs are complete, you can query ingested weather data to build models or actionable insights using FarmBeats Datahub REST APIs.
 
 ### Query using REST API
 
@@ -205,19 +207,10 @@ To query weather data using FarmBeats REST API, follow the steps below:
 
 In the preceding example, the response has data for two timestamps along with the measure name ("Temperature") and values of the reported weather data in the two timestamps. You will need to refer to the associated Weather Data Model (as described in step 2 above) to interpret the type and unit of the reported values.
 
-### Query using Azure Time Series Insights (TSI)
+## Troubleshoot job failures
 
-FarmBeats uses [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
+To troubleshoot job failures, you can check for the job logs. Please follow the [steps here](troubleshoot-azure-farmbeats.md#weather-data-job-failures) for the same.
 
-Weather data is received on an EventHub and then pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Follow the steps to visualize data on TSI:
-
-1. Go to **Azure portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
-
-2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You can now visualize the ingested weather data.
-
-Apart from storing, querying and visualization of weather data, TSI also enables integration to a Power BI dashboard. For more information, see [Visualize data from Time Series Insights in Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 
 ## Appendix
 

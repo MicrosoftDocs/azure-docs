@@ -137,5 +137,4 @@ The replacement of primary nodes should be performed one node after another, ins
 ## Next steps
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
-* [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
+* [Create a standalone Service Fabric cluster with Azure VMs running Windows](./service-fabric-cluster-creation-via-arm.md)

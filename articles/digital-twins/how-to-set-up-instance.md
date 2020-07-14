@@ -25,19 +25,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up an Azure Digital Twins instance
 
-Next, run the following commands to create a new Azure resource group for use in this how-to, and then create a new instance of Azure Digital Twins in this resource group.
+Next, you will create a new Azure resource group for use in this how-to. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
+
+You'll also need to provide a name for your instance and choose a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+
+>[!NOTE]
+> The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll have to pick a different name).
+
+Create the resource group and the instance with the following commands:
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
-
-> [!TIP]
-> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
-> ```azurecli
-> az account list-locations -o table
-> ```
-> To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 The result of these commands looks something like this, outputting information about the resources you've created:
 
@@ -56,15 +56,17 @@ In order to use Azure Digital Twins with a client application, you'll also need 
 
 #### Assign yourself a role
 
-Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. 
+Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
 
-First, make sure you are classified as an owner in your Azure subscription. You can check this by using the `az role assignment list --assignee <your-Azure-email>` command and verifying that the *roleDefinitionName* value is *Owner*. As an owner on the subscription, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
+To be able to do this, you need to be classified as an owner in your Azure subscription. You can check this by running the `az role assignment list --assignee <your-Azure-email>` command, and verifying in the output that the *roleDefinitionName* value is *Owner*. If you find that the value is *Contributor* or something other than *Owner*, please contact your subscription administrator with the power to grant permissions in your subscription. They can either elevate your role on the entire subscription so that you can run the following command, or an owner can run the following command on your behalf to set up your Azure Digital Twins permissions for you.
+
+To assign your user "owner" permissions in your Azure Digital Twins instance, use the following command (must be run by an owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-The result of this command is outputted information about the role assignment you've created.
+The result of this command is outputted information about the role assignment that's been created.
 
 > [!TIP]
 > If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for your user:
@@ -73,7 +75,7 @@ The result of this command is outputted information about the role assignment yo
 > ```
 > Then, repeat the role assignment command using your user's *Object ID* in place of your email.
 
-You now have an Azure Digital Twins instance ready to go.
+You now have an Azure Digital Twins instance ready to go, and permissions to manage it.
 
 ## Next steps
 

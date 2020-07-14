@@ -47,12 +47,12 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 
  - The customer-manged key is stored in an Azure Key Vault. 
  - Enable both the **Soft Delete** and **Do Not Purge** properties on the key vault. These features are required to allow for recovery of keys in case of accidental deletion.
- - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+ - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 - The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
 ### Assignment of an identity to the Automation account
 
-To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 Configure a system assigned managed identity to the Automation account using the following REST API call:
 
@@ -180,7 +180,7 @@ Rotating the key does not trigger re-encryption of secure assets in the Automati
 
 ## Revocation of access to a customer-managed key
 
-To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all secure assets in the Automation account, as the encryption key is inaccessible by Azure Automation.
+To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all secure assets in the Automation account, as the encryption key is inaccessible by Azure Automation.
 
 ## Next steps
 

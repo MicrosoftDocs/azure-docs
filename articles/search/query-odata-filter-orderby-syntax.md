@@ -79,7 +79,9 @@ The meaning of a field path differs depending on the context. In filters, a fiel
 
 Consider the field path `Address/City`. In a filter, this refers to a single city for the current document, like "San Francisco". In contrast, `Rooms/Type` refers to the `Type` sub-field for many rooms (like "standard" for the first room, "deluxe" for the second room, and so on). Since `Rooms/Type` doesn't refer to a *single instance* of the sub-field `Type`, it can't be used directly in a filter. Instead, to filter on room type, you would use a [lambda expression](search-query-odata-collection-operators.md) with a range variable, like this:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 In this example, the range variable `room` appears in the `room/Type` field path. That way, `room/Type` refers to the type of the current room in the current document. This is a single instance of the `Type` sub-field, so it can be used directly in the filter.
 

@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the route service. Th
 > * Display multiple routes on your map
 
 ## Prerequisites
-Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and select the S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and select the S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new map
 
@@ -201,7 +201,7 @@ The route API allows users to plan routes in the future using Azure's extensive 
 
 All of the following code blocks should be added **within the map load eventListener** to ensure they load after the map completely loads.
 
-1. In the GetMap function, add the following to Javascript code.
+1. In the GetMap function, add the following to JavaScript code.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

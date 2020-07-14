@@ -101,11 +101,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to the preceding attributes, the MongoDB Cloud application expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them per your requirements.
 	
-	| Name | |  Source attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.userprincipalname |
-	| firstName | | user.givenname |
-	| lastName | | user.surname |
+	| Name | Source attribute|
+	| ---------------| --------- |
+	| email | user.userprincipalname |
+	| firstName | user.givenname |
+	| lastName | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it on your computer.
 
