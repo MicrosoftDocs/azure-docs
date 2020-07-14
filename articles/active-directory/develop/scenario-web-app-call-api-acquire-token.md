@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
@@ -47,6 +47,7 @@ The `ITokenAcquisition` service is injected by ASP.NET by using dependency injec
 Here's simplified code for the action of the `HomeController`, which gets a token to call Microsoft Graph:
 
 ```csharp
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
@@ -61,6 +62,8 @@ public async Task<IActionResult> Profile()
 ```
 
 To better understand the code required for this scenario, see the phase 2 ([2-1-Web app Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial.
+
+The `AuthorizeForScopes` attribute on top of the controller action (or of the Razor page if you use a Razor template) is provided by Microsoft.Identity.Web. It ensures that the user is asked for consent if needed, and incrementally.
 
 There are other complex variations, such as:
 
