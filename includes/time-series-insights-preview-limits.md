@@ -11,7 +11,7 @@ manager: diviso
 ms.custom: include file
 ---
 
-### Azure Time Series Insights Gen1 and Gen2 comparison
+### Azure Time Series Insights Gen2 limits
 
 ### Property limits
 
