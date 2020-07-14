@@ -28,4 +28,4 @@ Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-d
 
 ## See also
 
-[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md)

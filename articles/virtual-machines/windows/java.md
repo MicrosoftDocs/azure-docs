@@ -460,5 +460,4 @@ It should take about five minutes for this console application to run completely
 
 
 ## Next steps
-* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Learn more about using the [Azure libraries for Java](/java/azure/java-sdk-azure-overview).
