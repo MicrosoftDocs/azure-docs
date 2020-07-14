@@ -136,9 +136,9 @@ The current design presents the following issues and limitations:
 
 For official Azure documentation about creating a service principal, see:
 
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Create a service principal by using Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### Suggestions
 
