@@ -20,12 +20,6 @@ Learn how to deploy the Cognitive Services [Form Recognizer](form-recognizer-con
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## Request access to the container registry
-
-You must first complete and submit the [Cognitive Services Form Recognizer Containers access request form](https://aka.ms/FormRecognizerContainerRequestAccess) to request access to the container. Doing so also signs you up for Computer Vision. You don't need to sign up for the Computer Vision request form separately. 
-
-[!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 [!INCLUDE [Create a Cognitive Services Form Recognizer resource](includes/create-resource.md)]
 
 [!INCLUDE [Create an Form Recognizer container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
