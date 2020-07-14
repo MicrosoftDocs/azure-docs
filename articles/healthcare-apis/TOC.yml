@@ -86,7 +86,7 @@
     href: enable-diagnostic-logging.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
-  - name: Troubleshoot failures in IoT Connector
+  - name: Troubleshoot failures in Azure IoT Connector for FHIR - IoT Connector (preview)
     href: iot-troubleshoot-guide.md
 - name: Concepts
   expanded: false
