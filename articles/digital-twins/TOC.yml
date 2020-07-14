@@ -77,9 +77,7 @@
     - name: EXAMPLE TROUBLESHOOT
       href: troubleshoot-example.md
     - name: Known issues
-      items:
-      - name: EXAMPLE ISSUE
-        href: troubleshoot-issue-example.md
+      href: troubleshoot-known-issues.md
 - name: Reference
   items:
   - name: Digital Twins service limits
