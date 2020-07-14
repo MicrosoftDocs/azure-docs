@@ -13,14 +13,11 @@ ms.author: aahi
 
 # Install and run Form Recognizer containers (Preview)
 
-[!INCLUDE [Not accepting new applications](includes/not-accepting-container-applications.md)]
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Azure Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries with the key-value pairs and then outputs structured data that includes the relationships in the original file. 
 
 To reduce complexity and easily integrate a custom Form Recognizer model into your workflow automation process or other application, you can call the model by using a simple REST API. Only five form documents (or one empty form and two filled-in forms) are needed, so you can get results quickly, accurately, and tailored to your specific content. No heavy manual intervention or extensive data science expertise is necessary. And it doesn't require data labeling or data annotation.
-
-> [!IMPORTANT]
-> The Form Recognizer containers currently use version 1.0 of the Form Recognizer API. You can access the latest version of the API by using the managed service instead.
 
 | Function | Features |
 |----------|----------|

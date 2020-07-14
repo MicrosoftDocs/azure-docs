@@ -12,14 +12,11 @@ ms.author: aahi
 ---
 # Configure Form Recognizer containers
 
-[!INCLUDE [Not accepting new applications](includes/not-accepting-container-applications.md)]
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
 You configure the Form Recognizer container run-time environment by using the `docker run` command arguments. This container has several required settings and a few optional settings. For a few examples, see the ["Example docker run commands"](#example-docker-run-commands) section. The container-specific settings are the billing settings.
-
-> [!IMPORTANT]
-> The Form Recognizer containers currently use version 1.0 of the Form Recognizer API. You can access the latest version of the API by using the managed service instead.
 
 ## Configuration settings
 
