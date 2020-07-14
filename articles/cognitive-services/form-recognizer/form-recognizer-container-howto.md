@@ -7,11 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
 ---
 
 # Install and run Form Recognizer containers (Preview)
+
+[!INCLUDE [Not accepting new applications](includes/not-accepting-container-applications.md)]
 
 Azure Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries with the key-value pairs and then outputs structured data that includes the relationships in the original file. 
 
@@ -59,14 +61,6 @@ This key is used to start the container, and is available on the Azure portal's 
 
 > [!IMPORTANT]
 > These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
-
-## Request access to the container registry
-
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## The host computer
 

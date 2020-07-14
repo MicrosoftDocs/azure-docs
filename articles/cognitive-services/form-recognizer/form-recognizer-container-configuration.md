@@ -7,10 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
 ---
 # Configure Form Recognizer containers
+
+[!INCLUDE [Not accepting new applications](includes/not-accepting-container-applications.md)]
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
