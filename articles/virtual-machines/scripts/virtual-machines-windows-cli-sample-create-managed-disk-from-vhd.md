@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a managed disk from a VHD file in a storage account in the same subscription with CLI
+# Create a managed disk from a VHD file in a storage account in the same subscription with CLI (Windows)
 
 This script creates a managed disk from a VHD file in a storage account in the same subscription. Use this script to import a specialized (not generalized/sysprepped) VHD to managed OS disk to create a virtual machine. Or, use it to import a data VHD to managed data disk.
 

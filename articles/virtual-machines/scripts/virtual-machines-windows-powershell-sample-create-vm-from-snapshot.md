@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a virtual machine from a snapshot with PowerShell
+# Create a virtual machine from a snapshot with PowerShell (Windows)
 
 This script creates a virtual machine from a snapshot of an OS disk. 
 

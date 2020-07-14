@@ -18,7 +18,7 @@ ms.date: 02/28/2019
 ms.author: ramankum
 ---
 
-# Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
+# Copy snapshot of a managed disk in same subscription or different subscription with PowerShell (Windows)
 
 This script copies a snapshot of a managed disk to same or different subscription. Use this script for the following scenarios:
 

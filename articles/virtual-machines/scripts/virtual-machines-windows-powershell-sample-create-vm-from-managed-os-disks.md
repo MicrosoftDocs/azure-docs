@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a virtual machine using an existing managed OS disk with PowerShell
+# Create a virtual machine using an existing managed OS disk with PowerShell (Windows)
 
 This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceding scenarios:
 * Create a VM from an existing managed OS disk that was copied from a managed disk in different subscription

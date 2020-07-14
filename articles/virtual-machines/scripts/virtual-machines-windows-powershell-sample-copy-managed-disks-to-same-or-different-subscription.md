@@ -18,7 +18,7 @@ ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
-# Copy managed disks in the same subscription or different subscription with PowerShell
+# Copy managed disks in the same subscription or different subscription with PowerShell (Windows)
 
 This script creates a copy of an existing managed disk in the same subscription or different subscription. The new disk is created in the same region as the parent managed disk.   
 

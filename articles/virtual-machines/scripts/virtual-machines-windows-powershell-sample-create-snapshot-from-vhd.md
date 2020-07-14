@@ -18,7 +18,7 @@ ms.date: 06/05/2017
 ms.author: ramankum
 ---
 
-# Create a snapshot from a VHD to create multiple identical managed disks in small amount of time with PowerShell
+# Create a snapshot from a VHD to create multiple identical managed disks in small amount of time with PowerShell (Windows)
 
 This script creates a snapshot from a VHD file in a storage account in same or different subscription. Use this script to import a specialized (not generalized/sysprepped) VHD to a snapshot and then use the snapshot to create multiple identical managed disks in small amount of time. Also, use it to import a data VHD to a snapshot and then use the snapshot to create multiple managed disks in small amount of time. 
 
