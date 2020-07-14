@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/13/2020
 ---
 
 # Move operation support for resources
@@ -386,6 +386,8 @@ Jump to a resource provider namespace:
 
 > [!IMPORTANT]
 > Runbooks must exist in the same resource group as the Automation Account.
+>
+> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.AVS
 
@@ -2181,7 +2183,7 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | locations / validateresourceownership | No | No |
 > | locations / virtualnetworkavailableendpointservices | No | No |
-> | natgateways | Yes | Yes |
+> | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
 > | networkintentpolicies | Yes | Yes |
 > | networkinterfaces | Yes | Yes |

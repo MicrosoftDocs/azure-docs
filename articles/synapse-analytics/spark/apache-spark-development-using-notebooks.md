@@ -105,7 +105,7 @@ You cannot reference data or variables directly across different languages in a 
 
 ### IDE-style IntelliSense
 
-Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error maker, and automatic code completions help you to write code and identify issues quicker.
+Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
 The IntelliSense features are at different levels of maturity for different languages. Use the table below to see what's supported.
 

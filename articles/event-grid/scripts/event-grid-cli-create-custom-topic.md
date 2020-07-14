@@ -1,17 +1,9 @@
 ---
 title: Azure CLI script sample - Create custom topic | Microsoft Docs
 description: This article provides a sample Azure CLI script that shows how to create an Azure Event Grid custom topic.
-services: event-grid
-documentationcenter: na
-author: spelluru
-
-ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 07/08/2020
 ---
 
 # Create Event Grid custom topic with Azure CLI

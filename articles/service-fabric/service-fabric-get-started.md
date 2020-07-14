@@ -36,7 +36,7 @@ The following operating system versions are supported for development:
 
 ## Install the SDK and tools
 
-Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Web Platform Installer (WebPI) is the recommended way to install the SDK and tools. If you receive runtime errors using WebPI, you can also find direct links to the installers in the release notes for a specific Service Fabric release. The release notes can be found in the various release announcements on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > Local Service Fabric development cluster upgrades are not supported.

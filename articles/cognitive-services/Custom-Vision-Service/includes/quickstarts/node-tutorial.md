@@ -57,7 +57,7 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 
 (async () => {
     console.log("Creating project...");
-    const sampleProject = await trainer.createProject("Sample Project")
+    const sampleProject = await trainer.createProject("Sample Project");
 ```
 
 ### Create tags in the project
@@ -65,8 +65,8 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
 To create classification tags to your project, add the following code to the end of *sample.js*:
 
 ```javascript
-const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
-const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
+    const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
+    const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
 ### Upload and tag images
@@ -77,22 +77,22 @@ To add the sample images to the project, insert the following code after the tag
 > You'll need to change *sampleDataRoot* to the path to the images based on where you downloaded the Cognitive Services Node.js SDK Samples project earlier.
 
 ```javascript
-console.log("Adding images...");
-let fileUploadPromises = [];
-
-const hemlockDir = `${sampleDataRoot}/Hemlock`;
-const hemlockFiles = fs.readdirSync(hemlockDir);
-hemlockFiles.forEach(file => {
-    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
-});
-
-const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
-const japaneseCherryFiles = fs.readdirSync(cherryDir);
-japaneseCherryFiles.forEach(file => {
-    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
-});
-
-await Promise.all(fileUploadPromises);
+    console.log("Adding images...");
+    let fileUploadPromises = [];
+    
+    const hemlockDir = `${sampleDataRoot}/Hemlock`;
+    const hemlockFiles = fs.readdirSync(hemlockDir);
+    hemlockFiles.forEach(file => {
+        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
+    });
+    
+    const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
+    const japaneseCherryFiles = fs.readdirSync(cherryDir);
+    japaneseCherryFiles.forEach(file => {
+        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
+    });
+    
+    await Promise.all(fileUploadPromises);
 ```
 
 ### Train the classifier and publish
@@ -100,20 +100,20 @@ await Promise.all(fileUploadPromises);
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
-console.log("Training...");
-let trainingIteration = await trainer.trainProject(sampleProject.id);
-
-// Wait for training to complete
-console.log("Training started...");
-while (trainingIteration.status == "Training") {
+    console.log("Training...");
+    let trainingIteration = await trainer.trainProject(sampleProject.id);
+    
+    // Wait for training to complete
+    console.log("Training started...");
+    while (trainingIteration.status == "Training") {
+        console.log("Training status: " + trainingIteration.status);
+        await setTimeoutPromise(1000, null);
+        trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
+    }
     console.log("Training status: " + trainingIteration.status);
-    await setTimeoutPromise(1000, null);
-    trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
-}
-console.log("Training status: " + trainingIteration.status);
-
-// Publish the iteration to the end point
-await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
+    
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
 ### Get and use the published iteration on the prediction endpoint
