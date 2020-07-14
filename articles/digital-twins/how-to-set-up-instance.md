@@ -21,7 +21,7 @@ This article will walk you through the steps to set up a new Azure Digital Twins
 1. Creating the instance
 2. Assigning yourself [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to manage the instance
 
-This article describes two possible ways to go through these steps. The first is to run an **automated deployment script** sample that streamlines the process. The second is to complete the steps yourself **manually**.
+This article describes two possible ways to go through these steps. The first is to run an [**automated deployment script** sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. The second is to complete the steps yourself **manually**.
 
 Whichever process you are using, both require an Azure subscription (which you can set up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and utilize Azure Cloud Shell.
 
