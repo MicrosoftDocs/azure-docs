@@ -13,7 +13,7 @@ manager: lizross
 # Enable Azure Multi-Factor Authentication for Windows Virtual Desktop
 
 >[!IMPORTANT]
-> If you're visiting this page from the Fall 2019 documentation, make sure to [return to the Fall 2019 documentation](../virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
+> If you're visiting this page from the Fall 2019 documentation, make sure to [return to the Fall 2019 documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
