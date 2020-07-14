@@ -1,15 +1,15 @@
 ---
-title: Troubleshooting Guide and How To
+title: Azure IoT Connector for FHIR (IoT Connector) - Troubleshooting guide and how-to
 description: How to troubleshoot common IoT Connector error messages and conditions and copy mapping files
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: jasteppe
 ---
-# IoT Connector (preview) Troubleshooting Guide and How To's
+# IoT Connector (preview) Troubleshooting Guide and How To
 
 In this article, you'll learn how to troubleshoot common IoT Connector (preview) error messages and conditions.
 
@@ -38,24 +38,34 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
 - On the lower left side of the Azure API for FHIR resource dashboard in the "Add-ins" section, click **"IoT Connector (preview)"**.
 
-:::image type="content" source="media/iomt-troubleshoot/mapping_files_main_with_box.PNG" alt-text="IoT Connector":::
+:::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.PNG" alt-text="IoT Connector":::
 
 - Select the IoT Connector (preview) which you'll be copying the mapping files from.
 
-:::image type="content" source="media/iomt-troubleshoot/mapping_files_select_Connector_with_box.PNG" alt-text="IoT Connector":::
+:::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.PNG" alt-text="IoT Connector":::
 
 - Select **"Configure device mapping"**.
 
-:::image type="content" source="media/iomt-troubleshoot/mapping_files_select_device_mapping_with_box.PNG" alt-text="IoT Connector":::
+:::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.PNG" alt-text="IoT Connector":::
 
 > [!NOTE]
 > This process can also be used for copying/saving the contents of the **"Configure FHIR mapping"** JSON.
 
 - Select the contents of the JSON and perform a "Copy" operation (for example: **Ctrl + c**). 
 
-:::image type="content" source="media/iomt-troubleshoot/mapping_files_select_device_mapping_json_with_box.PNG" alt-text="IoT Connector":::
+:::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.PNG" alt-text="IoT Connector":::
 
 - Perform a "Paste" operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, NotePad) and save the file with an *.json extension.
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, make sure to include copies of your mapping files to help with the troubleshooting process.
+
+## Next steps
+
+Check out frequently asked questions on IoT Connector
+
+>[!div class="nextstepaction"]
+>[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
+
+
+FHIR is the registered trademark of HL7 and is used with the permission of HL7.
