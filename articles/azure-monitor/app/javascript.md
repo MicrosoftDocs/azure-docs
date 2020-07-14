@@ -220,21 +220,21 @@ By setting `autoTrackPageVisitTime: true`, the time a user spends on each page i
 
 Browser/client-side data can be viewed by going to **Metrics** and adding individual metrics you are interested in:
 
-![](./media/javascript/page-view-load-time.png)
+![Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application.](./media/javascript/page-view-load-time.png)
 
 You can also view your data from the JavaScript SDK via the Browser experience in the portal.
 
 Select **Browser** and then choose **Failures** or **Performance**.
 
-![](./media/javascript/browser.png)
+![Screenshot of the Browser page in Application Insights showing how to add Browser Failures or Browser Performance to the metrics that you can view for your web application.](./media/javascript/browser.png)
 
 ### Performance
 
-![](./media/javascript/performance-operations.png)
+![Screenshot of the Performance page in Application Insights showing graphic displays of Operations metrics for a web application.](./media/javascript/performance-operations.png)
 
 ### Dependencies
 
-![](./media/javascript/performance-dependencies.png)
+![Screenshot of the Performance page in Application Insights showing graphic displays of Dependency metrics for a web application.](./media/javascript/performance-dependencies.png)
 
 ### Analytics
 
@@ -268,7 +268,7 @@ You can link your Application Insights resource to your own Azure Blob Storage c
 1. Select an Exception Telemetry item in the Azure portal to view its "End-to-end transaction details"
 2. Identify which source maps correspond to this call stack. The source map must match a stack frame's source file, but suffixed with `.map`
 3. Drag and drop the source maps onto the call stack in the Azure portal
-![](https://i.imgur.com/Efue9nU.gif)
+![An animated image showing how to drag and drop source map files from a build folder into the Call Stack window in the Azure portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### Application Insights Web Basic
 
