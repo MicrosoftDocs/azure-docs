@@ -200,4 +200,4 @@ When you click the Ekarda tile in the Access Panel, you should be automatically 
 
 ## Further reading
 
-ekarda's [Enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) 1 allows you to provision any number of staff to send eCards branded with your company logo to their clients and colleagues.  Learn more about provisioning ekarda as an SSO solution [here](https://support.ekarda.com/#SSO-Implementation).
+[ekarda's Enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) allows you to provision any number of staff to send eCards branded with your company logo to their clients and colleagues.  Learn more about provisioning ekarda as an SSO solution [here](https://support.ekarda.com/#SSO-Implementation).
