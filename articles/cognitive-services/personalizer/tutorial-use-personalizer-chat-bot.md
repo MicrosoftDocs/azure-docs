@@ -8,18 +8,16 @@ ms.author: diberry
 
 # Tutorial: Use Personalizer in .NET chat bot
 
-Use a C# .NET chat bot with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
-
-This chat bot suggests a specific coffee or tea to a user. The user can accept or reject that suggestion. This gives Personalizer information to help make the next suggestion.
+Use a C# .NET chat bot with a Personalizer loop to provide the correct content to a user. This chat bot suggests a specific coffee or tea to a user. The user can accept or reject that suggestion. This gives Personalizer information to help make the next suggestion more appropriate.
 
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Set up Personalizer key and endpoint
-> * Collect features
-> * Call Rank and Reward APIs
-> * Display top action, designated as _rewardActionId_
+> * Set up Azure resources
+> * Configure and run bot
+> * Interact with bot using Bot emulator
+> * Understand where and how the bot uses Personalizer
 
 
 ## How does the chat bot work?
@@ -106,12 +104,14 @@ There are a few cautions to note about this conversation:
 
 
 ## Install required software
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). The downloadable samples repository includes instructions if you would prefer to use the .NET Core CLI.
 - [Microsoft Bot Framework Emulator](https://aka.ms/botframeworkemulator) is a desktop application that allows bot developers to test and debug their bots on localhost or running remotely through a tunnel.
 
 ## Download the sample code of the chat bot
 
-The chat bot is available in the Personalizer samples repository. Clone the repository, then open the sample in the `/samples/ChatbotExample` directory with Visual Studio 2019.
+The chat bot is available in the Personalizer samples repository. Clone or [download](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/archive/master.zip) the repository, then open the sample in the `/samples/ChatbotExample` directory with Visual Studio 2019.
+
+To clone the repository, use the following Git command in a Bash shell (terminal).
 
 ```bash
 git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
@@ -123,7 +123,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 To use this chat bot, you need to create Azure resources for Personalizer and Language Understanding (LUIS).
 
-* [Create LUIS resources](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Select **both** in the creation step because you need both an authoring and prediction resources.
+* [Create LUIS resources](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Select **both** in the creation step because you need both authoring and prediction resources.
 * [Create Personalizer resource](how-to-create-resource.md) then copy the key and endpoint from the Azure portal. You will need to set these values in the `appsettings.json` file of the .NET project.
 
 ### Create LUIS app
@@ -208,7 +208,7 @@ The .NET solution is a simple bot framework chat bot. The code related to Person
 The `PersonalizerChatbot` class is derived from the `Microsoft.Bot.Builder.ActivityHandler`. It has three properties and methods to manage the conversation flow.
 
 > [!CAUTION]
-> Do not copy code from this tutorial. Use the sample code in the Personalizer samples repository on GitHub.
+> Do not copy code from this tutorial. Use the sample code in the [Personalizer samples repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples).
 
 ```csharp
 public class PersonalizerChatbot : ActivityHandler
@@ -410,6 +410,15 @@ private async Task RewardAsync(ITurnContext turnContext, string eventId, double 
     await _personalizerClient.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
 }
 ```
+
+## Design considerations for a bot
+
+This sample is meant to demonstrate a simple end-to-end solution of Personalizer in a bot. Your use case may be more complex.
+
+If you intent to use Personalizer in a production bot, plan for:
+* Real-time access to Personalizer _every time_ you need a ranked selection. The Rank API can't be batched or cached.  The reward call can be delayed or offloaded to a separate process and if you don't return a reward in the timed period, then a default reward value is set for the event.
+* Use-case based calculation of the reward: This example showed two rewards of zero and one with no range between and no negative value for a score. Your system made of need to more granular scoring.
+* Bot channels: This sample uses a single channel but if you intend to use more than one channel, or variations of bots on a single channel, that may need to be considered as part of the context features of the Personalizer model.
 
 ## Clean up resources
 
