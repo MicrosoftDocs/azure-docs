@@ -344,7 +344,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### `GetWeather`Activity
+#### `GetWeather` Activity
 
 ```javascript
 module.exports = async function (context, location) {
