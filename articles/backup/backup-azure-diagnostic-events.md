@@ -63,7 +63,7 @@ Currently, we continue to support the AzureBackupReport event for backward compa
 
 ### Steps to move to new diagnostics settings for a Log Analytics workspace
 
-1. Identify which vaults are sending data to the Log Analytics workspaces by using the legacy event and the subscriptions they belong to. Run the following query in each of your workspace(s) to identify these vaults and subscriptions.
+1. Identify which vaults are sending data to the Log Analytics workspaces by using the legacy event and the subscriptions they belong to. Run the following query in each of your workspaces to identify these vaults and subscriptions.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
