@@ -9,7 +9,7 @@ ms.date: 07/08/2020
 
 Backing up Active Directory, and ensuring successful restores in cases of corruption, compromise or disaster is a critical part of Active Directory maintenance.
 
-This article will outline the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they Azure virtual machines or on-premises servers. It discusses the scenario where all Active Directory data needs to be restored, because there are no functioning domain controllers left in the forest.
+This article will outline the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they Azure virtual machines or on-premises servers. It discusses the scenario where you need to restore all Active Directory data, because there are no functioning domain controllers left in the forest.
 
 >[!NOTE]
 > This article does not discuss restoring items from [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). For information on restoring Azure Active Directory users, see [this article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore).
@@ -25,7 +25,7 @@ This article will outline the proper procedures for backing up and restoring Act
 - Only use backups to restore all of Active Directory if none of the domain controllers in the domain are functioning. If you have a functioning domain controller, you should make a new server, add the **Active Directory Domain Services** server role to make it a domain controller in the existing domain. Then the Active Directory data will replicate to the new server.
 
 >[!NOTE]
->Azure Backup does not include item level restore for Active Directory. If you wish to restore deleted objects, and you can access a domain controller, use the [Active Directory Recycle Bin](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#ad_recycle_bin_mgmt). If that method is not available, you can use the **ndtdsutil.exe** tool as explained [here](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
+>Azure Backup does not include item level restore for Active Directory. If you wish to restore deleted objects, and you can access a domain controller, use the [Active Directory Recycle Bin](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#ad_recycle_bin_mgmt). If that method is not available, you can use your domain controller backup to restore the deleted objects with the **ntdsutil.exe** tool as explained [here](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
 >
 >For information about performing an authoritative restore of SYSVOL, see [this article](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-authoritative-recovery-sysvol).
 
