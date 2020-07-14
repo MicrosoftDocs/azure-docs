@@ -45,6 +45,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Expose NotebookInfo in the response of get workspace
     + Changes to have calls to list compute targets and getting compute target succeed on a remote run. Sdk functions to get compute target and list workspace compute targets will now work in remote runs.
     + Add deprecation mesages to the class descriptions for azureml.core.image classes
+    + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails
+    + Support workspace sku upgrade in workspace update method
   + **azureml-datadrift**
     + Update matplotlib version from 3.0.2 to 3.2.1 to support python 3.8.
   + **azureml-dataprep**
