@@ -19,8 +19,6 @@ Most customers start with the Free tier so they can evaluate the service. Post-e
 
 ## Feature availability by tier
 
-Almost every feature is available on every tier, including Free, but a feature or workflow that is resource intensive might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
-
 The following table describes tier-related feature constraints.
 
 | Feature | Limitations |
@@ -30,6 +28,8 @@ The following table describes tier-related feature constraints.
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
 | [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
 | [Integration with Azure Private Link](service-create-private-endpoint.md) | Not available on the Free tier. |
+
+Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
 ## Tiers (SKUs)
 

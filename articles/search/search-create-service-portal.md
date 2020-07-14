@@ -23,9 +23,9 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 
 ## Before you start
 
-The following service properties are fixed for the lifetime of the service and changing them requires a new service. Think carefully about these properties as create a service:
+The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
-* service name becomes part of the URL endpoint ([review tips](#name-the-service) for service names).
+* service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
 * service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity.
 * service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search.
 
