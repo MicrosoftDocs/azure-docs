@@ -1,5 +1,5 @@
 ---
-title: "Fast Forest Quantile Regression: Module Reference"
+title: "Fast Forest Quantile Regression: Module reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Fast Forest Quantile Regression module to create a regression model that can predict values for a specified number of quantiles.
 services: machine-learning
