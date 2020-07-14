@@ -91,14 +91,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Identifier** textbox, type a URL:
 
-	| |
+	| Identifier |
 	|--|
 	|  `https://sso.ringcentral.com` |
 	| `https://ssoeuro.ringcentral.com` |
 
 	b. In the **Reply URL** textbox, type a URL:
 
-	| |
+	| Reply URL |
 	|--|
 	| `https://sso.ringcentral.com/sp/ACS.saml2` |
 	| `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
