@@ -1,5 +1,5 @@
 ---
-title: Create a new SaaS offer for the Microsoft commercial marketplace 
+title: Create a SaaS offer in the Microsoft commercial marketplace 
 description: How to create a new Software as a Service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms
 ms.author: mingshen
@@ -42,9 +42,9 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 ## Configure your SaaS offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#publishing-options-and-requirements) and [Determine your publishing option](determine-your-listing-type.md).
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#call-to-action-options) and [Determine your publishing option](determine-your-listing-type.md).
 
-1. To sell through Microsoft and have us host transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-(optional)).
+1. To sell through Microsoft and have us host transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 
 1. To list your offer through the commercial marketplace and process transactions independently, select **No**, and then do one of the following:
    + To provide a free subscription for your offer, select **Get it now (Free)**. Then in the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/saas-app`.

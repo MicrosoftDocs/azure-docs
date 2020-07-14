@@ -36,7 +36,7 @@ After your offer is published, the call to action option you chose for your offe
 
 ***Figure 1: Example of call to action buttons in an offer listing***
 
-![Illustrates an offer listing in the storefront.](./partner-center-portal/media/listing-options.png)
+![Illustrates an offer listing in the storefront.](./media/listing-options.png)
 
 ### Technical requirements
 
@@ -86,9 +86,9 @@ You need to gather the following information that you’ll need for the Technica
   > [!NOTE]
   > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to enable one Azure App ID to be used to authenticate the connection between our two services. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) so we can verify that the connection between our two services is behind an authenticated communication. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so we can verify that the connection between our two services is behind an authenticated communication. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Azure Active Directory application ID**: You also need your [application ID](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To get its value, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory application ID**: You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To get its value, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
   The Azure AD application ID is associated with your publisher ID in your Partner Center account. You must use the same application ID for all offers in that account.
 
