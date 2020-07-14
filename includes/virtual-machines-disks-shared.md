@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/10/2020
+ ms.date: 07/14/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -32,9 +32,9 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 Azure shared disks is supported with the following operating systems:
 
-- SUSE SLE 15 SP1 and newer
-- Ubuntu 18.04 and newer
-- RHEL 8 and newer
+- [SUSE SLE HA 15SP1 and above](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [RHEL developer preview on any RHEL 8 version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
 - Windows Server 2008 and newer
 
 ## Sample workloads
@@ -54,18 +54,6 @@ Some popular applications running on WSFC include:
 ### Linux
 
 Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
-
-#### Ubuntu
-
-For information about how to set up Ubuntu high availability with Corosync and Pacemaker on Azure shared disks, see [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
-
-#### SUSE
-
-Azure shared disks can be leveraged with SUSE SLE HA 15SP1 and above. You can find more information on SUSE HA [here](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html).
-
-#### RedHat
-
-Azure shared disks can be leveraged with RHEL developer preview (on any version of RHEL 8). RedHat qualification is underway for full production support and will be available in the coming months. You can find more information on RHEL HA [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index).
 
 ## Persistent reservation flow
 
