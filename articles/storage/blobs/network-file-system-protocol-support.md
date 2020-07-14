@@ -32,11 +32,13 @@ To mount a storage account container, you'll have to do these things.
 
 3. Create an Azure Virtual Network (VNet).
 
-4. Create and configure storage account that accepts traffic only from the VNet.
+4. Configure network security.
 
-5. Create a container in the storage account.
+5. Create and configure storage account that accepts traffic only from the VNet.
 
-6. Mount the container.
+6. Create a container in the storage account.
+
+7. Mount the container.
 
 For step-by-step guidance, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
@@ -58,6 +60,12 @@ A client can connect from any of these locations:
 - An on-premises network that is connected to a peered network.
 
   This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
+
+## Account security
+
+The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+
+To learn more, see [Network security recommendations for Blob storage](security-recommendations#networking.md).
 
 ## Azure Storage features not yet supported
 

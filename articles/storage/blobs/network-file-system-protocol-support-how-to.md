@@ -50,7 +50,7 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
 5. If you plan to access a BlockBlobStorage account by using NFS 3.0 protocol, then register the `PremiumHns` feature by using the following command as well.
 
    ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
+   Register-AzProviderFeature -FeatureName -ProviderNamespace Microsoft.Storage  
    ```
 
 6. Register the resource provider by using the following command.
@@ -74,6 +74,12 @@ Your storage account must be contained within a VNet. To learn more about VNet, 
 
 > [!NOTE]
 > Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
+
+## Step 4: Configure network security
+
+The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
+
+To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations#networking.md).
 
 
 ## Step 4: Create and configure a storage account
@@ -106,45 +112,14 @@ You can accept the default values for all other settings.
 
 Create a container in your storage account by using any of these tools or SDKs:
 
-:::row:::
-   :::column span="":::
-      :heavy_check_mark: [Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [Python](data-lake-storage-directory-file-acl-python.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [JavaScript](data-lake-storage-directory-file-acl-javascript.md#create-a-container)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      :heavy_check_mark: [.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)
-   :::column-end:::
-   :::column span="":::
-      :heavy_check_mark: [Java](data-lake-storage-directory-file-acl-java.md#create-a-container)
-   :::column-end:::
-   :::column span="2":::
-      :heavy_check_mark: [REST](https://docs.microsoft.com/rest/api/storageservices/create-container)
-   :::column-end:::
-:::row-end:::
+|||
+|---|---|
+|Tools|SDKs|
+|[Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
+|[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## Step 6: Mount the container
 
