@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play Preview message conventions
 
-IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices communicate with an IoT hub using the MQTT protocol.
+IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices use the MQTT protocol to communicate with IoT Hub.
 
 You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language (DTDL) v2](https://aka.ms/DTDL) _model_. There are two types of model referred to in this article:
 
@@ -24,7 +24,7 @@ For more information, see [IoT Plug and Play components in models](concepts-comp
 
 To announce the model it implements, an IoT Plug and Play device includes the model ID in the MQTT connection packet by adding `model-id` to the `USERNAME` field.
 
-To discover the model a device implements, a service can get the model ID from:
+To discover the model that a device implements, a service can get the model ID from:
 
 - The device twin `modelId` field.
 - The Digital Twins `$metadata.$model` field.
@@ -73,7 +73,7 @@ A device can send any valid JSON that follows the DTDL v2 rules.
 
 ### Sample multiple components read-only property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it's not required if the device adds or updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property. The marker isn't required if the device adds or updates a property.
 
 :::row:::
    :::column span="":::
@@ -120,7 +120,7 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
 
 ## Writeable properties
 
-The device should acknowledge that it received the property by sending a reported property. The reported property should include:
+The device should confirm that it received the property by sending a reported property. The reported property should include:
 
 - `ac` - an acknowledgment code that uses an HTTP status code.
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
@@ -178,11 +178,11 @@ A device can send any valid JSON that follows the DTDL v2 rules:
 
 ### Sample multiple components writeable property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it is not required if the device adds or updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property. The marker isn't required if the device adds or updates a property.
 
 There's no guarantee that a desired property update includes the marker `{"__t": "c"}`, so devices mustn't check for the flag.
 
-The device should  acknowledge that it received the property by sending a reported property:
+The device should confirm that it received the property by sending a reported property:
 
 :::row:::
    :::column span="":::

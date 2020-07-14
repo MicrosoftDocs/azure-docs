@@ -61,7 +61,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 ## Regional availability
 
-This release of IoT Plug and Play, the Summer Refresh, is available in all Azure Regions.
+This IoT Plug and Play public preview refresh is available in all Azure Regions.
 
 ## Next steps
 
