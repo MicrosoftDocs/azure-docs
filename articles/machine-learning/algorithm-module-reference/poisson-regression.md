@@ -25,7 +25,7 @@ Use this module to create a poisson regression model in a pipeline. Poisson regr
 - A Poisson distribution is a discrete distribution; therefore, it is not meaningful to use this method with non-whole numbers.
 
 > [!TIP]
-> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression modules in the designer](https://docs.microsoft.com/en-us/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression modules in the designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
 
 After you have set up the regression method, you must train the model using a dataset containing examples of the value you want to predict. The trained model can then be used to make predictions.
 
