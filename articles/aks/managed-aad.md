@@ -171,6 +171,10 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
+## Limitations 
+* AKS-managed AAD integration cannot be disabled on existing clusters
+* Changing the AAD tenant associated with AKS-managed AAD integration is not supported
+
 ## Next steps
 
 * Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
