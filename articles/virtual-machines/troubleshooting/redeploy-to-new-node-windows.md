@@ -1,4 +1,4 @@
-﻿---
+---
 title: Redeploy Windows virtual machines in Azure | Microsoft Docs
 description: How to redeploy Windows virtual machines in Azure to mitigate RDP connection issues.
 services: virtual-machines-windows
@@ -36,5 +36,4 @@ Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## Next steps
-If you are having issues connecting to your VM, you can find specific help on [troubleshooting RDP connections](troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](detailed-troubleshoot-rdp.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](../windows/troubleshoot-app-connection.md).
-
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting RDP connections](troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](detailed-troubleshoot-rdp.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](./troubleshoot-app-connection.md).
