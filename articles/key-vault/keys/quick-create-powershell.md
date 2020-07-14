@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set and retrieve a key from Azure Key Vault'
+title: 'Quickstart: Set & view Azure Key Vault keys – Azure PowerShell'
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
