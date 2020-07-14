@@ -3,7 +3,7 @@ title: Search for a location using Azure Maps Search services
 description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service for geocoding and reverse geocoding.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/13/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -31,94 +31,67 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Request latitude and longitude for an address (geocoding)
 
-In this example, we're using the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert a both a complete and partial street address into latitude and longitude coordinates. The response will return detailed address properties such as street, postal code, and county/state/country region information. Also, the response will contain positional values in latitude and longitude.
+In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, and county/state/country region information.
 
 >[!TIP]
->If you have a set of addresses to geocode, you can use [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
+>If you have a set of addresses to geocode, you can use the [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
 
-1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button. You'll use this collection for the rest of the examples in this document.
+1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button. You'll can use this collection for the rest of the examples in this document.
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
 
-3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
+3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
 
     ```http
-    https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=400 Broad St, Seattle, WA 98109
+    https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. Click the blue **Send** button. The response body will contain location data for 400 Broad Street in the South Lake Union area of Seattle.
+4. Click the blue **Send** button. The response body will contain data for a single location.
 
-5. Now, we'll search an address that has two possible locations. In the **Params** section, change the `query` key to the following value:
+5. Now, we'll search an address that has two possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`.  Also, add the `typeahead` key, and set it's value to `true`. The `typeahead` flag tells the Address Search API to treat the query as a partial input and to return an array of predictive values.
 
-    ```plaintext
-        400 Broad, Seattle
-    ```
+    :::image type="content" source="./media/how-to-search-for-address/search-ambiguous-address.png" alt-text="Search for ambiguous address":::
 
-6. Add the following key/value pair to the **Params** section.  The `typeahead` flag tells the Address Search API to treat the query as a partial input and return an array of predictive values.
-
-    | Key | Value |
-    |-----|------------|
-    | typeahead | true |
-
-
-7. The **GET** request should now look like the following URL:
-
-   ```http
-    https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=400 Broad, Seattle&typeahead=true
-    ```
-
-8. Click the **Send** button. The response body will contain two results, one for a `400 Broad Street` in Belltown, and another for a `400 Broad Street` in South Lake Union.
+6. Click the **Send** button. The response body will contain data for three locations.
 
 ## Using Fuzzy Search API
 
-The Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) supports standard single line and free-form searches. The API allows search strings that contain any combination of Point of Interest (POI) tokens and geocoding. Furthermore, the query search results can be weighted by coordinate pairs, constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
-
-You can adjust fuzziness levels by using the `maxFuzzyLevel` or `minFuzzyLevel` parameters. For a complete list of all optional parameters, see [Fuzzy URI Parameters](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#uri-parameters)
+The Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) supports standard single line and free-form searches. The API supports search strings that contain any combination of Point of Interest (POI) tokens and geocoding. Furthermore, the query search results can be weighted by coordinate pairs, constrained by a coordinate and radius, or executed more generally without any geo biasing anchor points.
 
 >[!TIP]
->The default scope for search queries is the entire world. To avoid unnecessary and excessive results, use the `countrySet` parameter to scope to specific countries. For example, to search only over the United States and France, you would add `countrySet=US,FR` to the query string. For a complete list of supported countries, see [Search Coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+>Most Search queries default to maxFuzzyLevel=1 to gain performance and reduce unusual results. You can adjust fuzziness levels by using the `maxFuzzyLevel` or `minFuzzyLevel` parameters. For more information on `maxFuzzyLevel` and a complete list of all optional parameters, see [Fuzzy Search URI Parameters](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#uri-parameters)
 
 ### Search for an address using Fuzzy Search
 
-In this example, we'll use Fuzzy Search to search the entire world for `pizza`.  Then, we'll show you how to search over the scope of a specific country. Finally, we'll show you how you can use a lat./lon. pair to scope over a specific area.
+In this example, we'll use Fuzzy Search to search the entire world for `pizza`.  Then, we'll show you how to search over the scope of a specific country. Finally, we'll show you how you can use a coordinate pair to scope a search over a specific area.
 
 1. Open the Postman app, click **New** and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
 
     ```http
-   https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=pizza
+   https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
     ```
 
-    The _json_ attribute in the URL path determines the response format. This article uses json for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference documentation](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#uri-parameters).
+    >[!NOTE]
+    >The _json_ attribute in the URL path determines the response format. This article uses json for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference documentation](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#uri-parameters).
 
 3. Click **Send** and review the response body.
 
-    The ambiguous query string for "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
+    The ambiguous query string for "pizza" returned ten [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
   
-    The results are varied for this query, not tied to any particular reference location. Next, we'll use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage.
+    In the next step, we'll use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries, see [Search Coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
-4. In this example, we'll search for `pizza` only the United States. Add the following key/value pair to the **Params** section:
+4. Next, we'll search for `pizza` only the United States. Add the `countrySet` key to the **Params** section, and set it's value to `US`.
+Setting the `countrySet` key to `US` will bound the results to the United States.
 
-    | Key | Value |
-    |------------------|-------------------------|
-    | countrySet | US |
-  
-    The results are now bounded by the country code and the query returns pizza restaurants in the United States.
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Search for pizza in the United States":::
 
-5. Now, we'll search for `pizza` with an orientation bias at the Seattle Space Needle. Before we do a search for `pizza`, we'll get the coordinates for the Seattle Space Needle. In the **Params** section, replace the `pizza` value with `Seattle Space Needle` for the `query` key. Click **Send**.
+5. To get an even more targeted search, you can search over the scope of a lat./lon. coordinate pair. Go ahead and remove the `countrySet` key.  In this example, we'll instead use the lat./lon. of the Seattle Space Needle. In the **Params** section, add a `lat` key, and set its value to `47.620525`. Next, add a `lon` key, and set its value to `-122.349274`.
 
-6. Review the response results. Copy the coordinates pair from the response. Enter them as key/value pairs in the **Params** section. They should be the following values:
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-latlon.png" alt-text="Search for pizza at latitude and longitude pair":::
 
-    | Key | Value |
-    |-----|------------|
-    | lat | 47.620525 |
-    | lon | -122.349274 |
-
-7. Now that you have the coordinates for the Seattle Space Needle, replace `Seattle Space Needle` query with `pizza`. Click **Send**. The response should return about 10 results for pizza restaurants in or near the lat./lon. of the Seattle Space Needle.
-
-    >[!NOTE]
-    > You could have easily appended `Seattle Space Needle` to the `pizza` query value to retrieve the same results. However, this example is intended to demonstrate how you can use coordinates to define a specific bias for your searches.
+6. Click **Send**. The response should return  results for pizza restaurants near the Seattle Space Needle.
 
 ## Search for a street address using Reverse Address Search
 
@@ -131,32 +104,35 @@ In this example, we'll be making reverse searches using a few of the optional pa
 
 1. In the Postman app, click **New** and select **Request**. Enter a **Request name** for the request. Select the collection you created in the first section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
 
     ```http
-   https://atlas.microsoft.com/search/address/reverse/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=47.591180,-122.332700
+    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
     ```
   
 3. Click **Send** and review the response body. You should see one query result. The response includes key address information about Safeco Field.
   
 4. Now, we'll add the following key/value pairs to the **Params** section:
 
-    | Key | Value |
-    |-----|------------|
-    | number | true |
-    | returnSpeedLimit | true |
-    | returnRoadUse | true |
-    | roadUse | Arterial |
+    | Key | Value | Returns
+    |-----|------------|------|
+    | number | 1 ||
+    | returnSpeedLimit | true | Returns the speed limit at the address.|
+    | returnRoadUse | true | Returns road use types at the address. For all possible road use types, see [Road Use Types](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
+    | returnMatchType | true| Returns the type of match. For all possible values, see [Reverse Address Search Results](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-    The `number` parameter does this great thing.
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Search reverse.":::
 
-    The `returnSpeedLimit` parameter tells the API to return the speed limit at the address.
+5. Click **Send** and review the response body.
 
-    The `returnRoadUse` parameter tells the API to return an array of road use types at the address. To see all of the possible values see the `returnRoadUse` parameter in the [Reverse Search Parameters section](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
+6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. The `entityType` key returns address information scoped to the specified geography entity type. Since we've set `entityType` to `Municipality`, we'll get address point information scoped as part of the city of Seattle.  For all possible entity types, see [Entity Types](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    The `roadUse` parameter tells the API to restrict reverse geocodes to a specific type of `roaduse`.
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entitytype.png" alt-text="Search reverse entityType.":::
 
-5. Click **Send**.
+7. Click **Send**. Compare the results to those received in step 5.
+
+>[!TIP]
+>To get more information on these parameters, as well as to learn about others, see the [Reverse Search Parameters section](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
 
 ## Search for cross street using Reverse Address Cross Street Search
 
@@ -164,10 +140,10 @@ In this example, we'll search for a cross street based on the coordinates of an 
 
 1. In the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the first section or created a new one, and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `<Azure-Maps-Primary-Subscription-key>` with your primary subscription key. The request should look like the following URL:
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
   
     ```http
-   https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&query=47.591180,-122.332700
+   https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
   
 3. Click **Send** and review the response body. You'll notice that the response contains a `crossStreet` value of `Occidental Avenue South`.
