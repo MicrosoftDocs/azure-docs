@@ -19,7 +19,7 @@ You can also deploy Application Insights Profiler on these services:
 Application Insights Profiler is installed with the Azure Diagnostics extension. You just need to configure Azure Diagnostics to install Profiler and send profiles to your Application Insights resource.
 
 ## Enable Profiler for Azure Cloud Services
-1. Check to make sure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). OS Family 5 includes a compatible version of .NET Framework by default. 
+1. Check to make sure that you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). OS Family 5 includes a compatible version of .NET Framework by default. 
 
 1. Add [Application Insights SDK to Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
@@ -33,11 +33,11 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
 1. Configure the Azure Diagnostics extension to enable Profiler:
 
-    a. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
+    a. Locate the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
       ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
     b. Add the following `SinksConfig` section as a child element of `WadCfg`:  
 
