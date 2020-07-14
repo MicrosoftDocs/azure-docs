@@ -1,5 +1,5 @@
 ---
-title: "Poisson Regression: Module Reference"
+title: "Poisson Regression: Module reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Poisson Regression module to create a Poisson regression model.
 services: machine-learning
@@ -16,7 +16,7 @@ ms.date: 07/13/2020
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to create a poisson regression model in a pipeline. Poisson regression is intended for predicting numeric values, typically counts. Therefore, you should use this module to create your regression model only if the values you are trying to predict fit the following conditions:
+Use this module to create a Poisson regression model in a pipeline. Poisson regression is intended for predicting numeric values, typically counts. Therefore, you should use this module to create your regression model only if the values you are trying to predict fit the following conditions:
 
 - The response variable has a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution).  
 
