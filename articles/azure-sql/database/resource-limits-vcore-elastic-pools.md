@@ -167,7 +167,7 @@ You can set the service tier, compute size (service objective), and storage amou
 ### Fsv2-series compute generation (part 1)
 
 |Compute size (service objective)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
-|:--- | --: | --: | --: | --: |
+|:---| ---:|---:|---:|---:|---:|
 |Compute generation|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|
 |vCores|8|10|12|14|16|
 |Memory (GB)|15.1|136.2|136.2|136.2|136.2|
@@ -200,7 +200,7 @@ You can set the service tier, compute size (service objective), and storage amou
 ### Fsv2-series compute generation (part 2)
 
 |Compute size (service objective)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
-|:--- | --: | --: | --: | --: | --: |
+|:---| ---:|---:|---:|---:|---:|---:|
 |Compute generation|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|
 |vCores|18|20|24|32|36|72|
 |Memory (GB)|34.0|37.8|45.4|60.5|68.0|136.0|
@@ -369,7 +369,7 @@ You can set the service tier, compute size (service objective), and storage amou
 ### M-series compute generation (part 1)
 
 |Compute size (service objective)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
-|:--- | --: |--: |--: |--: |--: |
+|:---| ---:|---:|---:|---:|---:|---:|
 |Compute generation|M-series|M-series|M-series|M-series|M-series|M-series|
 |vCores|8|10|12|14|16|18|
 |Memory (GB)|235.4|294.3|353.2|412.0|470.9|529.7|
@@ -405,7 +405,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 ### M-series compute generation (part 2)
 
 |Compute size (service objective)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
-|:--- | --: |--: |--: |--: |
+|:---| ---:|---:|---:|---:|---:|
 |Compute generation|M-series|M-series|M-series|M-series|M-series|
 |vCores|20|24|32|64|128|
 |Memory (GB)|588.6|706.3|941.8|1883.5|3767.0|
