@@ -209,7 +209,7 @@ AKS manages the cluster autoscaler on your behalf and runs it in the managed con
 
 To configure logs to be pushed from the cluster autoscaler into Log Analytics, follow these steps.
 
-1. Set up a rule for resource logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
+1. Set up a rule for resource logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](./view-master-logs.md#enable-resource-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
 1. Click on the "Logs" section on your cluster via the Azure portal.
 1. Input the following example query into Log Analytics:
 

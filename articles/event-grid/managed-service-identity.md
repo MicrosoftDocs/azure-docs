@@ -1,13 +1,8 @@
 ---
 title: Event delivery with managed service identity
 description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/18/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Event delivery with a managed identity

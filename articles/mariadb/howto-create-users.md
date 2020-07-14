@@ -4,7 +4,7 @@ description: This article describes how you can create new user accounts to inte
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/2/2020
 ---
 

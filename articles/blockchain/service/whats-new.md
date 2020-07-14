@@ -59,11 +59,11 @@ Two phases help optimize scenarios where a member is being created in a long exi
 
 ## Known issues
 
-### Quorum v2.6.0 crashes when eth.estimateGas function is used
+### eth.estimateGas function throws exception in Quorum v2.6.0
 
 In Quorum v2.6.0, calls to *eth.estimateGas* function without providing the additional *value* parameter cause a *method handler crashed* exception. The Quorum team has been notified and a fix is expected end of July 2020. You can use the following workarounds until a fix is available:
 
-- Avoid using *eth.estimateGas* since it can affect performance. For more information about eth.estimateGas performance issues, see [Calling eth.estimateGas function reduces performance]. Include a gas value for each transaction. Most libraries will call eth.estimateGas if a gas value is not provided which causes Quorum v2.6.0 to crash.
+- Avoid using *eth.estimateGas* since it can affect performance. For more information about eth.estimateGas performance issues, see [Calling eth.estimateGas function reduces performance](#calling-ethestimategas-function-reduces-performance). Include a gas value for each transaction. Most libraries will call eth.estimateGas if a gas value is not provided which causes Quorum v2.6.0 to crash.
 - If you need to call *eth.estimateGas*, the Quorum team suggests you pass the additional parameter *value* as *0* as a workaround.
 
 ### Mining stops if fewer than four validator nodes
