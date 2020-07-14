@@ -119,7 +119,7 @@ For more information about Azure-SSIS runtime, see the following articles:
 
 ## Integration runtime location
 
-**Relationship between factory location and IR location**
+### Relationship between factory location and IR location
 
 When customer creates a data factory instance, they need to specify the location for the data factory. The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Metadata for the factory is only stored in the region of customer’s choice and will not be stored in other regions.
 
