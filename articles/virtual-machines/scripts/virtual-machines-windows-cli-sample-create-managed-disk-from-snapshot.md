@@ -1,5 +1,5 @@
 ---
-title: Create a managed disk from a snapshot - CLI Sample
+title: Create a managed disk from a snapshot (Windows) - CLI sample
 description: Azure CLI Script Sample - Create a managed disk from a snapshot
 services: virtual-machines-windows
 documentationcenter: storage
