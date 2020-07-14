@@ -89,11 +89,13 @@ From Security Center, you can enable and configure the JIT VM access.
     - Add custom ports with the **Add** button. 
     - Modify one of the default ports, by selecting it from the list.
 
-    In the **Add port configuration** pane for each port you modify, both custom and default, you can edit the following settings:
+    For each port (custom and default) the **Add port configuration** pane offers the following options:
 
     - **Protocol**- The protocol that is allowed on this port when a request is approved
     - **Allowed source IPs**- The IP ranges that are allowed on this port when a request is approved
     - **Maximum request time**- The maximum time window during which a specific port can be opened
+
+     1. Set the port security to your needs.
 
      1. Select **OK**.
 
