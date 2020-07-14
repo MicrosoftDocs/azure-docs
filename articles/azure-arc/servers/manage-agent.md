@@ -138,14 +138,14 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc for server
 
 You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc for servers (preview), see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
+
 ### Connect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
 
 A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
-
->[!NOTE]
->You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 To connect using a service principal, run the following command:
 
@@ -162,9 +162,6 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 ### Disconnect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
-
->[!NOTE]
->You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 To disconnect using a service principal, run the following command:
 
@@ -183,9 +180,6 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 
 This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
-
->[!NOTE]
->You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 To reconnect using a service principal, run the following command:
 
