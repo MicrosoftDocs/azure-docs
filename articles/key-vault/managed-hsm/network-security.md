@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin

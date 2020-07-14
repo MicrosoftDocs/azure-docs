@@ -7,7 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
@@ -15,7 +15,6 @@ ms.author: mbaldwin
 ---
 # Provide Managed HSM authentication with an access control policy
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The simplest way to authenticate a cloud-based application to Managed HSM is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details.  If you are creating an on-premises application, doing local development, or otherwise unable to use a managed identity, you can instead register a service principal manually and provide access to your Managed HSM using an access control policy.  
 

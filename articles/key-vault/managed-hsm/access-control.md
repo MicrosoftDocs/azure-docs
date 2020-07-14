@@ -7,7 +7,7 @@ manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
