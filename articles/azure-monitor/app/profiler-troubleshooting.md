@@ -11,9 +11,8 @@ ms.reviewer: mbullwin
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
-## Active issues
-
-* Profiling for ASP.NET Core 3.x applications is supported now on Azure App Services.
+> [!CAUTION]
+> There is a bug running profiler for ASP.NET Core apps on Azure App Service. We have a fix, but it will take a few weeks to deploy world wide. You can work around the bug by adding the Application Insights SDK to your application with instructions [here](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a id="troubleshooting"></a>General troubleshooting
 

@@ -510,7 +510,7 @@ There are some limitations in what can be routed and the form in which they are 
 |FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
 |FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
 |FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
-|FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication,FileShare|
@@ -742,21 +742,6 @@ There are some limitations in what can be routed and the form in which they are 
 |BytesUploadedToCloud|Cloud Bytes Uploaded (Device)|Bytes|Average|The total number of bytes that is uploaded to Azure from a device during the reporting period.|None|
 |HyperVVirtualProcessorUtilization|Edge Compute - Percentage CPU|Percent|Average|Percent CPU Usage|InstanceName|
 |HyperVMemoryUtilization|Edge Compute - Memory Usage|Percent|Average|Amount of RAM in Use|InstanceName|
-
-
-## Microsoft.DataCatalog/datacatalogs
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Asset distribution by classification|Count|Total|Indicates the number of assets with a certain classification assigned, i.e. they are classified with that label.|Classification,Source|
-|AssetDistributionByStorageType|Asset distribution by storage type|Count|Total|Indicates the number of assets with a certain storage type.|StorageType|
-|NumberOfAssetsWithClassifications|Number of assets with at least one classification|Count|Average|Indicates the number of assets with at least one tag classification.|None|
-|ScanCancelled|Scan Cancelled|Count|Total|Indicates the number of scans cancelled.|None|
-|ScanCompleted|Scan Completed|Count|Total|Indicates the number of scans completed successfully.|None|
-|ScanFailed|Scan Failed|Count|Total|Indicates the number of scans failed.|None|
-|ScanTimeTaken|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|None|
-|CatalogActiveUsers|Daily Active Users|Count|Total|Number of active users daily|None|
-|CatalogUsage|Usage Distribution by Operation|Count|Total|Indicate the number of operation user makes to the catalog, i.e., Access, Search, Glossary.|Operation|
 
 
 ## Microsoft.DataFactory/datafactories
@@ -2139,7 +2124,7 @@ There are some limitations in what can be routed and the form in which they are 
 |FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
 |FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
 |FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
-|FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication,FileShare|
