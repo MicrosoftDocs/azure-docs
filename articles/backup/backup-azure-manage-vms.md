@@ -48,6 +48,17 @@ To view VMs on the vault dashboard:
 
 ## Manage backup policy for a VM
 
+### Modify backup policy
+
+To modify an existing backup policy:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
+2. From **Manage > Backup policies**, select the backup policy for the type Azure Virtual Machine.
+3.	Click Modify and change the settings.
+
+
+### Switch backup policy 
+
 To manage a backup policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
