@@ -85,7 +85,7 @@ The view details pages shows the properties of the user(s) that were matched in 
 ### Step 5: Perform action
 Finally, the provisioning service takes an action such as creating, updating, deleting, or skipping the user. 
 
-:::image type="content" source="media/provision-on-demand/success_on_demand_provision.jpg" alt-text="Successful provision of user.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Successful provision of user.":::
 
 **View details**
 
@@ -101,7 +101,7 @@ The view details section displays the attributes that were modified in the targe
 **How long does on-demand provisioning take?** It generally takes less than 30 seconds. 
 
 ## Known Limitations
-There are a few known limitations today. Please post on [UserVoice](https://aka.ms/appprovisioningfeaturerequest) so we can better prioritize what improvements to make next. Note that these limitations are specific to the on-demand provisioning capability. for specifics about whether an application supports provisioning groups, deletions, etc., check the application tutorial. 
+There are a few known limitations today. Please post on [User Voice](https://aka.ms/appprovisioningfeaturerequest) so we can better prioritize what improvements to make next. Note that these limitations are specific to the on-demand provisioning capability. for specifics about whether an application supports provisioning groups, deletions, etc., check the application tutorial. 
 
 * The applications Workday, AWS, and SuccessFactors do not support on-demand provisioning.
 * Provisioning groups and roles on-demand isn't supported.
