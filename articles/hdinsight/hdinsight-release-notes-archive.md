@@ -77,7 +77,7 @@ You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 i
 ### Known issues
 
 #### Hive Warehouse Connector issue
-There is an issue for Hive Warehouse Connector in this release. The fix will be included in the next release. Existing clusters created before this release are not impacted. Avoid droping and recreating the cluster if possible. Please open support ticket if you need further help on this.
+There is an issue for Hive Warehouse Connector in this release. The fix will be included in the next release. Existing clusters created before this release are not impacted. Avoid dropping and recreating the cluster if possible. Please open support ticket if you need further help on this.
 
 ## Release date: 01/09/2020
 
