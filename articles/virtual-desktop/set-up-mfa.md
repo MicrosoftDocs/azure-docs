@@ -49,11 +49,11 @@ This section will show you how to create a Conditional Access policy that requir
   
   Once you've selected your app, choose **Select**, and then select **Done**.
 
-     > [!div class="mx-imgBorder"]
-     > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
 
-     >[!NOTE]
-     >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+   >[!NOTE]
+   >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
 
 8. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
 9.  Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
