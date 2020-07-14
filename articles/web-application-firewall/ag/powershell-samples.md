@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell examples for Azure Application Gateway
+title: Azure Application Gateway examples in Azure PowerShell
 description: Azure PowerShell examples for Azure Application Gateway
 services: web-application-firewall
 author: vhorne
