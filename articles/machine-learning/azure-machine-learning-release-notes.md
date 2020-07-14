@@ -48,10 +48,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-datadrift**
     + Update matplotlib version from 3.0.2 to 3.2.1 to support python 3.8.
   + **azureml-dataprep**
-    + Fix for possible deadlock that may freeze the app.
-    + Fix for support of web url data sources that don't support range headers and/or head requests.
-    + Stability improvements for file dataset mount and download.
-    + Stability improvements for all adds gen-1 operations.
+    + Added support of web url data sources with Range or Head request. 
+    + Improved stability for file dataset mount and download.
   + **azureml-train-automl-client**
     + Fixed issues related to removal of `RequirementParseError` from setuptools.
     + Use docker instead of conda for local runs submitted using "compute_target='local'"
