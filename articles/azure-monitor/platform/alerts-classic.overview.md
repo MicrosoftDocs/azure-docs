@@ -9,7 +9,7 @@ ms.subservice: alerts
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [retired](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), though still in limited use for resources that do not yet support the new alerts. 
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../../azure-monitor/platform/alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. 
 >
 
 Alerts allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
@@ -85,7 +85,7 @@ Get information about alert rules and configuring them by using:
 * Configure [classic Metric Alerts via Azure portal](alerts-classic-portal.md)
 * Configure [classic Metric Alerts PowerShell](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alerts-classic-portal.md)
-* Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configure [classic Metric Alerts Azure Monitor REST API](/rest/api/monitor/alertrules)
 * Learn more about [Activity Log](platform-logs-overview.md)
 * Configure [Activity Log Alerts via Azure portal](activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)

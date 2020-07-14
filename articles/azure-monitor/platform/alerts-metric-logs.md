@@ -63,10 +63,10 @@ For step-by-step details and samples - see [creating and managing metric alerts]
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**
 - Filter for specific conditions or resource using dimension filters; metrics for logs are multi-dimensional
 - When configuring *Signal Logic*, a single alert can be created to span multiple values of dimension (like Computer)
-- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
-> When creating metric alert for Log Analytics workspace via Azure portal - corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) is automatically created in background, *without the need of any user intervention or action*. For metric alert for logs creation using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
+> When creating metric alert for Log Analytics workspace via Azure portal - corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules) is automatically created in background, *without the need of any user intervention or action*. For metric alert for logs creation using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
 
 ## Resource Template for Metric Alerts for Logs
 

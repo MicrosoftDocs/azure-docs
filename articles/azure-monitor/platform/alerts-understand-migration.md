@@ -58,7 +58,7 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 - SASThrottlingError
 - ThrottlingError
 
-Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
+Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
