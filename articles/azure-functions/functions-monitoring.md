@@ -675,14 +675,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### Azure PowerShell
 
-You can enable streaming logs by using [Azure PowerShell](/powershell/azure/overview). For PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
+You can enable streaming logs by using [Azure PowerShell](/powershell/azure/overview). For PowerShell, use the [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command to enable logging on the function app, as shown in the following snippet: 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
-```
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="18-19":::
+
+For more information, see the [complete code example](../app-service/scripts/powershell-monitor.md#sample-script). 
 
 ## Scale controller logs (preview)
 
