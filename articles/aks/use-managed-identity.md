@@ -2,10 +2,10 @@
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
+author: TomGeske
 ms.topic: article
 ms.date: 07/10/2020
-ms.author: mlearned
+ms.author: thomasge
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -33,7 +33,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Not currently supported
+| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Yes
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
@@ -88,6 +88,8 @@ The result should look like:
 }
 ```
 
+The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
+
 > [!NOTE]
 > For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 >
@@ -98,8 +100,49 @@ Finally, get credentials to access the cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
+## BYO Control plane MI (Preview)
+In BYO VNET scenarios delegated permissions for the control plane MI are required. To grant those permissions ahead of cluster creat
 
-The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
+
+> [!IMPORTANT]
+> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
+>
+> - [AKS Support Policies](support-policies.md)
+> - [Azure Support FAQ](faq.md)
+
+You must have the following resources installed:
+- The Azure CLI, version 2.9.0 or later
+- The aks-preview 0.4.38 extension
+
+Limitations for BYO Control plane MI (Preview) :
+* Azure Government isn't currently supported.
+* Azure China 21Vianet isn't currently supported.
+
+```azurecli
+az extension add --name aks-preview
+az extension list
+```
+
+```azurecli
+az extension update --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
+```
+
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## Next steps
 * Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create Managed Identity enabled clusters.
