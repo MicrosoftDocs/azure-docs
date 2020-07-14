@@ -335,6 +335,13 @@ No, use only alphanumeric characters in your .pfx file password.
 
 ### My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
 
+Certificate Authority (CA) Browser members recently published reports detailing multiple CAs issued by 3rd party vendors that are used by Microsoft, our customers, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the non-compliant CAs can be found here:  
+
+* [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+CA vendors began revoking non-compliant CAs on 10 July 2020, and issuing compliant versions requiring CAs to be re-issued to their customers. Microsoft is partnering closely with the vendors to minimize the potential impact to Azure Services, however self-issued CAs or CAs used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked.
+
 On 07/11/2020, DigiCert has announced an inconsistency in one of their recent audits and they are retiring/revoking EV certificates issued by intermediate CAs as listed [here](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement).
 And CA/Browser forum members have also listed a set of CAs which will be revoked. The list can be found [here](https://misissued.com/batch/138/). You can find more information on this [here](https://groups.google.com/forum/#!topic/mozilla.dev.security.policy/EzjIkNGfVEE).
 
