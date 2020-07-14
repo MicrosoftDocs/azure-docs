@@ -1,12 +1,12 @@
 ---
-title: Create a lab using Azure DevTest Labs and Resource Manager template
+title: Create a lab using Azure DevTest Labs and Azure Resource Manager template
 description: In this tutorial, you create a lab in Azure DevTest Labs by using an Azure Resource Manager template (ARM template). A lab admin sets up a lab, creates VMs in the lab, and configures policies.
 ms.topic: tutorial
 ms.custom: subject-armqs
 ms.date: 06/26/2020
 ---
 
-# Tutorial: Set up a lab by using Azure DevTest Labs (ARM template)
+# Tutorial: Set up a lab by using Azure DevTest Labs ARM template
 In this tutorial, you create a lab with a Windows Server 2019 Datacenter VM by using an Azure Resource Manager template (ARM template). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
