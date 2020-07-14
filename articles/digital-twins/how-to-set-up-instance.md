@@ -81,13 +81,13 @@ You now have an Azure Digital Twins instance ready to go, and permissions to man
 
 There's an Azure Digital Twins code sample that contains a scripted version of these steps. You can use the scripted deployment sample to set up an Azure Digital Twins instance and permissions in a more streamlined way, or as a starting point for writing your own scripted interactions.
 
-The sample is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+The sample is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
 
 In the downloaded sample folder, the deployment script is located at _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1**_.
 
 ### Run the sample
 
-You can run the sample with minimal setup using Cloud Shell. Alternatively, you can run it on your local machine after installing the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+You can run the sample with minimal setup using Cloud Shell. Alternatively, you can run it on your local machine after installing the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 To run the sample in Cloud Shell:
 1. Open a new [Azure Cloud Shell](https://shell.azure.com/) window in your browser. In Cloud Shell window icon bar, select the "Upload/Download files" icon and choose "Upload".
