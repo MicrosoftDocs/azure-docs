@@ -2,18 +2,15 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---
 
@@ -57,7 +54,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs. 
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
