@@ -11,7 +11,7 @@ ms.author: ayshak
 
 # Virtual machine isolation in Azure
 
-[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+[!INCLUDE [virtual-machines-common-isolation](../../includes/virtual-machines-common-isolation.md)]
 
 ## Next steps
 
