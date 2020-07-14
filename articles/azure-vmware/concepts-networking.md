@@ -78,7 +78,7 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 
 ![virtual network and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
-For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud.  See the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-er-global-reach-private-cloud.md) for the procedures to request and use the authorization key and peering ID.
+For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud.  See the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud]() for the procedures to request and use the authorization key and peering ID.
 
 
 ## Next steps 
