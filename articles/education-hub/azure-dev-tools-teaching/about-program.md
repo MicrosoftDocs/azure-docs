@@ -25,6 +25,10 @@ need to maintain a WebStore or an internal site.
 - Give academic users access to software, free training/learning materials, and the
 Azure cloud platform through the same online portal.
 
+## Who can purchase Azure Dev Tools for Teaching?
+Azure Dev Tools for Teaching is now only available to redeem if you have a Volume Licensing (VL) agreement with Microsoft.  If you have a VL agreement with Microsoft and are still having issues redeeming, please contact support.  For more information on Volume Licensing for Education, please visit https://aka.ms/ees However, Azure for Students now has the same software catalog as Azure Dev Tools for Teaching.  Your students can sign up for Azure for Students by going to https://aka.ms/azure4students 
+
+
 ## Program details
 
 We designed Azure Dev Tools for Teaching for STEM-focused instruction. Any course curriculum 
