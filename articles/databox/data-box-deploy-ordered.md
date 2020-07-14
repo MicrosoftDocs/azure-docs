@@ -199,8 +199,6 @@ Do the following steps in the Azure portal to order a device.
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   [![Search Azure Data Box 1](media/data-box-deploy-ordered/select-data-box-import-01.png)](media/data-box-deploy-ordered/select-data-box-import-01.png#lightbox)
-
    ![Select Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Select **Create**.
@@ -217,7 +215,7 @@ Do the following steps in the Azure portal to order a device.
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
 
-    [![Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04.png)](media/data-box-deploy-ordered/select-data-box-import-04.png#lightbox)
+    [![Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
