@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
+ms.date: 07/14/2020
 ms.custom: seodec18
 
 ---
-# Collect data for models in production
+# Collect data from models in production
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into an Azure Kubernetes Service (AKS) cluster and store the output data in Azure Blob storage.
+This article shows how to collect data that has been input to an Azure Machine Learning model. It also shows how to deploy the input data into an Azure Kubernetes Service (AKS) cluster and store the output data in Azure Blob storage.
 
 Once collection is enabled, the data you collect helps you:
 
-* [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model.
+* [Monitor data drifts](how-to-monitor-datasets.md) on the production data you collect.
 
 * Make better decisions about when to retrain or optimize your model.
 
@@ -71,7 +71,7 @@ To enable data collection, you need to:
 
 1. Open the scoring file.
 
-1. Add the [following code](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) at the top of the file:
+1. Add the following code at the top of the file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -234,3 +234,7 @@ You can choose a tool of your preference to analyze the data collected in your B
     [![Databricks setup](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Follow the steps on the template to view and analyze your data.
+
+## Next steps
+
+[Detect data drift](how-to-monitor-datasets.md) on the data you have collected.
