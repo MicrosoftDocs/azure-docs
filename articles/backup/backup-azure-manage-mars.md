@@ -150,17 +150,18 @@ If you stopped protection while retaining data and decided to resume protection,
 
 A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services Vault and the backup is configured) by following these steps:
 
-- From the MARS agent console, go to **Actions Pane** > **Change properties** >. Then go to **Encryption tab**.<br>
-- Select **Change Passphrase** checkbox.<br>
-- Enter a new passphrase or click **Generate Passphrase**.
-- Click **Browse** to save the new passphrase.
+1. From the MARS agent console, go to **Actions Pane** > **Change properties** >. Then go to **Encryption tab**.<br>
+1. Select **Change Passphrase** checkbox.<br>
+1. Enter a new passphrase or click **Generate Passphrase**.
+1. Click **Browse** to save the new passphrase.
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
-- Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Paste the security PIN from the portal and click **OK** to apply the changes.<br>
+
+1. Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+1. Paste the security PIN from the portal and click **OK** to apply the changes.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
-- Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
+1. Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
 ## Managing backup data for unavailable machines
 
@@ -177,10 +178,10 @@ For these machines, the Azure Backup service ensures that the last recovery poin
 Managing the backup policy for MARS is done through the MARS console and not through the portal. If you need to extend retention settings for existing recovery points before they expire, then you need to restore the machine, install the MARS console, and extend the policy.
 
 - To restore the machine, perform the following steps:
-  - [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Recreate the target machine with same host name as the source machine
-  - Install the agent and re-register to the same vault and with the same passphrase
-  - Launch the MARS client to extend the retention duration according to your requirements
+  1. [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Recreate the target machine with same host name as the source machine
+  1. Install the agent and re-register to the same vault and with the same passphrase
+  1. Launch the MARS client to extend the retention duration according to your requirements
 - Your newly restored machine, protected with MARS, will continue to take backups.  
 
 ## Next steps
