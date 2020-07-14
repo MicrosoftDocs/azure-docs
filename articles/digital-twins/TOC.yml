@@ -74,8 +74,6 @@
       href: how-to-integrate-maps.md
   - name: Troubleshoot
     items:
-    - name: EXAMPLE TROUBLESHOOT
-      href: troubleshoot-example.md
     - name: Known issues
       href: troubleshoot-known-issues.md
 - name: Reference
