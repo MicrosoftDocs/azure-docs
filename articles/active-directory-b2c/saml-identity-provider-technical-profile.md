@@ -168,7 +168,8 @@ The **CryptographicKeys** element contains the following attributes:
 
 ## SAML entityID customization  
 If you have multiple SAML applications that depends on different entityID values, you could achieve this by overriding the 'issueruri' value in your relying party file.  To do this, copy the Technical Profile with ID "Saml2AssertionIssuer" from base file and override the "IssuerUri" value.
-***Note:*** For this to work the <ClaimsProviders> section should be copied from the base and the <DisplayName>Token Issuer</DisplayName> for the claims provider and "<TechnicalProfile Id="Saml2AssertionIssuer">, <DisplayName>Token Issuer</DisplayName> elements should be preserved.
+> [!TIP]
+> Copy the `<ClaimsProviders>` section from the base, and preserve these elements within the claims provider: `<DisplayName>Token Issuer</DisplayName>`, `<TechnicalProfile Id="Saml2AssertionIssuer">`, and `<DisplayName>Token Issuer</DisplayName>`.
  
 EX:
 ```xml
