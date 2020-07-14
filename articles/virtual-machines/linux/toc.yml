@@ -356,6 +356,8 @@
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machines-linux-security-controls.md
     - name: Bastion
