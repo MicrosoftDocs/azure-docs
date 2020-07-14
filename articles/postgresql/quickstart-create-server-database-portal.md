@@ -63,8 +63,8 @@ An empty database, **postgres** is created. You will also find **azure_maintenan
 ## Configure a server-level firewall rule
 By default the server created is not publicly accessible and you need to give permissions to your IP. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left side menu for your server resource. If you are not sure how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
-   > [!div class="mx-imgBorder"]
-   > ![Connection security - Firewall rules](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
+> [!div class="mx-imgBorder"]
+> ![Connection security - Firewall rules](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
   
 Now select **Add current client IP address** and then select **Save**. You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules](./concepts-firewall-rules.md)
    
@@ -80,8 +80,8 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
    > [!NOTE]
    > If you are launching Cloud Shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
 
-   > [!div class="mx-imgBorder"]
-   > ![Open Azure Cloud Shell](media/quickstart-create-database-portal/use-in-cloud-shell.png)
+> [!div class="mx-imgBorder"]
+> ![Open Azure Cloud Shell](media/quickstart-create-database-portal/use-in-cloud-shell.png)
 
 3. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database **postgres** with admin user in this format '<admin-username>@<servername> as shown below for Azure Database for PostgreSQL.
 
@@ -128,7 +128,6 @@ You have successfully created an Azure Database for PostgreSQL server in a resou
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
-
 > [!div class="mx-imgBorder"]
 > ![Delete your resources](media/quickstart-create-database-portal/12-delete.png)
 
