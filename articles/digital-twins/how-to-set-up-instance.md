@@ -23,7 +23,7 @@ This article will walk you through the steps to set up a new Azure Digital Twins
 
 This article describes two possible ways to go through these steps. The first is to run an **automated deployment script** sample that streamlines the process. The second is to complete the steps yourself **manually**.
 
-Whichever process you are using, both require an Azure subscription (which you can set up for free [here]](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and utilize Azure Cloud Shell.
+Whichever process you are using, both require an Azure subscription (which you can set up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and utilize Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -55,7 +55,7 @@ Upon script completion, you now have an Azure Digital Twins instance ready to go
 
 ## Option 2: Manual setup
 
-This section explains the process for setting up an Azure Digital Twins instance manually. The following steps are the same steps that the  deployment script from [*Option 1: Automated setup with the deployment script*](#automated-setup-with-the-deployment-script) relies on behind the scenes.
+This section explains the process for setting up an Azure Digital Twins instance manually. The following steps are the same steps that the  deployment script from [*Option 1: Automated setup with the deployment script*](#option-1-automated-setup-with-the-deployment-script) relies on behind the scenes.
 
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
