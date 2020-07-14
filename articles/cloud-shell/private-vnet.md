@@ -18,6 +18,9 @@ ms.author: damaerte
 ---
 
 # Deploy Cloud Shell into an Azure virtual network
+> [!NOTE]
+> This functionality is in public preview.
+
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying Cloud Shell into an Azure virtual network, You can communicate securely with other resources in the virtual network. A regular Cloud Shell session runs in a container in a Microsoft network separate from your resources. This means that you could not access your resources (such as VMs or storage accounts) that can only be accessed from a specific virtual network.  Using Cloud Shell in your virtual network, you can execute commands in a container running in your own Azure Virtual Network.
 
 
@@ -26,7 +29,7 @@ Before you can use Cloud Shell in your own Azure Virtual Network, you will need 
 ## Required network resources
 
 ### Virtual network
-A virtual network defines the address space in which one or more subnets are created. Cloud Shell can then be deployed into the subnets in your virtual network.
+A virtual network defines the address space in which one or more subnets are created.
 
 The desired virtual network to be used for Cloud Shell needs to be identified, this will usually be an existing virtual network that contains resources you would like to manage or a network that peers with networks that contain your resources.
 
@@ -41,6 +44,12 @@ Within the selected virtual network, a dedicated subnet must be allocated for Cl
 ### Network profile
 A network profile is a network configuration template for Azure resources that specifies certain network properties for the resource.
 
+### Azure Relay
+An [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) allows two endpoints which are not directly reachable to communicate. In this case, it is used to allow the administrator's browser to communicate with the container in the private network.
+
+The Azure Relay instance used for Cloud Shell can be configured to control which networks can access container resources: 
+- Accessible from the public internet: In this configuration, Cloud Shell provides a way to reach otherwise internal resources from outside. 
+- Accessible from specified networks: In this configuration, administrators will have to access the Azure Portal from a computer running in the appropriate network to be able to use Cloud Shell.
 
 ## Storage requirements
 As required with standard Cloud Shell, a storage account is required while using Cloud Shell in a virtual network. Each administrator needs a file share to store their files.  The storage account needs to be accessible by the virtual network that is used by Cloud Shell. If the location of the file share is not accessible from the browser when Cloud Shell is running, the user will not be able to create the storage account and file share via Cloud Shell.  If this is the case, the user will need to create these resources ahead of time via the Azure portal or some other management tool. 
