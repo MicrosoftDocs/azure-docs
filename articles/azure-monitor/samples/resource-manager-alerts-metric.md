@@ -1,6 +1,6 @@
 ---
-title: Create a metric alert with a Resource Manager template
-description: Learn how to use a Resource Manager template to create a metric alert.
+title: Resource Manager template samples for metric alerts
+description: This article provides sample Resource manager templates used to create metric alerts in Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
