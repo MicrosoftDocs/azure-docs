@@ -340,7 +340,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |:---| ---:|---:|---:|---:|---:|
 |Compute generation|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|
 |vCores|8|10|12|14|16|
-|Memory (GB)|15.1|136.2|136.2|136.2|136.2|
+|Memory (GB)|15.1|18.9|22.7|26.5|30.2|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1024|1024|1536|
