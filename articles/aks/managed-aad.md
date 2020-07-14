@@ -46,6 +46,24 @@ kubectl version --client
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
 
+## Before you begin
+
+* Locate your Azure Account tenant ID by navigating to the Azure portal and select Azure Active Directory > Properties > Directory ID
+
+For your cluster you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
+
+```azurecli-interactive
+# List existing groups in the directory
+az ad group list --filter "displayname eq '<name>'" -o table
+```
+
+To create a new Azure AD group for your cluster administrators, use the following command:
+
+```azurecli-interactive
+# Create an Azure AD group
+az ad group create --display-name MyDisplay --mail-nickname MyDisplay
+```
+
 ## Create an AKS cluster with Azure AD enabled
 
 Create an AKS cluster by using the following CLI commands.
@@ -57,31 +75,19 @@ Create an Azure resource group:
 az group create --name myResourceGroup --location centralus
 ```
 
-You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
-
-```azurecli-interactive
-# List existing groups in the directory
-az ad group list
-```
-
-To create a new Azure AD group for your cluster administrators, use the following command:
-
-```azurecli-interactive
-# Create an Azure AD group
-az ad group create --display-name MyDisplay --mail-nickname MyDisplay
-```
-
 Create an AKS cluster, and enable administration access for your Azure AD group
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
+az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
 A successful creation of an AKS-managed Azure AD cluster has the following section in the response body
 ```
 "AADProfile": {
-    "adminGroupObjectIds": null,
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
     "clientAppId": null,
     "managed": true,
     "serverAppId": null,
@@ -99,7 +105,7 @@ You'll need the [Azure Kubernetes Service Cluster User](../role-based-access-con
 Get the user credentials to access the cluster:
  
 ```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 Follow the instructions to sign in.
 
@@ -125,8 +131,32 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 To do these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) built-in role.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
+
+## Upgrade from AKS Azure AD legacy integration to AKS-managed Azure AD Integration
+If you are already running a legacy Azure AD enabled cluster you can simple migrate to AKS-managed integration by running the following command:
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+```
+
+A successful migration of an AKS-managed Azure AD cluster has the following section in the response body
+
+```
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+If you want to access the cluster, follow the steps [here][access-cluster].
 
 ## Non-interactive sign in with kubelogin
 
@@ -162,3 +192,4 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
+[access-cluster]: #access-an-azure-ad-enabled-cluster
