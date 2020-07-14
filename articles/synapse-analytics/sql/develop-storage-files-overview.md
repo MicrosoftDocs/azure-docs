@@ -1,5 +1,5 @@
 ---
-title: Access files on storage using SQL on-demand (preview) within Synapse SQL
+title: Access files on storage in SQL on-demand (preview)
 description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan

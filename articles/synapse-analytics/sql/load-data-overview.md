@@ -1,5 +1,5 @@
 ---
-title: Instead of ETL, design ELT for Synapse SQL pool | Microsoft Docs
+title: Design a PolyBase data loading strategy for SQL pool
 description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or SQL pool.
 services: synapse-analytics
 author: kevinvngo

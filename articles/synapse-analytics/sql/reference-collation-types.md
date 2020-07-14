@@ -1,5 +1,5 @@
 ---
-title: Collation
+title: Collation support
 description: Collation types supported in Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics 

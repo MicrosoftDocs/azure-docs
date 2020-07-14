@@ -1,5 +1,5 @@
 ---
-title: Overview - Query data in storage using SQL on-demand (preview) 
+title: Query data in storage using SQL on-demand (preview) 
 description: This article describes how to query Azure storage using the SQL on-demand (preview) resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan

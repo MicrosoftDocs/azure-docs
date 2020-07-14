@@ -1,5 +1,5 @@
 ---
-title: Synchronize Apache Spark for Azure Synapse external table definitions in SQL on-demand (preview)
+title: Synchronize Apache Spark for external table definitions in SQL on-demand (preview)
 description: Overview of how to query Spark tables using SQL on-demand (preview)
 services: synapse-analytics 
 author: julieMSFT
