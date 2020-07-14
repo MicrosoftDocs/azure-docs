@@ -6,15 +6,17 @@
     href: devtest-lab-overview.md
   - name: Azure DevTest Labs and Lab Services
     href: lab-services-overview.md
+- name: Quickstart
+  items:
+  - name: Create a lab - ARM template
+    displayName: Resource Manager
+    href: create-lab-windows-vm-template.md  
 - name: Tutorials
   items:
   - name: Set up a lab
     items: 
     - name: Use Azure portal
       href: tutorial-create-custom-lab.md 
-    - name: Use ARM template
-      displayName: Resource Manager
-      href: create-lab-windows-vm-template.md 
   - name: Access a lab
     href: tutorial-use-custom-lab.md
 - name: Samples
