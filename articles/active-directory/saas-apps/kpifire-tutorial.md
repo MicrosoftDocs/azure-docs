@@ -56,7 +56,7 @@ To configure the integration of kpifire into Azure AD, you need to add kpifire f
 1. Select **kpifire** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for kpifire
+## Configure and test Azure AD SSO for kpifire
 
 Configure and test Azure AD SSO with kpifire using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in kpifire.
 
