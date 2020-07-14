@@ -13,6 +13,8 @@ Both the source group and the target group are locked during the move operation.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
+If you ae using Azure Stack Hub, you cannot move resources between groups.
+
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
