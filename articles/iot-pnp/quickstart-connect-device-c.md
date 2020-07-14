@@ -1,13 +1,12 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play Preview sample device code on Linux or Windows that connects to an IoT hub. Use the Azure CLI to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play Preview sample C device code to IoT Hub | Microsoft Docs
+description: Build and run IoT Plug and Play Preview sample device code on Linux or Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
-ms.date: 07/08/2020
+ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
 
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
@@ -16,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application that doesn't use _components_, connect it to your IoT hub, and use the Azure CLI to view the telemetry it sends. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure CLI to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +55,7 @@ To complete this quickstart on Windows, install the following software on your l
 
 ### Azure IoT explorer
 
-To interact with the sample device in the second part of this quickstart, you use the **Azure IoT explorer** tool. [Download and install the latest release of **Azure IoT explorer**](./howto-install-iot-explorer.md) for your operating system.
+To interact with the sample device in the second part of this quickstart, you use the **Azure IoT explorer** tool. [Download and install the latest release of Azure IoT explorer](./howto-install-iot-explorer.md) for your operating system.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -67,7 +66,15 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
 > [!TIP]
-> You can also use the Azure IoT Explorer tool to find the IoT hub connection string.
+> You can also use the Azure IoT explorer tool to find the IoT hub connection string.
+
+Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
+
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
+```
+
+[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## Download the code
 
@@ -76,10 +83,10 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
 ```cmd\bash
-git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git
+git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git -b pnp-preview-refresh
 ```
 
-You should expect this operation to take several minutes to complete.
+Expect this operation to take several minutes to complete.
 
 ## Build the code
 
@@ -107,7 +114,7 @@ You use the device SDK to build the included sample code:
 
 To run the sample application in the SDK that simulates an IoT Plug and Play device sending telemetry to your IoT hub:
 
-First create an environment variable and store in it, this application's connection string: **IOTHUB_DEVICE_CONNECTION_STRING**
+Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
 From the _cmake_ folder, navigate to the folder that contains the executable file and run it:
 
@@ -136,7 +143,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](link to new article!!!). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
+This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
 
 The device code uses the standard function to connect to your IoT hub:
 
@@ -144,7 +151,7 @@ The device code uses the standard function to connect to your IoT hub:
 deviceHandle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, MQTT_Protocol)
 ```
 
-Before the device code sends the connect message, you must specify the model ID and include it in the connection options:
+The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 
 ```c
 static const char g_ModelId[] = "dtmi:com:example:Thermostat;1";
@@ -156,14 +163,12 @@ IoTHubDeviceClient_SetOption(deviceHandle, OPTION_MODEL_ID, modelId)
 
 The code that updates properties, handles commands, and sends telemetry is identical to the code for a device that doesn't use the IoT Plug and Play conventions.
 
-The code uses the Parson library to parse JSON objects the payloads sent from your IoT hub:
+The code uses the Parson library to parse JSON objects in the payloads sent from your IoT hub:
 
 ```c
 // JSON parser
 #include "parson.h"
 ```
-
-So it can parse the object containing in the desired payload or parse methods callback.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

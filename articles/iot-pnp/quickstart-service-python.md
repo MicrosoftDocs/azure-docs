@@ -1,9 +1,9 @@
 ---
 title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Python) | Microsoft Docs
 description: Use Python to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 5/4/2020
+author: elhorton
+ms.author: elhorton
+ms.date: 7/13/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -22,89 +22,168 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need Python on your development machine. Python 3.5+ preferably Python 3.7. You can check your python version by running the following command:
+To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
 ```
 
-You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
+Install the [Python service SDK preview package](https://pypi.org/project/azure-iot-hub/2.2.1rc0/) by running the following command:
+
+```cmd/sh
+pip3 install azure-iot-hub==2.2.1rc0
+```
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-**Installation for Bug Bash 5/13** 
+Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
 
-For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
-
-Go to https://aka.ms/PythonServicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment install the file as follows:
-
-```cmd/sh
-pip install azure_iot_hub-2.2.0_pnp_preview_refresh.0-py2.py3-none-any.whl
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
 ```
 
 ## Run the sample device
 
-In this quickstart, you use a sample environmental sensor that's written in Python as the IoT Plug and Play device. The following instructions show you how to install and run the device:
+In this quickstart, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
-1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
-
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
-    ```
-
-1. Configure the _device connection string_ environmental variable:
+1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
 
     ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourIOTDeviceHubConnectionString>
+    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
     ```
 
-1. Navigate to sample folder `azure-iot-sdk-python\azure-iot-hub\samples`.
+1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-python/azure-iot-device/samples/pnp* folder.
 
-1. Use the following command to run the sample:
+1. Configure the _device connection string_:
 
     ```cmd/sh
-    python iothub_digital_twin_manager_sample.py
+    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device is sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples also worked.
+1. Run the sample thermostat device with the following command:
 
-### Get Digital Twin
+    ```cmd/sh
+    python pnp_thermostat.py
+    ```
+
+1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you need it to confirm the service sample is working.
+
+## Run the sample solution
+
+In this quickstart, you use a sample IoT solution in Python to interact with the sample device you just set up.
+
+1. Open another terminal window to use as your **service** terminal. The service SDK is in preview, so you need to clone the samples from a [preview branch of the Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/pnp-preview-refresh):
+
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
+    ```
+
+1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-python/azure-iot-hub/samples* folder.
+
+1. Configure environment variables for your device ID and _IoT Hub connection string_:
+
+    ```cmd/sh
+    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
+    set IOTHUB_DEVICE_ID=<Your device ID>
+    ```
+
+1. In the samples folder, there are four sample files with a `pnp` prefix. These samples show how to use each API for interacting with PnP devices:
+
+### Get digital twin
+
+Use the following command in the **service** terminal to run this sample:
+
+```cmd/sh
+python pnp_get_digital_twin_sample.py
+```
+
+The output shows the device's digital twin and prints its model ID:
+
+```cmd/sh
+{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
+Model Id: dtmi:com:example:Thermostat;1
+```
+
+The following snippet shows the sample code from *pnp_get_digital_twin_sample.py*:
 
 ```python
-# Create IoTHubDigitalTwinManager
-iothub_digital_twin_manager = IoTHubDigitalTwinManager(iothub_connection_str)
-# Get digital twin
-digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
+    # Get digital twin and retrieve the modelId from it
+    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
+    if digital_twin:
+        print(digital_twin)
+        print("Model Id: " + digital_twin["$metadata"]["$model"])
+    else:
+        print("No digital_twin found")
 ```
 
 ### Update a digital twin
 
+This sample shows you how to use a *patch* to update properties through your device's digital twin. The following snippet from *pnp_update_digital_twin_sample.py* shows how to construct the patch:
+
 ```python
-# Update digital twin
-patch = []  # json-patch for digital twin
-updated_digital_twin = iothub_digital_twin_manager.update_digital_twin(device_id, patch)
+# If you already have a component thermostat1:
+# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
+patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
+iothub_digital_twin_manager.update_digital_twin(device_id, patch)
+print("Patch has been succesfully applied")
+```
+
+Use the following command in the **service** terminal to run this sample:
+
+```cmd/sh
+python pnp_update_digital_twin_sample.py
+```
+
+You can verify that the update is applied in the **device** terminal that shows the following output:
+
+```cmd/sh
+the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
+previous values
+42
+```
+
+The **service** terminal confirms that the patch was successful:
+
+```cmd/sh
+Patch has been successfully applied
 ```
 
 ### Invoke a command
 
-```python
-# Invoke component command
-component_name = (
-    "environmentalSensor"
-)  # for the environmental sensor, try "environmentalSensor"
-command_name = (
-    "turnOff"
-)  # for the environmental sensor, you can try "blink", "turnOff" or "turnOn"
-payload = "hello"  # for the environmental sensor, it really doesn't matter. any string will do.
-invoke_component_command_result = iothub_digital_twin_manager.invoke_component_command(
-    device_id, component_name, command_name, payload
-)
+To invoke a command, run the *pnp_invoke_command_sample.py* sample. This sample shows how to invoke a command in a simple thermostat device. Before you run this sample, set the `IOTHUB_COMMAND_NAME` and `IOTHUB_COMMAND_PAYLOAD` environment variables in the **service** terminal:
+
+```cmd/sh
+set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
+set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
+```
+
+In the **service** terminal, use the following command to run the sample:
+  
+```cmd/sh
+python pnp_invoke_command_sample.py
+```
+
+The **service** terminal shows a confirmation message from the device:
+
+```cmd/sh
+{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+```
+
+In the **device** terminal, you see the device receives the command:
+
+```cmd/sh
+Command request received with payload
+hello world
+Will return the max, min and average temperature from the specified time hello to the current time
+Done generating
+{"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
+Sent message
 ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
@@ -114,4 +193,4 @@ invoke_component_command_result = iothub_digital_twin_manager.invoke_component_c
 In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](howto-develop-solution.md)
+> [Tutorial: Develop an IoT Plug and Play Preview end-to-end solution](tutorial-build-solution.md)

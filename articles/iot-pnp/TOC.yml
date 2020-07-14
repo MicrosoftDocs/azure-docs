@@ -4,7 +4,7 @@
   items:
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
-  - name: Preview updates May 2020
+  - name: Preview refresh updates
     href: overview-iot-plug-and-play-preview-updates.md
 - name: Quickstarts
   expanded: true
@@ -17,6 +17,10 @@
         href: quickstart-connect-device-node.md
       - name: Python
         href: quickstart-connect-device-python.md
+      - name: C#
+        href: quickstart-connect-device-csharp.md
+      - name: Java
+        href: quickstart-connect-device-java.md
   - name: Interact with a device from your solution
     items:
       - name: Node.js
@@ -27,6 +31,14 @@
   items:
   - name: Create an end-to-end solution
     href: tutorial-build-solution.md
+  - name: Connect a multiple component device (C#)
+    href: tutorial-multiple-components-csharp.md
+  - name: Connect a multiple component device (Java)
+    href: tutorial-multiple-components-java.md
+  - name: Connect a multiple component device (Node.js)
+    href: tutorial-multiple-components-node.md
+  - name: Connect a multiple component device (Python)
+    href: tutorial-multiple-components-python.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
 - name: Concepts
@@ -37,8 +49,8 @@
     href: concepts-developer-guide.md
   - name: Components
     href: concepts-components.md
-  - name: Common interfaces
-    href: concepts-common-interfaces.md
+  - name: Message conventions
+    href: concepts-convention.md
   - name: Model repository
     href: concepts-model-repository.md
   - name: Model discovery
