@@ -16,9 +16,15 @@ There are two types of default answer in your knowledge base. It is important to
 
 |Type of question|Description of answer|
 |--|--|
-|KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question, this is the text returned.<br>Change this text in the App Service's Application Settings for your QnA Maker service. All knowledge bases in the same QnA Maker service share the same default answer text. Can update `DefaultAnswer` setting with [REST API](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings)|
+|KB answer when no answer is determined|`No good match found in KB.` - When the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) finds no matching answer to the question, the `DefaultAnswer` setting of the App service is returned. All knowledge bases in the same QnA Maker resource share the same default answer text.<br>You can manage the setting in the Azure portal, via the App service, or with the REST APIs for [getting](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) or [updating](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) the setting.|
 |Follow-up prompt instruction text|When using a follow-up prompt in a conversation flow, you may not need an answer in the QnA pair because you want the user to select from the follow-up prompts. In this case, set specific text by setting the default answer text, which is returned with each prediction for follow-up prompts. The text is meant to display as instructional text to the selection of follow-up prompts. An example for this default answer text is `Please select from the following choices`. This configuration is explained in the next few sections of this document. Can also set as part of knowledge base definition of `defaultAnswerUsedForExtraction` using [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
+### Client application integration
+
+For a client application, such as a bot with the **Azure Bot service**, you can choose from the common following scenarios:
+
+* Use the knowledge base's setting
+* Use different text in the client application to distinguish when an answer is returned but doesn't meet the score threshold. This text can either be static text stored in code, or can be stored in the client application's settings list.
 
 ## Set follow-up prompt's default answer when you create knowledge base
 
