@@ -269,7 +269,7 @@ import azure.functions as func
 import azure.durable_functions as df
 
 async def main(instance_id:str, starter: str) -> func.HttpResponse:
-    client = df.DurableOrchestrationClient(str)
+    client = df.DurableOrchestrationClient(starter)
     await client.raise_event(instance_id, 'Approval', True)
 ```
 
