@@ -1,5 +1,5 @@
 ---
-title: Creating, updating statistics
+title: Creating, updating statistics on tables in SQL pool
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
