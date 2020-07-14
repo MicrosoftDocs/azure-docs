@@ -36,10 +36,13 @@ These functions can be used with collections, like JSON strings, arrays and obje
 
 * [contains](create-uidefinition-collection-functions.md#contains)
 * [empty](create-uidefinition-collection-functions.md#empty)
+* [filter](create-uidefinition-collection-functions.md#filter)
 * [first](create-uidefinition-collection-functions.md#first)
 * [last](create-uidefinition-collection-functions.md#last)
 * [length](create-uidefinition-collection-functions.md#length)
+* [map](create-uidefinition-collection-functions.md#map)
 * [skip](create-uidefinition-collection-functions.md#skip)
+* [split](create-uidefinition-collection-functions.md#split)
 * [take](create-uidefinition-collection-functions.md#take)
 
 ## Conversion functions
@@ -72,6 +75,7 @@ These functions can be used in conditionals. Some functions may not support all 
 * [equals](create-uidefinition-logical-functions.md#equals)
 * [greater](create-uidefinition-logical-functions.md#greater)
 * [greaterOrEquals](create-uidefinition-logical-functions.md#greaterorequals)
+* [if](create-uidefinition-logical-functions.md#if)
 * [less](create-uidefinition-logical-functions.md#less)
 * [lessOrEquals](create-uidefinition-logical-functions.md#lessorequals)
 * [not](create-uidefinition-logical-functions.md#not)

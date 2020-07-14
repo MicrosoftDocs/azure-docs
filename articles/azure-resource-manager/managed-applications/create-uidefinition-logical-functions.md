@@ -125,6 +125,16 @@ The following example returns `true`:
 "[greaterOrEquals(2, 2)]"
 ```
 
+## if
+
+Returns a value based on whether a condition is true or false. The first parameter is the condition to test. The second parameter is the value to return if the condition is true. The third parameter is the value to return if the condition is false.
+
+The following sample returns `yes`.
+
+```json
+"[if(equals(42, mul(6, 7)), 'yes', 'no')]"
+```
+
 ## less
 
 Returns `true` if the first parameter is strictly less than the second parameter. This function supports parameters only of type number and string.

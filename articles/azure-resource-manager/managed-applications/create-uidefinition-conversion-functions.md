@@ -134,10 +134,10 @@ The following example returns `[1,2,3]`:
 "[parse('[1,2,3]')]"
 ```
 
-The following example returns `{"foo":"bar"}`:
+The following example returns `{"type":"webapp"}`:
 
 ```json
-"[parse('{\"foo\":\"bar\"}')]"
+"[parse('{\"type\":\"webapp\"}')]"
 ```
 
 ## string
@@ -162,10 +162,10 @@ The following example returns `"[1,2,3]"`:
 "[string([1,2,3])]"
 ```
 
-The following example returns `"{"foo":"bar"}"`:
+The following example returns `"{"type":"webapp"}"`:
 
 ```json
-"[string({\"foo\":\"bar\"})]"
+"[string({\"type\":\"webapp\"})]"
 ```
 
 ## Next steps

@@ -94,6 +94,16 @@ Assume `element1` is `null` or undefined. The following example returns `true`:
 "[empty(steps('demoStep').element1)]"
 ```
 
+## filter
+
+Returns a new array with the result of applying the filtering logic provided as a lambda function.  
+
+The following sample returns the array `[ { "name": "a" } ]`.
+
+```json
+"[filter(parse('[{\"name\":\"a\"},{\"name\":\"b\"}]'), (item) => contains(item.name, 'a'))]"
+```
+
 ## first
 
 Returns the first character of the specified string; first value of the specified array; or the first key and value of the specified object.
@@ -205,6 +215,22 @@ The following example returns `2`:
 "[length(steps('demoStep').element1)]"
 ```
 
+## map
+
+Returns a new array with the result of calling a lambda function and a provided array.
+
+The following sample returns a new array with every value doubled. The result is `[2, 4, 6]`.
+
+```json
+"[map(parse('[1, 2, 3]'), (item) => mul(2, item))]"
+```
+
+The following sample returns a new array `["a", "b"]`.
+
+```json
+"[map(parse('[{\"name\":\"a\"},{\"name\":\"b\"}]'), (item) => item.name)]"
+```
+
 ## skip
 
 Bypasses a specified number of elements in a collection, and then returns the remaining elements.
@@ -239,6 +265,16 @@ The following example returns `{"key2": "Windows"}`:
 
 ```json
 "[skip(steps('demoStep').element1, 1)]"
+```
+
+## split
+
+Returns an array of strings containing the substrings of the input delimited by the separator.
+
+The following sample returns the array `[ "555", "867", "5309" ]`.
+
+```json
+"[split('555-867-5309', '-')]"
 ```
 
 ## take
