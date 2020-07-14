@@ -56,8 +56,14 @@ Follow these steps:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
 
-6. Run the following command. This will download a script to your home directory.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Run the following command. This will download a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -65,7 +71,7 @@ Follow these steps:
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
     ```azurepowershell-interactive 
 
@@ -73,7 +79,7 @@ Follow these steps:
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 
 ## Create device or sensor metadata

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
 ---
 # Configure server parameters in Azure Database for MySQL using the Azure CLI

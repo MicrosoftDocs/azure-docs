@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Route events within and outside of Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital twins uses **event routes** to send data to consumers outside the service. 
 
@@ -50,7 +47,7 @@ Alternatively, the event message also contains the ID of the source twin that se
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure function to process digital twin events, see [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 ## Create an endpoint
 

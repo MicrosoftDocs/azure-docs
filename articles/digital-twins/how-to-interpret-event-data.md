@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Understand event data
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -129,6 +126,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -161,6 +159,7 @@ Here is another example of a digital twin. This one is based on a [model](concep
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -198,7 +197,7 @@ Here are the fields in the body of an edge change notification.
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
@@ -229,15 +228,13 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipId": "device_to_device",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
-
 
 ### Digital twin change notifications
 

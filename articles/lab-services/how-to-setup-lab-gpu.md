@@ -1,21 +1,12 @@
 ---
 title: Set up a lab with GPUs in Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab with graphics processing unit (GPU) virtual machines. 
-services: lab-services
-documentationcenter: na
 author: nicolela
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/26/2020
 ms.author: nicolela
-
 ---
+
 # Set up a lab with GPU virtual machines
 
 This article shows you how to do the following tasks:

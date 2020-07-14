@@ -744,21 +744,6 @@ There are some limitations in what can be routed and the form in which they are 
 |HyperVMemoryUtilization|Edge Compute - Memory Usage|Percent|Average|Amount of RAM in Use|InstanceName|
 
 
-## Microsoft.DataCatalog/datacatalogs
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Asset distribution by classification|Count|Total|Indicates the number of assets with a certain classification assigned, i.e. they are classified with that label.|Classification,Source|
-|AssetDistributionByStorageType|Asset distribution by storage type|Count|Total|Indicates the number of assets with a certain storage type.|StorageType|
-|NumberOfAssetsWithClassifications|Number of assets with at least one classification|Count|Average|Indicates the number of assets with at least one tag classification.|None|
-|ScanCancelled|Scan Cancelled|Count|Total|Indicates the number of scans cancelled.|None|
-|ScanCompleted|Scan Completed|Count|Total|Indicates the number of scans completed successfully.|None|
-|ScanFailed|Scan Failed|Count|Total|Indicates the number of scans failed.|None|
-|ScanTimeTaken|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|None|
-|CatalogActiveUsers|Daily Active Users|Count|Total|Number of active users daily|None|
-|CatalogUsage|Usage Distribution by Operation|Count|Total|Indicate the number of operation user makes to the catalog, i.e., Access, Search, Glossary.|Operation|
-
-
 ## Microsoft.DataFactory/datafactories
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2007,9 +1992,9 @@ There are some limitations in what can be routed and the form in which they are 
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
 |sqlserver_process_core_percent<sup>1</sup> |SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
 |sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
-|tempdb_data_size<sup>2</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
-|tempdb_log_size<sup>2</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
-|tempdb_log_used_percent<sup>2</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
+|tempdb_data_size<sup>1</sup> |Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>1</sup> |Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes.|None|
+|tempdb_log_used_percent<sup>1</sup> |Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |local_tempdb_usage_percent|Local tempdb percentage|Percent|Average|Local tempdb percentage. Applies only to data warehouses.|None|
 |app_cpu_billed|App CPU billed|Count|Total|App CPU billed. Applies to serverless databases.|None|
 |app_cpu_percent|App CPU percentage|Percent|Average|App CPU percentage. Applies to serverless databases.|None|
@@ -2034,9 +2019,7 @@ There are some limitations in what can be routed and the form in which they are 
 |snapshot_backup_size_bytes|Snapshot backup storage size|Bytes|Maximum|Cumulative snapshot backup storage size. Applies to Hyperscale databases.|None|
 |base_blob_size_bytes|Base blob storage size|Bytes|Maximum|Base blob storage size. Applies to Hyperscale databases.|None|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
-
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing model. 
 
 ## Microsoft.Sql/servers/elasticPools
 
@@ -2068,16 +2051,14 @@ There are some limitations in what can be routed and the form in which they are 
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
 |sqlserver_process_memory_percent<sup>1</sup>|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools. |None|
-|tempdb_data_size<sup>2</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
-|tempdb_log_size<sup>2</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
-|tempdb_log_used_percent<sup>2</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
+|tempdb_data_size<sup>1</sup>|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes.|None|
+|tempdb_log_size<sup>1</sup>|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. |None|
+|tempdb_log_used_percent<sup>1</sup>|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used.|None|
 |allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|None|
 |database_allocated_data_storage|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
 |allocated_data_storage_percent|Data space allocated percent|Percent|Maximum|Data space allocated percent|None|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
-
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing model. 
 
 ## Microsoft.Sql/managedInstances
 

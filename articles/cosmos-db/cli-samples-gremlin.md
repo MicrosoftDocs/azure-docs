@@ -13,7 +13,7 @@ ms.author: mjbrown
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB Gremlin API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and graph](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and graph for Gremlin API. |
 | [Change throughput](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and graph.|
