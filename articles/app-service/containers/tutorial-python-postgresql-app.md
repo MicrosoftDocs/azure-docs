@@ -111,6 +111,8 @@ Install the `db-up` extension for the Azure CLI:
 az extension add --name db-up
 ```
 
+If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command:
 
 ```azurecli
