@@ -38,19 +38,6 @@ These are roles and permissions to access the payout report:
 | Payout summary | Can view | No access | No access | No access | Can view | No access  |
 | | | | | | | |
 
-## Payout report differences
-
-These are the differences in the payout report between the retired Cloud Partner Portal and the current Partner Center:
-
-| Cloud Partner Portal | Partner Center |
-| --- | --- |
-| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
-| **Scope**:<ul><li>Transaction per line item is visible, for collection in progress, collected, and paid.</li><li>Reporting – shows all line items once purchase order is created, including collection in progress and billing in progress, and collection status and line items that are not yet eligible to be paid.</li></ul> | **Scope**:<ul><li>Shows the line items after they're deemed as eligible earnings.</li><li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li><li>Payout report won't show collection in progress and billing in Progress.</li></ul> |
-| **Transaction not ready for payout**: Billing in Progress | **Transaction not ready for payout**: Next estimated payment: The payout status is in the unprocessed state. |
-| **Payout status**: n/a | **Payout status**:<ul><li>Unprocessed: The earning is eligible for payment.</li><li>Upcoming: The earning will be sent to the publisher in the next monthly payout.</li><li>Sent: The payment has been sent to your bank.</li></ul> |
-| | |
-
 ## Payment schedules
 
 For a discussion of payment schedules, including holding periods, partner visibility, and when the customer uses a credit card or invoice, refer to the [Payment schedules](./payout-policy-details.md#payment-schedules) section of the **Payout details** topic.

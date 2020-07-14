@@ -4,8 +4,8 @@ description: Description of, prerequisites to use, and list of marketplace API o
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 07/01/2020
+ms.topic: reference
+ms.date: 07/14/2020
 ms.author: dsindona
 ---
 
@@ -13,7 +13,7 @@ ms.author: dsindona
 # Cloud Partner Portal API Reference
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the [Changes to CPP APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center) listed in this document to ensure your code continues working after transitioning to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the [Changes to CPP APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center) listed in this document to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 The Cloud Partner Portal REST APIs allow the programmatic retrieval and manipulation of workloads, offers, and publisher profiles. The APIs use role-based access control (RBAC) to enforce correct permissions at processing time.
 

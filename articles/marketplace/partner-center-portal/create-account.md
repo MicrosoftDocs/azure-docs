@@ -14,7 +14,7 @@ ms.date: 07/01/2020
 To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you need to create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
 
 >[!IMPORTANT]
->If you had an account in the [Cloud Partner Portal](https://cloudpartner.azure.com), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ## Before you begin
 
@@ -40,7 +40,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 - [Provide your publisher profile](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->If you had an account in the [Cloud Partner Portal](https://cloudpartner.azure.com), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal, we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### Register on the Partner Center enrollment page
 
@@ -91,7 +91,7 @@ For both enrollment types, you will:
 Be sure to have your account information handy.
 
 >[!IMPORTANT]
->If you had an account in the [Cloud Partner Portal](https://cloudpartner.azure.com), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal, we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### What if I'm already enrolled in the Microsoft Partner Network?
 
