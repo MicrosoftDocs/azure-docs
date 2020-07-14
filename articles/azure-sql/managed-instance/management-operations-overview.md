@@ -26,7 +26,7 @@ Subsequent operations on deployed managed instances might also have effects on t
 All management operations can be categorized as follows:
 
 - Instance deployment (new instance creation).
-- Instance update (changing instance properties, such as vCores or reserved storage.
+- Instance update (changing instance properties, such as vCores or reserved storage).
 - Instance deletion.
 
 ## Management operations duration
