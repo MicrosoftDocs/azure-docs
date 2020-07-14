@@ -127,53 +127,15 @@ Log Analytics only reports in these intermediate states for connection activitie
 - Completed: when the user or server disconnects the session the activity took place in.
 
 ## Example queries
+Access example queries through the Azure Monitor Log Analytics UI:
+- Navigate to your **Log Analytics workspace** and select **Logs**. The example query UI is presented to you automatically.
+- Change the filter from Resource Type to **Category**. Next select **Windows Virtual Desktop** to review available queries.
+- Execute a selected query conveniently by clicking **Run**. 
 
-The following example queries show how the diagnostics feature generates a report for the most frequent activities in your system.
+Learn more about the sample query interface in [this article](https://docs.microsoft.com/azure/azure-monitor/log-query/saved-queries).
 
-To get a list of connections made by your users, run this cmdlet:
+In the following is a list of queries that help you to review connection information or issues for a single user. Execute them in the Log Analytics [query editor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal#write-and-run-basic-queries). Replace userupn in each query by the actual UPN of the user you want to find out more.
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
-
-To view feed activity of your users:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 To find all connections for a single user:
 
@@ -194,7 +156,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 To find session duration by user:
 
@@ -219,7 +180,7 @@ WVDErrors
 |take 100
 ```
 
-To find out whether a specific error occurred:
+To find out whether a specific error occurred for other uses too:
 
 ```kusto
 WVDErrors
@@ -227,27 +188,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-To find the occurrence of an error across all users:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-To query apps users have opened, run this query:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- When a user opens Full Desktop, their app usage in the session isn't tracked as checkpoints in the WVDCheckpoints table.
 >- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.
