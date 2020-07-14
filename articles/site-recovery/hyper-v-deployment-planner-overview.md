@@ -90,7 +90,6 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
    ```powershell
    set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
    ```
-
 1. Each Hyper-V Host that needs to be profiled should have:
 
     a. The VM on which the tool is going to be run in its TrustedHosts list. Run the following command from an elevated PowerShell on the Hyper-V host.

@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -244,6 +244,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
+|oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |

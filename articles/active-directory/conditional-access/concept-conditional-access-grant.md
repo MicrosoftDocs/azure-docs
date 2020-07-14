@@ -78,7 +78,6 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Microsoft Intune Managed Browser
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
