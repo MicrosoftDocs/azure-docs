@@ -191,7 +191,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
@@ -248,7 +248,7 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 
 ## Manage models with CLI
 
-Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 
