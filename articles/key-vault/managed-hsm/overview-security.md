@@ -7,7 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin

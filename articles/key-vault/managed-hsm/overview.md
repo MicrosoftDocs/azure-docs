@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
 
-## Key Benefits
+## Why use Managed HSM?
 
 
 ### Fully managed, highly available, single-tenant HSM as a service
@@ -29,9 +29,10 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - **Single-tenant** - Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions. Each HSM pool uses a separate customer-specific security domain that cryptographically isolates each customer's HSM pool.
 
-### Enhanced data protection and compliance
+### Centralize key management, enhanced data protection and compliance
 
-- **FIPS 140-2 Level 3** -Secure key management to protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMS uses Marvell LiquidSecurity family of HSMs.
+- **Centralize key management** - Manage critical, high-value keys across your orginization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
+- **FIPS 140-2 Level 3 validated HSMs** - Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMS uses Marvell LiquidSecurity family of HSMs.
 - **Monitor and audit** - fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 
 
@@ -42,4 +43,5 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - Easily migrate your existing applications  from Key Vault (a multi-tenant) to Managed HSM
 - Use same application development and deployment patterns for all your applications irrespective of which key management solution it uses
 
-## 
+### Import keys from your on-premise HSMs
+- Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM
