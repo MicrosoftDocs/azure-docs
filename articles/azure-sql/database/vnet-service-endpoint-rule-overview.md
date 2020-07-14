@@ -26,8 +26,6 @@ To create a virtual network rule, there must first be a [virtual network service
 
 If you only create a virtual network rule, you can skip ahead to the steps and explanation [later in this article](#anchor-how-to-by-using-firewall-portal-59j).
 
-<!--<a name="anch-details-about-vnet-rules-38q"/> -->
-
 ## Details about virtual network rules
 
 This section describes several details about virtual network rules.

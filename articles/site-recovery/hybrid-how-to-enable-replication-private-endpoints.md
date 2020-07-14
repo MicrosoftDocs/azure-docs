@@ -5,7 +5,7 @@ author: mayurigupta13
 ms.author: mayg
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 07/14/2020
 ---
 # Replicate on-premises machines with private endpoints
 
@@ -162,7 +162,7 @@ peered networks.
 
 The five domain names are formatted with the following pattern:
 
-`{Vault-GUID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
 ## Approve private endpoints for Site Recovery
 
@@ -303,7 +303,7 @@ to private IPs.
       private DNS zone.
 
       These fully qualified domain names match the pattern:
-      `{Vault-GUID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 

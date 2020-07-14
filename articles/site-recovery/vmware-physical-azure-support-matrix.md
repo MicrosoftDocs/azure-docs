@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -171,7 +171,7 @@ Guest/server network IPv6 | No.
 Guest/server network static IP (Windows) | Yes.
 Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to use DHCP on failback.
 Guest/server network multiple NICs | Yes.
-
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## Azure VM network (after failover)
