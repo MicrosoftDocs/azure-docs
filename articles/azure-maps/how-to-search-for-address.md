@@ -154,4 +154,4 @@ In this example, we'll search for a cross street based on the coordinates of an 
 > [Explore Azure Maps Search Service REST API](https://docs.microsoft.com/rest/api/maps/search)
 
 > [!div class="nextstepaction"]
-> [Learn Azure Maps Search Service best practices](how-to-use-best-practices-for-search.md/)
+> [Learn Azure Maps Search Service best practices](how-to-use-best-practices-for-search.md)
