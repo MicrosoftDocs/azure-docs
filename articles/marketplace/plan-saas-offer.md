@@ -171,7 +171,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 - **Description**: This description will be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
   > [!NOTE]
-  > This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description . Most tags require both opening and closing tags. For information about HTML formatting, see [Supported HTML tags for offer descriptions](supported-html-tags.md).
+  > This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. Most tags require both opening and closing tags. For information about HTML formatting, see [Supported HTML tags for offer descriptions](supported-html-tags.md).
 
 - **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These are instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the marketplace(s).

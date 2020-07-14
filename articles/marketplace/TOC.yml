@@ -157,8 +157,6 @@
         href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
-      - name: SaaS offer creation checklist
-        href: ./partner-center-portal/offer-creation-checklist.md
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
@@ -166,8 +164,10 @@
         items:
         - name: Configure offer listing
           href: create-new-saas-offer-listing.md
-        - name: Preview audience and technical details
+        - name: Add a preview audience
           href: create-new-saas-offer-preview.md
+        - name: Provide technical details
+          href: create-new-saas-offer-technical.md  
         - name: Create plans
           href: create-new-saas-offer-plans.md
         - name: Marketing options

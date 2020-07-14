@@ -26,7 +26,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
    > [!NOTE]
    > Use only lowercase alphanumeric characters, dashes, or underscores. A maximum of 50 characters are allowed for this plan ID. The ID cannot be modified after selecting Create.
 
-1. In the **Plan name** box, enter a unique name for this plan.
+1. In the **Plan name** box, enter a unique name for this plan. Max 50 characters.
 
 1. Select **Create**.
 
@@ -36,32 +36,29 @@ On the **Plan listing** tab, you can define the plan name and description as you
 > [!NOTE]
 > This tab is only shown if you chose to sell your offer through Microsoft. If you don't see this tab, then go to [Marketing options](create-new-saas-offer-marketing.md).
 
-1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it now if you want.
+1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time.
 
    > [!NOTE]
    > This name will appear in the marketplace as the title of your offer's software plan.
 
-2. In the **Plan description** box, explain what makes this software plan unique and any differences from other software plans within your offer. This description may contain up to 500 characters.
-3. Select **Save draft** before continuing to the next tab, **Pricing and availability**.
+2. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
+3. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
 
 ## Define markets, pricing, and availability
 
-On the **Pricing and availability** tab, you can configure the markets this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
+Every plan must be available in at least one market. On the **Pricing and availability** tab, you can configure the markets this plan will be available in, the desired monetization model, price, and billing terms. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (also called a private plan).
 
 1. Under **Markets**, select the **Edit markets** link.
-2. In the dialog box that appears, select the market locations where you want to make your plan available.
+1. In the dialog box that appears, select the market locations where you want to make your plan available. You must select a minimum of one and maximum of 141 markets.
 
    > [!NOTE]
-   > Every plan must be available in at least one market. This dialog box includes a search box and option to select only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
+   > This dialog box includes a search box and an option to filter on only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
 
-2. Select **Save**, to close the dialog box.
-
-If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates.
+1. Select **Save**, to close the dialog box.
 
 ## Define a pricing model
-Every plan must be available in at least one market. Select **Edit markets** and select the check box for each market location you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries/regions, in which Microsoft remits sales and use tax on your behalf.
 
-You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must be associated with the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan per user. For more information, see [Pricing models](plan-saas-offer.md#pricing-models).
+You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more informatio, see [Pricing models](plan-saas-offer.md#pricing-models).
 
 > [!IMPORTANT]
 > After your offer is published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
@@ -102,7 +99,7 @@ Note the following:
 - After a billing term is published for a plan, it can't be removed later.
 - After a price for a market in your plan is published, it can't be changed later.
 
-Prices set in United States Dollars (USD) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
+Plan pricing is always displayed in United States Dollars (USD) on the **Pricing and availability** page. Prices are automatically converted into the local currency of all selected markets using the current exchange rates. You can validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
 
 **To validate and set custom prices**
 
@@ -127,20 +124,24 @@ You can configure a free trial for each plan in your offer. Select the check box
 
 - Under **Free Trial**, select the **Allow a one-month free trial** check box.
 
-   ![One month free trial checkbox](partner-center-portal/media/free-trial-enable.png)
-
-> [!NOTE]
-> This check box isn't available for plans that use the marketplace metering service.
+  > [!NOTE]
+  > This check box isn't available for plans that use the marketplace metering service.
 
 ### **Choose who can see your plan**
 
-You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID assigned. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
+You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
+
+**To make your plan public**
+
+1. Under **Plan visibility**, select the **Public** box.
+2. Select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
+3. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
 
 **To make your plan private using the manual method**
 
 1. Under **Plan visibility**, select the **This is a private plan** box.
-2. In the **Tenant ID** box that appears, enter the Azure AD tenant ID of the audience you want to grant access to this private plan.
-3. Optionally, enter a description of this audience in the **Description** box.
+2. In the **Tenant ID** box that appears, enter the Azure AD tenant ID of the audience you want to grant access to this private plan. A minimum of one tenant ID is required.
+3. (Optional) Enter a description of this audience in the **Description** box.
 4. To add another tenant ID, repeat steps 2 and 3.
 5. When you're done adding tenant IDs, select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
 6. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
@@ -157,7 +158,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 8. In the dialog box that appears, select **Yes**.
 9. Select the .CSV file and then select **Open**.
 10. Select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
-11. To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section, **View your plans**.
+11. To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: **View your plans**.
 
 ## View your plans
 
@@ -167,6 +168,11 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**.
- 
+
+  > [!TIP]
+  > The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+
 ## Next steps
-For help configuring the **Co-sell with Microsoft** and **Resell through CSPs** tabs, see [Marketing options for your SaaS offer](create-new-saas-offer-marketing.md).
+
+- For help configuring the **Co-sell with Microsoft** and **Resell through CSPs** tabs, see [Marketing options for your SaaS offer](create-new-saas-offer-marketing.md).
+- For help reviewing and publishing your offer, see [Review and publish an offer](review-publish-offer.md).
