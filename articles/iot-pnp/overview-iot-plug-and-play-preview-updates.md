@@ -1,6 +1,6 @@
 ---
-title: What's new? IoT Plug and Play public preview refresh | Microsoft Docs
-description: Learn what's new with the IoT Plug and Play public preview refresh release.
+title: What's new? IoT Plug and Play Preview Refresh | Microsoft Docs
+description: Learn what's new with the IoT Plug and Play Preview Refresh release.
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
@@ -11,9 +11,9 @@ services: iot-pnp
 manager: eliotgra
 ---
 
-# IoT Plug and Play public preview refresh
+# IoT Plug and Play preview refresh
 
-This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play public preview refresh release. The previous IoT Plug and Play preview release was in August 2019.
+This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play preview refresh release in July 2020. The previous IoT Plug and Play preview release was in August 2019.
 
 ## Digital Twins Definition Language (DTDL)
 
@@ -40,9 +40,8 @@ More complex device might require to group telemetry, commands, and properties o
 
 ## Registration and discovery
 
-In this release, devices register their **Model ID** with IoT Hub on every connection. IoT Hub caches the **Model ID**, and a backend solution can retrieve the **Model ID** using the device twin `modelId` property. Previously, a device announced the capability model and interfaces it supported in a telemetry message sent to IoT Hub, and IoT Hub cached this information.
+In this release, devices announce their **Model ID** with IoT Hub on every connection. IoT Hub caches the **Model ID** enabling backend solutions to retrieve the **Model ID** using the device twin `modelId` property. 
 
-You can use both the current and previous preview versions of the SDKs and Azure IoT Explorer tool with IoT Hub. However, if a device uses the previous preview version of the SDK, you must use the previous version of Azure IoT Explorer. Similarly, if a device uses the latest preview version of the SDK, you must use the latest version of Azure IoT Explorer.
 
 ## Microsoft defined interfaces
 
@@ -52,6 +51,7 @@ The following Microsoft-defined interfaces are deprecated and aren't published i
 - **urn:azureiot:ModelDiscovery:ModelInformation:1**
 
 The following interface is published in the new model repository: `dtmi:azure:DeviceManagement:DeviceInformation;1` available in the URL [https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview).
+
 
 ## DigitalTwinChangeEvents
 
@@ -63,9 +63,9 @@ The **SystemProperties** collection in a digital twin change event now includes 
 
 There's no backward compatibility with previous preview versions of the SDKs. You'll need to change your code if you move to the latest preview version of an SDK.
 
-With the convention-based approach, there is no need for separate device client SDKs. From this preview release, the existing **DigitalTwinClient** libraries are deprecated in all languages. Instead, the existing SDKs have been updated to include an option to announce the **Model ID**.
+With the convention-based approach, there's no need for separate device client SDKs. From this preview release, the existing **DigitalTwinClient** libraries are deprecated in all languages. Instead, the IoT Hub device client SDKs have been updated to include an option to announce the **Model ID**.
 
-Component-less devices will require minimal code changes - just announcing the **Model ID** - while more complex devices using a multi-component approach might require some reusable functions to implement the convention. Device samples include a set of functions that you might reuse in your device implementation.
+Devices that don't use components require minimal code changes - just announcing the **Model ID**. More complex devices using a multiple components might require some reusable functions to implement the [conventions](concepts-convention.md). Device samples include a set of functions that you might reuse in your device implementation.
 
 ### Service SDKs
 

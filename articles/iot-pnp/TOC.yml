@@ -49,7 +49,7 @@
     href: concepts-developer-guide.md
   - name: Components
     href: concepts-components.md
-  - name: Message conventions
+  - name: The IoT Plug and Play Convention
     href: concepts-convention.md
   - name: Model repository
     href: concepts-model-repository.md
