@@ -17,6 +17,8 @@ ms.date: 01/10/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
+
+ms.custom: devx-track-terraform
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Enterprise
