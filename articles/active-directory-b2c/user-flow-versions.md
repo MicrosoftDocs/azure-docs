@@ -53,25 +53,30 @@ These user flows (previously referred to as V1) are stable and production-ready.
 
 ### What happened to the V1, V1.1, and V2 versions?
 
-To simplify version selection, we now offer two versions of user flows. The V1 versions are now referred to as **Standard** user flows. The V1.1 and V2 user flows have been combined and updated, and are now referred to as **Recommended** user flows. By offering a consolidated, recommended preview version of a user flow, we can add new features as they become available instead of creating a new version.
+Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions of user flows. Now, we've consolidated user flows into two versions:
+>
+>- **Recommended** user flows are the new preview versions of user flows. They're thoroughly tested and combine all the features of the **V2** and **V1.1** versions. Going forward, these versions will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
+>- **Standard** user flows, previously known as **V1**, are generally available, production-ready user flows. If your user flows are mission-critical and depend on highly stable versions, you can continue to use standard user flows, realizing that these versions won't be maintained and updated.
+>
+>All legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. Wherever possible, we highly recommend that you [switch](#how-do-i-switch-from-v2-to-the-new-preview-policies) to the new **Recommended** versions as soon as possible so you can always take advantage of the latest features and updates.
 
 ### Can I create new user flows?
 
-Creating new preview user flows will no longer supported. But you can continue to read, update, and delete any V2 and V1.1 user flow you're currently using.
+Creating new preview user flows will no longer supported. But you can continue to read, update, and delete any legacy V2 and V1.1 user flow you're currently using.
 
-### Is there any reason to continue using V2 user flows?
+### Is there any reason to continue using legacy V2 and V1.1 user flows?
 
-Not really. The new **Recommended** preview versions contain the same functionality as the V2 versions. Nothing has been removed, and in fact they now include additional features.
+Not really. The new **Recommended** preview versions contain the same functionality as the legacy V2 and V1.1 versions. Nothing has been removed, and in fact they now include additional features.
 
-### If I don’t switch from V2 policies, how will it impact my application?
+### If I don’t switch from legacy V2 and V1.1 policies, how will it impact my application?
 
-If you're using a V2 user flow, your application won't be affected by this versioning change. But to get access to new features or policy changes going forward, you'll need to switch to the new **Recommended** versions.
+If you're using a legacy V2 or V1.1 user flow, your application won't be affected by this versioning change. But to get access to new features or policy changes going forward, you'll need to switch to the new **Recommended** versions.
 
-### Will Microsoft still support my user flow V2 policy?
+### Will Microsoft still support my legacy V2 or V1.1 user flow policy?
 
-The V2 versions of user flows will continue to be fully supported.
+The legacy V2 and V1.1 versions of user flows will continue to be fully supported.
 
-### How do I switch from V2 to the new Preview policies?
+### How do I switch from a legacy V2 or V1.1 user flow to the new policy?
 
 Switch to the new **Recommended** preview version of a user flow with these steps:
 
