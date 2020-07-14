@@ -32,7 +32,7 @@ The application should be scaled up/out.
 When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port exhaustion.
 
 #### Solution 1:
-Follow the CosmosSNATPortExhuastion guide.
+Follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 
 #### Solution 2:
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.

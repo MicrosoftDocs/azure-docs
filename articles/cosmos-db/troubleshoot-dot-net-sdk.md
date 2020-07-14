@@ -98,7 +98,5 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[Request rate too large]: #request-rate-too-large
-[Request timed out]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
