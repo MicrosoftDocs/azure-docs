@@ -7,8 +7,6 @@ ms.date: 5/25/2020
 ms.author: baanders
 ---
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
 ### Set up Cloud Shell session
 
 After opening a Cloud Shell window, the first thing to do is log in and set the shell context to your subscription for this session. Run these commands in your Cloud Shell:

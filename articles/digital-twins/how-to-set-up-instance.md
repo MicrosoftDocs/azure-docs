@@ -17,13 +17,49 @@ ms.service: digital-twins
 
 # Set up an Azure Digital Twins instance
 
-This article will walk you through the basic steps to set up a new Azure Digital Twins instance. This includes creating the instance, and assigning [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to the instance for yourself.
+This article will walk you through the steps to set up a new Azure Digital Twins instance. There are two parts to setting up an instance:
+1. Creating the instance
+2. Assigning yourself [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to manage the instance
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article describes two possible ways to go through these steps. The first is to run an **automated deployment script** sample that streamlines the process. The second is to complete the steps yourself **manually**.
+
+Whichever process you are using, both require an Azure subscription (which you can set up for free [here]](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and utilize Azure Cloud Shell.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Option 1: Automated setup with the deployment script
+
+There's an Azure Digital Twins code sample that contains a scripted version of the setup. You can use the scripted deployment sample to set up an Azure Digital Twins instance and permissions in a streamlined way, or as a starting point for writing your own scripted interactions.
+
+The sample script is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+
+In the downloaded sample folder, the deployment script is located at _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1**_.
+
+### Run the script
+
+Here are the steps to run the deployment script in Cloud Shell.
+1. Open a new [Azure Cloud Shell](https://shell.azure.com/) window in your browser. In Cloud Shell window icon bar, select the "Upload/Download files" icon and choose "Upload".
+
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+
+    Navigate to the _**deploy.ps1**_ file on your machine and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+
+2. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. As the script runs through the automated setup steps, you will be asked to pass in the following values:
+    * For the instance: the *subscription ID* of your Azure subscription to use
+    * For the instance: a *resource group* name (you can use an existing resource group, or enter a new name of one to create)
+    * For the instance: a *name* for your Azure Digital Twins instance
+    * For the app registration: an *AAD application display name* to associate with the registration
+    * For the app registration: an *AAD application reply URL* for the AAD application. You can use `http://localhost`.
+
+Upon script completion, you now have an Azure Digital Twins instance ready to go and permissions set up to manage it.
+
+## Option 2: Manual setup
+
+This section explains the process for setting up an Azure Digital Twins instance manually. The following steps are the same steps that the  deployment script from [*Option 1: Automated setup with the deployment script*](#automated-setup-with-the-deployment-script) relies on behind the scenes.
 
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
-## Create the Azure Digital Twins instance
+### Create the Azure Digital Twins instance
 
 First, you will create a new Azure resource group for use in this how-to. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
 
@@ -48,13 +84,13 @@ Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* 
 > [!TIP]
 > You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-## Assign Azure Active Directory permissions
+### Assign Azure Active Directory permissions
 
 Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
 
 In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [How-to: Authenticate a client application](how-to-authenticate-client.md).
 
-### Assign yourself a role
+#### Assign yourself a role
 
 Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
 
@@ -76,34 +112,6 @@ The result of this command is outputted information about the role assignment th
 > Then, repeat the role assignment command using your user's *Object ID* in place of your email.
 
 You now have an Azure Digital Twins instance ready to go, and permissions to manage it.
-
-## Automated setup sample
-
-There's an Azure Digital Twins code sample that contains a scripted version of these steps. You can use the scripted deployment sample to set up an Azure Digital Twins instance and permissions in a more streamlined way, or as a starting point for writing your own scripted interactions.
-
-The sample is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
-
-In the downloaded sample folder, the deployment script is located at _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1**_.
-
-### Run the sample
-
-You can run the sample with minimal setup using Cloud Shell. Alternatively, you can run it on your local machine after installing the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-To run the sample in Cloud Shell:
-1. Open a new [Azure Cloud Shell](https://shell.azure.com/) window in your browser. In Cloud Shell window icon bar, select the "Upload/Download files" icon and choose "Upload".
-
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
-
-    Navigate to the _**deploy.ps1**_ file on your machine and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
-
-2. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. As the script runs through the automated setup steps, you will be asked to pass in the following values:
-    * For the instance: the *subscription ID* of your Azure subscription to use
-    * For the instance: a *resource group* name (you can use an existing resource group, or enter a new name of one to create)
-    * For the instance: a *name* for your Azure Digital Twins instance
-    * For the app registration: an *AAD application display name* to associate with the registration
-    * For the app registration: an *AAD application reply URL* for the AAD application. You can use `http://localhost`.
-
-The script will complete the same steps that the rest of this article walks through manually.
 
 ## Next steps
 
