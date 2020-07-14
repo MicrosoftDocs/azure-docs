@@ -107,8 +107,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     a. In the **Identifier** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Identifier |
+	|------------|
 	| `https://admin.zscaler.net` |
 	| `https://admin.zscalerone.net` |
 	| `https://admin.zscalertwo.net` |
@@ -118,8 +118,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Reply URL |
+	|-----------|
 	| `https://admin.zscaler.net/adminsso.do` |
 	| `https://admin.zscalerone.net/adminsso.do` |
 	| `https://admin.zscalertwo.net/adminsso.do` |
