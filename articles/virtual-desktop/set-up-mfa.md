@@ -47,7 +47,7 @@ This section will show you how to create a Conditional Access policy that requir
        - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
    - If you're using the Spring 2020 release, choose **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07).
   
-  Once you've selected your app, choose **Select**, and then select **Done**.
+   Once you've selected your app, choose **Select**, and then select **Done**.
 
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
