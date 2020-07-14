@@ -171,18 +171,22 @@ Selection of features is randomized in this chat bot. In a real bot, use real da
 
 ## Demonstrate the Personalizer loop
 
-1. Select the **Generate new Rank Request** button to create a new JSON object for the Rank API call. This creates the actions (with features) and context features and displays the values so you can see what the JSON looks like.
+1. Open the Bot Emulator, and select **Open Bot**.
 
-    For your own future application, generation of actions and features may happen on the client, on the server, a mix of the two, or with calls to other services.
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot of bot emulator startup screen.":::
 
-1. Select **Send Rank Request** to send the JSON object to the server. The server calls the Personalizer Rank API. The server receives the response and returns the top ranked action to the client to display.
 
-1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
+1. Configure the bot with the following **bot URL** then select **Connect**:
 
-    > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    `http://localhost:3978/api/messages`
 
-    For your own future application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot of bot emulator open bot settings.":::
+
+    The emulator connects to the chat bot and displays the instructional text, along with logging and debug information helpful for local development.
+
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot of bot emulator in first turn of conversation.":::
+
+
 
 ## Understand the sample web app
 
