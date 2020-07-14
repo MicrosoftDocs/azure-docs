@@ -1,12 +1,12 @@
 ---
 title: Retrieve operations API - Azure Marketplace
 description: API to retrieve all the operations on the offer or to get a particular operation for the specified operationId.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 07/01/2020
+author: dsindona
 ms.author: dsindona
+ms.date: 07/14/2020
 ---
 
 # Retrieve operations

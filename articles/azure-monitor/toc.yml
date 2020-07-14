@@ -81,6 +81,10 @@
         href: samples/resource-manager-alerts-metric.md
       - name: Action groups
         href: samples/resource-manager-action-groups.md
+    - name: Application Insights
+      items:
+        - name: Create a resource
+          href: samples/resource-manager-app-resource.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -566,12 +570,12 @@
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
-      - name: ASP.NET Console
-        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
-        href: app/console.md
       - name: Non-HTTP apps/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
+      - name: .NET Console
+        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
+        href: app/console.md
       - name: Java
         items:
           - name: Web apps
@@ -1204,6 +1208,10 @@
       href: app/custom-endpoints.md
     - name: Azure Functions
       href: app/azure-functions-supported-features.md 
+    - name: Release notes
+      items:
+      - name: Web app extension
+        href: app/web-app-extension-release-notes.md
     - name: Data model
       items:
       - name: Overview
@@ -1237,9 +1245,14 @@
   - name: Azure CLI
     items:
     - name: Azure Monitor
-      href: /cli/azure/monitor?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-monitor
+      displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
+      href: /cli/azure/ext/application-insights/monitor/app-insights
+    - name: Activity Logs
+      href: /cli/azure/monitor/activity-log
+    - name: Log Analytics
+      href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
     - name: Azure Monitor

@@ -1,12 +1,12 @@
 ---
 title: Private offers in Microsoft commercial marketplace
 description: Private offers in the Microsoft commercial marketplace for app and service publishers.
-author: qianw211
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
+ms.service: marketplace
 ms.topic: article
-ms.date: 07/01/2020
+author: qianw211
 ms.author: dsindona
+ms.date: 07/01/2020
 ---
 
 # Private offers in the Microsoft commercial marketplace

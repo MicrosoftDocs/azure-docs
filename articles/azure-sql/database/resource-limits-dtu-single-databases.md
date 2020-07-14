@@ -82,7 +82,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
 | Max storage choices (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 

@@ -102,7 +102,7 @@
     href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
-    href: ../virtual-machines/windows/regions.md
+    href: ../virtual-machines/regions.md
   - name: Availability and performance
     maintainContext: true
     items:

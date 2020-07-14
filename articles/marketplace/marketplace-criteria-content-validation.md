@@ -1,12 +1,12 @@
 ---
 title: Azure Marketplace offer and service listing requirements
 description: This article explains requirements and guidelines for listing new offers and services on Azure Marketplace.  
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 07/14/2020
 ---
 
 # Azure Marketplace listing guidelines
@@ -19,9 +19,9 @@ This article explains the requirements and guidelines for listing new offers and
 |:--- |:--- |:--- |:--- |
 | 1 | Lead destination | Has a lead destination configured.| The One Commercial Partner (OCP) Catalog has the lead destination CRM information that's also listed in the partner solution tab. |
 | 2 | Offer title | Briefly describes the solution offering. Matches the online promotion of the solution on the partner's website. | Contains key search words. |
-| 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly. |
+| 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly and includes a "hero image," which is the large-format image in the Azure portal. |
 | 4 |  Offer description | <ul><li> Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Is free of spelling and grammar mistakes.</li><li>Is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form with short sentences that are easy to understand.</li></ul> | <ul><li> The target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read long paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
-| 5 | Categories and industries | <ul><li>Categories match the solution offering's capabilities.</li><li>Do not extend to categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | <ul><li>Max. 3 categories.</li><li>Max. 3 industries. |
+| 5 | Categories and industries | <ul><li>Categories and subcategories must match offer capabilities </li><li>Do not select categories/subcategories that do not fit with your offer capabilities. </li></ul> | <ul><li>Select up to two categories, including a primary and a secondary category (optional).</li><li>Select up to two subcategories for each primary and/or secondary category. If no subcategory is selected, your offer will still be discoverable on the selected category.</li></ul> |
 | 6 | Images | <ul><li>Image requirements are listed in Partner Center.</li><li>Text included in the screenshot is legible, and the image is clear. | The solution offering is easily understood at a glance. |
 | 7 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, the length is 3 min. or more.</li><li>The solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
 | 8 | List status (call to action) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
@@ -49,7 +49,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 5 | Storefront details: Industries | Industries (max. 2): Select the industries that your app is best aligned and applicable to. | |
 | 6 | Offer description | <ul><li>Simple HTML is allowed, including \<p>, \<em>, \<ul>, \<li>, \<ol>, and header tags. Max. 3000 characters.</li><li>Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Description is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Is in paragraph narrative form, with short sentences that are easy to understand. | <ul><li>Target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective is for the reader to understand the offering at a glance in an easy-to-view format and not have to read paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
 | 7 | Marketing artifacts | Logos are displayed correctly. | <ul><li>Logos: Small (48x48 pixels) and large (216x216 pixels) are required.</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280x720 pixels. |
-| 8 | Categories and industries | <ul><li>Categories match solution offering capabilities.</li><li>Select at least one item in the pop-up window.</li><li>Do not extend to categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | Max. 3 categories selected, if applicable. |
+| 8 | Categories and industries | <ul><li>Categories match solution offering capabilities.</li><li>Select at least one item in the pop-up window.</li><li>Do not select categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | Max. 3 categories selected, if applicable. |
 | 9 | Lead management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal |<ul><li>Privacy policy URL: The URL for your app's privacy policy in the Privacy policy URL field in the CPP.</li><li>Terms of use: The terms of use of your app. Customers are required to accept these terms before they can try your app. |    Policies or terms are available via a public URL site. |
@@ -84,9 +84,9 @@ This article explains the requirements and guidelines for listing new offers and
 ||||
 
 ## Next steps
+
 * Learn about the various offer types in Azure Marketplace:
   * [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
   * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
   * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
-
 * [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)

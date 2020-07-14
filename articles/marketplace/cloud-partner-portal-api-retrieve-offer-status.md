@@ -1,12 +1,12 @@
 ---
 title: Retrieve offer status - Azure Marketplace
 description: API to retrieve the current status of the offer.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 07/01/2020
+author: dsindona
 ms.author: dsindona
+ms.date: 07/14/2020
 ---
 
 # Retrieve offer status

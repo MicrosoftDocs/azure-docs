@@ -1,12 +1,12 @@
 ---
 title: Payout summary overview - Azure Marketplace
 description: The Payout summary shows you details about the money you've earned with your offer. It also lets you know when you'll receive payments and how much you'll be paid.
+ms.subservice: partnercenter-marketplace-publisher
+ms.service: marketplace 
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.service: marketplace 
-ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 07/01/2020
+ms.date: 07/14/2020
 ---
 
 # Payout summary overview

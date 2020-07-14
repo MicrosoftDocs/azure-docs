@@ -1,12 +1,12 @@
 ---
 title: API Prerequisites - Azure Marketplace
 description: Prerequisites for using the Cloud Partner Portal APIs.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 07/14/2020
+author: dsindona
 ms.author: dsindona
+ms.date: 07/14/2020
 ---
 
 
@@ -22,7 +22,7 @@ There are two required programmatic assets that you need to use the Cloud Partne
 Create a service principal in your Azure Active Directory tenant
 ----------------------------------------------------------------
 
-First, you need to create a service principal in your Azure AD tenant. This tenant will be assigned its own set of permissions in the Cloud Partner Portal. Your code will call APIs using as this tenant instead of using your personal credentials.  For a full explanation of creating a service principal, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+First, you need to create a service principal in your Azure AD tenant. This tenant will be assigned its own set of permissions in the Cloud Partner Portal. Your code will call APIs using as this tenant instead of using your personal credentials.  For a full explanation of creating a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 Add the service principal to your account
@@ -73,7 +73,7 @@ The Cloud Partner Portal APIs use the following assets and protocols during auth
 
 - A JSON Web Token (JWT) bearer token to request access to resources
 - The [OpenID Connect](https://openid.net/connect/) (OIDC) protocol to verify identity
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) as the identity authority
+- [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) as the identity authority
 
 There are two principle approaches to programmatically acquiring a JWT token:
 

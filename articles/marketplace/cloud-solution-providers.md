@@ -1,17 +1,17 @@
 ---
 title: Cloud Solution Provider - Microsoft commercial marketplace
 description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) program partner channel in the commercial marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 07/14/2020
 ---
 
 # Cloud Solution Provider program
 
-This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
+This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace web storefronts](comparing-appsource-azure-marketplace.md), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
 
 You can configure new or existing offers for availability in the CSP program on an opt-in basis, which allows CSP partners sell your products and create bundled solutions for customers.
 
@@ -171,7 +171,7 @@ If you've opted into the CSP channel in Partner Center, publishers must enter a 
 
 ## Next steps
 
-Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Visit the [Azure Marketplace and AppSource Publisher Guide](marketplace-publishers-guide.md).
 
 To learn more about marketplace GTM services, see [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 

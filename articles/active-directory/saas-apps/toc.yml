@@ -948,6 +948,8 @@
         href: learnupon-tutorial.md
       - name: Lecorpio
         href: lecorpio-tutorial.md
+      - name: Lenses.io
+        href: lensesio-tutorial.md
       - name: Lesson.ly
         href: lessonly-tutorial.md
       - name: Lifesize Cloud
@@ -1458,6 +1460,8 @@
         href: simple-sign-tutorial.md
       - name: SiteIntel
         href: siteintel-tutorial.md
+      - name: Skedda
+        href: skedda-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -1724,6 +1728,8 @@
         href: whitesource-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
+      - name: WhosOnLocation
+        href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
