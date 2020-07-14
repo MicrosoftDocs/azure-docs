@@ -1,5 +1,5 @@
 ---
-title: References
+title: Azure FarmBeats APIs
 description:
 author: sunasing
 ms.topic: article

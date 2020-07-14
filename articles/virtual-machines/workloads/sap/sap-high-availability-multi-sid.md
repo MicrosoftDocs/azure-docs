@@ -1,5 +1,5 @@
 ---
-title: Create an SAP multi-SID configuration in Azure | Microsoft Docs
+title: Create high-availability SAP multi-SID configuration in Azure
 description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
