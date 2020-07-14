@@ -78,7 +78,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
+All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription added to the allow list. To request that a subscriptions is added to the allow list, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## Limits 
 

@@ -31,7 +31,7 @@ With Azure Machine Learning datasets, you can:
 * Share data and collaborate with other users.
 
 ## Prerequisites
-'
+
 To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
