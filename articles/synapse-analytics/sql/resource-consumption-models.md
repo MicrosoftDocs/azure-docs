@@ -10,7 +10,7 @@ ms.author: vvasic
 ms.reviewer: jrasnick   
 ---
 
-# Azure Synapse Analytics SQL resource consumption
+# Synapse SQL resource consumption
 
 This article describes resource consumption models of Synapse SQL (preview).
 
