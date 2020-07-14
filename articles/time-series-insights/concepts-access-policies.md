@@ -4,7 +4,7 @@ description: Learn how to configure security, permissions, and manage data acces
 ms.service: time-series-insights
 services: time-series-insights
 author: shipra1mishra    
-ms.author: shipra1mishra
+ms.author: shmishr
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
