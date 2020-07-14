@@ -213,13 +213,13 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Transfer type     | Select **Import to Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
-    |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together |
+    |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data.        |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
 
     [![Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04.png)](media/data-box-deploy-ordered/select-data-box-import-04.png#lightbox)
 
-5. Select **Data Box**. The maximum usable capacity for a single order is 100 TB. You can create multiple orders for larger data sizes.
+5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
     ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
@@ -233,18 +233,13 @@ Do the following steps in the Azure portal to order a device.
 
     ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    <!-- |Setting  |Value  |
-    |---------|---------|
-    |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
-    |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
-    |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).| -->
-
 7. In **Data destination** tab, select **Data destination**.
 
     If using **storage account(s)** as the storage destination, you see the following screenshot:
 
     ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
+
+    Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
 
     If using Data Box to create **Managed disk(s)** from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
