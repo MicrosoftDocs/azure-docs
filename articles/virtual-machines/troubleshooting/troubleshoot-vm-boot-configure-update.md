@@ -42,7 +42,7 @@ If the issue does not resolve after waiting for the changes to process, you woul
 ### Attach the OS disk to a recovery VM
 
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 3. Remote desktop to the recovery VM. 
 4. If the OS disk is encrypted, you must turn off the encryption before you move to the next step. For more information, see [Decrypt the encrypted OS disk in the VM that cannot boot](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -96,7 +96,7 @@ To enable dump log and Serial Console, run the following script.
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](./troubleshoot-recovery-disks-portal-windows.md).
 4. Start the VM and access the Serial Console.
 5. Select **Send Non-Maskable Interrupt(NMI)** to trigger the memory dump.
     ![the image about where to send Non-Maskable Interrupt](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
