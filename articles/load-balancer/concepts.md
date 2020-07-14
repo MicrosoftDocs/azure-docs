@@ -52,11 +52,11 @@ Load balancer doesn't directly interact with TCP or UDP or the application layer
 
 ## Outbound connections 
 
-Flows from the backend pool to public IPs are mapped to the frontend. Azure translates outbound connections to the public frontend IP address via the load-balancing outbound rule. This configuration has the following advantages. Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service. Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists.| To learn more about Source Network Address Translation (SNAT) and Azure Load Balancer, see [SNAT and Azure Load Balancer](load-balancer-outbound-connections.md).
+Flows from the backend pool to public IPs are mapped to the frontend. Azure translates outbound connections to the public frontend IP address via the load-balancing outbound rule. This configuration has the following advantages. Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service. Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists. To learn more about Source Network Address Translation (SNAT) and Azure Load Balancer, see [SNAT and Azure Load Balancer](load-balancer-outbound-connections.md).
 
 ## Availability Zones 
 
-Standard load balancer supports additional abilities in regions where Availability Zones are available. These features are incremental to all standard load balancer provides.  Availability Zones configurations are available for both types of Standard load balancer; public and internal.A zone-redundant frontend survives zone failure by using dedicated infrastructure in all of the zones simultaneously. Additionally, you can guarantee a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Cross-zone load balancing is available for the backend pool. Any virtual machine resource in a virtual network can be part of a backend pool.Basic load balancer doesn't support zones. Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md) and [Availability Zones Overview](../availability-zones/az-overview.md) for more information.
+Standard load balancer supports additional abilities in regions where Availability Zones are available. Availability Zones configurations are available for both types of Standard Load Balancer; public and internal. A zone-redundant frontend survives zone failure by using dedicated infrastructure in all of the zones simultaneously. Additionally, you can guarantee a frontend to a specific zone. A zonal frontend is served by dedicated infrastructure in a single zone. Cross-zone load balancing is available for the backend pool. Any virtual machine resource in a virtual network can be part of a backend pool. Basic load balancer doesn't support zones. Review [detailed discussion of Availability Zones related abilities](load-balancer-standard-availability-zones.md) and [Availability Zones Overview](../availability-zones/az-overview.md) for more information.
 
 ## HA Ports
 
@@ -71,8 +71,8 @@ Load balancer supports multiple rules with multiple frontends.  Standard Load Ba
 Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
 
 **Floating IP** is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts: 
-1. a flow topology and 
-2. an IP address mapping scheme. 
+  - a flow topology and 
+  - an IP address mapping scheme. 
 
 At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
 Without Floating IP, Azure exposes a traditional load balancing IP address mapping scheme for ease of use (the VM instances' IP). Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
