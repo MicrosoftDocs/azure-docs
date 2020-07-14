@@ -266,8 +266,8 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 - [Learn more about Azure Monitor](../../azure-monitor/overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
-- [Stream the Activity Log to a non-Microsoft service](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Stream resource logs to a non-Microsoft service](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Stream the Activity Log to a non-Microsoft service](./activity-log.md#legacy-collection-methods)
+- [Stream resource logs to a non-Microsoft service](./resource-logs.md#collect-to-azure-event-hubs)
 
 
 
@@ -298,4 +298,3 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
 [turbonomic-doc]: https://turbonomic.com/ "Turbonomic introduction."
-

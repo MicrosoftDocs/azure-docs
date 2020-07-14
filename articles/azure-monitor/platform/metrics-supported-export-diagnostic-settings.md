@@ -8,11 +8,11 @@ ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
-Azure Monitor provides [platform metrics](data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
+Azure Monitor provides [platform metrics](data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
 
 You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
 1. Using [diagnostic settings](diagnostic-settings.md) to send to Log Analytics, Event Hubs or Azure Storage.
-2. Use the [metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+2. Use the [metrics REST API](/rest/api/monitor/metrics/list)
 
 Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. The table below lists which can and cannot be exported using diagnostic settings.
 

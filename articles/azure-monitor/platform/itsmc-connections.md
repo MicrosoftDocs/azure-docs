@@ -35,7 +35,7 @@ Ensure the following prerequisites are met:
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
-- User role:  [Advanced operator](https://technet.microsoft.com/library/ff461054.aspx).
+- User role:  [Advanced operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### Connection procedure
 
@@ -200,7 +200,7 @@ Ensure the following prerequisites are met:
 > 2) **We recommend to establish an internal procedure to ensure the connection remains alive:**
 > According to the Refresh Token Lifespan to refresh the token. Please make sure to perform the following operations prior refresh token expected expiration time (Couple of days before the Refresh Token Lifespan expires we recommend):
 >
-> 1. [Complete a manual sync process for ITSM connector configuration](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Complete a manual sync process for ITSM connector configuration](./itsmc-resync-servicenow.md)
 > 2. Revoke to the old refresh token as it is not recommended to keep old keys from for security reasons. In ServiceNow blade search for System OAuth than select Manage Tokens. Pick the old token from the list according to the OAuth name and expiration date.
 > ![SNOW system OAuth definition](media/itsmc-connections/snow-system-oauth.png)
 > 3. Click on Revoke Access and than on Revoke.

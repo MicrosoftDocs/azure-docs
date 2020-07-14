@@ -63,8 +63,8 @@ Log Analytics is a flexible store, which while prescribing a schema to your data
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) where possible to obfuscate this data.
-* *Snapshot Debugger captures*: The [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
+* *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](../app/api-filtering-sampling.md) where possible to obfuscate this data.
+* *Snapshot Debugger captures*: The [Snapshot Debugger](../app/snapshot-debugger.md) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
 
 ## How to export and delete private data
 
@@ -97,7 +97,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 #### Log data
 
-* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
+* [POST purge](/rest/api/loganalytics/workspacepurge/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
     ```
@@ -109,7 +109,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 #### Application data
 
-* [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
+* [POST purge](/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
    ```
