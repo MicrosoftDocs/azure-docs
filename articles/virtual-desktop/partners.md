@@ -43,7 +43,7 @@ As a Windows Virtual Desktop approved provider, VMware can help customers that w
 
 10ZiG's world-market leadership in Thin and Zero Client endpoint devices and management software for virtual desktops is exemplified by how they work for their customers. Its Thin Client hardware comes with thoughtfully constructed benefit features and options designed to ensure customers receive the right Client devices based on their needs. 10ZiG customizes its devices to fit into customer environments with Windows-based and Linux-based Clients that provide the best possible performance in virtual desktops, both inside and outside the cloud.
 
-- [Go to the partner website](https://www.10zig.com/).
+- [Go to the partner website](https://www.10zig.com/about/microsoft-wvd).
 
 ## Automai
 
