@@ -53,7 +53,7 @@ The percentage value next to Total Orders represents the amount of growth the se
 
 ### Orders by geography
 
-The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country. This heatmap functions the same as the **[Customer by geography heatmap](./customer-dashboard.md#customer-by-geography)**.
+The **Orders by geography** heatmap displays a count of your orders on a world map and shows seats mapped based on Customer Country/Region. This heatmap functions the same as the **[Customer by geography heatmap](./customer-dashboard.md#customer-by-geography)**.
 
 ![Partner Center Analyze orders by geography](./media/orders-by-geography.png)
 
@@ -98,7 +98,8 @@ The Order details table displays a numbered list of the 1000 top orders sorted b
 - Each column in the grid is sortable.
 - The data can be extracted to a TSV file if the count of the records is less than 1000.
 - If records number over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Filters can be applied to the **Order details table** to display only the data that you're interested in. Data can be filtered by Country, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
+- Filters can be applied to the **Order details table** to display only the data that you're interested in. Data can be filtered by Country/Region, Azure license type, Marketplace license type, Offer type, Order status, Free trails, Marketplace subscription ID, Customer ID, and Company name.
+- Because SaaS offers purchased through Azure Marketplace or AppSource do not require an Azure Subscription, the Marketplace Subscription ID will appear as 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
 
 #### Orders Page filters
 

@@ -24,7 +24,7 @@ Temporary tables are only visible to the session in which they were created and 
 
 Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With SQL Analytics, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With SQL pool, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
 
 ## Temporary tables in SQL pool
 
@@ -228,5 +228,5 @@ Also, views can't be created on temporary tables.  Temporary tables can only be 
 
 ## Next steps
 
-To learn more about developing tables, see the [Designing tables using the SQL Analytics resources](sql-data-warehouse-tables-overview.md) article.
+To learn more about developing tables, see the [Designing tables using the Synapse SQL resources](sql-data-warehouse-tables-overview.md) article.
 

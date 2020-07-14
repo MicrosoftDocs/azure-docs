@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -70,6 +70,9 @@ The following sections discuss these phases in detail.
 Only global administrators can install an Authentication Agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
 - The Authentication Agent application itself. This application runs with [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) privileges.
 - The Updater application that's used to auto-update the Authentication Agent. This application runs with [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
+
+>[!IMPORTANT]
+>From a security standpoint, administrators should treat the server running the PTA agent as if it were a domain controller.  The PTA agent servers should be hardened along the same lines as outlined in [Securing Domain Controllers Against Attack](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### Authentication Agent registration
 

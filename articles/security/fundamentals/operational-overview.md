@@ -58,7 +58,7 @@ For more information, see the [Azure Backup components table](/azure/backup/back
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
--	Supports integrated access management for [thousands of applications](https://azure.microsoft.com/marketplace/active-directory/) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
+-	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
 Azure AD also includes a full suite of [identity management capabilities](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 

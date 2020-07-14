@@ -62,7 +62,7 @@ The following alerts are recommended for monitoring the performance of your Stre
 
 For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).  
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

@@ -33,7 +33,7 @@ You must:
 
 Perform the following steps to create an export job in the Azure portal.
 
-1. Log on to https://portal.azure.com/.
+1. Log on to <https://portal.azure.com/>.
 2. Go to **All services > Storage > Import/export jobs**.
 
     ![Go to Import/export jobs](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -123,7 +123,11 @@ The export is complete.
 
 If using version 1.4.0.300 of the WAImportExport tool, use the following command to unlock the drive:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Here is an example of the sample input.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
 
@@ -137,11 +141,11 @@ This *optional* step helps you determines the number of drives required for the 
 2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 3. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. To check the number of disks required for the selected blobs, run the following command:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     The parameters are described in the following table:
 

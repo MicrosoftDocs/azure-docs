@@ -29,7 +29,7 @@ To complete this article, you need the following resources:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm] then [install the AD DS management tools][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -42,7 +42,7 @@ Kerberos constrained delegation (KCD) restricts the services or resources that a
 
 Traditional KCD also has a few issues. For example, in earlier operating systems, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. Any front-end service that could delegate to a resource service was a potential attack point. If a server that hosted a front-end service configured to delegate to resource services was compromised, the resource services could also be compromised.
 
-In an Azure AD DS managed domain, you don't have domain administrator privileges. As a result, traditional account-based KCD can't be configured in an Azure AD DS a managed domain. Resource-based KCD can instead be used, which is also more secure.
+In a managed domain, you don't have domain administrator privileges. As a result, traditional account-based KCD can't be configured in a managed domain. Resource-based KCD can instead be used, which is also more secure.
 
 ### Resource-based KCD
 
@@ -54,8 +54,8 @@ Resource-based KCD is configured using PowerShell. You use the [Set-ADComputer][
 
 In this scenario, let's assume you have a web app that runs on the computer named *contoso-webapp.aaddscontoso.com*. The web app needs to access a web API that runs on the computer named *contoso-api.aaddscontoso.com* in the context of domain users. Complete the following steps to configure this scenario:
 
-1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the Azure AD DS managed domain.
-1. [Domain-join the virtual machines][create-join-windows-vm], both the one that runs the web app, and the one that runs the web API, to the Azure AD DS managed domain. Create these computer accounts in the custom OU from the previous step.
+1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
+1. [Domain-join the virtual machines][create-join-windows-vm], both the one that runs the web app, and the one that runs the web API, to the managed domain. Create these computer accounts in the custom OU from the previous step.
 
     > [!NOTE]
     > The computer accounts for the web app and the web API must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for a computer account in the built-in *AAD DC Computers* container.
@@ -71,8 +71,8 @@ In this scenario, let's assume you have a web app that runs on the computer name
 
 In this scenario, let's assume you have a web app that runs as a service account named *appsvc*. The web app needs to access a web API that runs as a service account named *backendsvc* in the context of domain users. Complete the following steps to configure this scenario:
 
-1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the Azure AD DS managed domain.
-1. [Domain-join the virtual machines][create-join-windows-vm] that run the backend web API/resource to the Azure AD DS managed domain. Create its computer account within the custom OU.
+1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
+1. [Domain-join the virtual machines][create-join-windows-vm] that run the backend web API/resource to the managed domain. Create its computer account within the custom OU.
 1. Create the service account (for example, 'appsvc') used to run the web app within the custom OU.
 
     > [!NOTE]

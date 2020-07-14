@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 06/03/2020
 ms.author: jgao
 
 ---
@@ -55,7 +55,7 @@ The deployment script resource is only available in the regions where Azure Cont
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # [PowerShell](#tab/PowerShell)
@@ -126,7 +126,7 @@ The following json is an example.  The latest template schema can be found [here
 ```
 
 > [!NOTE]
-> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
+> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUri** can't coexist in a template.
 
 Property value details:
 
@@ -161,7 +161,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**. You can also consider using string substitution as it is shown in the previous JSON sample. See the default value of the name parameter.
+> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a **&#92;** or enclosed in single quotes. You can also consider using string substitution as it is shown in the previous JSON sample.
 
 The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Sample templates](#sample-templates).
 
@@ -243,12 +243,15 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 ### Handle non-terminating errors
 
-You can control how PowerShell responds to non-terminating errors by using the [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) variable in your deployment script. The script service doesn't set/change the value.  Despite the value you set for $ErrorActionPreference, deployment script sets the resource provisioning state to *Failed* when the script encounters an error.
+You can control how PowerShell responds to non-terminating errors by using the **$ErrorActionPreference** variable in your deployment script. If the variable is not set in your deployment script, the script service uses the default value **Continue**.
+
+The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of $ErrorActionPreference.
 
 ### Pass secured strings to deployment script
 
 Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
+
+The max allowed size for environment variables is 64KB.
 
 ## Debug deployment scripts
 
@@ -299,8 +302,21 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
 
-- Supported storage account kinds are: General-purpose v2 accounts, General-purpose v1 accounts and fileStorage accounts. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
-- Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
+- Supported storage account kinds are:
+
+    | SKU             | Supported Kind     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+- Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
 
 To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
@@ -311,6 +327,16 @@ To specify an existing storage account, add the following json to the property e
   "storageAccountKey": "myKey"
 },
 ```
+
+- **storageAccountName**: specify the name of the storage account.
+- **storageAccountKey"**: specify one of the storage account keys. You can use the [`listKeys()`](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
 
@@ -324,14 +350,14 @@ The life cycle of these resources is controlled by the following properties in t
 
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
-  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script services persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
+  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
   - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
 
 > [!NOTE]
-> It is not recommended to use the deployment script resources for other purposes.
+> It is not recommended to use the storage account and the container instance that are generated by the script service for other purposes. The two resources might be removed depending on the script life cycle.
 
 ## Run script more than once
 

@@ -38,8 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates an App Service app. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a SQL Database server. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Creates a  server. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database or an elastic database. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifies an App Service app's configuration. |
 

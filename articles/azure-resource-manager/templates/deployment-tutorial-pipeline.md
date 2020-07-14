@@ -52,7 +52,7 @@ If you don't have a GitHub account, see [Prerequisites](#prerequisites).
 
 1. Select **New**, a green button.
 1. In **Repository name**, enter a repository name.  For example, **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
-1. Write down the URL. The repository URL is the following format - **https://github.com/[YourAccountName]/[YourRepositoryName]**.
+1. Write down the URL. The repository URL is the following format - **`https://github.com/[YourAccountName]/[YourRepositoryName]`**.
 
 This repository is referred to as a *remote repository*. Each of the developers of the same project can clone his/her own *local repository*, and merge the changes to the remote repository.
 
@@ -99,7 +99,7 @@ The azuredeploy.json has been added to the local repository. Next, you upload th
     ```
 
     You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each update. To simplify the tutorial, you use the master branch directly.
-1. Browse to your GitHub repository from a browser.  The URL is **https://github.com/[YourAccountName]/[YourGitHubRepository]**. You shall see the **CreateWebApp** folder and the three files inside the folder.
+1. Browse to your GitHub repository from a browser.  The URL is **`https://github.com/[YourAccountName]/[YourGitHubRepository]`**. You shall see the **CreateWebApp** folder and the three files inside the folder.
 1. Select **linkedStorageAccount.json** to open the template.
 1. Select the **Raw** button. The URL is started with **raw.githubusercontent.com**.
 1. Make a copy of the URL.  You need to provide this value when you configure the pipeline later in the tutorial.

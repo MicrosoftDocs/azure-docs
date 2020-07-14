@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 04/01/2020
+ms.custom: tracking-python
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks

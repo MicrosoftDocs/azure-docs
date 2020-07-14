@@ -31,9 +31,13 @@ Advanced Threat Protection for Azure Cosmos DB detects anomalous activities indi
 
 - **Unusual data extraction**: This alert is triggered when a client is extracting an unusual amount of data from an Azure Cosmos DB account. This can be the symptom of some data exfiltration performed to transfer all the data stored in the account to an external data store.
 
-## Set up Advanced Threat Protection
 
-### Set up ATP using the portal
+
+## Configure Advanced Threat Protection
+
+You can configure advanced threat protection in any of several ways, described in the following sections.
+
+### [Portal](#tab/azure-portal)
 
 1. Launch the Azure portal at  [https://portal.azure.com](https://portal.azure.com/).
 
@@ -46,14 +50,14 @@ Advanced Threat Protection for Azure Cosmos DB detects anomalous activities indi
     * Click the **Advanced Threat Protection** option to set it to **ON**.
     * Click **Save** to save the new or updated Advanced Threat Protection policy.   
 
-### Set up ATP using REST API
+### [REST API](#tab/rest-api)
 
 Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific Azure Cosmos DB account.
 
 * [Advanced Threat Protection - Create](https://go.microsoft.com/fwlink/?linkid=2099745)
 * [Advanced Threat Protection - Get](https://go.microsoft.com/fwlink/?linkid=2099643)
 
-### Set up ATP using Azure PowerShell
+### [PowerShell](#tab/azure-powershell)
 
 Use the following PowerShell cmdlets:
 
@@ -61,13 +65,13 @@ Use the following PowerShell cmdlets:
 * [Get Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Disable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
 
-### Using Azure Resource Manager templates
+### [ARM template](#tab/arm-template)
 
-Use an Azure Resource Manager template to set up Cosmos DB with Advanced Threat Protection enabled.
+Use an Azure Resource Manager (ARM) template to set up Cosmos DB with Advanced Threat Protection enabled.
 For more information, see
 [Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
 
-### Using Azure Policy
+### [Azure Policy](#tab/azure-policy)
 
 Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
@@ -86,6 +90,9 @@ Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
 
 1. Enter the other parameters, and click **Assign**.
+
+
+
 
 ## Manage ATP security alerts
 

@@ -1,14 +1,14 @@
 ---
 title: Security filters for trimming results
 titleSuffix: Azure Cognitive Search
-description: Access control on Azure Cognitive Search content using security filters and user identities.
+description: Security privileges at the document level for Azure Cognitive Search search results, using security filters and user identities.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/04/2020
 ---
 
 # Security filters for trimming results in Azure Cognitive Search

@@ -5,7 +5,7 @@ description: Learn how to author and deploy a custom R modules in ML Studio (cla
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

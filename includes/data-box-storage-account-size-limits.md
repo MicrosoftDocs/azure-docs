@@ -12,4 +12,4 @@ Here are the limits on the size of the data that is copied into storage account.
 | Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|
 | Block blob and page blob                                            | 2 PB for US and Europe.<br>500 TB for all other regions, which includes the UK.  <br> This includes data from all the sources including Data Box.|
-| Azure Files                                                          | 5 TB per share.<br> All folders under *StorageAccount_AzureFiles* must follow this limit.       |
+| Azure Files                                                          | Maximum size of Standard file shares 100TiB*, 5 TB, Premium file shares 100TiB per share.<br> All folders under *StorageAccount_AzureFiles* must follow this limit.       |

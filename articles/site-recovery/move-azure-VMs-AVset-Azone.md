@@ -18,7 +18,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 - Move VMs in an availability set into Availability Zones in a target region
 
 > [!IMPORTANT]
-> Currently, Azure Site Recovery supports moving VMs from one region to another but doesn't support moving within a region.
+> Currently, Azure Site Recovery supports moving VMs from one region to another. It only supports moving across zones within a region in a few regions. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 ## Check prerequisites
 

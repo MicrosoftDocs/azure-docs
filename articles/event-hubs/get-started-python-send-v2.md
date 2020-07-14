@@ -9,6 +9,7 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
+ms.custom: tracking-python
 
 ---
 
@@ -124,8 +125,8 @@ In this section, you create a Python script to receive events from your event hu
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient.from_connection_string("EVENT HUBS NAMESPACE CONNECTION STRING", consumer_group="$Default", eventhub_name="EVENT HUB NAME", checkpoint_store=checkpoint_store)
         async with client:
-            # Call the receive method.
-            await client.receive(on_event=on_event)
+            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
+            await client.receive(on_event=on_event,  starting_position="-1")
 
     if __name__ == '__main__':
         loop = asyncio.get_event_loop()

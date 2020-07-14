@@ -2,12 +2,12 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 services: event-grid
-author: banisadr
+author: femila
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
+ms.author: femila
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
@@ -188,7 +188,7 @@ module.exports = function (context, req) {
         // If the request is for subscription validation, send back the validation code
         
         context.log('Validate request received');
-        context.res = { status: 200, body: { "ValidationResponse": code } };
+        context.res = { status: 200 };
         context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
     }
     else

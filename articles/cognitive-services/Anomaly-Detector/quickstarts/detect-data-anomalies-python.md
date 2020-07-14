@@ -10,6 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
+ms.custom: tracking-python
 ---
 
 # Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Python

@@ -48,16 +48,15 @@ To create and run the sample, do the following steps:
 ```javascript
 'use strict';
 
-const request = require('request');
+const fs = require('fs');
+const request = require('request').defaults({ encoding: null });
 
 let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v2.1/generateThumbnail';
+var uriBase = endpoint + 'vision/v3.0/generateThumbnail';
 
-const imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 
 // Request parameters.
 const params = {
@@ -66,6 +65,7 @@ const params = {
     'smartCropping': 'true'
 };
 
+// Construct the request
 const options = {
     uri: uriBase,
     qs: params,
@@ -74,18 +74,23 @@ const options = {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key' : subscriptionKey
     }
-};
+}
 
+// Post the request and get the response (an image stream)
 request.post(options, (error, response, body) => {
-  if (error) {
-    console.log('Error: ', error);
-    return;
-  }
+    // Write the stream to file
+    var buf = Buffer.from(body, 'base64');
+    fs.writeFile('thumbnail.png', buf, function (err) {
+        if (err) throw err;
+    });
+
+    console.log('Image saved')
 });
 ```
 
 ## Examine the response
 
+A popup of the thumbnail image will display.
 A successful response is returned as binary data, which represents the image data for the thumbnail. If the request fails, the response is displayed in the console window. The response for the failed request contains an error code and a message to help determine what went wrong.
 
 ## Next steps

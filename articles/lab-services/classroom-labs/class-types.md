@@ -57,6 +57,20 @@ You can set up a lab in Azure Lab Services to teach an introductory mobile appli
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach mobile application development with Android Studio](class-type-mobile-dev-android-studio.md).
 
+## Big data analytics
+You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package which provides tools for storing, managing, and processing big data. 
+
+For detailed information on how to set up this type of lab, see [Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform](class-type-big-data-analytics.md).
+
+## MATLAB
+[MATLAB](https://www.mathworks.com/products/matlab.html), which stands for Matrix laboratory, is programming platform from [MathWorks](https://www.mathworks.com/).  It combines computational power and visualization making it popular tool in the fields of math, engineering, physics, and chemistry.
+
+For detailed information on how to set up this type of lab, see [Setup a lab to teach MATLAB](class-type-matlab.md).
+
+## SolidWorks computer-aided design (CAD)
+You can set up a GPU lab that gives engineering students access to [SolidWorks](https://www.solidworks.com/).  SolidWorks provides a 3D CAD environment for modeling solid objects.  With SolidWorks, engineers can easily create, visualize, simulate and document their designs.
+
+For detailed information on how to set up this type of lab, see [Set up a lab for engineering classes using SolidWorks](class-type-solidworks.md)
 
 ## Next steps
 

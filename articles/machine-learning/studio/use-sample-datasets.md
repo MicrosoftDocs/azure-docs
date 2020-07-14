@@ -5,7 +5,7 @@ description: Descriptions of the datasets used in sample models included in Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 
 author: likebupt
 ms.author: keli19
@@ -13,8 +13,6 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ---
 # Use the sample datasets in Azure Machine Learning Studio (classic)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [top]: #machine-learning-sample-datasets
 

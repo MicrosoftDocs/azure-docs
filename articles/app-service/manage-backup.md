@@ -37,7 +37,7 @@ The following database solutions are supported with backup feature:
 <a name="requirements"></a>
 
 ## Requirements and restrictions
-* The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** tier allows a greater number of daily back ups than **Standard** tier.
+* The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.

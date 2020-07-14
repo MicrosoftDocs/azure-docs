@@ -91,3 +91,7 @@
     href: fhir-features-supported.md
   - name: Partner ecosystem
     href: partner-ecosystem.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/healthcareapis/healthcareapis

@@ -21,14 +21,6 @@ Enabling Dev Spaces on AKS clusters in different regions allows you to resume us
 
 For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-### Enable Dev Spaces via the Azure portal
-
-Select the **Dev Spaces** menu item under the settings of each cluster in the Azure portal. Then choose the option to enable Dev Spaces and save.
-
-![Enabling Dev Spaces via Azure portal](../media/common/enable-dev-spaces.jpg)
-
-Repeat this process for each cluster.
-
 ### Enable Dev Spaces via the Azure CLI
 
 You can also enable Dev Spaces at the command line:

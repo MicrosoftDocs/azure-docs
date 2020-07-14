@@ -1,6 +1,6 @@
 ---
-title: Incrementally copy data using Change Tracking
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
+title: Incrementally copy data using Change Tracking using PowerShell
+description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ---
 
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -39,7 +39,7 @@ In a data integration solution, incrementally loading data after initial data lo
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
-> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server.
+> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use a SQL Server instance.
 
 1. **Initial loading of historical data** (run once):
     1. Enable Change Tracking technology in the source Azure SQL database.
@@ -69,11 +69,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 
 * Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server.
+1. Launch **SQL Server Management Studio**, and connect to SQL Database.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
 
@@ -229,7 +229,7 @@ In this step, you link your Azure Storage Account to the data factory.
 ### Create Azure SQL Database linked service.
 In this step, you link your Azure SQL database to the data factory.
 
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file.
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your server, name of your database, user ID, and password before saving the file.
 
     ```json
     {

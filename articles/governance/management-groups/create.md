@@ -37,9 +37,7 @@ PowerShell, or Azure CLI.
 
 1. Select **All services** > **Management + governance**.
 
-1. Select **Cost Management + Billing**
-
-1. On the Cost Management + Billing - Management groups page, select **Management Groups**
+1. Select **Management Groups**.
 
 1. Select **+ Add management group**.
 

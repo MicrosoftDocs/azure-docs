@@ -5,8 +5,8 @@ ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
-
 ms.reviewer: mbullwin
+ms.custom: tracking-python
 ---
 
 # Set up Azure Monitor for your Python application
@@ -251,13 +251,13 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
 
 By default, the metrics exporter will send a set of standard metrics to Azure Monitor. You can disable this by setting the `enable_standard_metrics` flag to `False` in the constructor of the metrics exporter.
 
-    ```python
-    ...
-    exporter = metrics_exporter.new_metrics_exporter(
-      enable_standard_metrics=False,
-      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
-    ...
-    ```
+```python
+...
+exporter = metrics_exporter.new_metrics_exporter(
+  enable_standard_metrics=False,
+  connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+...
+```
 Below is a list of standard metrics that are currently sent:
 
 - Available Memory (bytes)
@@ -335,41 +335,15 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
 
 4. The exporter will send log data to Azure Monitor. You can find the data under `traces`. 
 
-> [!NOTE]
-> `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > [!NOTE]
+    > `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
-5. To format your log messages, you can use `formatters` in the built-in Python [logging API](https://docs.python.org/3/library/logging.html#formatter-objects).
+    > [!NOTE]
+    > The root logger is configured with level WARNING. That means any logs that you send that have less of a severity will be ignored, and in turn, will not be sent to Azure Monitor. Look at this [documentation](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel) for more details.
 
-    ```python
-    import logging
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    
-    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
-    date_format = '%Y-%m-%d %H:%M:%S'
-    formatter = logging.Formatter(format_str, date_format)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    handler = AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    
-    def valuePrompt():
-        line = input("Enter a value: ")
-        logger.warning(line)
-    
-    def main():
-        while True:
-            valuePrompt()
-    
-    if __name__ == "__main__":
-        main()
-    ```
-
-6. You can also add custom properties to your log messages in the *extra* keyword argument using the custom_dimensions field. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
-> [!NOTE]
-> For this feature to work, you need to pass a dictionary to the custom_dimensions field. If you pass arguments of any other type, the logger will ignore them.
+5. You can also add custom properties to your log messages in the *extra* keyword argument using the custom_dimensions field. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
+    > [!NOTE]
+    > For this feature to work, you need to pass a dictionary to the custom_dimensions field. If you pass arguments of any other type, the logger will ignore them.
 
     ```python
     import logging
@@ -388,29 +362,62 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
     logger.warning('action', extra=properties)
     ```
 
+#### Configure Logging for Django Applications
+
+You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. See [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/) for how to configure Django settings and [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/) for more information on configuring logging.
+
+    ```python
+    LOGGING = {
+        "handlers": {
+            "azure": {
+                "level": "DEBUG",
+                "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+                "instrumentation_key": "<your-ikey-here>",
+            },
+            "console": {
+                "level": "DEBUG",
+                "class": "logging.StreamHandler",
+                "stream": sys.stdout,
+            },
+        },
+        "loggers": {
+            "logger_name": {"handlers": ["azure", "console"]},
+        },
+    }
+    ```
+
+Be sure you are using the logger with the same name as the one specified in your configuration.
+
+    ```python
+    import logging
+        
+    logger = logging.getLogger("logger_name")
+    logger.warning("this will be tracked")
+    ```
+
 #### Sending exceptions
 
 OpenCensus Python does not automatically track and send `exception` telemetry. They are sent through the `AzureLogHandler` by using exceptions through the Python logging library. You can add custom properties just like with normal logging.
 
-    ```python
-    import logging
-    
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+```python
+import logging
 
-    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-    # Use properties in exception logs
-    try:
-        result = 1 / 0  # generate a ZeroDivisionError
-    except Exception:
-        logger.exception('Captured an exception.', extra=properties)
-    ```
+logger = logging.getLogger(__name__)
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+)
+
+properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+# Use properties in exception logs
+try:
+    result = 1 / 0  # generate a ZeroDivisionError
+except Exception:
+    logger.exception('Captured an exception.', extra=properties)
+```
 Since you must log exceptions explicitly, it is up to the user in how they want to log unhandled exceptions. OpenCensus does not place restrictions in how a user wants to do this, as long as they explicitly log an exception telemetry.
 
 #### Sampling
@@ -458,4 +465,4 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../../azure-monitor/platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.

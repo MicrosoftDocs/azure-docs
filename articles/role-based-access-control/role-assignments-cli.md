@@ -1,6 +1,6 @@
 ---
-title: Add or remove role assignments using Azure RBAC and Azure CLI
-description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and Azure CLI.
+title: Add or remove Azure role assignments using Azure CLI - Azure RBAC
+description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure CLI and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,7 +16,7 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Add or remove role assignments using Azure RBAC and Azure CLI
+# Add or remove Azure role assignments using Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using Azure CLI.
 
@@ -57,7 +57,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## Add a role assignment
 
-In RBAC, to grant access, you add a role assignment.
+In Azure RBAC, to grant access, you add a role assignment.
 
 ### User at a resource group scope
 
@@ -92,7 +92,7 @@ To add a role assignment using the unique role ID instead of the role name, use 
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az-role-definition-list) or see [Built-in roles for Azure resources](built-in-roles.md).
+The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az-role-definition-list) or see [Azure built-in roles](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -182,7 +182,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## Remove a role assignment
 
-In RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
+In Azure RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
@@ -208,5 +208,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## Next steps
 
-- [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md)
+- [List Azure role assignments using Azure CLI](role-assignments-list-cli.md)
 - [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/cli-azure-resource-manager.md)

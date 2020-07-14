@@ -20,7 +20,7 @@ ms.author: kaushika
 
 # Troubleshoot virtual network peering issues
 
-This troubleshooting guide provides steps to help you resolve most [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) issues.
+This troubleshooting guide provides steps to help you resolve most [virtual network peering](virtual-network-peering-overview.md) issues.
 
 ![Diagram of virtual network peering](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 

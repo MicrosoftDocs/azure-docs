@@ -107,7 +107,7 @@ Get-AzLog -MaxRecord 1000
 
 
 ## CLI
-Use [az monitor activity-log](cli-samples.md#view-activity-log-for-a-subscription) to retrieve the Activity Log from CLI. Following are some common examples.
+Use [az monitor activity-log](../samples/cli-samples.md#view-activity-log-for-a-subscription) to retrieve the Activity Log from CLI. Following are some common examples.
 
 
 View all available options.

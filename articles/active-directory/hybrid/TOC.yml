@@ -282,6 +282,8 @@
       href: how-to-connect-sync-feature-scheduler.md
     - name: Create and customize a synchronization rule
       href: how-to-connect-create-custom-sync-rule.md
+    - name: Azure AD Connect sync V2 endpoint API
+      href: how-to-connect-sync-endpoint-api-v2.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab

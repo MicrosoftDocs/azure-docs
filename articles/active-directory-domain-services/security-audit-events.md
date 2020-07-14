@@ -21,7 +21,7 @@ Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure 
 You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
 > [!IMPORTANT]
-> Azure AD DS security audits are only available for Azure Resource Manager-based instances. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
+> Azure AD DS security audits are only available for Azure Resource Manager-based managed domains. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
 
 ## Security audit destinations
 

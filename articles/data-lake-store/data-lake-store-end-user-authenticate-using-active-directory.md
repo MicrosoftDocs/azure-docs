@@ -1,14 +1,9 @@
 ---
-title: 'End-user authentication: Azure Data Lake Storage Gen1 with Azure Active Directory | Microsoft Docs'
+title: End-user authentication - Data Lake Storage Gen1 with Azure AD
 description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley

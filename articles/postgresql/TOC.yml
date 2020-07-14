@@ -15,6 +15,11 @@
       href: quickstart-create-server-database-azure-cli.md
     - name: Create DB - Azure CLI up command
       href: quickstart-create-server-up-azure-cli.md
+    - name: Create DB - Azure PowerShell
+      href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+    - name: Create DB - ARM template
+      href: quickstart-create-postgresql-server-database-using-arm-template.md
+      displayName: deploy azure resource manager template
     - name: Connect & query
       items:
       - name: Python
@@ -45,6 +50,8 @@
         href: tutorial-design-database-using-azure-portal.md
       - name: Azure CLI
         href: tutorial-design-database-using-azure-cli.md
+      - name: Azure PowerShell
+        href: tutorial-design-database-using-powershell.md
     - name: 2 - Design Web App - Python
       href: ../app-service/containers/tutorial-python-postgresql-app.md
       maintainContext: true
@@ -60,6 +67,9 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -79,7 +89,7 @@
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
       - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md          
+        href: concept-reserved-pricing.md
       - name: Limits
         href: concepts-limits.md
     - name: Data access and security
@@ -197,8 +207,10 @@
           href: howto-create-users.md
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-aad-authentication.md
+        - name: Connect with Managed Identity
+          href: howto-connect-with-managed-identity.md
     - name: Optimize
-      items: 
+      items:
         - name: Bulk inserts
           href: howto-optimize-bulk-inserts.md
         - name: Autovacuum
@@ -219,6 +231,8 @@
         href: howto-restore-server-portal.md
       - name: Azure CLI
         href: howto-restore-server-cli.md
+      - name: Azure PowerShell
+        href: howto-restore-server-powershell.md
     - name: Migrate a database
       items:
       - name: Dump & restore
@@ -227,18 +241,26 @@
         href: howto-migrate-using-export-and-import.md
       - name: Minimal-downtime migration
         href: howto-migrate-online.md
+    - name: Connect applications
+      items:
+      - name: Configure TLS
+        href: howto-tls-configurations.md
     - name: Configure server parameters
       items:
       - name: Azure portal
         href: howto-configure-server-parameters-using-portal.md
       - name: Azure CLI
         href: howto-configure-server-parameters-using-cli.md
+      - name: Azure PowerShell
+        href: howto-configure-server-parameters-using-powershell.md
     - name: Auto grow storage
       items:
       - name: Azure portal
         href: howto-auto-grow-storage-portal.md
       - name: Azure CLI
         href: howto-auto-grow-storage-cli.md
+      - name: Azure PowerShell
+        href: howto-auto-grow-storage-powershell.md
     - name: Access logs
       items:
       - name: Azure portal
@@ -278,13 +300,15 @@
       - name: Azure CLI
         href: howto-data-encryption-cli.md
       - name: Data encryption validation
-        href: howto-data-encryption-validation.md  
+        href: howto-data-encryption-validation.md
     - name: Restart server
       items:
       - name: Azure portal
         href: howto-restart-server-portal.md
       - name: Azure CLI
         href: howto-restart-server-cli.md
+      - name: Azure PowerShell
+        href: howto-restart-server-powershell.md
     - name: Deny Public Network Access
       items:
       - name: Azure portal
@@ -295,6 +319,8 @@
         href: howto-read-replicas-portal.md
       - name: Manage read replicas Azure CLI, REST API
         href: howto-read-replicas-cli.md
+      - name: Manage read replicas Azure PowerShell
+        href: howto-read-replicas-powershell.md
   - name: Hyperscale (Citus)
     items:
     - name: Create users
@@ -333,8 +359,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-database-postgresql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos
@@ -352,7 +378,7 @@
       - name: Connect containers using OSBA
         href: https://aka.ms/postg-osba-vid
       - name: Connect your app's data to Power BI
-        href: https://aka.ms/postg-powerbi-vid   
+        href: https://aka.ms/postg-powerbi-vid
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability

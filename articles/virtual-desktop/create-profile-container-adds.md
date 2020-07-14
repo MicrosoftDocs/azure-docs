@@ -11,7 +11,7 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Create an FSLogix profile container with Azure Files
+# Create a profile container with Azure Files and Azure AD DS
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 

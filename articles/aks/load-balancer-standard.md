@@ -3,10 +3,8 @@ title: Use a Standard SKU load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
-ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -16,6 +14,7 @@ ms.author: zarhoads
 To provide access to applications via Kubernetes services of type `LoadBalancer` in Azure Kubernetes Service (AKS), you can use an Azure Load Balancer. A load balancer running on AKS can be used as an internal or an external load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the AKS cluster. An external load balancer receives one or more public IPs for ingress and makes a Kubernetes service accessible externally using the public IPs.
 
 Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the *Standard* SKU is used when you create an AKS cluster. Using a *Standard* SKU load balancer provides additional features and functionality, such as a larger backend pool size and Availability Zones. It's important that you understand the differences between *Standard* and *Basic* load balancers before choosing which to use. Once you create an AKS cluster, you cannot change the load balancer SKU for that cluster. For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
+The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 This article assumes a basic understanding of Kubernetes and Azure Load Balancer concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts] and [What is Azure Load Balancer?][azure-lb].
 
@@ -86,12 +85,17 @@ When using a *Standard* SKU load balancer, the AKS cluster automatically creates
 
 By bringing multiple IP addresses or prefixes, you are able to define multiple backing services when defining the IP address behind a single load balancer object. The egress endpoint of specific nodes will depend on what service they are associated with.
 
-> [!IMPORTANT]
-> You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### Pre-requisites to bring-your-own IP addresses or IP prefixes
+1. You must use *Standard* SKU public IPs for egress with your *Standard* SKU your load balancer. You can verify the SKU of your public IPs using the [az network public-ip show][az-network-public-ip-show] command:
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+ 1. The public IPs and IP prefixes cannot be IPs created by AKS as a managed IP. Ensure any IPs specified as custom IPs were created manually and not be the AKS service.
+ 1. The public IPs and IP prefixes cannot be used by another resource or service.
+
+ ### Define your own public IP or prefixes on an existing cluster
 
 Use the [az network public-ip show][az-network-public-ip-show] command to list the IDs of your public IPs.
 
@@ -128,9 +132,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster. 
 
 ### Define your own public IP or prefixes at cluster create time
 
@@ -280,7 +281,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
-[azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
+[azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
@@ -292,3 +293,4 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports
+[use-multiple-node-pools]: use-multiple-node-pools.md

@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x
@@ -522,7 +523,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#configuration). Here's a `CosmosDB` attribute example in a method signature:
 

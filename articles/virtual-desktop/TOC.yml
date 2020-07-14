@@ -4,6 +4,10 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
+  - name: Fall 2019 Release documentation
+    href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
@@ -48,6 +52,8 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
+      - name: Use Azure Files and AD DS
+        href: create-file-share.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -78,6 +84,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts
@@ -106,7 +114,7 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
@@ -120,12 +128,10 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Security best practices
+    href: security-guide.md
   - name: Linux support
     href: linux-overview.md
-  - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization
-  - name: REST API
-    href: /rest/api/desktopvirtualization/
   - name: Supported RDP file settings
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Network guidance
@@ -134,12 +140,16 @@
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
+  - name: PowerShell
+    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
     href: https://docs.microsoft.com/learn/paths/m365-wvd/
+  - name: How-to videos
+    href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum

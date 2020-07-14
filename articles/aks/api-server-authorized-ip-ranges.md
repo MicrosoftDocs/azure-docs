@@ -34,7 +34,7 @@ For more information about the API server and other cluster components, see [Kub
 
 ## Create an AKS cluster with API server authorized IP ranges enabled
 
-API server authorized IP ranges only work for new AKS clusters. Create a cluster using the [az aks create][az-aks-create] and specify the *--api-server-authorized-ip-ranges* parameter to provide a list of authorized IP address ranges. These IP address ranges are usually address ranges used by your on-premises networks or public IPs. When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
+API server authorized IP ranges only work for new AKS clusters and are not supported for private AKS clusters. Create a cluster using the [az aks create][az-aks-create] and specify the *--api-server-authorized-ip-ranges* parameter to provide a list of authorized IP address ranges. These IP address ranges are usually address ranges used by your on-premises networks or public IPs. When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > By default, your cluster uses the [Standard SKU load balancer][standard-sku-lb] which you can use to configure the outbound gateway. When you enable API server authorized IP ranges during cluster creation, the public IP for your cluster is also allowed by default in addition to the ranges you specify. If you specify *""* or no value for *--api-server-authorized-ip-ranges*, API server authorized IP ranges will be disabled. Note that if you're using PowerShell, use *--api-server-authorized-ip-ranges=""* (with equals sign) to avoid any parsing issues.
@@ -131,7 +131,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-ranges]: ../dev-spaces/configure-networking.md#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

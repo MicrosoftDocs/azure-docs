@@ -1,12 +1,12 @@
 ---
-title: Run Python scripts through Data Factory - Azure Batch Python 
+title: Run Python scripts through Data Factory
 description: Tutorial - Learn how to run Python scripts as part of a pipeline through Azure Data Factory using Azure Batch.
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Run Python scripts through Azure Data Factory using Azure Batch
@@ -29,6 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * An installed [Python](https://www.python.org/downloads/) distribution, for local testing.
 * The [Azure](https://pypi.org/project/azure/) `pip` package.
+* The [iris.csv dataset](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * An Azure Batch account and a linked Azure Storage account. See [Create a Batch account](quick-create-portal.md#create-a-batch-account) for more information on how to create and link Batch accounts to storage accounts.
 * An Azure Data Factory account. See [Create a data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) for more information on how to create a data factory through the Azure portal.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -61,7 +62,7 @@ Here you'll create blob containers that will store your input and output files f
 1. Sign in to Storage Explorer using your Azure credentials.
 1. Using the storage account linked to your Batch account, create two blob containers (one for input files, one for output files) by following the steps at [Create a blob container](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * In this example, we'll call our input container `input`, and our output container `output`.
-1. Upload `main.py` and `iris.csv` to your input container `input` using Storage Explorer by following the steps at [Managing blobs in a blob container](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Upload `main.py` and [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) to your input container `input` using Storage Explorer by following the steps at [Managing blobs in a blob container](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
 ## Develop a script in Python

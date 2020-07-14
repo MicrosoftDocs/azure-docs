@@ -5,7 +5,7 @@ services: event-grid
 keywords:
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
@@ -46,7 +46,8 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage account.
-* [**"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): create an Azure Event Grid subscription for the storage account.
+* [**Microsoft.EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): create a system topic with the specified name for the storage account. 
+* [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): create an Azure Event Grid subscription for the system topic.
 
 ### Deploy the template
 

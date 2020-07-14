@@ -152,7 +152,7 @@ To give your application access to secrets, include the certificate by adding a 
 ```
 ## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)
 
-To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 

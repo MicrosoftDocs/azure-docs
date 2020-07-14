@@ -10,6 +10,9 @@
   - name: Index
     displayName: template, sample
     href: ./samples/index.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./samples/policy-samples.md
 - name: Concepts
   items:
   - name: Azure delegated resource management
@@ -33,6 +36,9 @@
   - name: Azure Lighthouse in enterprise scenarios
     displayName: corporation, IT, consolidate
     href: ./concepts/enterprise.md
+  - name: Azure Lighthouse and Azure managed applications 
+    displayName: managed apps, ama
+    href: ./concepts/managed-applications.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure delegated resource management
@@ -89,6 +95,8 @@
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
 - name: Resources
   items:
+  - name: Microsoft Q&A for Azure Lighthouse
+    href: https://docs.microsoft.com/en-us/answers/topics/azure-lighthouse.html
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

@@ -21,7 +21,7 @@ In this article, you learn to restore your SQL pool from a geo-backup through Az
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore from an Azure geographical region through PowerShell
 
@@ -44,7 +44,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -76,7 +76,7 @@ Follow the steps outlined below to restore a SQL pool from a geo-backup:
 
    ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Click **Databases** and then **Azure Synapse Analytics (formerly SQL DW) **.
+3. Click **Databases** and then **Azure Synapse Analytics (formerly SQL DW)**.
 
    ![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 

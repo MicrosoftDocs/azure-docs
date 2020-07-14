@@ -206,7 +206,7 @@ If you need additional languages installed on the virtual machine, you can add t
 2. Search for "language pack"
 3. Choose language to install
 
-If you are already logged on to the template VM, use ["Install language pack" shortcut](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) to go directly to the appropriate settings page.
+If you are already logged on to the template VM, use "Install language pack" shortcut (`ms-settings:regionlanguage?activationSource=SMC-IA-4027670`) to go directly to the appropriate settings page.
 
 ## Remove unneeded built-in apps
 

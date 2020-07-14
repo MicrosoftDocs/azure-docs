@@ -23,7 +23,7 @@ This article describes how to run an SSIS package in an Azure Data Factory pipel
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
+The walkthrough in this article uses Azure SQL Database to host the SSIS catalog. You can also use Azure SQL Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
@@ -128,7 +128,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
     ![Activity runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+4. You can run the following **query** against the SSISDB database in SQL Database to verify that the package executed. 
 
     ```sql
     select * from catalog.executions
@@ -347,7 +347,7 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+    You can run the following query against the SSISDB database in SQL Database to verify that the package executed. 
 
     ```sql
     select * from catalog.executions

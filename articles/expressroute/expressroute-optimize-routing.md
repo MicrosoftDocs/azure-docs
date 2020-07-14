@@ -5,7 +5,7 @@ services: expressroute
 author: charwen
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
 

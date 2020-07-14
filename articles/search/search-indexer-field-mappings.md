@@ -24,7 +24,7 @@ Some situations where field mappings are useful:
 * You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.
 
 > [!NOTE]
-> Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](https://docs.microsoft.com/zure/data-factory/).
+> Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 ## Set up field mappings
 
@@ -32,7 +32,7 @@ A field mapping consists of three parts:
 
 1. A `sourceFieldName`, which represents a field in your data source. This property is required.
 2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used.
-3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
+3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. This can be applied on both input and output field mappings. The full list of functions is [below](#mappingFunctions).
 
 Field mappings are added to the `fieldMappings` array of the indexer definition.
 

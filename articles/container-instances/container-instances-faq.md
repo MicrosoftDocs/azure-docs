@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 06/02/2020
 ---
 
 # Frequently asked questions about Azure Container Instances
@@ -28,19 +28,22 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 ### What Windows base OS images are supported?
 
+> [!NOTE]
+> Due to issues with backwards compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. 
+
 #### Windows Server 2016 base images
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3506` or newer
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3506` or newer
 
 > [!NOTE]
 > Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
 
 #### Windows Server 2019 and client base images (preview)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.914` or earlier
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` or earlier
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` or earlier
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.1040` or newer
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.1040` or newer
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.1040` or newer
 
 ### What .NET or .NET Core image layer should I use in my container? 
 

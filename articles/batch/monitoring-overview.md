@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Learn about Azure monitoring services, metrics, diagnostic logs, and other monitoring features for Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
 ---
 

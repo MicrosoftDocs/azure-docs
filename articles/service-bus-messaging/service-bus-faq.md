@@ -8,7 +8,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/10/2020
 ms.author: aschhab
 
 ---
@@ -118,13 +118,6 @@ It is important to note that these are not new charges, i.e. they existed in the
 ## Quotas
 
 For a list of Service Bus limits and quotas, see the [Service Bus quotas overview][Quotas overview].
-
-### Does Service Bus have any usage quotas?
-By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. If you need more than these limits, you can contact customer service at any time to understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quota is 5 billion messages per month.
-
-While Microsoft reserves the right to disable a customer account that has exceeded its usage quotas in a given month, e-mail notifications are sent and multiple attempts are made to contact a customer before taking any action. Customers exceeding these quotas are still responsible for charges that exceed the quotas.
-
-As with other services on Azure, Service Bus enforces a set of specific quotas to ensure that there is fair usage of resources. You can find more details about these quotas in the [Service Bus quotas overview][Quotas overview].
 
 ### How to handle messages of size > 1 MB?
 Service Bus messaging services (queues and topics/subscriptions) allow application to send messages of size up to 256 KB (standard tier) or 1 MB (premium tier). If you are dealing with messages of size greater than 1 MB, use the claim check pattern described in [this blog post](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).

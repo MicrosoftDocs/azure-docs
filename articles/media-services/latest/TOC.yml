@@ -1,5 +1,7 @@
 - name: Media Services Documentation
   href: ./index.yml
+- name: Switch to Live Video Analytics on IoT Edge documentation
+  href: ../live-video-analytics-edge/overview.md  
 - name: Overview
   items:
   - name: About Media Services
@@ -71,7 +73,7 @@
       displayName: name, naming, file name, upload, output, download  
   - name: Processing files
     items:
-    - name: Transforms and Jobs
+    - name: Transforms and jobs
       href: transforms-jobs-concept.md 
       displayName: preset, schema         
   - name: Encoding content
@@ -91,13 +93,13 @@
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
-    - name: Transforms and Jobs
+    - name: Transforms and jobs
       href: transforms-jobs-concept.md    
   - name: Live streaming 
     items:
     - name: Overview
       href: live-streaming-overview.md
-    - name: Live Events and Live Outputs 
+    - name: Live events and live outputs 
       href: live-events-outputs-concept.md    
       displayName: vanity, ingest 
     - name: Tested on-premises live encoders
@@ -124,15 +126,15 @@
     - name: Filters
       displayName: manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,	content delivery
       href: filters-concept.md   
-    - name: Streaming Endpoints 
+    - name: Streaming endpoints 
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Scaling streaming with CDN
       href: scale-streaming-cdn.md
-    - name: Streaming Locators 
+    - name: Streaming locators 
       displayName: URLs
       href: streaming-locators-concept.md
-    - name: Streaming Policies 
+    - name: Streaming policies 
       href: streaming-policy-concept.md        
   - name: Content protection
     items:
@@ -150,9 +152,9 @@
         href: widevine-license-template-overview.md
       - name: FairPlay license requirements
         href: fairplay-license-overview.md  
-    - name: Streaming Policies 
+    - name: Streaming policies 
       href: streaming-policy-concept.md          
-    - name: Content Key Policies 
+    - name: Content key policies 
       href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
@@ -179,9 +181,9 @@
       href: rbac-overview.md
     - name: Error codes
       items:
-      - name: Streaming Endpoint error codes  
+      - name: Streaming endpoint error codes  
         href: streaming-endpoint-error-codes.md
-      - name: Live Event error codes
+      - name: Live event error codes
         href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
@@ -193,6 +195,19 @@
     - name: Streaming
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-streaming.md
+  - name: Troubleshooting
+    items:
+    - name: Frequently asked questions
+      displayName: faqs
+      href: frequently-asked-questions.md      
+    - name: Error codes
+      items:
+      - name: Streaming endpoint error codes  
+        href: streaming-endpoint-error-codes.md
+      - name: Live event error codes
+        href: live-event-error-codes.md
+      - name: Job error codes
+        href: job-error-codes.md        
   - name: Migration from v2 to v3
     items:
     - name: v2 vs v3
@@ -213,9 +228,9 @@
     - name: Access API
       displayName: portal, cli
       href: access-api-howto.md   
-    - name: Scale Media Reserved Units
+    - name: Scale media reserved units
       href: media-reserved-units-cli-how-to.md   
-    - name: Create an Asset
+    - name: Create an asset
       href: cli-create-asset.md 
   - name: Developer guides
     items:
@@ -258,13 +273,13 @@
       href: job-multiple-transform-outputs.md
   - name: Encode content 
     items:
-    - name: HTTPS as Job input
+    - name: HTTPS as job input
       displayName: encode, encoding
       href: job-input-from-http-how-to.md
-    - name: Local file as Job input
+    - name: Local file as job input
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
-    - name: Encode with a custom Transform
+    - name: Encode with a custom transform
       items:
       - name: With .NET
         displayName: encode, encoding, custom, transform  
@@ -291,7 +306,7 @@
       href: live-events-wirecast-quickstart.md    
     - name: Verify your on-premises encoder 
       href: become-on-premises-encoder-partner.md      
-    - name: Live Event error codes
+    - name: Live event error codes
       href: live-event-error-codes.md    
   - name: Use Event Grid
     items:
@@ -338,19 +353,6 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
-  - name: Troubleshoot
-    items:
-    - name: Frequently asked questions
-      displayName: faqs
-      href: frequently-asked-questions.md      
-    - name: Error codes
-      items:
-      - name: Streaming Endpoint error codes  
-        href: streaming-endpoint-error-codes.md
-      - name: Live Event error codes
-        href: live-event-error-codes.md
-      - name: Job error codes
-        href: job-error-codes.md   
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -369,17 +371,21 @@
     - name: Python
       href: https://aka.ms/ams-v3-python-ref
     - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-ref
+      href: https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
+  - name: Standard Encoder schemas
+    items:
+    - name: Output metadata
+      href: output-metadata-schema.md      
 - name: Resources
   items:
   - name: Azure Media Services community
     displayName: forums, twitter, feedback
     href: media-services-community.md
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
@@ -411,3 +417,4 @@
     href: azure-clouds-regions.md
   - name: Documentation updates
     href: docs-release-notes.md
+    

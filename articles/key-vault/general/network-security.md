@@ -27,6 +27,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 4. To add existing virtual networks to firewalls and virtual network rules, select **+ Add existing virtual networks**.
 5. In the new blade that opens, select the subscription, virtual networks, and subnets that you want to allow access to this key vault. If the virtual networks and subnets you select don't have service endpoints enabled, confirm that you want to enable service endpoints, and select **Enable**. It might take up to 15 minutes to take effect.
 6. Under **IP Networks**, add IPv4 address ranges by typing IPv4 address ranges in [CIDR (Classless Inter-domain Routing) notation](https://tools.ietf.org/html/rfc4632) or individual IP addresses.
+7. If you want to allow Microsoft Trusted Services to bypass the Key Vault Firewall, select 'Yes'. For a full list of the current Key Vault Trusted Services please see the following link. [Azure Key Vault Trusted Services](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 7. Select **Save**.
 
 You can also add new virtual networks and subnets, and then enable service endpoints for the newly created virtual networks and subnets, by selecting **+ Add new virtual network**. Then follow the prompts.

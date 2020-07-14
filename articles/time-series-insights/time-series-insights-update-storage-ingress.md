@@ -74,6 +74,17 @@ We recommend that you employ the following best practices:
 
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
+* Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
+
+#### Historical Data Ingestion
+
+Using the streaming pipeline to import historical data is not currently supported in Azure Time Series Insights Preview. If you need to import past data into your environment, follow the guidelines below:
+
+* Do not stream live and historical data in parallel. Ingesting out of order data will result in degraded query performance.
+* Ingest historical data in time-ordered fashion for best performance.
+* Stay within the ingestion throughput rate limits below.
+* Disable Warm Store if the data is older than your Warm Store retention period.
+
 ### Ingress scale and Preview limitations
 
 Azure Time Series Insights Preview ingress limitations are described below.
@@ -96,7 +107,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
  
 * **Example 1:**
 
-    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Iot Hub with four partitions as the Time Series Insights event source.
+    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an IoT Hub with four partitions as the Time Series Insights event source.
 
     * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.

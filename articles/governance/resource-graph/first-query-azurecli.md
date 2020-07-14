@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Azure CLI query"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Azure CLI
@@ -76,8 +76,9 @@ Resource Graph query. The query will return the first five Azure resources with 
 
    > [!NOTE]
    > Just as with the first query, running this query multiple times is likely to yield a different
-   > set of resources per request. The order of the query commands is important. In this example, the
-   > `order by` comes after the `limit`. This will first limit the query results and then order them.
+   > set of resources per request. The order of the query commands is important. In this example,
+   > the `order by` comes after the `limit`. This command order first limits the query results and
+   > then orders them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
 
@@ -87,8 +88,8 @@ Resource Graph query. The query will return the first five Azure resources with 
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned will be consistent and as expected -- ordered by the **Name** property, but
-still limited to the top five results.
+the results returned are consistent and ordered by the **Name** property, but still limited to the
+top five results.
 
 ## Clean up resources
 
@@ -103,7 +104,7 @@ az extension remove -n resource-graph
 ## Next steps
 
 In this quickstart, you've added the Resource Graph extension to your Azure CLI environment and run
-your first query. To learn more about the Resource graph language, continue to the query language
+your first query. To learn more about the Resource Graph language, continue to the query language
 details page.
 
 > [!div class="nextstepaction"]

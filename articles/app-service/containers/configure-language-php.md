@@ -82,7 +82,7 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
+    RewriteCond %{REQUEST_URI} ^/$
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -106,7 +106,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 If you need to make changes to your PHP installation, you can change any of the [php.ini directives](https://www.php.net/manual/ini.list.php) by following these steps.
 
 > [!NOTE]
-> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
+> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://www.php.net/manual/function.phpinfo.php) in your app.
 >
 
 ### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives

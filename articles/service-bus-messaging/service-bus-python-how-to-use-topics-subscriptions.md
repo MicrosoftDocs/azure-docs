@@ -14,6 +14,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
+ms.custom: tracking-python
 
 ---
 # Quickstart: Use Service Bus topics and subscriptions with Python

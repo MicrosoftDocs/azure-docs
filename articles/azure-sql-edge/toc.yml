@@ -1,0 +1,75 @@
+- name: SQL Edge Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is SQL Edge?
+    href: overview.md
+  - name: Supported editions and features
+    href: features.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy SQL Edge
+    href: deploy-portal.md 
+  - name: Deploy ONNX Models on SQL Edge
+    href: deploy-onnx.md 
+- name: Tutorials
+  items:
+  - name: Sync data with Azure Data Factory
+    href: tutorial-sync-data-factory.md
+  - name: Sync data with SQL Data Sync
+    href: tutorial-sync-data-sync.md
+  - name: Build an end-to-end IoT solution with SQL Edge
+    items: 
+    - name: Set up Azure resources
+      href: tutorial-deploy-azure-resources.md
+    - name: Set up IoT Edge Modules
+      href: tutorial-set-up-iot-edge-modules.md
+    - name: Deploy model to SQL Edge 
+      href: tutorial-run-ml-model-on-sql-edge.md
+- name: How to
+  items:
+  - name: Deploy Stream Analytics jobs
+    href: stream-analytics.md
+  - name: Configure replication
+    href: configure-replication.md
+  - name: Track data changes
+    href: track-data-changes.md
+  - name: Manage T-SQL streaming jobs
+    href: create-stream-analytics-job.md
+  - name: Connect to SQL Edge
+    href: connect.md
+  - name: Configure SQL Edge
+    href: configure.md
+  - name: Deploy DAC package
+    href: deploy-dacpac.md
+- name: Concepts
+  items:
+  - name: Machine learning and AI with ONNX
+    href: onnx-overview.md
+  - name: Backup and restore
+    href: backup-restore.md
+  - name: Data Streaming in SQL Edge
+    items:
+    - name: Stream data
+      href: stream-data.md
+    - name: Create External Stream (Transact-SQL)
+      href: create-external-stream-transact-sql.md
+    - name: Alter External Stream (Transact-SQL)
+      href: alter-external-stream-transact-sql.md
+    - name: Drop External Stream (Transact-SQL)
+      href: drop-external-stream-transact-sql.md
+    - name: Streaming views and DMVs
+      items:
+      - name: Streaming views and DMVs
+        href: streaming-catalog-views.md
+      - name: sys.external_job_streams (Transact-SQL)
+        href: sys-external-job-streams.md
+      - name: sys.external-streaming_jobs (Transact-SQL)
+        href: sys-external-streaming-jobs.md
+      - name: sys.external_streams (Transact-SQL)
+        href: sys-external-streams.md
+  - name: Processing timeseries data
+    items:
+    - name: Date_Bucket (Transact-SQL)
+      href: date-bucket-tsql.md

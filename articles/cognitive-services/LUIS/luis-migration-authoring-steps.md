@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 02/28/2020
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
 ---
 
@@ -92,8 +92,8 @@ The migration process is available if you are the owner of any LUIS apps.
 
 1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
-    ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 ## App contributor begins the migration process
 

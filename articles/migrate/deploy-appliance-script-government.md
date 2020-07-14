@@ -43,12 +43,12 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
 
-3. Verify the generated hash values. For the latest appliance version:
+3. Verify the latest appliance version and hash value:
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Algorithm** | **Download** | **SHA256**
+    --- | --- | ---
+    VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### Run the script
 
@@ -95,11 +95,12 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
 
-3. Verify the generated hash values. For the latest appliance version:
+3. Verify the latest appliance version and hash value:
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Scenario** | **Download** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### Run the script
@@ -147,11 +148,11 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
 
-3. Verify the generated hash values. For the latest appliance version:
+3. Verify the latest appliance version and hash value:
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Scenario** | **Download*** | **Hash value**
+    --- | --- | ---
+    Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### Run the script

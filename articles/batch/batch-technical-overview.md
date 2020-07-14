@@ -1,7 +1,7 @@
 ---
 title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
 ---
 
@@ -69,7 +69,7 @@ The following diagram shows steps in a common Batch workflow, with a client appl
 
 Keep in mind this is just one way to use Batch, and this scenario describes just some of its features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node. Or, use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward. 
 
-See the [Batch feature overview for developers](batch-api-basics.md) for more detailed information about pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
+See [Batch service workflow and primary resources](batch-service-workflow-features.md) for an overview of features such as pools, nodes, jobs, and tasks. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## Next steps
 

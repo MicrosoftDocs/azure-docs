@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/07/2020
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
@@ -22,15 +22,17 @@ ms.date: 02/10/2020
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use the portal's **Import data** wizard and **Search explorer** tools to quickly ramp up on concepts, and write interesting queries against an index within minutes.
+**Import data** wizard is an Azure portal tool that guides you through the creation of a search index so that you can write interesting queries within minutes. 
 
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). 
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+The wizard also has pages for AI enrichment so that you can extract text and structure from image files and unstructured text. Content processing with AI includes Optical Character Recognition (OCR), key phrase and entity extraction, and image analysis.
 
 ## Prerequisites
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+Before you begin, you must have the following:
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
@@ -48,15 +50,17 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 ### Step 1 - Start the Import data wizard and create a data source
 
-1. On the Azure Cognitive Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
    ![Import data command](media/search-get-started-portal/import-data-cmd.png)
 
-2. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
    ![Select sample dataset](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Continue to the next page.
+1. Continue to the next page.
 
 ### Step 2 - Skip the "Enrich content" page
 

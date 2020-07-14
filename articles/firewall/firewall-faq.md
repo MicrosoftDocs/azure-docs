@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 06/08/2020
 ms.author: victorh
 ---
 
@@ -124,7 +124,7 @@ Azure Firewall doesn't SNAT when the destination IP address is a private IP rang
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is supported. For more information, see [Azure Firewall forced tunneling (preview)](forced-tunneling.md). 
+Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md). 
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
@@ -206,3 +206,7 @@ A TCP ping isn't actually connecting  to the target FQDN. This happens because A
 ## Are there limits for the number of IP addresses supported by IP Groups?
 
 Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## Can I move an IP Group to another resource group?
+
+No, moving an IP Group to another resource group is not currently supported.

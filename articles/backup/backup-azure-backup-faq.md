@@ -102,7 +102,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 data disks<br/> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com <br><br> Data disk up to 32 TB
+Azure VM | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
 
 ### How is the data source size determined?
 
@@ -185,7 +185,7 @@ No. Recovery is free and you aren't charged for the egress traffic.
 
 When a new policy is applied, schedule and retention of the new policy is followed.
 
-- If retention is extended, existing recovery points are marked to keep them as per new policy.
+- If retention is extended, existing recovery points are marked to keep them according to new policy.
 - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 ## Encryption
@@ -203,7 +203,7 @@ Yes. The data in Azure is encrypted-at-rest.
 
 Microsoft does not decrypt the backup data at any point.
 
-### What is the minimum length of encryption the key used to encrypt backup data?
+### What is the minimum length of the encryption key used to encrypt backup data?
 
 The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
 

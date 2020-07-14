@@ -1,6 +1,6 @@
 ---
-title: Add or remove role assignments with RBAC and the Azure portal
-description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and the Azure portal.
+title: Add or remove Azure role assignments using the Azure portal - Azure RBAC
+description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# Add or remove role assignments using Azure RBAC and the Azure portal
+# Add or remove Azure role assignments using the Azure portal
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
@@ -139,7 +139,7 @@ In Azure RBAC, to remove access from an Azure resource, you remove a role assign
 
 ## Next steps
 
-- [List role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
-- [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+- [Tutorial: Grant a user access to Azure resources using the Azure portal](quickstart-assign-role-user-portal.md)
+- [Troubleshoot Azure RBAC](troubleshooting.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)

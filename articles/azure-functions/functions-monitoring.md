@@ -4,6 +4,7 @@ description: Learn how to use Azure Application Insights with Azure Functions to
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
+ms.custom: fasttrack-edit
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -17,7 +18,10 @@ As the required Application Insights instrumentation is built into Azure Functio
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Function Apps for free. There's a daily limit to how much data can be processed for free. You might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
+You can try out Application Insights integration with Azure Functions for free. There's a daily limit to how much data can be processed for free. You might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](#configure-sampling).
 
 The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -25,7 +29,7 @@ The full list of Application Insights features available to your function app is
 
 With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
 
-1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab. Select **Refresh** periodically, until the list of function invocations appears.
+1. In the function app page, select a function that has run at least once after Application Insights was configured. Then, select **Monitor** from the left pane. Select **Refresh** periodically, until the list of function invocations appears.
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -36,9 +40,9 @@ With [Application Insights integration enabled](#enable-application-insights-int
 
    ![Invocation details](media/functions-monitoring/invocation-details-ai.png)
 
-1. Choose the **Run in Application Insights** link to view the source of the query that retrieves the Azure Monitor log data in Azure Log  If this is the first time using Azure Log Analytics in your subscription, you are asked to enable to.
+1. Choose **Run in Application Insights** to view the source of the query that retrieves the Azure Monitor log data in Azure Log. If this is your first time using Azure Log Analytics in your subscription, you're asked to enable it.
 
-1. When you choose that link and choose to enable Log Analytic. the following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
+1. After you enable Log Analytics, the following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
 
    ![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -46,7 +50,7 @@ For more information, see [Query telemetry data](#query-telemetry-data) later in
 
 ## View telemetry in Application Insights
 
-To open Application Insights from a function app in the Azure portal, go to the function app's **Overview** page. Under **Configured features**, select **Application Insights**.
+To open Application Insights from a function app in the Azure portal, select **Application Insights** under **Settings** in the left page. If this is your first time using Application Insights with your subscription, you'll be prompted to enable it: select **Turn on Application Insights**, and then select **Apply** on the next page.
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
@@ -121,7 +125,7 @@ All logs with categories that begin with `Host` are written by the Functions run
 
 The Functions runtime creates logs with a category that begin with "Host." In version 1.x, the `function started`, `function executed`, and `function completed` logs have the category `Host.Executor`. Starting in version 2.x, these logs have the category `Function.<YOUR_FUNCTION_NAME>`.
 
-If you write logs in your function code, the category is is `Function.<YOUR_FUNCTION_NAME>.User` and can be any log level. In version 1.x of the Functions runtime, the category is `Function`.
+If you write logs in your function code, the category is `Function.<YOUR_FUNCTION_NAME>.User` and can be any log level. In version 1.x of the Functions runtime, the category is `Function`.
 
 ### Log levels
 
@@ -267,9 +271,6 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
   }
 }
 ```
-
-> [!NOTE]
-> [Sampling](../azure-monitor/app/sampling.md) is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## Write logs in C# functions
 
@@ -606,7 +607,7 @@ When you choose **Create**, an Application Insights resource is created with you
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
+When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -679,6 +680,28 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
+
+## Scale controller logs
+
+The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors the function host instances that run your app and makes decisions about when to add or remove function host instances. If you need to understand the decisions the scale controller is making in your application, you can configure it to emit logs to Application Insights or to Blob Storage.
+
+> [!WARNING]
+> This feature is in preview. We do not recommend you leave this feature enabled indefinitely, and you should instead enable it when you need the information it collects and then disable it.
+
+To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `{Destination}:{Verbosity}`, where:
+* `{Destination}` specifies the destination for the logs to be sent to, and must be either `AppInsights` or `Blob`.
+* `{Verbosity}` specifies the level of logging you want, and must be one of `None`, `Warning`, or `Verbose`.
+
+For example, to log verbose information from the scale controller to Application Insights, use the value `AppInsights:Verbose`.
+
+> [!NOTE]
+> If you enable the `AppInsights` destination type, you must ensure you configure [Application Insights for your function app](#enable-application-insights-integration).
+
+If you set the destination to `Blob`, the logs will be created in a blob container named `azure-functions-scale-controller` within the storage account set in the `AzureWebJobsStorage` application setting.
+
+If you set the verbosity to `Verbose`, the scale controller will log a reason for every change in the worker count, as well as information about the triggers that participate in the scale controller's decisions. For example, the logs will include trigger warnings, and the hashes used by the triggers before and after the scale controller runs.
+
+To disable scale controller logging, set the value of the `{Verbosity}` to `None` or remove the `SCALE_CONTROLLER_LOGGING_ENABLED` application setting.
 
 ## Disable built-in logging
 

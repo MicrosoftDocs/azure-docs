@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ---
 
 # Overview of the Commercial Marketplace Portal in Partner Center
@@ -21,31 +21,15 @@ Enterprises, governments, and organizations of all sizes find business solutions
 
 Partner Center is the hub of a Microsoft partner experience. For organizations who go to market with Microsoft and take advantage of the commercial marketplace, Partner Center is the portal which publishers use to create and manage offers, provide test drive demonstrations, and view analytics on offer performance.
 
-## Migration from Cloud Partner Portal
+## Migration from the Cloud Partner Portal
 
-Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we're migrating [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center.
+Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we have migrated all commercial marketplace offer management from the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center.
 
-Existing commercial marketplace publishers will find a familiar but improved user experience with an intuitive interface. Notifications in the portal and email notifications inform publishers of the migration. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
-
->[!NOTE]
->Currently, Partner Center supports the creation and management of some offer types as noted in the table below. More offer types will be supported soon as we migrate all offer management to Partner Center.
-
-|Offer Type  |Offer management migrated from Cloud Partner Portal to Partner Center  |
-|---------|---------|
-|Software as a Service (SaaS)     | Available now       |
-|Dynamics 365 for Customer Engagement & PowerApps     | Available now         |
-|Dynamics 365 for operations     | Available now        |
-|Dynamics 365 for business central     | Available now        |
-|Azure Application     | Available now        |
-|Azure Virtual Machine     | General availability April–May 2020        |
-|Azure Container     | General availability April–May 2020        |
-|Consulting service     | General availability April–May 2020        |
-|IoT Edge module     | General availability April–May 2020        |
-|Power BI App    | General availability April–May 2020        |
+Existing publishers who previously used the Cloud Partner Portal will find a familiar but improved and intuitive user experience with Partner Center. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
 
 ### Improvements on publishing and offer management user experience
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience.  For details, see [Frequently asked questions for migrating from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq).
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience.  For details, see [Frequently asked questions for migrating from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
 
 ### Account and user management updates
 
