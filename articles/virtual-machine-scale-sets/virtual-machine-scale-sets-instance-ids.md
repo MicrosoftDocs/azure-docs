@@ -61,7 +61,7 @@ As you can see, the "instanceId" property is just a decimal number. The instance
 
 In the sample output above, there is also a "name" for the VM. This name takes the form "{scale-set-name}_{instance-id}". This name is the one that you see in the Azure portal when you list instances in a scale set:
 
-![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
+![Screenshot showing a list of instances in a virtual machine scale set in the Azure portal.](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
 The {instance-id} part of the name is the same decimal number as the "instanceId" property discussed previously.
 
