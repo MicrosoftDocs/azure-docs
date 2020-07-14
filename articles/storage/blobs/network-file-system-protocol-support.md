@@ -22,7 +22,7 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This suppo
 >
 > For BlockBlobStorage accounts, support is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
-## Get started: Mount a storage account container
+## General workflow: Mounting a storage account container
 
 To mount a storage account container, you'll have to do these things.
 
@@ -43,11 +43,17 @@ To mount a storage account container, you'll have to do these things.
 For step-by-step guidance, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
-> It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account.
+> It's important to complete these tasks in order. You can't mount containers that you create before you enable the NFS 3.0 protocol on your account. Also, after you've enabled the NFS 3.0 protocol on your account, you can't disable it.
+
+## Network security
+
+Your storage account must be contained within a VNet because the only way to secure your data is by using network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+
+To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 ## Supported network locations
 
-A client can connect from any of these locations:
+A client connect over a public or a [private endpoint](../common/storage-private-endpoints.md). A client can connect from any of these locations:
 
 - The VNet that you configure for your storage account. 
   
@@ -60,12 +66,6 @@ A client can connect from any of these locations:
 - An on-premises network that is connected to a peered network.
 
   This can be done by using [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or an [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) along with [Gateway transit](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
-
-## Network security
-
-The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
-
-To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 ## Azure Storage features not yet supported
 
@@ -109,7 +109,7 @@ A transaction is free during the preview. Transactions will not be free when thi
 
 ## Next Steps
 
-To get started, see [Mount Azure Data Lake Storage Gen2 on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+To get started, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
 
 

@@ -77,12 +77,12 @@ Your storage account must be contained within a VNet. To learn more about VNet, 
 
 ## Step 4: Configure network security
 
-The only way to secure your data is by using Network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
+The only way to secure your data is by using network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
 To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
 
-## Step 4: Create and configure a storage account
+## Step 5: Create and configure a storage account
 
 To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
@@ -108,7 +108,7 @@ As you configure the account, choose these values:
 
 You can accept the default values for all other settings. 
 
-## Step 5: Create a container
+## Step 6: Create a container
 
 Create a container in your storage account by using any of these tools or SDKs:
 
@@ -120,7 +120,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 ||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
-## Step 6: Mount the container
+## Step 7: Mount the container
 
 On a Linux system, you can mount a container by using the following command.
 
