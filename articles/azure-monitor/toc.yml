@@ -264,9 +264,9 @@
         - name: Linux agents
           href: platform/agent-linux.md
         - name: VM Extension for Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
@@ -430,7 +430,7 @@
     - name: Scale with custom metrics
       href: platform/autoscale-custom-metric.md
     - name: Scale VM scale sets
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
     - name: Scale VM scale sets using Resource Manager templates
       href: platform/autoscale-virtual-machine-scale-sets.md
     - name: Use webhooks and email notifications
@@ -446,7 +446,7 @@
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
-        href: app/alerts.md
+        href: ./platform/alerts-log.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
@@ -474,13 +474,13 @@
       - name: Alert on an activity log event
         href: platform/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
-        href: platform/migrate-management-alerts.md
+        href: ./platform/activity-log-alerts.md
       - name: Webhook schema
         href: platform/activity-log-alerts-webhook.md
     - name: Service health alerts
       items:
       - name: View notifications
-        href: platform/service-notifications.md
+        href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: platform/alerts-activity-log-service-notifications.md     
     - name: Notifications and actions
@@ -556,7 +556,7 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: app/troubleshoot-faq.md
+      href: ./faq.md
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
@@ -1173,7 +1173,7 @@
   - name: Terminology changes
     href: terminology.md
   - name: Data reference
-    href: https://docs.microsoft.com/azure/azure-monitor/reference/
+    href: /azure/azure-monitor/reference/
   - name: Supported metrics
     items:
     - name: Platform metrics

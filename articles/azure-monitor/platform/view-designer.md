@@ -48,7 +48,7 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Logs      | Opens the [Log Analytics](../log-query/portals.md) to analyze data with log queries. |
+| Logs      | Opens the [Log Analytics](../log-query/log-query-overview.md) to analyze data with log queries. |
 | Edit       | Opens the view in View Designer to edit its contents and configuration.  |
 | Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 | Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |
