@@ -26,7 +26,9 @@ JDBC is the standard Java API to connect to traditional relational databases.
 
 ## Prepare the working environment
 
-First, set up some environment variables by using the following commands:
+We are going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
+
+Set up those environment variables by using the following commands:
 
 ```bash
 AZ_RESOURCE_GROUP=database-workshop
