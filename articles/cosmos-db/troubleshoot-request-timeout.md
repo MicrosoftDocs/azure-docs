@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Cosmos DB service request time out exception
-description: How to diagnose and fix Cosmos DB service request time out exception
+title: Troubleshoot Cosmos DB service request timeout exception
+description: How to diagnose and fix Cosmos DB service request timeout exception
 author: j82w
 ms.service: cosmos-db
 ms.date: 07/13/2020
@@ -22,10 +22,10 @@ Cosmos DB returned a 408 request timeout
 ## Troubleshooting steps
 
 ### 1. Check the SLA
-The customer should check the [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to check if the number 408s violates the Cosmos DB SLA.
+The customer should check the [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to check if the number 408 exceptions violates the Cosmos DB SLA.
 
 #### Solution 1: It did not violate the Cosmos DB SLA
 The application should handle this scenario and retry on these transient failures.
 
 #### Solution 2: It did violate the Cosmos DB SLA
-Please contact Azure Support: https://aka.ms/azure-support
+Contact Azure Support: https://aka.ms/azure-support

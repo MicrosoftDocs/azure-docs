@@ -19,33 +19,31 @@ ms.reviewer: sngun
 This status code represents that the resource no longer exists. 
 
 ## Expected behavior
-Normally there is no issue as this is by design and the application correctly handles this scenario. There are many valid scenarios where application expect an item to not exist.
+There are many valid scenarios where an application is expecting a 404, and correctly handles the scenario.
 
-## The document should or does exist, but got a 404 Not Found status code
+## The document should exist or does exist, but a 404 Not Found status code was returned
 Below are the possible reason for this behavior
 
 ### 1. Race condition
-
 There are multiple SDK client instances and the read happened before the write.
 
 #### Solution:
-1. For session consistency the create item will return a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
+1. The default account consistency for Cosmos DB is Session consistency. When I item is created or update the response will return a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
 2. Change the [consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing) to a [stronger level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs)
 
 ### 2. Invalid Partition Key and ID combination
-
-The partition key and id combination are not valid.
+The partition key and ID combination are not valid.
 
 #### Solution:
 Fix the application logic that is causing the incorrect combination. 
 
-### 3. Invalid character in item id
-An item is inserted into Cosmos DB with an [invalid character](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) in the item id.
+### 3. Invalid character in item ID
+An item is inserted into Cosmos DB with an [invalid character](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) in the item ID.
 
 #### Solution:
-It's recommended for users to change the id to a different value that does not contain the special characters. If that is not an option you can Base64 encode the id to escape the special characters.
+It's recommended for users to change the ID to a different value that does not contain the special characters. If changing the ID is not an option you can Base64 encode the ID to escape the special characters.
 
-For items already inserted in the container the id can be replaced by using RID values instead of name based references.
+Items already inserted in the container the ID can be replaced by using RID values instead of name based references.
 ```c#
 // Get a container reference that use RID values
 ContainerProperties containerProperties = await this.Container.ReadContainerAsync();
@@ -62,18 +60,18 @@ while (invalidItemsIterator.HasMoreResults)
 {
     foreach (JObject itemWithInvalidId in await invalidItemsIterator.ReadNextAsync())
     {
-        // It recommend to chose a new id that does not contain special characters, but
+        // It recommend to chose a new ID that does not contain special characters, but
         // if that is not possible then it can be Base64 encoded to escape the special characters
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
         itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
 
-        // Update the item with the new id value using the rid based container reference
+        // Update the item with the new ID value using the rid based container reference
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(
             item: itemWithInvalidId,
-            id: itemWithInvalidId["_rid"].ToString(),
+            ID: itemWithInvalidId["_rid"].ToString(),
             partitionKey: new Cosmos.PartitionKey(itemWithInvalidId["status"].ToString()));
 
-        // Validate the new id can be read using the original name based contianer reference
+        // Validate the new ID can be read using the original name based contianer reference
         await this.Container.ReadItemAsync<ToDoActivity>(
             item["id"].ToString(),
             new Cosmos.PartitionKey(item["status"].ToString())); ;
@@ -81,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 }
 ```
 
-### 4. TTL purge
+### 4. Time To Live (TTL) purge
 The item had the [Time To Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) property set. The item was purged because the time to live had expired.
 
 #### Solution:

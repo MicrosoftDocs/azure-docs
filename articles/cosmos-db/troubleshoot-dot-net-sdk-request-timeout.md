@@ -20,10 +20,10 @@ ms.reviewer: sngun
 The SDK was not able to connect to the Azure Cosmos DB service.
 
 ## Troubleshooting steps
-These are the known causes for this issue.
+The following list contains known causes for request timeout exceptions.
 
 ### 1. High CPU utilization (most common case)
-For optimal latency it is recommended that CPU usage should be roughly 40%. It is recommended to look at CPU utilization at 10 second intervals. If the interval is larger then CPU spikes can be missed by getting averaged in with lower values. This is more common with cross partition queries where it might do multiple connections for a single request.
+For optimal latency, it is recommended that CPU usage should be roughly 40%. It is recommended to use 10 seconds as the interval to monitor CPU utilization. If the interval is larger, then CPU spikes can be missed by getting averaged in with lower values. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The application should be scaled up/out.
@@ -39,19 +39,19 @@ If you use an HTTP proxy, make sure it can support the number of connections con
 Otherwise, you face connection issues.
 
 ### 3. Creating multiple Client instances
-This might lead to connection contention and timeout issues.
+Creating multiple client instance might lead to connection contention and timeout issues.
 
 #### Solution:
 Follow the [performance tips](https://docs.microsoft.com/azure/cosmos-db/performance-tips), and use a single CosmosClient instance across an entire process.
 
 ### 4. Hot partition key
-Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. One partition is having all of it's resources consumed while other partitions go unused. Check portal metrics to see if the workload is encountering a hot [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data). This will cause the aggregate consumed throughput (RU/s) to be appear to be under the provisioned RUs, but a single partition consumed throughput (RU/s) will exceed the provisioned throughput
+Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. One partition is having all of its resources consumed while other partitions go unused. Check portal metrics to see if the workload is encountering a hot [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data). Hot partition key will cause the aggregate consumed throughput (RU/s) to be appear to be under the provisioned RUs, but a single partition consumed throughput (RU/s) will exceed the provisioned throughput.
 
 #### Solution:
 The partition key should be changed to avoid the heavily used value.
 
 ### 5. High degree of concurrency
-The application is doing a high level of conccurrency which can lead to contention on the channel
+The application is doing a high level of concurrency, which can lead to contention on the channel
 
 #### Solution:
 Try to scale the application up/out.
@@ -63,7 +63,7 @@ Large requests or responses can lead to head-of-line blocking on the channel and
 Try to scale the application up/out.
 
 ### 7. Failure rate is within Cosmos DB SLA
-The application should be able to handle transient failures and retry when necessary. 408 excpetions are not retried because on create paths its not possible to know if the service created the item or if it did not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts which would break from the ambiguity of an existing item vs conflict from a create retry.
+The application should be able to handle transient failures and retry when necessary. 408 exceptions are not retried because on create paths it's not possible to know if the service created the item or if it did not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item vs conflict from a create retry.
 
 ### 8. Failure rate is violating the Cosmos DB SLA
 Please contact Azure support.

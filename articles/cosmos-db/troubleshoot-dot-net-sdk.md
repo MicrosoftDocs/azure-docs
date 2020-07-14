@@ -47,18 +47,29 @@ Checking the [portal metrics](monitor-accounts.md) will help determine if it's a
 
 ## Common error status codes <a id="error-codes"></a>
 
-| Status Code | Title | Description |
-|----------|-------------|------|
-| 400 | Bad request | User's need to troubleshoot this based on the error message as this mostly points to a bug in user's code which causes the request to be invalid. For example passing the wrong partition key for an item will result in an bad request. | 
-| 401 | [Not authorized](troubleshoot-unauthorized.md) | User's application should have retry logic for some corner scenarios, but most likely require user to manually fix | 
-| 404 | [Resource is not found](troubleshoot-not-found.md) | User's application should handle this scenario. |
-| 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md)| There are many transient scenarios that can cause this. |
-| 409 | Conflict (Only for Create/Replace/Upsert) | User's application should handle the conflict |
-| 410 | Gone exceptions | SDK handles the retries. If the retry logic is exceeded it will get converted to a 503 error. This can be caused by many scenarios like partition was moved to a larger machine because of a scaling operation. This is an expected exception and will not impact the Cosmos DB SLA. |
-| 413 | [Request Entity Too Large](https://docs.microsoft.com/azure/cosmos-db/concepts-limits#per-item-limits) | User's application should handle the payload being to large |
-| 429 | [Too many requests](troubleshoot-request-rate-too-large.md) | The SDK has built in logic, and it is user configurable for most SDKs |
-| 500 | Azure Cosmos DB failure | User's application should have retry logic. |
-| 503 | Was not able to reach Azure Cosmos DB | User's application should have retry logic. |
+| Status Code | Description | 
+|----------|-------------|
+| 400 | Bad request (Depends on the error message)| 
+| 401 | [Not authorized](troubleshoot-unauthorized.md) | 
+| 404 | [Resource is not found](troubleshoot-not-found.md) |
+| 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 409 | Conflict (Only for Create/Replace/Upsert)  |
+| 410 | Gone exceptions (Transient failure that should not violate SLA) |
+| 413 | [Request Entity Too Large](https://docs.microsoft.com/azure/cosmos-db/concepts-limits#per-item-limits) |
+| 429 | [Too many requests](troubleshoot-request-rate-too-large.md) |
+| 500 | Azure Cosmos DB failure (Contact Azure Support if SLA is violated: https://aka.ms/azure-support) |
+| 503 | [Service unavailable](troubleshoot-service-unavailable.md) | 
+
+### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
+
+If your app is deployed on [Azure Virtual Machines without a public IP address](../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](#request-timeouts).
+
+ Azure SNAT ports are used only when your VM has a private IP address is connecting to a public IP address. There are two workarounds to avoid Azure SNAT limitation (provided you already are using a single client instance across the entire application):
+
+* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
+    When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](../virtual-network/virtual-networks-acl.md).
+* Assign a [public IP to your Azure VM](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a>High network latency
 High network latency can be identified by using the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) in the V2 SDK or [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
@@ -88,6 +99,6 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
 [Request rate too large]: #request-rate-too-large
-[Request Timeouts]: #request-timeouts
+[Request timed out]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
