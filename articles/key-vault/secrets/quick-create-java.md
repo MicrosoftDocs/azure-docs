@@ -22,7 +22,12 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [API reference documentation](https://azure.github.io/azure-sdk-for-java) | [Product documentation](index.yml) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+Additional resources:
+
+* [Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [API reference documentation](https://azure.github.io/azure-sdk-for-java)
+* [Product documentation](index.yml)
+* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## Prerequisites
 
