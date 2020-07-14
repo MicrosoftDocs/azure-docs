@@ -22,7 +22,7 @@ If you are signed into the portal with a personal [**Microsoft account (MSA)**](
 
 Users who are currently unable to manage event routes in the portal can still manage event routes using the Azure Digital Twins APIs or CLI. Switching to one of these tools for event route management is the recommended strategy to mitigate this issue.
 
-The instructions for this can be found in [*How-to: Manage endpoints and routes*](how-to-manage-routes).
+The instructions for this can be found in [*How-to: Manage endpoints and routes*](how-to-manage-routes.md).
 
 ### Possible causes
 
