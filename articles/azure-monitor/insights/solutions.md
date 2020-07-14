@@ -44,7 +44,7 @@ Click on the name of a solution to open its summary page. This page displays any
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, first follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
+Use the [az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) command to list the monitoring solutions installed in your subscription.   Before running the `list` command, follow the prerequisites found in [Install a monitoring solution](#install-a-monitoring-solution).
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -89,9 +89,9 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 ### Prepare your environment
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli)
+1. Install the Azure CLI
 
-   If you prefer, you can also use Azure Cloud Shell to complete the steps in this article.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
+   You need to [install the Azure CLI](/cli/azure/install-azure-cli) before running CLI reference commands.  If you prefer, you can also use Azure Cloud Shell to complete the steps in this article.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
 
    - Open Cloud Shell by going to [https://shell.azure.com](https://shell.azure.com)
 
@@ -110,7 +110,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
    The `log-analytics` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name alertsmanagement
+   az extension add --name log-analytics
    ```
 
    The following warning is expected.
@@ -190,3 +190,4 @@ az monitor log-analytics solution delete --name
 
 * Get a [list of monitoring solutions from Microsoft](solutions-inventory.md).
 * Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.
+* See all [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
