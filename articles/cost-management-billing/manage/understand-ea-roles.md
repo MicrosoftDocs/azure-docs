@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/13/2020
 ms.author: banders
 ---
 # Managing Azure Enterprise roles
@@ -78,7 +78,7 @@ For more information about adding a department admin, see [Create an Azure EA de
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|Department Administrator|Department Administrator (read only) |Account Owner| Partner|
 |---|---|---|---|---|---|---|
-|View credit balance including monetary commitment|✔|✔|✘|✘|✘|✔|
+|View credit balance including Azure Prepayment|✔|✔|✘|✘|✘|✔|
 |View department spending quotas|✔|✔|✘|✘|✘|✔|
 |Set department spending quotas|✔|✘|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✘|✘|✘|✔|

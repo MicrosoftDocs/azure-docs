@@ -83,21 +83,21 @@ SQL on-demand has no local storage, only metadata objects are stored in database
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL on-demand extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function by adding following capabilities:
 
-[Query multiple files or folders](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Query multiple files or folders](query-data-storage.md#query-multiple-files-or-folders)
 
-[PARQUET file format](develop-storage-files-overview.md#parquet-file-format)
+[PARQUET file format](query-data-storage.md#query-parquet-files)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
-[Read a chosen subset of columns](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Schema inference](develop-storage-files-overview.md#schema-inference)
+[Schema inference](query-data-storage.md#schema-inference)
 
-[filename function](develop-storage-files-overview.md#filename-function)
+[filename function](query-data-storage.md#filename-function)
 
-[filepath function](develop-storage-files-overview.md#filepath-function)
+[filepath function](query-data-storage.md#filepath-function)
 
-[Work with complex types and nested or repeated data structures](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Work with complex types and nested or repeated data structures](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## Security
 

@@ -24,7 +24,7 @@ This article has two major parts:
 - [Tutorial](#goto_1_tutorial) that highlights the PowerShell script code that accomplishes the provisioning and cataloging.
   - The tutorial uses the Wingtip Tickets SaaS application, adapted to the multi-tenant sharded database pattern.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## Database pattern
 
@@ -105,7 +105,7 @@ The tenant provisioning scripts in this tutorial support both of the following s
 
 Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, such as *tenants1* or *tenants2*. Databases that contain a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## Tutorial begins
 

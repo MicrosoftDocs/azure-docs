@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 07/09/2020
 ms.author: iainfou
 
 ---
