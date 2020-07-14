@@ -23,7 +23,7 @@ ms.author: juliako
 
 This topic gives an overview of the most important Media Services concepts.
 
-## <a id="assets"/>Assets and Storage
+## <a name="assets"></a>Assets and Storage
 ### Assets
 An [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
@@ -71,7 +71,7 @@ A blob container provides a grouping of a set of blobs. Blob containers are used
 > 
 > 
 
-### <a id="locators"/>Locators
+### <a name="locators"></a>Locators
 [Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s provide an entry point to access the files contained in an asset. An access policy is used to define the permissions and duration that a client has access to a given asset. Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time. 
 
 Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage. 
@@ -156,7 +156,7 @@ For more information, see the following articles:
 - [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering
-### <a id="dynamic_packaging"/>Dynamic packaging
+### <a name="dynamic_packaging"></a>Dynamic packaging
 When working with Media Services, it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 ### Streaming endpoint

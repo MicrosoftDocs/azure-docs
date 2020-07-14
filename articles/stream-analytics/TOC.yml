@@ -13,6 +13,8 @@
     items:
     - name: Azure portal
       href: stream-analytics-quick-create-portal.md
+    - name: Azure CLI
+      href: quick-create-azure-cli.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
@@ -86,7 +88,7 @@
       href: stream-analytics-edge-csharp-udf-methods.md
     - name: Machine learning UDF
       href: machine-learning-udf.md
-    - name: Debug UDFs and updates
+    - name: Debug UDFs
       href: debug-user-defined-functions.md
   - name: Optimize your Stream Analytics job
     items:

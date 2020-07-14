@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. If you don't have **Service Provider metadata file**, enter the values for the following fields:
 
 	a. In the **Identifier** textbox, type a URL:
-
+  
 	| Identifier |
 	|--|
 	|  `https://sso.ringcentral.com` |

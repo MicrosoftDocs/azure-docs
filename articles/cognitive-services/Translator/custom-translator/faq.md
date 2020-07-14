@@ -48,7 +48,7 @@ The deployment generally takes less than an hour.
 
 ## How do you access a deployed system?
 
-Deployed systems can be accessed via the Microsoft Translator V3 by specifying the CategoryID. More information about the Translator can be found in the [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
+Deployed systems can be accessed via Translator by specifying the CategoryID. More information about Translator can be found in the [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
 
 ## How do I skip alignment and sentence breaking if my data is already sentence aligned?
 

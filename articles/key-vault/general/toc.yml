@@ -104,6 +104,8 @@
       href: event-grid-logicapps.md
     - name: Receive notifications via Azure Event Grid and Azure Automation
       href: event-grid-tutorial.md
+    - name: Back up Individual Key Vault Objects
+      href: backup.md
   - name: Secure
     items:
     - name: Integrate with Azure Private Link Service
@@ -135,6 +137,8 @@
     href: rest-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
+  - name: Key vault versions 
+    href: versions.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
