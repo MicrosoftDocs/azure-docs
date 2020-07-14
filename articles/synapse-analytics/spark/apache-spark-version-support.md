@@ -1,5 +1,5 @@
 ---
-title: Apache Spark for Azure Synapse Analytics version support 
+title: Apache Spark version support 
 description: Supported versions of Spark, Scala, Python
 services: synapse-analytics
 author: euangMS 
