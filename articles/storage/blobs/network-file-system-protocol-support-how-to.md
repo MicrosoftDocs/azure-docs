@@ -73,7 +73,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 Your storage account must be contained within a VNet. To learn more about VNet, and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
 
 > [!NOTE]
-> Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network locations](network-file-system-protocol-support.md#supported-network-locations).
+> Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network connections](network-file-system-protocol-support.md#supported-network-locations).
 
 ## Step 4: Configure network security
 
@@ -88,18 +88,19 @@ To mount a container by using NFS 3.0, You must create a storage account **after
 
 NFS 3.0 protocol is supported in the following types of storage accounts:
 
-- [general-purpose V2](../common/storage-account-create.md)
-- [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md)
+- [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) (Premium performance)
+- [general-purpose V2](../common/storage-account-create.md) (Standard performance)
+
 
 For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
 
 As you configure the account, choose these values:
 
-|Setting |general-purpose v2 account |BlockBlobStorage account|
+|Setting |BlockBlobStorage account|general-purpose v2 account|
 |----|---|----|
-|Location|One of the following regions: US Central (EUAP), US East 2 (EUAP)|One of the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |
-|Performance|Standard|Premium|
-|Account kind|StorageV2 (general purpose v2|BlockBlobStorage|
+|Location|One of the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |One of the following regions: US Central (EUAP), US East 2 (EUAP)|
+|Performance|Premium|Standard|
+|Account kind|BlockBlobStorage|StorageV2 (general purpose v2|
 |Replication|Locally-redundant storage (LRS)|Locally-redundant storage (LRS)|
 |Connectivity method|Public endpoint (selected networks) or Private endpoint.|Public endpoint (selected networks) or Private endpoint.|
 |Secure transfer required|Disabled|Disabled|

@@ -51,9 +51,9 @@ Your storage account must be contained within a VNet because the only way to sec
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
-## Supported network locations
+## Supported network connections
 
-A client connect over a public or a [private endpoint](../common/storage-private-endpoints.md). A client can connect from any of these locations:
+A client connect over a public or a [private endpoint](../common/storage-private-endpoints.md), and can connect from any of the following network locations:
 
 - The VNet that you configure for your storage account. 
   
@@ -75,11 +75,13 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
 
 - POSIX access control lists (ACLs)
 
-- Disabling NFS 3.0 support for a storage account 
+- The ability to enable NFS 3.0 support on existing storage accounts
 
-- Access to the account by using REST APIs, Blob SDKs, or Data Lake Storage SDKs.
+- The ability to disable NFS 3.0 support in a storage account (after you've enabled it)
 
-  Once you've enabled the NFS 3.0 protocol for your storage account, you can only use that protocol to access data in the storage account. 
+- Access to directories and files by using REST APIs, Blob SDKs, or Data Lake Storage SDKs.
+
+  Once you've enabled the NFS 3.0 protocol for your storage account, you can only use that protocol to access directories and files in the storage account. 
 
 ## NFS 3.0 features not yet supported
 
