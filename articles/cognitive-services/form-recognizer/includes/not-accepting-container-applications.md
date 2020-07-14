@@ -8,4 +8,4 @@ ms.author: aahi
 ---
 
 > [!IMPORTANT]
-> The limit for new Form Recognizer container users has been reached. We are not currently accepting accepting new applications for the Form Recognizer container. 
+> The limit for new Form Recognizer container users has been reached. We are not currently accepting new applications for the Form Recognizer container. 
