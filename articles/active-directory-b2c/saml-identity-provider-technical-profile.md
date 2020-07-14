@@ -167,7 +167,7 @@ The **CryptographicKeys** element contains the following attributes:
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
 
 ## SAML entityID customization  
-If you have multiple SAML applications that depends on different entityID values, you could achieve this by overriding the 'issueruri' value in your relying party file.  To do this, copy the Technical Profile with ID "Saml2AssertionIssuer" from base file and override the "IssuerUri" value.
+If you have multiple SAML applications that depend on different entityID values, you can address this by overriding the 'issueruri' value in your relying party file. To do this, copy the Technical Profile with ID "Saml2AssertionIssuer" from the base file and override the "IssuerUri" value.
 > [!TIP]
 > Copy the `<ClaimsProviders>` section from the base, and preserve these elements within the claims provider: `<DisplayName>Token Issuer</DisplayName>`, `<TechnicalProfile Id="Saml2AssertionIssuer">`, and `<DisplayName>Token Issuer</DisplayName>`.
  
