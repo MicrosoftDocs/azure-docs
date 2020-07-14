@@ -180,7 +180,7 @@ WVDErrors
 |take 100
 ```
 
-To find out whether a specific error occurred for other uses too:
+To find out whether a specific error occurred for other users:
 
 ```kusto
 WVDErrors
