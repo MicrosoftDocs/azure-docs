@@ -27,14 +27,14 @@ Azure Database for PostgreSQL and Azure Database for MySQL bring together commun
 
 In this video from the May 2017 Microsoft //Build conference, learn about Microsoft’s managed MySQL offering in Azure. The video walks through Microsoft’s strategy for supporting Open-Source database systems in Azure. The video discusses what it means to you as a developer to develop or deploy applications that use MySQL in Azure. This video shows an overview of the architecture of the service, and demonstrates Azure Database for MySQL is integrated with other Azure Services such as Web Apps.
 
-[How to create an Azure Database for MySQL server by using the Azure portal](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+[How to create an Azure Database for MySQL server by using the Azure portal](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 
->[!VIDEO https://azure.microsoft.com/en-us/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal]
+>[!VIDEO https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This Quickstart video shows you how to create an Azure Database for MySQL server in about three minutes using the Azure portal. If you don't have an Azure subscription, create a free Azure account before you begin.
 
-[How to create an Azure Database for MySQL server by using Azure CLI](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+[How to create an Azure Database for MySQL server by using Azure CLI](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
->[!VIDEO https://azure.microsoft.com/en-us/resources/videos/create-an-azure-database-for-mysql-server-using-azure-cli]
+>[!VIDEO https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-using-azure-cli]
 
 This quickstart video demonstrates how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about two minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. If you don't have an Azure subscription, create a free account before you begin.
