@@ -333,7 +333,7 @@ For multiple domain-based (host-based) routing, you can create multisite listene
 
 No, use only alphanumeric characters in your .pfx file password.
 
-### My intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
+### My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
 
 On 07/11/2020, DigiCert has announced an inconsistency in one of their recent audits and they are retiring/revoking EV certificates issued by intermediate CAs as listed [here](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement).
 And CA/Browser forum members have also listed a set of CAs which will be revoked. The list can be found [here](https://misissued.com/batch/138/). You can find more information on this [here](https://groups.google.com/forum/#!topic/mozilla.dev.security.policy/EzjIkNGfVEE).
