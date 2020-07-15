@@ -1,6 +1,6 @@
 ---
-title: Managing Azure AD roles in Privileged Identity Management (PIM) | Microsoft Docs
-description: How to manage Azure AD roles for assignment Privileged Identity Management (PIM)
+title: Managing role-assignable groups in Privileged Identity Management (PIM) | Microsoft Docs
+description: How to manage role-assignable groups for assignment in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 07/31/2020
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Management capabilities for Azure AD roles in Privileged Identity Management
+# Management capabilities for role-assignable groups in Privileged Identity Management
 
 The management experience for Azure AD roles in Privileged Identity Management has been updated to unify how Azure AD roles and Azure resource roles are managed. Previously, Privileged Identity Management for Azure resource roles has had a couple of key features that were not available for Azure AD roles.
 

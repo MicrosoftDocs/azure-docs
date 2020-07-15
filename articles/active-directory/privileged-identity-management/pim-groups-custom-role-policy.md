@@ -1,5 +1,5 @@
 ---
-title: Use custom roles for Azure resources in PIM - Azure AD | Microsoft Docs
+title: Use custom roles forrole-assignable groups role-assignable groups in PIM - Azure AD | Microsoft Docs
 description: Learn how to use custom roles for Azure resources in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 07/31/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
 
-# Use custom roles for Azure resources in Privileged Identity Management
+# Use custom roles for role-assignable groups in Privileged Identity Management
 
 You might need to apply strict Privileged Identity Management (PIM) settings to some users in a privileged role in your Azure Active Directory (Azure AD) organization, while providing greater autonomy for others. Consider for example a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
 

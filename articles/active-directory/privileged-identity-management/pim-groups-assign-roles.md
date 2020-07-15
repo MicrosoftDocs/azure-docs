@@ -1,5 +1,5 @@
 ---
-title: Assign eligibility for a group in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Assign eligibility for group membership in Privileged Identity Management - Azure Active Directory | Microsoft Docs
 description: Learn how to assign eligibility for a role-assignable group in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

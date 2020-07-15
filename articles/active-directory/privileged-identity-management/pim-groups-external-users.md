@@ -1,6 +1,6 @@
 ---
-title: Assign Azure resource roles to guests in PIM - Azure AD | Microsoft Docs
-description: Learn how to invite external guest users and assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
+title: Assign role-assignable groups to guests in PIM - Azure AD | Microsoft Docs
+description: Learn how to invite external guest users and assign role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 07/31/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Invite guest users and assign Azure resource roles in Privileged Identity Management
+# Invite guest users and assign role-assignable groups in Privileged Identity Management
 
 Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. When you combine B2B collaboration with Azure AD Privileged Identity Management (PIM), you can extend your compliance and governance requirements to guests. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests:
 

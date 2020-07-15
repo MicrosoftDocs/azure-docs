@@ -1,6 +1,6 @@
 ---
-title: View audit report for Azure resource roles in Privileged Identity Management (PIM) - Azure AD | Microsoft Docs
-description: View activity and audit history for Azure resource roles in Azure AD Privileged Identity Management (PIM).
+title: View audit report for role-assignable groups in Privileged Identity Management (PIM) - Azure AD | Microsoft Docs
+description: View activity and audit history for role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,12 +11,12 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 07/31/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
-# View activity and audit history for Azure resource roles in Privileged Identity Management
+# View activity and audit history for role-assignable groups in Privileged Identity Management
 
 With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure resources roles within your Azure Active Directory (Azure AD) organization. This includes subscriptions, resource groups, and even virtual machines. Any resource within the Azure portal that leverages the Azure role-based access control functionality can take advantage of the security and lifecycle management capabilities in Privileged Identity Management.
 
