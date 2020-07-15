@@ -37,7 +37,7 @@ When you add a guest user to your directory by [using the Azure portal](https://
 
 ## Redemption through a direct link
 
-As an alternative to the invitation email, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) or [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Then you can use any of the [customizable ways to deploy applications to users](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), including direct sign-on links. When a guest uses a direct link instead of the invitation email, they’ll still be guided through the first-time consent experience.
+As an alternative to the invitation email, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) or [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Then you can use any of the [customizable ways to deploy applications to users](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), including direct sign-on links. When a guest uses a direct link instead of the invitation email; also known as just-in-time (JIT) redemption, they’ll still be guided through the first-time consent experience.
 
 > [!IMPORTANT]
 > The direct link must be tenant-specific. In other words, it must include a tenant ID or verified domain so the guest can be authenticated in your tenant, where the shared app is located. A common URL like https://myapps.microsoft.com won’t work for a guest because it will redirect to their home tenant for authentication. Here are some examples of direct links with tenant context:
@@ -81,7 +81,7 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 11. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](https://docs.microsoft.com/azure/active-directory/b2b/redemption-experience#consent-experience-for-the-guest).  
 
-For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this error, admins should either [enable email one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
+For [just-in-time (JIT) redemptions](#redemption-through-a-direct-link), where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this error, admins should either [enable email one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
 
 ## Consent experience for the guest
 
