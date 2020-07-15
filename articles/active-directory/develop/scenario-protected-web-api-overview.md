@@ -30,8 +30,10 @@ To use your web API, you need to either enable authenticated users with both wor
 
 Here is specific information you need to know to protect web APIs:
 
-- Your app registration must expose at least one scope or one application role. Scopes are exposed by web APIs that are called on behalf of a user. Application roles are exposed by web APIs called by daemon applications (that calls your web API on their own behalf)
-- If you create a new web API, choose the [access token accepted version](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) by your web API to be 2. For legacy web APIs, this can be null, but this mean that the accepted sign-in audience will be limited to organizations only.
+- Your app registration must expose at least one *scope* or one *application role*.
+  - Scopes are exposed by web APIs that are called on behalf of a user.
+  - Application roles are exposed by web APIs called by daemon applications (that calls your web API on their own behalf).
+- If you create a new web API app registration, choose the [access token version](reference-app-manifest.md#accesstokenacceptedversion-attribute) accepted by your web API to `2`. For legacy web APIs, the accepted token version can be `null`, but this value restricts the sign-in audience to organizations only, and personal Microsoft accounts (MSA) won't be supported.
 - The code configuration for the web API must validate the token used when the web API is called.
 - The code in the controller actions must validate the roles or scopes in the token
 
