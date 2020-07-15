@@ -59,5 +59,5 @@ Continuing problems may indicate a corrupted VHD. In this situation, we recommen
 
 For more information, see the following articles:
 
-- [About Windows VHD](../windows/managed-disks-overview.md#about-vhds)
-- [About Linux VHD](../linux/managed-disks-overview.md#about-vhds)
+- [About Windows VHD](../windows/managed-disks-overview.md)
+- [About Linux VHD](../linux/managed-disks-overview.md)
