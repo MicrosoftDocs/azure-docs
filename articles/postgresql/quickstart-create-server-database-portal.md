@@ -27,29 +27,30 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
-> [!div class="mx-imgBorder"]
-> ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
+   > [!div class="mx-imgBorder"]
+   > ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
 
 3. Select the **Single server** deployment option.
 
-> [!div class="mx-imgBorder"]
-> ![Select Azure Database for PostgreSQL - Single server deployment option](./media/quickstart-create-database-portal/select-deployment-option.png)
+   > [!div class="mx-imgBorder"]
+   > ![Select Azure Database for PostgreSQL - Single server deployment option](./media/quickstart-create-database-portal/select-deployment-option.png)
 
 4. Fill out the **Basics** form with the following information:
-> [!div class="mx-imgBorder"]
-> ![Create a server](./media/quickstart-create-database-portal/create-basics.png)
 
-Setting|Suggested Value|Description
----|---|---
-Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
-Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
-Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
-Data source | *None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for PostgreSQL server).
-Admin username |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
-Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
-Location|The region closest to your users| The location that is closest to your users.
-Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/postgresql/server/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+   > [!div class="mx-imgBorder"]
+   > ![Create a server](./media/quickstart-create-database-portal/create-basics.png)
+
+   Setting|Suggested Value|Description
+   ---|---|---
+   Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
+   Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
+   Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
+   Data source | *None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for PostgreSQL server).
+   Admin username |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
+   Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+   Location|The region closest to your users| The location that is closest to your users.
+   Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
+   Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/postgresql/server/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
 
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. 
@@ -68,8 +69,8 @@ By default the server created is not publicly accessible and you need to give pe
   
 Now select **Add current client IP address** and then select **Save**. You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules](./concepts-firewall-rules.md)
    
-   > [!NOTE]
-   > Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
+> [!NOTE]
+> Check if your network allows outbound traffic over port 5432 that is used by Azure Database for PostgreSQL to avoid connectivity issues.  
 
 ## Connect to Azure Database for PostgreSQL server using psql
 You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html) which are popular PostgreSQL clients. For this quickstart, we will connect using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
