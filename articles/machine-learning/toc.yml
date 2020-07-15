@@ -166,6 +166,9 @@
             - name: Secure web services with TLS
               displayName: ssl
               href: how-to-secure-web-service.md
+            - name: Increase resiliency
+              displayName: high availability, disaster recovery
+              href: how-to-high-availability-machine-learning.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
             - name: Regenerate storage access keys
@@ -391,7 +394,7 @@
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
-  items:
+
   - name: Create & manage workspaces
     items:
     - name: Use Azure portal
@@ -587,7 +590,7 @@
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
-  items: 
+
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal

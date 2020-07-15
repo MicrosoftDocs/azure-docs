@@ -192,7 +192,7 @@ When a cloud proxy is in place, a policy that is used to require a domain joined
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations.
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## Next steps
 
