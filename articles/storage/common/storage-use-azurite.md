@@ -4,7 +4,7 @@ description: The Azurite open-source emulator (preview) provides a free local en
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -63,6 +63,7 @@ The following settings are supported:
    - **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
    - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
    - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
+   - **Azurite: Skip Api Version Check** - Skip the request API version check. The default value is **false**.
 
 ## Install and run Azurite by using NPM
 
@@ -306,6 +307,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
 Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite will do basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite won't check the token signature or permissions.
+
+### Skip API Version Check
+
+**Optional** -  When starting up, Azurite checks that the requested API version is valid. The following command skips the API version check:
+
+```console
+azurite --skipApiVersionCheck
+```
+
 
 ## Authorization for tools and SDKs
 
