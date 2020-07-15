@@ -1,64 +1,63 @@
 ---
-title: 'Tutorial: Create a geofence and track devices on an Microsoft Azure Map'
+title: 'Tutorial: Create a geofence and track devices on a map | Microsoft Azure Maps'
 description: Learn how to set up a geofence and track devices relative to the geofence using Microsoft Azure Maps Spatial Service.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 7/15/2020
+author: philmea
+ms.author: philmea
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+manager: timlt
 ms.custom: mvc
 ---
 
 # Tutorial: Set up a geofence by using Azure Maps
 
-This tutorial walks you through the basics steps to set up geofence by using Azure Maps. Consider the following scenario:
+This tutorial walks you through the basics steps to set up geofence by using Azure Maps. Consider this scenario, a construction Site Manager has to monitor potential hazardous equipment. The manager needs to ensure that the equipment stays in the chosen overall construction areas. This overall construction area is a hard parameter. Regulations require equipment to stay within this parameter and violations are reported to the Operations Manager.  
 
-*A construction Site Manager has to monitor potential hazardous equipment. The manager needs to ensure that the equipment stays in the chosen overall construction area, which is a hard perimeter. Regulations require equipment to stay within this parameter and violations are reported to the operations manager.*
-
-Azure Maps provides three main services to support the containment of equipment in the above scenario:
-
-* [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) is used to upload and store a geofence that defines the hard perimeter of the construction area.
-
-* [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) is used to check any tracked equipment locations relative to the geofence.
-
-* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) is used to provide notifications of equipment moving beyond or entering the geofence. For more information, see [Azure Maps as an Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).
+We use the Data Upload API to store a geofence and use the Geofence API to check the equipment location relative to the geofence. Both the Data Upload API and the Geofence API are from Azure Maps. We also use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. To learn more about Event Grid, see [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 In this tutorial we cover how to:
 
 > [!div class="checklist"]
-> * Upload a geofence area using the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview).
-> * Set up an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to handle geofence events.
-> * Set up alerts in response to geofence events using Logic Apps.
-> * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to track whether any equipment is within the geofence or not.
+> * Upload geofence area in the Azure Maps, Data service using the Data Upload API.
+> *   Set up an Event Grid to handle geofence events.
+> *   Setup geofence events handler.
+> *   Set up alerts in response to geofence events using Logic Apps.
+> *   Use Azure Maps geofence service APIs to track whether a construction asset is within the construction site or not.
+
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+### Create an Azure Maps account 
 
-This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
+Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription with S1 pricing tier. The steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) show you how to retrieve the primary key of your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Upload geofences
 
-We assume that the main geofence is subsite1, which has a set expiration time. You can create more nested geofences as per your requirements. These sets of fences can be used to track different construction areas within the overall construction area. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule. subsite2 could be where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project. These fences are used to track rules based on time and space.
+We assume that the main geofence is subsite1, which has a set expiration time. You can create more nested geofences as per your requirements. These sets of fences can be used to track different construction areas within the overall construction area. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule. subsite2 could be where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project. These fences are used to track rules based on time and space. 
 
-1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
+To upload the geofence for the construction site using the Data Upload API, we use the postman application. Install the [postman application](https://www.getpostman.com/) and make a free account. 
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
+Once the Postman app is installed, follow these steps to upload the construction site geofence using the Azure Maps, Data Upload API.
 
-3. Select the **POST** HTTP method in the builder tab and enter the following URL to upload the geofence to the Azure Maps service. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+1. Open the Postman app and click new | Create new, and select Request. Enter a Request name for Upload geofence data, select a collection or folder to save it to, and click Save.
+
+    ![Upload geofences using Postman](./media/tutorial-geofence/postman-new.png)
+
+2. Select POST HTTP method on the builder tab and enter the following URL to make a POST request.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
+    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
+    
+    The GEOJSON parameter in the URL path represents the data format of the data being uploaded.
 
-    The _geojson_ parameter in the URL path represents the data format of the data being uploaded.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace {subscription-key} with your Azure Maps subscription key, also known as primary key.
+   
+    ![Parameters for upload data (geofence) in Postman](./media/tutorial-geofence/postman-key-vals.png)
 
-4. In the **Headers** tab, specify a value for the `Content-Type` key. The Drawing package is a zipped folder, so use the `application/octet-stream` value. In the **Body** tab, select **binary**. 
-
-5. Click on the **Body** tab. Select **raw**, and then **JSON** as the input format. Copy and paste the following JSON into the **Body** textarea:
+4. Click **Body** then select the raw input format and choose JSON as the input format from the dropdown list. Provide the following JSON as data to be uploaded:
 
    ```JSON
    {
@@ -129,11 +128,11 @@ We assume that the main geofence is subsite1, which has a set expiration time. Y
           "properties": {
             "geometryId": "2",
             "validityTime": {
-              "expiredTime": "2022-01-15T00:00:00",
+              "expiredTime": "2019-01-15T00:00:00",
               "validityPeriod": [
                 {
                   "startTime": "2019-01-08T01:00:00",
-                  "endTime": "2022-01-08T17:00:00",
+                  "endTime": "2019-01-08T17:00:00",
                   "recurrenceType": "Daily",
                   "recurrenceFrequency": 1,
                   "businessDayOnly": true
@@ -146,19 +145,19 @@ We assume that the main geofence is subsite1, which has a set expiration time. Y
    }
    ```
 
-6. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
+5. Click send and review the response header. Upon a successful request, the **Location** header will contain the status URI. The status URI is of the following format. The uploadStatusId value isn't between { }. It's a common practice to use { } to show values that the user must enter, or values that are different for different user.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-7. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+6. Copy your status URI and append the subscription-key. The status URI format should be like the one below. Notice that in the format below, you would change the {subscription-key}, don't including the { }, with your subscription key.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-8. To get the `udId`,  open a new tab in the Postman app and select GET HTTP method on the builder tab. Make a GET request at the status URI from the previous step. If your data upload was successful, you'll receive the udId in the response body. Copy the udId for later use.
+7. To get the `udId`,  open a new tab in the Postman app and select GET HTTP method on the builder tab. Make a GET request at the status URI from the previous step. If your data upload was successful, you'll receive the udId in the response body. Copy the udId for later use.
 
    ```JSON
    {
