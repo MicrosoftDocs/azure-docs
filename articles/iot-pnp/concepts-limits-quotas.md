@@ -22,9 +22,7 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Number of interfaces that can be registered per hub | 1500 ||
 | Maximum size of a component name | 64 chars | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore(not as the first or last character). |
 | Maximum size of a property name | 64 chars | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore(not as the first or last character). |
-| Maximum size of a property value | Same as [DTDL v2] https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property
-5 levels in depth and may not be Array nor any complex schema that contains Array
-||
+| Maximum size of a property value | Same as [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property) | 5 levels in depth and may not be an array or any complex schema that contains an array |
 | Maximum size of a command name | 64 chars ||
 | Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
 
