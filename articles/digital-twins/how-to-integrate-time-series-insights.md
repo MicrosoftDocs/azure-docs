@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 ## Intro
 
-In this how-to, you will learn how to integrate Azure Digital Twins with Time Series Insights. This will allow you to gather and analyze historical data about your IoT solution. Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
+In this reference, you will learn how to integrate Azure Digital Twins with Time Series Insights. This solution will allow you to gather and analyze historical data about your IoT solution. Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
 ## Solution Architecture
 
@@ -72,7 +72,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 ## Create an Azure function 
 
-You're going to create an Event Hub-triggered function inside a new function app, our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send thos JSON updates to a second event hub, which we will connect to Time Series Insights.
+You're going to create an Event Hub-triggered function inside a new function app, our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which we will connect to Time Series Insights.
 
 See the following document for reference info: [Azure Event Hub trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hub-trigger).
 
@@ -120,7 +120,7 @@ namespace SampleFunctionsApp
 
 You will now create an second event hub and configure your function to stream its output to that event hub.
 
-### Create an EventHub. 
+### Create an Event Hub. 
 
 You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
 
@@ -143,24 +143,24 @@ You'll need to set one environment variable in your function app containing your
 
 #### Set the Time Series Insights Event Hub connection string
 
-1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for both the twins and tsi hub
+1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the time series insights hub
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <twins event hub name> --name <twins auth rule>
 ```
 
-2. In your function app create an app setting containing your connection string
+2. In your function app, create an app setting containing your connection string
 ```azurecli-interactive
 az functionapp config appsettings set --settings "EventHubConnectionAppSetting-TSI=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
 
 #### Set the Twins Event Hub connection string
 
-1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for both the twins and tsi hub
+1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for both the twins hub
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <tsi event hub name> --name <tsi auth rule>
 ```
 
-2. In your function app create an app setting containing your connection string
+2. In your function app, create an app setting containing your connection string
 ```azurecli-interactive
 az functionapp config appsettings set --settings "EventHubConnectionAppSetting-Twins=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
@@ -169,7 +169,7 @@ az functionapp config appsettings set --settings "EventHubConnectionAppSetting-T
 
 1. Create a preview PAYG environment. [Tutorial: Create a Preview PAYG environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#create-a-preview-payg-environment)
     1. Select the **PAYG(Preview)** pricing tier.
-    2. You will need to choose a Time Series ID for this environment. This is up to three values that you will use to search for your data in time series insights. For this tutorial you can use **$dtId**. Read more in [Best practices for choosing a Time Series ID](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
+    2. You will need to choose a time series ID for this environment. Your time series ID can be up to three values that you will use to search for your data in time series insights. For this tutorial you can use **$dtId**. Read more in [Best practices for choosing a Time Series ID](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
 
