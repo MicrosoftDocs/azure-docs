@@ -60,7 +60,7 @@ func main() {
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
-    const params = "?visualFeatures=Description&details=Landmarks&language=en"
+    const params = "?visualFeatures=Description&details=Landmarks"
     uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 

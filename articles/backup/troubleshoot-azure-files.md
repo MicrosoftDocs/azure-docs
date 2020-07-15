@@ -53,6 +53,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 ## Common backup or restore errors
 
+>[!NOTE]
+>Refer to [this document](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
+
 ### FileShareNotFound- Operation failed as the file share is not found
 
 Error Code: FileShareNotFound

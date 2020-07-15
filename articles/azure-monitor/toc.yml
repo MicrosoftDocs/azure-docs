@@ -81,6 +81,10 @@
         href: samples/resource-manager-alerts-metric.md
       - name: Action groups
         href: samples/resource-manager-action-groups.md
+    - name: Application Insights
+      items:
+        - name: Create a resource
+          href: samples/resource-manager-app-resource.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -1241,9 +1245,14 @@
   - name: Azure CLI
     items:
     - name: Azure Monitor
-      href: /cli/azure/monitor?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-monitor
+      displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest
+      href: /cli/azure/ext/application-insights/monitor/app-insights
+    - name: Activity Logs
+      href: /cli/azure/monitor/activity-log
+    - name: Log Analytics
+      href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
     - name: Azure Monitor

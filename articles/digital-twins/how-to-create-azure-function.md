@@ -164,7 +164,7 @@ Use the *principalId* value in the following command to assign the function app'
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-For more information on managed identity, please see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+For more information on managed identity, please see [*How to use managed identities for App Service and Azure Functions*](../app-service/overview-managed-identity.md).
 
 Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
@@ -210,7 +210,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 ### Assign access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 To assign a role, you need the **resource ID** of the Azure Digital Twins instance you have created. If you did not record it earlier when you created your instance, you can retrieve it using this command:
 

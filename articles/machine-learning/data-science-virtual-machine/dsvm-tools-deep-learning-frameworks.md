@@ -19,7 +19,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | |
 | Supported DSVM editions      | Linux (Ubuntu)     |
@@ -28,7 +28,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | |
 | Supported DSVM editions      | Linux (Ubuntu)     |
@@ -37,7 +37,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Chainer](https://chainer.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 5.2 |
 | Supported DSVM editions      | Linux (Ubuntu)     |
@@ -46,7 +46,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 10.0.130|
 | Supported DSVM editions      | Windows and Linux   |
@@ -56,7 +56,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 0.16.1|
 | Supported DSVM editions      | Linux (Ubuntu)   |
@@ -65,7 +65,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Keras](https://keras.io/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 2.2.4 |
 | Supported DSVM editions      | Windows and Linux   |
@@ -74,7 +74,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 2.5.1 |
 | Supported DSVM editions      | Windows and Linux   |
@@ -82,7 +82,7 @@ Deep learning frameworks on the DSVM are listed below.
 | How to run it      | Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
 
 ## [MXNet](https://mxnet.apache.org/)
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.3.0 |
 | Supported DSVM editions      | Windows and Linux   |
@@ -91,7 +91,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.0.1 |
 | Supported DSVM editions      | Windows and Linux   |
@@ -100,7 +100,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported |  |
 | Supported DSVM editions      | Windows and Linux   |
@@ -110,7 +110,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [PyTorch](https://pytorch.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.2.0 (Ubuntu 16.04, Windows 2016), 1.4.0 (Ubuntu 18.04, Windows 2019) |
 | Supported DSVM editions      | Linux |
@@ -119,7 +119,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.13 |
 | Supported DSVM editions      | Windows, Linux |
@@ -128,7 +128,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.12 |
 | Supported DSVM editions      | Linux |
@@ -138,7 +138,7 @@ Deep learning frameworks on the DSVM are listed below.
 
 ## [Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 1.0.3 |
 | Supported DSVM editions      | Linux |

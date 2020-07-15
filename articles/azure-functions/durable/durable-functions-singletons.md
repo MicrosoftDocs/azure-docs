@@ -3,7 +3,7 @@ title: Singletons for Durable Functions - Azure
 description: How to use singletons in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
 ---
 
@@ -107,9 +107,65 @@ module.exports = async function(context, req) {
 };
 ```
 
+# [Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__.py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance != None:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${instance_id}' already exists"
+        }
+
+```
+
 ---
 
-By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#) or `getStatus` (JavaScript) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
+By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#), `getStatus` (JavaScript), or `get_status` (Python) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
 
 > [!NOTE]
 > There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, both function calls will report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects. For this reason, it is important to ensure that no two requests can execute this trigger function concurrently.
