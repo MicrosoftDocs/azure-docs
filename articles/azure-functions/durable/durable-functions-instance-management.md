@@ -826,7 +826,10 @@ See [Start instances](#javascript-function-json) for the function.json configura
 
 # [Python](#tab/python)
 
-```python
+> [!NOTE]
+> This feature is currently not supported.
+
+<!-- ```python
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -835,7 +838,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
     reason = "Orchestrator failed and needs to be revived."
     return client.rewind(instance_id, reason)
-```
+``` -->
 
 ---
 
