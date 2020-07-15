@@ -189,7 +189,11 @@ After you initialize the project, Azure will begin running it. Select the projec
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
-In the middle of the dashboard, you see a status of the tasks left to be performed, as well as links to the experiments run for ML assisted labeling when it is enabled.
+In the middle of the dashboard, you see a status of the tasks left to be performed.  When ML assisted labeling is on, this will show you:
+
+* Sets of clustered images that will be delivered as tasks
+* Sets of prelabeled images that will be delivered as tasks
+* Links to the experiments run to create the clustered and prelabeled images
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
