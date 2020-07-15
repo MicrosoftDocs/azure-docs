@@ -22,9 +22,8 @@ You must have the following resource installed:
 
 ## Limitations
 
-* Bring your own managed identities is not currently supported.
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
-* Existing AKS clusters cannot be updated or upgraded to enable managed identities.
+* Existing AKS clusters can't be updated or upgraded to enable managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 
 ## Summary of managed identities
@@ -33,7 +32,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Preview
+| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, and so on| Contributor role for Node resource group | Preview
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
@@ -103,7 +102,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 
 ## BYO control plane MI (Preview)
-In cases such as deploying your AKS cluster into an [existing virtual network][configure-cni], you may need to grant access to your control plane managed identity ahead of cluster creation. 
+In some cases, you may want to use an existing managed identity as control plane managed identity. It is specifically useful, if you need to grant access to this managed identity ahead of cluster creation.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -188,7 +187,7 @@ az aks create \
     --assign-identity <identity-id> \
 ```
 
-A successful cluster creation using BYO managed identities contains this userAssignedIdentities profile information:
+A successful cluster creation using your own managed identities contains this userAssignedIdentities profile information:
 
 ```output
  "identity": {
@@ -209,6 +208,5 @@ A successful cluster creation using BYO managed identities contains this userAss
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[configure-cni]: configure-azure-cni.md#configure-networking---cli
 [az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
 [az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list
