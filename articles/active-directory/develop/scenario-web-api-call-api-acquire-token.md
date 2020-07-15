@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
@@ -24,44 +24,31 @@ After you've built a client application object, use it to acquire a token that y
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Here's an example of code that's called in the actions of the API controllers. It calls a downstream API named *todolist*.
+Here's an example of code using Microsoft identity web, that's called in the actions of the API controllers. It calls a downstream API named *todolist*.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+[Authorize]
+public class MyApiController : Controller
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
-}
-```
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
-`BuildConfidentialClient()` is similar to the scenario in [A web API that calls web APIs: App configuration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instantiates `IConfidentialClientApplication` with a cache that contains information for only one account. The account is provided by the `GetAccountIdentifier` method.
+    private readonly ITokenAcquisition _tokenAcquisition;
 
-The `GetAccountIdentifier` method uses the claims that are associated with the identity of the user for whom the web API received the JSON Web Token (JWT):
+    public MyApiController(ITokenAcquisition tokenAcquisition)
+    {
+        _tokenAcquisition = tokenAcquisition;
+    }
 
-```csharp
-public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
-{
- string userObjectId = GetObjectId(claimsPrincipal);
- string tenantId = GetTenantId(claimsPrincipal);
-
- if (    !string.IsNullOrWhiteSpace(userObjectId)
-      && !string.IsNullOrWhiteSpace(tenantId))
- {
-  return $"{userObjectId}.{tenantId}";
- }
-
- return null;
+    public IActionResult Index()
+    {
+        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+        string accessToken = _tokenAcquisition.GetTokenForUserAsync(new string[]{"user.read"});
+        return await callTodoListService(accessToken);
+    }
 }
 ```
 
