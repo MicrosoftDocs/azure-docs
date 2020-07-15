@@ -3,6 +3,7 @@ title: Overview of offline backup
 description: Learn about the components of offline backup. They include offline backup based on Azure Data Box and offline backup based on the Azure Import/Export service.
 ms.topic: conceptual
 ms.date: 1/28/2020
+ms.custom: references_regions 
 ---
 
 # Overview of offline backup

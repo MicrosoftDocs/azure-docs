@@ -385,6 +385,8 @@
               href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Provide an encryption key on a request
           href: storage-blob-customer-provided-key.md
+        - name: Manage encryption scopes
+          href: encryption-scope-manage.md
         - name: Enable infrastructure encryption for a storage account
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure client-side encryption
@@ -554,6 +556,8 @@
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage Explorer support policy and lifecycle
+        href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Storage forum
