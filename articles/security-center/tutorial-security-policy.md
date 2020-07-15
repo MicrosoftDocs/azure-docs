@@ -82,14 +82,18 @@ To view your security policies in Security Center:
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
 
-Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. As well as these roles, there are two specific Security Center roles:
+Security Center uses Role-Based Access Control (RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
 
-- **Security reader**: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
-- **Security admin**: Have the same view rights as *security reader*, and they can also update the security policy and dismiss recommendations and alerts.
+- **Security reader**: Has rights to view Security Center items such as recommendations, alerts, policy, and health. Can't make changes.
+- **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
 
-## Disable security policies
-If the default security policy is generating a recommendation that's not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
+## Disable security policies to disable recommendations
+
+When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
+
+If the recommendation you're disabling is required for a regulatory standard or regulation you've applied with Security Center's regulatory compliance dashboard, you won't be able to disable it.
+
 For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
@@ -121,7 +125,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 
 ## Next steps
-In this article, you learned about security policies. For related information, see the following articles:
+This article explained security policies. For related information, see the following articles:
 
 * For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure PowerShell module](../governance/policy/assign-policy-powershell.md)
 
