@@ -415,7 +415,7 @@ Do the following steps using Azure PowerShell to order a device:
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
     PS> New-AzDataBoxJob -Location "WestUS" \
                          -StreetAddress1 "15700 NE 39th St" \
-                         -PostalCode 94107 \
+                         -PostalCode "98052" \
                          -City "Redmond" \
                          -StateOrProvinceCode "WA" \
                          -CountryCode "US" \
