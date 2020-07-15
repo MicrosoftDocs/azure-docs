@@ -200,7 +200,7 @@ When your update deployment is finished, you receive the alert that you've speci
 ## Next steps
 
 * For information about scope configurations, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
-* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 * If finished with deployments, see [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
 * To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).

@@ -179,6 +179,8 @@
       href: azure-nfs-volume.md
     - name: Azure NetApp Files
       href: azure-netapp-files.md
+    - name: Use Azure Ultra Disks (preview)
+      href: use-ultra-disks.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -228,6 +230,8 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
+    - name: Secure pods with Azure Policy (preview)
+      href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
@@ -244,6 +248,8 @@
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
+    - name: Use Azure RBAC for Kubernetes Authorization (preview)
+      href: manage-azure-rbac.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
@@ -253,6 +259,8 @@
       href: private-clusters.md
     - name: BYOK for disks
       href: azure-disk-customer-managed-keys.md
+    - name: Enable host-based encryption
+      href: enable-host-encryption.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
@@ -278,9 +286,9 @@
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
     - name: Create Dockerfiles for Windows Server containers
-      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+      href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Optimize Dockerfiles for Windows Server containers
-      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+      href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)

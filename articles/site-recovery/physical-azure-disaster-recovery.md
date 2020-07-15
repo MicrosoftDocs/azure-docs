@@ -115,7 +115,7 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Do the following before you start: 
 
 #### Verify time accuracy
-On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
 #### Verify connectivity
 Make sure the machine can access these URLs based on your environment: 

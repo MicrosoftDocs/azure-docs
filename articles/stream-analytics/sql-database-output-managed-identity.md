@@ -4,7 +4,7 @@ description: This article describes how to use managed identities to authenticat
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
 ---
 
@@ -65,7 +65,7 @@ After you've created a managed identity, you select an Active Directory admin.
 
 Next, you create a contained database user in your SQL Database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the master database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
 
-1. Connect to the SQL database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
+1. Connect to SQL Database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
 
    ![Connect to SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -91,7 +91,7 @@ Next, you create a contained database user in your SQL Database that is mapped t
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure Portal again, and enable "Allow Azure services and resources to access this server." 
+1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure portal again, and enable "Allow Azure services and resources to access this server." 
 
    ![Firewall and virtual network](./media/sql-db-output-managed-identity/allow-access.png)
 

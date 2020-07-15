@@ -1,11 +1,11 @@
 ---
 title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
 description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/17/2020
 ---
 
@@ -287,7 +287,7 @@ After you create your plans, the **Plan overview** tab shows:
 
 - Plan names
 - Pricing model
-- Cloud availability (Global or Government)
+- Azure regions (Global or Government)
 - Current publishing status
 - Any available actions
 
@@ -324,7 +324,7 @@ Select the [Azure Government](../../azure-government/documentation-government-we
 
 #### Azure Government certifications
 
-This option is only visible if **Azure Government** is selected under **Cloud availability**.
+This option is only visible if **Azure Government** is selected under **Azure regions**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe your certifications. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
