@@ -133,7 +133,7 @@ Property value details:
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
 - **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name will be automatically generated.
+- **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name is automatically generated.
 - **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
@@ -596,6 +596,38 @@ You also need to configure file sharing to mount the directory which contains th
     ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 After the script is tested successfully, you can use it as a deployment script in your templates.
+
+## Deployment script error codes
+
+|------------|-------------|
+| Error code | Description |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | The deployment script body contains invalid properties. |
+| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and its execution hasn't exceeded 1 hour. Cannot re-run two deployment scripts with the same resource identifier (same subscription, resource group name, and resource name) but different script body content. |
+| DeploymentScriptOperationFailed | Internal server error. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | The access key hasn't been specified for the existing storage account.|
+
+| DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by deployment script service got externally modified, and invalid containers got added. |
+| DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same name in the same resource group, and one of them has not finished its execution yet. |
+| DeploymentScriptStorageAccountInvalidKind | storage account does not support file shares. This error is shown when BlockBlobContainer or BlobContainer Kinds are used. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | When using an existing storage account, the storage account does not support file shares. For a list of supported storage account kinds, see [Use existing storage acdcont](#use-existing-storage-account). |
+
+| DeploymentScriptStorageAccountNotFound | When running deployment scripts checks, the storage account was not found. When creating ACI and mounting a storage account, it is not found, probably got deleted by an external process or tool. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | storage account has Service Endpoint - not supported yet. |
+| DeploymentScriptStorageAccountInvalidAccessKey | Invalid access key specified for the existing storage account. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Invalid storage account key format (e.g. aaaaaaaaaa). |
+| DeploymentScriptExceededMaxAllowedTime | Script timeout property exceeded. |
+| DeploymentScriptInvalidOutputs | Script outputs is not a valid JSON object. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | Script wasn't able to successfully login after 10 attempts (with a wait of 1 min). |
+| DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. ???deployment scripts vs deployment script service|
+| DeploymentScriptDownloadFailure | Failed downloading the supporting script. See [Use supporting script](#use-supporting-script).|
+| DeploymentScriptError | Script threw an error. ??? script vs deployment script service|
+| DeploymentScriptBootstrapScriptExecutionFailed | Bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
+| DeploymentScriptExecutionFailed | For any unknown error that happens during the deployment script execution. |
+| DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance, the deployment script service threw a service unavailable error. ??? service vs deployment script service|
+| DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope. ???what scope|
+
+| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment). ??? need to document how to use an existing ACI.|
 
 ## Next steps
 
