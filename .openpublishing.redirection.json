@@ -806,6 +806,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-train-chainer.md",
       "redirect_url": "/azure/machine-learning/how-to-train-ml-models",
       "redirect_document_id": false
