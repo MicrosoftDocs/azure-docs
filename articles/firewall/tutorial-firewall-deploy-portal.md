@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/14/2020
+ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -29,7 +29,7 @@ For production deployments, a [hub and spoke model](https://docs.microsoft.com/a
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+![Tutorial network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
 In this tutorial, you learn how to:
 
