@@ -307,5 +307,5 @@ Twins and their relationships can also be managed using the Azure Digital Twins 
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [*Concepts: Query language*](concepts-query-language.md)
+* [*How-to: Query the twin graph*](how-to-query-graph.md)

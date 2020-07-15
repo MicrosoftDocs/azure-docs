@@ -255,7 +255,7 @@ MSAL has many more options you can use, to implement things like caching and oth
 ## Next steps
 
 Read more about how security works in Azure Digital Twins:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+* [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
 
 Or, now that authentication is set up, move on to creating models in your instance:
-* [How-to: Manage custom models](how-to-manage-model.md)
+* [*How-to: Manage custom models*](how-to-manage-model.md)

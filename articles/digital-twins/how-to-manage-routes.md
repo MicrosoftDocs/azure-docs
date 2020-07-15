@@ -192,4 +192,4 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 Read about the different types of event messages you can receive:
-* [How-to: Interpret event data](how-to-interpret-event-data.md)
+* [*How-to: Interpret event data*](how-to-interpret-event-data.md)

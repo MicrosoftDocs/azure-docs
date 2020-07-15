@@ -347,4 +347,4 @@ Twins can also be managed using the Azure Digital Twins CLI. The commands can be
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)

@@ -41,4 +41,4 @@ Here are the operations available in Azure Digital Twins Query Store language:
 
 ## Next steps
 
-Learn how to write queries and see client code examples in [How-to: Query the twin graph](how-to-query-graph.md).
+Learn how to write queries and see client code examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
