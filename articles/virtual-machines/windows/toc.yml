@@ -387,9 +387,6 @@
         href: create-vm-specialized-portal.md
       - name: PowerShell
         href: create-vm-specialized.md
-    - name: Use ARM template with C#
-      href: csharp-template.md
-      displayName: Azure Resource Manager
     - name: Create VM with Chef
       href: ../../chef/chef-automation.md
     - name: Use Java
