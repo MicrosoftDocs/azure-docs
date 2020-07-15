@@ -3453,6 +3453,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-create-index-portal.md",
+      "redirect_url": "/azure/search/search-what-is-an-index",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-example-adventureworks-modeling.md",
       "redirect_url": "/azure/search/search-what-is-data-import",
       "redirect_document_id": true
