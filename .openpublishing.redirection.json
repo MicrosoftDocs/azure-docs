@@ -26037,6 +26037,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/csharp.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-log-collector-extension.md",
       "redirect_url": "/azure/virtual-machines/windows/log-collector-extension",
       "redirect_document_id": false
