@@ -1,8 +1,8 @@
 ---
-title: Add a client certificate to a Managed Service Fabric cluster
+title: Add a client certificate to a Managed Service Fabric cluster (preview)
 description: In this tutorial, learn how to add a client certificate Managed Service Fabric cluster.
 ms.topic: tutorial
 ms.date: 07/31/2020
 ---
 
-# Tutorial: Add a client certificate to a Managed Service Fabric cluster
+# Tutorial: Add a client certificate to a Managed Service Fabric cluster (preview)
