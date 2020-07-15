@@ -90,7 +90,7 @@ public class Startup
 
 As with web apps, you can choose various token cache implementations. See [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) for details
 
-If you're certain that your web API will need some specific scopes, you can optionally pass them as arguments to `AddMicrosoftWebApiCallsWebApi`.
+If you're certain that your web API will need specific scopes, you can optionally pass them as arguments to `AddMicrosoftWebApiCallsWebApi`.
 
 # [Java](#tab/java)
 
