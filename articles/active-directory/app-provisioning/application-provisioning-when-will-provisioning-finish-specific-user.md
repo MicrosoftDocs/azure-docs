@@ -72,12 +72,11 @@ The following table summarizes synchronization times for common provisioning sce
 | Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
 | Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
 
-
 For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial cycle** times:
 
-	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-	
+- Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+- Maximum minutes = 0.08 x [Number of assigned users, groups, and group members]
+
 Summary of factors that influence the time it takes to complete an **initial cycle**:
 
 - The total number of users and groups in scope for provisioning.

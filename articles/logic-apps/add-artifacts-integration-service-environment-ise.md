@@ -123,7 +123,7 @@ To use custom connectors in your ISE, create those custom connectors from direct
 
    ![Select and edit custom connector](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Continue by creating the connector in the usual way from an [OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Continue by creating the connector in the usual way from an [OpenAPI definition](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. To manage custom connectors in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: trbye
-author: trevorbye
-ms.date: 03/18/2020
+ms.author: larryfr
+author: BlackMist
+ms.date: 07/08/2020
 ---
 
 # What are Azure Machine Learning environments?
@@ -43,6 +43,7 @@ You can create environments by:
 * Using existing `Environment` objects from your workspace. This approach allows for consistency and reproducibility with your dependencies.
 * Importing from an existing Anaconda environment definition.
 * Using the Azure Machine Learning CLI
+* [Using the VS Code extension](how-to-manage-resources-vscode.md#create-environment)
 
 For specific code samples, see the "Create an environment" section of [Reuse environments for training and deployment](how-to-use-environments.md#create-an-environment). Environments are also easily managed through your workspace. They include the following functionality:
 

@@ -66,7 +66,7 @@ db.families.find({ id: "WakefieldFamily"})
 **Results**
 
 ```json
-    {
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -104,7 +104,7 @@ db.families.find({ id: "WakefieldFamily"})
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
 ```
 
 ## <a id="examplequery2"></a>Example query 2 
@@ -120,7 +120,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
 **Results**
 
 ```json
-    {
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -140,7 +140,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
         "grade": 8
       }
     ]
-    }
+}
 ```
 
 ## <a id="examplequery3"></a>Example query 3 
@@ -170,7 +170,7 @@ db.families.find( { "isRegistered" : false })
 **Results**
 
 ```json
-	 {
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{
@@ -219,7 +219,7 @@ db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 **Results**
 
 ```json
-	 {
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{
@@ -268,7 +268,7 @@ db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 **Results**
 
 ```json
-	 {
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{

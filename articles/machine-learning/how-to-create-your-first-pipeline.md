@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: sgilley
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 12/05/2019
 ms.custom: seodec18, tracking-python
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 

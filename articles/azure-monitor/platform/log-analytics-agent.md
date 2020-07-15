@@ -121,7 +121,7 @@ Starting with versions released after August 2018, we are making the following c
 The python2 executable must be aliased to "python" using the following command:
 
 ```
-alternatives --set python /usr/sbin/python2
+alternatives --set python `which python2`
 ```
 
 ### Supported distros

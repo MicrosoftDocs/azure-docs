@@ -1206,7 +1206,7 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
-    - title: Spatial Anchors (Preview)
+    - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
       azureCategories:
@@ -1271,7 +1271,7 @@ productDirectory:
         - networking
       url: firewall/index.yml
     # Card
-    - title: Azure Firewall Manager (Preview)
+    - title: Azure Firewall Manager
       summary: Central network security policy and route management for globally distributed, software-defined perimeters
       imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
       azureCategories:
