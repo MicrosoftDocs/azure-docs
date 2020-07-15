@@ -66,7 +66,7 @@ az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 
 A successful cluster creation using managed identities contains this service principal profile information:
 
-```json
+```output
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
@@ -80,7 +80,7 @@ az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
 
 The result should look like:
 
-```json
+```output
 {
   "principalId": "<object_id>",   
   "tenantId": "<tenant_id>",      
@@ -98,11 +98,12 @@ The cluster will be created in a few minutes. You can then deploy your applicati
 Finally, get credentials to access the cluster:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## BYO Control plane MI (Preview)
-In BYO VNET scenarios delegated permissions for the control plane MI are required. To grant those permissions ahead of cluster creat
 
+
+## BYO Control plane MI (Preview)
+In cases such as deploying your AKS cluster into an [existing virtual network][configure-cni] you may need to grant access to your control plane managed identity ahead of cluster creation. 
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -112,18 +113,18 @@ In BYO VNET scenarios delegated permissions for the control plane MI are require
 
 You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
-- The aks-preview 0.4.38 extension
+- The aks-preview 0.4.57 extension
 
 Limitations for BYO Control plane MI (Preview):
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 az extension list
 ```
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 az extension list
 ```
@@ -144,8 +145,70 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
+If you don't have a managed idenitity yet, you should go ahead and create one for example by using [az identity cli][az-identity-create].
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+The result should look like:
+
+```output
+{                                                                                                                                                                                 
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "BYO_RG",                       
+  "tags": {},
+  "tenantId": "<tenant-id>>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If your managed idenity is part of your subscription, you can use [az idenitity cli command][az-identity-list] to query it.  
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+Now you can use the following command to create your cluster with your existing idenity :
+
+```azurecli-interactive
+az aks create \
+    --resource-group BYO_RG \
+    --name byo-test-02 \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <idenity-id> \
+```
+
+A successful cluster creation using BYO managed identities contains this userAssignedIdentities profile information:
+
+```output
+ "identity": {
+   "principalId": null,
+   "tenantId": null,
+   "type": "UserAssigned",
+   "userAssignedIdentities": {
+     "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+       "clientId": "<client-id>",
+       "principalId": "<principal-id>"
+     }
+   }
+ },
+```
+
 ## Next steps
 * Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create Managed Identity enabled clusters.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[configure-cni]: configure-azure-cni.md#configure-networking---cli
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list
