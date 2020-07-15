@@ -57,6 +57,7 @@ Once you're ready for launch, you can use all the workflow scripts you created f
 
 Automai lets you use the same scripts for performance testing, functional testing, performance monitoring, and even robotic process autimation, all on one platform.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
 - [Go to the partner website](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## Cloudhouse
@@ -130,6 +131,7 @@ FabulaTech seamlessly integrates with Windows Virtual Desktop clients. Once inst
 
 When a user signs in to their virtual desktop, the FabulaTech software creates a virtual device. For example, you can create a virtual webcam, scanner, or fingerprint reader. Any apps running in a remote session can access the virtual device as if it was a physical device. You can configure the virtual device in Windows Virtual Desktop with the System Tray Icon menu, which means you can also use this solution on thin clients. On top of that, all communication happens over the existing remote desktop connection, which means the firewall is set up for you. Everything works right out of the box.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
 - [Go to the partner website](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## Flexxible IT
