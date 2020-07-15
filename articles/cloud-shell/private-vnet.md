@@ -25,7 +25,7 @@ ms.author: damaerte
 
 Below you can see the resource architecture that will be deployed and used in this scenario.
 
-![](media/private-vnet/datadiagram.png)
+![](media/private-vnet/data-diagram.png)
 
 Before you can use Cloud Shell in your own Azure Virtual Network, you will need to create several resources to support this functionality. This article shows how to set up the required resources to deploy Azure Cloud Shell to a virtual network via an ARM template provided.
 
