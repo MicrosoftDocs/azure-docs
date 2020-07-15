@@ -70,7 +70,6 @@ For more information about collecting data from the guest operating system of a 
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#configuring-metric-alert-for-logs).
 
-
 ## Can’t find the metric to alert on
 
 If you’re looking to alert on a specific metric but can’t see any metrics for the resource, [check if the resource type is supported for metric alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-near-real-time).
