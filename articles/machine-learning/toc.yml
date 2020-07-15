@@ -394,7 +394,7 @@
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
-  items:
+
   - name: Create & manage workspaces
     items:
     - name: Use Azure portal
@@ -590,7 +590,7 @@
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
     - name: 'Azure Pipelines for CI/CD'
-  items: 
+
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal
