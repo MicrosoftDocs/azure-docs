@@ -12,9 +12,11 @@ ms.date: 07/15/2020
 ---
 # Create a basic search index in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* stores searchable content used for full text search and filter queries. An index is defined by a schema and saved to the service, with data import following as a second step. Search indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Cognitive Search, a *search index* stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
-When you create an index, Azure Cognitive Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. Later, when you import documents, or submit search queries to Azure Cognitive Search, you are sending requests to a specific index in your search service.
+Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+
+When creating an index, Azure Cognitive Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. 
 
 You can create an index using the following tools and APIs:
 
@@ -22,19 +24,19 @@ You can create an index using the following tools and APIs:
 * Using the [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * Using the [.NET SDK](search-create-index-dotnet.md)
 
-It's easier to learn with a portal tool. The portal enforces schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can retrieve the JSON definition from the service using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and add it to your solution.
+It's easier to learn with a portal tool. The portal enforces schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and adding it to your solution.
 
 ## Recommended workflow
 
 Arriving at a final index design is an iterative process. It's common to start with the portal to create the initial index and then switch to code to place the index under source control.
 
-1. Use [**Import data** wizard](search-import-data-portal.md) if your data is a [supported Azure data source for indexer-based indexing](search-indexer-overview.md#supported-data-sources).
+1. Use [**Import data**](search-import-data-portal.md) and indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
 
-1. If you can't use wizard, use **Add Index**.
+1. If you can't use **Import data**, use **Add Index** to build the schema.
 
    ![Add index command](media/search-create-index-portal/add-index.png "Add index command")
 
-1. Provide a name and key used to uniquely identify each search document in the index. The key is mandatory and must be of type Edm.String. During import, plan on mapping a unique field in source data to this field. 
+1. Provide a name and key used to uniquely identify each search document in the index. The key is mandatory and must be of type Edm.String. During import, you should plan on mapping a unique field in source data to this field. 
 
    The portal gives you an `id` field for the key. To override the default `id`, create a new field  (for example, a new field definition called `HotelId`) and then select it in **Key**.
 
@@ -42,9 +44,9 @@ Arriving at a final index design is an iterative process. It's common to start w
 
 1. Add more fields. The portal shows you which attributes are available for different data types. If you're new to index design, this is helpful.
 
-  If incoming data is hierarchical in nature, your schema should include [complex types](search-howto-complex-data-types.md) to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
+   If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
-1. [Analyzers](#analyzers) and [suggesters](#suggesters) are associated with fields before the index is created. Be sure to add language analyzers or suggesters as you define each field.
+1. Assign [Analyzers](#analyzers) and [suggesters](#suggesters) to string fields before the index is created.
 
 1. Click **Create** to build the physical structures in your search service.
 
@@ -69,7 +71,7 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 An index is required to have a name and one designated key field (of Edm.string) in the fields collection. The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. 
 
-Other elements include [suggesters](#suggesters), [scoring profiles](#scoringprofiles), [analyzers](#analyzers) used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer, [CORS](#cors) settings, and [encryption key](#encryptionkey) options.
+Other elements include [suggesters](#suggesters), [scoring profiles](#scoringprofiles), [analyzers](#analyzers) used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer, and [cross-origin remote scripting (CORS)](#corsoptions) settings.
 
 ```json
 {
@@ -195,20 +197,15 @@ Although you can add new fields at any time, existing field definitions are lock
 > [!NOTE]
 > The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, **searchable** and **retrievable** are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
 
-## `suggesters`
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
-
-Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
-
-## `scoringProfiles`
-
-A [scoring profile](index-add-scoring-profiles.md) is a section of the schema that defines custom scoring behaviors that let you influence which items appear higher in the search results. Scoring profiles are made up of field weights and functions. To use them, you specify a profile by name on the query string.
-
-A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set **defaultScoringProfile** to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
-
 ## `analyzers`
 
 The analyzers element sets the name of the language analyzer to use for the field. For more information about the range of analyzers available to you, see [Adding analyzers to an Azure Cognitive Search index](search-analyzers.md). Analyzers can only be used with searchable fields. Once the analyzer is assigned to a field, it cannot be changed unless you rebuild the index.
+
+## `suggesters`
+
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested documents or phrases. 
+
+Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
 
 ## `corsOptions`
 
@@ -222,9 +219,11 @@ The following options can be set for CORS:
 
 + **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
-## `encryptionKey`
+## `scoringProfiles`
 
-While all Azure Cognitive Search indexes are encrypted by default using Microsoft-managed keys, indexes can be configured to be encrypted with **customer-managed keys** in Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+A [scoring profile](index-add-scoring-profiles.md) is a section of the schema that defines custom scoring behaviors that let you influence which items appear higher in the search results. Scoring profiles are made up of field weights and functions. To use them, you specify a profile by name on the query string.
+
+A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set **defaultScoringProfile** to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
 
 <a name="index-size"></a>
 
