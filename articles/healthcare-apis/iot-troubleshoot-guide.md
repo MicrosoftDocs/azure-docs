@@ -38,22 +38,22 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
 1. On the lower left side of the Azure API for FHIR resource dashboard in the "Add-ins" section, click **"IoT Connector (preview)"**.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
 
 2. Select the IoT Connector (preview) which you'll be copying the mapping files from.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
 
 3. Select **"Configure device mapping"**.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector":::
 
 > [!NOTE]
 > This process can also be used for copying/saving the contents of the **"Configure FHIR mapping"** JSON.
 
 4. Select the contents of the JSON and perform a "Copy" operation (for example: **Ctrl + c**). 
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector":::
 
 5. Perform a "Paste" operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, NotePad) and save the file with an *.json extension.
 
