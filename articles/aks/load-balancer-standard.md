@@ -6,7 +6,7 @@ services: container-service
 ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
-author: jpalma
+author: palma21
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -291,6 +291,24 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
+## Maintain the client's IP on inbound connections
+
+By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS won't persist the client's IP address on the connection to the pod. The source IP on the packet that's delivered to the pod will be the private IP of the node. To maintain the client’s IP address, you must set `service.spec.externalTrafficPolicy` to `local` in the service definition. The following manifest shows an example:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
 ## Additional customizations via Kubernetes Annotations
 
 Below is a list of annotations supported for Kubernetes services with type `LoadBalancer`, these annotations only apply to **INBOUND** flows:
@@ -391,10 +409,10 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md
-[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
+[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
-[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md

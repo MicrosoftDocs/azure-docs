@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 07/02/2020
 
 ---
 
@@ -54,6 +54,9 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -339,7 +342,7 @@ You can also:
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
 <!-- LINKS - internal -->

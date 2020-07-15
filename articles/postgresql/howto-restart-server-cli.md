@@ -4,7 +4,7 @@ description: This article describes how you can restart an Azure Database for Po
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 

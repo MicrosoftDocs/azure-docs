@@ -25,7 +25,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/windows-vm) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -43,9 +43,9 @@ This table shows some of the ways you can get a list of available locations.
 | Method | Description |
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
-| Azure PowerShell |Use the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) operation. |
-| Azure CLI |Use the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) operation. |
+| Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| Azure CLI |Use the [az account list-locations](/cli/azure/account?view=azure-cli-latest) operation. |
 
 ## Availability
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
@@ -90,7 +90,7 @@ Microsoft works closely with partners to ensure the images available are updated
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](using-vmaccess-extension.md)
+* [Azure VMAccess](../extensions/vmaccess.md)
 
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
@@ -115,4 +115,3 @@ Create your first VM!
 - [Portal](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
-

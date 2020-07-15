@@ -103,24 +103,18 @@ To configure Azure AD single sign-on with xMatters OnDemand, perform the followi
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.au1.xmatters.com.au/`|
-	| `https://<companyname>.cs1.xmatters.com/`|
-	| `https://<companyname>.xmatters.com/`|
-	| `https://www.xmatters.com`|
-	| `https://<companyname>.xmatters.com.au/`|
-	| |
+	- `https://<companyname>.au1.xmatters.com.au/`
+	- `https://<companyname>.cs1.xmatters.com/`
+	- `https://<companyname>.xmatters.com/`
+	- `https://www.xmatters.com`
+	- `https://<companyname>.xmatters.com.au/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.au1.xmatters.com.au`|
-	| `https://<companyname>.xmatters.com/sp/<instancename>`|
-	| `https://<companyname>.cs1.xmatters.com/sp/<instancename>`|
-	| `https://<companyname>.au1.xmatters.com.au/<instancename>`|
-	| |
+	- `https://<companyname>.au1.xmatters.com.au`
+	- `https://<companyname>.xmatters.com/sp/<instancename>`
+	- `https://<companyname>.cs1.xmatters.com/sp/<instancename>`
+	- `https://<companyname>.au1.xmatters.com.au/<instancename>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

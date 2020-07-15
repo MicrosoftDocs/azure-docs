@@ -105,4 +105,4 @@ To learn more about options for backing up data in local storage, see [Backup an
    
 ## Next steps
 
-* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
+* See specifications for all [VMs optimized for storage performance](../sizes-storage.md) on Azure

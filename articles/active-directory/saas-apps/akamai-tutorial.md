@@ -58,13 +58,13 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 **Pros**:
 
-• You need to only configure IDP once
+* You need to only configure IDP once
 
 **Cons**:
 
-• Users end up having two applications portals
+* Users end up having two applications portals
 
-• Single Common CA Policy coverage for all Applications.
+* Single Common CA Policy coverage for all Applications.
 
 ![Integration Scenario 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -74,13 +74,14 @@ Akamai EAA Application is set up individually on the Azure AD Portal. Admin can 
 
 **Pros**:
 
-• You can define individual CA Policies
+* You can define individual CA Policies
 
-• All Apps are represented on the 0365 Waffle and myApps.microsoft.com Panel.
+* All Apps are represented on the 0365 Waffle and myApps.microsoft.com Panel.
+
 
 **Cons**:
 
-• You need to configure multiple IDP.
+* You need to configure multiple IDP.
 
 ![Integration Scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -99,7 +100,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 #### Important
 
-All the setup listed below are same for the **Integration Scenario 1** and **Scenario 2**. For the **Integration scenario 2** you have setup Individual IDP in the Akamai EAA and the URL property needs to be modified to point to the application URL.
+All the setup listed below are same for the **Integration Scenario 1** and **Scenario 2**. For the **Integration scenario 2** you have to set up Individual IDP in the Akamai EAA and the URL property needs to be modified to point to the application URL.
 
 ![Important](./media/header-akamai-tutorial/important.png)
 
@@ -150,16 +151,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Akamai** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -185,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -200,15 +201,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Sign in to **Akamai Enterprise Application Access** console.
 1. On the **Akamai EAA console**, Select **Identity** > **Identity Providers** and click **Add Identity Provider**.
 
-	![Configuring Akamai](./media/header-akamai-tutorial/configure01.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure01.png)
 
 1. On the **Create New Identity Provider** perform the following steps:
 
-	![Configuring Akamai](./media/header-akamai-tutorial/configure02.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure02.png)
 
-	a. Specify the **Unique Name**.
+    a. Specify the **Unique Name**.
 
-	b. Choose **Third Party SAML** and click **Create Identity Provider and Configure**.
+    b. Choose **Third Party SAML** and click **Create Identity Provider and Configure**.
 
 ### General Settings
 
@@ -220,7 +221,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. **Akamai Cloud Zone** - Select the Appropriate cloud zone.
 1. **Certificate Validation** - Check Akamai Documentation (optional)
 
-	![Configuring Akamai](./media/header-akamai-tutorial/configure03.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure03.png)
 
 ### Authentication Configuration
 
@@ -229,7 +230,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 3. Sign SAML Request: default unchecked.
 4. For the IDP Metadata File, add the Application in the Azure AD Console.
 
-	![Configuring Akamai](./media/header-akamai-tutorial/configure04.png)
+    ![Configuring Akamai](./media/header-akamai-tutorial/configure04.png)
 
 ### Session Settings
 
@@ -449,7 +450,7 @@ Click Save and to go Deployment
 
 ### Kerberos Authentication
 
-In the below example we will publish an Internal web server [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) and enable SSO using KCD
+In the below example we will publish an Internal web server <code>http://frp-app1.superdemo.live</code> and enable SSO using KCD
 
 #### General Tab
 

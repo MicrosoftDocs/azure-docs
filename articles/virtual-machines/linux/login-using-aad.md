@@ -105,7 +105,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](../extensions/agent-windows.md).
 
 ## Configure role assignments for the VM
 
@@ -134,7 +134,7 @@ az role assignment create \
 
 For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Log in to the Linux virtual machine
 
