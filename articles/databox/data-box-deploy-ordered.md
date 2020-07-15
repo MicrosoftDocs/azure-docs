@@ -129,9 +129,9 @@ The button launches an interactive shell that you can use to run the steps outli
 
 ### For Azure PowerShell
 
-Before you begin, make sure that:
+Before you begin, make sure that you:
 
-* You install Windows PowerShell 6.2.4 or higher.
+* Install Windows PowerShell 6.2.4 or higher.
 * Install Azure PowerShell (AZ) module.
 * Install Azure Data Box (Az.DataBox) module.
 * Sign-in to Azure.
@@ -178,7 +178,7 @@ Version              Name                                Repository           De
 0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
 ```
 
-### Sign in to Azure
+#### Sign in to Azure
 
 Open up a Windows PowerShell command window and sign in to Azure with the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) command:
 
