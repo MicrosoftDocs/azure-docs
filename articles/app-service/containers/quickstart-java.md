@@ -30,7 +30,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 Then change your working directory to the project folder:
 
@@ -40,7 +40,7 @@ cd helloworld
 
 ## Configure the Maven plugin
 
-The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) if you need.
+The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
 
 To configure the deployment, run the maven command in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
 ```cmd
@@ -136,7 +136,7 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL Database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)

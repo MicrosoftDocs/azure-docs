@@ -1,20 +1,25 @@
 ---
-title: Configure Azure Private Link
+title: Configure a private endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: 'Use Azure Private Link to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
+ms.date: 07/14/2020
 ---
 
-# Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
+# Configure Azure Private Link for an Azure Machine Learning workspace (preview)
 
-In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. This capability is currently in preview, and is available in the US East, US West 2, US South Central regions. 
+In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. 
+
+> [!IMPORTANT]
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US West 2**, and **US South Central** regions. 
+> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
@@ -94,14 +99,13 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Using a workspace over a private endpoint
 
-Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network or a machine connected to the virtual network using a VPN gateway.
+Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
 
 > [!IMPORTANT]
 > To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling Private Link. 
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
-For information on VPN gateways, see [What is VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## Using Azure Storage
 

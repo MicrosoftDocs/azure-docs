@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 06/09/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -85,11 +84,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.bluejeans.com`
 
+    a. In the **Identifier (Entity ID)** text box, type a URL:
+    `http://samlsp.bluejeans.com`
+
+    a. In the **Reply URL** text box, type a URL:
+    `https://bluejeans.com/sso/saml2/`
+
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans for Azure AD Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans for Azure AD Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. BlueJeans application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, BlueJeans application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name |  Source Attribute|
+	| ---------| --------- |
+	| Phone | user.telephonenumber |
+    | title | user.jobtitle |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -226,4 +242,3 @@ When you click the BlueJeans for Azure AD tile in the Access Panel, you should b
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try BlueJeans for Azure AD with Azure AD](https://aad.portal.azure.com/)
-

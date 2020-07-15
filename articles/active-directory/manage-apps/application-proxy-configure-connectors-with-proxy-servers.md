@@ -2,15 +2,14 @@
 title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
 description: Covers how to work with existing on-premises proxy servers.
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -150,6 +149,9 @@ To enable this, please follow the next steps:
 4.	Configure the required proxy settings. 
 
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
+
+> [!NOTE]
+> There are various ways to configure the internet proxy in the operating system. Proxy settings configured via NETSH WINHHTP (run `NETSH WINHTTP SHOW PROXY` to verify) override the proxy settings you configured in Step 2. 
 
 The connector updater service will use the machine proxy as well. This behavior can be changed by modifying the file ApplicationProxyConnectorUpdaterService.exe.config.
 

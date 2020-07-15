@@ -38,6 +38,15 @@ After you establish a connection to your cluster, you can run and debug code nat
 
 When using Local Process with Kubernetes to connect to your cluster, diagnostic logs from your cluster are logged to your development computer's [temporary directory][azds-tmp-dir]. Using Visual Studio Code, you can also use the *Show diagnostic info* command to print the current environment variables and DNS entries from your cluster.
 
+## Limitations
+
+Local Process with Kubernetes has the following limitations:
+
+* Local Process with Kubernetes redirects traffic for a single service to your development computer. You can't use Local Process with Kubernetes to redirect multiple services at the same time.
+* A service must be backed by a single pod in order to connect to that service. You can't connect to a service with multiple pods, such as a service with replicas.
+* A pod may only have a single container running in that pod for Local Process with Kubernetes to successfully connect. Local Process with Kubernetes can't connect to services with pods that have additional containers, such as sidecar containers injected by services meshes.
+* Local Process with Kubernetes needs elevated permissions to run on your development computer in order to edit your hosts file.
+
 ## Next steps
 
 To get started using Local Process with Kubernetes to connect to your local development computer to your cluster, see [Use Local Process with Kubernetes with Visual Studio Code][local-process-kubernetes-vs-code] and [Use Local Process with Kubernetes with Visual Studio][local-process-kubernetes-vs].

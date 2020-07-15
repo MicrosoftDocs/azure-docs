@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -95,9 +95,8 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ## Step 3: Roll out the feature
 
-You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URLs to all or selected users' Intranet zone settings by using Group Policy in Active Directory:
+You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory:
 
-- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 

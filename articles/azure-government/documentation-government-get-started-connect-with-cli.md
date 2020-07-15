@@ -4,8 +4,6 @@ description: This quickstart shows you how to connect to Azure Government and re
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
-manager: femila
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/09/2018 
-ms.author: juliako
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using CLI so I can start developing against Azure Government's secure isolated datacenters.
 ---

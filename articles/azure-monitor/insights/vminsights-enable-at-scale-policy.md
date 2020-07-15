@@ -5,13 +5,13 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 06/25/2020
 
 ---
 
 # Enable Azure Monitor for VMs by using Azure Policy
 
-This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
+This article explains how to enable Azure Monitor for VMs for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc machines by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
 
 To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the method we recommend because you can manage policy definitions to effectively govern your subscriptions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
 
@@ -42,10 +42,7 @@ From here, you can check and manage coverage for the initiative across your mana
 
 This information is useful to help you plan and execute your governance scenario for Azure Monitor for VMs from one central location. While Azure Policy provides a compliance view when a policy or initiative is assigned to a scope, with this new page you can discover where the policy or initiative isn't assigned and assign it in place. All actions like assign, view, and edit redirect to Azure Policy directly. The **Azure Monitor for VMs Policy Coverage** page is an expanded and integrated experience for only the initiative **Enable Azure Monitor for VMs**.
 
-From this page, you also can configure your Log Analytics workspace for Azure Monitor for VMs, which:
-
-- Installs the Service Map solution.
-- Enables the operating system performance counters used by the performance charts, workbooks, and your custom log queries and alerts.
+From this page, you also can configure your Log Analytics workspace for Azure Monitor for VMs, which installs the *VMInsights* solution.
 
 ![Azure Monitor for VMs configure workspace](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
@@ -90,6 +87,21 @@ The policy definitions for an Azure VM are listed in the following table.
 |Deploy Dependency agent for Windows VMs |Deploy Dependency agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 |Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 |Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+
+
+### Policies for hybrid Azure Arc machines
+
+The policy definitions for hybrid Azure Arc machines are listed in the following table.
+
+|Name |Description |Type |
+|-----|------------|-----|
+| [Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines |Reports hybrid Azure Arc machines as noncompliant for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+| [Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines |Reports hybrid Azure Arc machines as noncompliant for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+| [Preview]: Deploy Dependency agent to hybrid Linux Azure Arc machines |Deploy Dependency agent for Linux hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+| [Preview]: Deploy Dependency agent to hybrid Windows Azure Arc machines |Deploy Dependency agent for Windows hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+| [Preview]: Deploy Log Analytics agent to Linux Azure Arc machines |Deploy Log Analytics agent for Linux hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+| [Preview]: Deploy Log Analytics agent to Windows Azure Arc machines |Deploy Log Analytics agent for Windows hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+
 
 ### Policies for Azure virtual machine scale sets
 

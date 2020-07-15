@@ -8,7 +8,7 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
 ---
 
@@ -260,6 +260,9 @@ A good model will typically have a bell curve or errors around zero.
 ## <a name="explain-model"></a> Model interpretability and feature importance
 Automated ML provides a machine learning interpretability dashboard for your runs.
 For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
+
+> [!NOTE]
+> The ForecastTCN model is not currently supported by the Explanation Client. This model will not return an explanation dashboard if it is returned as the best model, and does not support on-demand explanation runs.
 
 ## Next steps
 

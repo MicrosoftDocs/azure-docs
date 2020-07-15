@@ -1,14 +1,15 @@
 ---
-title: Train and deploy a reinforcement learning model.
+title: Train and deploy a reinforcement learning model (preview).
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning Reinforcement Learning (RL) to train an RL agent to play Pong.
+description: Learn how to use Azure Machine Learning Reinforcement Learning (preview) to train an RL agent to play Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
+ms.custom: tracking-python
 
 ---
 

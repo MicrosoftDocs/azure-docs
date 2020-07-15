@@ -62,7 +62,7 @@ Metrics are numerical values that describe some aspect of your resource at a par
 
 
 ## Next steps
-In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Resource logs provide insight into the detailed operation of the resource but must be configured in order to be collected. Continue to the tutorial for collecting resource logs into a Log Analytics workspace where they can be analyzed using log queries.
+In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Continue to the next quickstart which shows you how to collect the Activity log into a Log Analytics workspace where they can be analyzed using [log queries](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Collect and analyze resource logs with Azure Monitor](tutorial-resource-logs.md)
+> [Send Azure Activity log to Log Analytics workspace](quick-monitor-azure-resource.md)

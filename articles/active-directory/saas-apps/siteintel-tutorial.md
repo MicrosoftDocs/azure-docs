@@ -24,136 +24,141 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate SiteIntel with Azure Active Directory (Azure AD). When you integrate SiteIntel with Azure AD, you can:
 
 * Control in Azure AD who has access to SiteIntel.
-* Enable your users to be automatically signed-in to SiteIntel with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Enable your users to be automatically signed in to SiteIntel with their Azure AD accounts.
+* Manage your accounts in one central location, the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* SiteIntel single sign-on (SSO) enabled subscription.
+* SiteIntel single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SiteIntel supports **SP and IDP** initiated SSO
-* Once you configure SiteIntel you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* SiteIntel supports SP-initiated and IdP-initiated SSO.
+* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## Adding SiteIntel from the gallery
+## Add SiteIntel from the gallery
 
 To configure the integration of SiteIntel into Azure AD, you need to add SiteIntel from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **SiteIntel** in the search box.
-1. Select **SiteIntel** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
+1. On the left pane, select **Azure Active Directory**.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
+1. To add a new application, select **New application**.
+1. In the **Add from the gallery** box, enter **SiteIntel**.
+1. In the results list, select **SiteIntel**, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for SiteIntel
 
-Configure and test Azure AD SSO with SiteIntel using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SiteIntel.
+Configure and test Azure AD SSO with SiteIntel by using a test user called *B.Simon*. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SiteIntel.
 
 To configure and test Azure AD SSO with SiteIntel, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure SiteIntel SSO](#configure-siteintel-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create SiteIntel test user](#create-siteintel-test-user)** - to have a counterpart of B.Simon in SiteIntel that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.  
+
+    a. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with user B.Simon.  
+
+    b. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable user B.Simon to use Azure AD single sign-on.
+
+1. **[Configure SiteIntel SSO](#configure-siteintel-sso)** to configure the single sign-on settings on the application side.
+
+    * **[Create a SiteIntel test user](#create-a-siteintel-test-user)** to have a counterpart of user B.Simon in SiteIntel that's linked to the Azure AD representation of the user.
+
+1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+To enable Azure AD SSO in the Azure portal, do the following:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **SiteIntel** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **SiteIntel** application integration page, go to the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, next to **Basic SAML Configuration**, select **Edit** (pen icon).
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of "Set up Single-Sign-On with SAML" pane](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. To configure the application in IdP-initiated mode, in the **Basic SAML Configuration** section, do the following:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL in the following format:
     `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** box, type a URL in the following format:
     `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
 
-    c. In the **Relay State** text box, type a URL using the following pattern:
+    c. In the **Relay State** box, type a URL in the following format:
     `https://<CLIENT>.siteintel.com`
 
-1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+1. To configure the application in SP-initiated mode, select **Set additional URLs**, and then do the following:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+   * In the **Sign-on URL** box, type a URL in the following format:
     `https://<CLIENT>.siteintel.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [SiteIntel Client support team](mailto:support@intalytics.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update them with the actual Identifier, Reply URL, Sign-on URL, and Relay State. To get these values, contact [SiteIntel Client support team](mailto:support@intalytics.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the **Copy** button to copy the URL in the **App Federation Metadata Url** box.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot of the "App Federation Metadata Url" Copy button](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+1. On the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+1. Select **New user** at the top of the pane.
+1. In **User** properties, do the following:
+
+   a. In the **Name** box, enter **B.Simon**.  
+
+   b. In the **User name** box, enter the username in the following format: 
+   `username@companydomain.extension` (for example, `B.Simon@contoso.com`).
+
+   c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+
+   d. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SiteIntel.
+In this section, you enable user B.Simon to use Azure single sign-on by granting access to SiteIntel.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **SiteIntel**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
+1. In the **Applications** list, select **SiteIntel**.
+1. On the app overview page, in the **Manage** section, select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![Screenshot of the "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user** and then, on the **Add Assignment** pane, select **Users and groups**.
 
-	![The Add User link](common/add-assign-user.png)
+	![Screenshot of the "Add user" button](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. On the **Users and groups** pane, select **B.Simon**, and then select the **Select** button at the lower part of the screen.
+1. If you're expecting any role value in the SAML assertion, on the **Select Role** pane, select the appropriate role for the user from the list, and then select the **Select** button.
+1. On the **Add Assignment** pane, select the **Assign** button.
 
 ## Configure SiteIntel SSO
 
-To configure single sign-on on **SiteIntel** side, you need to send the **App Federation Metadata Url** to [SiteIntel support team](mailto:support@intalytics.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the SiteIntel side, send the URL you copied from the **App Federation Metadata Url** box to the [SiteIntel support team](mailto:support@intalytics.com). They set this value to establish the SAML SSO connection properly on both sides.
 
-### Create SiteIntel test user
+### Create a SiteIntel test user
 
-In this section, you create a user called Britta Simon in SiteIntel. Work with [SiteIntel support team](mailto:support@intalytics.com) to add the users in the SiteIntel platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called *Britta Simon* in SiteIntel. Work with [SiteIntel support team](mailto:support@intalytics.com) to add the users in the SiteIntel platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the SiteIntel tile in the Access Panel, you should be automatically signed in to the SiteIntel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the **SiteIntel** tile in the Access Panel, you should be automatically signed in to the SiteIntel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-
+- [List of tutorials about how to integrate SaaS apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [What are application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Try SiteIntel with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
 - [How to protect SiteIntel with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

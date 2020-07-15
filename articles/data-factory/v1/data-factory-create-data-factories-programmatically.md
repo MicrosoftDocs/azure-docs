@@ -496,6 +496,6 @@ while (response != null);
 ```
 
 ## Next steps
-See the following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage to an Azure SQL database: 
+See the following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage to Azure SQL Database: 
 
 - [Create a pipeline to copy data from Blob Storage to SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

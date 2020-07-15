@@ -1,17 +1,17 @@
 ---
-title: FAQ - Azure Synapse Analytics
-description: FAQ for Azure Synapse Analytics
+title: FAQ - Azure Synapse Analytics (workspaces preview)
+description: FAQ for Azure Synapse Analytics  (workspaces preview)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (workspace preview) frequently asked questions
+# Azure Synapse Analytics (workspaces preview) frequently asked questions
 
 In this guide, you'll find the most frequently asked questions for Synapse Analytics.
 
@@ -43,6 +43,10 @@ A: Azure Synapse has the following capabilities:
 A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform, which includes SQL pool as the data warehouse solution. This platform combines data exploration, ingestion, transformation, preparation, and a serving analytics layer.
 
 ## Use cases
+
+### Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Azure Synapse?
+
+A: To rename a published artifact file, first clone the file and rename the new file to name that you prefer. You will need to manually update all the references of the artifact to the new file name and delete the old one.
 
 ### Q: What is a good use case for Synapse SQL pool
 

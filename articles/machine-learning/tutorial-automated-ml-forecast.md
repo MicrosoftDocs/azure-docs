@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
+ms.date: 06/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -121,7 +121,7 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Next**.
 
-## Select task type and settings
+## Select forecast settings
 
 Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 

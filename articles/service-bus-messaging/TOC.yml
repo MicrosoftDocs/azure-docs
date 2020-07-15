@@ -182,6 +182,14 @@
       href: service-bus-nodejs-how-to-use-queues.md
     - name: Publish and subscribe for messages (legacy azure-sb)
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+  - name: Migrate
+    items:
+    - name: Migrate from ActiveMQ to Azure Service Bus
+      href: migrate-jms-activemq-to-servicebus.md
+  - name: Integrate
+    items:
+    - name: Integrate with RabbitMQ
+      href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
     - name: Automatically update messaging units 

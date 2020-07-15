@@ -29,14 +29,30 @@ Instance(**Type I and Type II**)
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
+|   Type I                    |  SuSE        |   SLES 12 SP2         |  S72        |
 |   Type I                    |  SuSE        |   SLES 12 SP2         |  S72m       |
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S72m       |
 |   Type I                    |  SuSE        |   SLES 12 SP2         |  S96        |
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S96        |
+|   Type I                    |  SuSE        |   SLES 12 SP2         |  S192       |
+|   Type I                    |  SuSE        |   SLES 12 SP3         |  S192       |
+|   Type I                    |  SuSE        |   SLES 12 SP4         |  S192       |
+|   Type I                    |  SuSE        |   SLES 12 SP2         |  S192m      |
+|   Type I                    |  SuSE        |   SLES 12 SP3         |  S192m      |
+|   Type I                    |  SuSE        |   SLES 12 SP4         |  S192m      |
+|   Type I                    |  SuSE        |   SLES 12 SP2         |  S144       |
+|   Type I                    |  SuSE        |   SLES 12 SP3         |  S144       |
+|   Type I                    |  SuSE        |   SLES 12 SP2         |  S144m      |
+|   Type I                    |  SuSE        |   SLES 12 SP3         |  S144m      |
+|   Type II                   |  SuSE        |   SLES 12 SP2         |  S384       |
 |   Type II                   |  SuSE        |   SLES 12 SP3         |  S384       |
-|   Type II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   Type II                   |  SuSE        |   SLES 12 SP4         |  S384       |
+|   Type II                   |  SuSE        |   SLES 12 SP2         |  S384xm     |
 |   Type II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
 |   Type II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
+|   Type II                   |  SuSE        |   SLES 12 SP2         |  S576m      |
+|   Type II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   Type II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
 ## Prerequisites
 
@@ -67,7 +83,6 @@ Instance(**Type I and Type II**)
 - Trigger a kernel crash
 
     ```bash
-    echo 1 > /proc/sys/kernel/sysrq
     echo c > /proc/sysrq-trigger
     ```
 

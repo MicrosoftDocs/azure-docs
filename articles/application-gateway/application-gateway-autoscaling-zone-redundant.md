@@ -4,8 +4,8 @@ description: This article introduces the Azure Application Standard_v2 and WAF_v
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/24/2020
+ms.topic: conceptual
+ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
 ---
@@ -27,7 +27,7 @@ The new v2 SKU includes the following enhancements:
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
-![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## Supported regions
 
@@ -143,7 +143,7 @@ However, creating a new instance can take some time (around six or seven minutes
 
 The following table compares the features available with each SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| Feature                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Autoscaling                                       |          | &#x2713; |
 | Zone redundancy                                   |          | &#x2713; |

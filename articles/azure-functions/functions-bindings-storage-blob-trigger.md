@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Blob storage trigger for Azure Functions
@@ -406,7 +407,7 @@ The blob trigger uses a queue internally, so the maximum number of concurrent fu
 
 [The Consumption plan](functions-scale.md#how-the-consumption-and-premium-plans-work) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. For example, a function app with three blob-triggered functions and the default settings would have a maximum per-VM concurrency of 3*24 = 72 function invocations.
 
-JavaScript and Java functions load the entire blob into memory, and C# functions do that if you bind to `string`, `Byte[]`, or POCO.
+JavaScript and Java functions load the entire blob into memory, and C# functions do that if you bind to `string`, or `Byte[]`.
 
 ## Polling
 

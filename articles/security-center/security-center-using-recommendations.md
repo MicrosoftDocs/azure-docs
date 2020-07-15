@@ -52,7 +52,7 @@ As part of their daily monitoring activities, Jeff signs in to Azure and opens S
 
 2. Jeff checks the **Secure Score** to get an overall picture of how secure the subscriptions are and sees that the score is 548.
 
-3. Jeff has to decide which recommendations to handle first. So Jeff clicks Secure Score and starts to handle recommendations based on how much it improves his [Secure Score impact](security-center-secure-score.md).
+3. Jeff has to decide which recommendations to handle first. So Jeff clicks Secure Score and starts to handle recommendations based on how much it improves his [secure score](secure-score-security-controls.md).
 
 4. Because Jeff has lots of connected VMs and servers, Jeff decides to focus on **Compute and apps**.
 

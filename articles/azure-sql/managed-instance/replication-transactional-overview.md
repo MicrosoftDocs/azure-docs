@@ -3,7 +3,7 @@ title: Transactional replication
 titleSuffix: Azure SQL Managed Instance
 description: Learn about using SQL Server transactional replication with Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -23,8 +23,8 @@ Transactional replication is a feature of Azure SQL Managed Instance and SQL Ser
 You can use transactional replication to push changes made in an Azure SQL Managed Instance to:
 
 - A SQL Server database - on-premises or on  Azure VM
-- A single or pooled database in Azure SQL Database
-- A single or pooled database in Azure SQL Managed Instance
+- A database in Azure SQL Database
+- An instance database in Azure SQL Managed Instance
 
   > [!NOTE]
   > To use all the features of Azure SQL Managed Instance, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).

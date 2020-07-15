@@ -16,7 +16,7 @@ Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NF
 
 ## Overview video
 
-[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
 
 Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
@@ -53,7 +53,7 @@ Azure HPC Cache is available in these Azure regions:
 | North America      | Europe         | Asia            | Australia      |
 |--------------------|----------------|-----------------|----------------|
 | East US            | North Europe   | Korea Central   | Australia East |
-| East US 2          | West Europe    | Southeast Asia  |               |
+| East US 2          | West Europe    | Southeast Asia  |                |
 | South Central US | | | |
 | West US 2        | | | |
 
@@ -74,5 +74,5 @@ Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). Aft
 ## Next steps
 
 * Read the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) to learn more about its capabilities
-* Learn about product [prerequisites](hpc-cache-prereqs.md)
+* Learn about product [prerequisites](hpc-cache-prerequisites.md)
 * [Create an Azure HPC Cache](hpc-cache-create.md) from the Azure portal

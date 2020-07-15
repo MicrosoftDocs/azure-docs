@@ -19,8 +19,6 @@
     href: terminology.md
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
-  - name: Disaster recovery
-    href: disaster-recovery.md
 - name: Samples
   items:
   - name: Code samples
@@ -43,6 +41,10 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+  - name: Security
+    href: security.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
 - name: Reference
   items:
   - name: .NET

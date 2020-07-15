@@ -5,7 +5,7 @@ services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
