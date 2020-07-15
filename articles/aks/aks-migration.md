@@ -46,7 +46,7 @@ AKS is a managed service offering unique capabilities with lower management over
 
 We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) and the [Azure Standard Load Balancer](./load-balancer-standard.md) to ensure you get features such as [multiple node pools](./use-multiple-node-pools.md), [Availability Zones](../availability-zones/az-overview.md), [Authorized IP ranges](./api-server-authorized-ip-ranges.md), [Cluster Autoscaler](./cluster-autoscaler.md), [Azure Policy for AKS](../governance/policy/concepts/policy-for-kubernetes.md), and other new features as they are released.
 
-AKS clusters backed by [Virtual Machine Availability Sets](../virtual-machine-scale-sets/availability.md#availability-sets) lack support for many of these features.
+AKS clusters backed by [Virtual Machine Availability Sets](../virtual-machines/availability.md#availability-sets) lack support for many of these features.
 
 The following example creates an AKS cluster with single node pool backed by a virtual machine scale set. It uses a standard load balancer. It also enables the cluster autoscaler on the node pool for the cluster and sets a minimum of *1* and maximum of *3* nodes:
 

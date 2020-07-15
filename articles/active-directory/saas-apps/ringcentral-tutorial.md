@@ -35,6 +35,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * RingCentral single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -87,14 +90,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. If you don't have **Service Provider metadata file**, enter the values for the following fields:
 
 	a. In the **Identifier** textbox, type a URL:
-
-    - `https://sso.ringcentral.com`
-    - `https://ssoeuro.ringcentral.com`
+  
+	| Identifier |
+	|--|
+	|  `https://sso.ringcentral.com` |
+	| `https://ssoeuro.ringcentral.com` |
 
 	b. In the **Reply URL** textbox, type a URL:
 
-    - `https://sso.ringcentral.com/sp/ACS.saml2`
-    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
+	| Reply URL |
+	|--|
+	| `https://sso.ringcentral.com/sp/ACS.saml2` |
+	| `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
