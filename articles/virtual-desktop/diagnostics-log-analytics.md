@@ -127,10 +127,12 @@ Log Analytics only reports in these intermediate states for connection activitie
 - Completed: when the user or server disconnects the session the activity took place in.
 
 ## Example queries
+
 Access example queries through the Azure Monitor Log Analytics UI:
-- Navigate to your **Log Analytics workspace** and select **Logs**. The example query UI is presented to you automatically.
-- Change the filter from Resource Type to **Category**. Next select **Windows Virtual Desktop** to review available queries.
-- Execute a selected query conveniently by clicking **Run**. 
+1. Go to your Log Analytics workspace, and then select **Logs**. The example query UI is shown automatically.
+1. Change the filter to **Category**.
+1. Select **Windows Virtual Desktop** to review available queries.
+1. Select **Run** to run the selected query. 
 
 Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
