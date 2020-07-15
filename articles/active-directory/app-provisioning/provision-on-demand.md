@@ -105,7 +105,7 @@ There are a few known limitations today. Please post on [User Voice](https://aka
 
 * The applications Workday, AWS, and SuccessFactors do not support on-demand provisioning.
 * Provisioning groups and roles on-demand isn't supported.
-* Disabling or deleting users and groups isn't supported.
+* On-demand provisioning supports disabling users that have been unassigned from the application, but does not support disabling or deleting users that have been disabled or deleted from Azure Active Directory (those users won't appear when searching for a user).
 
 ## Next Steps
 
