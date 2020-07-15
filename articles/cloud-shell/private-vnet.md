@@ -25,7 +25,7 @@ ms.author: damaerte
 
 Below you can see the resource architecture that will be deployed and used in this scenario.
 
-![](media/private-vnet/data-diagram.png)
+![Illustrates the Cloud Shell isolated VNET architecture.](media/private-vnet/data-diagram.png)
 
 Before you can use Cloud Shell in your own Azure Virtual Network, you will need to create several resources to support this functionality. This article shows how to set up the required resources to deploy Azure Cloud Shell to a virtual network via an ARM template provided.
 
@@ -94,7 +94,7 @@ After deploying completing the above steps, navigate to Cloud Shell in the Azure
 Connect to Cloud Shell, you will be prompted with the first run experience. Select your preferred shell experience, select "Show advanced settings" and select the "Show VNET isolation settings" box. Fill in the fields in the pop-up.  Most fields will autofill to the available resources that can be associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
 
-![](media/private-vnet/vnet-settings.png)
+![Illustrates the Cloud Shell isolated VNET first experience settings.](media/private-vnet/vnet-settings.png)
 
 
 ## Next steps
