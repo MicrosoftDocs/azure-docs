@@ -121,37 +121,37 @@
     maintainContext: true
     items:
     - name: General purpose
-      href: ../virtual-machines/windows/sizes-general.md
+      href: ../virtual-machines/sizes-general.md
       maintainContext: true
       items:
       - name: B-series burstable
-        href: ../virtual-machines/windows/b-series-burstable.md
+        href: ../virtual-machines/sizes-b-series-burstable.md
         maintainContext: true
     - name: Compute optimized
-      href: ../virtual-machines/windows/sizes-compute.md
+      href: ../virtual-machines/sizes-compute.md
       maintainContext: true
     - name: Memory optimized
-      href: ../virtual-machines/windows/sizes-memory.md
+      href: ../virtual-machines/sizes-memory.md
       maintainContext: true
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
         maintainContext: true
     - name: Storage optimized
-      href: ../virtual-machines/windows/sizes-storage.md
+      href: ../virtual-machines/sizes-storage.md
       maintainContext: true
     - name: GPU optimized
-      href: ../virtual-machines/windows/sizes-gpu.md
+      href: ../virtual-machines/sizes-gpu.md
       maintainContext: true
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
     - name: High performance compute
-      href: ../virtual-machines/windows/sizes-hpc.md
+      href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
     - name: Azure compute units (ACU)
-      href: ../virtual-machines/windows/acu.md
+      href: ../virtual-machines/acu.md
       maintainContext: true
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
@@ -160,7 +160,7 @@
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
   - name: Maintenance and updates
-    href: ../virtual-machines/windows/maintenance-and-updates.md
+    href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     maintainContext: true
   - name: Orchestration modes
     href: orchestration-modes.md
