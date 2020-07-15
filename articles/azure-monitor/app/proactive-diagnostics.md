@@ -30,7 +30,7 @@ Smart Detection detects and notifies about a variety of issues, such as:
 
 * [Smart detection - Failure Anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
 * [Smart detection - Performance Anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md). You get notifications if response time of an operation or dependency duration is slowing down compared to historical baseline or if we identify an anomalous pattern in response time or page load time.   
-* General degradations and issues, like [Trace degradation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Memory leak](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [Abnormal rise in Exception volume](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) and [Security anti-patterns](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* General degradations and issues, like [Trace degradation](./proactive-trace-severity.md), [Memory leak](./proactive-potential-memory-leak.md), [Abnormal rise in Exception volume](./proactive-exception-volume.md) and [Security anti-patterns](./proactive-application-security-detection-pack.md).
 
 (The help links in each notification take you to the relevant articles.)
 
@@ -40,7 +40,7 @@ All Smart Detection rules, except for rules marked as _preview_, are configured 
 
 Configuring email notifications for a specific Smart Detection rule can be done by opening the Smart Detection **Settings** blade and selecting the rule, which will open the **Edit rule** blade.
 
-Alternatively, you can change the configuration using Azure Resource Manager templates. [See Manage Application Insights smart detection rules using Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) for more details.
+Alternatively, you can change the configuration using Azure Resource Manager templates. [See Manage Application Insights smart detection rules using Azure Resource Manager templates](./proactive-arm-config.md) for more details.
 
 ## Video
 
@@ -57,4 +57,3 @@ Smart Detection is completely automatic. But maybe you'd like to set up some mor
 
 * [Manually configured metric alerts](../../azure-monitor/platform/alerts-log.md)
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) 
-
