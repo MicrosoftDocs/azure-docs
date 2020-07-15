@@ -1,5 +1,5 @@
 ---
-title: References
+title: Reference information for FarmBeats
 description:
 author: uhabiba04
 ms.topic: article
