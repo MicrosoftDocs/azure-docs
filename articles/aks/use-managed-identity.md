@@ -114,7 +114,7 @@ You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
 - The aks-preview 0.4.38 extension
 
-Limitations for BYO Control plane MI (Preview) :
+Limitations for BYO Control plane MI (Preview):
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
