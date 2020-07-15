@@ -57,7 +57,7 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector":::
 
-5. Perform a **"Paste"** operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, NotePad) and save the file with an *.json extension.
+5. Perform a **"Paste"** operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, make sure to include copies of your mapping files to help with the troubleshooting process.
