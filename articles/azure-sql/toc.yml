@@ -746,6 +746,8 @@
             href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
           - name: Train and score a model
             href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Deploy ONNX models
+            href: ..\azure-sql-edge\deploy-onnx.md?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
         - name: R
           items:
           - name: Run R scripts
