@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Authenticate a client application
+title: Write app authentication code
 titleSuffix: Azure Digital Twins
-description: See how to authenticate a client application against the Azure Digital Twins service.
+description: See how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
@@ -15,87 +15,23 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticate a client application with Azure Digital Twins
-
-After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
-
-This is done in two steps:
-1. Create an app registration
-2. Write authentication code in a client application
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
-
-## Create an app registration
-
-To authenticate against Azure Digital Twins from a client application, you need to set up an **app registration** in [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
-
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
-
-To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API. In your working directory, open a new file and enter the following JSON snippet to configure these details: 
-
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Save this file as *manifest.json*.
-
-> [!NOTE] 
-> There are some places where a "friendly," human-readable string `https://digitaltwins.azure.net` can be used for the Azure Digital Twins resource app ID instead of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. For instance, many examples throughout this documentation set use authentication with the MSAL library, and the friendly string can be used for that. However, during this step of creating the app registration, the GUID form of the ID is required as it is shown above. 
-
-In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
-
-:::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Cloud Shell window showing selection of the Upload option":::
-Navigate to the *manifest.json* you just created and hit "Open."
-
-Next, run the following command to create an app registration (replacing placeholders as needed):
-
-```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-The output from this command looks something like this.
-
-:::image type="content" source="media/how-to-authenticate-client/new-app-registration.png" alt-text="New AAD app registration":::
-
-After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
-
-From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
-
-:::image type="content" source="media/how-to-authenticate-client/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
-
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later to authenticate a client app against the Azure Digital Twins APIs.
-
-> [!NOTE]
-> Depending on your scenario, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:
-> * Activate public client access
-> * Set specific reply URLs for web and desktop access
-> * Allow for implicit OAuth2 authentication flows
-> * If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you need to set the *signInAudience* on the app registration to support personal accounts.
-> The easiest way to set up these settings is to use the [Azure portal](https://portal.azure.com/). For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/graph/auth-register-app-v2).
-
 ## Write client app authentication code: .NET (C#) SDK
 
-This section describes the code you will need to include in your client application in order to complete the authentication process using the .NET (C#) SDK.
-The Azure Digital Twins C# SDK is part of the Azure SDK for .NET. It is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to write code in that client app to authenticate it against the Azure Digital Twins instance.
+
+The code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
 ### Prerequisites
 
-If you don't have a starter client app project already set up, create a basic .NET project to use with this tutorial.
+First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance.md). This will ensure you have an Azure Digital Twins instance, your user has access permissions, and you've set up permissions for client applications. After all this setup, you are ready to write client app code.
 
-In order to use the .NET SDK, you'll need to include the following packages in your project:
+To proceed, you will need a client app .NET project in which you write your code. If you don't already have a client app project set up, create a basic .NET project to use with this tutorial.
+
+Next, include the following packages in your project In order to use the .NET SDK:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
 * `Azure.Identity`
 
-Depending on your tools of choice, you can do so with the Visual Studio package manager or the `dotnet` command line tool. 
+Depending on your tools of choice, you can include the package using the Visual Studio package manager or the `dotnet` command line tool. 
 
 ### Authentication and client creation: .NET
 

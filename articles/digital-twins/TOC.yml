@@ -40,9 +40,9 @@
     items:
     - name: Use the Azure Digital Twins CLI
       href: how-to-use-cli.md
-    - name: Create an Azure Digital Twins instance
+    - name: Set up an instance and authentication
       href: how-to-set-up-instance.md
-    - name: Authenticate a client application
+    - name: Write app authentication code
       href: how-to-authenticate-client.md
   - name: Design models
     items: 
