@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
+ms.date: 07/14/2020
 
 ---
 
@@ -135,6 +135,9 @@ To identify a property's data type, Azure Monitor adds a suffix to the property 
 | Double |_d |
 | Date/time |_t |
 | GUID (stored as a string) |_g |
+
+> [!NOTE]
+> String values that appear to be GUIDs will be stored with _g and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as a GUID in the form "8145d822-13a7-44ad-859c-36f31a84f6dd". This is still stored a string. The only difference is the _g in the name and the insertion of dashes if they aren't provided in the input. 
 
 The data type that Azure Monitor uses for each property depends on whether the record type for the new record already exists.
 
@@ -460,6 +463,91 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+
+### Python 3 sample
+```python
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
+
+# Update the customer ID to your Log Analytics workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# The log type is the name of the event that is being submitted
+log_type = 'WebMonitorTest'
+
+# An example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build the API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash, encoding="utf-8")  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest()).decode()
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build and send a request to the POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code >= 200 and response.status_code <= 299):
+        print('Accepted')
+    else:
+        print("Response code: {}".format(response.status_code))
+
+post_data(customer_id, shared_key, body, log_type)
+```
+
+
 ## Alternatives and considerations
 While the Data Collector API should cover most of your needs to collect free-form data into Azure Logs, there are instances where an alternative might be required to overcome some of the limitations of the API. All your options are as follows, major considerations included:
 
