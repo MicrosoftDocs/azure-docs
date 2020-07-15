@@ -71,8 +71,8 @@ Now that you have a disk access resource, you can use it to handle access to you
 
 1. Select the vNet that you want to limit the disk export to, other vNets will not be able to export your disk.
 
-> [!NOTE]
-> If you have a network security group (NGS) enabled for the selected subnet, it will be disabled for private endpoints on this subnet only. Other resources on this subnet will still have NSG enforcement.
+    > [!NOTE]
+    > If you have a network security group (NGS) enabled for the selected subnet, it will be disabled for private endpoints on this subnet only. Other resources on this subnet will still have NSG enforcement.
 
 1. Select the appropriate subnet
 1. Select **Review + create**.
