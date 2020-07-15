@@ -33,7 +33,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Yes
+| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Preview
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
@@ -102,8 +102,8 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
 
-## BYO Control plane MI (Preview)
-In cases such as deploying your AKS cluster into an [existing virtual network][configure-cni] you may need to grant access to your control plane managed identity ahead of cluster creation. 
+## BYO control plane MI (Preview)
+In cases such as deploying your AKS cluster into an [existing virtual network][configure-cni], you may need to grant access to your control plane managed identity ahead of cluster creation. 
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -115,7 +115,7 @@ You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
 - The aks-preview 0.4.57 extension
 
-Limitations for BYO Control plane MI (Preview):
+Limitations for BYO control plane MI (Preview):
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
@@ -145,7 +145,7 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
-If you don't have a managed idenitity yet, you should go ahead and create one for example by using [az identity cli][az-identity-create].
+If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
@@ -167,13 +167,13 @@ The result should look like:
 }
 ```
 
-If your managed idenity is part of your subscription, you can use [az idenitity cli command][az-identity-list] to query it.  
+If your managed identity is part of your subscription, you can use [az identity CLI command][az-identity-list] to query it.  
 
 ```azurecli-interactive
 az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 ```
 
-Now you can use the following command to create your cluster with your existing idenity :
+Now you can use the following command to create your cluster with your existing identity:
 
 ```azurecli-interactive
 az aks create \
@@ -185,7 +185,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <idenity-id> \
+    --assign-identity <identity-id> \
 ```
 
 A successful cluster creation using BYO managed identities contains this userAssignedIdentities profile information:
