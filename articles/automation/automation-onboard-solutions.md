@@ -16,7 +16,7 @@ This article describes how you can use a runbook to enable the [Update Managemen
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to manage machines.
+* [Automation account](./index.yml) to manage machines.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Enable Update Management
@@ -44,7 +44,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Update Management for your VMs.
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Update Management for your VMs.
 
 1. In your Automation account, select **Modules** under **Shared Resources**. 
 2. Select **Update Azure Modules** to update the Azure modules to the latest version. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Azure Front Door recent changes
 description: This article provides an ongoing list of recent changes that are made to Azure Front Door. 
 services: frontdoor
 documentationcenter: ''

@@ -52,21 +52,21 @@ Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* 
 
 Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
 
-In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [How-to: Authenticate a client application](how-to-authenticate-client.md).
+In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
 
 #### Assign yourself a role
 
 Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
 
-To be able to do this, you need to be classified as an owner in your Azure subscription. You can check this by running the `az role assignment list --assignee <your-Azure-email>` command, and verifying in the output that the *roleDefinitionName* value is *Owner*. If you find that the value is *Contributor* or something other than *Owner*, please contact your subscription administrator with the power to grant permissions in your subscription in order to elevate your role.
+To be able to do this, you need to be classified as an owner in your Azure subscription. You can check this by running the `az role assignment list --assignee <your-Azure-email>` command, and verifying in the output that the *roleDefinitionName* value is *Owner*. If you find that the value is *Contributor* or something other than *Owner*, please contact your subscription administrator with the power to grant permissions in your subscription. They can either elevate your role on the entire subscription so that you can run the following command, or an owner can run the following command on your behalf to set up your Azure Digital Twins permissions for you.
 
-As an owner on the subscription, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
+To assign your user "owner" permissions in your Azure Digital Twins instance, use the following command (must be run by an owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-The result of this command is outputted information about the role assignment you've created.
+The result of this command is outputted information about the role assignment that's been created.
 
 > [!TIP]
 > If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for your user:
@@ -75,7 +75,7 @@ The result of this command is outputted information about the role assignment yo
 > ```
 > Then, repeat the role assignment command using your user's *Object ID* in place of your email.
 
-You now have an Azure Digital Twins instance ready to go.
+You now have an Azure Digital Twins instance ready to go, and permissions to manage it.
 
 ## Next steps
 
