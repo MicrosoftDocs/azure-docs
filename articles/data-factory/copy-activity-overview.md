@@ -239,7 +239,7 @@ To configure it programmatically, add the `additionalColumns` property in your c
 
 ## Auto create sink tables
 
-When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, [copy activity](copy-activity-overview.md) supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
 
 This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* –> *Copy activity sink* –> *Table option* –> *Auto create table*, or via `tableOption` property in copy activity sink payload.
 
