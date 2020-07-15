@@ -340,7 +340,7 @@ Certificate Authority (CA) Browser members recently published reports deta
 * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates re-issued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked.
+As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates re-issued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
 
 To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://misissued.com/#revoked). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate which has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -354,7 +354,7 @@ If you are using a certificate issued by one of the revoked ICAs, your applicati
 
 To avoid any interruption to your application due to this issue, or to re-issue a CA which has been revoked, you need to take the following actions: 
 
-1.	Check [DigiCert's alert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [list here](https://misissued.com/batch/138/) for more information on the revoked ICAs and contact your certificate provider on how to re-issue your certificates
+1.	Contact your certificate provider on how to re-issue your certificates
 2.	Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you are using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
 3.	Update your backend application servers to use the re-issued certificate. Depending on the backend server that you are using, your certificate update steps may vary. Please check for the documentation from your vendor.
 
