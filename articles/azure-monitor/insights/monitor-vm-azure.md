@@ -25,7 +25,7 @@ This article describes how to use Azure Monitor to collect and analyze monitorin
 - You can create [diagnostic settings](../platform/diagnostic-settings.md) for a virtual machine to send platform metrics to other destinations such as storage and event hubs, but you can't configure these diagnostic settings in the Azure portal. 
 
 ## Monitoring data
-Virtual machines in Azure in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown the following diagram.
+Virtual machines in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) as shown in the following diagram.
 
 ![Overview](media/monitor-vm-azure/logs-metrics.png)
 

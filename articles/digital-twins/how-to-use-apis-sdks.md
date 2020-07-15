@@ -55,7 +55,7 @@ To use the data plane APIs:
    - you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - you can view the [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
-* You can generate an SDK for another language using AutoRest. Follow the instructions in [How-to: Create custom SDKs for Azure Digital Twins with AutoRest](how-to-create-custom-sdks.md).
+* You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
 
@@ -76,7 +76,7 @@ To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your 
     dotnet add package Azure.identity
     ```
 
-For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
+For a detailed walk-through of using the APIs in practice, see the [*Tutorial: Code a client app*](tutorial-code.md). 
 
 ### .NET SDK usage examples
 
@@ -138,7 +138,7 @@ await foreach (string twin in result)
 }
 ```
 
-See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
+See the [*Tutorial: Code a client app*](tutorial-code.md) for a walk-through of this sample app code. 
 
 You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
