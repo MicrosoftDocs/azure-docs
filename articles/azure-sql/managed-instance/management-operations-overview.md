@@ -20,9 +20,9 @@ ms.date: 07/10/2020
 ## What are management operations?
 Azure SQL Managed Instance provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed.
 
-To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and provide isolation and security for customers, SQL Managed Instance relies on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture), which represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in a new virtual cluster buildout.
+To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and provide isolation and security for customers, SQL Managed Instance relies on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtual cluster represents a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in a new virtual cluster buildout.
 
-Subsequent operations on deployed managed instances might also have effects on the underlying virtual cluster. This operations affect the duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
+Subsequent operations on deployed managed instances might also have effects on the underlying virtual cluster. These operations affect the duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
 
 All management operations can be categorized as follows:
 
@@ -39,8 +39,8 @@ Typically, operations on virtual clusters take the longest. Duration of the oper
 
 Additionally, management of instances may also include one of the operations on hosted databases, which result in longer durations:
 
-- **Attaching database files from Azure Storage**:  This is a synchronous step, such as compute (vCores), or storage scaling up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
-- **Always On availability group seeding**: This is a synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB/hour or higher**.
+- **Attaching database files from Azure Storage**:  A synchronous step, such as compute (vCores), or storage scaling up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
+- **Always On availability group seeding**: A synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB/hour or higher**.
 
 The following table summarizes operations and typical overall durations:
 
