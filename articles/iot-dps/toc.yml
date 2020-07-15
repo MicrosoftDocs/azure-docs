@@ -45,8 +45,6 @@
        href: tutorial-provision-multiple-hubs.md
      - name: Provision for multitenancy
        href: how-to-provision-multitenant.md
-     - name: Add evenly weighted distributrion example
-       href: how-to-provision-multitenant.md
      - name: Use custom allocation policies
        href: how-to-use-custom-allocation-policies.md
   - name: 3 - Reprovisioning tutorial
@@ -87,8 +85,6 @@
         href: quick-enroll-device-tpm-node.md
       - name: Python
         href: quick-enroll-device-tpm-python.md
-  - name: Provisioning samples in the Azure IoT C SDK
-    href: provisioning-client-samples.md
 - name: Concepts
   items:
   - name: Auto-provisioning
