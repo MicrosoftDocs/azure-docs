@@ -126,7 +126,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 On a Linux system, you can mount a container by using the following command.
 
 ```
-mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:<storage-account-name>/<container-name>  /mnt/test
+mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
 ```
 
 - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
