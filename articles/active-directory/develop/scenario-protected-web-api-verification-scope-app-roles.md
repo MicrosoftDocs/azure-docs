@@ -53,6 +53,8 @@ If a client app calls your API on behalf of a user, the API needs to request a b
 
 ### .NET Core
 
+#### Verify the scopes on each controller action
+
 ```csharp
 [Authorize]
 public class TodoListController : Controller
@@ -81,6 +83,10 @@ The `VerifyUserHasAnyAcceptedScope` method does something like the following ste
 - Verify the claim has a value that contains the scope expected by the API.
 
 For details see the source code in [ScopesRequiredHttpContextExtensions in Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs#L32)
+
+#### Verify the scopes more globally
+
+Defining granular scopes for your web API and to verify the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using the ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/claims)
 
 ### .NET MVC
 
