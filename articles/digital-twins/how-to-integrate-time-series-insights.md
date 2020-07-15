@@ -182,7 +182,7 @@ az functionapp config appsettings set --settings "EventHubConnectionAppSetting-T
 To begin sending data to Time Series Insights you will need to start changing twin values. Use the [az dt twin update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) command.
 If you are following the end to end tutorial, follow the steps below:
 
-1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). The instructions are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
+1. Begin sending simulated IoT data by running the `DeviceSimulator` project from the Azure Digital Twins [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). The instructions are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 
 ## Visualize your data in Time Series Insights
 
