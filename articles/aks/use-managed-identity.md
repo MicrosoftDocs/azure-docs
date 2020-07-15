@@ -102,7 +102,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 
 ## BYO control plane MI (Preview)
-In some cases, you may want to use an existing managed identity as control plane managed identity. It is specifically useful, if you need to grant access to this managed identity ahead of cluster creation.
+In some cases, you may want to use an existing managed identity as control plane managed identity. It is useful, if you need to grant access to this managed identity ahead of cluster creation.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
