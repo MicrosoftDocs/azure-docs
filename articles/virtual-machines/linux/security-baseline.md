@@ -254,7 +254,7 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](../windows/monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
 

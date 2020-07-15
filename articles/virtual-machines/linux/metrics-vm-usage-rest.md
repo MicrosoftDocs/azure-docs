@@ -12,7 +12,7 @@ ms.author: routlaw
 
 # Get Virtual Machine usage metrics using the REST API
 
-This example shows how to retrieve the CPU usage for a [Linux Virtual Machine](./monitor.md) using the [Azure REST API](/rest/api/azure/).
+This example shows how to retrieve the CPU usage for a Linux Virtual Machine using the [Azure REST API](/rest/api/azure/).
 
 Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 

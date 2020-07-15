@@ -32911,6 +32911,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/windows/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/classic/about-images.md",
       "redirect_url": "/azure/virtual-machines/windows/cli-ps-findimage",
       "redirect_document_id": true
