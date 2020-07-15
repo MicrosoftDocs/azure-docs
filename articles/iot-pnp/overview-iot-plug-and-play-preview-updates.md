@@ -94,3 +94,7 @@ There's now a single model repository that contains both public published models
 Existing company model repositories from the previous release aren't supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
 
 The Azure IoT extension for the Azure CLI doesn't support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.
+
+## Azure IoT Central
+
+Azure IoT Central is currently being updated to support the IoT Plug and Play preview refresh release.
