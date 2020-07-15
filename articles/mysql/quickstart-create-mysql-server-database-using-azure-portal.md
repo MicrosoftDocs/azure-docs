@@ -6,10 +6,10 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/20/2020
+ms.date: 7/15/2020
 ---
 
-# Create an Azure Database for MySQL server by using the Azure portal
+# Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This Quickstart shows you how to create an Azure Database for MySQL server in about five minutes using the Azure portal.  
 
@@ -47,37 +47,44 @@ Password | *Your choice* | Provide a new password for the server admin account. 
 Confirm password | *Your choice*| Confirm the admin account password.
 Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
 Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
-Compute + Storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | Click on **Configure server** to modify these compute , storage size and backup retention period. For read/write heavy workloads choose a higher compute (vvcores) and storage size. Price of yourserver depends on the compute, storage configuration and backup retention configuration. We have three pricing tiers : **Basic** , **General Purpose** and **Memory Optimized** and see the [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information. .
+Compute + Storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** |The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information, see the [pricing page](https://azure.microsoft.com/pricing/details/mysql/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+
+   > [!NOTE]
+   > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. 
 
 4. Select **Review + create** to provision the server. Provisioning can take up to 20 minutes.
    
 5. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
    
-   By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
+By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
 
 ## Configure a server-level firewall rule
-By default the server created is not publicly accessible and you need to give permissions to your local machine IP. To give access to your IP , go to your server resource in the Azure portal and select **Connection security** from left side menu for your server resource.  If you are not sure how to find your resource , see [How to open a resource](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+By default the server created is not publicly accessible and you need to give permissions to your IP. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left side menu for your server resource. If you are not sure how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
 > ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
    
-Now click on **Add current client IP address** and then click on **Save** . You can add additional IPs or provide an IP range to give access to your server. For more information, see [How to manage firewall rules on Azure Database for MySQL server](./concepts-firewall-rules.md)
+Now select **Add current client IP address** and then select **Save**. You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules on Azure Database for MySQL server](./concepts-firewall-rules.md)
 
-## Connect to your server using the mysql client in Azure Cloud Shell
+> [!NOTE]
+> Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.  
+
+## Connect to Azure Database for PostgreSQL server using mysql command-line client
 You can choose one of the most popular tools to connec to your server , **mysql.exe** or **[MySQL Workbench](./connect-workbench.md)** from your local environment. In this quickstart , we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to connect to your server. 
 
-- Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
+1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 
-> Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
+    > Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-   time step and will be automatically attached for all sessions. 
 
->[!div class="mx-imgBorder"]
-> ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/cloud-shell-image-portal-view.png)
-
-- Azure cloud shell has **MySQL command-line tool** available to use to connect to your server and perform database operations , so you can run this command directly . Replace values with your actual server name and admin user login name . Admin username requires '@<servername> as shown below for Azure Database for MySQL  
+   >[!div class="mx-imgBorder"]
+   > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/cloud-shell-image-portal-view.png)
+   
+2.  Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@<servername> as shown below for Azure Database for MySQL  
 
 ```azurecli-interactive
-mysql --host <fully qualified server name> --user <server admin username>@<server name> -p
+mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p
 ```
+
 Here is how the experience looks like in the Cloud Shell terminal
 ```
 Requesting a Cloud Shell.Succeeded.
@@ -135,11 +142,10 @@ mysql> SELECT * FROM Persons;
 
 ## Clean up resources
 You have successfully created an Azure Database for MySQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group follow these steps:
-
-- In the Azure portal, search for and select **Resource groups**. 
-- In the resource group list, choose the name of your resource group.
-- In the Overview page of your resource group, select **Delete resource group**.
-- In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+1. In the Azure portal, search for and select **Resource groups**. 
+2. In the resource group list, choose the name of your resource group.
+3. In the Overview page of your resource group, select **Delete resource group**.
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
 
