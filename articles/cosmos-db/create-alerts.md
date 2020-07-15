@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Create alerts to manage resources in Azure Cosmos DB
+description: Learn how to set up alerts for Azure Cosmos DB using Azure Monitor.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
