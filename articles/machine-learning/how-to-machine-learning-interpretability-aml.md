@@ -124,7 +124,7 @@ Refer to the following example to help you get the aggregate (global) feature im
 
 ```python
 
-# you can use the training data or the test data here, but test data would allow you to use Exlanation Exploration
+# you can use the training data or the test data here, but test data would allow you to use Explanation Exploration
 global_explanation = explainer.explain_global(x_test)
 
 # if you used the PFIExplainer in the previous step, use the next line of code instead
