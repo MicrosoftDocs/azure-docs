@@ -48,7 +48,7 @@ To set up a managed identity in the portal, you will first create an application
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**. 
 
-	![](../media/managed-identity-system-assigned.png)
+   ![Screenshot that shows saving a system-assigned identity.](../media/managed-identity-system-assigned.png)
 
 ### Azure CLI
 
@@ -96,7 +96,7 @@ Make a note of the `PrincipalId`, which will be needed in next section.
 
 1.	Click **Add** to finish adding the new access policy.
 
-	![](../media/managed-identity-access-policy.png)
+	![Screenshot that shows adding a new access policy in the Azure portal.](../media/managed-identity-access-policy.png)
 
 ### Azure CLI
 

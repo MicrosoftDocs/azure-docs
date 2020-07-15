@@ -155,7 +155,7 @@ To ensure you can mount your Data Box device as a Local System by using the NFS 
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   The command window that opens as a result of the previous command is in the Local System context. Use this command window to execute the steps to mount the Azure page blob share as a network drive on your Windows server.
+   The command window that opens because of the previous command is in the Local System context. Use this command window to execute the steps to mount the Azure page blob share as a network drive on your Windows server.
 1. Follow the steps in [Connect to Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) to connect your server with the MARS Agent to the Data Box device via NFS. Run the following command on the Local System command prompt to mount the Azure page blobs share.
 
     ```cmd
@@ -244,7 +244,7 @@ This section explains the steps to take after the backup of the data to the Azur
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
+The Microsoft Azure Recovery Services (MARS) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
 
 ### Problem
 

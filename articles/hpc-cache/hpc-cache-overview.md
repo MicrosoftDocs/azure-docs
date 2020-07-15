@@ -53,7 +53,7 @@ Azure HPC Cache is available in these Azure regions:
 | North America      | Europe         | Asia            | Australia      |
 |--------------------|----------------|-----------------|----------------|
 | East US            | North Europe   | Korea Central   | Australia East |
-| East US 2          | West Europe    | Southeast Asia  |               |
+| East US 2          | West Europe    | Southeast Asia  |                |
 | South Central US | | | |
 | West US 2        | | | |
 
@@ -74,5 +74,5 @@ Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). Aft
 ## Next steps
 
 * Read the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) to learn more about its capabilities
-* Learn about product [prerequisites](hpc-cache-prereqs.md)
+* Learn about product [prerequisites](hpc-cache-prerequisites.md)
 * [Create an Azure HPC Cache](hpc-cache-create.md) from the Azure portal

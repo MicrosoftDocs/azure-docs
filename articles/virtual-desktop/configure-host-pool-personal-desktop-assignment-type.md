@@ -6,7 +6,7 @@ author: HeidiLohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -67,11 +67,26 @@ To assign a user to a specific session host, run the following PowerShell cmdlet
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
+To directly assign a user to a session host in the Azure portal:
+
+1. Sign in to the Azure portal at <https://portal.azure.com>.
+2. Enter **Windows Virtual Desktop** into the search bar.
+3. Under **Services**, select **Windows Virtual Desktop**.
+4. At the Windows Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+5. Select the name of the host pool you want to update.
+6. Next, go to the menu on the left side of the window and select **Application groups**.
+7. Select the name of the desktop app group you want to edit, then select **Assignments** in the menu on the left side of the window.
+8. Select **+ Add**, then select the users or user groups you want to publish this desktop app group to.
+9. Select **Assign VM** in the Information bar to assign a session host to a user.
+10. Select the session host you want to assign to the user, then select **Assign**.
+11. Select the user you want to assign the session host to from the list of available users.
+12. When you're done, select **Select**.
+
 ## Next steps
 
 Now that you've configured the personal desktop assignment type, you can sign in to a Windows Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10.md)
 - [Connect with the web client](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the iOS client](connect-ios.md)

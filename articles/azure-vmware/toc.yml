@@ -30,6 +30,8 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
+  - name: Role-based access control
+    href: concepts-rbac.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides

@@ -132,7 +132,7 @@ The Actors runtime provides these concurrency guarantees in situations where it 
 ## Next steps
 Get started by building your first Reliable Actors service:
    * [Getting started with Reliable Actors on .NET](service-fabric-reliable-actors-get-started.md)
-   * [Getting started with Reliable Actors on Java](service-fabric-reliable-actors-get-started-java.md)
+   * [Getting started with Reliable Actors on Java](./service-fabric-create-your-first-linux-application-with-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

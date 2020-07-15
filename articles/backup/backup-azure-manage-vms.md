@@ -48,6 +48,17 @@ To view VMs on the vault dashboard:
 
 ## Manage backup policy for a VM
 
+### Modify backup policy
+
+To modify an existing backup policy:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
+2. From **Manage > Backup policies**, select the backup policy for the type Azure Virtual Machine.
+3.	Click Modify and change the settings.
+
+
+### Switch backup policy 
+
 To manage a backup policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
@@ -72,6 +83,9 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * If the initial backup is pending, on-demand backup creates a full copy of the VM in the Recovery Services vault.
 * If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
+
+> [!NOTE]
+> The Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
 
 To trigger an on-demand backup:
 
@@ -119,6 +133,9 @@ To stop protection and delete data of a VM:
 2. Choose **Delete Backup Data**, and confirm your selection as needed. Enter the name of the backup item and add a comment if you want.
 
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
+
+> [!NOTE]
+> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](https://docs.microsoft.com/azure/backup/soft-delete-virtual-machines). <br>In addition, you can also [enable or disable soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
 
 ## Resume protection of a VM
 
