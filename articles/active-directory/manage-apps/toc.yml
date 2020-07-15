@@ -46,6 +46,20 @@
         href: access-panel-deployment-plan.md
       - name: Guidance for developers
         href: developer-guidance-for-integrating-applications.md
+    - name: Single sign-on
+      items:  
+      - name: Enable SSO for your multi-tenant application 
+        href: isv-sso-content.md
+      - name: Create an Azure tenant for multi-tenant application
+        href: isv-tenant-multi-tenant-app.md
+      - name: Choose multi-tenant federation
+        href: isv-choose-multi-tenant-federation.md
+      - name: Create documentation for multi-tenant application
+        href: isv-create-sso-documentation.md
+      - name: Plan a single sign-on deployment
+        href: plan-sso-deployment.md
+      - name: One-click SSO
+        href: one-click-sso-tutorial.md
     - name: Application security
       items:
       - name: App access options
@@ -62,20 +76,6 @@
         href: end-user-experiences.md
       - name: Cloud app visibility and control
         href: cloud-app-security.md
-    - name: Single sign-on
-      items:  
-      - name: Enable SSO for your multi-tenant application 
-        href: isv-sso-content.md
-      - name: Create an Azure tenant for multi-tenant application
-        href: isv-tenant-multi-tenant-app.md
-      - name: Choose multi-tenant federation
-        href: isv-choose-multi-tenant-federation.md
-      - name: Create documentation for multi-tenant application
-        href: isv-create-sso-documentation.md
-      - name: Plan a single sign-on deployment
-        href: plan-sso-deployment.md
-      - name: One-click SSO
-        href: one-click-sso-tutorial.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
