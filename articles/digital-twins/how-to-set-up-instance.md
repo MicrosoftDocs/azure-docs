@@ -127,7 +127,7 @@ The result of this command is outputted information about the role assignment th
 
 You now have an Azure Digital Twins instance ready to go, and permissions to manage it. Next, you'll set up permissions for a client app to access it.
 
-## Set up access permissions for client applications
+### Set up access permissions for client applications
 
 Once you set up an Azure Digital Twins instance, it is common to interact with that instance through a client application that you create. In order to do this, you'll need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration** for your client app to use.
 
