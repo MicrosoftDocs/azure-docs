@@ -63,7 +63,7 @@ Temp disks are encrypted at rest with platform-managed keys when you enable end-
 
 ## Double encryption at rest
 
-High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation, or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys. This new layer can be applied to disks, snapshots, and images, all of which will be encrypted at rest with double encryption.
+High security sensitive customers who are concerned of the risk associated with any particular encryption algorithm, implementation, or key being compromised can now opt for additional layer of encryption using a different encryption algorithm/mode at the infrastructure layer using platform managed encryption keys. This new layer can be applied to persisted OS and data disks, snapshots, and images, all of which will be encrypted at rest with double encryption.
 
 ### Supported regions
 
