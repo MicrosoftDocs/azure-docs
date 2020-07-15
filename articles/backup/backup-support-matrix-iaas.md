@@ -32,7 +32,7 @@ Learn more about backup [using a backup server](backup-architecture.md#architect
 >
 >Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
 >
->**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
+>To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
 
 ## Supported backup actions
 
@@ -51,7 +51,7 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; However even if the time change is reverted, successful backup isn't guaranteed.
-Azure VMs in [virtual machine scale sets (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) | Backup and restore are supported for VMs with [orchestration mode](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
+Azure VMs in [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) | Backup and restore are supported for VMs with [orchestration mode](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
 
 ## Operating system support (Windows)
 
