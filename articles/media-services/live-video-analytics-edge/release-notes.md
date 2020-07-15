@@ -16,6 +16,23 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
+## July 13, 2020
+
+This release tag for the July 2020 refresh of the module is:
+
+```
+     mcr.microsoft.com/media/live-video-analytics:1.0.2
+```
+
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
+
+### New features
+* You can now create graph topologies that have an asset sink node as well as a file sink node downstream of a signal gate processor node. See [this](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) for an example.
+
+### Bug fixes
+* Improvements to validation of desired properties
+
 ## June 1, 2020
 
 This release is the first public preview release of Live Video Analytics on IoT Edge. The release tag is
