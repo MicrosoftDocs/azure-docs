@@ -295,7 +295,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     resource_group = "myRg"
     vm_name = "myVM"
     api_version = "2019-03-01"
-    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net"")
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
