@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 ---
 
-# Analysis Services backup and restore
+# Analysis Services database backup and restore
 
 Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
