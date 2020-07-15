@@ -47,7 +47,8 @@ The only change needed in an ARM template to specify a zonal ILB ASE is the new 
 
 The example ARM template snippet below shows the new ***zones*** property specifying that the ILB ASE should be pinned to zone 2.
 
-    "resources": [
+```
+   "resources": [
       {
          "type": "Microsoft.Web/hostingEnvironments",
          "kind": "ASEV2",
@@ -70,6 +71,7 @@ The example ARM template snippet below shows the new ***zones*** property specif
          }
       }
     ]
+```
 
 To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) upstream of the zonal ILB ASEs. 
 
