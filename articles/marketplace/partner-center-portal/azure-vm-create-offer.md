@@ -466,11 +466,11 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
     The **Generation ID** is visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 
-3. To update an existing VM that has a Generation 1 already published, simply edit details on the Technical configuration page:
+3. To update an existing VM that has a Generation 1 already published, simply edit details on the **Technical configuration** page:
 
     :::image type="content" source="./media/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
 
-To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/generation-2).
+To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 
 #### VM images
 
