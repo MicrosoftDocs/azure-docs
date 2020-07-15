@@ -12,21 +12,21 @@ ms.author: radwiv
 
 # Configure packet captures for VPN gateways
 
-Connectivity and performance-related issues are often times complex and take significant amount of time and effort just to narrow down the cause of the problem. Ability to packet capture greatly helps reduce time in narrowing down the scope of the problem to certain parts of the network, such as whether the issue is on the customer side of the network, the Azure side of the network, or somewhere in between. Once the issue has been narrowed down, it is much more efficient to debug and take remedial action.
+Connectivity and performance-related issues are often complex and take significant amount of time and effort just to narrow down the cause of the problem. Ability to packet capture greatly helps reduce time in narrowing down the scope of the problem to certain parts of the network, such as whether the issue is on the customer side of the network, the Azure side of the network, or somewhere in between. Once the issue has been narrowed down, it is much more efficient to debug and take remedial action.
 
-There are some commonly available tools for packet capture. However, getting relevant packet captures using these tools is often times cumbersome especially when working with high volume traffic scenarios. Filtering capabilities provided by a VPN gateway packet capture becomes a major differentiator. You may use a VPN gateway packet capture in addition to commonly available packet capture tools.
+There are some commonly available tools for packet capture. Getting relevant packet captures with these tools can be cumbersome, especially when working with high volume traffic scenarios. Filtering capabilities provided by a VPN gateway packet capture becomes a major differentiator. You may use a VPN gateway packet capture in addition to commonly available packet capture tools.
 
 ## VPN gateway packet capture filtering capabilities
 
 VPN gateway packet captures can be run on the gateway or on a specific connection depending on customer needs. You can also run packet captures on multiple tunnels at the same time. You can capture single or bi-direction traffic, IKE and ESP traffic, and inner packets along with filtering on a VPN gateway.
 
-Using 5 tuples filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) is helpful when isolating issues on a high volume traffic.
+Using a five-tuple filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) is helpful when isolating issues on a high volume traffic.
 
 See below an example of JSON and JSON schema with explanation of each property. Also, note some limitations while running the packet captures:
 - In the schema, filter is shown as an array but at present only one filter can be used at a time.
-- Multiple gateway wide packet captures at the same time are not allowed.
+- Multiple gateway-wide packet captures at the same time are not allowed.
 - Multiple packet captures on the same connection at the same time are not allowed. You can run packet captures on different connections at the same time.
-- A maximum of 5 packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway wide packet capture or per connection packet capture.
+- A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet capture or per connection packet capture.
 
 ### Example JSON
 ```JSON-interactive
