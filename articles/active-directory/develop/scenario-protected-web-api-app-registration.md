@@ -70,8 +70,7 @@ Scopes also appear on the consent window that's presented to users of your app. 
 - As seen by a user.
 - As seen by a tenant admin, who can grant admin consent.
 
-App roles cannot be consented to by a user (as they are used by an application that call the web API on behalf of itself). A tenant administrator will need to consent
-to client applications of your web API exposing app roles. See [Admin consent](v2-admin-consent.md) for details
+App roles cannot be consented to by a user (as they are used by an application that call the web API on behalf of itself). A tenant administrator will need to consent to client applications of your web API exposing app roles. See [Admin consent](v2-admin-consent.md) for details
 
 ### Exposing delegated permissions (scopes)
 
