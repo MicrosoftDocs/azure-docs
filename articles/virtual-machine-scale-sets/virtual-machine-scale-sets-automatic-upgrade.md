@@ -156,7 +156,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 ```
 
 > [!NOTE]
-> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
+> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### Keep credentials up to date
 If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.

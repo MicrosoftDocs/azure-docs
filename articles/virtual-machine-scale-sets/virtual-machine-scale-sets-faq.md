@@ -110,13 +110,13 @@ The sample uses the host-level CPU metric and a message count metric.
 
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/samples/powershell-samples.md#create-alert-rules) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/samples/cli-samples.md#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 The TargetResourceId of the virtual machine scale set looks like this:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md) article.
+You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md) article.
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
@@ -432,7 +432,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### How do I execute a custom script that's hosted in a private storage account?
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#template-example-for-a-windows-vm-with-protected-settings).
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## Passwords
 
