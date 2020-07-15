@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 07/02/2020
+ms.date: 07/15/2020
 ms.author: lbosq
 
 ---
