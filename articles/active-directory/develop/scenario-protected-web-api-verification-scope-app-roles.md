@@ -24,7 +24,7 @@ This article describes how you can add authorization to your web API. This prote
 - Daemon apps that have the right application roles.
 
 > [!NOTE]
-> The code snippets from this article are extracted from the following samples, which are fully functional:
+> The code snippets in this article are extracted from the following code samples on GitHub:
 >
 > - [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
 > - [ASP.NET web API sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
@@ -86,7 +86,7 @@ For details see the source code in [ScopesRequiredHttpContextExtensions in Micro
 
 #### Verify the scopes more globally
 
-Defining granular scopes for your web API and to verify the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using the ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/aspnet/core/security/authorization/claims)
+Defining granular scopes for your web API and verifying the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/aspnet/core/security/authorization/claims) in the ASP.NET core documentation.
 
 ### .NET MVC
 
@@ -111,7 +111,7 @@ public class TodoListController : ApiController
     }
 ```
 
-The `ValidateAppRole` method is defined in Microsoft.Identity.Web. Its source code is [here](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28)
+The `ValidateAppRole` method is defined in Microsoft.Identity.Web in [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
 
 ### ASP.NET MVC
 

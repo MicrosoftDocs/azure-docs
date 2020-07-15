@@ -26,7 +26,7 @@ The code that you use to configure your web API so that it calls downstream web 
 
 ## Client secrets or client certificates
 
-Given that your web API now calls a downstream web API, you need to provide a client secret of a client certificate in the appsettings.json.
+Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file.
 
 ```JSON
 {
@@ -43,7 +43,7 @@ Given that your web API now calls a downstream web API, you need to provide a cl
 }
 ```
 
-Instead of a client secret, you can provide a client certificate, for instance that you get from Key Vault.
+Instead of a client secret, you can provide a client certificate. The following code snippet shows using a certificate stored in Azure Key Vault.
 
 ```JSON
 {
@@ -64,13 +64,13 @@ Instead of a client secret, you can provide a client certificate, for instance t
 }
 ```
 
-Microsoft.Identity.Web provides many ways of describing certificates, both by configuration or by code. For details see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates)
+Microsoft.Identity.Web provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web wiki - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
 
 ## Startup.cs
 
-Using Microsoft.Identity.Web, if you want your web API to, call downstream web APIs, add the `.AddMicrosoftWebApiCallsWebApi()` line after `.AddMicrosoftWebApiAuthentication(Configuration)`, and then choose a token cache implementation, for example `.AddInMemoryTokenCaches()` in Startup.cs:
+Using Microsoft.Identity.Web, if you want your web API to call downstream web APIs, add the `.AddMicrosoftWebApiCallsWebApi()` line after `.AddMicrosoftWebApiAuthentication(Configuration)`, and then choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
-```c#
+```csharp
 using Microsoft.Identity.Web;
 
 public class Startup
@@ -88,7 +88,7 @@ public class Startup
 }
 ```
 
-As with web apps, you can choose various token cache implementations. See [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) for details
+As with web apps, you can choose various token cache implementations. For details, see [Microsoft identity web wiki - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
 If you're certain that your web API will need specific scopes, you can optionally pass them as arguments to `AddMicrosoftWebApiCallsWebApi`.
 
