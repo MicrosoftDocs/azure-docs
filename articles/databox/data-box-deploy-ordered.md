@@ -221,7 +221,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. In **Order**, specify the **Basic** order details. Enter or select the following information and select **Next: Data destination>**.
+6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -231,13 +231,17 @@ Do the following steps in the Azure portal to order a device.
 
     ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
+    By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order you can add a customer managed key. A customer managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+
 7. In **Data destination** tab, select **Data destination**.
 
     If using **storage account(s)** as the storage destination, you see the following screenshot:
 
     ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
+    Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
+
+    Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
 
     If using Data Box to create **Managed disk(s)** from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
