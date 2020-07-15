@@ -88,6 +88,22 @@ This section describes how to configure a bearer token.
 }
 ```
 
+#### Case where you used a custom App ID URI for your Web API
+
+If you've accepted the App ID URI proposed by the app registration portal, you don't need to specify the audience (See [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#application-id-uri-and-scopes)). Otherwise you should add an "Audience" property which value will be the App UI URI for your Web API.
+
+```Json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common",
+    "Audience"  : "custom App ID URI for your web API"
+  },
+  // more lines
+}
+```
+
 ### Code initialization
 
 When an app is called on a controller action that holds an **[Authorize]** attribute, ASP.NET and ASP.NET Core extract the access token from the Authorization header's bearer token. The access token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
@@ -131,6 +147,12 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> If you use Microsoft.Identity.Web and don't set the "Audience" in the **appsettings.json**, the following will be used:
+> -  `$"{ClientId}"` if you have set the [access token accepted version](scenario-protected-web-api-app-registration.md#accepted-token-version) is "2" or for Azure AD B2C web APIs
+> - `$"api://{ClientId}` otherwise (for v1.0 [access tokens](access-tokens.md)).
+> For details see Microsoft.Identity.Web [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)
+
 The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftWebApiAuthentication** is available in [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). This method calls [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), which itself instructs the middleware on how to validate the token. For details see its [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
 
 ## Token validation
@@ -160,9 +182,24 @@ This table describes the validators:
 | **ValidateSignature** | Ensures the token hasn't been tampered with. |
 | **ValidateTokenReplay** | Ensures the token isn't replayed. There's a special case for some onetime-use protocols. |
 
+#### Customizing token validation
+
 The validators are associated with properties of the **TokenValidationParameters** class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
 
-In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated.
+In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well. For details see Microsoft.Identity.Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+
+In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your startup.cs:
+
+```c#
+services.AddMicrosoftWebApiAuthentication(Configuration);
+services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
+{
+    options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
+    options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
+});
+```
+
+For ASP.NET MVC, the following sample shows how to do custom token validation https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
 
 ## Token validation in Azure Functions
 
