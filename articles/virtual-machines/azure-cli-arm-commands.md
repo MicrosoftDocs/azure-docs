@@ -13,11 +13,11 @@ ms.author: cynthn
 
 [!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-This topic describes how to install the Azure classic CLI. The classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/).
+This topic describes how to install the Azure classic CLI. The classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](/cli/azure/).
 
 This article provides syntax and options for Azure classic command-line interface (CLI) commands you'd commonly use to create and manage Azure resources. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
 
-To get started, first [install the Azure classic CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
+To get started, first [install the Azure classic CLI](/cli/azure/install-classic-cli) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 

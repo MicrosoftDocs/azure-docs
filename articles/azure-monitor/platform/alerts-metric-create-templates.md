@@ -1,5 +1,5 @@
 ---
-title: Create a metric alert with a Resource Manager template
+title: Create a newer metric alert with Azure Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: harelbr
 ms.author: harelbr

@@ -61,6 +61,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
+    "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/dcos-swarm/container-service-application-specific-marathon.md",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-application-specific-marathon",
       "redirect_document_id": false
@@ -803,6 +808,11 @@
     {
       "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
       "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
     },
     {
