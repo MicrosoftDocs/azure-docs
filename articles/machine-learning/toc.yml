@@ -158,6 +158,8 @@
             - name: Secure web services with TLS
               href: how-to-secure-web-service.md
               displayName: ssl
+            - name: Increase resiliency
+              href: how-to-high-availability-machine-learning.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
             - name: Regenerate storage access keys

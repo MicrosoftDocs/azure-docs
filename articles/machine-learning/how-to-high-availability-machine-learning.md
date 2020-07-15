@@ -22,21 +22,21 @@ Learn how to make your Azure Machine Learning related resources more resilient b
 
 Azure Machine Learning depends on multiple Azure services and has several layers. Some of them are provisioned in your (customer) subscription and you are responsible for their high availability setting. Some are created in a Microsoft subscription, and are managed by Microsoft.
 
-* **Azure Machine Learning Infrastructure**: Microsoft managed environment for Azure Machine Learning workspace.
+* **Azure Machine Learning Infrastructure**: Microsoft-managed environment for Azure Machine Learning workspace.
 
-* **Associated Resources**: They are the resources provisioned in your subscription during Azure Machine Learning workspace provisioning. They includes storage, key vault, Azure Container Registry(ACR) and App Insights. You are responsible for high availability setting.
-  * Default storage has data such as model, training log data and dataset.
-  * Key Valult has credentials for storage, ACR, data stores.
+* **Associated Resources**: Resources provisioned in your subscription during Azure Machine Learning workspace creation. They include Azure Storage, Azure Key Vault, Azure Container Registry (ACR), and App Insights. You are responsible for high availability settings for these resources.
+  * Default storage has data such as model, training log data, and dataset.
+  * Key Vault has credentials for storage, ACR, data stores.
   * ACR has docker image for training and inferencing environment.
   * App Insights is for monitoring Azure Machine Learning.
 
 * **Compute Resources**: They are the resources can be created after Azure Machine Learning workspace deployment.
-  * Compute Instance and Compute Cluster: Microsoft managed model development environment.
-  * Other Resources: They are the computing resources can be attached to Azure Machine Learning such as AKS, ADB, ACI, HDI. You are responsible for high availability setting.
+  * Compute Instance and Compute Cluster: Microsoft-managed model development environment.
+  * Other Resources: They are the computing resources can be attached to Azure Machine Learning such as Azure Kubernetes Service (AKS), Azure Databricks, Azure Container Instances (ACI), and HDInsight. You are responsible for high availability setting.
 
 * **Additional Data Stores**: Azure Machine Learning can mount additional data stores such as storage, data lake storage, SQL for training data.  They are within your subscription and you are responsible for high availability setting.
 
-The following table shows which, managed by Microsoft, which are managed by you, and which are highly available by default:
+The following table shows which services are managed by Microsoft, which are managed by you, and which are highly available by default:
 
 | Service | Managed by | HA by default |
 | ----- | ----- | ----- |
@@ -52,7 +52,7 @@ The following table shows which, managed by Microsoft, which are managed by you,
 | Other resources such as Azure Kubernetes Service, <br>Azure Databricks, Azure Container Instance, Azure HDInsight | You |  |
 | **Additional Data Stores** such as Azure Storage, Azure SQL Database,<br> Azure Database for PostgreSQL, Azure Database for MySQL, <br>Azure Databricks file system | You | |
 
-Use the information in the rest of this document to learn the actions You need to take to make each of these services highly available.
+Use the information in the rest of this document to learn the actions needed to take to make each of these services highly available.
 
 ## Associated Resources(Storage, Key Vault, Container Registry, Application Insights)
 
@@ -70,7 +70,7 @@ Make sure high availability setting of each resource with below information.
 
 Make sure high availability setting of each resource with below documentation.
 
-* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](https://docs.microsoft.com/azure/aks/availability-zones). In the case of AKS cluster Azure Machine Learning provisions on behalf of customer, corss-region high availability is not supported.
+* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](https://docs.microsoft.com/azure/aks/availability-zones). If the AKS cluster was created by Azure Machine Learning (using studio, SDK, or ML CLI), cross-region high availability is not supported.
 * **Azure Databricks**: See [Regional disaster recovery for Azure Databricks clusters](https://docs.microsoft.com/azure/azure-databricks/howto-regional-disaster-recovery).
 * **Azure Container Instance**: ACI orchestrator is responsible for failover. See [Azure Container Instances and container orchestrators](https://docs.microsoft.com/azure/container-instances/container-instances-orchestrator-relationship).
 * **Azure HDInsight**: See [High availability services supported by Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-components).
@@ -86,10 +86,10 @@ Make sure high availability setting of each resource with below documentation.
 * **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-business-continuity).
 * **Databricks File System**: See [Regional disaster recovery for Azure Databricks clusters](https://docs.microsoft.com/azure/azure-databricks/howto-regional-disaster-recovery).
 
-## CosmosDB
+## Azure Cosmos DB
 
 If you provide your own key (customer-managed key) to deploy Azure Machine Learning workspace, Cosmos DB is also provisioned within your subscription. In that case, you are responsible for its high availability. See [High availability with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability)
 
 ## Deploy Azure Machine Learning with associated resources with your high availability Settings
 
-Use [ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) with your preferred SKU parameters for default storage and Azure Container Registry.
+Use an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) with your preferred SKU parameters for default storage and Azure Container Registry.
