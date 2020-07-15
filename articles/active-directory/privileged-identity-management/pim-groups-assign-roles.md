@@ -1,52 +1,46 @@
 ---
-title: Assign Azure resource roles in Privileged Identity Management - Azure Active Directory | Microsoft Docs
-description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
+title: Assign eligibility for a group in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+description: Learn how to assign eligibility for a role-assignable group in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/31/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Assign Azure resource roles in Privileged Identity Management
+# Assign eligibility for a role-assignable group in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to role-assignable groups in Azure AD.
 
-- Owner
-- User Access Administrator
-- Contributor
-- Security Admin
-- Security Manager
+>[!NOTE]
+>Every user who is eligible for membership in a role-assignable group must have an Azure AD Premium P2 license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
-> [!NOTE]
-> Users or members of a group assigned to the Owner or User Access Administrator subscription roles, and Azure AD Global administrators that enable subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management for Azure resources. A user can't manage Privileged Identity Management for Resources without Resource administrator permissions. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+## Assign a group
 
-## Assign a role
+Follow these steps to make a user eligible for membership in a role-assignable group.
 
-Follow these steps to make a user eligible for an Azure resource role.
-
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/) in the Azure portal with  [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role permissions.
 
     For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure resources**.
+1. Select **Privileged access groups (Preview)**.
 
-1. Use the **Resource filter** to filter the list of managed resources.
+1. Use the **Group type** to filter the list of role-assignable groups.
 
     ![List of Azure resources to manage](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Select the resource you want to manage, such as a subscription or management group.
+1. Select the group you want to manage.
 
 1. Under Manage, select **Roles** to see the list of roles for Azure resources.
 
