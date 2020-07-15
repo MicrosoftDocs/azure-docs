@@ -31,8 +31,11 @@ For this process, you will need to note down the virtual network of the VM that 
 
 ## Create a disk access resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com/)
-1. Navigate to **Disk Accesses**
+1. Sign in to the Azure portal and navigate to **Disk Access** with [this link](https://aka.ms/disksprivatelinks).
+
+    > [!IMPORTANT]
+    > You must use the [provided link](https://aka.ms/disksprivatelinks) to navigate to the Disk Access blade. It is not yet visible in the public portal without using the link.
+
 1. Select **+ Add** to create a new disk access resource.
 1. On the create blade, select your subscription, a resource group, enter a name, and select a region.
 1. Select **Review + create**.
@@ -89,3 +92,5 @@ You've now completed configuring Private Links that you can use when importing/e
 
 ## Next steps
 
+- [FAQ for Private Links](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

@@ -4,7 +4,7 @@ description: Private links for securely exporting and importing data to Azure Ma
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 07/15/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -127,5 +127,5 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-- [FAQ on private links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ on Private Links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
