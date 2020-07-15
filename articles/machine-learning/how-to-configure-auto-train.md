@@ -216,7 +216,7 @@ The time series `forecasting` task requires additional parameters in the configu
 For examples of the settings used below, see the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
+# Setting Store and Brand as time series identifiers for training.
 time_series_id_column_names = ['Store', 'Brand']
 nseries = data.groupby(time_series_id_column_names).ngroups
 
