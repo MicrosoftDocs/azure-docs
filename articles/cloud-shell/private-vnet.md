@@ -1,5 +1,5 @@
 ---
-title: Cloud Shell in an Azure Virtual Network | Microsoft Docs
+title: Cloud Shell in an Azure Virtual Network
 description: Deploy Cloud Shell into an Azure virtual network
 services: Azure
 documentationcenter: ''
