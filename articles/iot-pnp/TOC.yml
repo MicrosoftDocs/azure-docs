@@ -29,8 +29,6 @@
         href: quickstart-service-python.md
 - name: Tutorials
   items:
-  - name: Create an end-to-end solution
-    href: tutorial-build-solution.md
   - name: Connect a multiple component device (C#)
     href: tutorial-multiple-components-csharp.md
   - name: Connect a multiple component device (Java)

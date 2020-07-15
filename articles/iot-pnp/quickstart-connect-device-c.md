@@ -135,7 +135,7 @@ pnp_simple_thermostat.exe
 
 The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
-### Use the Azure IoT explorer to validate the code
+## Use Azure IoT explorer to validate the code
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 

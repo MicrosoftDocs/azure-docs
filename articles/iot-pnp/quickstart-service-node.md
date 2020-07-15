@@ -251,7 +251,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 
 ## Next steps
 
-In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
+In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop an IoT Plug and Play Preview end-to-end solution](tutorial-build-solution.md)
+> [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md)
