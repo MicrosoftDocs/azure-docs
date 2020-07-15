@@ -92,7 +92,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-**Can I co-locate unmanaged and managed disks on the same VM?**
+**Can I colocate unmanaged and managed disks on the same VM?**
 
 No.
 
@@ -458,25 +458,21 @@ You can leverage Private Links for restricting the export and import to Managed 
 
 **What can I ensure that a disk can be exported or imported only via Private Links?**
 
-You must set the DiskAccessId property to an instance of a DiskAccess object and also set the NetworkAccessPolicy property to AllowPrivate.
+You must set the `DiskAccessId` property to an instance of a disk access object and also set the NetworkAccessPolicy property to AllowPrivate.
 
-**Can I link multiple VNETs to the same DiskAccess object?**
+**Can I link multiple VNETs to the same disk access object?**
 
-No. In the current version, you can link a DiskAccess object to only one VNET. In a future version, we will support associating multiple VNETs to a same DiskAccess object. 
+No. Currently, you can link a disk access object to only one VNET.
 
-**Can I link a VNET to a DiskAccess object in another subscription?**
+**Can I link a VNET to a disk access object in another subscription?**
 
-No. In the current version, you can link a DiskAccess object to a VNET in the same subscription. In a future version, you can link a DiskAccess object to a VNET in another subscription. 
+No. Currently, you can link a disk access object to a VNET in the same subscription.
 
-**Can I link a VNET to a DiskAccess object in another subscription?**
+**Can I link a VNET to a disk access object in another subscription?**
 
-No. In the current version, you can link a DiskAccess object to a VNET in the same subscription. In a future version, you can link a DiskAccess object to a VNET in another subscription. 
+No. Currently, you can link a disk access object to a VNET in the same subscription.
 
-**If I dont have access to a DiskAccess object, can I request for manual approval from the owner for linking a VNET to the DiskAccess object?**
-
-No. In the current version, you cannot request manual approval. In a future version, you can request a manual approval. 
-
-**How many exports or imports using the same DiskAccess object can happen at the same time?**
+**How many exports or imports using the same disk access object can happen at the same time?**
 
 5
 

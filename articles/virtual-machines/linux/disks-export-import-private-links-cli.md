@@ -7,15 +7,16 @@ ms.topic: overview
 ms.date: 07/15/2020
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Securely exporting/importing data to Azure managed disks using Private Links (preview)
 
-You can use [private endpoints](../../private-link/private-endpoint-overview.md) (preview) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network (VNet). The private endpoint uses an IP address from the VNet address space for your managed disks service. Network traffic between the clients on the VNet and managed disks traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
+You can use [private endpoints](../../private-link/private-endpoint-overview.md) (preview) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks service. Network traffic between the clients on the virtual network and managed disks traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
 
-To use Private Links to export/import managed disks, first you create an DiskAccess resource and link it to a VNET in the same subscription by creating a private endpoint. Then, associate a disk or a snapshot with an instance of DiskAccess. Finally, set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. This will limit access to your VNET. 
+To use Private Links to export/import managed disks, first you create a disk access resource and link it to a virtual network in the same subscription by creating a private endpoint. Then, associate a disk or a snapshot with an instance of disk access. Finally, set the NetworkAccessPolicy property of the disk or the snapshot to `AllowPrivate`. This will limit access to your virtual network. 
 
-You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from exporting data of a disk or a snapshot. The default value for the NetworkAccessPolicy property is AllowAll.
+You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody from exporting data of a disk or a snapshot. The default value for the NetworkAccessPolicy property is `AllowAll`.
 
 ## Limitations
 
@@ -54,7 +55,7 @@ az account set --subscription $subscriptionId
 
 ```
 
-## Create an instance of DiskAccess using Azure CLI
+## Create a disk access using Azure CLI
 ```azurecli-interactive
 az group deployment create -g $resourceGroupName \
 --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateDiskAccess.json" \
@@ -82,7 +83,7 @@ az network vnet subnet update --resource-group $resourceGroupName \
     --vnet-name $vnetName \
     --disable-private-endpoint-network-policies true
 ```
-## Create a private endpoint for the DiskAccess object
+## Create a private endpoint for the disk access object
 
 ```azurecli-interactive
 az network private-endpoint create --resource-group $resourceGroupName \
