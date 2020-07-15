@@ -205,7 +205,9 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
 });
 ```
 
-For ASP.NET MVC, the following sample shows how to do custom token validation https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
+For ASP.NET MVC, the following code sample shows how to do custom token validation:
+
+https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation
 
 ## Token validation in Azure Functions
 
