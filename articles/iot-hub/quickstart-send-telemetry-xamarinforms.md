@@ -1,6 +1,6 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
-description: In this quickstart, you run a sample Xamarin.Forms application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
+title: Send telemetry to Azure IoT Hub quickstart (Xamarin.Forms)
+description: Run a sample Xamarin.Forms application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu

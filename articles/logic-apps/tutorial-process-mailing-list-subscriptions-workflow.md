@@ -101,7 +101,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
       ![Add "Subject Filter" property to trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      For more information about this trigger's properties, see the [Office 365 Outlook connector reference](https://docs.microsoft.com/connectors/office365/) or the [Outlook.com connector reference](https://docs.microsoft.com/connectors/outlook/).
+      For more information about this trigger's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
@@ -140,7 +140,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
    For now, ignore the dynamic content list that appears when you click inside specific edit boxes. This list lets you select available output from previous actions that you can use as inputs in your workflow.
 
-   For more information about this action's properties, see the [Office 365 Outlook connector reference](https://docs.microsoft.com/connectors/office365/) or the [Outlook.com connector reference](https://docs.microsoft.com/connectors/outlook/).
+   For more information about this action's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
  
 1. Save your logic app.
 
@@ -205,7 +205,7 @@ Now add an action that adds the approved member to your mailing list.
    | **Email Address** | Yes | <*new-member-email-address*> | From the dynamic content list, select **From** under **When a new mail arrives**, which passes in the email address for the new member. |
    ||||
 
-   For more information about this action's properties, see the [MailChimp connector reference](https://docs.microsoft.com/connectors/mailchimp/).
+   For more information about this action's properties, see the [MailChimp connector reference](/connectors/mailchimp/).
 
 1. Save your logic app.
 
