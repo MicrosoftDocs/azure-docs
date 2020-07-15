@@ -1,16 +1,17 @@
 ---
-title: Private Links for exporting and importing Azure Managed Disks 
+title: Private Links (preview) for exporting and importing Azure Managed Disks 
 description: Private links for securely exporting and importing data to Azure Managed Disks
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 07/15/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Securely exporting/importing data to Azure managed disks using Private Links
-You can use [private endpoints](../../private-link/private-endpoint-overview.md) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network (VNet). The private endpoint uses an IP address from the VNet address space for your managed disks service. Network traffic between the clients on the VNet and managed disks traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
+# Securely exporting/importing data to Azure managed disks using Private Links (preview)
+
+You can use [private endpoints](../../private-link/private-endpoint-overview.md) (preview) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network (VNet). The private endpoint uses an IP address from the VNet address space for your managed disks service. Network traffic between the clients on the VNet and managed disks traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
 
 To use Private Links to export/import managed disks, first you create an DiskAccess resource and link it to a VNET in the same subscription by creating a private endpoint. Then, associate a disk or a snapshot with an instance of DiskAccess. Finally, set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. This will limit access to your VNET. 
 
@@ -26,7 +27,7 @@ You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from 
 
 ## Prerequisites
 
-To use private endpoints for exporting and importing managed disks, you must get the feature enabled on your subscription. Send an email to mdprivatelinks@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
+To use private endpoints for exporting and importing managed disks, you must get the feature enabled on your subscription. Send an email to mdprivatelinks@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
 
 ## Log in into your subscription and set your variables
 
@@ -130,5 +131,5 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-- [FAQ on private links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ on Private Links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
