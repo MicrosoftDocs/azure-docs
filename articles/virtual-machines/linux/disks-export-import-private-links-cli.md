@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Securely exporting/importing data Azure managed disks using Private Links
+# Securely exporting/importing data to Azure managed disks using Private Links
 You can use [private endpoints](../../private-link/private-endpoint-overview.md) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network (VNet). The private endpoint uses an IP address from the VNet address space for your managed disks service. Network traffic between the clients on the VNet and managed disks traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
 
 To use Private Links to export/import managed disks, first you create an DiskAccess resource and link it to a VNET in the same subscription by creating a private endpoint. Then, associate a disk or a snapshot with an instance of DiskAccess. Finally, set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. This will limit access to your VNET. 
