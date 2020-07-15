@@ -110,7 +110,7 @@ When an app is called on a controller action that holds an **[Authorize]** attri
 
 #### Using Microsoft.Identity.Web templates
 
-You can create a Web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates)
+You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates)
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
