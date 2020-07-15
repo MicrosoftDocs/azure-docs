@@ -57,7 +57,6 @@
 
     - name: Administration
       items:
-        
         - name: Change application settings
           href: ../core/howto-administer.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Manage users and roles
@@ -72,8 +71,8 @@
           href: ../core/howto-monitor-application-health.md
         - name: About your application
           href: ../core/howto-get-app-info.md
-      - name: Manage from other places
-        items: 
+    - name: Manage from other places
+      items: 
         - name: Manage from the Azure portal
           href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Manage from Azure CLI
