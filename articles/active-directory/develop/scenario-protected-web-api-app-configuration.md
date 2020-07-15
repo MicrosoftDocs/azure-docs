@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
@@ -92,7 +92,7 @@ This section describes how to configure a bearer token.
 
 When an app is called on a controller action that holds an **[Authorize]** attribute, ASP.NET and ASP.NET Core extract the access token from the Authorization header's bearer token. The access token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
 
-In ASP.NET Core, this middleware is initialized in the Startup.cs file.
+Today, ASP.NET Core 3.1 uses the Microsoft.AspNetCore.AzureAD.UI library. The middleware is initialized in the Startup.cs file.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -101,33 +101,31 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 The middleware is added to the web API by this instruction:
 
 ```csharp
- services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-         .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
+// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
+{
+  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+          .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
+}
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by adding this code to Startup.cs:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by replacing this code to Startup.cs:
 
 ```csharp
-services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
-{
-    // This is a Microsoft identity platform web API.
-    options.Authority += "/v2.0";
-
-    // The web API accepts as audiences both the Client ID (options.Audience) and api://{ClientID}.
-    options.TokenValidationParameters.ValidAudiences = new []
-    {
-     options.Audience,
-     $"api://{options.Audience}"
-    };
-
-    // Instead of using the default validation (validating against a single tenant,
-    // as we do in line-of-business apps),
-    // we inject our own multitenant validation logic (which even accepts both v1 and v2 tokens).
-    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;;
-});
+using Microsoft.Identity.Web;
 ```
 
-The preceding code snippet is extracted from the ASP.NET Core web API incremental tutorial in [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). The **AddProtectedWebApi** method, which does more than the snippet shows, is called from Startup.cs.
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+ // Adds Microsoft Identity platform (AAD v2.0) support to protect this Api
+ services.AddMicrosoftWebApiAuthentication(Configuration, "AzureAd");
+
+ services.AddControllers();
+}
+```
+
+The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftWebApiAuthentication** is available in [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). This method calls [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), which itself instructs the middleware on how to validate the token. For details see its [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
 
 ## Token validation
 
@@ -162,7 +160,10 @@ In most cases, you don't need to change the parameters. Apps that aren't single 
 
 ## Token validation in Azure Functions
 
-You can also validate incoming access tokens in Azure Functions. You can find examples of such validation in [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
+You can also validate incoming access tokens in Azure Functions. You can find examples of such validation in:
+- [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions),
+- [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), 
+- and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## Next steps
 
