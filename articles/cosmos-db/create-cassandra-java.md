@@ -1,5 +1,5 @@
 ---
-title: Build a Java app with Azure Cosmos DB Cassandra API using the Java 3.0 SDK
+title: Java app with Azure Cosmos DB Cassandra API using Java 3.0 SDK
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 
 ms.service: cosmos-db
 author: TheovanKraay

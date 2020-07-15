@@ -510,7 +510,7 @@ There are some limitations in what can be routed and the form in which they are 
 |FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
 |FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
 |FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
-|FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication,FileShare|
@@ -2124,7 +2124,7 @@ There are some limitations in what can be routed and the form in which they are 
 |FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
 |FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
 |FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
-|FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication,FileShare|

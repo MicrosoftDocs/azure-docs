@@ -238,7 +238,7 @@ Service Map integrates with Log Search to show a count of all available log even
 
 ## Service Desk integration
 
-Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](../platform/itsmc-overview.md).
 
 The **Machine Service Desk** pane lists all IT Service Management events for the selected server in the selected time range. The server displays an icon if there are current items and the Machine Service Desk pane lists them.
 
@@ -267,7 +267,7 @@ The **Machine Performance** pane displays standard performance metrics for the s
 
 ![Machine Performance pane](media/service-map/machine-performance.png)
 
-To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
+To see performance data, you may need to [enable the appropriate Log Analytics performance counters](../platform/data-sources-performance-counters.md).  The counters you will want to enable:
 
 Windows:
 - Processor(*)\\% Processor Time
@@ -537,7 +537,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## REST API
 
-All the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
+All the server, process, and dependency data in Service Map is available via the [Service Map REST API](/rest/api/servicemap/).
 
 ## Diagnostic and usage data
 
