@@ -1,13 +1,13 @@
 ---
 title: Azure delegated resource management
-description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-ms.date: 04/01/2020
+description: Azure delegated resource management is a key part of Azure Lighthouse, allowing service providers to manage delegated resources at scale with agility and precision.
+ms.date: 05/28/2020
 ms.topic: conceptual
 ---
 
 # Azure delegated resource management
 
-Azure delegated resource management is one of the key components of Azure Lighthouse. With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
+Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
 
 ## What is Azure delegated resource management?
 
@@ -20,7 +20,7 @@ With Azure delegated resource management, authorized users can work directly in 
 
 The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log, which is stored in the customer's tenant (and can be viewed by users in the managing tenant). This means that both the customer and service provider can easily identify the user associated with any changes.
 
-When you onboard a customer to Azure delegated resource management, they'll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
+When you onboard a customer to Azure delegated resource management, they'll have access to the **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 
 You can [publish the new Managed Service offer type to Azure Marketplace](../how-to/publish-managed-services-offers.md) to easily onboard customers to Azure delegated resource management. Alternatively, you can [complete the onboarding process by deploying Azure Resource Manager templates](../how-to/onboard-customer.md).
 
@@ -35,7 +35,7 @@ At a high level, here's how Azure delegated resource management works:
 3. Once the customer has been onboarded, authorized users can sign in to your service provider tenant and perform management tasks at the given customer scope, based on the access that you defined.
 
 > [!NOTE]
-> Delegation of a subscription between two tenants across separate clouds is not supported.
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
 
 ## Support for Azure delegated resource management
 

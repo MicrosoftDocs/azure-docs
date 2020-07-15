@@ -112,7 +112,7 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
+Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
@@ -183,7 +183,7 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 
 | Resource | Default limit |
 | --- | --- |
-| Duration of the trial | 30 days (can be renewed any number of times) |
+| Duration of the trial | 30 days (a new trial can be requested after expiration) <br> After expiration, the information stored is deleted. |
 | Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
 | Maximum containers per subscription (MongoDB API) | 3 |
 | Maximum throughput per container | 5000 |

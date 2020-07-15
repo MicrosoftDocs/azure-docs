@@ -102,7 +102,7 @@ az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZU
 ```
 ### Turn on Key Vault Firewall
 ```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
 ```
 ### Create a Virtual Network
 ```console
@@ -122,7 +122,18 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```
 ### Link Private DNS Zone to Virtual Network 
 ```console
-az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+```
+### Add Private DNS Records
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
 ```
 ### Create a Private Endpoint (Automatically Approve) 
 ```console
@@ -223,13 +234,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
+> [!NOTE]
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitations**:  Private Endpoint for Azure Key Vault is only available in Azure public regions.
 
 **Maximum Number of Private Endpoints per Key Vault**: 64.
 
-**Maximum Number of Key Vaults with Private Endpoints per Subscription**: 64.
+**Default Number of Key Vaults with Private Endpoints per Subscription**: 400.
 
 For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
 

@@ -8,9 +8,12 @@ ms.date: 04/30/2020
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
 
-One such feature is soft delete. With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state don't incur any cost to the customer.
+One such feature is soft delete. With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to the customer.
 
-[Soft delete protection for Azure virtual machines](soft-delete-virtual-machines.md) and [Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md) are available to everyone.
+Soft delete protection is available for these services:
+
+- [Soft delete for Azure virtual machines](soft-delete-virtual-machines.md)
+- [Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads](soft-delete-sql-saphana-in-azure-vm.md)
 
 This flow chart shows the different steps and states of a backup item when Soft Delete is enabled:
 

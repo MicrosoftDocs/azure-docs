@@ -250,8 +250,3 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Create and use autoscale rules
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
-
-For more examples of virtual machine scale sets in action, see the following sample Azure PowerShell sample scripts:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure PowerShell](powershell-samples.md)

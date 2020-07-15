@@ -52,7 +52,7 @@ Microsoft provides [communication templates](https://aka.ms/mfatemplates) and [e
 
 ## Deployment considerations
 
-Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A [Conditional Access policy](../conditional-access/overview.md) can require users to perform multi-factor authentication when certain criteria are met such as:
+Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A Conditional Access policy can require users to perform multi-factor authentication when certain criteria are met such as:
 
 * All users, a specific user, member of a group, or assigned role
 * Specific cloud application being accessed
@@ -111,7 +111,7 @@ Administrators can choose the [authentication methods](../authentication/concept
 A push notification is sent to the Microsoft Authenticator app on your mobile device. The user views the notification and selects **Approve** to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country. Alternate methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country/region. Alternate methods should be made available for those users.
 
 ### Verification code from mobile app
 
@@ -218,7 +218,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## Plan Conditional Access policies
 
-To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
+To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md).
 
 It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../users-groups-roles/directory-emergency-access.md) and excluding them from your Conditional Access policy.
 

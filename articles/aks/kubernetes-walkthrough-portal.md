@@ -45,7 +45,7 @@ To create an AKS cluster, complete the following steps:
 
 4. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next: Authentication**.
     > [!CAUTION]
-    > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
+    > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) for mitigation.
 
 5. On the **Authentication** page, configure the following options:
     - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
@@ -93,7 +93,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 > [!TIP]
 > In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
-In the Cloud Shell, use either the `nano azure-vote.yaml` or `vi azure-vote.yaml` command to create a file named `azure-vote.yaml`. Then copy in the following YAML definition:
+In the Cloud Shell, use an editor to create a file named `azure-vote.yaml`, such as `code azure-vote.yaml`, `nano azure-vote.yaml` or `vi azure-vote.yaml`. Then copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -278,11 +278,11 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

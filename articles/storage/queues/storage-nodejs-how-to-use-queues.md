@@ -7,8 +7,8 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
 ---
 
@@ -23,6 +23,9 @@ Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**.
+
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for JavaScript. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

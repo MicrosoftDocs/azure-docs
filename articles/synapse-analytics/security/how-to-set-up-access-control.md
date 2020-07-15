@@ -5,7 +5,7 @@ services: synapse-analytics
 author: matt1883 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.subservice:  
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mahi
 ms.reviewer: jrasnick
@@ -106,7 +106,7 @@ Although you can manually assign users to Synapse roles, if you do, it won't con
 
 Users in each role need to complete the following steps:
 
-|   | Step | Workspace admins | Spark admins | SQL admins |
+| Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
 | 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
@@ -124,7 +124,7 @@ Users in each role need to complete the following steps:
 
 ## STEP 8: Network Security
 
-To configure the workspace firewall, virtual network, and [Private Link](../../sql-database/sql-database-private-endpoint-overview.md).
+To configure the workspace firewall, virtual network, and [Private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## STEP 9: Completion
 

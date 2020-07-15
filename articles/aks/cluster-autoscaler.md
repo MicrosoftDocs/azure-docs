@@ -95,7 +95,7 @@ az aks update \
 The above example updates cluster autoscaler on the single node pool in *myAKSCluster* to a minimum of *1* and maximum of *5* nodes.
 
 > [!NOTE]
-> You can't set a higher minimum node count than is currently set for the node pool. For example, if you currently have min count set to *1*, you can't update the min count to *3*.
+> The cluster autoscaler makes scaling decisions based on the minimum and maximum counts set on each node pool, but it does not enforce them after updating the min or max counts. For example, setting a min count of 5 when the current node count is 3 will not immediately scale the pool up to 5. If the minimum count on the node pool has a value higher than the current number of nodes, the new min or max settings will be respected when there are enough unschedulable pods present that would require 2 new additional nodes and trigger an autoscaler event. After the scale event, the new count limits are respected.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
@@ -209,7 +209,7 @@ AKS manages the cluster autoscaler on your behalf and runs it in the managed con
 
 To configure logs to be pushed from the cluster autoscaler into Log Analytics, follow these steps.
 
-1. Set up a rule for resource logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
+1. Set up a rule for resource logs to push cluster-autoscaler logs to Log Analytics. [Instructions are detailed here](./view-master-logs.md#enable-resource-logs), ensure you check the box for `cluster-autoscaler` when selecting options for "Logs".
 1. Click on the "Logs" section on your cluster via the Azure portal.
 1. Input the following example query into Log Analytics:
 

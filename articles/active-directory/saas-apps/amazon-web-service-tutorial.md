@@ -116,9 +116,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name  | Source attribute  | Namespace |
 	| --------------- | --------------- | --------------- |
-	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  https://aws.amazon.com/SAML/Attributes |
+	| RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
+	| Role 			  | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
+	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

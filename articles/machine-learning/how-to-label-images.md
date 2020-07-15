@@ -2,15 +2,16 @@
 title: Tag images in a labeling project
 title.suffix: Azure Machine Learning
 description: Learn how to use the data tagging tools in an Azure Machine Learning labeling project.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
 
 ---
 
-# Tag images in a labeling project
+# Tag images in a labeling project 
 
 After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
@@ -59,7 +60,12 @@ Azure enables the **Submit** button when you've tagged all the images on the pag
 
 After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
 
-### Assisted machine learning 
+### Assisted machine learning (preview) 
+
+> [!IMPORTANT]
+> Assisted machine learning is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Machine learning algorithms may be triggered. If these algorithms are enabled in your project, you may see the following:
 

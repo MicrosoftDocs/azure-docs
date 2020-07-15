@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 03/27/2018
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -43,5 +43,3 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).

@@ -1,8 +1,6 @@
 ---
 title: Commercial marketplace analytics FAQ & terminology - Partner Center 
 description: Get answers to commonly asked questions about commercial marketplace analytics in Partner Center. This article includes a data dictionary for analytics terminology.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -46,7 +44,7 @@ If you're receiving this message, it means  you have analytics data but there is
 | Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer's Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
 | Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer's Azure Subscription.|  |
-| Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer's Azure Subscription.|  |
+| Customer Country/Region | Customer, Order | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure Subscription.|  |
 | Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer's Azure Subscription.||
 | Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer's Azure Subscription.| |
 | Customer ID | Customer, Order | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace Subscriptions.|  |

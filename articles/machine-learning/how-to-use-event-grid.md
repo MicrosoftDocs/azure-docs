@@ -1,18 +1,18 @@
 ---
-title: Trigger events in ML workflows 
+title: Trigger events in ML workflows (preview)
 titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/11/2020
+ms.date: 05/11/2020
 ---
 
-# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
+# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
 
 In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
@@ -141,11 +141,11 @@ The following example demonstrates how to select an Azure subscription and creat
 # Select the Azure subscription that contains the workspace
 az account set --subscription "<name or ID of the subscription>"
 
-# Subscribe to the machine learning workspace.
-az eventgrid event-subscription create \
-  --name {eventGridFilterName} \
-  --source-resource-id "/subscriptions/{subId}/resourceGroups/{rgName}/ \providers/Microsoft.MachineLearningServices/workspaces/{wsName}" \
-  --endpoint {event handler endpoint} \
+# Subscribe to the machine learning workspace. This example uses EventHub as a destination. 
+az eventgrid event-subscription create --name {eventGridFilterName} \
+  --source-resource-id /subscriptions/{subId}/resourceGroups/{RG}/providers/Microsoft.MachineLearningServices/workspaces/{wsName} \
+  --endpoint-type eventhub \
+  --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/n1/eventhubs/EH1 \
   --included-event-types Microsoft.MachineLearningServices.ModelRegistered \
   --subject-begins-with "models/mymodelname"
 ```

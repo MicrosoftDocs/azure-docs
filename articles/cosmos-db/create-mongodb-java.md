@@ -38,7 +38,7 @@ In this quickstart, you create and manage an Azure Cosmos DB for MongoDB API acc
 
 Name your new database **db**, and your new collection **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
 ## Clone the sample application
 

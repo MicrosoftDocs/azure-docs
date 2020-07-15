@@ -1,13 +1,8 @@
 ---
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -65,6 +60,97 @@ If you use a **Service Bus topic or queue** as an event handler for events from 
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is the **event ID**.
 
 The event ID will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
+
+## REST examples (for PUT)
+
+### Service Bus queue
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+			"endpointType": "ServiceBusQueue",
+            "properties": 
+            {
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus queue - delivery with managed identity
+
+```json
+{
+	"properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+				"type": "SystemAssigned"
+			},
+            "destination": 
+            {
+				"endpointType": "ServiceBusQueue",
+                "properties": 
+                {
+					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+				}
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus topic
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+			"endpointType": "ServiceBusTopic",
+            "properties": 
+            {
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Service Bus topic - delivery with managed identity
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+				"type": "SystemAssigned"
+			},
+            "destination": 
+            {
+				"endpointType": "ServiceBusTopic",
+                "properties": 
+                {
+					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+				}
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

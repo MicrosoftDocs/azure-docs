@@ -448,10 +448,10 @@ The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under globa
 
 **Do we support enabling Host Caching on all disk sizes?**
 
-We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4 TiB. For disk sizes more than 4 TiB, we don't support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

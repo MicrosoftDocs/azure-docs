@@ -25,13 +25,15 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> role-based access control (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> role-based access control (RBAC) permissions as described in
+> [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 ## Evaluation triggers
 
 The results of a completed evaluation cycle are available in the `Microsoft.PolicyInsights` Resource
 Provider through `PolicyStates` and `PolicyEvents` operations. For more information about the
-operations of the Azure Policy Insights REST API, see [Azure Policy Insights](/rest/api/policy-insights/).
+operations of the Azure Policy Insights REST API, see
+[Azure Policy Insights](/rest/api/policy-insights/).
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
@@ -40,20 +42,20 @@ Evaluations of assigned policies and initiatives happen as the result of various
   within that scope against the newly assigned policy or initiative and depending on the effects
   used by the policy or initiative, resources are marked as compliant or non-compliant. A large
   policy or initiative evaluated against a large scope of resources can take time. As such, there's
-  no pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
+  no pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
 - A policy or initiative already assigned to a scope is updated. The evaluation cycle and timing for
   this scenario is the same as for a new assignment to a scope.
 
-- A resource is deployed to a scope with an assignment via Resource Manager, REST, Azure CLI, or
-  Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and compliant
-  status information for the individual resource becomes available in the portal and SDKs around 15
-  minutes later. This event doesn't cause an evaluation of other resources.
+- A resource is deployed to a scope with an assignment via Azure Resource Manager, REST, Azure CLI,
+  or Azure PowerShell. In this scenario, the effect event (append, audit, deny, deploy) and
+  compliant status information for the individual resource becomes available in the portal and SDKs
+  around 15 minutes later. This event doesn't cause an evaluation of other resources.
 
 - Standard compliance evaluation cycle. Once every 24 hours, assignments are automatically
   reevaluated. A large policy or initiative of many resources can take time, so there's no
-  pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
+  pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
 - The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
@@ -112,7 +114,8 @@ When the compliance scan completes, the **State** property changes to _Completed
 As an asynchronous process, the REST endpoint to start the scan doesn't wait until the scan is
 complete to respond. Instead, it provides a URI to query the status of the requested evaluation.
 
-In each REST API URI, there are variables that are used that you need to replace with your own values:
+In each REST API URI, there are variables that are used that you need to replace with your own
+values:
 
 - `{YourRG}` - Replace with the name of your resource group
 - `{subscriptionId}` - Replace with your subscription ID
@@ -202,6 +205,11 @@ out of 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Example of policy compliance from Compliance page" border="false":::
 
+> [!NOTE]
+> Regulatory Compliance in Azure Policy is a Preview feature. Compliance properties from SDK and
+> pages in portal are different for enabled initiatives. For more information, see
+> [Regulatory Compliance](../concepts/regulatory-compliance.md)
+
 ## Portal
 
 The Azure portal showcases a graphical experience of visualizing and understanding the state of
@@ -268,7 +276,7 @@ an example of summarization at the subscription level using Azure Policy Insight
 Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
 The output summarizes the subscription. In the example output below, the summarized compliance are
@@ -285,7 +293,7 @@ and the definition information for each assignment. Each policy object in the hi
         "@odata.id": null,
         "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
         "results": {
-            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
+            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant'",
             "nonCompliantResources": 15,
             "nonCompliantPolicies": 1
         },
@@ -293,7 +301,7 @@ and the definition information for each assignment. Each policy object in the hi
             "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77",
             "policySetDefinitionId": "",
             "results": {
-                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
+                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
                 "nonCompliantResources": 15,
                 "nonCompliantPolicies": 1
             },
@@ -302,7 +310,7 @@ and the definition information for each assignment. Each policy object in the hi
                 "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "effect": "deny",
                 "results": {
-                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
                     "nonCompliantResources": 15
                 }
             }]
@@ -315,8 +323,8 @@ and the definition information for each assignment. Each policy object in the hi
 
 In the example above, **value.policyAssignments.policyDefinitions.results.queryResultsUri** provides
 a sample Uri for all non-compliant resources for a specific policy definition. Looking at the
-**$filter** value, IsCompliant is equal (eq) to false, PolicyAssignmentId is specified for the
-policy definition, and then the PolicyDefinitionId itself. The reason for including the
+**$filter** value, ComplianceState is equal (eq) to 'NonCompliant', PolicyAssignmentId is specified
+for the policy definition, and then the PolicyDefinitionId itself. The reason for including the
 PolicyAssignmentId in the filter is because the PolicyDefinitionId could exist in several policy or
 initiative assignments with different scopes. By specifying both the PolicyAssignmentId and the
 PolicyDefinitionId, we can be explicit in the results we're looking for. Previously, for
@@ -324,7 +332,7 @@ PolicyStates we used **latest**, which automatically sets a **from** and **to** 
 last 24-hours.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
 The example response below has been trimmed to a single non-compliant resource for brevity. The
@@ -344,7 +352,7 @@ definition.
         "policyAssignmentId": "/subscriptions/{subscriptionId}/resourceGroups/rg-tags/providers/Microsoft.Authorization/policyAssignments/37ce239ae4304622914f0c77",
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
         "effectiveParameters": "",
-        "isCompliant": false,
+        "ComplianceState": "NonCompliant",
         "subscriptionId": "{subscriptionId}",
         "resourceType": "/Microsoft.Compute/virtualMachines",
         "resourceLocation": "westus2",
@@ -375,7 +383,7 @@ _policy events_. Use the following Uri to view recent policy events associated w
 subscription.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
 Your results resemble the following example:
@@ -446,7 +454,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/networkInterfaces
 ResourceLocation           : westus2
@@ -472,7 +480,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/virtualNetworks
 ResourceLocation           : westus2
@@ -499,7 +507,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/virtualNetworks
 ResourceLocation           : eastus
@@ -527,9 +535,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
+If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log-collect.md) tied to
+[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to
 your subscription, you can also view non-compliance results from the evaluation cycle using simple
 Kusto queries and the `AzureActivity` table. With details in Azure Monitor logs, alerts can be
 configured to watch for non-compliance.

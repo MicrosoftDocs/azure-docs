@@ -24,7 +24,7 @@ While a search document might consist of a large number of fields, typically onl
 Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the hotels-sample-index built-in sample, it might be fields in the following example:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -51,20 +51,26 @@ The results of paginated queries are not guaranteed to be stable if the underlyi
  
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Now assume you want results returned two at a time, ordered by rating. You would execute this query to get the first page of results: `$top=2&$skip=0&$orderby=rating desc`, producing the following results:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 On the service, assume a fifth document is added to the index in between query calls: `{ "id": "5", "rating": 4 }`.  Shortly thereafter, you execute a query to fetch the second page: `$top=2&$skip=2&$orderby=rating desc`, and get these results:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
 
@@ -99,11 +105,11 @@ Formatting is applied to whole term queries. The type of formatting is determine
 In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
 
 ```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
 ```
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",  
       "highlight": "Description"
@@ -122,8 +128,6 @@ With the new behavior:
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Note that the term *bowl of chips* does not have any highlighting because it does not match the full phrase.
-  
-* It will be possible to specify the fragment size returned for the highlight. Fragment size is specified as number of characters (maximum is 1000 characters).
 
 When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 

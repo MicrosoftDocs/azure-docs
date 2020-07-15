@@ -1,11 +1,11 @@
 ---
 title: Migrate accounts from Cloud Partner Portal to Microsoft commercial marketplace
 description: Learn how to migrate your account from Cloud Partner Portal to Partner Center in Microsoft commercial marketplace for Azure
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
 ---
 
@@ -80,7 +80,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 
 Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1).
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport).
 
 ## Next step
 

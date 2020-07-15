@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 07/14/2020.
 * A development machine with [Node.js](https://nodejs.org/) version 10.0.0 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -127,12 +127,12 @@ The following steps show you how to create a Node.js client application that con
     var writeableProperties = {
       'name': (newValue, callback) => {
           setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
           }, 1000);
       },
       'brightness': (newValue, callback) => {
         setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
         }, 5000);
       }
     };
@@ -142,13 +142,14 @@ The following steps show you how to create a Node.js client application that con
       twin.on('properties.desired', function (desiredChange) {
         for (let setting in desiredChange) {
           if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            writeableProperties[setting](desiredChange[setting].value, (newValue, status) => {
+            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
+            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
               var patch = {
                 [setting]: {
                   value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version
+                  ad: status,
+                  ac: code,
+                  av: desiredChange.$version
                 }
               }
               sendDeviceProperties(twin, patch);
@@ -277,7 +278,9 @@ The following steps show you how to create a Node.js client application that con
           } else {
             // Send device properties once on device start up.
             var properties = {
-              state: 'true'
+              state: 'true',
+              processorArchitecture: 'ARM',
+              swVersion: '1.0.0'
             };
             sendDeviceProperties(twin, properties);
 
@@ -327,8 +330,9 @@ You can see how the device responds to commands and property updates:
 
 As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
 
-- Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
-- Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+* Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
+* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
+* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
 
 If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
 

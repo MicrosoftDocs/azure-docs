@@ -5,7 +5,7 @@ services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
@@ -107,7 +107,7 @@ CREATE EXTERNAL TABLE Taxi (
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
 
-The following query demonstrates this using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
+The following query demonstrates this using the *population* external table we created in previous section. It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.

@@ -1,17 +1,10 @@
 ---
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Azure Service Bus metrics in Azure Monitor
 
 Service Bus metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
@@ -31,11 +24,11 @@ Metrics are enabled by default, and you can access the most recent 30 days of da
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![Screenshot of the Monitor - Metrics (preview) page in the Azure portal.][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. To display metrics filtered to the scope of the entity, select the entity and then click **Metrics**.
 
-![][2]
+![Screenshot of the Monitor - Metrics (preview) page filtered to the scope of the entity.][2]
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
@@ -95,6 +88,8 @@ The following two types of errors are classified as user errors:
 | Metric Name | Description |
 | ------------------- | ----------------- |
 |ActiveConnections|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Resource usage metrics
 

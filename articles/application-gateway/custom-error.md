@@ -4,7 +4,7 @@ description: This article shows you how to create Application Gateway custom err
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
 ---

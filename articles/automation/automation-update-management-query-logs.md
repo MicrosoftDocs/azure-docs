@@ -1,22 +1,22 @@
 ---
-title: Query Azure Update Management logs
-description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
+title: Query Azure Automation Update Management logs
+description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
 ---
-# Query update records for Update Management in Azure Monitor Logs
+# Query Update Management logs
 
-In addition to the details that are provided in the Update Management solution, you can search against the logs stored in your Log Analytics workspace. From the solution page, in the left pane, select **Logs**. The Log Search page opens.
+In addition to the details that are provided during Update Management deployment, you can search the logs stored in your Log Analytics workspace. To search the logs from your Automation account, select **Update management** and open the Log Analytics workspace associated with your deployment.
 
-You can also learn how to customize the queries or use them from different clients. See [Log Analytics search API documentation](https://dev.loganalytics.io/).
+You can also customize the log queries or use them from different clients. See [Log Analytics search API documentation](https://dev.loganalytics.io/).
 
-## Update records
+## Query update records
 
 Update Management collects records for Windows and Linux VMs and the data types that appear in log search results. The following sections describe those records.
 
-### Required updates
+### Query required updates
 
 A record with a type of `RequiredUpdate` is created that represents updates required by a machine. These records have the properties in the following table:
 
@@ -37,7 +37,7 @@ A record with a type of `RequiredUpdate` is created that represents updates requ
 | UpdateSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
 | UpdateTitle | The title of the update.|
 
-### Update
+### Query Update record
 
 A record with a type of `Update` is created that represents updates available and their installation status for a machine. These records have the properties in the following table:
 
@@ -74,7 +74,7 @@ A record with a type of `Update` is created that represents updates available an
 | Resource | Name of the resource. | 
 | ResourceType | The resource type. | 
 
-### Update Agent
+### Query Update Agent record
 
 A record with a type of `UpdateAgent` is created that provides details of the update agent on the machine. These records have the properties in the following table:
 
@@ -95,7 +95,7 @@ A record with a type of `UpdateAgent` is created that provides details of the up
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
 | WSUSServer | Errors if the Windows Update agent has a problem, to assist with troubleshooting. |
 
-### Update Deployment Status 
+### Query Update Deployment Status record
 
 A record with a type of `UpdateRunProgress` is created that provides update deployment status of a scheduled deployment by machine. These records have the properties in the following table:
 
@@ -127,7 +127,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | VMUUID | Unique identifier for the virtual machine. |
 | ResourceId | Unique identifier for the resource associated with the record. |
 
-### Update Summary 
+### Query Update Summary record
 
 A record with a type of `UpdateSummary` is created that provides update summary by machine. These records have the properties in the following table:
 
@@ -165,7 +165,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 
 The following sections provide sample log queries for update records that are collected for Update Management.
 
-### Confirm that non-Azure machines are onboarded
+### Confirm that non-Azure machines are enabled for Update Management
 
 To confirm that directly connected machines are communicating with Azure Monitor logs, run one of the following log searches.
 
@@ -188,10 +188,10 @@ On a Windows computer, you can review the following information to verify agent 
 1. In Control Panel, open **Microsoft Monitoring Agent**. On the **Azure Log Analytics** tab, the agent displays the following message: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.
 2. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../azure-monitor/platform/agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
+If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../azure-monitor/platform/agent-windows.md) or [Network configuration for Linux agent](../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
-> If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're onboarding this solution, update the *proxy.conf* permissions to grant the omiuser group read permission on the file by using the following commands:
+> If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're enabling Update Management, update the `proxy.conf` permissions to grant the omiuser group read permission on the file by using the following commands:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -403,5 +403,5 @@ Update
 
 ## Next steps
 
-* Use log searches in [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
+* For details of Azure Monitor logs, see [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+* For help with alerts, see [Configure alerts](automation-tutorial-update-management.md#configure-alerts).

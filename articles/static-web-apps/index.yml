@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Static Web Apps documentation
+title: Azure Static Web Apps documentation 
 summary: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
 
 metadata:
@@ -39,6 +39,30 @@ landingContent:
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API
             url: /learn/modules/publish-app-service-static-web-app-api
+      - linkListType: video
+        links:
+          - text: Build and deploy a static web app
+            url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+  - title: Publish scenarios
+    linkLists: 
+      - linkListType: tutorial
+        links: 
+          - text: Publish from Gatsby
+            url:  publish-gatsby.md
+          - text: Publish from Hugo
+            url:  publish-hugo.md
+          - text: Publish from VuePress
+            url:  publish-vuepress.md
+          - text: Publish from Jekyll
+            url:  publish-jekyll.md
+          - text: Deploy from Next.js
+            url:  deploy-nextjs.md
+          - text: Deploy from Nuxt.js
+            url:  deploy-nuxtjs.md
+      - linkListType: learn
+        links:
+          - text: Publish a static web app with Gatsby 
+            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
   - title: Key concepts
     linkLists: 
       - linkListType: concept
@@ -50,22 +74,4 @@ landingContent:
           - text: Staging 
             url: review-publish-pull-requests.md
           - text: Restrict access
-            url: authentication-authorization.md  
-  - title: Publish scenarios
-    linkLists: 
-      - linkListType: tutorial
-        links: 
-          - text: Publish from Gatsby
-            url:  publish-gatsby.md
-          - text: Publish from Hugo
-            url:  publish-hugo.md
-          - text: Publish from VuePress
-            url:  publish-vuepress.md
-          - text: Deploy from Next.js
-            url:  deploy-nextjs.md
-          - text: Deploy from Nuxt.js
-            url:  deploy-nuxtjs.md
-      - linkListType: learn
-        links:
-          - text: Publish a static web app with Gatsby 
-            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+            url: authentication-authorization.md 

@@ -1,8 +1,9 @@
 ---
-title: Supported Resource Manager resource types
-description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 05/16/2020
+title: Supported Azure Resource Manager resource types
+description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
+ms.date: 06/04/2020
 ms.topic: reference
+ms.custom: generated
 ---
 # Azure Resource Graph table and resource type reference
 
@@ -213,11 +214,10 @@ part of a **table** in Resource Graph.
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - microsoft.hdinsight/clusters
 - microsoft.healthcareapis/services
+- microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensions
 - microsoft.hybriddata/datamanagers
-- microsoft.hydra/components
-- microsoft.hydra/networkscopes
 - microsoft.importexport/jobs
 - microsoft.industrydatalifecycle/derivedmodels
 - microsoft.insights/actiongroups
@@ -357,9 +357,6 @@ part of a **table** in Resource Graph.
 - microsoft.portalsdk/rootresources
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
-- microsoft.projectarcadia/workspaces
-- microsoft.projectarcadia/workspaces/sparkcomputes
-- microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
@@ -436,8 +433,6 @@ part of a **table** in Resource Graph.
 - microsoft.vmwarecloudsimple/virtualmachines
 - microsoft.vmwareonazure/privateclouds
 - microsoft.vmwarevirtustream/privateclouds
-- microsoft.vnfmanager/devices
-- microsoft.vnfmanager/vnfs
 - microsoft.vsonline/accounts
 - microsoft.vsonline/plans
 - microsoft.web/apimanagementaccounts/apis
@@ -486,13 +481,6 @@ part of a **table** in Resource Graph.
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## Next steps
 

@@ -1,19 +1,8 @@
 ---
 title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
-services: service-bus-messaging
-documentationcenter: ''
-author: spelluru
-editor: ''
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Topic filters and actions
@@ -61,7 +50,7 @@ Routing uses filters to distribute messages across topic subscriptions in a pred
 
 
 > [!NOTE]
-> Currently the Azure portal doesn't let you specify filter rules for subscriptions. You can use any of the supported SDKs or Azure Resource Manager templates to define subscription rules. 
+> Because the Azure portal now supports Service Bus Explorer functionality, subscription filters can be created or edited from the portal. 
 
 ## Next steps
 See the following samples: 

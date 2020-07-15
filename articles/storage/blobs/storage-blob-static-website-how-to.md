@@ -43,7 +43,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 ### [Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -71,7 +71,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 ### [PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -148,13 +148,10 @@ These instructions show you how to upload files by using the version of Storage 
 
 Upload objects to the *$web* container from a source directory.
 
-> [!NOTE]
-> If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
-
 This example assumes that you're running commands from Azure Cloud Shell session.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 
@@ -190,7 +187,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## Find the website URL
 
@@ -229,7 +226,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## Enable metrics on static website pages
 

@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.topic: how-to
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
 ---
 
@@ -36,6 +36,9 @@ For REST proxy endpoint requests, client applications should get an OAuth token.
 
 > [!NOTE]
 > See [Manage app and resource access using Azure Active Directory groups](../../active-directory/fundamentals/active-directory-manage-groups.md), to learn more about AAD security groups. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md).
+
+## Kafka REST proxy with Network Security Groups
+If you bring your own VNet and control network traffic with network security groups, allow **inbound** traffic on port **9400** in addition to port 443. This will ensure that Kafka REST proxy server is reachable.
 
 ## Prerequisites
 

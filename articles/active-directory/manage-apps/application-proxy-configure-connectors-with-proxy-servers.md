@@ -2,15 +2,14 @@
 title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
 description: Covers how to work with existing on-premises proxy servers.
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -151,6 +150,9 @@ To enable this, please follow the next steps:
 
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
 
+> [!NOTE]
+> There are various ways to configure the internet proxy in the operating system. Proxy settings configured via NETSH WINHHTP (run `NETSH WINHTTP SHOW PROXY` to verify) override the proxy settings you configured in Step 2. 
+
 The connector updater service will use the machine proxy as well. This behavior can be changed by modifying the file ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
@@ -159,7 +161,7 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
-You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
 
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 
@@ -201,4 +203,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) or create a ticket with our support team.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
@@ -23,6 +23,8 @@ This article includes the following tutorials:
 - Download BOM or manifest files
 - View available capacity of the device
 - Skip checksum validation
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Generate Support package
 
@@ -75,9 +77,9 @@ To restart your Data Box, perform the following steps.
 
 ## Download BOM or manifest files
 
-The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated when you prepare the device to ship.
+The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated for an import order when you prepare the device to ship.
 
-Before you begin, make sure that your device has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files:
+Before you begin, make sure that your device has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files for your import order:
 
 1. Go to the local web UI for your device. You will see that the device has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
 
@@ -163,6 +165,8 @@ You can use the device dashboard to view the available and used capacity of the 
 
 Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum.
 
+Checksum computation during prepare to ship is only done for import orders, and not for export orders. 
+
 We strongly recommend that you do not disable checksum unless the performance is severely impacted.
 
 1. In the top-right corner of the local web UI of your device, go to **Settings**.
@@ -172,7 +176,8 @@ We strongly recommend that you do not disable checksum unless the performance is
 2. **Disable** checksum validation
 3. Click **Apply**.
 
-## Next steps
+> [!NOTE]
+> The skip checksum computation option is available only when the Azure Data Box is unlocked. You won't see this option when the device is locked.
 
 - Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
 

@@ -14,9 +14,9 @@ ms.author: diberry
 ---
 If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
 
-If you are the **owner or administrator of your Azure subscription**, you can add a contributor to the resource.
+If you're the owner or administrator of your Azure subscription, you can add a contributor to the resource.
 
-If you are **not the owner or administrator of your Azure subscription**, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
+If you're not the owner or administrator of your Azure subscription, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
 
 If you have trouble with this role assignment, review:
 

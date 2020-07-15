@@ -3,6 +3,7 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
 ms.date: 03/01/2019
+ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
@@ -136,14 +137,23 @@ To list all logical volumes, names, and their paths in a volume group:
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+The ```lvdisplay``` command also shows whether the volume groups are active are not. If the volume group is marked as inactive, it needs to be activated again to be mounted. If volume-group is shown as inactive, use the following command to activate it.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+After the volume group name is active, run the ```lvdisplay``` command once more to see all the relevant attributes.
 
 To mount the logical volumes to the path of your choice:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### For RAID arrays
@@ -213,7 +223,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 - `download.microsoft.com`
 - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public geos)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
@@ -221,7 +231,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For exampple: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
 > - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
@@ -231,9 +241,9 @@ The access to `download.microsoft.com` is required to download components used t
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks and each disk size is greater than 32 TB.
+This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks or each disk size is greater than 4 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only for file recovery and then shut it down when not required. Restoring on the original machine isn't recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.

@@ -1,6 +1,6 @@
 ---
 title: Manage connections in Azure Automation
-description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
+description: This article tells how to manage Azure Automation connections to external services or applications and how to work with them in runbooks.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
@@ -38,10 +38,10 @@ The cmdlets in the following table create and manage Automation connections with
 
 |Cmdlet|Description|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
 
 ## Internal cmdlets to access connections
 
@@ -136,7 +136,7 @@ You can add an activity for the internal `Get-AutomationConnection` cmdlet to a 
 
 ![add to canvas](media/automation-connections/connection-add-canvas.png)
 
-The following image shows an example of using a connection object in a graphical runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity, which uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
+The following image shows an example of using a connection object in a graphical runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity, which uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
 
 ![get connections](media/automation-connections/automation-get-connection-object.png)
 

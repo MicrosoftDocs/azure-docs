@@ -30,7 +30,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage.  Cache storage accounts must be Standard.<br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that will be needed in the target region. 
 
-![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## Target resources
 
@@ -112,7 +112,7 @@ When you enable replication for an Azure VM, the following happens:
 4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
 5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
 
-![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replication process**
 
@@ -163,11 +163,11 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 
 #### Control access with NSG rules
 
-If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](https://docs.microsoft.com/azure/virtual-network/security-overview), note the following requirements:
+If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/security-overview.md), note the following requirements:
 
 - NSG rules for the source Azure region should allow outbound access for replication traffic.
 - We recommend you create rules in a test environment before you put them into production.
-- Use [service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) instead of allowing individual IP addresses.
+- Use [service tags](../virtual-network/security-overview.md#service-tags) instead of allowing individual IP addresses.
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  
@@ -187,7 +187,7 @@ If you enable multi-VM consistency, machines in the replication group communicat
 
 When you initiate a failover, the VMs are created in the target resource group, target virtual network, target subnet, and in the target availability set. During a failover, you can use any recovery point.
 
-![Failover process](./media/concepts-azure-to-azure-architecture/failover.png)
+![Failover process](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## Next steps
 

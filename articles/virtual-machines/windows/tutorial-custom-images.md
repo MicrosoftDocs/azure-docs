@@ -51,7 +51,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get the VM
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$sourceVM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -128,7 +128,7 @@ New-AzGalleryImageVersion `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $vm.Id.ToString() `
+   -Source $sourceVM.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01'
 ```
 
@@ -137,7 +137,7 @@ It can take a while to replicate the image to all of the target regions.
 
 ## Create a VM 
 
-Once you have a specialized image, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. To use the image, use ``Set-AzVMSourceImage` and set the `-Id` to the image definition ID ($galleryImage.Id in this case) to always use the latest image version. 
+Once you have a specialized image, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. To use the image, use `Set-AzVMSourceImage` and set the `-Id` to the image definition ID ($galleryImage.Id in this case) to always use the latest image version. 
 
 Replace resource names as needed in this example. 
 

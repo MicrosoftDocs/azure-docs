@@ -1,10 +1,9 @@
 ---
 title: Move a maintenance configuration to another Azure region
 description: Learn how to move a VM maintenance configuration to another Azure region
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants

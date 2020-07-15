@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/14/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
@@ -19,14 +19,17 @@ Most customers start with the Free tier so they can evaluate the service. Post-e
 
 ## Feature availability by tier
 
-Almost every feature is available on every tier, including Free, but a feature or workflow that is resource intensive might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
-
 The following table describes tier-related feature constraints.
 
 | Feature | Limitations |
 |---------|-------------|
 | [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [AI enrichment](search-security-manage-encryption-keys.md) | Runs on the Free tier but not recommended. |
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
+| [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
+| [Integration with Azure Private Link](service-create-private-endpoint.md) | Not available on the Free tier. |
+
+Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
 ## Tiers (SKUs)
 
@@ -37,7 +40,7 @@ Tiers are differentiated by:
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
 
-**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a limited search service for smaller projects, including quickstarts and tutorials. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
 **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and set the capacity.
 
@@ -53,10 +56,10 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Fixed cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
-+ Incremental cost when scaling up (add replicas or partitions)
++ Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
++ Adding capacity (replicas or partitions)
 + Bandwidth charges (outbound data transfer) 
-+ Cognitive search (attaching Cognitive Services for AI enrichment, or using Azure storage for knowledge store)
++ Add-on services such as AI enrichment (attaching Cognitive Services in skillsets that define AI processing, or using Azure storage for knowledge store) or deploying a search service in a private virtual network
 
 ### Service costs
 
@@ -68,7 +71,7 @@ When you're estimating the cost of a search solution, keep in mind that pricing 
 
 ### Bandwidth charges
 
-Using [Azure Cognitive Search indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
+Using [indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Cognitive Search.
 + In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
@@ -104,7 +107,7 @@ Most customers bring just a portion of total capacity online, holding the rest i
 
 ## How to manage costs
 
-The following suggestions can help you keep costs at a minimum:
+The following suggestions can help you lower costs or manage costs more effectively:
 
 + Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 

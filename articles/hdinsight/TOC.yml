@@ -167,6 +167,8 @@
           href: ./optimize-hive-ambari.md
         - name: Optimize Apache Pig
           href: ./optimize-pig-ambari.md
+      - name: Reboot cluster nodes
+        href: ./cluster-reboot-vm.md
       - name: Use Apache Ambari REST API
         href: ./hdinsight-hadoop-manage-ambari-rest-api.md
       - name: Delete a cluster
@@ -219,10 +221,6 @@
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VSCode
         href: ./hdinsight-for-vscode.md
-      - name: HDInsight Tools for IntelliJ with Hortonworks Sandbox
-        href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-      - name: Data Lake Tools with Hortonworks Sandbox
-        href: ./hdinsight-hadoop-emulator-visual-studio.md
     - name: Monitoring
       items:
       - name: Use Azure Monitor logs
@@ -237,12 +235,16 @@
         href: ./cluster-availability-monitor-logs.md
     - name: Troubleshoot
       items:
+      - name: Request increase for CPU core quota
+        href: ./quota-increase-request.md
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
       - name: Resource creation failures
         href: ./troubleshoot-resource-creation-fails.md
       - name: Troubleshoot Apache Oozie
         href: ./troubleshoot-oozie.md
+      - name: Understand and resolve WebHCat errors
+        href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -285,10 +287,8 @@
       href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-    - name: Understand and resolve WebHCat errors
-      href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-    - name: Get help on the forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
+    - name: Get help on the Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -328,8 +328,20 @@
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
-      - name: Optimize Apache Spark jobs
-        href: ./spark/apache-spark-perf.md
+      - name: Optimization
+        items:
+        - name: Optimize Apache Spark jobs
+          href: ./spark/apache-spark-perf.md
+        - name: Optimize data processing
+          href: ./spark/optimize-data-processing.md
+        - name: Optimize data storage
+          href: ./spark/optimize-data-storage.md
+        - name: Optimize memory usage
+          href: ./spark/optimize-memory-usage.md
+        - name: Optimize cluster configuration
+          href: ./spark/optimize-cluster-configuration.md
+      - name: Migrate to Spark 2.3 or 2.4
+        href: ./spark/migrate-versions.md
   - name: How to
     items:
     - name: Use tools
@@ -400,7 +412,7 @@
         items: 
         - name: Use with Data Lake Storage
           href: ./spark/apache-spark-use-with-data-lake-store.md
-        - name: Connect to Azure SQL database
+        - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../cosmos-db/lambda-architecture.md
@@ -416,8 +428,6 @@
         href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
       - name: Apache Spark job fails - InvalidClassException
         href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-      - name: Slow Apache Spark jobs - listStatus
-        href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
       - name: Slow Apache Spark jobs - storage container
         href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
       - name: IllegalArgumentException exception
@@ -711,8 +721,6 @@
         href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
       - name: Timeouts with 'hbase hbck' command
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-      - name: Troubleshoot Apache HBase
-        href: ./hbase/apache-troubleshoot-hbase.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
@@ -748,12 +756,18 @@
         href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       - name: Use Python with Apache Hive and Apache Pig
         href: ./hadoop/python-udf-hdinsight.md
-      - name: Apache Hive with Apache Spark
+      - name: HWC integration with Apache Spark and Apache Hive
         href: ./interactive-query/apache-hive-warehouse-connector.md
+      - name: HWC and Apache Spark operations
+        href: ./interactive-query/apache-hive-warehouse-connector-operations.md
+      - name: HWC integration with Apache Zeppelin
+        href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
         href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+      - name: Connect to Apache Beeline
+        href: ./hadoop/connect-install-beeline.md
       - name: Use Apache Hive Beeline
         href: ./hadoop/apache-hadoop-use-hive-beeline.md
       - name: Use Grafana

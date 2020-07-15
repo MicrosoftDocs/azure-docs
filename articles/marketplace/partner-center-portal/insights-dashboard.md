@@ -1,8 +1,6 @@
 ---
 title: Marketplace Insights - Microsoft commercial marketplace
 description: Access a summary of marketplace web analytics, which enables you to measure customer engagement in Microsoft AppSource and Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -84,7 +82,7 @@ The heatmap below displays the count of **Page visits**, **Calls to action**, an
 The heatmap includes the following capabilities:
 
 - The heatmap has a supplementary grid to view the details of **Page visits**, **Calls to action** and **Unique visitors** in a specific location; you can zoom into a specific location if preferred.  
-- **Countries spread** is the count of all countries from where your customers have reported page visits during the selected date range.
+- **Countries/regions spread** is the count of all countries/regions from where your customers have reported page visits during the selected date range.
 - You can search and select a country in the grid to zoom into the location in the map. Revert to the original view by selecting **Home** on the map.
 
 ## Page visits versus unique visitors trend

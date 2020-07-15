@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with F5 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and F5.
 services: active-directory
 documentationCenter: na
@@ -283,7 +283,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| Session | Attribute |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.assertionIssueInstant	| `<ID>` |

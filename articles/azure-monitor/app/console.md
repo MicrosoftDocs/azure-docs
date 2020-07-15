@@ -2,7 +2,7 @@
 title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/21/2020
 
 ms.reviewer: lmolkova
 ---
@@ -14,7 +14,7 @@ ms.reviewer: lmolkova
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 > [!NOTE]
-> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md). This package targets [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), and hence can be used in .NET Core 2.0 or higher, and .NET Framework 4.7.2 or higher.
+> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](../../azure-monitor/app/worker-service.md) for any Console Applications. This package targets [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), and hence can be used in .NET Core 2.1 or higher, and .NET Framework 4.7.2 or higher.
 
 ## Getting started
 
@@ -32,7 +32,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep` is done before the app exits as shown in [full example](#full-example) later in this article.
+> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
@@ -127,7 +127,7 @@ If you created configuration with plain `TelemetryConfiguration()` constructor, 
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### Full example
@@ -168,7 +168,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking so wait a bit
+            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
+            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
             Task.Delay(5000).Wait();
 
         }

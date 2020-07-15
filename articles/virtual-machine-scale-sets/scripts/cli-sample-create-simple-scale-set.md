@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: cli
-ms.date: 03/27/2018
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -40,5 +40,3 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

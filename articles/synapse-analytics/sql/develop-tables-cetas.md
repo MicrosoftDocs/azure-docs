@@ -168,4 +168,4 @@ The following data types cannot be used in SELECT part of CETAS:
 
 ## Next steps
 
-You can try querying [Spark tables](develop-storage-files-spark-tables.md).
+You can try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).

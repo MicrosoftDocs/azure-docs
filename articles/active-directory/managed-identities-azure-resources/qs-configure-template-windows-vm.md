@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
@@ -18,17 +18,17 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# Configure managed identities for Azure resources on an Azure VM using a templates
+# Configure managed identities for Azure resources on an Azure VM using templates
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
 In this article, using the Azure Resource Manager deployment template, you learn how to perform the following managed identities for Azure resources operations on an Azure VM:
 
 ## Prerequisites
 
-- If you're unfamiliar with using Azure Resource Manager deployment template, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- If you're unfamiliar with using Azure Resource Manager deployment template, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Azure Resource Manager templates
@@ -62,7 +62,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 
 
-3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
+3. When you're done, the following sections should be added to the `resource` section of your template and it should resemble the following:
 
    ```JSON
    "resources": [
@@ -161,7 +161,7 @@ To remove system-assigned managed identity from a VM, your account needs the [Vi
 
    If your `apiVersion` is `2017-12-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities.  
 
-The following example shows you how remove a system-assigned managed identity from a VM with no user-assigned managed identities:
+The following example shows you how to remove a system-assigned managed identity from a VM with no user-assigned managed identities:
 
  ```JSON
  {
@@ -226,7 +226,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
 
-3. When you're done, the following sections should added to the `resource` section of your template and it should resemble the following:
+3. When you're done, the following sections should be added to the `resource` section of your template and it should resemble the following:
 
    **Microsoft.Compute/virtualMachines API version 2018-06-01**    
 
@@ -332,13 +332,13 @@ To remove a user-assigned identity from a VM, your account needs the [Virtual Ma
 
    To remove a single user-assigned managed identity from a VM, remove it from the `useraAssignedIdentities` dictionary.
 
-   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
+   If you have a system-assigned managed identity, keep it in the `type` value under the `identity` value.
 
    **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
    To remove a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
 
-   If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
+   If you have a system-assigned managed identity, keep it in the `type` value under the `identity` value.
 
 ## Next steps
 

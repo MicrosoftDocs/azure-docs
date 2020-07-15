@@ -38,7 +38,7 @@ Before you check in code, conduct [code reviews](https://docs.microsoft.com/azur
 
 ### Perform static code analysis
 
-[Static code analysis](https://www.owasp.org/index.php/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offers [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) that perform static code analysis and assist with code reviews.
 
@@ -205,7 +205,7 @@ tools analyze source code or compiled versions of code when the code is
 not executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional
-(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
+(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 
@@ -213,7 +213,7 @@ In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fu
 random data to an application. Inducing program failure helps reveal
 potential security issues before the application is released.
 
-[Security Risk Detection](https://docs.microsoft.com/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
 
 ### Conduct attack surface review
 

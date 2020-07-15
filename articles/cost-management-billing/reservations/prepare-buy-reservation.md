@@ -67,7 +67,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
@@ -80,7 +80,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
+Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 

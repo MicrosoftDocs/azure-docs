@@ -23,8 +23,6 @@ The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDe
 
 This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
-
 ## What are jobs?
 
 Identity registry operations use the **Job** system when the operation:

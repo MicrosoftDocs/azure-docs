@@ -2,18 +2,16 @@
 title: Publish on-premises apps with Azure AD Application Proxy 
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -85,7 +83,7 @@ There are several ways to configure an application for single sign-on and the me
 * Web applications
 * Web APIs that you want to expose to rich applications on different devices
 * Applications hosted behind a Remote Desktop Gateway
-* Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
+* Rich client apps that are integrated with the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 App Proxy works with apps that use the following native authentication protocol:
 

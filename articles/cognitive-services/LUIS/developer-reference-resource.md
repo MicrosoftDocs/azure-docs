@@ -68,6 +68,10 @@ The following table explains the parameters, denoted with curly braces `{}`, in 
 |`version`|10 character version name|
 |`slot`| `production` or `staging`|
 
+### REST query string parameters
+
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
+
 ## App schema
 
 The [app schema](app-schema-definition.md) is imported and exported in a `.json` or `.lu` format.
@@ -114,7 +118,7 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
-
+* [Bot Framework Samples](https://github.com/microsoft/botbuilder-samples) - in #C, JavaScript, TypeScript, and Python
 ## Next steps
 
 * Learn about the common [HTTP error codes](luis-reference-response-codes.md)
