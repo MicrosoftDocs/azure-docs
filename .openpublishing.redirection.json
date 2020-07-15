@@ -24898,7 +24898,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/windows/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
@@ -25144,6 +25154,15 @@
     {
       "source_path": "articles/azure-stack/azure-stack-deploy-template-command-line.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-command-line",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "redirect_url": "/azure/virtual-machines/isolation",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/virtual-machines/virtual-machines/windows/isolation.md",
+      "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },
     {
@@ -26032,6 +26051,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/csharp.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-log-collector-extension.md",
       "redirect_url": "/azure/virtual-machines/windows/log-collector-extension",
       "redirect_document_id": false
@@ -26039,6 +26063,21 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-manage-availability.md",
       "redirect_url": "/azure/virtual-machines/windows/manage-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machine-scale-sets/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
     {
@@ -26303,7 +26342,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/windows/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
