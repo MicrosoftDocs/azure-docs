@@ -165,7 +165,7 @@
   - name: Availability and performance
     items:
     - name: Availability
-      href: availability.md
+      href: ../availability.md
     - name: Co-location
       href: co-location.md
     - name: Network performance
@@ -287,7 +287,7 @@
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic
     - name: Isolated sizes
-      href: isolation.md
+      href: ../isolation.md
     - name: Azure compute units (ACU)
       href: ../acu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Benchmark scores
@@ -387,9 +387,6 @@
         href: create-vm-specialized-portal.md
       - name: PowerShell
         href: create-vm-specialized.md
-    - name: Use ARM template with C#
-      href: csharp-template.md
-      displayName: Azure Resource Manager
     - name: Create VM with Chef
       href: ../../chef/chef-automation.md
     - name: Use Java
