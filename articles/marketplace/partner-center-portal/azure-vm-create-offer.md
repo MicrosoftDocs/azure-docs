@@ -464,7 +464,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
     :::image type="content" source="./media/azure-vm-generations-details.png" alt-text="A view of the generation details window.":::
 
-    The **Generation ID** is visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
+    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 
 3. To update an existing VM that has a Generation 1 already published, simply edit details on the **Technical configuration** page:
 
@@ -534,10 +534,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 
