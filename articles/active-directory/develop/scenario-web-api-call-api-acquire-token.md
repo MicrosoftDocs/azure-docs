@@ -24,7 +24,10 @@ After you've built a client application object, use it to acquire a token that y
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Here's an example of code using Microsoft identity web, that's called in the actions of the API controllers. It calls a downstream API named *todolist*.
+Here's an example of code using Microsoft identity web, that's called in the actions of the API controllers. It calls a downstream API named *todolist*. 
+To get a token to call the downstream API, you inject the `ITokenAcquisition` service by dependency injection in your controller's constructor (or your
+page constructor if you use Blazor), and you use it in your controller actions, getting a token for the user (`GetAccessTokenForUserAsync`) or for the application
+itself (`GetAccessTokenForAppAsync`) in the case of a daemon scenario.
 
 ```csharp
 [Authorize]
@@ -36,6 +39,8 @@ public class MyApiController : Controller
     /// </summary>
     static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
+     static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
+
     private readonly ITokenAcquisition _tokenAcquisition;
 
     public MyApiController(ITokenAcquisition tokenAcquisition)
@@ -46,11 +51,14 @@ public class MyApiController : Controller
     public IActionResult Index()
     {
         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
-        string accessToken = _tokenAcquisition.GetTokenForUserAsync(new string[]{"user.read"});
+
+        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
         return await callTodoListService(accessToken);
     }
 }
 ```
+
+See  [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md) for details about the `callTodoListService` method
 
 # [Java](#tab/java)
 Here's an example of code that's called in the actions of the API controllers. It calls the downstream API - Microsoft Graph.
