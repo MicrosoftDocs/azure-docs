@@ -36,13 +36,13 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 > [!TIP]
 > The copying of IoT Connector mapping files can be useful for editing and archiving outside of the Azure Portal website and  for providing to Azure Technical Support when opening a support ticket.
 > 
-> Learn more about the IoT Connector [Device and FHIR mapping JSON files](https://github.com/microsoft/IoT-fhir/blob/master/docs/Configuration.md)
+> Learn more about the IoT Connector [Device and FHIR mapping JSON files](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot-mapping-templates)
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the "Add-ins" section.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
 
-2. Select the IoT Connector (preview) which you'll be copying the mapping files from.
+2. Select the **Connector** which you'll be copying the mapping files from.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
 
