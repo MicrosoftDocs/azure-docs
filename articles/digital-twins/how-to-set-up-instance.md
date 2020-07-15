@@ -38,13 +38,19 @@ In the downloaded sample folder, the deployment script is located at _Azure_Digi
 ### Run the script
 
 Here are the steps to run the deployment script in Cloud Shell.
-1. Open a new [Azure Cloud Shell](https://shell.azure.com/) window in your browser. In Cloud Shell window icon bar, select the "Upload/Download files" icon and choose "Upload".
+1. Open a new [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
+    ```azurecli-interactive
+    az login
+    ```
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at *https://aka.ms/devicelogin* and enter the authorization code displayed in your terminal.
+ 
+2. After signing in, look to the Cloud Shell window icon bar. Select the "Upload/Download files" icon and choose "Upload".
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 
     Navigate to the _**deploy.ps1**_ file on your machine and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
-2. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. As the script runs through the automated setup steps, you will be asked to pass in the following values:
+3. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
     * For the instance: a *resource group* name (you can use an existing resource group, or enter a new name of one to create)
     * For the instance: a *name* for your Azure Digital Twins instance
