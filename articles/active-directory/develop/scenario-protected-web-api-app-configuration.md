@@ -90,7 +90,7 @@ This section describes how to configure a bearer token.
 
 #### Case where you used a custom App ID URI for your web API
 
-If you've accepted the App ID URI proposed by the app registration portal, you don't need to specify the audience (See [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#application-id-uri-and-scopes)). Otherwise you should add an "Audience" property which value will be the App UI URI for your Web API.
+If you've accepted the App ID URI proposed by the app registration portal, you don't need to specify the audience (see [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#application-id-uri-and-scopes)). Otherwise, you should add an `Audience` property whose value is the App ID URI for your web API.
 
 ```Json
 {
