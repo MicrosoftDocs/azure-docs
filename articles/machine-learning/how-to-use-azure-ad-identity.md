@@ -3,8 +3,8 @@ title: Use AAD identity with your web service
 titleSuffix: Azure Machine Learning
 description: Use AAD identity with your web service in Azure Kubernetes Service to access cloud resources during scoring.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+ms.author: larryfr
+author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core

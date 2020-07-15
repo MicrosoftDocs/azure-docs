@@ -421,4 +421,12 @@ The DocumentLevelSuggestions insight provides a list of suggested search terms b
 
 Check out [Examples of Bing insights usage](bing-insights-usage.md) to see how Bing might display the visual insights.
 
-To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+To get started quickly with your first request, see the quickstarts:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).
