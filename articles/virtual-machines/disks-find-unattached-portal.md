@@ -56,4 +56,4 @@ If you have unmanaged disks that aren't attached to a VM, no longer need the dat
 
 If you'd like an automated way of finding and deleting unattached storage accounts, see our [CLI](linux/find-unattached-disks.md) or [PowerShell](windows/find-unattached-disks.md) articles.
 
-For more information, see [Delete a storage account](../storage/common/storage-account-create.md#delete-a-storage-account) and [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+For more information, see [Delete a storage account](../storage/common/storage-account-create.md#delete-a-storage-account) and [Identify Orphaned Disks Using PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)
