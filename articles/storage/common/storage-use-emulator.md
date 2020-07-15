@@ -14,6 +14,9 @@ ms.topic: how-to
 
 The Microsoft Azure storage emulator is a tool that emulates the Azure Blob, Queue, and Table services for local development purposes. You can test your application against the storage services locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, switch to using an Azure storage account in the cloud.
 
+> [!IMPORTANT]
+> The Azure Storage Emulator is no longer being actively developed. [**Azurite**](storage-use-azurite.md) is the storage emulator platform going forward. Azurite supersedes the Azure Storage Emulator. Azurite will continue to be updated to support the latest versions of Azure Storage APIs. For more information, see [**Use the Azurite emulator for local Azure Storage development**](storage-use-azurite.md).
+
 ## Get the storage emulator
 
 The storage emulator is available as part of the [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
