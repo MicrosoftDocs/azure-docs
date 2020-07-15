@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2020
+ms.date: 07/15/2020
 ms.author: damaerte
 ---
 
@@ -25,7 +25,7 @@ ms.author: damaerte
 
 Below you can see the resource architecture that will be deployed and used in this scenario.
 
-::image type="content" source="media/private-vnet/datadiagram.PNG" alt-text="Illustrates the Cloud Shell isolated VNET architecture.":::
+![](media/private-vnet/datadiagram.png)
 
 Before you can use Cloud Shell in your own Azure Virtual Network, you will need to create several resources to support this functionality. This article shows how to set up the required resources to deploy Azure Cloud Shell to a virtual network via an ARM template provided.
 
@@ -71,7 +71,7 @@ As required with standard Cloud Shell, a storage account is required while using
 ### Create a resource group and virtual network
 If you already have a desired VNET that you would like to connect to, skip this section.
 
-In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a rrsource group and a virtual network in the new resource group, **the resource group and virtual network need to be in the same region**.
+In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a resource group and a virtual network in the new resource group, **the resource group and virtual network need to be in the same region**.
 
 > [!NOTE]
 > While in public preview, the resource group and virtual network must be located in either WestCentralUS or WestUS.
@@ -86,7 +86,7 @@ Navigate to the relay created using the above template, select "Networking" in s
 > [!NOTE]
 > This set must be completed for each administrator will use Cloud Shell.
 
-After deploying completing the above steps, navigate to Cloud Shell in the Azure Portal or on shell.azure.com.
+After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on shell.azure.com.
 
 > [!NOTE]
 > If Cloud Shell has been used in the past, the existing clouddrive must be unmounted. To do this run `clouddrive unmount` from an active Cloud Shell session, refresh your page.
@@ -94,7 +94,7 @@ After deploying completing the above steps, navigate to Cloud Shell in the Azure
 Connect to Cloud Shell, you will be prompted with the first run experience. Select your preferred shell experience, select "Show advanced settings" and select the "Show VNET isolation settings" box. Fill in the fields in the pop-up.  Most fields will autofill to the available resources that can be associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
 
-::image type="content" source="media/private-vnet/vnet-settings.PNG" alt-text="Illustrates the Cloud Shell isolated VNET first experience settings.":::
+![](media/private-vnet/vnet-settings.png)
 
 
 ## Next steps
