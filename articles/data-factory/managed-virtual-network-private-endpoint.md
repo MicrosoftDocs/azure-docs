@@ -22,34 +22,34 @@ This article will explain Managed Virtual Network and Managed Private endpoints 
 
 ## Managed virtual network
 
-When you create an Azure Integration Runtime (IR) within Azure Data Factory Managed Virtual Network (VNet), the integration runtime will be provisioned with the managed VNet and will leverage private endpoints to securely connect to supported data stores. 
+When you create an Azure Integration Runtime (IR) within Azure Data Factory Managed Virtual Network (VNet), the integration runtime will be provisioned with the managed Virtual Network and will leverage private endpoints to securely connect to supported data stores. 
 
-Creating an Azure IR within managed VNet ensures that data integration process is completely isolated and secure. 
+Creating an Azure IR within managed Virtual Network ensures that data integration process is isolated and secure. 
 
-Benefits of using Managed VNet :
+Benefits of using Managed Virtual Network :
 
-- With a Managed VNet you can offload the burden of managing the VNet to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime which could eventually use a lot of private IPs from your VNet and would require prior network infrastructure planning. 
+- With a Managed Virtual Network you can offload the burden of managing the Virtual Network to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime that could eventually use many private IPs from your Virtual Network and would require prior network infrastructure planning. 
 - It does not require deep Azure networking knowledge to do data integrations securely. Instead getting started with secure ETL is much simplified for data engineers. 
-- Managed VNet along with Managed private endpoints protects against data exfiltration. 
+- Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
 > During the preview, to enable this feature you will have to create a new data factory with 'enabled managed virtual network (preview)' configuration enabled. 
 >Currently, the managed VNet is only supported in the same region as Azure Data Factory region.
 > Both these limitations will be removed in the coming months.  
 
-<img src="./media/managed-vnet/managed-vnet-architecture-diagram.png" style="zoom: 45%;" />
+![ADF Managed Virtual Network architecture](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
 ## Managed private endpoints
 
-Managed private endpoints are private endpoints created in the Azure Data Factory Managed Managed Virtual Network (VNet) establishing a private link to Azure resources. Azure Data Factory manages these private endpoints on your behalf. 
+Managed private endpoints are private endpoints created in the Azure Data Factory Managed Virtual Network (VNet) establishing a private link to Azure resources. Azure Data Factory manages these private endpoints on your behalf. 
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
 Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse).
 
-When you use a private link, traffic between your data stores and managed VNet traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
+When you use a private link, traffic between your data stores and managed Virtual Network traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
-Private endpoint uses a private IP address in the managed VNet to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. Learn more about [private links and private endpoints](https://docs.microsoft.com/azure/private-link/).
+Private endpoint uses a private IP address in the managed Virtual Network to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. Learn more about [private links and private endpoints](https://docs.microsoft.com/azure/private-link/).
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
@@ -58,11 +58,11 @@ Private endpoint uses a private IP address in the managed VNet to effectively br
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
-<img src="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt="Manage private endpoint" style="zoom:60%;" />
+![Manage private endpoint](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
 If the owner approves the connection, the private link is established. Otherwise, the private link won't be established. In either case, the Managed private endpoint will be updated with the status of the connection.
 
-<img src="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt="Approve private endpoint" style="zoom:75%;" />
+![Approve Managed private endpoint](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Only a Managed private endpoint in an approved state can send traffic to a given private link resource.
 
