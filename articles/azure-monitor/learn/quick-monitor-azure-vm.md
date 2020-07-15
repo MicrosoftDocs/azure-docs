@@ -1,6 +1,6 @@
 ---
-title: Monitor an Azure resource with Azure Monitor
-description: Learn how to collect and analyze data for an Azure resource in Azure Monitor.
+title: Monitor an Azure virtual machine with Azure Monitor
+description: Learn how to collect and analyze data for an Azure virtual machine in Azure Monitor.
 ms.service:  azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
