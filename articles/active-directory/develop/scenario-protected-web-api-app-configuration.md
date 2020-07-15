@@ -211,10 +211,11 @@ https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-valid
 
 ## Token validation in Azure Functions
 
-You can also validate incoming access tokens in Azure Functions. You can find examples of such validation in:
-- [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions),
-- [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), 
-- and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
+You can also validate incoming access tokens in Azure Functions. You can find examples of such validation in the following code samples on GitHub:
+
+- .NET: [Azure-Samples/ms-identity-dotnet-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)
+- Node.js: [Azure-Samples/ms-identity-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
+- Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
 ## Next steps
 
