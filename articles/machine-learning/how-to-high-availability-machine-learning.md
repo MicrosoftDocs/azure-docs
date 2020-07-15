@@ -16,11 +16,14 @@ ms.date: 05/14/2020
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to make your Azure Machine Learning related resources more resilient by using high availability configurations. Azure Machine Learning does not offer disaster recovery option. This documentation is for high availability setting of resources in your (customer) subscription.
+Learn how to make your Azure Machine Learning related resources more resilient by using high availability configurations. The Azure services that Azure Machine Learning depends on can be configured for high availability. This article provides information on what services can be configured for high availability, and links to information on configuring these resources.
+
+> [!NOTE]
+> Azure Machine Learning itself does not offer a disaster recovery option.
 
 ## Understand Azure Services for Azure Machine Learning
 
-Azure Machine Learning depends on multiple Azure services and has several layers. Some of them are provisioned in your (customer) subscription and you are responsible for their high availability setting. Some are created in a Microsoft subscription, and are managed by Microsoft.
+Azure Machine Learning depends on multiple Azure services and has several layers. Some of them are provisioned in your (customer) subscription. You are responsible for the high availability configuration of these services. Some are created in a Microsoft subscription, and are managed by Microsoft.
 
 * **Azure Machine Learning Infrastructure**: Microsoft-managed environment for Azure Machine Learning workspace.
 
@@ -30,11 +33,11 @@ Azure Machine Learning depends on multiple Azure services and has several layers
   * ACR has docker image for training and inferencing environment.
   * App Insights is for monitoring Azure Machine Learning.
 
-* **Compute Resources**: They are the resources can be created after Azure Machine Learning workspace deployment.
+* **Compute Resources**: Resources you create after workspace deployment. For example, you might create a compute instance or compute cluster to train a machine learning model.
   * Compute Instance and Compute Cluster: Microsoft-managed model development environment.
   * Other Resources: They are the computing resources can be attached to Azure Machine Learning such as Azure Kubernetes Service (AKS), Azure Databricks, Azure Container Instances (ACI), and HDInsight. You are responsible for high availability setting.
 
-* **Additional Data Stores**: Azure Machine Learning can mount additional data stores such as storage, data lake storage, SQL for training data.  They are within your subscription and you are responsible for high availability setting.
+* **Additional Data Stores**: Azure Machine Learning can mount additional data stores such as Azure Storage, Azure Data Lake Storage, and Azure SQL Database for training data.  They are within your subscription and you are responsible for high availability setting.
 
 The following table shows which services are managed by Microsoft, which are managed by you, and which are highly available by default:
 
