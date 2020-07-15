@@ -16,6 +16,8 @@
   - name: Create logic apps - ARM template
     displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
+  - name: Create and manage logic apps - Azure CLI
+    href: quickstart-logic-apps-azure-cli.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
@@ -27,7 +29,7 @@
 - name: Samples
   items:
   - name: Azure code samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
+    href: /samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
   - name: Azure Policy built-ins
@@ -330,7 +332,7 @@
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
-      href: logic-apps-enterprise-integration-accounts.md
+      href: ./logic-apps-enterprise-integration-create-integration-account.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
     - name: Move logic app resources
@@ -381,7 +383,7 @@
     - name: Enterprise integration with queues and events
       href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
   - name: Connectors - Full details
-    href: https://docs.microsoft.com/connectors/
+    href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Pricing model & usage metering
@@ -414,7 +416,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: https://docs.microsoft.com/learn/browse/?products=azure-logic-apps
+    href: /learn/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
@@ -428,7 +430,7 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-logic-apps.html
+    href: /answers/topics/azure-logic-apps.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter

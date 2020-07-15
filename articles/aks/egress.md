@@ -10,7 +10,7 @@ ms.date: 03/04/2019
 #Customer intent: As an cluster operator, I want to define the egress IP address to control the flow of traffic from a known, defined address.
 ---
 
-# Use a static public IP address for egress traffic in Azure Kubernetes Service (AKS)
+# Use a static public IP address for egress traffic with a *Basic* SKU load balancer in Azure Kubernetes Service (AKS)
 
 By default, the egress IP address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when you need to identify an IP address for access to external services, for example. Instead, you may need to assign a static IP address that can be whitelisted for service access.
 

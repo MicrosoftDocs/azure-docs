@@ -43,7 +43,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+Use [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -57,7 +57,7 @@ Using `-MaintenanceScope host` ensures that the maintenance configuration is use
 
 If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
 
-You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
+You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
@@ -65,7 +65,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Assign the configuration
 
-Use [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
 
 ### Isolated VM
 
@@ -102,7 +102,7 @@ New-AzConfigurationAssignment `
 
 ## Check for pending updates
 
-Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into.
+Use [Get-AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into.
 
 If there are no updates to show, this command will return nothing. Otherwise, it will return a PSApplyUpdate object:
 
@@ -148,7 +148,7 @@ Get-AzMaintenanceUpdate `
 
 ## Apply updates
 
-Use [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates.
+Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates.
 
 ### Isolated VM
 
@@ -179,7 +179,7 @@ New-AzApplyUpdate `
 ```
 
 ## Check update status
-Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) to check on the status of an update. The commands shown below show the status of the latest update by using `default` for the `-ApplyUpdateName` parameter. You can substitute the name of the update (returned by the [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) command) to get the status of a specific update.
+Use [Get-AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate) to check on the status of an update. The commands shown below show the status of the latest update by using `default` for the `-ApplyUpdateName` parameter. You can substitute the name of the update (returned by the [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) command) to get the status of a specific update.
 
 ```text
 Status         : Completed
@@ -223,7 +223,7 @@ Get-AzApplyUpdate `
 
 ## Remove a maintenance configuration
 
-Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
+Use [Remove-AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `
