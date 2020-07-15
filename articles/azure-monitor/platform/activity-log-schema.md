@@ -20,7 +20,7 @@ The schema will vary depending on how you access the log:
 
 
 ## Categories
-Each event in the Activity Log has a particular category that are described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#collect-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
+Each event in the Activity Log has a particular category that are described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
 
 | Category | Description |
 |:---|:---|
