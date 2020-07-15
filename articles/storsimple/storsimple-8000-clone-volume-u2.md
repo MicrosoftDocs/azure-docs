@@ -9,7 +9,7 @@ ms.assetid:
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.date: 12/05/2017
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
