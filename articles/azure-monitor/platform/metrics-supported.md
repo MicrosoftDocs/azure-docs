@@ -108,7 +108,7 @@ There are some limitations in what can be routed and the form in which they are 
 |EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|Number of timed out EventHub events|Location|
 |EventHubDroppedEvents|Dropped EventHub Events|Count|Total|Number of events skipped because of queue size limit reached|Location|
 |EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|Total size of EventHub events in bytes|Location|
-|GatewayRequests|Gateway Requests|Count|Total|Gateway request metrics with multiple dimensions|Location,Hostname,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory|
+|Gateway Requests|Gateway Requests|Count|Total|Gateway request metrics with multiple dimensions|Location,Hostname,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory|
 |NetworkConnectivity|Network Connectivity Status of Resources (Preview)|Count|Total|Network Connectivity status of dependent resource types from API Management service|Location,ResourceType|
 
 
