@@ -56,14 +56,20 @@ app.post('/token', (req, res) => {
     
     // initialize the configuration client with a connection string
     // retrieved from the Azure Portal
-    const configurationClient = new ManagementClient(CONNECTION_STRING);
+    const configurationClient = new ConfigurationClient(CONNECTION_STRING);
     
     // create a user access token for the provided identity
-    const tokenResponse = configurationClient.userToken().issue(req.body.userName);
+    // Scopes: chat, vpoid, pstn, joinroom
+    // createToken method also accepts an identiy, but that should only be passed after
+    // the user has already been assigned one to recreate their token.
+    const tokenResponse = configurationClient.userToken().createToken(USER_SCOPES[]);
+    
+    //TokenResponse contains the actual token as well as the identity 
+    //for the user that will be used
     
     // return the access token to the client
     res.json({ 
-        token: tokenResponse.token,
+        token: tokenResponse,
      })
 });
 ```
@@ -76,6 +82,7 @@ By default, user access tokens expire after 24 hours but it is a good security p
 
 Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. By default, user access tokens enable clients to participate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
 
+#### [C#](#tab/c-sharp)
 ```csharp
 // create a user access token that enables outbound voip calling
 // and expires after five minutes
@@ -84,6 +91,19 @@ var tokenResult = await userClient.IssueAsync(
     ["voip:adhoc"],
     (60 * 5)
 );
+```
+
+#### [JS](#tab/javascript)
+```javascript
+// create a user access token that enables  voip calling
+// Only pass username if you have already generated an id,
+// if not omit, to generate a user id for the specific user
+
+var tokenResult = await configurationClient.userToken().createToken(
+    username,
+    ['chat']
+);
+
 ```
 
 Scopes are applied to individual user access tokens. If you wish to remove a user's ability to access to some specific functionality, you should first [revoke any existing access tokens](#revoking-user-access-tokens) that may include undesired scopes before issuing a new token with a more limited set of scopes.
@@ -125,13 +145,17 @@ var chatClient = new ChatClient(endpoint, userCredential);
 ```javascript
 import { CommunicationUserCredential } from '@azure/communicationservices-common';
 import { ChatClient } from '@azure/communicationservices-chat';
-import { fetchNewToken } from 'myTokenHelper';
+import { fetchNewToken } from 'myTokenHelper'; 
 
 // Your unique Azure Communication service endpoint
 const endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 
-// Create a CommunicationUserCredential and pass a refresh function. The refresh function is called on first usage of the credential and again when the token is about to expire.
-const userCredential = new CommunicationUserCredential(async () => fetchNewToken(userName));
+// Create a CommunicationUserCredential and pass a refresh function. The refresh function is called on 
+// first usage of the credential and again when the token is about to expire.
+const userCredential = new CommunicationUserCredential({
+        tokenRefresher : async () => fetchNewToken(userName)}
+        //Additional parameters include an initial Token and refresh proactively flag (false by default)
+    );
 
 // Initialize the chat client
 const client = new ChatClient(endpoint, userCredential);
@@ -209,6 +233,7 @@ var chatClient = new ChatClient(endpoint, userCredential);
 #### [Javascript](#tab/javascript-simple-token-init)
 
 ```javascript
+import { CommunicationUserCredential } from '@azure/communicationservices-common';
 import { ChatClient } from '@azure/communicationservices-chat';
 
 // Your unique Azure Communication service endpoint
@@ -261,7 +286,8 @@ let client = ChatClient(endpoint: endpointUrl, token: userCredential)
 ```
 --- 
 
-If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `CommunicationUserCredential` class and use that instance to manage the user access token reissuing process.
+If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `CommunicationUserCredential` class and use that instance to manage the user access token reissuing process. Make sure to give appropriate scope permissions
+for each service
 
 #### [C#](#tab/csharp-shared-credential)
 
@@ -356,6 +382,7 @@ By default, the Azure Communication Services SDKs cache user access tokens in me
 
 Instead, you should initialize the `CommunicationUserCredential` with the aforementioned refresh callback which enables you to fetch user access tokens on demand. With the refresh callback you can then use a caching strategy that suites your application architecture. The following snippet assumes that you have implemented your own functions to fetch from and write to a cache.
 
+#### [C#](#tab/csharp-shared-credential)
 ```csharp
 var userCredential = new CommunicationUserCredential(async () => {
     // try to fetch the access token from the application cache
@@ -379,6 +406,13 @@ var userCredential = new CommunicationUserCredential(async () => {
 });
 ```
 
+#### [JS](#tab/javascript-shared-credential)
+```javascript
+
+TODO
+
+```
+
 > [!CAUTION] 
 > Tokens are sensitive data, because they grant access to a user's resources. Therefore, it's critical to protect tokens from being compromised. If your custom caching logic involves writing user access tokens to a backing store, it is strongly reccomended that you use encryption.
 
@@ -386,9 +420,17 @@ var userCredential = new CommunicationUserCredential(async () => {
 
 In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Configuration SDK.
 
+#### [C#](#tab/csharp-shared-credential)
 ```csharp
 // revoke all access tokens issued for a given user
 var result = await configurationClient.RevokeUserAccessTokenAsync(userName);
+```
+#### [JS](#tab/javascript-shared-credential)
+```javascript
+//revoke all access tokens issued for a given user
+
+TODO
+
 ```
 
 ## Troubleshooting
