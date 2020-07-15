@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups",
       "redirect_document_id": false
