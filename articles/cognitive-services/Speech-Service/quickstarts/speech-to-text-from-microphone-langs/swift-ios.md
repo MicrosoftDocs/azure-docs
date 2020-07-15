@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Swift - Speech service'
+title: 'Quickstart: Recognize speech, Swift - Speech service (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Swift on iOS by using the Speech SDK
+description: Learn how to create an app to recognize speech in Swift for an iOS device using the Cognitive Services Speech SDK.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
 ---
 

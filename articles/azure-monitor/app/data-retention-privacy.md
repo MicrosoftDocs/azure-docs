@@ -2,7 +2,7 @@
 title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 
 ---
 
@@ -14,8 +14,8 @@ First, the short answer:
 
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply a thorough review process to all the code you write.
-* While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
+* While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser.
+* You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 *	Review the collected data, as this may include data that is allowed in some circumstances but not others.  A good example of this is Device Name. The device name from a server has no privacy impact and is useful, but a device name from a phone or laptop may have a privacy impact and be less useful. An SDK developed primarily to target servers, would collect device name by default, and this may need to be overwritten in both normal events and exceptions.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
@@ -58,7 +58,7 @@ The main categories are:
 ## How can I verify what's being collected?
 If you're developing the app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the Output window. From there, you can copy it and format it as JSON for easy inspection. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 There's also a more readable view in the Diagnostics window.
 
@@ -70,7 +70,7 @@ For web pages, open your browser's debugging window.
 This would be possible by writing a [telemetry processor plugin](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account during data ingestion. 
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](./pricing.md#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account during data ingestion. 
 
 Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -118,7 +118,7 @@ Yes, certain Telemetry Channels will persist data locally if an endpoint cannot 
 
 Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories, which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
-This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 If a customer needs to configure this directory with specific security requirements, it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
 
@@ -201,14 +201,14 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 | --- | --- | --- |
 | Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
-|.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions, refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
+|.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions, refer to [these instructions](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 | Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 |Windows Vista | Not Supported. | N/A
 
@@ -283,7 +283,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) will walk you through your options.
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).

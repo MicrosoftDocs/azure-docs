@@ -140,42 +140,6 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
 
-1. Once the deployment completes, navigate to your terminal and pull the commit with the GitHub Action to your machine.
-
-   ```bash
-   git pull
-   ```
-
-1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
-
-1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. If you require Hugo Extended, uncomment `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true  # Fetch Hugo themes (true OR recursive)
-       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.11
-     with:
-       hugo-version: "latest"  # Hugo version: latest OR x.y.z
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-   
-   For more details about installing Hugo to GitHub Actions runner, see [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
-
-1. Commit the updated workflow and push to GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
-
 1. Wait for the GitHub Action to complete.
 
 1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.

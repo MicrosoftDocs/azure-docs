@@ -295,7 +295,7 @@
     - name: Samples
       items:
       - name: New York Taxi 
-        href: load-data-from-azure-blob-storage-using-polybase.md
+        href: load-data-from-azure-blob-storage-using-copy.md
       - name: Contoso 
         href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
       - name: Wide World Importers
@@ -420,5 +420,7 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Machine learning and AI
+      href: sql-data-warehouse-partner-machine-learning-ai.md
     - name: Public Preview partners
       href: sql-data-warehouse-partner-launch.md

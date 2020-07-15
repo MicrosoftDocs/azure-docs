@@ -3,8 +3,8 @@ title: Configure Azure Private Link for an Azure Cosmos account
 description: Learn how to set up Azure Private Link to access an Azure Cosmos account by using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/11/2020
+ms.topic: how-to
+ms.date: 07/10/2020
 ms.author: thweiss
 ---
 
@@ -650,8 +650,6 @@ The following limitations apply when you're using Private Link with an Azure Cos
 * When you're using an Azure Cosmos DB's API for MongoDB account that has Private Link, some tools or libraries may not work as they automatically strip out the `appName` parameter from the connection string. This parameter is required to connect to the account over a private endpoint. Some tools, like Visual Studio Code, do not remove this parameter from the connection string and are therefore compatible.
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
-
-* Direct mode isn't currently supported in China-based Azure regions.
 
 ### Limitations to private DNS zone integration
 

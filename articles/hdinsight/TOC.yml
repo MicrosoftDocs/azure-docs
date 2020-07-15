@@ -167,6 +167,8 @@
           href: ./optimize-hive-ambari.md
         - name: Optimize Apache Pig
           href: ./optimize-pig-ambari.md
+      - name: Reboot cluster nodes
+        href: ./cluster-reboot-vm.md
       - name: Use Apache Ambari REST API
         href: ./hdinsight-hadoop-manage-ambari-rest-api.md
       - name: Delete a cluster
@@ -410,7 +412,7 @@
         items: 
         - name: Use with Data Lake Storage
           href: ./spark/apache-spark-use-with-data-lake-store.md
-        - name: Connect to Azure SQL database
+        - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../cosmos-db/lambda-architecture.md
@@ -426,8 +428,6 @@
         href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
       - name: Apache Spark job fails - InvalidClassException
         href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-      - name: Slow Apache Spark jobs - listStatus
-        href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
       - name: Slow Apache Spark jobs - storage container
         href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
       - name: IllegalArgumentException exception
@@ -721,8 +721,6 @@
         href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
       - name: Timeouts with 'hbase hbck' command
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-      - name: Troubleshoot Apache HBase
-        href: ./hbase/apache-troubleshoot-hbase.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query

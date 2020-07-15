@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ---
@@ -25,6 +25,8 @@ On-demand provisioning allows you to provision a user into an application in sec
 5. Click **provision on-demand**.
 6. Search for a user by first name, last name, display name, user principal name, or email.
 7. Select provision at the bottom of the page.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="On demand provision a user.":::
 
 ## Understanding the provisioning steps
 The on-demand provisioning capability attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provisioning a user, and one or more of the steps below will be shown in the on demand provisioning experience.
@@ -83,6 +85,8 @@ The view details pages shows the properties of the user(s) that were matched in 
 ### Step 5: Perform action
 Finally, the provisioning service takes an action such as creating, updating, deleting, or skipping the user. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Successful provision of user.":::
+
 **View details**
 
 The view details section displays the attributes that were modified in the target application. This represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.  
@@ -92,16 +96,16 @@ The view details section displays the attributes that were modified in the targe
 
 
 ## Frequently asked questions
-**Do you need to turn provisioning off to use on-demand provisioning?** No. On-demand provisioning can be used while the provisioning job is running. However, you may want to turn the provisioning service off before making a change to your attribute mappings or scoping filters and testing the changes with on-demand provisioning. 
+**Do you need to turn provisioning off to use on-demand provisioning?** For applications that use a long-lived bearer token or username and password for authorization, no additional steps are required. Applications that use OAuth for authorization currently require that the provisioning job is stopped before using on-demand provisioning. Applications such as G Suite, Box, Workplace by Facebook, and Slack fall into this category. Work is in progress to allow running on-demand provisioning for all applications, without having to stop provisioning. 
 
 **How long does on-demand provisioning take?** It generally takes less than 30 seconds. 
 
 ## Known Limitations
-There are a few known limitations today. Please post on [UserVoice](https://aka.ms/appprovisioningfeaturerequest) so we can better prioritize what improvements to make next. Note that these limitations are specific to the on-demand provisioning capability. for specifics about whether an application supports provisioning groups, deletions, etc., check the application tutorial. 
+There are a few known limitations today. Please post on [User Voice](https://aka.ms/appprovisioningfeaturerequest) so we can better prioritize what improvements to make next. Note that these limitations are specific to the on-demand provisioning capability. for specifics about whether an application supports provisioning groups, deletions, etc., check the application tutorial. 
 
-* The applications Box, G Suite, Workday SuccessFactors, AWS, and Slack do not support on-demand provisioning
-* Provisioning groups isn't supported
-* Disabling or deleting users and groups isn't supported
+* The applications Workday, AWS, and SuccessFactors do not support on-demand provisioning.
+* Provisioning groups and roles on-demand isn't supported.
+* Disabling or deleting users and groups isn't supported.
 
 ## Next Steps
 
