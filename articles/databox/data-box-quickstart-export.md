@@ -7,13 +7,13 @@ author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 07/09/2020
+ms.date: 07/15/2020
 ms.author: v-grpr
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Get started with Azure Data Box
+# Get started with Azure Data Box to export data from Azure
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
@@ -27,7 +27,7 @@ Before you begin:
 * Make sure that the subscription you use for Data Box service is one of the following types:
   * Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
   * Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-  * Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+  * Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 * Review the [safety guidelines for your Data Box](data-box-safety.md).
@@ -96,6 +96,17 @@ The time to complete this operation depends upon your data size and network spee
 
 1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data from the storage accounts. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
 2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+
+## Ship to Azure
+
+This operation takes about 10-15 minutes to complete.
+
+1. Go to **Prepare to ship** page in the local web UI and start the ship preparation.
+2. Turn off the device from the local web UI. Remove the cables from the device.
+3. Spool and securely place the power cord that was provided with device in the back of the device.
+4. The return shipping label should be visible on the E-ink display. If the E-ink display is not displaying the label, go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+5. Schedule a pickup with your regional carrier if returning the device.
+6. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Clean up resources
 
