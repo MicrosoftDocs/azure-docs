@@ -75,9 +75,9 @@ Collecting data into Azure Monitor Logs requires a Log Analytics workspace. You 
 ## Diagnostic settings
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
-- [Log Analytics workspace](../platform/resource-logs.md#collect-to-log-analytics-workspace) which allows you to analyze data with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as log alerts and visualizations. 
-- [Event hubs](../platform/resource-logs.md#collect-to-azure-event-hubs) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
-- [Azure storage account](../platform/resource-logs.md#collect-to-azure-storage) which is useful for audit, static analysis, or backup.
+- [Log Analytics workspace](../platform/resource-logs.md#send-to-log-analytics-workspace) which allows you to analyze data with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as log alerts and visualizations. 
+- [Event hubs](../platform/resource-logs.md#send-to-azure-event-hubs) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
+- [Azure storage account](../platform/resource-logs.md#send-to-azure-storage) which is useful for audit, static analysis, or backup.
 
 Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../platform/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../platform/diagnostic-settings-template.md) to define them in a template and enable complete monitoring for a resource when it's created.
 
@@ -121,8 +121,8 @@ Azure Monitor Logs consolidates logs and metrics from multiple services and othe
 [Log Analytics](../log-query/get-started-portal.md) allows you to work with [log queries](../log-query/log-query-overview.md), which is a powerful feature of Azure Monitor that allows you to perform advanced analysis of log data using a fully featured query language. Open Log Analytics from **Logs** in the **Monitoring** menu for an Azure resource to work with log queries using the resource as the [query scope](../log-query/scope.md#query-scope). This lets you analyze data across multiple tables for just that resource. Use **Logs** from the Azure Monitor menu to access logs for all resources. 
 
 - See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on using the query language used to write log queries.
-- See [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](../platform/resource-logs.md#collect-to-log-analytics-workspace) for information on how resource logs are collected in Azure Monitor Logs and details for how to access them in a query.
-- See [Collection mode](../platform/resource-logs.md#collect-to-log-analytics-workspace) for an explanation of how resource log data is structured in Azure Monitor Logs.
+- See [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) for information on how resource logs are collected in Azure Monitor Logs and details for how to access them in a query.
+- See [Collection mode](../platform/resource-logs.md#send-to-log-analytics-workspace) for an explanation of how resource log data is structured in Azure Monitor Logs.
 - See the documentation for each Azure service for details on its table in Azure Monitor Logs.
 
 ![Logs](media/monitor-azure-resource/logs.png)
