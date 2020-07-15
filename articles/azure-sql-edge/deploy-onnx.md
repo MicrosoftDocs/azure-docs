@@ -13,7 +13,7 @@ ms.date: 07/14/2020
 
 # Deploy and make predictions with an ONNX model
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (preview) or Azure SQL Managed Instance (preview), and then run native PREDICT on data using the uploaded ONNX model. For more information about Azure SQL Edge, see [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md). For more information about machine learning in Azure SQL Managed Instance, see [Machine Learning Services in Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge (preview)](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
