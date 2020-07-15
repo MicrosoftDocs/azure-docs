@@ -74,7 +74,7 @@ A successful cluster creation using managed identities contains this service pri
 Use the following command to query objectid of your control plane managed identity:
 
 ```azurecli-interactive
-az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```
 
 The result should look like:
@@ -159,7 +159,7 @@ The result should look like:
   "location": "westus2",
   "name": "myIdentity",
   "principalId": "<principalId>",
-  "resourceGroup": "BYO_RG",                       
+  "resourceGroup": "myResourceGroup",                       
   "tags": {},
   "tenantId": "<tenant-id>>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
@@ -176,8 +176,8 @@ Now you can use the following command to create your cluster with your existing 
 
 ```azurecli-interactive
 az aks create \
-    --resource-group BYO_RG \
-    --name byo-test-02 \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
     --network-plugin azure \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
