@@ -1,145 +1,130 @@
 ---
-title: Create an AS2 agreement in Azure logic apps | Microsoft Docs
-description: Create an AS2 agreement for the Enterprise Integration Pack | Azure Logic Apps
+title: Send and receive AS2 messages for B2B
+description: Exchange AS2 messages for B2B enterprise integration scenarios by using Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor:
-
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: mandia
-
+ms.date: 02/27/2020
 ---
-# Enterprise integration with AS2
-To use the enterprise features in logic apps, you must first create agreements.
+
+# Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+
+> [!IMPORTANT]
+> The original AS2 connector is being deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
+> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, and provides 
+> significant performance improvements in terms of throughput and message size. Also, the native v2 connector doesn't 
+> require that you create a connection to your integration account. Instead, as described in the prerequisites, 
+> make sure that you link your integration account to the logic app where you plan to use the connector.
+
+To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions for managing AS2 communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
+
+* [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
+
+  * Signs outgoing messages.
+  * Encrypts outgoing messages.
+  * Compresses the message.
+  * Transmits the file name in the MIME header.
+
+* [**AS2 Decode** action](#decode) for providing decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs these tasks:
+
+  * Processes AS2/HTTP headers.
+  * Reconciles received MDNs with the original outbound messages.
+  * Updates and correlates records in the non-repudiation database.
+  * Writes records for AS2 status reporting.
+  * Outputs payload contents as base64-encoded.
+  * Determines whether MDNs are required. Based on the AS2 agreement, determines whether MDNs should be synchronous or asynchronous.
+  * Generates synchronous or asynchronous MDNs based on the AS2 agreement.
+  * Sets the correlation tokens and properties on MDNs.
+
+  This action also performs these tasks when configured:
+
+  * Verifies the signature.
+  * Decrypts the messages.
+  * Decompresses the message.
+  * Check and disallow message ID duplicates.
+
+This article shows how to add the AS2 encoding and decoding actions to an existing logic app.
 
 ## Prerequisites
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) must be defined in your Azure subscription.  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) must already be defined in your integration account.  
+
+* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* The logic app from where you want to use the AS2 connector and a trigger that starts your logic app's workflow. The AS2 connector provides only actions, not triggers. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the AS2 connector. Both your logic app and integration account must exist in the same location or Azure region.
+
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the AS2 identity qualifier.
+
+* Before you can use the AS2 connector, you must create an AS2 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
+
+* If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
+
+  In the Azure portal, go to the key in your key vault, review your key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected, for example:
+
+  ![Check vault key operations](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
+
+<a name="encode"></a>
+
+## Encode AS2 messages
+
+1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+
+1. In the designer, add a new action to your logic app.
+
+1. Under **Choose an action** and the search box, select **All**. In the search box, enter "as2 encode", and make sure that you select the AS2 (v2) action: **AS2 Encode**
+
+   ![Select "AS2 Encode"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+
+1. Now provide information for these properties:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Message to encode** | The message payload |
+   | **AS2 from** | The identifier for the message sender as specified by your AS2 agreement |
+   | **AS2 to** | The identifier for the message receiver as specified by your AS2 agreement |
+   |||
+
+   For example:
+
+   ![Message encoding properties](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
+> The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
+
+<a name="decode"></a>
+
+## Decode AS2 messages
+
+1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+
+1. In the designer, add a new action to your logic app.
+
+1. Under **Choose an action** and the search box, select **All**. In the search box, enter "as2 decode", and make sure that you select the AS2 (v2) action: **AS2 Decode**
+
+   ![Select "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+
+1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
+
+   For example, suppose your logic app receives messages through a Request trigger. You can select the outputs from that trigger.
+
+   ![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
+
+## Sample
+
+To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## Connector reference
+
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/as2/). 
 
 > [!NOTE]
-> When you create an agreement, the content in the agreement file must match the agreement type.    
-
-After you've created an integration account and added partners, you can create an agreement by using the procedures in the following sections.  
-
-## Create an agreement
-
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal").  
-2. Select **More services**, enter **integration** in the filter search box, and then select **Integration Accounts** in the results list.
-
- ![Select "Integration Accounts" in the search results list](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
-3. Select the integration account to add the certificate.
-
- ![Select the integration account](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Select the **Agreements** tile. If the tile is not displayed, add it.
-
- ![Select the "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
-5. On the **Agreements** blade, select **Add**.
-
- ![Select "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-6. Enter a name for your agreement, select **AS2** in the **Agreement type** list, and enter the appropriate information in the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** lists.
-
- ![Enter a name for the agreement](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
-
- The following table describes the properties in the **Add** dialog box:
-
-    | Property | Description |
-    | --- | --- |
-    | Host Partner | An agreement requires both a host and guest partner. The host partner represents the organization that's configuring the agreement. |
-    | Host Identity | An identifier for the host partner. |
-    | Guest Partner | An agreement requires both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-    | Guest Identity | An identifier for the guest partner. |
-    | Receive Settings | The properties that apply to all messages that are received by the agreement. |
-    | Send Settings | The properties that apply to all messages that are sent by the agreement. |
-
-7. To configure how messages received via this agreement are to be handled, do the following:
-
- a. Select **Receive Settings**.
-
- b. Optionally, you can override the properties of incoming messages by selecting the **Override message properties** check box.
-
- c. To require all incoming messages to be signed, select the **Message should be signed** check box. If you select this option, validate the signature on the messages by selecting **guest partner public certificate** in the **Certificate** list.
-
- d. To require all incoming messages to be encrypted, select the **Message should be encrypted** check box. If you select this option, decrypt the incoming messages by selecting **host partner private certificate** in the **Certificate** list.
-
- e. To require messages to be compressed, select the **Message should be compressed** check box.    
-
- f. To send a synchronous message disposition notification (MDN) for received messages, select the **Send MDN** check box.
-
- g. To send signed MDNs for received messages, select the **Send signed MDN** check box.
-
- h. To send asynchronous MDNs for received messages, select the **Send asynchronous MDN** check box.
-
- ![Set the "Receive Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
-
- The following table describes the **Receive Settings** properties:  
-
- | Property | Description |
- | --- | --- |
- | Override message properties | Indicates that properties in received messages can be overridden. |
- | Message should be signed | Requires messages to be digitally signed. Configure the guest partner public certificate for signature verification.  |
- | Message should be encrypted | Requires messages to be encrypted. Non-encrypted messages will be rejected. Configure the host partner private certificate for decrypting the messages.  |
- | Message should be compressed | Requires messages to be compressed. Non-compressed messages will be rejected. |
- | MDN Text | The default message disposition notification (MDN) to be sent to the message sender. |
- | Send MDN | Requires MDNs to be sent. |
- | Send signed MDN | Requires MDNs to be signed. |
- | MIC Algorithm | |
- | Send asynchronous MDN | Requires messages to be sent asynchronously. |
- | URL | The URL that the MDNs are to be sent to. |
-
-8. To configure how messages that are sent via this agreement are to be handled, do the following:
-
- a. Select **Send Settings**.  
-
- b. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and **host partner private certificate** in the **Certificate** list.
-
- c. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and **guest partner public certificate** in the **Certificate** list.
-
- d. To compress the message, select the **Enable message compression** check box.
-
- e. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
-
- f. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
-
- g. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
-
- h. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL that the MDNs are to be sent to.  
-
- i. To require non-repudiation of receipt, select the **Enable NRR** check box.
-
- j. Select **OK**.
-
- ![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
-
- The following table describes the **Send Settings** properties:  
-
- | Property | Description |
- | --- | --- |
- | Enable message signing | Requires all messages that are sent from the agreement to be signed. |
- | MIC Algorithm | The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
- | Certificate | The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
- | Enable message encryption | Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
- | Encryption Algorithm | The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
- | Certificate | The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
- | Enable message compression | Requires compression of all messages that are sent from this agreement. |
- | Unfold HTTP headers | Places the HTTP content-type header onto a single line. |
- | Request MDN | Requires an MDN for all messages that are sent from this agreement. |
- | Request signed MDN | Requires all MDNs that are sent to this agreement to be signed. |
- | Request asynchronous MDN | Requires asynchronous MDNs to be sent to this agreement. |
- | URL | The URL that the MDNs are to be sent to. |
- | Enable NRR | Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
-
-## View the Agreements list
-To view the newly added agreement, select the **Agreements** tile on the **Integration Account** blade.
-
-![View the "Agreements" list](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## Next steps
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

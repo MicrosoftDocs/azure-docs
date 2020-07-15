@@ -13,13 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 2.2 release notes
+
 ## Overview
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.2. They also contain a list of the StorSimple software updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.2. They also contain a list of the StorSimple software updates included in this release.
 
 Update 2.2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.1. The device version associated with Update 2.2 is 6.3.9600.17708.
 
@@ -51,7 +52,7 @@ The following tables provides a summary of issues that were fixed in Updates 2.2
 | 4 |Snapshot creation |There were issues related to the creation of incremental snapshots in scenarios with large volumes and minimal to no data churn. These issues are fixed in this release. |Yes |Yes |
 | 5 |Openstack authentication |When using Openstack as the cloud service provider, the user would run into an infrequent bug related to the authentication where the JSON parser resulted in a crash. This bug is fixed in this release. |Yes |No |
 | 6 |Host-side copy |In earlier versions of software,   an infrequent bug related to the ODX timing was seen when copying the data   from one volume to another volume. This would result in a controller failover and the system could potentially go into Recovery mode. This bug is fixed in   this release. |Yes |No |
-| 7 |Windows Management   Instrumentation (WMI) |In the previous versions of   software, there were several instances of web proxy failure with the   exception “<ManagementException> Provider load failure”. This bug was attributed to a WMI memory leak and is now fixed. |Yes |No |
+| 7 |Windows Management   Instrumentation (WMI) |In the previous versions of   software, there were several instances of web proxy failure with the   exception “\<ManagementException> Provider load failure”. This bug was attributed to a WMI memory leak and is now fixed. |Yes |No |
 | 8 |Update |In certain rare instances, in   the previous versions of software, the user received a   "CisPowershellHcsscripterror" when trying to scan or install updates. This issue is fixed in this release. |Yes |Yes |
 | 9 |Support package |In this release, there have been improvements to the way the Support package is gathered and uploaded. |Yes |Yes |
 

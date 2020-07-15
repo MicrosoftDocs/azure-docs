@@ -1,3 +1,10 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: kumud
+---
 The following tasks will be done in this scenario:
 
 * Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"

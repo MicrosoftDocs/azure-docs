@@ -1,120 +1,81 @@
 ---
-title: RSS | Microsoft Docs
-description: Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed.
+title: Connect to RSS feeds from Azure Logic Apps
+description: Automate tasks and workflows that monitor and manage RSS feeds by using Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: deonhe
-
+ms.date: 08/24/2018
+tags: connectors
 ---
-# Get started with the RSS connector
-RSS is a popular web syndication format used to publish frequently updated content – like blog entries and news headlines.  Many content publishers provide an RSS feed to allow users to subscribe to it.  Use the RSS connector to retrieve feed information and trigger flows when new items are published in an RSS feed.
 
-> [!NOTE]
-> This version of the article applies to logic apps 2015-08-01-preview schema version. 
-> 
-> 
+# Manage RSS feeds by using Azure Logic Apps
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+With Azure Logic Apps and the RSS connector, 
+you can create automated tasks and workflows for any RSS feed, 
+for example:
 
-## Triggers and actions
-The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+* Monitor when RSS feed items are published.
+* List all RSS feed items.
 
- The RSS connector has the following action(s) and/or trigger(s) available:
+RSS (Rich Site Summary), also called Really Simple Syndication, 
+is a popular format for web syndication and is used for publishing 
+frequently updated content, such as blog posts and news headlines. 
+Many content publishers provide an RSS feed so users can subscribe to that content. 
 
-### RSS actions
-You can take these action(s):
+You can use an RSS trigger that gets responses from an RSS feed 
+and makes the output available to other actions. You can use an 
+RSS action in your logic apps to perform a task with the RSS feed. 
+If you're new to logic apps, review 
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-| Action | Description |
-| --- | --- |
-| [ListFeedItems](connectors-create-api-rss.md#listfeeditems) |Get all RSS feed items. |
+## Prerequisites
 
-### RSS triggers
-You can listen for these event(s):
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-| Trigger | Description |
-| --- | --- |
-| When a new feed item published |Triggers a workflow when a new feed is published |
+* The URL for an RSS feed
 
-## Create a connection to RSS
-> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
-> 
-> [!TIP]
-> You can use this connection in other logic apps.
-> 
-> 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## Reference for RSS
-Applies to version: 1.0
+* The logic app where you want to access an RSS feed. 
+To start with an RSS trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use an RSS action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
-## OnNewFeed
-When a new feed item published: Triggers a workflow when a new feed is published 
+## Connect to an RSS feed
 
-```GET: /OnNewFeed``` 
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| feedUrl |string |yes |query |none |Feed url |
+1. Choose a path: 
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occured |
-| default |Operation Failed. |
+   * For blank logic apps, in the search box, 
+   enter "rss" as your filter. Under the triggers list, 
+   select the trigger you want. 
 
-## ListFeedItems
-List all RSS feed items.: Get all RSS feed items. 
+     -or-
 
-```GET: /ListFeedItems``` 
+   * For existing logic apps, under the step where you want 
+   to add an action, choose **New step**. In the search box, 
+   enter "rss" as your filter. Under the actions list, 
+   select the action you want.
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| feedUrl |string |yes |query |none |Feed url |
+1. Provide the necessary details for your selected trigger or 
+action and continue building your logic app's workflow.
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occured |
-| default |Operation Failed. |
+## Connector reference
 
-## Object definitions
-### TriggerBatchResponse[FeedItem]
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| value |array |No |
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/rss/).
 
-### FeedItem
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| id |string |Yes |
-| title |string |Yes |
-| content |string |Yes |
-| links |array |No |
-| updatedOn |string |No |
+## Get support
 
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

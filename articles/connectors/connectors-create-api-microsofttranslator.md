@@ -1,131 +1,32 @@
 ---
-title: Add the Microsoft Translator in logic apps| Microsoft Docs
-description: Overview of the Microsoft Translator connector with REST API parameters
-services: ''
-suite: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: da782baf-8bf8-4973-8238-e469865f5328
-ms.service: multiple
-ms.devlang: na
+title: Connect to Microsoft Translator
+description: Translate text and perform other language tasks with Microsoft Translator REST APIs and Azure Logic Apps 
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia
-
+tags: connectors
 ---
+
 # Get started with the Microsoft Translator connector
+
 Connect to Microsoft Translator to translate text, detect a language, and more. With Microsoft Translator, you can: 
 
 * Build your business flow based on the data you get from Microsoft Translator. 
 * Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
 
-To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
-
-## Triggers and actions
-Microsoft Translator includes the following actions. There are no triggers.
-
-| Triggers | Actions |
-| --- | --- |
-| None |<ul><li>Detect language</li><li>Text to speech</li><li>Translate text</li><li>Get languages</li><li>Get speech languages</li></ul> |
-
-All connectors support data in JSON and XML formats.
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Microsoft Translator
+
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 > 
 > 
 
-## Swagger REST API reference
-Applies to version: 1.0.
+## Connector-specific details
 
-### Detect language
-Detects source language of given text.  
-```GET: /Detect```
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/microsofttranslator/).
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text whose language will be identified |
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
-
-### Text to speech
-Converts a given text into speech as an audio stream in wave format.  
-```GET: /Speak```
-
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to convert |
-| language |string |yes |query |none |Language code to generate speech (example: 'en-us') |
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
-
-### Translate text
-Translates text to a specified language using Microsoft Translator.  
-```GET: /Translate```
-
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to translate |
-| languageTo |string |yes |query |none |Target language code (example: 'fr') |
-| languageFrom |string |no |query |none |Source language; if not provided, Microsoft Translator will try to auto-detect. (example: en) |
-| category |string |no |query |general |Translation category (default: 'general') |
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
-
-### Get languages
-Retrieves all languages that Microsoft Translator supports.  
-```GET: /TranslatableLanguages```
-
-There are no parameters for this call. 
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
-
-### Get speech languages
-Retrieves the languages available for speech synthesis.  
-```GET: /SpeakLanguages``` 
-
-There are no parameters for this call.
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
-
-## Object definitions
-#### Language: language model for Microsoft Translator translatable languages
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Code |string |no |
-| Name |string |no |
-
-## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
-
+## More connectors
 Go back to the [APIs list](apis-list.md).
-
-<!--References-->
-[5]: https://datamarket.azure.com/developer/applications/
-[6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png

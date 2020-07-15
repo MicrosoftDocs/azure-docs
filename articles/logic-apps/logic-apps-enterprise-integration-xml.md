@@ -1,32 +1,35 @@
 ---
-title: Process XML - Azure Logic Apps | Microsoft Docs
-description: Process and validate XML messages in Azure logic apps and B2B scenarios by using the Enterprise Integration Pack
+title: XML messages and flat files
+description: Process, validate, and transform XML messages in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/07/2016
-ms.author: estfan
-
+ms.date: 02/27/2017
 ---
-# XML processing
-Validate and process XML documents that you exchange with partners in B2B scenarios more easily when you use the Enterprise Integration Pack with Azure Logic Apps. Here are the ways you can process XML messages:
 
-* [XML validation](logic-apps-enterprise-integration-xml-validation.md "Learn about XML message validation") - Validate a message that originates from a source endpoint against a specific schema.
-* [XML transform](../logic-apps/logic-apps-enterprise-integration-transform.md "Learn about XML message transformations and maps") - Convert an XML message based on the requirements of a destination endpoint.
-* [Flat file encoding and flat file decoding](logic-apps-enterprise-integration-flatfile.md "Learn about flat file encoding/decoding") - Encode or decode a flat file. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Enrich a message and extract specific properties from the message. You can then use the extracted properties to route the message to a destination or an intermediary endpoint.
+# XML messages and flat files in Azure Logic Apps with Enterprise Integration Pack
 
-## Try out XML processing
-[Deploy a fully operational logic app ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) by using the XML features in Azure Logic Apps.
+In [Azure Logic Apps](logic-apps-overview.md), you can process XML messages that you send and receive by using the Enterprise Integration Pack. If you've used BizTalk Server, the Enterprise Integration Pack provides similar capabilities to transform and validate messages, work with flat files, and even use XPath to enrich or extract specific properties from a message. If you're new to this space, these features expand how you process messages in your logic app's workflow. For example, if you have a business-to-business (B2B) scenario and work with specific XML schemas, you can use the Enterprise Integration Pack to enhance how your company processes these messages.
 
-## Learn more
-[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
+For example, the Enterprise Integration Pack includes these capabilities:
+
+* [XML validation](logic-apps-enterprise-integration-xml-validation.md): Validate an incoming or outgoing XML message against a specific schema.
+
+* [XML transform](logic-apps-enterprise-integration-transform.md): Convert or customize an XML message based on your requirements or the requirements of a partner by using maps.
+
+* [Flat file encoding and flat file decoding](logic-apps-enterprise-integration-flatfile.md): Encode or decode a flat file.
+
+  For example, SAP accepts and sends IDOC files in flat file format. Many integration platforms create XML messages, including Logic Apps. So, you can create a logic app that uses the flat file encoder to "convert" XML files to flat files.
+
+* [XPath](workflow-definition-language-functions-reference.md#xpath): Enrich a message and extract specific properties from the message. You can then use the extracted properties to route the message to a destination, or an intermediary endpoint.
+
+## Sample
+
+[Deploy a fully operational logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub sample) by using the XML features in Azure Logic Apps.
+
+## Next steps
+
+Learn more about the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

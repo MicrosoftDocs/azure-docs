@@ -1,0 +1,108 @@
+### YamlMime:Landing
+
+title: Translator documentation
+summary: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
+metadata:
+  title: Translator documentation - quickstarts, tutorials, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: translator-text
+  ms.topic: landing-page
+  ms.date: 10/14/2019
+  ms.author: erhopf
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: Translator
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Translator
+            url: translator-info-overview.md
+          - text: Custom Translator
+            url: translator-info-overview.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+          - text: Compliance
+            url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+          - text: Create a subscription
+            url: translator-text-how-to-signup.md
+          - text: FAQ
+            url: https://www.microsoft.com/translator/faq.aspx
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Translate text
+            url: quickstart-translate.md
+          - text: Transliterate text
+            url: quickstart-transliterate.md
+          - text: Language detection
+            url: quickstart-detect.md
+          - text: Dictionary lookup
+            url: quickstart-dictionary.md
+          - text: Determine sentence length
+            url: quickstart-sentences.md
+          - text: List supported languages
+            url: quickstart-languages.md
+      - linkListType: tutorial
+        links:
+          - text: Create a WPF translation app, C#
+            url: tutorial-wpf-translation-csharp.md
+          - text: Create a flask translation app, REST
+            url: tutorial-build-flask-app-translation-synthesis.md
+      - linkListType: reference
+        links:
+          - text: Translator reference (v3)
+            url: reference/v3-0-reference.md
+          - text: Request limits
+            url: request-limits.md
+          - text: Language support
+            url: language-support.md
+
+  - title: Custom Translator
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Build and deploy a custom model
+            url: custom-translator/quickstart-build-deploy-custom-model.md
+      - linkListType: get-started
+        links:
+          - text: Create a project
+            url: custom-translator/how-to-create-project.md
+          - text: Manage your projects
+            url: custom-translator/how-to-search-edit-delete-projects.md
+          - text: Upload documents
+            url: custom-translator/how-to-upload-document.md
+          - text: Train your model
+            url: custom-translator/how-to-train-model.md
+      - linkListType: learn
+        links:
+          - text: Workspaces and projects
+            url: custom-translator/workspace-and-project.md
+          - text: Parallel documents
+            url: custom-translator/what-are-parallel-documents.md
+          - text: Dictionary
+            url: custom-translator/what-is-dictionary.md
+          - text: Supported document formats
+            url: custom-translator/document-formats-naming-convention.md
+      - linkListType: reference
+        links:
+          - text: Language support
+            url: language-support.md
+          - text: Glossary
+            url: custom-translator/glossary.md
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Samples on GitHub
+            url: https://aka.ms/TranslatorGitHub
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-translator

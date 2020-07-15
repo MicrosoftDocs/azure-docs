@@ -1,0 +1,124 @@
+### YamlMime:Landing
+
+title: Azure Monitor documentation
+summary: Monitoring Azure and on-premises services. Aggregate and analyze metrics, logs, and traces. Fire alerts and send notifications or call automated solutions. 
+
+metadata:
+  title: Azure Monitor documentation
+  description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
+  ms.topic: landing-page
+  author: rboucher
+  ms.author: robb
+  ms.date: 10/08/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Azure Monitor
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Monitor?
+            url: overview.md
+          - text: What is Azure Monitor Logs / Log Analytics?
+            url: platform/data-platform-logs.md
+          - text: What is Application Insights?
+            url: app/app-insights-overview.md
+          - text: Application Insights content hub page
+            url: azure-monitor-app-hub.yml
+
+  # Card 
+  - title: About monitoring data   
+    linkLists:     
+      - linkListType: concept
+        links:
+          - text: Data sources Overview
+            url: platform/data-sources.md
+          - text: Data platform Overview
+            url: platform/data-platform.md
+
+  # Card 
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Monitor and alert on metrics
+            url: platform/alerts-metric.md
+          - text: Analyze logs
+            url: log-query/get-started-portal.md
+          - text: Azure VMs in Log Analytics
+            url: learn/quick-collect-azurevm.md
+          - text: Linux VMs in Log Analytics
+            url: learn/quick-collect-linux-computer.md
+          - text: Windows VMs in Log Analytics
+            url: learn/quick-collect-windows-computer.md
+          - text: Alert on Subscription events
+            url: platform/alerts-activity-log.md            
+
+  # Card 
+  - title: Monitor applications
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: .NET
+            url: learn/quick-monitor-portal.md
+          - text: .NET Core
+            url: learn/dotnetcore-quick-start.md
+          - text: Node.js
+            url: learn/nodejs-quick-start.md
+          - text: Mobile
+            url: learn/mobile-center-quickstart.md
+          - text: Website
+            url: app/website-monitoring.md
+
+  # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Free Pluralsight Training - Azure Administrator
+            url: https://go.microsoft.com/fwlink/?linkid=2012827
+
+  # Card
+  - title: Reference - CLI
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Action Groups, Activity Logs, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
+            url:  /cli/azure/azure-cli-reference-for-monitor
+          - text: Log Analytics
+            url:  /cli/azure/ext/log-analytics/monitor
+          - text: Application Insights
+            url:  /cli/azure/ext/application-insights/monitor/app-insights
+
+  # Card
+  - title: Reference - PowerShell
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: Metrics, Autoscale, Diagnostic settings, Alerts
+            url: /powershell/module/az.monitor/?view=azps-2.6.0
+          - text: Log Analytics
+            url: /powershell/module/az.operationalinsights
+          - text: Application Insights
+            url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0 
+
+  - title: Reference - REST API
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: Metrics, Autoscale, Diagnostics settings, Alerts
+            url: /rest/api/monitor
+          - text: Log Analytics
+            url: /rest/api/loganalytics
+          - text: Application Insights
+            url: /rest/api/application-insights/  
+          - text: Application Insights REST API sandbox
+            url: https://dev.applicationinsights.io
+
+
+
+

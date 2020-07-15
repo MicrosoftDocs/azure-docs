@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Azure DevOps Starter documentation
+summary: Azure DevOps Starter presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+
+metadata:
+  title: Azure DevOps Starter documentation
+  description: Bring your existing code and Git repository or choose a sample app to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+  ms.service: devops-project
+  ms.topic: landing-page
+  author: 
+  ms.author: 
+  ms.date: 03/24/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure DevOps Starter
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DevOps Starter?
+            url: overview.md
+      - linkListType: video
+        links:
+          - text: Create CI/CD with the DevOps Starter video (8:53)
+            url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+
+  # Card (optional)
+  - title: Create a CI/CD pipeline
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: .NET
+            url: /azure/devops-project/azure-devops-project-aspnet-core
+          - text: Node.js
+            url: /azure/devops-project/azure-devops-project-nodejs
+          - text: Java
+            url: /azure/devops-project/azure-devops-project-java
+          - text: Python
+            url: /azure/devops-project/azure-devops-project-python
+          - text: PHP
+            url: /azure/devops-project/azure-devops-project-php
+          - text: Ruby
+            url: /azure/devops-project/azure-devops-project-ruby
+          - text: Go
+            url: /azure/devops-project/azure-devops-project-go
+
+  # Card
+  - title: Create release pipelines
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Bring your own code with GitHub
+            url: azure-devops-project-vms.md
+          - text: Deploy your ASP.NET app to Azure Virtual Machines
+            url: azure-devops-project-vms.md
+          - text: Deploy your ASP.NET app and Azure SQL Database
+            url: azure-devops-project-sql-database.md
+          - text: Deploy your app to Azure Container Service and Kubernetes
+            url: azure-devops-project-aks.md
+          - text: Deploy your app to Azure Service Fabric
+            url: azure-devops-project-service-fabric.md

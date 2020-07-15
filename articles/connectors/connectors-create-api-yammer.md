@@ -1,186 +1,97 @@
 ---
-title: Add the Yammer Connector in your Logic Apps | Microsoft Docs
-description: Overview of the Yammer Connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
-ms.service: multiple
-ms.devlang: na
+title: Connect to Yammer from Azure Logic Apps
+description: Automate tasks and workflows that monitor, post, and manage messages, feeds, and more in Yammer by using Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: deonhe
-
+ms.date: 08/25/2018
+tags: connectors
 ---
-# Get started with the Yammer connector
-Connect to Yammer to access conversations in your enterprise network.
 
-> [!NOTE]
-> This version of the article applies to logic apps 2015-08-01-preview schema version.
-> 
-> 
+# Monitor and manage your Yammer account by using Azure Logic Apps
 
-With Yammer, you can:
+With Azure Logic Apps and the Yammer connector, 
+you can create automated tasks and workflows that 
+monitor and manage messages, feeds, and more 
+in your Yammer account, along with other actions, for example:
 
-* Build your business flow based on the data you get from Yammer. 
-* Use triggers for when there is a new message in a group, or a feed your following.
-* Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
+* Monitor when new messages appear in followed feeds and groups.
+* Get messages, groups, networks, users' details, and more.
+* Post and like messages.
 
-To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can use triggers that get responses from your Yammer account and 
+make the output available to other actions. You can use actions that 
+perform tasks with your Yammer account. You can also have other actions 
+use the output from Yammer actions. For example, when new messages appear 
+in feeds or groups, you can share those messages with the Slack connector. 
+If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## Triggers and actions
-Yammer includes the following triggers and actions. 
+## Prerequisites
 
-| Trigger | Actions |
-| --- | --- |
-| <ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul> |<ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul> |
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-All connectors support data in JSON and XML formats. 
+* Your Yammer account and user credentials
 
-## Create a connection to Yammer
-To use the Yammer connector, you first create a **connection** then provide the details for these properties: 
+   Your credentials authorize your logic app to create 
+   a connection and access your Yammer account.
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide Yammer Credentials |
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-> [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
-> 
-> [!TIP]
-> You can use this connection in other logic apps.
-> 
-> 
+* The logic app where you want to access your Yammer account. 
+To start with a Yammer trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use a Yammer action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
-## Yammer REST API reference
-This documentation is for version: 1.0
+## Connect to Yammer
 
-### Get all public messages in the logged in user's Yammer network
-Corresponds to "All" conversations in the Yammer web interface.  
-```GET: /messages.json```
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| older_then |integer |no |query |none |Returns messages older than the message ID specified as a numeric string. This is useful for paginating messages. For example, if you’re currently viewing 20 messages and the oldest is number 2912, you could append “?older_than=2912″ to your request to get the 20 messages prior to those you’re seeing. |
-| newer_then |integer |no |query |none |Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages. If you’re looking at messages, and the most recent message returned is 3516, you can make a request with the parameter “?newer_than=3516″ to ensure that you do not get duplicate copies of messages already on your page. |
-| limit |integer |no |query |none |Return only the specified number of messages. |
-| page |integer |no |query |none |Get the page specified. If returned data is greater than the limit, you can use this field to access subsequent pages |
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 400 |Bad Request |
-| 408 |Request Timeout |
-| 429 |Too Many Requests |
-| 500 |Internal Server Error. Unknown error occurred |
-| 503 |Yammer Service Unavailable |
-| 504 |Gateway Timeout |
-| default |Operation Failed. |
+1. Choose a path: 
 
-### Post a Message to a Group or All Company Feed
-If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.    
-```POST: /messages.json``` 
+   * For blank logic apps, in the search box, 
+   enter "yammer" as your filter. 
+   Under the triggers list, select the trigger you want. 
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| input | |yes |body |none |Post Message Request |
+     -or-
 
-### Response
-| Name | Description |
-| --- | --- |
-| 201 |Created |
+   * For existing logic apps: 
+   
+     * Under the last step where you want to add an action, 
+     choose **New step**. 
 
-## Object definitions
-#### Message: Yammer Message
-| Name | Data Type | Required |
-| --- | --- | --- |
-| id |integer |no |
-| content_excerpt |string |no |
-| sender_id |integer |no |
-| replied_to_id |integer |no |
-| created_at |string |no |
-| network_id |integer |no |
-| message_type |string |no |
-| sender_type |string |no |
-| url |string |no |
-| web_url |string |no |
-| group_id |integer |no |
-| body |not defined |no |
-| thread_id |integer |no |
-| direct_message |boolean |no |
-| client_type |string |no |
-| client_url |string |no |
-| language |string |no |
-| notified_user_ids |array |no |
-| privacy |string |no |
-| liked_by |not defined |no |
-| system_message |boolean |no |
+       -or-
 
-#### PostOperationRequest: Represents a post request for Yammer Connector to post to yammer
-| Name | Data Type | Required |
-| --- | --- | --- |
-| body |string |yes |
-| group_id |integer |no |
-| replied_to_id |integer |no |
-| direct_to_id |integer |no |
-| broadcast |boolean |no |
-| topic1 |string |no |
-| topic2 |string |no |
-| topic3 |string |no |
-| topic4 |string |no |
-| topic5 |string |no |
-| topic6 |string |no |
-| topic7 |string |no |
-| topic8 |string |no |
-| topic9 |string |no |
-| topic10 |string |no |
-| topic11 |string |no |
-| topic12 |string |no |
-| topic13 |string |no |
-| topic14 |string |no |
-| topic15 |string |no |
-| topic16 |string |no |
-| topic17 |string |no |
-| topic18 |string |no |
-| topic19 |string |no |
-| topic20 |string |no |
+     * Between the steps where you want to add an action, 
+     move your pointer over the arrow between steps. 
+     Choose the plus sign (**+**) that appears, 
+     and then select **Add an action**.
+     
+       In the search box, enter "yammer" as your filter. 
+       Under the actions list, select the action you want.
 
-#### MessageList: List of messages
-| Name | Data Type | Required |
-| --- | --- | --- |
-| messages |array |no |
+1. If you're prompted to sign in to Yammer, sign in now 
+so that you can allow access.
 
-#### MessageBody: Message Body
-| Name | Data Type | Required |
-| --- | --- | --- |
-| parsed |string |no |
-| plain |string |no |
-| rich |string |no |
+1. Provide the necessary details for your selected trigger 
+or action and continue building your logic app's workflow.
 
-#### LikedBy: Liked By
-| Name | Data Type | Required |
-| --- | --- | --- |
-| count |integer |no |
-| names |array |no |
+## Connector reference
 
-#### YammmerEntity: Liked By
-| Name | Data Type | Required |
-| --- | --- | --- |
-| type |string |no |
-| id |integer |no |
-| full_name |string |no |
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/yammer/).
 
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+## Get support
 
-[1]: ./media/connectors-create-api-yammer/connectionconfig1.png
-[2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
-[3]: ./media/connectors-create-api-yammer/connectionconfig3.png
-[4]: ./media/connectors-create-api-yammer/connectionconfig4.png
-[5]: ./media/connectors-create-api-yammer/connectionconfig5.png
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

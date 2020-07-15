@@ -1,0 +1,30 @@
+- name: Azure Media Services v3 
+  displayName: encode, stream, package, content protection, video analytics
+  href: latest/
+- name: Azure Media Services v2 (legacy)
+  href: previous/media-services-overview.md
+- name: Azure Media Services Video Indexer
+  href: video-indexer/
+- name: Azure Media Player
+  href: https://amp.azure.net/libs/amp/latest/docs/index.html
+- name: Specifications
+  items:
+  - name: Timed Metadata
+    items:
+    - name: RTMP & Smooth Streaming 
+      href: media-services-specifications-live-timed-metadata.md
+  - name: Protocols
+    items:
+    - name: Smooth Streaming (MS-SSTR)
+      items:
+      - name: HEVC support
+        href: media-services-specifications-ms-sstr-amendment-hevc.md 
+      - name: Smooth Streaming ingest
+        href: media-services-fmp4-live-ingest-overview.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=media
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+    

@@ -1,66 +1,96 @@
-Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, see the [SendGrid Features][SendGrid Features] page.
+---
+author: georgewallace
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: gwallace
+---
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse, and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
 ### To sign up for a SendGrid account
-1. Log in to the [Azure Management Portal][Azure Management Portal].
-2. In the lower pane of the management portal, click **New**.
-   
+1. Sign in to the [Azure portal][Azure portal].
+2. In the Azure portal menu or the home page, select **Create a resource**.
+
     ![command-bar-new][command-bar-new]
-3. Click **Marketplace**.
-   
+3. Search for and select **SendGrid**.
+
     ![sendgrid-store][sendgrid-store]
-4. In the **Choose an Application and Service** dialog, select **SendGrid** and click the right arrow.
-5. In the **Personalize Application and Service** dialog select the **SendGrid** plan you want to sign up for.
-6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
-   
-    ![store-screen-2][store-screen-2]
-7. Choose a value for the region; for example, West US.
-8. Click the right arrow.
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the [SendGrid provisioning process].
-   
-    ![store-screen-3][store-screen-3]
-10. After confirming your purchase you are redirected to the add-ons dashboard and you will see the message **Purchasing SendGrid**.
-    
-    ![sendgrid-purchasing-message][sendgrid-purchasing-message]
-    
-    Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
-    
-    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard. 
-    
-    ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
-    
-    To send an email using SendGrid, you must supply your  account credentials (username and password).
+4. Complete the signup form and select **Create**.
+
+    ![sendgrid-create][sendgrid-create]
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
+
+    ![sendgrid-pricing][sendgrid-pricing]
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed.
+
+    ![all-resources][all-resources]
+
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see our FAQ.
+
+    ![manage][manage]
+
+    **You can only send up to 100 emails/day until you have verified your account.**
+
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
+
+    ![settings][settings]
+
+    To send an email using SendGrid, you must supply your API Key.
+
+### To find your SendGrid API Key
+1. Click **Manage**.
+
+    ![manage][manage]
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
+
+    ![api-keys][api-keys]
+
+3. Click the **Create API Key**.
+
+    ![general-api-key][general-api-key]
+4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
+
+    ![access][access]
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
 
 ### To find your SendGrid credentials
-1. Click **Connection Info**.
-   
-    ![sendgrid-connection-info-button][sendgrid-connection-info-button]
-2. In the *Connection info* dialog, copy the **Password** and Username to use later in this tutorial.
-   
-    ![sendgrid-connection-info][sendgrid-connection-info]
-   
-    To set your email deliverability settings, click the **Manage** button. This will redirect to your SendGrid Control Panel. 
-   
-    ![sendgrid-control-panel][sendgrid-control-panel]
-   
-    For more information on getting started with SendGrid, see [SendGrid Getting Started][SendGrid Getting Started].
+1. Click the key icon to find your **Username**.
+
+    ![key][key]
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
+
+To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
+
+![manage][manage]
+
+For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
 
 <!--images-->
 
-[command-bar-new]: ./media/sendgrid-sign-up/sendgrid_BAR_NEW.PNG
-[sendgrid-store]: ./media/sendgrid-sign-up/sendgrid_offerings_store.png
-[store-screen-2]: ./media/sendgrid-sign-up/sendgrid_store_scrn2.png
-[store-screen-3]: ./media/sendgrid-sign-up/sendgrid_store_scrn3.png
-[sendgrid-purchasing-message]: ./media/sendgrid-sign-up/sendgrid_purchasing_message.png
-[sendgrid-add-on-dashboard]: ./media/sendgrid-sign-up/sendgrid_add-on_dashboard.png
-[sendgrid-connection-info]: ./media/sendgrid-sign-up/sendgrid_connection_info.png
-[sendgrid-connection-info-button]: ./media/sendgrid-sign-up/sendgrid_connection_info_button.png
-[sendgrid-control-panel]: ./media/sendgrid-sign-up/sendgrid_control_panel.png
+[command-bar-new]: ./media/sendgrid-sign-up/new-addon.png
+[sendgrid-store]: ./media/sendgrid-sign-up/sendgrid-store.png
+[sendgrid-create]: ./media/sendgrid-sign-up/sendgrid-create.png
+[sendgrid-pricing]: ./media/sendgrid-sign-up/sendgrid-pricing.png
+[all-resources]: ./media/sendgrid-sign-up/all-resources.png
+[manage]: ./media/sendgrid-sign-up/manage.png
+[settings]: ./media/sendgrid-sign-up/settings.png
+[api-keys]: ./media/sendgrid-sign-up/api-keys.png
+[general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
+[access]: ./media/sendgrid-sign-up/access.png
+[key]: ./media/sendgrid-sign-up/key.png
 
 <!--Links-->
 
-[SendGrid Features]: http://sendgrid.com/features
-[Azure Management Portal]: https://manage.windowsazure.com
+[SendGrid Solutions]: https://sendgrid.com/solutions
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
-
+[Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html

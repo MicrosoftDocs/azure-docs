@@ -1,139 +1,127 @@
 ---
-title: Integrate an Azure storage account with Azure CDN | Microsoft Docs
+title: Quickstart - Integrate an Azure Storage account with Azure CDN
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
-ms.author: mazha
+ms.topic: quickstart
+ms.date: 04/30/2020
+ms.author: allensu
+ms.custom: mvc
 
 ---
-# Integrate an Azure storage account with Azure CDN
-CDN can be enabled to cache content from your Azure storage. It offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America.
+# Quickstart: Integrate an Azure Storage account with Azure CDN
 
-## Step 1: Create a storage account
-Use the following procedure to create a new storage account for a
-Azure subscription. A storage account gives access to
-Azure storage services. The storage account represents the highest level
-of the namespace for accessing each of the Azure storage service
-components: Blob services, Queue services, and Table services. For more information, refer to the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+In this quickstart, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) to cache content from Azure Storage. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
-To create a storage account, you must be either the service
-administrator or a co-administrator for the associated subscription.
+## Prerequisites
 
-> [!NOTE]
-> There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we'll be using the Azure Portal.  
-> 
-> 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-**To create a storage account for an Azure subscription**
+## Sign in to the Azure portal
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
-   
-   The **Create storage account** blade appears.
-   
-   ![Create Storage Account][create-new-storage-account]
-3. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
-   
-    This value becomes the host name within the URI that is used to
-    address Blob, Queue, or Table resources for the subscription. To
-    address a container resource in the Blob service, you would use a
-    URI in the following format, where *&lt;StorageAccountLabel&gt;* refers
-    to the value you typed in **Enter a URL**:
-   
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
-   
-    **Important:** The URL label forms the subdomain of the storage
-    account URI and must be unique among all hosted services in
-    Azure.
-   
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
-5. Select the **Subscription** that the storage account will be used with.
-6. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
-7. Select a location for your storage account.
-8. Click **Create**. The process of creating the storage account might take several minutes to complete.
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-## Step 2: Create a new CDN profile
-A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
+## Create a storage account
+
+A storage account gives access to Azure Storage services. The storage account represents the highest level of the namespace for accessing each of the Azure Storage service components: Azure Blob, Queue, and Table storage. For more information, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
+
+To create a storage account, you must be either the service administrator or a coadministrator for the associated subscription.
+
+1. In the Azure portal, select **Create a resource** on the upper left. The **New** pane appears.
+
+1. Search for **Storage account** and select **Storage account - blob, file, table, queue** from the drop-down list. Then select **Create**:
+	
+    ![Select storage resource](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
+
+1. In the **Create storage account pane**, enter the following details:
+
+    | Setting | Value | 
+    | --- | --- |
+    | Project details > Resource group | Select **Create new** and use the name *CDNQuickstart-rg*. You can also use an existing resource group if you prefer. |
+    | Instance details > Storage account name | Enter a name for the account using 3-24 lowercase letters and numbers only. The name must be unique across Azure, and becomes the host name in the URL that's used to address blob, queue, or table resources for the subscription. To address a container resource in Blob storage, use a URI in the following format: http://*&lt;storageaccountname&gt;*.blob.core.windows.net/*&lt;container-name&gt;*.
+    | Instance details > Location | Select an Azure region near you from the drop-down list. |
+    
+    Leave all other details set to the defaults, then select **Review + create**.
+
+1. Creating the storage account might take several minutes to complete. Once creation is complete, select **Go to resource** to open the storage account's page for the next step.
+
+## Enable Azure CDN for the storage account
+
+1. On the page for your storage account, select **Blob service** > **Azure CDN** from the left menu. The **Azure CDN** page appears.
+
+	![Create CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+	
+1. In the **New endpoint** section, enter the following information:
+
+    | Setting  | Value |
+    | -------- | ----- |
+    | **CDN profile** | Select **Create new** and enter your profile name, for example, *cdn-profile-123*. A profile is a collection of endpoints. |
+    | **Pricing tier** | Select one of the **Standard** options, such as **Standard Microsoft**. |
+	| **CDN endpoint name** | Enter your endpoint hostname, such as *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
+	| **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
+
+1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
+
+	![Storage new CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
 > [!TIP]
-> If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
-> 
-> 
+> If you want to specify advanced configuration settings for your CDN endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md) to create a CDN profile and endpoint.
 
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Step 3: Create a new CDN endpoint
-**To create a new CDN endpoint for your storage account**
+## Enable additional CDN features
 
-1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
-   
-    The CDN profile blade appears.
-   
-    ![CDN profile][cdn-profile-settings]
-2. Click the **Add Endpoint** button.
-   
-    ![Add endpoint button][cdn-new-endpoint-button]
-   
-    The **Add an endpoint** blade appears.
-   
-    ![Add endpoint blade][cdn-add-endpoint]
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
-4. In the **Origin type** dropdown, select *Storage*.  
-5. In the **Origin hostname** dropdown, select your storage account.
-6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS).
-   
-   > [!NOTE]
-   > This configuration enables all of your publicly visible containers in your storage account for caching in the CDN.  If you want to limit the scope to a single container, use **Origin path**.  Note the container must have its visibility set to public.
-   > 
-   > 
-7. Click the **Add** button to create the new endpoint.
-8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
-   
-    ![CDN endpoint][cdn-endpoint-success]
-   
-   > [!NOTE]
-   > The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
-   > 
-   > 
+From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page.
 
-## Step 4: Access CDN content
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
+	
+## Enable SAS
 
-http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
+If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure Storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. For more information, see [Using Azure CDN with SAS](cdn-sas-storage-support.md).
+
+## Access CDN content
+
+To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob has the following format:
+
+http://<*endpoint-name*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
-> 
-> 
+> After you enable Azure CDN access to a storage account, all publicly available objects are eligible for CDN POP caching. If you modify an object that's currently cached in the CDN, the new content will not be available via Azure CDN until Azure CDN refreshes its content after the time-to-live period for the cached content expires.
 
-## Step 5: Remove content from the CDN
-If you no longer wish to cache an object in the Azure Content
-Delivery Network (CDN), you can take one of the following steps:
+## Remove content from Azure CDN
 
-* You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
-* You can disable or delete the CDN endpoint using the Management Portal.
-* You can modify your hosted service to no longer respond to requests for the object.
+If you no longer want to cache an object in Azure CDN, you can take one of the following steps:
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+- Make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
+- Disable or delete the CDN endpoint by using the Azure portal.
+- Modify your hosted service to no longer respond to requests for the object.
 
-## Additional resources
-* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+An object that's already cached in Azure CDN remains cached until the time-to-live period for the object expires or until the endpoint is [purged](cdn-purge-endpoint.md). When the time-to-live period expires, Azure CDN determines whether the CDN endpoint is still valid and the object is still anonymously accessible. If they are not, the object will no longer be cached.
 
-[create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
+## Clean up resources
 
-[cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
+In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
+
+1. From the left-hand menu in the Azure portal, select **Resource groups** and then select *CDNQuickstart-rg**.
+
+2. On the **Resource group** page, select **Delete resource group**, enter *CDNQuickstart-rg* in the text box, then select **Delete**.
+
+    This action will delete the resource group, profile, and endpoint that you created in this quickstart.
+
+3. To delete your storage account, select it from the dashboard, then select **Delete** from the top menu.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)

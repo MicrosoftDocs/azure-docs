@@ -3,18 +3,18 @@ title: StorSimple Snapshot Manager and volumes | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -91,16 +91,14 @@ Use the following procedure to view information about local and Azure StorSimple
    |:--- |:--- |
    |  Name |The **Name** column contains the drive letter assigned to each discovered volume. |
    |  Device |The **Device** column contains the IP address of the device connected to the host computer. |
-   |  Device Volume Name |The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume. |
+   |  Device Volume Name |The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure portal for that specific volume. |
    |  Access Paths |The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer. |
 
 ## Delete a volume
 Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
 > [!NOTE]
-> You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
-> 
-> 
+> You cannot delete a volume if it is a part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
 
 #### To delete a volume
 1. Click the desktop icon to start StorSimple Snapshot Manager.
@@ -159,7 +157,7 @@ Complete the following steps to configure backup of a dynamic mirrored volume:
 ### Prerequisites
 Before you begin:
 
-* Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+* Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
 * Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
 

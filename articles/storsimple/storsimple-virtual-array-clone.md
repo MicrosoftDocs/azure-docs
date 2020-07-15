@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: af6e979c-55e3-477c-b53e-a76a697f80c9
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
@@ -68,7 +68,7 @@ To clone from a backup, in the Azure portal, you have to perform steps similar t
 
 #### To clone a volume
 
-1. Browse to **Devices** blade. Select and click your device and then click **Volumes**. Selec the volume that you want to clone, right-click the volume to invoke the context menu. Select **Clone**.
+1. Browse to **Devices** blade. Select and click your device and then click **Volumes**. Select the volume that you want to clone, right-click the volume to invoke the context menu. Select **Clone**.
    
    ![Clone a volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. In the **Clone** blade, click **Backup** and then do the following: 
@@ -122,7 +122,7 @@ Every share has a *.backups* folder that contains the most recent backups. You c
    * **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
    * **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Screenshot of File Explorer showing the .backups folder. Inside that folder, the manual backups folder is selected.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the preceding cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
 

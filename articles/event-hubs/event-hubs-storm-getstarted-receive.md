@@ -1,73 +1,69 @@
 ---
-title: Receive events from Azure Event Hubs using Apache Storm | Microsoft Docs
-description: Get started receiving from Event Hubs using Apache Storm
-services: event-hubs
-documentationcenter: ''
-author: jtaubensee
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
-ms.topic: article
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
+title: 'Quickstart: Receive events using Apache Storm - Azure Event Hubs'
+description: 'Quickstart: This article provides information on how to receive events from Azure Event Hubs using Apache Storm.'
+ms.topic: quickstart
+ms.date: 06/23/2020
 ---
 
-## Receive events from Azure Event Hubs using Apache Storm
-[Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
+# Quickstart: Receive events from Event Hubs using Apache Storm
+
+[Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Azure Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
 
 For more information about Event Hubs receive patterns, see the [Event Hubs overview][Event Hubs overview].
 
+## Prerequisites
+Before you start with the quickstart, **create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). 
+
+## Create project and add code
+
 This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.
 
-1. Follow the [HDInsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
+1. Follow the [HDInsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
 2. Copy the `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file to your local development environment. This contains the events-storm-spout.
 3. Use the following command to install the package into the local Maven store. This enables you to add it as a reference in the Storm project in a later step.
 
-```shell
-        mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
-```
+    ```shell
+    mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+    ```
 4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
    
-    ![][12]
+    ![File -> New -> Project][12]
 5. Select **Use default Workspace location**, then click **Next**
 6. Select the **maven-archetype-quickstart** archetype, then click **Next**
 7. Insert a **GroupId** and **ArtifactId**, then click **Finish**
 8. In **pom.xml**, add the following dependencies in the `<dependency>` node.
-```xml  
-        <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-core</artifactId>
-            <version>0.9.2-incubating</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.eventhubs</groupId>
-            <artifactId>eventhubs-storm-spout</artifactId>
-            <version>0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>1.3.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>provided</scope>
-        </dependency>
-```
-9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
+
+    ```xml  
+    <dependency>
+        <groupId>org.apache.storm</groupId>
+        <artifactId>storm-core</artifactId>
+        <version>0.9.2-incubating</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.eventhubs</groupId>
+        <artifactId>eventhubs-storm-spout</artifactId>
+        <version>0.9</version>
+    </dependency>
+    <dependency>
+        <groupId>com.netflix.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>1.3.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
+        <scope>provided</scope>
+    </dependency>
+    ```
+
+9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the `receive rule key` and `event hub name` values:
 
 	```java
 	eventhubspout.username = ReceiveRule
@@ -122,7 +118,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 	}
 	```
     
-    This Storm bolt logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight sensor analysis tutorial] uses this same approach to store data into HBase.
+    This Storm bolt logs the content of the received events. This can easily be extended to store tuples in a storage service. The [HDInsight Storm with Event Hub example] uses this same approach to store data into Azure Storage and Power BI.
 11. Create a class called **LogTopology** with the following code:
     
 	```java
@@ -227,19 +223,19 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 	}
 	```
 
-    This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
+    This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the event hub, in order to use the maximum parallelism allowed by that event hub.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs overview][Event Hubs overview]
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[HDInsight sensor analysis tutorial]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[HDInsight Storm with Event Hub example]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

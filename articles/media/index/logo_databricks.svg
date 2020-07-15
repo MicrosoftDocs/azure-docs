@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dc2126;
+      }
+
+      .cls-2 {
+        fill: #f0542d;
+      }
+    </style>
+  </defs>
+  <title>i_databricks</title>
+  <g id="Layer_5" data-name="Layer 5">
+    <g id="Market">
+      <g id="Desktop">
+        <g id="DB_bug" data-name="DB bug">
+          <polygon class="cls-1" points="31.59 63.08 2 47.03 2 37.27 31.48 22.08 60.97 37.27 60.97 47.03 31.59 63.08"/>
+          <polygon id="Shape" class="cls-2" points="31.5 22.08 61 37.28 31.48 52.69 2 37.28 31.5 22.08"/>
+        </g>
+      </g>
+    </g>
+    <g id="Market-2" data-name="Market">
+      <g id="Desktop-2" data-name="Desktop">
+        <g id="DB_bug-2" data-name="DB bug">
+          <polygon class="cls-1" points="31.59 43 2 26.95 2 17.19 31.48 2 60.97 17.19 60.97 26.95 31.59 43"/>
+          <polygon id="Shape-2" data-name="Shape" class="cls-2" points="31.5 2 61 17.19 31.48 32.6 2 17.19 31.5 2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

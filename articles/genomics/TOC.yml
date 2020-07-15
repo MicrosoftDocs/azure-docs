@@ -1,0 +1,43 @@
+- name: Microsoft Genomics Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Genomics?
+    href: overview-what-is-genomics.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Run a sample Genomics workflow
+    href: quickstart-run-genomics-workflow-portal.md
+- name: How-to guides
+  items:
+  - name: Use various input file formats
+    items:
+    - name: Pair of FASTQ files
+      href: quickstart-input-pair-fastq.md
+    - name: BAM file
+      href: quickstart-input-bam.md
+    - name: Multiple FASTQ or BAM files
+      href: quickstart-input-multiple.md    
+  - name: Input a SAS token instead of account key 
+    href: quickstart-input-sas.md
+- name: Resources
+  items:
+  - name: Common questions
+    href: frequently-asked-questions-genomics.md
+  - name: Troubleshooting guide
+    href: troubleshooting-guide-genomics.md    
+  - name: File a support request
+    href: file-support-ticket-genomics.md  
+  - name: Version release history
+    href: version-release-history-genomics.md
+  - name: Business continuity
+    href: business-continuity-genomics.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/genomics/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Support options
+    href: https://azure.microsoft.com/support/options/

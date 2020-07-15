@@ -1,2 +1,0 @@
-``*.accesscontrol.windows.net`` Used for access control and identity management<br>``\*.backup.windowsazure.com`` Used for replication data transfer and orchestration <br> ``\*.blob.core.windows.net``Used for access to the storage account that stores replicated data<br> ``\*.hypervrecoverymanager.windowsazure.com`` Used for replication management operations and orchestration<br>
-``time.nist.gov`` and ``time.windows.com`` Used to check time synchronization between system and global time

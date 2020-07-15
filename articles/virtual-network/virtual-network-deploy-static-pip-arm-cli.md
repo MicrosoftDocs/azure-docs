@@ -1,248 +1,80 @@
 ---
-title: Create a VM with a static public IP using the Azure CLI | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using the Azure CLI | Resource Manager.
+title: Create a VM with a static public IP address - Azure CLI | Microsoft Docs
+description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: article
+ms.subservice: ip-services
+ms.devlang: azurecli
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
-ms.author: jdial
+ms.date: 08/08/2018
+ms.author: kumud
 
 ---
-# Create a VM with a static public IP using the Azure CLI
+# Create a virtual machine with a static public IP address using the Azure CLI
 
-> [!div class="op_single_selector"]
-- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [Template](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static public IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## Create a virtual machine
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
+You can complete the following steps from your local computer or by using the Azure Cloud Shell. To use your local computer, ensure you have the [Azure CLI installed](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). To use the Azure Cloud Shell, select **Try It** in the top right corner of any command box that follows. The Cloud Shell signs you into Azure.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
+2. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the East US Azure region:
 
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
+   ```azurecli-interactive
+   az group create --name myResourceGroup --location eastus
+   ```
 
-## Step 1 - Start your script
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Complete the following steps to change the script to work in your environment:
+3. Create a virtual machine with the [az vm create](/cli/azure/vm#az-vm-create) command. The `--public-ip-address-allocation=static` option assigns a static public IP address to the virtual machine. The following example creates an Ubuntu virtual machine with a static, basic SKU public IP address named *myPublicIpAddress*:
 
-Change the values of the variables below based on the values you want to use for your deployment. The following values map to the scenario used in this article:
+   ```azurecli-interactive
+   az vm create \
+     --resource-group myResourceGroup \
+     --name myVM \
+     --image UbuntuLTS \
+     --admin-username azureuser \
+     --generate-ssh-keys \
+     --public-ip-address myPublicIpAddress \
+     --public-ip-address-allocation static
+   ```
 
-```azurecli
-# Set variables for the new resource group
-rgName="IaaSStory"
-location="westus"
+   If the public IP address must be a standard SKU, add `--public-ip-sku Standard` to the previous command. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
-# Set variables for VNet
-vnetName="TestVNet"
-vnetPrefix="192.168.0.0/16"
-subnetName="FrontEnd"
-subnetPrefix="192.168.1.0/24"
+4. View the public IP address assigned and confirm that it was created as a static, basic SKU address, with [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
-# Set variables for storage
-stdStorageAccountName="iaasstorystorage"
+   ```azurecli-interactive
+   az network public-ip show \
+     --resource-group myResourceGroup \
+     --name myPublicIpAddress \
+     --query [ipAddress,publicIpAllocationMethod,sku] \
+     --output table
+   ```
 
-# Set variables for VM
-vmSize="Standard_A1"
-diskSize=127
-publisher="Canonical"
-offer="UbuntuServer"
-sku="14.04.2-LTS"
-version="latest"
-vmName="WEB1"
-osDiskName="osdisk"
-nicName="NICWEB1"
-privateIPAddress="192.168.1.101"
-username='adminuser'
-password='adminP@ssw0rd'
-pipName="PIPWEB1"
-dnsName="iaasstoryws1"
+   Azure assigned a public IP address from addresses used in the region you created the virtual machine in. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+
+> [!WARNING]
+> Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary, and not until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
+
+## Clean up resources
+
+When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
 ```
 
-## Step 2 - Create the necessary resources for your VM
-Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
+## Next steps
 
-1. Create a new resource group.
-
-	```azurecli
-	azure group create $rgName $location
-	```
-
-2. Create the VNet and subnet.
-
-	```azurecli
-	azure network vnet create --resource-group $rgName \
-		--name $vnetName \
-		--address-prefixes $vnetPrefix \
-		--location $location
-	azure network vnet subnet create --resource-group $rgName \
-		--vnet-name $vnetName \
-		--name $subnetName \
-		--address-prefix $subnetPrefix
-	```
-
-3. Create the public IP resource.
-
-	```azurecli
-	azure network public-ip create --resource-group $rgName \
-		--name $pipName \
-		--location $location \
-		--allocation-method Static \
-		--domain-name-label $dnsName
-	```
-
-4. Create the network interface (NIC) for the VM in the subnet created above, with the public IP. Notice the first set of commands are used to retrieve the **Id** of the subnet created above.
-
-	```azurecli
-	subnetId="$(azure network vnet subnet show --resource-group $rgName \
-		--vnet-name $vnetName \
-		--name $subnetName|grep Id)"
-
-	subnetId=${subnetId#*/}
-
-	azure network nic create --name $nicName \
-		--resource-group $rgName \
-		--location $location \
-		--private-ip-address $privateIPAddress \
-		--subnet-id $subnetId \
-		--public-ip-name $pipName
-	```
-
-   > [!TIP]
-   > The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
-   >
-
-5. Create a storage account to host the VM OS drive.
-
-	```azurecli
-	azure storage account create $stdStorageAccountName \
-		--resource-group $rgName \
-		--location $location --type LRS
-	```
-
-## Step 3 - Create the VM
-Now that all necessary resources are in place, you can create a new VM.
-
-1. Create the VM.
-
-	```azurecli
-	azure vm create --resource-group $rgName \
-		--name $vmName \
-		--location $location \
-		--vm-size $vmSize \
-		--subnet-id $subnetId \
-		--nic-names $nicName \
-		--os-type linux \
-		--image-urn $publisher:$offer:$sku:$version \
-		--storage-account-name $stdStorageAccountName \
-		--storage-account-container-name vhds \
-		--os-disk-vhd $osDiskName.vhd \
-		--admin-username $username \
-		--admin-password $password
-	```
-2. Save the script file.
-
-## Step 4 - Run the script
-After making any necessary changes, and understanding the script show above, run the script.
-
-1. From a bash console, run the script above.
-
-	```azurecli
-	sh myscript.sh
-	```
-
-2. The output below should be displayed after a few minutes.
-
-        info:    Executing command group create
-        info:    Getting resource group IaaSStory
-        info:    Creating resource group IaaSStory
-        info:    Created resource group IaaSStory
-        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-        data:    Name:                IaaSStory
-        data:    Location:            westus
-        data:    Provisioning State:  Succeeded
-        data:    Tags: null
-        data:
-        info:    group create command OK
-        info:    Executing command network vnet create
-        info:    Looking up virtual network "TestVNet"
-        info:    Creating virtual network "TestVNet"
-        info:    Loading virtual network state
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet
-        data:    Name                            : TestVNet
-        data:    Type                            : Microsoft.Network/virtualNetworks
-        data:    Location                        : westus
-        data:    ProvisioningState               : Succeeded
-        data:    Address prefixes:
-        data:      192.168.0.0/16
-        info:    network vnet create command OK
-        info:    Executing command network vnet subnet create
-        info:    Looking up the subnet "FrontEnd"
-        info:    Creating subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-        data:    ProvisioningState               : Succeeded
-        data:    Name                            : FrontEnd
-        data:    Address prefix                  : 192.168.1.0/24
-        data:
-        info:    network vnet subnet create command OK
-        info:    Executing command network public-ip create
-        info:    Looking up the public ip "PIPWEB1"
-        info:    Creating public ip address "PIPWEB1"
-        info:    Looking up the public ip "PIPWEB1"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
-        data:    Name                            : PIPWEB1
-        data:    Type                            : Microsoft.Network/publicIPAddresses
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Allocation method               : Static
-        data:    Idle timeout                    : 4
-        data:    IP Address                      : 40.78.63.253
-        data:    Domain name label               : iaasstoryws1
-        data:    FQDN                            : iaasstoryws1.westus.cloudapp.azure.com
-        info:    network public-ip create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICWEB1"
-        info:    Looking up the public ip "PIPWEB1"
-        info:    Creating network interface "NICWEB1"
-        info:    Looking up the network interface "NICWEB1"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
-        data:    Name                            : NICWEB1
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Public IP address             : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
-        data:      Private IP address            : 192.168.1.101
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory2/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command vm create
-        info:    Looking up the VM "WEB1"
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account iaasstorystorage
-        info:    Looking up the NIC "NICWEB1"
-        info:    Creating VM "WEB1"
-        info:    vm create command OK
+- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
+- Learn more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines

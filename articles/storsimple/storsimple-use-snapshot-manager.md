@@ -3,21 +3,23 @@ title: StorSimple Snapshot Manager user interface | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog.
 services: storsimple
 documentationcenter: NA
-author: SharS
-manager: carmonm
+author: twooley
+manager: timlt
 editor: ''
 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
-ms.author: v-sharos
+ms.date: 06/05/2017
+ms.author: twooley
+ms.custom: 
 
 ---
-# StorSimple Snapshot Manager user interface
+# Use StorSimple Snapshot Manager user interface to manage backup jobs and backup catalog
+
 ## Overview
 The StorSimple Snapshot Manager has an intuitive user interface that you can use to take and manage backups. This tutorial provides an introduction to the user interface, and then explains how to use each of the components. For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
@@ -120,7 +122,7 @@ The following table contains an alphabetical list of StorSimple Snapshot Manager
 | Rescan volumes |Right-click the **Volumes** node. |Click **Rescan volumes** to update the list of volumes that appears in the **Results** pane. |
 | Restore |Expand **Backup Catalog**, expand a volume group, expand **Local Snapshots** or **Cloud Snapshots**, and then right-click a backup. |Click **Restore** to replace the current volume group data with the data from the selected backup. |
 | Take Backup |Do one of the following:<ul><li>Expand **Volume Groups**, and then right-click a volume group.</li><li>Expand **Backup Catalog**, and then right-click a volume group.</li></ul> |Click **Take Backup** to start a backup job immediately. |
-| Toggle Imports Display |Right-click the top node in the **Scope** pane (the **StorSimple Snapshot Manager** node in the examples). |Click **Toggle Imports Display** to show or hide the volume groups and associated backups that were imported from the StorSimple Manager service dashboard. |
+| Toggle Imports Display |Right-click the top node in the **Scope** pane (the **StorSimple Snapshot Manager** node in the examples). |Click **Toggle Imports Display** to show or hide the volume groups and associated backups that were imported from the StorSimple Device Manager service dashboard. |
 
 ### View menu
 Use the **View** menu to create a custom view of the **Results** pane contents. The **View** menu contains **Add/Remove Columns** and **Customize** options.
@@ -267,8 +269,7 @@ Backup policies are job schedules for local and cloud snapshots. Use the **Backu
 
 > [!NOTE]
 > You can retain a maximum of 64 backups.
-> 
-> 
+
 
 ### Backup Catalog node
 The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the **Local Snapshot**s node) and cloud snapshots (the **Cloud Snapshots** node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
@@ -423,7 +424,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | V |Opens the **View** menu. |
 | W |Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
 | F |Updates the StorSimple Snapshot Manager console. |
-| L |Opens the **Export List **page. |
+| L |Opens the **Export List** page. |
 | H |Opens online Help. |
 
 #### Backup Catalog node shortcut keys

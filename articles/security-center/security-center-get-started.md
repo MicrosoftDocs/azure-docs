@@ -1,122 +1,118 @@
 ---
-title: Azure Security Center quick start guide | Microsoft Docs
-description: This article helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
+title: Upgrade to Standard tier - Azure Security Center
+description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
-ms.author: terrylan
+ms.date: 12/3/2018
+ms.author: memildin
 
 ---
-# Azure Security Center quick start guide
-This article helps you quickly get started with Azure Security Center by guiding you through the security monitoring and policy management components of Security Center.
+# Quickstart: Onboard your Azure subscription to Security Center Standard
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> This article introduces the service by using an example deployment. This article is not a step-by-step guide.
->
->
+In this article, you upgrade to the Standard tier for added security and install the Log Analytics agent on your virtual machines to monitor for security vulnerabilities and threats.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-The Free tier of Security Center is automatically enabled with your subscription and provides visibility into the security state of your Azure resources. It provides basic security policy management, security recommendations, and integration with security products and services from Azure partners.
+To upgrade a subscription to the Standard tier, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
-You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To learn more about the Azure portal, see the [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/).
+## Enable your Azure subscription
 
-## Permissions
-In Security Center, you only see information related to an Azure resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
+1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
-## Data collection
-Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
+   ![Security Center overview][2]
 
-The following steps describe how to access and use the components of Security Center. In these steps, we show you how to turn off data collection if you choose to opt out.
+**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
-## Access Security Center
-In the portal, follow these steps to access Security Center:
+You can view and filter the list of subscriptions by clicking the **Subscriptions** menu item. Security Center will now begin assessing the security of these subscriptions to identify security vulnerabilities. To customize the types of assessments, you can modify the security policy. A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements.
 
-1. On the **Microsoft Azure** menu, select **Security Center**.
+Within minutes of launching Security Center the first time, you may see:
 
-   ![Azure menu][1]
-2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Yes! I want to Launch Azure Security Center** to open the **Security Center** blade and to enable data collection.
-   ![Welcome screen][10]
-3. After you launch Security Center from the Welcome blade or select Security Center from the Microsoft Azure menu, the **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
-   ![Pin blade to dashboard option][2]
+- **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
+- An inventory of **Compute & apps**, **Networking**, **Data security**, and **Identity & access** resources that are now being assessed by Security Center along with the security posture of each.
 
-## Use Security Center
-You can configure security policies for your Azure subscriptions and resource groups. Let's configure a security policy for your subscription:
+To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Log Analytics agent.
 
-1. On the **Security Center** blade, select the **Policy** tile.
-   ![Security policy][3]
-2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
-3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group. The data that's collected is logically isolated from other customers' data for security reasons.
+## Upgrade to the Standard tier
+For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
-   > [!NOTE]
-   > We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.
-   >
-   >
-5. On the **Security policy** blade, select **Prevention policy**. This opens the **Prevention policy** blade.
-   ![Prevention policy][4]
-6. On the **Prevention policy** blade, turn on the recommendations that you want to see as part of your security policy. Examples:
+1. Under the Security Center main menu, select **Getting started**.
+ 
+   ![Get started][4]
 
-   * Setting **System updates** to **On** scans all supported virtual machines for missing OS updates.
-   * Setting **OS vulnerabilities** to **On** scans all supported virtual machines to identify any OS configurations that might make the virtual machine more vulnerable to attack.
+2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
+   - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
+   -	You can upgrade subscriptions and workspaces that are not eligible for trial.
+   -	You can select eligible workspaces and subscriptions to start your trial.
+3. Click **Start trial** to start your trial on the selected subscriptions.
 
-### View recommendations
-1. Return to the **Security Center** blade and select the **Recommendations** tile. Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it shows recommendations on the **Recommendations** blade.
-   ![Recommendations in Azure Security Center][5]
-2. Select a recommendation on the **Recommendations** blade to view more information and/or to take action to resolve the issue.
 
-### View the health and security state of your resources
-1. Return to the **Security Center** blade. The **Resources security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
-2. Select **Virtual machines** to view more information. The **Virtual machines** blade opens and displays a status summary of antimalware programs, system updates, restarts, and OS vulnerabilities of your VMs.
-   ![The Resources health tile in Azure Security Center][6]
-3. Select a recommendation under **VIRTUAL MACHINE RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
-4. Select a VM under **Virtual machines** to view additional details.
+  ![Security alerts][9]
 
-### View security alerts
-1. Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
-   ![Security alerts in Azure Security Center][7]
+## Automate data collection
+Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
 
-   > [!NOTE]
-   > Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
-   >
-   >
-2. Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
-   ![Security alert details in Azure Security Center][8]
+When automatic provisioning is enabled, Security Center installs the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
 
-### View the health of your partner solutions
-1. Return to the **Security Center** blade. The **Partner solutions** tile lets you monitor, at a glance, the health status of your partner solutions integrated with your Azure subscription.
-2. Select the **Partner solutions** tile. A blade opens and displays a list of your partner solutions connected to Security Center.
-   ![Partner solutions][9]
-3. Select a partner solution. In this example, let's select the **F5-WAF** solution.  A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+To enable automatic provisioning of the Log Analytics agent:
+
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
+3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
+4. Select **Save**.
+---
+  ![Enable automatic provisioning][6]
+
+With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
+
+  ![Recommendations][8]
+
+## Clean up resources
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Click on the subscription that you want to change to the free tier.
+3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
+5. Select **Save**.
+
+If you wish to disable automatic provisioning:
+
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Clean on the subscription that you want to disable automatic provisioning on.
+3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
+4. Select **Save**.
+
+>[!NOTE]
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+>
 
 ## Next steps
-This article introduced you to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
+In this quickstart you upgraded to Standard tier and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
-* Configure a security policy for your Azure subscription. To learn more, see [Setting security policies in Azure Security Center](security-center-policies.md).
-* Use the recommendations in Security Center to help you protect your Azure resources. To learn more, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
-* Review and manage your current security alerts. To learn more, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Learn more about the [advanced threat detection features](security-center-detection-capabilities.md) that come with the [Standard tier](security-center-pricing.md) of Security Center. A 90 day free trial of the Standard tier is available.
-* If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
+> [!div class="nextstepaction"]
+> [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/azure-menu.png
-[2]: ./media/security-center-get-started/security-center-pin.png
-[3]: ./media/security-center-get-started/security-policy.png
-[4]: ./media/security-center-get-started/prevention-policy.png
-[5]: ./media/security-center-get-started/recommendations.png
-[6]: ./media/security-center-get-started/resources-health.png
-[7]: ./media/security-center-get-started/security-alert.png
-[8]: ./media/security-center-get-started/security-alert-detail.png
-[9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/welcome.png
+[2]: ./media/security-center-get-started/overview.png
+[4]: ./media/security-center-get-started/get-started.png
+[5]: ./media/security-center-get-started/pricing.png
+[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
+[7]: ./media/security-center-get-started/security-alerts.png
+[8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

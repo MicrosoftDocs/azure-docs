@@ -1,0 +1,220 @@
+### YamlMime:Landing
+
+title: Azure Stream Analytics documentation
+summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+
+metadata:
+  title: Azure Stream Analytics documentation
+  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  services: service
+  ms.service: stream-analytics
+  ms.topic: landing-page
+  author: mamccrea
+  ms.author: mamccrea
+  ms.date: 09/16/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Azure Stream Analytics
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a job with Azure portal
+            url: stream-analytics-quick-create-portal.md
+      - linkListType: overview
+        links:
+          - text: What is Azure Stream Analytics?
+            url: stream-analytics-introduction.md
+          - text: Azure Stream Analytics solution patterns
+            url: stream-analytics-solution-patterns.md
+      - linkListType: whats-new
+        links:
+          - text: Stream Analytics compatibility levels
+            url: stream-analytics-compatibility-level.md
+          - text: Stream Analytics preview features
+            url: stream-analytics-previews.md
+      - linkListType: concept
+        links:
+          - text: Choose a streaming analytics technology
+            url: streaming-technologies.md
+          - text: Choose a development tool for your jobs
+            url: feature-comparison.md
+  - title: Connect a job to a data source
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Learn about input types
+            url: stream-analytics-add-inputs.md 
+      - linkListType: concept
+        links:
+          - text: Stream input data
+            url: stream-analytics-define-inputs.md 
+          - text: Join reference data for lookups
+            url: stream-analytics-use-reference-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use reference data from a SQL Database
+            url: sql-reference-data.md
+          - text: Troubleshoot input connections
+            url: stream-analytics-troubleshoot-input.md
+          - text: Process Apache Kafka for Event Hubs events
+            url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          - text: Process data from Azure Event Hubs
+            url: ../event-hubs/process-data-azure-stream-analytics.md
+  - title: Send data to an output sink
+    linkLists:
+      - linkListType: overview
+        links: 
+          - text: Learn about output types
+            url: stream-analytics-define-outputs.md
+      - linkListType: concept
+        links:
+          - text: Output to Cosmos DB
+            url: stream-analytics-documentdb-output.md
+          - text: Output to Azure SQL Database
+            url: stream-analytics-sql-output-perf.md
+          - text: Custom blob output partitioning
+            url: stream-analytics-custom-path-patterns-blob-storage-output.md
+          - text: Output error handling policies
+            url: stream-analytics-output-error-policy.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Troubleshoot output connections
+            url: stream-analytics-troubleshoot-output.md
+  - title: Monitor and troubleshoot your job
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Introduction to monitoring
+            url: stream-analytics-monitoring.md
+          - text: Monitor jobs with Azure PowerShell
+            url: stream-analytics-monitor-and-manage-jobs-use-powershell.md 
+          - text: Create a job monitor using the Azure .NET SDK
+            url: stream-analytics-monitor-jobs.md
+          - text: Monitor and manage jobs from Visual Studio
+            url: stream-analytics-monitor-jobs-use-vs.md
+          - text: Troubleshoot using resource logs
+            url: stream-analytics-job-diagnostic-logs.md
+          - text: Debug using the job diagram
+            url: stream-analytics-job-diagram-with-metrics.md
+          - text: Troubleshoot data errors
+            url: data-errors.md
+  - title: Review temporal concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common query patterns
+            url: stream-analytics-stream-analytics-query-patterns.md
+          - text: Understand time handling in Stream Analytics
+            url: stream-analytics-time-handling.md
+          - text: Internal checkpoint and replay
+            url: stream-analytics-concepts-checkpoint-replay.md
+  - title: Transform data with Stream Analytics queries
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to windowing functions
+            url: stream-analytics-window-functions.md
+          - text: Introduction to geospatial functions
+            url: stream-analytics-geospatial-functions.md
+          - text: Parse JSON and Avro data
+            url: stream-analytics-parsing-json.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot query logic
+            url: stream-analytics-troubleshoot-query.md
+          - text: Write JavaScript user-defined aggregates
+            url: stream-analytics-javascript-user-defined-aggregates.md  
+          - text: Develop .NET user-defined functions for IoT Edge jobs
+            url: stream-analytics-edge-csharp-udf-methods.md  
+      - linkListType: tutorial
+        links:
+          - text: Run a JavaScript user-defined function
+            url: stream-analytics-javascript-user-defined-functions.md
+          - text: Run a C# user-defined function on a Stream Analytics Edge job
+            url: stream-analytics-edge-csharp-udf.md
+  - title: Analyze with machine learning
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Use machine learning to detect anomalies
+            url: stream-analytics-machine-learning-anomaly-detection.md
+          - text: Perform sentiment analysis with Azure Machine Learning Studio (classic)
+            url: stream-analytics-machine-learning-integration-tutorial.md
+          - text: Scale jobs with Machine Learning Studio functions
+            url: stream-analytics-scale-with-machine-learning-functions.md
+  - title: Create and manage jobs with developer tools
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Explore jobs with Visual Studio Code
+          url: visual-studio-code-explore-jobs.md
+        - text: Test queries with sample data in Visual Studio Code
+          url: visual-studio-code-local-run.md
+        - text: Install tools for Visual Studio
+          url: stream-analytics-tools-for-visual-studio-install.md
+        - text: Test queries with sample data in Visual Studio
+          url: stream-analytics-vs-tools-local-run.md
+        - text: Test queries with live data in Visual Studio
+          url: stream-analytics-live-data-local-testing.md
+        - text: View jobs in Visual Studio
+          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+        - text: Develop an IoT Edge job in Visual Studio
+          url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+      - linkListType: video
+        links:
+        - text: Author, manage and test with Visual Studio Code
+          url: https://www.youtube.com/watch?v=N9ak_9ZaHms
+  - title: Try Stream Analytics tutorials and solutions 
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create and manage a job
+            url: stream-analytics-manage-job.md
+          - text: Trigger an Azure Function
+            url: stream-analytics-with-azure-functions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Build solutions with geofencing and geospatial aggregation
+            url: geospatial-scenarios.md
+          - text: Run jobs on IoT Edge
+            url: stream-analytics-edge.md
+          - text: Build a sentiment analysis solution
+            url: stream-analytics-twitter-sentiment-analysis-trends.md 
+          - text: Real-time fraud detection
+            url: stream-analytics-real-time-fraud-detection.md
+          - text: Build an IoT solution
+            url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+          - text: High-frequency trading simulation
+            url: stream-analytics-high-frequency-trading.md
+          - text: Alert based on adjustable rule thresholds
+            url: stream-analytics-threshold-based-rules.md
+  - title: Deploy Stream Analytics jobs
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Deploy a job with CI/CD using Azure Pipelines
+          url: stream-analytics-tools-visual-studio-cicd-vsts.md
+      - linkListType: how-to-guide
+        links:
+        - text: Set up a CI/CD pipeline with Visual Studio Code
+          url: setup-cicd-vs-code.md
+        - text: Set up a CI/CD pipeline with Visual Studio
+          url: stream-analytics-tools-for-visual-studio-cicd.md
+        - text: Use REST APIs to set up CI/CD for IoT Edge jobs
+          url: stream-analytics-cicd-api.md
+  - title: Scale Stream Analytics jobs
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Scale with streaming units
+            url: stream-analytics-streaming-unit-consumption.md
+          - text: Scale with query parallelization
+            url: stream-analytics-parallelization.md
+          - text: Scale jobs to increase throughput
+            url: stream-analytics-scale-jobs.md
+          - text: Optimize processing by repartitioning
+            url: repartition.md
+          
+          

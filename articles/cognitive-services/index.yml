@@ -1,0 +1,174 @@
+### YamlMime:Hub
+
+title: Azure Cognitive Services documentation
+summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+brand: azure
+
+metadata:
+  title: Azure Cognitive Services documentation
+  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+  ms.service: cognitive-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.date: 03/24/2020
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What are Cognitive Services?
+      itemType: overview # controls the icon image and super-title text
+      url: ./welcome.md
+    - title: What's new in docs?
+      itemType: whats-new
+      url: whats-new-docs.md
+    - title: Cognitive Services and machine learning
+      itemType: concept
+      url: ./cognitive-services-and-machine-learning.md
+    - title: Language support in Cognitive Services
+      itemType: reference
+      url: ./language-support.md
+    - title: Create a Cognitive Services resource
+      itemType: how-to-guide
+      url: ./cognitive-services-apis-create-account.md
+    - title: Use Cognitive Services in Containers
+      itemType: concept
+      url: ./cognitive-services-container-support.md
+    - title: Virtual networks for Cognitive Services
+      itemType: architecture
+      url: cognitive-services-virtual-networks.md
+    - title: Cognitive Services security
+      itemType: concept
+      url: cognitive-services-security.md
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: Vision
+      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.
+      links:
+        - url: ./computer-vision/index.yml
+          itemType: overview
+          text: Computer Vision
+        - url: ./Custom-Vision-Service/index.yml
+          itemType: overview
+          text: Custom Vision
+        - url: ./face/index.yml
+          itemType: overview
+          text: Face
+        - url: ./form-recognizer/index.yml
+          itemType: overview
+          text: Form Recognizer
+        - url: ./ink-recognizer/index.yml
+          itemType: overview
+          text: Ink Recognizer (Preview)
+        - url: ../media-services/video-indexer/index.yml
+          itemType: overview
+          text: Video Indexer
+    - title: Language
+      summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
+      links:
+        - url: ./immersive-reader/index.yml
+          itemType: overview
+          text: Immersive Reader (Preview)
+        - url: ./luis/index.yml
+          itemType: overview
+          text: Language Understanding (LUIS)
+        - url: ./qnamaker/index.yml
+          itemType: overview
+          text: QnA Maker
+        - url: ./text-analytics/index.yml
+          itemType: overview
+          text: Text Analytics
+        - url: ./translator/index.yml
+          itemType: overview
+          text: Translator
+    - title: Speech
+      summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
+      links:
+        - url: ./speech-service/index.yml
+          itemType: overview
+          text: Speech service
+#        - url: ./speech/home.md
+#          itemType: overview
+#          text: Bing Speech (Retiring)
+#        - url: ./translator-speech/overview.md
+#          itemType: overview
+#          text: Translator Speech (Retiring)
+    - title: Decision
+      summary: Build apps that surface recommendations for informed and efficient decision-making.
+      links:
+        - url: ./anomaly-detector/index.yml
+          itemType: overview
+          text: Anomaly Detector (Preview)
+        - url: ./content-moderator/index.yml
+          itemType: overview
+          text: Content Moderator
+        - url: ./personalizer/index.yml
+          itemType: overview
+          text: Personalizer
+    - title: Search
+      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
+      links:
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Bing Search APIs hub page
+    - title: Cognitive Service Containers
+      summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
+      links:
+        - url: ./cognitive-services-container-support.md
+          itemType: overview
+          text: Cognitive Service Containers
+        - url: ./containers/container-reuse-recipe.md
+          itemType: learn
+          text: Create containers for reuse
+        - url: ./containers/azure-container-instance-recipe.md
+          itemType: how-to-guide
+          text: Deploy and run container on Azure Container Instance
+        - url: ./containers/azure-kubernetes-recipe.md
+          itemType: deploy
+          text: Deploy to Azure Kubernetes Service
+        - url: ./containers/docker-compose-recipe.md
+          itemType: get-started
+          text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/container-faq.md
+          itemType: reference
+          text: Cognitive Services containers FAQ
+
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with the Cognitive Services SDK in your favorite programming language.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+  - title: Go
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+  - title: R
+    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
+    url: https://github.com/Azure/AzureCognitive
+
+additionalContent:
+  sections:
+    - items:
+      - title: Additional resources
+        links:
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          - text: PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+      - title: REST APIs
+        links:
+          - text: Cognitive Services Management
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/

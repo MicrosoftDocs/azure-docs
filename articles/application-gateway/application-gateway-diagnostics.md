@@ -1,58 +1,65 @@
 ---
-title: Monitor access, performance logs, backend health, and metrics for Application Gateway | Microsoft Docs
-description: Learn how to enable and manage Access and Performance logs for Application Gateway
+title: Back-end health and diagnostic logs
+titleSuffix: Azure Application Gateway
+description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
-documentationcenter: na
-author: amitsriva
-manager: rossort
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/17/2017
-ms.author: amitsriva
-
+ms.date: 11/22/2019
+ms.author: victorh
 ---
-# Backend health, diagnostics logging and metrics for Application Gateway
 
-Azure provides the capability to monitor resources with logging and metrics. Application Gateway provides these capabilities with backend health, logging, and metrics.
+# Back-end health and diagnostic logs for Application Gateway
 
-[**Backend health**](#backend-health) - Appplication gateway provides the capability to monitor the health of the servers in the backend pools through the portal and through powershell. The health of the backend pools can also be found through the performance diagnostic logs.
+You can monitor Azure Application Gateway resources in the following ways:
 
-[**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access, and other logs to be saved or consumed from a resource for monitoring purposes.
+* [Back-end health](#back-end-health): Application Gateway provides the capability to monitor the health of the servers in the back-end pools through the Azure portal and through PowerShell. You can also find the health of the back-end pools through the performance diagnostic logs.
 
-[**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
+* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-## Backend health
+* [Metrics](application-gateway-metrics.md): Application Gateway has several metrics which help you verify that your system is performing as expected.
 
-Appplication gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!important]
-> If there is a NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on Application Gateway instances.
+## Back-end health
 
-### View backend health through the portal
+Application Gateway provides the capability to monitor the health of individual members of the back-end pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of back-end pools through the performance diagnostic logs.
 
-There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP or FQDN). Backend pool name, port, backend http settings name and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
+The back-end health report reflects the output of the Application Gateway health probe to the back-end instances. When probing is successful and the back end can receive traffic, it's considered healthy. Otherwise, it's considered unhealthy.
 
-> [!WARNING]
-> If you see a backend health status as **Unknown**, ensure that the access to backend is not blocked by a Network Security Group (NSG) rule or by a custom DNS in the VNet.
+> [!IMPORTANT]
+> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 for v1 SKUs, and 65200-65535 for v2 SKUs on the Application Gateway subnet for inbound traffic. This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
-![backend health][10]
 
-### View backend health with PowerShell
+### View back-end health through the portal
 
-Backend health is also available to be retrieved through PowerShell. The following PowerShell code shows how to pull the backend health with the `Get-AzureRmApplicationGatewayBackendHealth` cmdlet.
+In the portal, back-end health is provided automatically. In an existing application gateway, select **Monitoring** > **Backend health**.
+
+Each member in the back-end pool is listed on this page (whether it's a NIC, IP, or FQDN). Back-end pool name, port, back-end HTTP settings name, and health status are shown. Valid values for health status are **Healthy**, **Unhealthy**, and **Unknown**.
+
+> [!NOTE]
+> If you see a back-end health status of **Unknown**, ensure that access to the back end is not blocked by an NSG rule, a user-defined route (UDR), or a custom DNS in the virtual network.
+
+![Back-end health][10]
+
+### View back-end health through PowerShell
+
+The following PowerShell code shows how to view back-end health by using the `Get-AzApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-The results are returned, an example of the response is shown in the following snippet.
+### View back-end health through Azure CLI
+
+```azurecli
+az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
+```
+
+### Results
+
+The following snippet shows an example of the response:
 
 ```json
 {
@@ -79,118 +86,184 @@ The results are returned, an example of the response is shown in the following s
 }
 ```
 
-## Diagnostic logging
+## <a name="diagnostic-logging"></a>Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot application gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log:** You can use [Azure Activity Log](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as Operational Logs and Audit Logs) to view all operations being submitted to your Azure subscription, and their status. Activity log entries are collected by default, and can be viewed in the Azure portal.
-* **Access logs:** You can use this log to view application gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of application gateway. The application gateway instance can be identified by 'instanceId' property.
-* **Performance logs:** You can use this log to view how application gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
-* **Firewall logs:** You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
+* **Activity log**: You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
+* **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
+* **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds. 
 
-> [!WARNING]
-> Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
+> [!NOTE]
+> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) article.
 
-For Logs, there are three different options to choose for storing your logs.
+You have three options for storing your logs:
 
-* Storage account - Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* Event hubs - Event hubs are a great option for integrating with other SEIM tools to get alerts on your resources
-* Log analytics - Log analytics is best used for general real time monitoring of your application or looking at trends.
+* **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
+* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
+* **Azure Monitor logs**: Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
 
-### Enable logging with PowerShell
+### Enable logging through PowerShell
 
-Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps:
+Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
-1. Note your storage account's Resource ID, where the log data is stored. This value would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
+1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
+    ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your application gateway's Resource ID for which logging is to be enabled. This value would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
+2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
+    ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
-3. Enable diagnostics logging using the following powershell cmdlet:
+3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
-### Enable logging with Azure portal
+### Enable logging through the Azure portal
 
-#### Step 1
+1. In the Azure portal, find your resource and select **Diagnostic settings**.
 
-Navigate to your resource in the Azure portal. Click **Diagnostic logs**. If this is the first time configuring diagnostics the blade looks like the following image:
+   For Application Gateway, three logs are available:
 
-For application gateway, 3 logs are available.
+   * Access log
+   * Performance log
+   * Firewall log
 
-* Access Log
-* Performance Log
-* Firewall Log
+2. To start collecting data, select **Turn on diagnostics**.
 
-To start collecting data, click **Turn on diagnostics**.
+   ![Turning on diagnostics][1]
 
-![diagnostics setting blade][1]
+3. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
 
-#### Step 2
+   ![Starting the configuration process][2]
 
-On the **Diagnostics settings** blade, the settings for how the diagnostic logs are set. In this example, Log analytics is used to store the logs. Click **Configure** under **Log Analytics** to configure your workspace. Event hubs and a storage account can be used to save the diagnostics logs as well.
-
-![diagnostics blade][2]
-
-#### Step 3
-
-Choose an existing OMS Workspace or create a new one. For this example, an existing one is used.
-
-![oms workspaces][3]
-
-#### Step 4
-
-When complete, confirm the settings and click **Save** to save the settings.
-
-![confirm selection][4]
+5. Type a name for the settings, confirm the settings, and select **Save**.
 
 ### Activity log
 
-This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and activity  log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
 
 ### Access log
 
-This log is only generated if you've enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as seen in the following example:
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
 
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance that served the request.        |
+|clientIP     | Originating IP for the request.        |
+|clientPort     | Originating port for the request.       |
+|httpMethod     | HTTP method used by the request.       |
+|requestUri     | URI of the received request.        |
+|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|UserAgent     | User agent from the HTTP request header.        |
+|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
+|httpVersion     | HTTP version of the request.        |
+|receivedBytes     | Size of packet received, in bytes.        |
+|sentBytes| Size of packet sent, in bytes.|
+|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|sslEnabled| Whether communication to the back-end pools used TLS/SSL. Valid values are on and off.|
+|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
+|originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
-    "time": "2016-04-11T04:24:37Z",
+    "time": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
-        "instanceId":"ApplicationGatewayRole_IN_0",
-        "clientIP":"37.186.113.170",
-        "clientPort":"12345",
-        "httpMethod":"HEAD",
-        "requestUri":"/xyz/portal",
-        "requestQuery":"",
-        "userAgent":"-",
-        "httpStatus":"200",
-        "httpVersion":"HTTP/1.0",
-        "receivedBytes":"27",
-        "sentBytes":"202",
-        "timeTaken":"359",
-        "sslEnabled":"off"
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
+    }
+}
+```
+For Application Gateway and WAF v2, the logs show a little more information:
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance that served the request.        |
+|clientIP     | Originating IP for the request.        |
+|clientPort     | Originating port for the request.       |
+|httpMethod     | HTTP method used by the request.       |
+|requestUri     | URI of the received request.        |
+|UserAgent     | User agent from the HTTP request header.        |
+|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
+|httpVersion     | HTTP version of the request.        |
+|receivedBytes     | Size of packet received, in bytes.        |
+|sentBytes| Size of packet sent, in bytes.|
+|timeTaken| Length of time (in **seconds**) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
+|sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
+|sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
+|serverRouted| The backend server that application gateway routes the request to.|
+|serverStatus| HTTP status code of the backend server.|
+|serverResponseLatency| Latency of the response from the backend server.|
+|host| Address listed in the host header of the request.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "appgw_1",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off",
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "www.contoso.com",
     }
 }
 ```
 
 ### Performance log
 
-This log is only generated if you have enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
+
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there is one row per instance.        |
+|healthyHostCount     | Number of healthy hosts in the back-end pool.        |
+|unHealthyHostCount     | Number of unhealthy hosts in the back-end pool.        |
+|requestCount     | Number of requests served.        |
+|latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
+|failedRequestCount| Number of failed requests.|
+|throughput| Average throughput since the last log, measured in bytes per second.|
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayPerformance",
     "time": "2016-04-09T00:00:00Z",
     "category": "ApplicationGatewayPerformanceLog",
@@ -208,99 +281,90 @@ This log is only generated if you have enabled it on a per Application Gateway b
 ```
 
 > [!NOTE]
-> Latency is calculated from the time first byte of the HTTP request is received to the time the last byte of the HTTP response is sent. It is sum of Application Gateway processing time plus the network cost to the backend, plus the time taken by the backend to process request.
+> Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Application Gateway processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
 
 ### Firewall log
 
-This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall is configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
+
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
+|clientIp     |   Originating IP for the request.      |
+|clientPort     |  Originating port for the request.       |
+|requestUri     | URL of the received request.       |
+|ruleSetType     | Rule set type. The available value is OWASP.        |
+|ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
+|ruleId     | Rule ID of the triggering event.        |
+|message     | User-friendly message for the triggering event. More details are provided in the details section.        |
+|action     |  Action taken on the request. Available values are Matched and Blocked.      |
+|site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
+|details     | Details of the triggering event.        |
+|details.message     | Description of the rule.        |
+|details.data     | Specific data found in request that matched the rule.         |
+|details.file     | Configuration file that contained the rule.        |
+|details.line     | Line number in the configuration file that triggered the event.       |
+|hostname   | Hostname or IP address of the Application Gateway.    |
+|transactionId  | Unique ID for a given transaction which helps group multiple rule violations that occurred within the same request.   |
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-    "operationName": "ApplicationGatewayFirewall",
-    "time": "2016-09-20T00:40:04.9138513Z",
-    "category": "ApplicationGatewayFirewallLog",
-    "properties":     {
-        "instanceId":"ApplicationGatewayRole_IN_0",
-        "clientIp":"108.41.16.164",
-        "clientPort":1815,
-        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-        "ruleId":"OWASP_973336",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "action":"Logged",
-        "site":"Global",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+  "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+  "operationName": "ApplicationGatewayFirewall",
+  "time": "2017-03-20T15:52:09.1494499Z",
+  "category": "ApplicationGatewayFirewallLog",
+  "properties": {
+    "instanceId": "ApplicationGatewayRole_IN_0",
+    "clientIp": "104.210.252.3",
+    "clientPort": "4835",
+    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
+    "ruleSetType": "OWASP",
+    "ruleSetVersion": "3.0",
+    "ruleId": "941320",
+    "message": "Possible XSS Attack Detected - HTML Tag Handler",
+    "action": "Blocked",
+    "site": "Global",
+    "details": {
+      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
+      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
+      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
+      "line": "865"
+    }
+    "hostname": "40.90.218.100",
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
+  }
 }
+
 ```
 
 ### View and analyze the activity log
 
-You can view and analyze activity log data using any of the following methods:
+You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools:** Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) article.
-* **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
+* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](https://docs.microsoft.com/power-bi/service-template-apps-overview), you can analyze your data.
 
-## View and analyze the access, performance, and firewall log
+### View and analyze the access, performance, and firewall logs
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 
-You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
+You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
-> 
-> 
+> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+>
+>
 
-## Metrics
+#### Analyzing Access logs through GoAccess
 
-Metrics is a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available at the time of writing this article. This metric is throughput, and can be seen in the portal. Navigate to an application gateway and click **Metrics**. To view the values, select throughput in the **Available metrics** section. In the following image, you can see an example with the filters that can be used to display the data in different time ranges.
-
-To see a list of the current support metrics, visit [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-![metric view][5]
-
-### Alert rules
-
-Alert rules can be started based of on metrics on a resource. This means for application gateway, an alert can call a webhook or email an administrator if the throughput of the application gateway is above, below or at a threshold for a specified period of time.
-
-The following example will walk you through creating an alert rule that sends an email to an administrator after a throughput threshold has been breached.
-
-#### Step 1
-
-Click **Add metric alert** to start. This blade can also be reached from the metrics blade.
-
-![alert rules blade][6]
-
-#### Step 2
-
-In the **Add rule** blade, fill out the name, condition, and notify sections and click **OK** when done.
-
-The **Condition** selector allows for 4 values, **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
-
-The **Period** selector, allows for picking of a period from 5 minutes to 6 hours.
-
-By selecting **Email owners, contributors, and readers**, the email can be dynamic based on the users that have access to that resource. Otherwise a comma separated list of users can be provided in the **Additional administrator email(s)** textbox.
-
-![add rule blade][7]
-
-If the threshold is breached, an email arrives similar to the one in the following image:
-
-![threshold breached email][8]
-
-A list of alerts is shown once a metric alert has been created and provides an overview of all the alert rules.
-
-![alert rule view][9]
-
-To learn more about alert notifications, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
-
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## Next steps
 
-* Visualize counter and event logs with [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
-* [Visualize your Azure Activity Log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
-* [View and analyze Azure Activity Log in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
+* Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
+* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
+* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png

@@ -1,735 +1,90 @@
 ---
-title: Add the Office 365 Outlook connector in your Logic Apps | Microsoft Docs
-description: 'Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.'
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
+title: Connect to Office 365 Outlook
+description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps 
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
-ms.author: mandia
-
+ms.date: 01/08/2020
+tags: connectors
 ---
-# Get started with the Office 365 Outlook connector
-The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
-With Office 365 Outlook, you:
+# Manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 
-* Build your workflow using the email and calendar features within Office 365. 
-* Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
-* Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your Office 365 account by building logic apps. For example, you automate these tasks:
 
-This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
+* Get, send, and reply to email. 
+* Schedule meetings on your calendar.
+* Add and edit contacts. 
+
+You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event. 
 
 > [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA).
-> 
-> 
+> To automate tasks for an @outlook.com or @hotmail.com account, use the 
+> [Outlook.com connector](../connectors/connectors-create-api-outlook.md).
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+## Prerequisites
 
-## Connect to Office 365
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
+* An [Office 365 account](https://www.office.com/)
 
-## Create the connection
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-> 
-> 
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-## Use a trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+* The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
-1. In the logic app, type "office 365" to get a list of the triggers:  
+## Add a trigger
+
+A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event that starts the workflow in your logic app. This example logic app uses a "polling" trigger that checks for any updated calendar event in your email account, based on the specified interval and frequency.
+
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app in the Logic App Designer.
+
+1. In the search box, enter `office 365 outlook` as your filter. This example selects **When an upcoming event is starting soon**.
    
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Select **Office 365 Outlook - When an upcoming event is starting soon**. If a connection already exists, then select a calendar from the drop-down list.
-   
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-   
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic lists the steps. 
-   
-   > [!NOTE]
-   > In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
-   > 
-   > 
-3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-   
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+   ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
-   
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. Choose **Add an action**.
-3. In the text box, type “office 365” to get a list of all the available actions.
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. In our example, choose **Office 365 Outlook - Create contact**. If a connection already exists, then choose the **Folder ID**, **Given Name**, and other properties:  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
-   
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
-   
-   > [!NOTE]
-   > In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
-   > 
-   > 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+   This example selects the calendar that the trigger checks, for example:
 
-## Technical Details
-Here are the details about the triggers, actions and responses that this connection supports:
+   ![Configure the trigger's properties](./media/connectors-create-api-office365-outlook/select-calendar.png)
 
-## Office 365 triggers
-| Trigger | Description |
-| --- | --- |
-| [When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon) |This operation triggers a flow when an upcoming calendar event is starting. |
-| [When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives) |This operation triggers a flow when a new email arrives |
-| [When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created) |This operation triggers a flow when a new event is created in a calendar. |
-| [When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified) |This operation triggers a flow when an event is modified in a calendar. |
+1. In the trigger, set the **Frequency** and **Interval** values. To add other available trigger properties, such as **Time zone**, select those properties from the **Add new parameter** list.
 
-## Office 365 actions
-| Action | Description |
-| --- | --- |
-| [Get emails](connectors-create-api-office365-outlook.md#get-emails) |This operation gets emails from a folder. |
-| [Send an email](connectors-create-api-office365-outlook.md#send-an-email) |This operation sends an email message. |
-| [Delete email](connectors-create-api-office365-outlook.md#delete-email) |This operation deletes an email by id. |
-| [Mark as read](connectors-create-api-office365-outlook.md#mark-as-read) |This operation marks an email as having been read. |
-| [Reply to email](connectors-create-api-office365-outlook.md#reply-to-email) |This operation replies to an email. |
-| [Get attachment](connectors-create-api-office365-outlook.md#get-attachment) |This operation gets an email attachment by id. |
-| [Send email with options](connectors-create-api-office365-outlook.md#send-email-with-options) |This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. |
-| [Send approval email](connectors-create-api-office365-outlook.md#send-approval-email) |This operation sends an approval email and waits for a response from the recipient. |
-| [Get calendars](connectors-create-api-office365-outlook.md#get-calendars) |This operation lists available calendars. |
-| [Get events](connectors-create-api-office365-outlook.md#get-events) |This operation gets events from a calendar. |
-| [Create event](connectors-create-api-office365-outlook.md#create-event) |This operation creates a new event in a calendar. |
-| [Get event](connectors-create-api-office365-outlook.md#get-event) |This operation gets a specific event from a calendar. |
-| [Delete event](connectors-create-api-office365-outlook.md#delete-event) |This operation deletes an event in a calendar. |
-| [Update event](connectors-create-api-office365-outlook.md#update-event) |This operation updates an event in a calendar. |
-| [Get contact folders](connectors-create-api-office365-outlook.md#get-contact-folders) |This operation lists available contacts folders. |
-| [Get contacts](connectors-create-api-office365-outlook.md#get-contacts) |This operation gets contacts from a contacts folder. |
-| [Create contact](connectors-create-api-office365-outlook.md#create-contact) |This operation creates a new contact in a contacts folder. |
-| [Get contact](connectors-create-api-office365-outlook.md#get-contact) |This operation gets a specific contact from a contacts folder. |
-| [Delete contact](connectors-create-api-office365-outlook.md#delete-contact) |This operation deletes a contact from a contacts folder. |
-| [Update contact](connectors-create-api-office365-outlook.md#update-contact) |This operation updates a contact in a contacts folder. |
+   For example, if you want the trigger to check the calendar every 15 minutes, set **Frequency** to **Minute**, and set **Interval** to `15`. 
 
-### Trigger and Action details
-In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+   ![Set frequency and interval for the trigger](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
-#### When an upcoming event is starting soon
-This operation triggers a flow when an upcoming calendar event is starting. 
+1. On the designer toolbar, select **Save**.
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Unique identifier of the calendar |
-| lookAheadTimeInMinutes |Look ahead time |Time (in minutes) to look ahead for upcoming events |
+Now add an action that runs after the trigger fires. For example, you can add the Twilio **Send message** action, which sends a text when a calendar event starts in 15 minutes.
 
-An asterisk (*) means the property is required.
+## Add an action
 
-##### Output Details
-CalendarItemsList: The list of calendar items
+An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger or action to create the contact. For example, suppose your logic app uses the Dynamics 365 trigger, **When a record is created**. You can add the Office 365 Outlook **Create contact** action and use the outputs from the SalesForce trigger to create the new contact.
 
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| value |array |List of calendar items |
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-#### Get emails
-This operation gets emails from a folder. 
+1. To add an action as the last step in your workflow, select **New step**. 
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| folderPath |Folder Path |Path of the folder to retrieve emails (default: 'Inbox') |
-| top |Top |Number of emails to retrieve (default: 10) |
-| fetchOnlyUnread |Fetch Only Unread Messages |Retrieve only unread emails? |
-| includeAttachments |Include Attachments |If set to true, attachments will also be retrieved along with the email |
-| searchQuery |Search Query |Search query to filter emails |
-| skip |Skip |Number of emails to skip (default: 0) |
-| skipToken |Skip Token |Skip token to fetch new page |
+   To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-An asterisk (*) means the property is required.
+1. In the search box, enter `office 365 outlook` as your filter. This example selects **Create contact**.
 
-##### Output Details
-ReceiveMessage: Receive Email Message
+   ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| From |string |From |
-| To |string |To |
-| Subject |string |Subject |
-| Body |string |Body |
-| Importance |string |Importance |
-| HasAttachment |boolean |Has Attachment |
-| Id |string |Message Id |
-| IsRead |boolean |Is Read |
-| DateTimeReceived |string |Date time received |
-| Attachments |array |Attachments |
-| Cc |string |Specify email addresses separated by semicolons like someone@contoso.com |
-| Bcc |string |Specify email addresses separated by semicolons like someone@contoso.com |
-| IsHtml |boolean |Is Html |
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
 
-#### Send an email
-This operation sends an email message. 
+   This example selects the contacts folder where the action creates the new contact, for example:
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| emailMessage* |Email |Email |
+   ![Configure the action's properties](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
 
-An asterisk (*) means the property is required.
+   To add other available action properties, select those properties from the **Add new parameter** list.
 
-##### Output Details
-None.
+1. On the designer toolbar, select **Save**.
 
-#### Delete email
-This operation deletes an email by id. 
+## Connector-specific details
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| messageId* |Message Id |Id of the email to delete |
+For technical details about triggers, actions, and limits as described in the connector's Swagger file, see the [connector's reference page](/connectors/office365connector/). 
 
-An asterisk (*) means the property is required.
+## Next steps
 
-##### Output Details
-None.
-
-#### Mark as read
-This operation marks an email as having been read. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| messageId* |Message Id |Id of the email to be marked as read |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Reply to email
-This operation replies to an email. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| messageId* |Message Id |Id of the email to reply to |
-| comment* |Comment |Reply comment |
-| replyAll |Reply All |Reply to all recipients |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Get attachment
-This operation gets an email attachment by id. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| messageId* |Message Id |Id of the email |
-| attachmentId* |Attachment Id |Id of the attachment to download |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### When a new email arrives
-This operation triggers a flow when a new email arrives.
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| folderPath |Folder Path |Email folder to retrieve (default: Inbox) |
-| to |To |Recipient email addresses |
-| from |From |From address |
-| importance |Importance |Importance of the email (High, Normal, Low) (default: Normal) |
-| fetchOnlyWithAttachment |Has Attachments |Retrieve only emails with an attachment |
-| includeAttachments |Include Attachments |Include attachments |
-| subjectFilter |Subject Filter |String to look for in the subject |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-TriggerBatchResponse[ReceiveMessage]
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Send email with options
-This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| optionsEmailSubscription* |Subscription request for options email |Subscription request for options email |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-SubscriptionResponse: Model for Approval Email Subscription
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| id |string |Id of the subscription |
-| resource |string |Resource of the subscription request |
-| notificationType |string |Notification Type |
-| notificationUrl |string |Notification Url |
-
-#### Send approval email
-This operation sends an approval email and waits for a response from the recipient. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| approvalEmailSubscription* |Subscription request for approval email |Subscription request for approval email |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-SubscriptionResponse: Model for Approval Email Subscription
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| id |string |Id of the subscription |
-| resource |string |Resource of the subscription request |
-| notificationType |string |Notification Type |
-| notificationUrl |string |Notification Url |
-
-#### Get calendars
-This operation lists available calendars. 
-
-There are no parameters for this call.
-
-##### Output Details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Get events
-This operation gets events from a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarEventList: The list of calendar items
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| value |array |List of calendar items |
-
-#### Create event
-This operation creates a new event in a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| item* |Item |Event to create |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarEvent: Connector specific calendar event model class.
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The Event's unique identifier. |
-| Attendees |array |List of attendees for the event. |
-| Body |not defined |The body of the message associated with the event. |
-| BodyPreview |string |The preview of the message associated with the event. |
-| Categories |array |The categories associated with the event. |
-| ChangeKey |string |Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well. |
-| DateTimeCreated |string |The date and time that the event was created. |
-| DateTimeLastModified |string |The date and time that the event was last modified. |
-| End |string |The end time of the event. |
-| EndTimeZone |string |Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time'). |
-| HasAttachments |boolean |Set to true if the event has attachments. |
-| Importance |string |The importance of the event: Low, Normal or High. |
-| IsAllDay |boolean |Set to true if the event lasts all day. |
-| IsCancelled |boolean |Set to true if the event has been canceled. |
-| IsOrganizer |boolean |Set to true if the message sender is also the organizer. |
-| Location |not defined |The location of the event. |
-| Organizer |not defined |The organizer of the event. |
-| Recurrence |not defined |The recurrence pattern for the event. |
-| Reminder |integer |Time in minutes before event start to remind. |
-| ResponseRequested |boolean |Set to true if the sender would like a response when the event is accepted or declined. |
-| ResponseStatus |not defined |Indicates the type of response sent in response to an event message. |
-| SeriesMasterId |string |Unique identifier for Series Master event type. |
-| ShowAs |string |Shows as free or busy. |
-| Start |string |The start time of the event. |
-| StartTimeZone |string |Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time"). |
-| Subject |string |Event subject. |
-| Type |string |The event type: Single Instance, Occurrence, Exception, or Series Master. |
-| WebLink |string |The preview of the message associated with the event. |
-
-#### Get event
-This operation gets a specific event from a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| id* |Item id |Select an event |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarEvent: Connector specific calendar event model class.
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The Event's unique identifier. |
-| Attendees |array |List of attendees for the event. |
-| Body |not defined |The body of the message associated with the event. |
-| BodyPreview |string |The preview of the message associated with the event. |
-| Categories |array |The categories associated with the event. |
-| ChangeKey |string |Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well. |
-| DateTimeCreated |string |The date and time that the event was created. |
-| DateTimeLastModified |string |The date and time that the event was last modified. |
-| End |string |The end time of the event. |
-| EndTimeZone |string |Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time'). |
-| HasAttachments |boolean |Set to true if the event has attachments. |
-| Importance |string |The importance of the event: Low, Normal or High. |
-| IsAllDay |boolean |Set to true if the event lasts all day. |
-| IsCancelled |boolean |Set to true if the event has been canceled. |
-| IsOrganizer |boolean |Set to true if the message sender is also the organizer. |
-| Location |not defined |The location of the event. |
-| Organizer |not defined |The organizer of the event. |
-| Recurrence |not defined |The recurrence pattern for the event. |
-| Reminder |integer |Time in minutes before event start to remind. |
-| ResponseRequested |boolean |Set to true if the sender would like a response when the event is accepted or declined. |
-| ResponseStatus |not defined |Indicates the type of response sent in response to an event message. |
-| SeriesMasterId |string |Unique identifier for Series Master event type. |
-| ShowAs |string |Shows as free or busy. |
-| Start |string |The start time of the event. |
-| StartTimeZone |string |Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time"). |
-| Subject |string |Event subject. |
-| Type |string |The event type: Single Instance, Occurrence, Exception, or Series Master. |
-| WebLink |string |The preview of the message associated with the event. |
-
-#### Delete event
-This operation deletes an event in a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| id* |Id |Select an event |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Update event
-This operation updates an event in a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| id* |Id |Select an event |
-| item* |Item |Event to update |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarEvent: Connector specific calendar event model class.
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The Event's unique identifier. |
-| Attendees |array |List of attendees for the event. |
-| Body |not defined |The body of the message associated with the event. |
-| BodyPreview |string |The preview of the message associated with the event. |
-| Categories |array |The categories associated with the event. |
-| ChangeKey |string |Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well. |
-| DateTimeCreated |string |The date and time that the event was created. |
-| DateTimeLastModified |string |The date and time that the event was last modified. |
-| End |string |The end time of the event. |
-| EndTimeZone |string |Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time'). |
-| HasAttachments |boolean |Set to true if the event has attachments. |
-| Importance |string |The importance of the event: Low, Normal or High. |
-| IsAllDay |boolean |Set to true if the event lasts all day. |
-| IsCancelled |boolean |Set to true if the event has been canceled. |
-| IsOrganizer |boolean |Set to true if the message sender is also the organizer. |
-| Location |not defined |The location of the event. |
-| Organizer |not defined |The organizer of the event. |
-| Recurrence |not defined |The recurrence pattern for the event. |
-| Reminder |integer |Time in minutes before event start to remind. |
-| ResponseRequested |boolean |Set to true if the sender would like a response when the event is accepted or declined. |
-| ResponseStatus |not defined |Indicates the type of response sent in response to an event message. |
-| SeriesMasterId |string |Unique identifier for Series Master event type. |
-| ShowAs |string |Shows as free or busy. |
-| Start |string |The start time of the event. |
-| StartTimeZone |string |Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time"). |
-| Subject |string |Event subject. |
-| Type |string |The event type: Single Instance, Occurrence, Exception, or Series Master. |
-| WebLink |string |The preview of the message associated with the event. |
-
-#### When a new event is created
-This operation triggers a flow when a new event is created in a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarItemsList: The list of calendar items
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| value |array |List of calendar items |
-
-#### When an event is modified
-This operation triggers a flow when an event is modified in a calendar. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Calendar id |Select a calendar |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-CalendarItemsList: The list of calendar items
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| value |array |List of calendar items |
-
-#### Get contact folders
-This operation lists available contacts folders. 
-
-There are no parameters for this call.
-
-##### Output Details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Get contacts
-This operation gets contacts from a contacts folder. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Folder id |Unique identifier of the contacts folder to retrieve |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-ContactList: The list of contacts
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| value |array |List of contacts |
-
-#### Create contact
-This operation creates a new contact in a contacts folder. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Folder id |Select a contacts folder |
-| item* |Item |Contact to create |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Contact: Contact
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The contact's unique identifier. |
-| ParentFolderId |string |The ID of the contact's parent folder |
-| Birthday |string |The contact's birthday. |
-| FileAs |string |The name the contact is filed under. |
-| DisplayName |string |The contact's display name. |
-| GivenName |string |The contact's given name. |
-| Initials |string |The contact's initials. |
-| MiddleName |string |The contact's middle name. |
-| NickName |string |The contact's nickname. |
-| Surname |string |The contact's surname. |
-| Title |string |The contact's title. |
-| Generation |string |The contact's generation. |
-| EmailAddresses |array |The contact's email addresses. |
-| ImAddresses |array |The contact's instant messaging (IM) addresses. |
-| JobTitle |string |The contact's job title. |
-| CompanyName |string |The name of the contact's company. |
-| Department |string |The contact's department. |
-| OfficeLocation |string |The location of the contact's office. |
-| Profession |string |The contact's profession. |
-| BusinessHomePage |string |The business home page of the contact. |
-| AssistantName |string |The name of the contact's assistant. |
-| Manager |string |The name of the contact's manager. |
-| HomePhones |array |The contact's home phone numbers. |
-| BusinessPhones |array |The contact's business phone numbers |
-| MobilePhone1 |string |The contact's mobile phone number. |
-| HomeAddress |not defined |The contact's home address. |
-| BusinessAddress |not defined |The contact's business address. |
-| OtherAddress |not defined |Other addresses for the contact. |
-| YomiCompanyName |string |The phonetic Japanese company name of the contact. |
-| YomiGivenName |string |The phonetic Japanese given name (first name) of the contact. |
-| YomiSurname |string |The phonetic Japanese surname (last name) of the contact |
-| Categories |array |The categories associated with the contact. |
-| ChangeKey |string |Identifies the version of the event object |
-| DateTimeCreated |string |The time the contact was created. |
-| DateTimeLastModified |string |The time the contact was modified. |
-
-#### Get contact
-This operation gets a specific contact from a contacts folder. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Folder id |Select a contacts folder |
-| id* |Item id |Unique identifier of a contact to retrieve |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Contact: Contact
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The contact's unique identifier. |
-| ParentFolderId |string |The ID of the contact's parent folder |
-| Birthday |string |The contact's birthday. |
-| FileAs |string |The name the contact is filed under. |
-| DisplayName |string |The contact's display name. |
-| GivenName |string |The contact's given name. |
-| Initials |string |The contact's initials. |
-| MiddleName |string |The contact's middle name. |
-| NickName |string |The contact's nickname. |
-| Surname |string |The contact's surname. |
-| Title |string |The contact's title. |
-| Generation |string |The contact's generation. |
-| EmailAddresses |array |The contact's email addresses. |
-| ImAddresses |array |The contact's instant messaging (IM) addresses. |
-| JobTitle |string |The contact's job title. |
-| CompanyName |string |The name of the contact's company. |
-| Department |string |The contact's department. |
-| OfficeLocation |string |The location of the contact's office. |
-| Profession |string |The contact's profession. |
-| BusinessHomePage |string |The business home page of the contact. |
-| AssistantName |string |The name of the contact's assistant. |
-| Manager |string |The name of the contact's manager. |
-| HomePhones |array |The contact's home phone numbers. |
-| BusinessPhones |array |The contact's business phone numbers |
-| MobilePhone1 |string |The contact's mobile phone number. |
-| HomeAddress |not defined |The contact's home address. |
-| BusinessAddress |not defined |The contact's business address. |
-| OtherAddress |not defined |Other addresses for the contact. |
-| YomiCompanyName |string |The phonetic Japanese company name of the contact. |
-| YomiGivenName |string |The phonetic Japanese given name (first name) of the contact. |
-| YomiSurname |string |The phonetic Japanese surname (last name) of the contact |
-| Categories |array |The categories associated with the contact. |
-| ChangeKey |string |Identifies the version of the event object |
-| DateTimeCreated |string |The time the contact was created. |
-| DateTimeLastModified |string |The time the contact was modified. |
-
-#### Delete contact
-This operation deletes a contact from a contacts folder. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Folder id |Select a contacts folder |
-| id* |Id |Unique identifier of contact to delete |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Update contact
-This operation updates a contact in a contacts folder. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Folder id |Select a contacts folder |
-| id* |Id |Unique identifier of contact to update |
-| item* |Item |Contact item to update |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Contact: Contact
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Id |string |The contact's unique identifier. |
-| ParentFolderId |string |The ID of the contact's parent folder |
-| Birthday |string |The contact's birthday. |
-| FileAs |string |The name the contact is filed under. |
-| DisplayName |string |The contact's display name. |
-| GivenName |string |The contact's given name. |
-| Initials |string |The contact's initials. |
-| MiddleName |string |The contact's middle name. |
-| NickName |string |The contact's nickname. |
-| Surname |string |The contact's surname. |
-| Title |string |The contact's title. |
-| Generation |string |The contact's generation. |
-| EmailAddresses |array |The contact's email addresses. |
-| ImAddresses |array |The contact's instant messaging (IM) addresses. |
-| JobTitle |string |The contact's job title. |
-| CompanyName |string |The name of the contact's company. |
-| Department |string |The contact's department. |
-| OfficeLocation |string |The location of the contact's office. |
-| Profession |string |The contact's profession. |
-| BusinessHomePage |string |The business home page of the contact. |
-| AssistantName |string |The name of the contact's assistant. |
-| Manager |string |The name of the contact's manager. |
-| HomePhones |array |The contact's home phone numbers. |
-| BusinessPhones |array |The contact's business phone numbers |
-| MobilePhone1 |string |The contact's mobile phone number. |
-| HomeAddress |not defined |The contact's home address. |
-| BusinessAddress |not defined |The contact's business address. |
-| OtherAddress |not defined |Other addresses for the contact. |
-| YomiCompanyName |string |The phonetic Japanese company name of the contact. |
-| YomiGivenName |string |The phonetic Japanese given name (first name) of the contact. |
-| YomiSurname |string |The phonetic Japanese surname (last name) of the contact |
-| Categories |array |The categories associated with the contact. |
-| ChangeKey |string |Identifies the version of the event object |
-| DateTimeCreated |string |The time the contact was created. |
-| DateTimeLastModified |string |The time the contact was modified. |
-
-## HTTP responses
-The actions and triggers above can return one or more of the following HTTP status codes: 
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
-
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
-
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

@@ -1,0 +1,162 @@
+### YamlMime:Landing
+
+title: Azure Active Directory B2C documentation # < 60 chars
+summary: Azure Active Directory B2C (Azure AD B2C) is an identity management service that enables custom control of how your customers sign up, sign in, and manage their profiles when using your iOS, Android, .NET, single-page (SPA), and other applications. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples. # < 160 chars
+
+metadata:
+  title: Azure Active Directory B2C documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications. # Required; article description that is displayed in search results. < 160 chars.
+  services: active-directory-b2c
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+  ms.collection: collection
+  author: msmimart
+  ms.author: mimart
+  ms.date: 01/28/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: Learn the basics
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD B2C?
+            url: overview.md
+          - text: Technical & feature overview
+            url: technical-overview.md
+      - linkListType: get-started
+        links:
+          - text: Create an Azure AD B2C tenant
+            url: tutorial-create-tenant.md
+          - text: Register an application
+            url: tutorial-register-applications.md
+          - text: Set up user flows
+            url: tutorial-create-user-flows.md
+      - linkListType: video
+        links:
+          - text: What is Azure AD B2C? (9:35)
+            url: https://www.youtube.com/watch?v=GmBKlXED9Ug
+
+  # Card
+  - title: Add identity to ASP.NET apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: quickstart-web-app-dotnet.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users a .NET web application
+            url: tutorial-web-app-dotnet.md
+          - text: Grant API access to a .NET web application
+            url: tutorial-web-api-dotnet.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for web apps and APIs
+            url: code-samples.md#web-apps-and-apis
+
+  # Card
+  - title: Add identity to single-page apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: quickstart-single-page-app.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users in a single-page app
+            url: tutorial-single-page-app.md
+          - text: Grant API access to a single-page app
+            url: tutorial-single-page-app-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for single-page apps
+            url: code-samples.md#single-page-apps
+
+  # Card
+  - title: Add identity to desktop apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: quickstart-native-app-desktop.md
+      - linkListType: tutorial
+        links:
+          - text: Authenticate users in native clients
+            url: tutorial-desktop-app.md
+          - text: Grant API access to native clients
+            url: tutorial-desktop-app-webapi.md
+          - text: Enable enterprise and social login
+            url: tutorial-add-identity-providers.md
+      - linkListType: download
+        links:
+          - text: Code samples for mobile and desktop apps
+            url: code-samples.md
+
+  # Card
+  - title: Configure common identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to user flows
+            url: user-flow-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: tutorial-create-user-flows.md
+          - text: Customize the user interface
+            url: customize-ui-overview.md
+          - text: Enable sign-in with Facebook
+            url: identity-provider-facebook.md
+      - linkListType: video
+        links:
+          - text: How to configure basic policies (9:41)
+            url: https://www.youtube.com/watch?v=nWJ3m82536A
+
+  # Card
+  - title: Build advanced identity scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to custom policies
+            url: custom-policy-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up and sign in users
+            url: custom-policy-get-started.md
+          - text: Customize the user interface
+            url: custom-policy-ui-customization.md
+          - text: Enable sign-in with Azure AD multi-tenant
+            url: identity-provider-azure-ad-multi-tenant-custom.md
+          - text: Add your own business logic with REST APIs
+            url: custom-policy-rest-api-claims-validation.md
+      - linkListType: video
+        links:
+          - text: Advanced use cases with Azure AD B2C (4:54)
+            url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
+
+#  # Card
+#  - title: cardtitle2
+#    linkLists:
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md

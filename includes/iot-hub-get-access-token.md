@@ -1,11 +1,18 @@
+---
+author: robinsh
+ms.author: robinsh
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+---
 ## Obtain an Azure Resource Manager token
 Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
 
 1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
    
-    ```
+    ```csharp
     var authContext = new AuthenticationContext(string.Format  
-      ("https://login.windows.net/{0}", tenantId));
+      ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;
@@ -18,14 +25,14 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
     ```
 2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
    
-    ```
+    ```csharp
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
 3. Create, or obtain a reference to, the resource group you are using:
    
-    ```
+    ```csharp
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
         new ResourceGroup("East US"));
     if (rgResponse.Properties.ProvisioningState != "Succeeded")

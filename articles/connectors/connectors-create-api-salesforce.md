@@ -1,229 +1,86 @@
 ---
-title: Learn to use the Salesforce Connector in your logic apps| Microsoft Docs
-description: Create logic apps with Azure App service. The Salesforce Connector provides an API to work with Salesforce objects.
+title: Connect to Salesforce from Azure Logic Apps
+description: Automate tasks and workflows that monitor, create, and manage Salesforce records and jobs by using Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
-ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/05/2016
-ms.author: deonhe
-
+ms.date: 08/24/2018
+tags: connectors
 ---
-# Get started with the Salesforce connector
-The Salesforce Connector provides an API to work with Salesforce objects.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
+# Monitor, create, and manage Salesforce resources by using Azure Logic Apps
 
-## Connect to Salesforce connector
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
+With Azure Logic Apps and the Salesforce connector, 
+you can create automated tasks and workflows for your 
+Salesforce resources, such as records, jobs, and objects, 
+for example:
 
-### Create a connection to Salesforce connector
-> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
-> 
-> 
+* Monitor when records are created or changed. 
+* Create, get, and manage jobs and records, 
+including insert, update, and delete actions.
 
-## Use a Salesforce connector trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+You can use Salesforce triggers that get responses from Salesforce 
+and make the output available to other actions. You can use actions 
+in your logic apps to perform tasks with Salesforce resources. 
+If you're new to logic apps, review 
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
-> 
-> 
+## Prerequisites
 
-## Add a condition
-> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
-> 
-> 
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-## Use a Salesforce connector action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+* A [Salesforce account](https://salesforce.com/)
 
-> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
-> 
-> 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## Technical details
-Here are the details about the triggers, actions and responses that this connection supports:
+* The logic app where you want to access your Salesforce account. 
+To start with a Salesforce trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use a Salesforce action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
-## Salesforce connector triggers
-Salesforce Connector has the following trigger(s):  
+## Connect to Salesforce
 
-| Trigger | Description |
-| --- | --- |
-| [When an object is created](connectors-create-api-salesforce.md#when-an-object-is-created) |This operation triggers a flow when an object is created. |
-| [When an object is modified](connectors-create-api-salesforce.md#when-an-object-is-modified) |This operation triggers a flow when an object is modified. |
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## Salesforce connector actions
-Salesforce Connector has the following actions:
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-| Action | Description |
-| --- | --- |
-| [Get objects](connectors-create-api-salesforce.md#get-objects) |Thie operation gets objects of a certain object type like 'Lead'. |
-| [Create object](connectors-create-api-salesforce.md#create-object) |This operation creates an object. |
-| [Get object](connectors-create-api-salesforce.md#get-object) |This operation gets an object. |
-| [Delete object](connectors-create-api-salesforce.md#delete-object) |This operation deletes an object. |
-| [Update object](connectors-create-api-salesforce.md#update-object) |This operation updates an object. |
-| [Get object types](connectors-create-api-salesforce.md#get-object-types) |This operation lists the available object types. |
+1. Choose a path: 
 
-### Action details
-Here are the details for the actions and triggers for this connector, along with their responses:
+   * For blank logic apps, in the search box, 
+   enter "salesforce" as your filter. 
+   Under the triggers list, select the trigger you want. 
 
-### Get objects
-Thie operation gets objects of a certain object type like 'Lead'. 
+     -or-
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Salesforce object type like 'Lead' |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
+   * For existing logic apps, under the step where you want 
+   to add an action, choose **New step**. In the search box, 
+   enter "salesforce" as your filter. Under the actions list, 
+   select the action you want.
 
-An * indicates that a property is required
+1. If you're prompted to sign in to Salesforce, sign in now 
+and allow access.
 
-#### Output details
-ItemsList
+   Your credentials authorize your logic app to create 
+   a connection to Salesforce and access your data.
 
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
+1. Provide the necessary details for your selected trigger or 
+action and continue building your logic app's workflow.
 
-### Create object
-This operation creates an object. 
+## Connector reference
 
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Object type like 'Lead' |
-| item* |Object |Object to create |
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/salesforce/).
 
-An * indicates that a property is required
+## Get support
 
-#### Output details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### Get object
-This operation gets an object. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Salesforce object type like 'Lead' |
-| id* |Object id |Identifier of object to get |
-
-An * indicates that a property is required
-
-#### Output details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### Delete object
-This operation deletes an object. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Object type like 'Lead' |
-| id* |Object id |Identifier of object to delete |
-
-An * indicates that a property is required
-
-### Update object
-This operation updates an object. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Object type like 'Lead' |
-| id* |Object id |Identifier of object to update |
-| item* |Object |Object with changed properties |
-
-An * indicates that a property is required
-
-#### Output details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### When an object is created
-This operation triggers a flow when an object is created. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Object type like 'Lead' |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An * indicates that a property is required
-
-#### Output details
-ItemsList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-### When an object is modified
-This operation triggers a flow when an object is modified. 
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Object type |Object type like 'Lead' |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-
-An * indicates that a property is required
-
-#### Output details
-ItemsList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-### Get object types
-This operation lists the available object types. 
-
-There are no parameters for this call
-
-#### Output details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-## HTTP responses
-The actions and triggers above can return one or more of the following HTTP status codes: 
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred. |
-| default |Operation Failed. |
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

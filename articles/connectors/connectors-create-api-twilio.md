@@ -1,239 +1,97 @@
 ---
-title: Add the Twilio Connector in your Logic apps| Microsoft Docs
-description: Overview of the Twilio Connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
-ms.service: logic-apps
-ms.devlang: na
+title: Connect to Twilio from Azure Logic Apps
+description: Automate tasks and workflows that manage global SMS, MMS, and IP messages through your Twilio account by using Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/19/2016
-ms.author: mandia
-
+ms.date: 08/25/2018
+tags: connectors
 ---
-# Get started with the Twilio connector
-Connect to Twilio to send and receive global SMS, MMS, and IP messages.
 
-> [!NOTE]
-> This version of the article applies to logic apps 2015-08-01-preview schema version.
-> 
-> 
+# Manage messages in Twilio with Azure Logic Apps
 
-With Twilio, you can:
+With Azure Logic Apps and the Twilio connector, 
+you can create automated tasks and workflows 
+that get, send, and list messages in Twilio, 
+which include global SMS, MMS, and IP messages. 
+You can use these actions to perform tasks with 
+your Twilio account. You can also have other actions 
+use the output from Twilio actions. For example, 
+when a new message arrives, you can send the message 
+content with the Slack connector. If you're new to logic apps, 
+review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* Build your business flow based on the data you get from Twilio. 
-* Use actions that get a message, list messages, and more. These actions get a response, and then make the output available for other actions. For example, when  you get a new Twilio message, you can take this message and use it a Service Bus workflow. 
+## Prerequisites
 
-To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-## Triggers and actions
-The Twilio Connector includes the following actions. There are no triggers. 
+* From [Twilio](https://www.twilio.com/): 
 
-| Triggers | Actions |
-| --- | --- |
-| None |<ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul> |
+  * Your Twilio account ID and 
+  [authentication token](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), 
+  which you can find on your Twilio dashboard
 
-All connectors support data in JSON and XML formats. 
+    Your credentials authorize your logic app to create a 
+    connection and access your Twilio account from your logic app. 
+    If you're using a Twilio trial account, 
+    you can send SMS only to *verified* phone numbers.
 
-## Create a connection to Twilio
-When you add this Connector to your logic apps, enter the following Twilio values:
+  * A verified Twilio phone number that can send SMS
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Account ID |Yes |Enter your Twilio account ID |
-| Access Token |Yes |Enter your Twilio access token |
+  * A verified Twilio phone number that can receive SMS
 
-> [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
-> 
-> 
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-If you don't have one, see [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) to create an access token.
+* The logic app where you want to access your Twilio account. 
+To use a Twilio action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
-> [!TIP]
-> You can use this same Twilio connection in other Logic apps.
-> 
-> 
+## Connect to Twilio
 
-## Swagger REST API reference
-#### This documentation is for version: 1.0
-### Get Message
-Returns a single message specified by the provided Message ID.  
-```GET: /Messages/{MessageId}.json```
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| MessageId |string |yes |path |none |Message ID |
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-### Response
-| Name | Description |
-| --- | --- |
-| 200 |Operation successful |
-| 400 |Bad Request |
-| 404 |Message not found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
+1. Choose a path: 
 
-### List Messages
-Returns a list of messages associated with your account.  
-```GET: /Messages.json```
+     * Under the last step where you want to add an action, 
+     choose **New step**. 
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| To |string |no |query |none |To phone number |
-| From |string |no |query |none |From phone number |
-| DateSent |string |no |query |none |Only show messages sent on this date (in GMT format), given as YYYY-MM-DD. Example: DateSent=2009-07-06. You can also specify inequality, such as DateSent<=YYYY-MM-DD for messages that were sent on or before midnight on a date, and DateSent>=YYYY-MM-DD for messages sent on or after midnight on a date. |
-| PageSize |integer |no |query |50 |How many resources to return in each list page. Default is 50. |
-| Page |integer |no |query |0 |Page number. Default is 0. |
+       -or-
 
-### Response
-| Name | Description |
-| --- | --- |
-| 200 |Operation successful |
-| 400 |Bad Request |
-| 500 |Internal Server Error. Unknown error occured |
-| default |Operation Failed. |
+     * Between the steps where you want to add an action, 
+     move your pointer over the arrow between steps. 
+     Choose the plus sign (**+**) that appears, 
+     and then select **Add an action**.
+     
+       In the search box, enter "twilio" as your filter. 
+       Under the actions list, select the action you want.
 
-### Send Message
-Send a new message to a mobile number.  
-```POST: /Messages.json```
+1. Provide the necessary details for your connection, 
+and then choose **Create**:
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| sendMessageRequest | |yes |body |none |Message To Send |
+   * The name to use for your connection
+   * Your Twilio account ID 
+   * Your Twilio access (authentication) token
 
-### Response
-| Name | Description |
-| --- | --- |
-| 200 |Operation successful |
-| 400 |Bad Request |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
+1. Provide the necessary details for your selected action 
+and continue building your logic app's workflow.
 
-## Object definitions
-#### SendMessageRequest: Request model for Send Message operation
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| from |string |yes |
-| to |string |yes |
-| body |string |yes |
-| media_url |array |no |
-| status_callback |string |no |
-| messaging_service_sid |string |no |
-| application_sid |string |no |
-| max_price |string |no |
+## Connector reference
 
-#### Message: Model for Message
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| body |string |no |
-| from |string |no |
-| to |string |no |
-| status |string |no |
-| sid |string |no |
-| account_sid |string |no |
-| api_version |string |no |
-| num_segments |string |no |
-| num_media |string |no |
-| date_created |string |no |
-| date_sent |string |no |
-| date_updated |string |no |
-| direction |string |no |
-| error_code |string |no |
-| error_message |string |no |
-| price |string |no |
-| price_unit |string |no |
-| uri |string |no |
-| subresource_uris |array |no |
-| messaging_service_sid |string |no |
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/twilio/).
 
-#### MessageList: Response model for List Messages operation
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| messages |array |no |
-| page |integer |no |
-| page_size |integer |no |
-| num_pages |integer |no |
-| uri |string |no |
-| first_page_uri |string |no |
-| next_page_uri |string |no |
-| total |integer |no |
-| previous_page_uri |string |no |
+## Get support
 
-#### IncomingPhoneNumberList: Response model for List Messages operation
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| incoming_phone_numbers |array |no |
-| page |integer |no |
-| page_size |integer |no |
-| num_pages |integer |no |
-| uri |string |no |
-| first_page_uri |string |no |
-| next_page_uri |string |no |
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
-#### AddIncomingPhoneNumberRequest: Request model for Add Incoming Number operation
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| PhoneNumber |string |yes |
-| AreaCode |string |no |
-| FriendlyName |string |no |
+## Next steps
 
-#### IncomingPhoneNumber: Incoming Phone Number
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| phone_number |string |no |
-| friendly_name |string |no |
-| sid |string |no |
-| account_sid |string |no |
-| date_created |string |no |
-| date_updated |string |no |
-| capabilities |not defined |no |
-| status_callback |string |no |
-| status_callback_method |string |no |
-| api_version |string |no |
-
-#### Capabilities: Phone Number Capabilities
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| mms |boolean |no |
-| sms |boolean |no |
-| voice |boolean |no |
-
-#### AvailablePhoneNumbers: Available Phone Numbers
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| phone_number |string |no |
-| friendly_name |string |no |
-| lata |string |no |
-| latitude |string |no |
-| longitude |string |no |
-| postal_code |string |no |
-| rate_center |string |no |
-| region |string |no |
-| MMS |boolean |no |
-| SMS |boolean |no |
-| voice |boolean |no |
-
-#### UsageRecords: Usage Records class
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| category |string |no |
-| usage |string |no |
-| usage_unit |string |no |
-| description |string |no |
-| price |number |no |
-| price_unit |string |no |
-| count |string |no |
-| count_unit |string |no |
-| start_date |string |no |
-| end_date |string |no |
-
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
-
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

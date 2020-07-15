@@ -1,35 +1,19 @@
 ---
-title: Turn your StorSimple device on or off | Microsoft Docs
+title: Turn your StorSimple 8000 series device on or off
 description: Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: carmonm
-editor: ''
-
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 08/23/2016
+ms.topic: how-to
+ms.date: 01/09/2018
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Turn your StorSimple device on or off
+# Turn on or turn off your StorSimple 8000 series device
+
 ## Overview
 Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
-
-The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.
-
-| Scenario | Reference topics |
-|:--- |:--- |
-| Turn on a new device |[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul> |
-| Turn on a device after shutdown |[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul> |
-| Turn on a device after a power loss |[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul> |
-| Turn on a device after the primary enclosure and EBOD connection is lost |[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost) |
-| Shut down a running device |[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul> |
 
 ## Turn on a new device
 The steps for turning on a StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
@@ -60,8 +44,6 @@ When setting up this device for the first time, perform the steps for SAS cablin
 
 > [!NOTE]
 > For complete device setup and cabling instructions, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md). Make sure that you follow the instructions exactly.
-> 
-> 
 
 ## Turn on a device after shutdown
 The steps for turning on a StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.
@@ -81,7 +63,7 @@ After a shutdown, use the following procedure to turn on a StorSimple device wit
    2. The status LEDs on both controllers are solid green.
    3. The blue LED on one of the controllers is blinking, which indicates that the controller is active.
       
-      If any of these conditions are not met, then your device is not healthy. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+      If any of these conditions are not met, then your device is not healthy. Please [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 ### Device with EBOD enclosure
 After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and an EBOD enclosure. Perform each step in sequence exactly as described. Failure to do so could result in data loss.
@@ -99,12 +81,12 @@ A power outage or interruption can shut down a StorSimple device. The power outa
 * [Device with primary enclosure only](#8100)
 * [Device with EBOD enclosure](#8600)
 
-### Device with primary enclosure only <a name="8100">
+### Device with primary enclosure only <a name="8100"></a>
 The system can continue its normal operation if there is power loss to one of its power supplies. However, to ensure high availability of the device, restore power to the power supply as soon as possible.
 
 If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner. When the power is restored, the system will automatically turn on.
 
-### Device with EBOD enclosure <a name="8600">
+### Device with EBOD enclosure <a name="8600"></a>
 #### Power loss on one power supply
 The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure. However, to ensure high availability of the device, please restore power to the power supply as soon as possible.
 
@@ -144,9 +126,8 @@ When both Serial Attached SCSI (SAS) cables are removed or the connection betwee
 10. Verify that the EBOD enclosure connection with the primary enclosure is good by checking that the SAS lane LEDs (four per EBOD controller) are all ON.
 
 > [!IMPORTANT]
-> If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) if this happens.
-> 
-> 
+> If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode. Please [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) if this happens.
+
 
 ## Turn off a running device
 A running StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced. The steps are different depending on whether the StorSimple device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section details the steps to shut down a running device.
@@ -154,34 +135,31 @@ A running StorSimple device may need to be shut down if it is being moved, taken
 * [Device with primary enclosure](#8100a)
 * [Device with EBOD enclosure](#8600a)
 
-### Device with primary enclosure <a name="8100a">
-To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
+### Device with primary enclosure <a name="8100a"></a>
+To shut down the device in an orderly and controlled manner, you can do it through the Azure portal or via the Windows PowerShell for StorSimple. 
 
 > [!IMPORTANT]
 > Do not shut down a running device by using the power button on the back of the device.
 > 
-> Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
+> Before shutting down the device, make sure that all the device components are healthy. In the Azure portal, navigate to **Devices** > **Monitor** > **Hardware health**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 > 
 > 
 
-After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+After you access the Windows PowerShell for StorSimple or the Azure portal, follow the steps in [shut down a StorSimple device](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### Device with EBOD enclosure <a name="8600a">
+### Device with EBOD enclosure <a name="8600a"></a>
 > [!IMPORTANT]
-> Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that all the components are healthy.
-> 
-> 
+> Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Azure portal, navigate to **Devices** > **Monitor** > **Hardware health**, and verify that all the components are healthy.
+
 
 #### To shut down a running device with EBOD enclosure
-1. Follow all the steps listed in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
+1. Follow all the steps listed in [shut down a StorSimple device](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
 2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
 3. To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.
 
 > [!NOTE]
 > The SAS cables that are used to connect the EBOD enclosure to the primary enclosure should not be removed until after the system is shut down.
-> 
-> 
 
 ## Next steps
-[Contact Microsoft Support](storsimple-contact-microsoft-support.md) if you encounter problems when turning on or shutting down a StorSimple device.
+[Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) if you encounter problems when turning on or shutting down a StorSimple device.
 

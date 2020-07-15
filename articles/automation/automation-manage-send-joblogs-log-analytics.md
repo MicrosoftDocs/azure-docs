@@ -1,204 +1,190 @@
 ---
-title: Forward Azure Automation job data to OMS Log Analytics | Microsoft Docs
-description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
+title: Forward Azure Automation job data to Azure Monitor logs
+description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
-documentationcenter: ''
-author: MGoedtel
-manager: jwhit
-editor: tysonn
-
-ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
-ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/10/2017
-ms.author: magoedte
-
+ms.subservice: process-automation
+ms.date: 05/22/2020
+ms.topic: conceptual
 ---
-# Forward job status and job streams from Automation to Log Analytics (OMS)
-Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
-* Get insight on your Automation jobs
-* Trigger an email or alert based on your runbook job status (for example, failed or suspended)
-* Write advanced queries across your job streams
-* Correlate jobs across Automation accounts
-* Visualize your job history over time     
+# Forward Azure Automation job data to Azure Monitor logs
+
+Azure Automation can send runbook job status and job streams to your Log Analytics workspace. This process does not involve workspace linking and is completely independent. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Azure Monitor logs you can:
+
+* Get insight into the status of your Automation jobs.
+* Trigger an email or alert based on your runbook job status (for example, failed or suspended).
+* Write advanced queries across your job streams.
+* Correlate jobs across Automation accounts.
+* Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites and deployment considerations
-To start sending your Automation logs to Log Analytics, you need:
 
-1. The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-2. A Log Analytics workspace. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 
-3. The ResourceId for your Azure Automation account
+To start sending your Automation logs to Azure Monitor logs, you need:
 
-To find the ResourceId for your Azure Automation account and Log Analytics workspace, run the following PowerShell:
+* The latest release of [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* A Log Analytics workspace. For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
+* The resource ID for your Azure Automation account.
 
-```powershell
-# Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Use the following command to find the resource ID for your Azure Automation account:
 
+```powershell-interactive
+# Find the ResourceId for the Automation account
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+```
+
+To find the resource ID for your Log Analytics workspace, run the following PowerShell command:
+
+```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-If you have multiple Automation accounts, or workspaces, in the output of the preceding commands, find the *Name* you need to configure and copy the value for *ResourceId*.
+If you have more than one Automation account or workspace in the output of the preceding commands, you can find the name and other related properties that are part of the full resource ID of your Automation account by performing the following:
 
-If you need to find the *Name* of your Automation account, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+1. In the Azure portal, select your Automation account from the **Automation Accounts** page. 
+2. On the page of the selected Automation account, under **Account Settings**, select **Properties**.  
+3. In the **Properties** page, note the details shown below.
 
-## Set up integration with Log Analytics
-1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. Copy and paste the following PowerShell, and edit the value for the `$workspaceId` and `$automationAccountId`.  If you are working in Azure Government cloud, you will need to set the boolean value for `$GovCloud` to *$True* or *1* when you execute it.     
+    ![Automation account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-```powershell
-[cmdletBinding()]
-	Param
-	(
-		[Parameter(Mandatory=$true)]
-		[bool]$GovCloud = $False
-	)
+## Azure Monitor log records
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
-$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+Azure Automation diagnostics create two types of records in Azure Monitor logs, tagged as `AzureDiagnostics`. The tables in the next sections are examples of records that Azure Automation generates and the data types that appear in log search results.
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+### Job logs
 
-Set-AzureRmDiagnosticSetting -ResourceId "AzureAutomation" -WorkspaceId $workspaceId -Enabled $true
+| Property | Description |
+| --- | --- |
+| TimeGenerated |Date and time when the runbook job executed. |
+| RunbookName_s |The name of the runbook. |
+| Caller_s |The caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
+| Tenant_g | GUID that identifies the tenant for the caller. |
+| JobId_g |GUID that identifies the runbook job. |
+| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| Category | Classification of the type of data. For Automation, the value is JobLogs. |
+| OperationName | The type of operation performed in Azure. For Automation, the value is Job. |
+| Resource | The name of the Automation account |
+| SourceSystem | System that Azure Monitor logs use to collect the data. The value is always Azure for Azure diagnostics. |
+| ResultDescription |The runbook job result state. Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
+| CorrelationId |The correlation GUID of the runbook job. |
+| ResourceId |The Azure Automation account resource ID of the runbook. |
+| SubscriptionId | The Azure subscription GUID for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
+| ResourceProvider | The resource provider. The value is MICROSOFT.AUTOMATION. |
+| ResourceType | The resource type. The value is AUTOMATIONACCOUNTS. |
 
-```
+### Job streams
+| Property | Description |
+| --- | --- |
+| TimeGenerated |Date and time when the runbook job executed. |
+| RunbookName_s |The name of the runbook. |
+| Caller_s |The caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
+| StreamType_s |The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
+| Tenant_g | GUID that identifies the tenant for the caller. |
+| JobId_g |GUID that identifies the runbook job. |
+| ResultType |The status of the runbook job. Possible values are:<br>- In Progress |
+| Category | Classification of the type of data. For Automation, the value is JobStreams. |
+| OperationName | Type of operation performed in Azure. For Automation, the value is Job. |
+| Resource | The name of the Automation account. |
+| SourceSystem | System that Azure Monitor logs use to collect the data. The value is always Azure for Azure diagnostics. |
+| ResultDescription |Description that includes the output stream from the runbook. |
+| CorrelationId |The correlation GUID of the runbook job. |
+| ResourceId |The Azure Automation account resource ID of the runbook. |
+| SubscriptionId | The Azure subscription GUID for the Automation account. |
+| ResourceGroup | The name of the resource group for the Automation account. |
+| ResourceProvider | The resource provider. The value is MICROSOFT.AUTOMATION. |
+| ResourceType | The resource type. The value is AUTOMATIONACCOUNTS. |
 
-After running this script, you will see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
+## Set up integration with Azure Monitor logs
 
-To see the logs, run the following query:
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+1. On your computer, start Windows PowerShell from the **Start** screen.
+2. Run the following PowerShell commands, and edit the values for `$automationAccountId` and `$workspaceId` with the values from the preceding section.
+
+   ```powershell-interactive
+   $workspaceId = "resource ID of the log analytics workspace"
+   $automationAccountId = "resource ID of your Automation account"
+
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   ```
+
+After running this script, it can take an hour before you start to see records in Azure Monitor logs of new `JobLogs` or `JobStreams` being written.
+
+To see the logs, run the following query in log analytics log search:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
-To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell:
 
-```powershell
-[cmdletBinding()]
-	Param
-	(
-		[Parameter(Mandatory=$true)]
-		[bool]$GovCloud = $False
-	)
+To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell command.
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
-$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
-
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
-
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```powershell-interactive
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-In the output ensure that:
-+ Under *Logs*, the value for *Enabled* is *True*
-+ The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace
+In the output, ensure that:
 
+* Under `Logs`, the value for `Enabled` is True.
+* `WorkspaceId` is set to the `ResourceId` value for your Log Analytics workspace.
 
-## Log Analytics records
-Diagnostics from Azure Automation creates two types of records in Log Analytics. 
+## View Automation logs in Azure Monitor logs
 
-### Job Logs
-| Property | Description |
-| --- | --- |
-| TimeGenerated |Date and time when the runbook job executed. |
-| RunbookName_s |The name of the runbook. |
-| Caller_s |Who initiated the operation.  Possible values are either an email address or system for scheduled jobs. |
-| Tenant_g | GUID that identifies the tenant for the Caller. |
-| JobId_g |GUID that is the Id of the runbook job. |
-| ResultType |The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded |
-| Category | Classification of the type of data.  For Automation, the value is JobLogs. |
-| OperationName | Specifies the type of operation performed in Azure.  For Automation, the value is Job. |
-| Resource | Name of the Automation account |
-| SourceSystem | How Log Analytics collected the data. Always *Azure* for Azure diagnostics. |
-| ResultDescription |Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
-| CorrelationId |GUID that is the Correlation Id of the runbook job. |
-| ResourceId |Specifies the Azure Automation account resource id of the runbook. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
-
-
-### Job Streams
-| Property | Description |
-| --- | --- |
-| TimeGenerated |Date and time when the runbook job executed. |
-| RunbookName_s |The name of the runbook. |
-| Caller_s |Who initiated the operation.  Possible values are either an email address or system for scheduled jobs. |
-| StreamType_s |The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
-| Tenant_g | GUID that identifies the tenant for the Caller. |
-| JobId_g |GUID that is the Id of the runbook job. |
-| ResultType |The status of the runbook job.  Possible values are:<br>- In Progress |
-| Category | Classification of the type of data.  For Automation, the value is JobStreams. |
-| OperationName | Specifies the type of operation performed in Azure.  For Automation, the value is Job. |
-| Resource | Name of the Automation account |
-| SourceSystem | How Log Analytics collected the data. Always *Azure* for Azure diagnostics. |
-| ResultDescription |Includes the output stream from the runbook. |
-| CorrelationId |GUID that is the Correlation Id of the runbook job. |
-| ResourceId |Specifies the Azure Automation account resource id of the runbook. |
-| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
-| ResourceGroup | Name of the resource group for the Automation account. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
-
-## Viewing Automation Logs in Log Analytics
-Now that you have started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside Log Analytics.
+Now that you started sending your Automation job logs to Azure Monitor logs, let's see what you can do with these logs inside Azure Monitor logs.
 
 To see the logs, run the following query:
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Send an email when a runbook job fails or suspends
-One of our top customer asks is for the ability to send an email or a text when something goes wrong with a runbook job.   
 
-To create an alert rule, you start by creating a log search for the runbook job records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
+The following steps show how to set up alerts in Azure Monitor to notify you when something goes wrong with a runbook job.
 
-1. From the Log Analytics Overview page, click **Log Search**.
-2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`  You can also group by the RunbookName by using: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
+To create an alert rule, start by creating a log search for the runbook job records that should invoke the alert. Click the **Alert** button to create and configure the alert rule.
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
-3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+1. From the Log Analytics workspace Overview page, click **View logs**.
+
+2. Create a log search query for your alert by typing the following search into the query field: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>You can also group by the runbook name by using: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+
+   If you set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Automation account name can be found in the `Resource` field in the search of `JobLogs`.
+
+3. To open the **Create rule** screen, click **New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### Find all jobs that have completed with errors
-In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases PowerShell produces an error stream, but the non-terminating errors do not cause your job to suspend or fail.    
 
-1. In your Log Analytics workspace, click **Log Search**.
-2. In the query field, type `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` and then click **Search**.
+In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases, PowerShell produces an error stream, but the non-terminating errors don't cause your job to suspend or fail.
+
+1. In your Log Analytics workspace, click **Logs**.
+
+2. In the query field, type `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`.
+
+3. Click the **Search** button.
 
 ### View job streams for a job
-When you are debugging a job, you may also want to look into the job streams.  The following query shows all the streams for a single job with GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:   
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
+When you're debugging a job, you might also want to look into the job streams. The following query shows all the streams for a single job with GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
 ### View historical job status
-Finally, you may want to visualize your job history over time.  You can use this query to search for the status of your jobs over time.
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
-<br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+Finally, you might want to visualize your job history over time. You can use this query to search for the status of your jobs over time.
 
-## Summary
-By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by:
-+ Setting up alerts to notify you when there is an issue
-+ Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
+<br> ![Log Analytics Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
-Log Analytics provides greater operational visibility to your Automation jobs and can help address incidents quicker.  
+## Remove diagnostic settings
+
+To remove the diagnostic setting from the Automation account, run the following command:
+
+```powershell-interactive
+$automationAccountId = "[resource ID of your Automation account]"
+
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
+```
 
 ## Next steps
-* To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md)
-* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
-* To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+
+* To learn how to construct search queries and review the Automation job logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+* To understand creation and retrieval of output and error messages from runbooks, see [Monitor runbook output](automation-runbook-output-and-messages.md).
+* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

@@ -1,407 +1,99 @@
 ---
-title: " Use the Slack Connector in your Logic apps| Microsoft Docs"
-description: Get started using the Slack Connector in your logic apps
-services: ''
-documentationcenter: ''
-author: msftman
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
-ms.service: multiple
-ms.devlang: na
+title: Connect to Slack from Azure Logic Apps
+description: Automate tasks and workflows that monitor files and manage channels, groups, and messages in your Slack account by using Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: deonhe
-
+ms.date: 08/25/2018
+tags: connectors
 ---
-# Get started with the Slack connector
-Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go.
-
-> [!NOTE]
-> This version of the article applies to logic apps 2015-08-01-preview schema version.
-> 
-> 
-
-With the Slack connector, you can:
-
-* Use it to build logic apps
-
-To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
-
-## Let's talk about triggers and actions
-The Slack connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
-
- The Slack connector has the following action(s) and/or trigger(s) available:
-
-### Slack actions
-You can take these action(s):
-
-| Action | Description |
-| --- | --- |
-| PostMessage |Post a Message to a specified channel. |
-
-## Create a connection to Slack
-To use the Slack connector, you first create a **connection** then provide the details for these properties: 
-
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide Slack Credentials |
-
-Follow these steps to sign into Slack and complete the configuration of the Slack **connection** in your logic app:
-
-1. Select **Recurrence**
-2. Select a **Frequency** and enter an **Interval**
-3. Select **Add an action**  
-   ![Configure Slack][1]  
-4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
-5. Select **Slack - Post message**
-6. Select **Sign in to Slack**:  
-   ![Configure Slack][2]
-7. Provide your Slack credentials to sign in to authorize the  application    
-   ![Configure Slack][3]  
-8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
-   ![Configure Slack][5] 
-9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
-   ![Configure Slack][6]
-10. Save your work by selecting **Save** on the menu bar above.
-
-> [!TIP]
-> You can use this connection in other logic apps.
-> 
-> 
-
-## Slack REST API reference
-#### This documentation is for version: 1.0
-### Post a Message to a specified channel.
-**```POST: /chat.postMessage```** 
-
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| channel |string |yes |query |none |Channel, private group, or IM channel to send message to. Can be a name(ex: #general) or an encoded ID. |
-| text |string |yes |query |none |Text of the message to send. For formatting options, see https://api.slack.com/docs/formatting. |
-| username |string |no |query |none |Name of the bot |
-| as_user |boolean |no |query |none |Pass true to post the message as the authenticated user, instead of as a bot |
-| parse |string |no |query |none |Change how messages are treated. For details, see https://api.slack.com/docs/formatting. |
-| link_names |integer |no |query |none |Find and link channel names and usernames. |
-| unfurl_links |boolean |no |query |none |Pass true to enable unfurling of primarily text-based content. |
-| unfurl_media |boolean |no |query |none |Pass false to disable unfurling of media content. |
-| icon_url |string |no |query |none |URL to an image to use as an icon for this message |
-| icon_emoji |string |no |query |none |Emoji to use as an icon for this message |
-
-### Here are the possible responses:
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 400 |Bad Request |
-| 408 |Request Timeout |
-| 429 |Too Many Requests |
-| 500 |Internal Server Error. Unknown error occured |
-| 503 |Slack Service Unavailable |
-| 504 |Gateway Timeout |
-| default |Operation Failed. |
-
-- - -
-## Object definition(s):
- **Message**:Slack Message
-
-Required properties for Message:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| id |integer |
-| content_excerpt |string |
-| sender_id |integer |
-| replied_to_id |integer |
-| created_at |string |
-| network_id |integer |
-| message_type |string |
-| sender_type |string |
-| url |string |
-| web_url |string |
-| group_id |integer |
-| body |not defined |
-| thread_id |integer |
-| direct_message |boolean |
-| client_type |string |
-| client_url |string |
-| language |string |
-| notified_user_ids |array |
-| privacy |string |
-| liked_by |not defined |
-| system_message |boolean |
 
- **PostOperationRequest**:Represents a post request for Slack Connector to post to Slack
+# Monitor and manage Slack with Azure Logic Apps
 
-Required properties for PostOperationRequest:
+With Azure Logic Apps and the Slack connector, 
+you can create automated tasks and workflows that monitor 
+your Slack files and manage your Slack channels, messages, 
+groups, and so on, for example:
 
-body
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| body |string |
-| group_id |integer |
-| replied_to_id |integer |
-| direct_to_id |integer |
-| broadcast |boolean |
-| topic1 |string |
-| topic2 |string |
-| topic3 |string |
-| topic4 |string |
-| topic5 |string |
-| topic6 |string |
-| topic7 |string |
-| topic8 |string |
-| topic9 |string |
-| topic10 |string |
-| topic11 |string |
-| topic12 |string |
-| topic13 |string |
-| topic14 |string |
-| topic15 |string |
-| topic16 |string |
-| topic17 |string |
-| topic18 |string |
-| topic19 |string |
-| topic20 |string |
+* Monitor when new files are created.
+* Create, list, and join channels 
+* Post messages.
+* Create groups and set do not disturb.
 
- **MessageList**:List of messages
+You can use triggers that get responses from your Slack account 
+and make the output available to other actions. You can use actions 
+that perform tasks with your Slack account. You can also have 
+other actions use the output from Slack actions. For example, 
+when a new file is created, you can send email with the 
+Office 365 Outlook connector. If you're new to logic apps, 
+review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-Required properties for MessageList:
+## Prerequisites
 
-None of the properties are required. 
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-**All properties**: 
+* Your [Slack](https://slack.com/) account and user credentials
 
-| Name | Data Type |
-| --- | --- |
-| messages |array |
+  Your credentials authorize your logic app to create 
+  a connection and access your Slack account.
 
- **MessageBody**:Message Body
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-Required properties for MessageBody:
+* The logic app where you want to access your Slack account. 
+To start with a Slack trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use a Slack action, start your logic app with a trigger, 
+such as a Slack trigger or another trigger, such as the **Recurrence** trigger.
 
-None of the properties are required. 
+## Connect to Slack
 
-**All properties**: 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Name | Data Type |
-| --- | --- |
-| parsed |string |
-| plain |string |
-| rich |string |
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
- **LikedBy**:Liked By
+1. For blank logic apps, in the search box, 
+enter "slack" as your filter. Under the triggers list, 
+select the trigger you want. 
 
-Required properties for LikedBy:
+   -or-
 
-None of the properties are required. 
+   For existing logic apps, under the last step where 
+   you want to add an action, choose **New step**. 
+   In the search box, enter "slack" as your filter. 
+   Under the actions list, select the action you want.
 
-**All properties**: 
+   To add an action between steps, 
+   move your pointer over the arrow between steps. 
+   Choose the plus sign (**+**) that appears, 
+   and then select **Add an action**.
 
-| Name | Data Type |
-| --- | --- |
-| count |integer |
-| names |array |
+1. If you're prompted to sign in to Slack, 
+sign in to your Slack workspace. 
 
- **YammmerEntity**:Liked By
+   ![Sign in to Slack workspace](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
 
-Required properties for YammmerEntity:
+1. Authorize access for your logic app.
 
-None of the properties are required. 
+   ![Authorize access to Slack](./media/connectors-create-api-slack/slack-authorize-access.png)
 
-**All properties**: 
+1. Provide the necessary details for your selected trigger 
+or action. To continue building your logic app's workflow, 
+add more actions.
 
-| Name | Data Type |
-| --- | --- |
-| type |string |
-| id |integer |
-| full_name |string |
+## Connector reference
 
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/slack/).
 
-## Object definition(s):
- **WebResultModel**:Bing web search results
+## Get support
 
-Required properties for WebResultModel:
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
-None of the properties are required. 
+## Next steps
 
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Title |string |
-| Description |string |
-| DisplayUrl |string |
-| Id |string |
-| FullUrl |string |
-
- **VideoResultModel**:Bing video search results
-
-Required properties for VideoResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Title |string |
-| DisplayUrl |string |
-| Id |string |
-| MediaUrl |string |
-| Runtime |integer |
-| Thumbnail |not defined |
-
- **ThumbnailModel**:Thumbnail properties of the multimedia element
-
-Required properties for ThumbnailModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| MediaUrl |string |
-| ContentType |string |
-| Width |integer |
-| Height |integer |
-| FileSize |integer |
-
- **ImageResultModel**:Bing image search results
-
-Required properties for ImageResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Title |string |
-| DisplayUrl |string |
-| Id |string |
-| MediaUrl |string |
-| SourceUrl |string |
-| Thumbnail |not defined |
-
- **NewsResultModel**:Bing news search results
-
-Required properties for NewsResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Title |string |
-| Description |string |
-| DisplayUrl |string |
-| Id |string |
-| Source |string |
-| Date |string |
-
- **SpellResultModel**:Bing spelling suggestions results
-
-Required properties for SpellResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Id |string |
-| Value |string |
-
- **RelatedSearchResultModel**:Bing related search results
-
-Required properties for RelatedSearchResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| Title |string |
-| Id |string |
-| BingUrl |string |
-
- **CompositeSearchResultModel**:Bing composite search results
-
-Required properties for CompositeSearchResultModel:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| WebResultsTotal |integer |
-| ImageResultsTotal |integer |
-| VideoResultsTotal |integer |
-| NewsResultsTotal |integer |
-| SpellSuggestionsTotal |integer |
-| WebResults |array |
-| ImageResults |array |
-| VideoResults |array |
-| NewsResults |array |
-| SpellSuggestionResults |array |
-| RelatedSearchResults |array |
-
-## Object definition(s):
- **PostOperationResponse**:Represents response of post operation of Slack Connector for posting to Slack
-
-Required properties for PostOperationResponse:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| ok |boolean |
-| channel |string |
-| ts |string |
-| message |not defined |
-| error |string |
-
- **MessageItem**:A channel message.
-
-Required properties for MessageItem:
-
-None of the properties are required. 
-
-**All properties**: 
-
-| Name | Data Type |
-| --- | --- |
-| text |string |
-| id |string |
-| user |string |
-| created |integer |
-| is_user-deleted |boolean |
-
-## Next Steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
-
-[1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
-[3]: ./media/connectors-create-api-slack/connectionconfig3.png
-[4]: ./media/connectors-create-api-slack/connectionconfig4.png
-[5]: ./media/connectors-create-api-slack/connectionconfig5.png
-[6]: ./media/connectors-create-api-slack/connectionconfig6.png
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

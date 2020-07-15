@@ -4,7 +4,7 @@ description: Describes system limits and recommended sizes for the Microsoft Azu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 429e9f83-5699-4f18-b519-500c125946f6
@@ -13,12 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/05/2016
+ms.date: 07/25/2019
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# StorSimple Virtual Array limits
+# What are StorSimple Virtual Array limits?
+
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Consider these limits as you plan, deploy, and operate your Microsoft Azure StorSimple Virtual Array. The following table describes these limits for the virtual device.
 
 ## StorSimple Virtual Array limits

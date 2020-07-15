@@ -1,245 +1,85 @@
 ---
-title: 'First look: Protect Azure VMs with a recovery services vault | Microsoft Docs'
-description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
-services: backup
-documentationcenter: ''
-author: markgalioto
-manager: cfreeman
-editor: ''
-keyword: backups; vm backup
-
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 02/06/2017
-ms.author: markgal; jimpark
-
+title: Back up an Azure VM from the VM settings
+description: In this article, learn how to back up either a singular Azure VM or multiple Azure VMs with the Azure Backup service.
+ms.topic: conceptual
+ms.date: 06/13/2019
 ---
-# First look: Protect Azure VMs with a recovery services vault
-> [!div class="op_single_selector"]
-> * [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
-> * [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
->
->
+# Back up an Azure VM from the VM settings
 
-This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
+This article explains how to back up Azure VMs with the [Azure Backup](backup-overview.md) service. You can back up Azure VMs using a couple of methods:
 
-* Azure Resource Manager-deployed VMs
-* Classic VMs
-* Standard storage VMs
-* Premium storage VMs 
-* VMs running on Managed Disks
-* VMs encrypted using Azure Disk Encryption, with BEK and KEK
+- Single Azure VM: The instructions in this article describe how to back up an Azure VM directly from the VM settings.
+- Multiple Azure VMs: You can set up a Recovery Services vault and configure backup for multiple Azure VMs. Follow the instructions in [this article](backup-azure-arm-vms-prepare.md) for this scenario.
 
-For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [ Back up and restore of VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)
+## Before you start
 
-> [!NOTE]
-> This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
->
->
+1. [Learn](backup-architecture.md#how-does-azure-backup-work) how backup works, and [verify](backup-support-matrix.md#azure-vm-backup-support) support requirements.
+2. [Get an overview](backup-azure-vms-introduction.md) of Azure VM backup.
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
+### Azure VM agent installation
 
-Based on no of VMs you want to protect, you can start from different start points - if you want to backup multiple virtual machines in one single operation, go to Recovery Services vault and start backup from vault dashboard. If you have a single VM, which you want to backup, you can backup directly from VM management blade.
+In order to back up Azure VMs, Azure Backup installs an extension on the VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent will be running. In some cases, for example if you create a custom VM, or you migrate a machine from on-premises. you might need to install the agent manually.
 
-## Configure Backup from VM management blade
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **More Services** and in the list of resources, type **Virtual machines**.  The list of virtual machines appears. From the list of virtual machines, select a virtual machine, which you want to backup. This opens virtual machine management blade.
- ![VM Management blade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+- If you do need to install the VM agent manually, follow the instructions for [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VMs.
+- After the agent is installed, when you enable backup, Azure Backup installs the backup extension to the agent. It updates and patches the extension without user intervention.
 
-3. In the VM management blade, click "Backup" option present on the left-hand side under Settings.
-![Backup option in VM management blade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
-
-4. This opens Enable Backup blade. This blade expects two inputs: Recovery Services vault - an Azure Backup resource, which is used to store backups of the VMs; A backup Policy - Backup policy specifies schedule of the backups and how long to retain backup copies. This blade comes with default options. You can customize them as per backup requirements.
-
-  ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
-
-5. For Recovery Services vault, you can select an existing vault or create a new Vault. If you are creating a new vault, it gets created in the same Resource Group as virtual machine and location is same as virtual machine. If you want to create a Recovery Services vault with different values, [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) before clicking Backup option in Step#3 and select that in this blade.
-
-6. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
-    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
-
-    The details of the default policy are listed in the details. If you want to create a policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the virtual machine.
-
-7. Click "Enable Backup" to configure Backup on the virtual machine. This will trigger a deployment.
-![Enable Backup button](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
-
-8. You can track the progress of configuration through notifications.
-![Enable Backup notification](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
-
-9. Once deployment for Configure backup is completed, clicking on "backup" option on VM management blade takes you to Backup Item blade corresponding to backed up VM.
-![VM Backup Item View](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
-
-## Configure Backup from Recovery Services vault View
-At a high level, here are the steps that you'll complete.  
-
-1. Create a recovery services vault for a VM.
-2. Use the Azure portal to select a Scenario, set Policy, and identify items to protect.
-3. Run the initial backup.
-
-## Create a recovery services vault for a VM
-A recovery services vault is an entity that stores all the backups and recovery points that have been created over time. The recovery services vault also contains the backup policy applied to the protected VMs.
-
-> [!NOTE]
-> Backing up VMs is a local process. You cannot back up VMs from one location to a recovery services vault in another location. So, for every Azure location that has VMs to be backed up, at least one recovery services vault must exist in that location.
->
->
-
-To create a recovery services vault:
+## Back up from Azure VM settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
+2. Click **All services** and in the Filter, type **Virtual machines**, and then click **Virtual machines**.
+3. From the list of VMs select the VM you want to back up.
+4. On the VM menu, click **Backup**.
+5. In **Recovery Services vault**, do the following:
+   - If you already have a vault, click **Select existing**, and select a vault.
+   - If you don't have a vault, click **Create new**. Specify a name for the vault. It's created in the same region and resource group as the VM. You can't modify these settings when you enable backup directly from the VM settings.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+   ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-    The list of recovery services vaults are displayed.
-3. On the **Recovery Services vaults** menu, click **Add**.
+6. In **Choose backup policy**, do the following:
 
-    ![Create Recovery Services Vault step 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+   - Leave the default policy. This backs up the VM once a day at the time specified, and retains backups in the vault for 30 days.
+   - Select an existing backup policy if you  have one.
+   - Create a new policy, and define the policy settings.  
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+   ![Select backup policy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-    ![Create Recovery Services vault step 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
+7. Click **Enable Backup**. This associates the backup policy with the VM.
 
-   > [!IMPORTANT]
-   > If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
-   >
-   >
-8. Click **Create**. It can take a while for the recovery services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of recovery services vaults.
+    ![Enable Backup button](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+8. You can track the configuration progress in the portal notifications.
+9. After the job completes, in the VM menu, click **Backup**. The page shows backup status for the VM, information about recovery points, jobs running, and alerts issued.
 
-Now that you've created your vault, learn how to set the storage replication.
+   ![Backup status](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-### Set Storage Replication
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+10. After enabling backup, an initial backup runs. You can start the initial backup immediately, or wait until it starts in accordance with the backup schedule.
+    - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
+    - To see when the next scheduled backup will run, click the backup policy name.
 
-To edit the storage replication setting:
+## Run a backup immediately
 
-1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
-2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+1. To run a backup immediately, in the VM menu, click **Backup** > **Backup now**.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Run backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+2. In **Backup Now** use the calendar control to select until when the recovery point will be retained >  and **OK**.
 
-## Select a backup goal, set policy and define items to protect
-Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
+    ![Backup retention day](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-1. If you already have a recovery services vault open, proceed to step 2. If you do not have a recovery services vault open, but are in the Azure portal,
-   on the Hub menu, click **Browse**.
+3. Portal notifications let you know the backup job has been triggered. To monitor backup progress, click **View all jobs**.
 
-   * In the list of resources, type **Recovery Services**.
-   * As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
+## Back up from the Recovery Services vault
 
-     ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+Follow the instructions in this article to enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault.
 
-     The list of recovery services vaults appears.
-   * From the list of recovery services vaults, select a vault.
+>[!NOTE]
+> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
+>
+>Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
+>
+>**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**
 
-     The selected vault dashboard opens.
+## Next steps
 
-     ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
-2. From the vault dashboard menu, click **Backup** to open the Backup blade.
-
-    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
-
-    When the blade opens, the Backup service searches for any new VMs in the subscription.
-
-    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
-3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
-
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
-4. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
-
-    The Backup Goal blade closes and the Backup policy blade opens.
-
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
-5. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
-
-    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
-
-    The details of the default policy are listed in the details. If you want to create a policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
-
-    Next choose the VMs to associate with the vault.
-6. Choose the virtual machines to associate with the specified policy and click **Select**.
-
-    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
-
-    If you do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
-7. Now that you have defined all settings for the vault, in the Backup blade click **Enable Backup** at the bottom of the page. This deploys the policy to the vault and the VMs.
-
-    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
-
-## Initial backup
-Once a backup policy has been deployed on the virtual machine, that does not mean the data has been backed up. By default, the first scheduled backup (as defined in the backup policy) is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
-
-![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
-
-Unless your initial backup is due to begin soon, it is recommended that you run **Back up Now**.
-
-To run **Back up Now**:
-
-1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
-
-    The **Backup Items** blade opens.
-2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
-
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
-
-    The Backup job is triggered. <br/>
-
-    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
-
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
-
-    The Backup Jobs blade opens.
-4. In the Backup jobs blade, you can see the status of all jobs.
-
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
-
-   > [!NOTE]
-   > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
-   >
-   >
-
-    When the backup job is finished, the status is *Completed*.
-
-[!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
-
-## Install the VM Agent on the virtual machine
-This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you create a custom VM, [ensure the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) before the virtual machine is provisioned.
-
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-
-The following table provides additional information about the VM Agent for Windows and Linux VMs.
-
-| **Operation** | **Windows** | **Linux** |
-| --- | --- | --- |
-| Installing the VM Agent |<li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |<li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent ](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
-| Validating the VM Agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
-
-### Backup extension
-Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
-
-The backup extension is installed by the Backup service whether the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service continues to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
-
-## Troubleshooting information
-If you have issues accomplishing some of the tasks in this article, consult the
-[Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
-
-## Pricing
-Azure VM backup will be charged based on Protected Instances model. Learn more on [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/)
-
-## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+- If you have difficulties with any of the procedures in this article, consult the [troubleshooting guide](backup-azure-vms-troubleshoot.md).
+- [Learn about](backup-azure-manage-vms.md) managing your backups.

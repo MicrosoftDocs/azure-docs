@@ -1,66 +1,123 @@
 ---
-title: Azure Advisor High Availability recommendations | Microsoft Docs
-description: Use Azure Advisor to improve high availability of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kumudd
-manager: carmonm
-editor: ''
-
-ms.assetid: 
-ms.service: advisor
-ms.devlang: NA
+title: Improve reliability of your application with Advisor
+description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kumud
+ms.date: 01/29/2019
+
 ---
 
-# Advisor High Availability recommendations
+# Improve the reliability of your application by using Azure Advisor
 
-Advisor helps you ensure and improve the continuity of your business-critical applications. You can get high availability recommendations by Advisor from the **High Availability** tab of the Advisor dashboard.
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations from Advisor on the **Reliability** tab of the Advisor dashboard.
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
+## Ensure virtual machine fault tolerance
 
-
-## Virtual machines without an availability set
-
-Advisor identifies virtual machines that are not part of an availability set and recommends moving them into an availability set. To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the Azure virtual machine SLA. You can choose to either create an availability set for the virtual machine, or, add the virtual machine to an existing availability set.
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
 
 > [!NOTE]
-> If you choose to create an availability set, you must add at least one more virtual machine into that availability set after creating it. We recommend grouping two or more virtual machines in an availability set to ensure that one of the machines is available during an outage.
+> If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
+## Ensure availability set fault tolerance
 
-## Availability sets with a single virtual machine 
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
-Advisor identifies availability sets containing a single virtual machine and recommends adding one or more virtual machines to it. To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meet the Azure virtual machine SLA. You can choose to either create a virtual machine or use an existing virtual machine, and add it to the availability set.  
+## Use managed disks to improve data reliability
 
+Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+## Check the version of your Check Point network virtual appliance image
 
-## Virtual machines with Standard Disks
+Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
 
-Advisor identifies virtual machines with Standard Disks and recommends upgrading to Premium Disks.  
-Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine disks that use Premium Storage store data on solid-state drives (SSDs). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage. Standard Storage stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs. You can choose to migrate your virtual machine disks to Premium Disks. Premium Disks are supported on most virtual machine SKUs. However in some cases, if you want to use Premium Disks, you may need to upgrade your virtual machine SKU as well.   
+## Ensure application gateway fault tolerance
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
+This recommendation ensures the business continuity of mission-critical applications that are powered by application gateways. Advisor identifies application gateway instances that aren't configured for fault tolerance. It then suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways and recommends adding at least one more instance. It also identifies single-instance and multiple-instance small application gateways and recommends migrating them to medium or large SKUs. Advisor recommends these actions to ensure your application gateway instances are configured to satisfy the current SLA requirements for these resources.
 
-## How to access High Availability recommendations in Advisor
+## Protect your virtual machine data from accidental deletion
 
-1. Sign in into the [Azure portal](https://portal.azure.com).
-2. In the left-navigation pane, click **More services**, in the service menu pane, scroll down to **Monitoring and Management**, and then click **Azure Advisor**. This launches the Advisor dashboard. 
-3. On the Advisor dashboard, click the **High Availability** tab, and select the subscription for which you’d like to receive recommendations.
+Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption. Advisor identifies virtual machines where backup isn't enabled and recommends enabling backup. 
 
-> [!NOTE]
-> Advisor generates recommendations for subscriptions where you have been assigned the role of **Owner, Contributor, or Reader**.
+## Ensure you have access to Azure experts when you need it
+
+When you're running a business-critical workload, it's important to have access to technical support when you need it. Advisor identifies potential business-critical subscriptions that don't have technical support included in their support plans. It recommends upgrading to an option that includes technical support.
+
+## Create Azure Service Health alerts to be notified when Azure problems affect you
+
+We recommend setting up Azure Service Health alerts so you're notified when Azure service problems affect you. [Azure Service Health](https://azure.microsoft.com/features/service-health/) is a free service that provides personalized guidance and support when you're affected by an Azure service problem. Advisor identifies subscriptions that don't have alerts configured and recommends configuring them.
+
+## Configure Traffic Manager endpoints for resiliency
+
+Azure Traffic Manager profiles with more than one endpoint experience higher availability if any given endpoint fails. Placing endpoints in different regions further improves service reliability. Advisor identifies Traffic Manger profiles where there's only one endpoint and recommends adding at least one more endpoint in another region.
+
+If all endpoints in a Traffic Manager profile that's configured for proximity routing are in the same region, users from other regions might experience connection delays. Adding or moving an endpoint to another region will improve overall performance and provide better availability if all endpoints in one region fail. Advisor identifies Traffic Manager profiles configured for proximity routing where all the endpoints are in the same region. It recommends adding or moving an endpoint to another Azure region.
+
+If a Traffic Manager profile is configured for geographic routing, traffic is routed to endpoints based on defined regions. If a region fails, there's no predefined failover. If you have an endpoint where the Regional Grouping is configured to **All (World)**, you can avoid dropped traffic and improve service availability. Advisor identifies Traffic Manager profiles configured for geographic routing where there's no endpoint configured to have the Regional Grouping as **All (World)**. It recommends changing the configuration to make an endpoint **All (World)**.
+
+## Use soft delete on your Azure storage account to save and recover data after accidental overwrite or deletion
+
+Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
+
+## Configure your VPN gateway to active-active for connection resiliency
+
+In active-active configuration, both instances of a VPN gateway establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic is automatically switched to the other active IPsec tunnel. Azure Advisor identifies VPN gateways that aren't configured as active-active and suggests that you configure them for high availability.
+
+## Use production VPN gateways to run your production workloads
+
+Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends that you use a production SKU instead. The Basic SKU is designed for development and testing. Production SKUs offer:
+- More tunnels. 
+- BGP support. 
+- Active-active configuration options. 
+- Custom Ipsec/IKE policy. 
+- Higher stability and availability.
+
+## Repair invalid log alert rules
+
+Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
+You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of a query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+
+## Configure Consistent indexing mode on your Azure Cosmos DB collection
+
+Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the freshness of query results. Advisor detects containers configured this way and recommends switching to Consistent mode. [Learn more about indexing policies in Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## Configure your Azure Cosmos DB containers with a partition key
+
+Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## Upgrade your Azure Cosmos DB .NET SDK to the latest version from NuGet
+
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
+
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+
+## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
+
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](https://aka.ms/cosmosdb/spark-connector)
+
+## Consider moving to Kafka 2.1 on HDInsight 4.0
+
+Starting July 1, 2020, you won't be able to create new Kafka clusters by using Kafka 1.1 on Azure HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30, 2020, to avoid potential system/support interruption.
+
+## Consider upgrading older Spark versions in HDInsight Spark clusters
+
+Starting July 1, 2020, you won't be able to create new Spark clusters by using Spark 2.1 or 2.2 on HDInsight 3.6. You won't be able to create new Spark clusters by using Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. 
+
+## Enable virtual machine replication
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+
+## How to access high availability recommendations in Advisor
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+
+2.	On the Advisor dashboard, select the **High Availability** tab.
 
 ## Next steps
 
-See these resources to learn more about Advisor recommendations:
--  [Introduction to Azure Advisor](advisor-overview.md)
--  [Get started with Advisor](advisor-get-started.md)
--  [Advisor Security recommendations](advisor-security-recommendations.md)
--  [Advisor Performance recommendations](advisor-performance-recommendations.md)
--  [Advisor Cost recommendations](advisor-performance-recommendations.md)
+For more information about Advisor recommendations, see:
+* [Introduction to Advisor](advisor-overview.md)
+* [Get started with Advisor](advisor-get-started.md)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

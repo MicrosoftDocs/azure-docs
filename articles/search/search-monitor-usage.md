@@ -1,89 +1,107 @@
 ---
-title: Monitor usage and statistics in an Azure Search service | Microsoft Docs
-description: Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure.
-services: search
-documentationcenter: ''
+title: Monitor operations and activity
+titleSuffix: Azure Cognitive Search
+description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
+
+manager: nitinme
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
-ms.service: search
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 10/29/2016
 ms.author: heidist
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/30/2020
 ---
-# Monitor usage and query metrics in an Azure Search service
-Azure Search collects statistics about query execution at the service level, including Queries per Second (QPS), latency, and the percentage of queries dropped if volume exceeds capacity. Metrics are visible in the portal via the Monitoring blade.
 
-   ![Screenshot of QPS activity][5]
+# Monitor operations and activity of Azure Cognitive Search
 
-This article describes metrics for the service all-up. For insights into activity at the index level, enable search traffic analytics and use Power BI to view the analysis. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
+This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and add-on services like Azure Monitor.
 
-## View query throughput statistics
-Click the Monitoring tile on the service dashboard to open the Monitoring blade.
+Altogether, you can track the following:
 
-   ![Monitoring tile][2]
+* Service: health/availability and changes to service configuration.
+* Storage: both used and available, with counts for each content type relative to the quota allowed for the service tier.
+* Query activity: volume, latency, and throttled or dropped queries. Logged query requests require [Azure Monitor](#add-azure-monitor).
+* Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor.
 
-Query activity at the service level is recorded for query execution, latency, and throttling. Metrics are collected continuously, but it can take several minutes for the portal to show the most recent activity. 
+A search service does not support per-user authentication, so no identity information will be found in the logs.
 
-Click a metric tile to view details, add alerts, enable diagnostics, or edit the chart.
+## Built-in monitoring
 
-  ![Commands on the Metric blade][4]
+Built-in monitoring refers to activities that are logged by a search service. With the exception of diagnostics, no configuration is required for this level of monitoring.
 
-### Set up alerts
-From the metric detail page, you can configure alerts to trigger an email notification if query execution, latency, or throttling activity exceeds criteria defined for it.
+Azure Cognitive Search maintains internal data on a rolling 30-day schedule for reporting on service health and query metrics, which you can find in the portal or through these [REST APIs](#monitoring-apis).
 
-### Enable diagnostics
-When you turn on diagnostics, you can configure where diagnostic data is stored, whether to include operation logs and metrics, and how long to retain the data.
+The following screenshot helps you locate monitoring information in the portal. Data becomes available as soon as you start using the service. Portal pages are refreshed every few minutes.
 
-### Change chart type and data collection interval
-For each metric, you can click **edit** to change the visualization from line graph to a bar chart, or modify the x-axis to cover a different time range.
+* **Monitoring** tab, on the main Overview page, shows query volume, latency, and whether the service is under pressure.
+* **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
+* **Monitoring** settings, further down, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
-  ![Time range configuration][3]
-
-## View counts and resource usage in the portal
-Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
-
-To monitor resource usage, view the counts and statistics for your service in the [portal](https://portal.azure.com). You can also obtain the information programmatically if you are building a custom service administration tool.
-
-1. Sign in to the [portal](https://portal.azure.com). 
-2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. 
-
-The Usage section includes a meter that tells you what portion of available resources are currently in use. For information on per-service limits for indexes, documents, and storage, see [Service limits](search-limits-quotas-capacity.md).
-
-  ![Usage tile][1]
+![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
+ "Azure Monitor integration in a search service")
 
 > [!NOTE]
-> The screenshot above is for the Free service, which has a maximum of one replica and partition each, and can only host 3 indexes, 10,000 documents, or 50 MB of data, whichever comes first. Services created at a Basic or Standard tier have much larger service limits. For more information on choosing a tier, see [Choose a tier or SKU](search-sku-tier.md).
-> 
-> 
+> Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
 
-### Get index statistics using the REST API
-Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require. 
+<a name="monitoring-apis"> </a>
 
-* [Get Index Statistics](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [Count Documents](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [Get Indexer Status](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+### APIs useful for monitoring
+
+You can use the following APIs to retrieve the same information found in the Monitoring and Usage tabs in the portal.
+
+* [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
+* [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
+* [GET Document Counts](/rest/api/searchservice/count-documents)
+* [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
+
+### Activity logs and service health
+
+The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
+
+Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
+
+You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
+
+### Monitor storage in the Usage tab
+
+For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+
+The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
+
+![Usage status relative to tier limits](./media/search-monitor-usage/usage-tab.png
+ "Usage status relative to tier limits")
+
+> [!NOTE]
+> Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](../azure-monitor/insights/solutions-creating.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
+
+<a name="add-azure-monitor"></a>
+
+## Add-on monitoring with Azure Monitor
+
+Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
+
+[Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. 
+Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
+
+Azure Monitor provides several storage options, and your choice determines how you can consume the data:
+
+* Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
+* Choose Log Analytics if you want to explore data through Kusto queries.
+
+Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+
+## Monitor user access
+
+Because search indexes are a component of a larger client application, there is no built-in methodology for controlling or monitoring per-user access to an index. Requests are assumed to come from a client application, for either admin or query requests. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
+
+As such, what you'll see in the activity logs are references to calls using admin keys or query keys. The appropriate key is included in requests originating from client code. The service is not equipped to handle identity tokens or impersonation.
+
+When business requirements do exist for per-user authorization, the recommendation is integration with Azure Active Directory. You can use $filter and user identities to [trim search results](search-security-trimming-for-azure-search-with-aad.md) of documents that a user should not see. 
+
+There is no way to log this information separately from the query string that includes the $filter parameter. See [Monitor queries](search-monitor-queries.md) for details on reporting query strings.
 
 ## Next steps
-Review [Scale replicas and partitions](search-limits-quotas-capacity.md) for guidance on how to balance the allocation of partitions and replicas for an existing service. 
 
-Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration, or [Performance and optimization](search-performance-optimization.md) for tuning guidance.
+Fluency with Azure Monitor is essential for oversight of any Azure service, including resources like Azure Cognitive Search. If you are not familiar with Azure Monitor, take the time to review articles related to resources. In addition to tutorials, the following article is a good place to start.
 
-<!--Image references-->
-[1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
-[2]: ./media/search-monitor-usage/AzSearch-Monitor-Tile.PNG
-[3]: ./media/search-monitor-usage/AzSearch-Monitor-Intervals.PNG
-[4]: ./media/search-monitor-usage/AzSearch-Monitor-AlertCmd.PNG
-[5]: ./media/search-monitor-usage/AzSearch-Monitor-BarChart.PNG
-
-
-
-
-
+> [!div class="nextstepaction"]
+> [Monitoring Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)

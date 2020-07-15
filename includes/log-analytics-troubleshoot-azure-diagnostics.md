@@ -1,3 +1,10 @@
+---
+author: mgoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: magoedte
+---
 ### Troubleshoot Azure Diagnostics
 
 If you receive the following error message, the Microsoft.insights resource provider is not registered:
@@ -15,3 +22,10 @@ To register the resource provider, perform the following steps in the Azure port
 ![Register microsoft.insights resource provider](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
 Once the *Microsoft.insights* resource provider is registered, retry configuring diagnostics.
+
+
+In PowerShell, if you receive the following error message, you need to update your version of PowerShell:
+
+`Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
+
+Update your version of Azure PowerShell, follow the instructions in the [Install Azure PowerShell](/powershell/azure/install-az-ps) article.

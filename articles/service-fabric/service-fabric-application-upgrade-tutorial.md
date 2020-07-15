@@ -1,21 +1,9 @@
 ---
-title: Service Fabric app upgrade tutorial| Microsoft Docs
+title: Service Fabric app upgrade tutorial
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/15/2016
-ms.author: subramar
-
+ms.topic: conceptual
+ms.date: 2/23/2018
 ---
 # Service Fabric application upgrade tutorial using Visual Studio
 > [!div class="op_single_selector"]
@@ -29,7 +17,7 @@ ms.author: subramar
 Azure Service Fabric simplifies the process of upgrading cloud applications by ensuring that only changed services are upgraded, and that application health is monitored throughout the upgrade process. It also automatically rolls back the application to the previous version upon encountering issues. Service Fabric application upgrades are *Zero Downtime*, since the application can be upgraded with no downtime. This tutorial covers how to complete a rolling upgrade from Visual Studio.
 
 ## Step 1: Build and publish the Visual Objects sample
-First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
+First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
 
 ![Context menu for a Service Fabric application][image1]
 
@@ -37,7 +25,9 @@ Selecting **Publish** brings up a popup, and you can set the **Target profile** 
 
 ![Publishing a Service Fabric application][image2]
 
-Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing `http://localhost:8081/visualobjects/` in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+
+**NOTE:** If deploying to `Cloud.xml` profile (Azure Service Fabric), the application should then be available at **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Make sure you do have `8081/TCP` configured in the Load Balancer (find the Load Balancer in the same resource group as the Service Fabric instance).
 
 ## Step 2: Update the Visual Objects sample
 You might notice that with the version that was deployed in step 1, the visual objects do not rotate. Let's upgrade this application to one where the visual objects also rotate.
