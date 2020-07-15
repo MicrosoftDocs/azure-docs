@@ -42,7 +42,7 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
    :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
 
-2. Select the **Connector** which you'll be copying the mapping files from.
+2. Select the **"Connector"** which you'll be copying the mapping files from.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
 
