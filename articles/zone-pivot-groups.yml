@@ -485,3 +485,12 @@ groups:
     title: Kotlin (Android)
   - id: programming-language-swift
     title: Swift (iOS)
+# Owner: msangapu
+- id: app-service-platform-windows-linux
+  title: App Service platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
