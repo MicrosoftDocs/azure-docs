@@ -11,7 +11,7 @@ ms.date: 07/07/2019
 ms.author: joanpo
 ---
 
-# Use PowerShell to monitor the usage of a sent data share
+# Use PowerShell to create and share snapshot triggers
 
 This PowerShell script creates and gets share snapshot triggers.
 
