@@ -4,12 +4,12 @@ description: Private links for securely exporting and importing data to Azure Ma
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/15/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Enable private links for importing and exporting managed disks - Azure portal
+# Enable Private Links for importing and exporting managed disks - Azure portal
 
 You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises.  Now you can leverage [private links](../private-link/private-link-overview.md) for restricting the export and import to Managed Disks only from your Azure VNET. Moreover, you are rest assured that the data never goes over the public internet and always travels within the secure Microsoft backbone network when you use Private Links. 
 
@@ -29,30 +29,32 @@ You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from 
 
 For this process, you will need to note down the virtual network of the VM that your disks are attached to. The vNet is necessary when configuring the private endpoint.
 
-## Create a DiskAccess resource
+## Create a disk access resource
 
-1. Sign in to the Azure portal
-1. Navigate to DiskAccess
-1. Select create
-1. On the create blade, select a resource group, fill in the name, and select a region.
-1. Select create
+1. Sign in to the [Azure portal](https://portal.azure.com/)
+1. Navigate to **Disk Accesses**
+1. Select **+ Add** to create a new disk access resource.
+1. On the create blade, select your subscription, a resource group, enter a name, and select a region.
+1. Select **Review + create**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="example text":::
 
 When your resource has been created, navigate directly to it.
 
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot of the Go to resource button in the portal":::
+
 ## Create a private endpoint
 
-Now that you have a diskaccess resource, you can use it to handle access to your disk's export/imports, this is done through private endpoints. Accordingly, you'll need to create a private endpoint and configure it for diskaccess.
+Now that you have a disk access resource, you can use it to handle access to your disk's export/imports, this is done through private endpoints. Accordingly, you'll need to create a private endpoint and configure it for disk access.
 
-1. From your diskaccess resource, select private endpoints
+1. From your disk access resource, select **Private endpoint connections**.
 1. Select **+ Private endpoint**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="example text":::
 
 1. Select a resource group
-1. Fill in the name and select the same region your diskaccess resource was created in.
-1. Select next
+1. Fill in the name and select the same region your disk access resource was created in.
+1. Select **Next: Resource >**
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="example text":::
 
@@ -60,7 +62,7 @@ Now that you have a diskaccess resource, you can use it to handle access to your
 1. For **Resource type** select **Microsoft.Compute/diskAccesses**
 1. For **Resource** select the diskAccess resource you created earlier
 1. Leave the **Target sub-resource** as **disks**
-1. Select next.
+1. Select **Next : Configuration >**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="example text":::
 
@@ -70,7 +72,7 @@ Now that you have a diskaccess resource, you can use it to handle access to your
 > If you have a network security group (NGS) enabled for the selected subnet, it will be disabled for private endpoints on this subnet only. Other resources on this subnet will still have NSG enforcement.
 
 1. Select the appropriate subnet
-1. Select create
+1. Select **Review + create**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="example text":::
 
