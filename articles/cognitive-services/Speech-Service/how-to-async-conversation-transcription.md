@@ -110,9 +110,14 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 This step gets the asynchronous transcription results but assumes any real-time processing you might have required is done elsewhere. For more information, see [Transcribe conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md).
 
-For the code shown here, you need **remote-conversation version 1.8.0**, supported only for Java (1.8.0 or above) on Windows, Linux, and Android (API level 26 or above only).
+For the code shown here, you need **remote-conversation version 1.8.0**, supported only for Java (1.8.0 or above) on Windows, Linux, and Android (API level 26 or above only). 
 
-### Obtaining the client SDK
+Async conversation is also supported in C# for **Microsoft.CognitiveServices.Speech.Remoteconversation version 1.13.0 or above** through public nuget.
+
+### Obtaining the async conversation client SDK for C#
+Please refer to **Microsoft.CognitiveServices.Speech.Remoteconversation** from public nuget into your project.
+
+### Obtaining the async conversation client SDK for Java
 
 You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
@@ -142,7 +147,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
 3. Save the changes
 
-### Sample transcription code
+### Sample transcription code for Java
 
 After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **getTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
 
@@ -192,6 +197,33 @@ if(resultResponse != null) {
 }
 
 System.out.println("Operation finished");
+```
+
+### Sample transcription code for C#
+
+After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Create an object of  **RemoteConversationTranscriptionOperation** to get a long running operation [Operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) object. You can check the status of the operation or wait for it to complete. 
+
+```csharp
+// Create the speech config
+SpeechConfig config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+// Create the speech client
+RemoteConversationTranscriptionClient client = new RemoteConversationTranscriptionClient(config);
+// Create the remote operation
+RemoteConversationTranscriptionOperation operation = 
+                            new RemoteConversationTranscriptionOperation(conversationId, client);
+
+// Wait for operation to finish
+await operation.WaitForCompletionAsync(TimeSpan.FromSeconds(10), CancellationToken.None);
+// Get the result of the long running operation
+var val = operation.Value.ConversationTranscriptionResults;
+// Print the fields from the results
+foreach (var item in val)
+{
+    Console.WriteLine($"{item.Text}, {item.ResultId}, {item.Reason}, {item.UserId}, {item.OffsetInTicks}, {item.Duration}");
+    Console.WriteLine($"{item.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)}");
+}
+Console.WriteLine("Operation completed");
+
 ```
 
 ## Next steps
