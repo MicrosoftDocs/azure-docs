@@ -120,7 +120,7 @@ The **Commands** tab will allow you to run commands that have been modeled as pa
 
 ### Data export
 
-Data export allows you to export your IoT Central device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture#export-to-azure-api-for-fhir.md).
+Data export allows you to export your IoT Central device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## Clean up resources
 
