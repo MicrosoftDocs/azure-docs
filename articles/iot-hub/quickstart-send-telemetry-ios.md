@@ -1,6 +1,6 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
-description: In this quickstart, you run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
+title: Send telemetry to Azure IoT Hub quickstart (iOS)
+description: Run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
