@@ -82,7 +82,7 @@ Create the AKS cluster with managed Azure AD integration and Azure RBAC for Kube
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 --aks-custom-headers EnableUltraSSD=true
+az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 If you want to create clusters without ultra disk support, you can do so by omitting the custom `--aks-custom-headers` parameter.
@@ -93,7 +93,7 @@ You can enable ultra disks on existing clusters by adding a new node pool to you
 
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_DS2_v2 --zones 1 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableEncryptionAtHost=true
 ```
 
 If you want to create new node pools without support for ultra disks, you can do so by omitting the custom `--aks-custom-headers` parameter.
@@ -136,7 +136,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *5 GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
+Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *1000 GB* in size with *ReadWriteOnce* access. The *ultra-disk-sc* storage class is specified as the storage class.
 
 ```yaml
 apiVersion: v1
@@ -149,7 +149,7 @@ spec:
   storageClassName: ultra-disk-sc
   resources:
     requests:
-      storage: 5Gi
+      storage: 1000Gi
 ```
 
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-pvc.yaml* file:
