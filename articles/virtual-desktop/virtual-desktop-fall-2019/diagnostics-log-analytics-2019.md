@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop diagnostics log analytics (Fall 2019) - Azure
-description: How to use log analytics with the Fall 2019 version of the Windows Virtual Desktop diagnostics feature.
+description: Learn how to use log analytics with the Windows Virtual Desktop (Fall 2019 release) diagnostics feature.
 services: virtual-desktop
 author: Heidilohr
 
