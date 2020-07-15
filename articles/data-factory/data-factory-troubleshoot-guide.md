@@ -118,6 +118,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 - **Cause**: Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Often, no error message appears.
 
 - **Recommendation**: N/A
+
+### Error code: 3208
+
+- **Message**: `An error occurred while sending the request.`
+
+- **Cause**: The network connection to Databricks Service was interrupted.
+
+- **Recommendation**: If you are using self-hosted IR, please make sure that the network connection is reliable from the IR nodes. If you are using Azure IR, retry usually will work.
  
 ## Azure Data Lake Analytics
 
