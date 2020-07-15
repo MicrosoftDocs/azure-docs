@@ -9,7 +9,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/14/2020
 ---
-# Release notes
+# Azure HDInsight Release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
