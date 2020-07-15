@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/15/2020
 ms.custom: mvc
 ---
 
@@ -26,31 +26,27 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to login to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property  which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-list)
+Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
 ```
 
 ## Create an Azure Database for MySQL server
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command and then create your MySQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-Create an Azure Database for MySQL server with the **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)** command. At minimum you need to provide resource group , server name , admin username  , admin password and location where you want to provision your server. 
- 
-```azurecli-interactive
-az mysql server create --resource-group <resourcegroup-name> --name <servername>  --location <location-name> --admin-user <admin-username> --admin-password <server_admin_password> --sku-name <sku-name>
-```
+Create an Azure Database for MySQL server with the **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)** command. A server can contain multiple databases.
 
-Here is an example :
 ```azurecli
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
 ```
@@ -64,20 +60,17 @@ resource-group | myresourcegroup | Provide the name of the Azure resource group.
 location | westus | The Azure location for the server.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2|The default sku-name is "GP_Gen5_2" is not provided in the command. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. Please see the [pricing tiers](./concepts-pricing-tiers.md) for more infromation.
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. Please see the [pricing tiers](./concepts-pricing-tiers.md) for more infromation.
 
 >[!IMPORTANT] 
 >- The default MySQL version on your server is 5.7 . We currently have 5.6 and 8.0 versions also available.
->- To view all the arguments for **az mysql server create** command, see this [reference document](https://docs.microsoft.com/en-us/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
+>- To view all the arguments for **az mysql server create** command, see this [reference document](/cli/azure/mysql/server#az-mysql-server-create).
 >- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./howto-configure-ssl#step-4-verify-the-ssl-connection.md).
 
-Here is an example that creates a MySQL 5.7 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with **2 vCores**. Substitute the `<server_admin_password>` with your own value.
-
-
 ## Configure a server-level firewall rule 
-By default the server created is not publicly accessible and you need to give permissions to your local machine IP. You can configure the firewall rule on your server using the **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** command to give your local machine access to connect to the server. 
+By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** command to give your local environment access to connect to the server. 
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that correspond to where you'll be connecting from. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or use a range of IP addresses that correspond to where you'll be connecting from. If you don't know how to look for your IP, go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -124,16 +117,12 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 }
 ```
 
-## Connect to the server using the mysql.exe command-line tool
-Connect to your server using the **mysql.exe** command-line tool. Azure Cloud Shell has mysql.exe available to use but you can use a local [mysql.exe](https://dev.mysql.com/downloads/) on your computer.  Run the following command to connect to your server with **mysql.exe**. 
+## Connect to Azure Database for MySQL server using mysql command-line client
+**[mysql.exe]** (https://dev.mysql.com/downloads/) command-line tool is popular client used to conect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md).Alternatively, you can use mysql command line on your local environment if you have it available. 
 
-   ```bash
-   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-   ```
-> [!TIP]
-> For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
-> **Manage your database from local machine**
->If using mysql.exe , you can run the You can the above command to connect to your MySQL database server . You can also [Connect with MySQL Workbench](./connect-workbench.md) if that is your tool of choice or you can use mysql.exe command line on your local machine to connect to your server. 
+```bash
+ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+```
 
 ## Clean up resources
 If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
@@ -143,6 +132,7 @@ az group delete --name myresourcegroup
 ```
 
 If you would just like to delete the one newly created server, you can run **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)** command.
+
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
