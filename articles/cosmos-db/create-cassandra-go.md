@@ -170,12 +170,12 @@ func InsertUser(keyspace, table string, session *gocql.Session, user model.User)
 `FindUser` is used to search for a user (`model\user.go`) using a specific user ID while [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) binds the user attributes (returned by Cassandra) to individual variables (`userid`, `name`, `city`) -it is just one of the ways in which you can use the result obtained as the search query result
 
 ```go
-const selectQuery = "SELECT * FROM %s.%s where user_id = %s"
+const selectQuery = "SELECT * FROM %s.%s where user_id = ?"
 
 func FindUser(keyspace, table string, id int, session *gocql.Session) model.User {
     var userid int
     var name, city string
-    err := session.Query(fmt.Sprintf(selectQuery, keyspace, table, strconv.Itoa(id))).Scan(&userid, &name, &city)
+    err := session.Query(fmt.Sprintf(selectQuery, keyspace, table)).Bind(id).Scan(&userid, &name, &city)
 
     if err != nil {
         if err == gocql.ErrNotFound {
