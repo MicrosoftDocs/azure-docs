@@ -129,7 +129,7 @@
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: Build mapping dataflow pipeline using managed VNet and private endpoints
-    - href: tutorial-data-flow-private.md
+      href: tutorial-data-flow-private.md
   - name: Control Flow
     items:
     - name: User interface (UI)
@@ -166,7 +166,7 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-    name: Managed Virtual network
+  - name: Managed Virtual network
     href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
