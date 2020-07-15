@@ -187,6 +187,10 @@ After the labeling project is initialized, some aspects of the  project are immu
 
 After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
+
+In the middle of the dashboard, you see a status of the tasks left to be performed, as well as links to the experiments run for ML assisted labeling when it is enabled.
+
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
 To pause or restart the project, select the **Pause**/**Start** button. You can only label data when the project is running.
