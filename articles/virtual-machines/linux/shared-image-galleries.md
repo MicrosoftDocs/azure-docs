@@ -19,4 +19,4 @@ ms.reviewer: cynthn
 
 ## Next steps
 
-Learn how to [deploy shared images](shared-images.md).
+Learn how to [deploy shared images](../shared-images-cli.md).

@@ -494,7 +494,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -539,7 +539,7 @@ What's the difference between telemetry processors and telemetry initializers?
 ## Reference docs
 
 * [API overview](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
+* [ASP.NET reference](/previous-versions/azure/dn817570(v=azure.100))
 
 ## SDK code
 
@@ -550,4 +550,4 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
 * [Sampling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Troubleshooting](../faq.md)

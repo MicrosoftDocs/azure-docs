@@ -59,14 +59,14 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates the virtual machine. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install NGINX.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vm create](/cli/azure/vm) | Creates the virtual machine. This command also specifies the virtual machine image to be used, and administrative credentials.  |
+| [az vm open-port](/cli/azure/network/nsg/rule) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
+| [azure vm extension set](/cli/azure/vm/extension) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install NGINX.|
+| [az group delete](/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

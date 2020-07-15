@@ -1,5 +1,5 @@
 ---
-title: Creating, updating statistics
+title: Create and update statistics using Azure Synapse SQL resources
 description: Recommendations and examples for creating and updating query-optimization statistics in Synapse SQL.
 services: synapse-analytics
 author: filippopovic

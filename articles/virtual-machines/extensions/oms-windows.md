@@ -94,7 +94,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 \* The workspaceId is called the consumerId in the Log Analytics API.
 
 > [!NOTE]
-> For additional properties see Azure [Connect Windows Computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> For additional properties see Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
 
 ## Template deployment
 
