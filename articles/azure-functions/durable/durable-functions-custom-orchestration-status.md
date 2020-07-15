@@ -170,6 +170,9 @@ module.exports = async function(context, req) {
 };
 ```
 
+> [!NOTE]
+> In JavaScript, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
+
 # [Python](#tab/python)
 ```python
 import json
@@ -193,7 +196,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 ```
 
 > [!NOTE]
-> In JavaScript and Python, the `customStatus` field will be set when the next `yield` or `return` action is scheduled.
+> In Python, the `custom_status` field will be set when the next `yield` or `return` action is scheduled.
 
 ---
 
