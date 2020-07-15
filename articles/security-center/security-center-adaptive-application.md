@@ -12,25 +12,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2019
+ms.date: 07/16/2020
 ms.author: memildin
 
 ---
 # Adaptive application controls
-Learn how to configure application control in Azure Security Center using this walkthrough.
+Learn how to configure application controls in Azure Security Center using this walkthrough.
 
-## What are adaptive application controls in Security Center?
-Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Among other benefits, this helps harden your machines against malware. Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
-- Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
-- Comply with your organization's security policy that dictates the use of only licensed software.
-- Avoid unwanted software to be used in your environment.
-- Avoid old and unsupported apps to run.
-- Prevent specific software tools that are not allowed in your organization.
-- Enable IT to control the access to sensitive data through app usage.
+## What are Security Center's adaptive application controls?
 
-> [!NOTE]
-> For Non-Azure and Linux machines, adaptive application controls are supported in audit mode only.
+Adaptive application controls is an intelligent, automated, end-to-end solution from Azure Security Center for defining which applications can run on your machines.
+
+Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. See below for instructions on how to customize this list.
+
+
+
+## What are the benefits of adaptive application controls?
+
+By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple hardening goals:
+
+- Identify potential malware, even any that might be missed by antimalware solutions
+- Improved compliance with local security policies that dictate the use of only licensed software
+- Avoid running old or unsupported applications
+- Prevent specific software that's banned by your organization
+- Increased oversight of apps that access sensitive data
+
+
+
+
+## Availability
+
+- Release state: **General availability**
+- Pricing: **Standard tier**. [Learn more about pricing](/azure/security-center/security-center-pricing)
+- Supported VMs: Azure and non-Azure machines running Windows and Linux.
+- Required roles and permissions:
+    - **** and **** roles can both view and edit the list of known-safe applications.
+- Clouds: 
+    - ✔ Commercial clouds
+    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
+
+
+
 
 ## How to enable adaptive application controls?
 
