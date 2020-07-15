@@ -106,7 +106,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration.md).
     - Configure your protected API to be [called by a daemon app](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
-2. Enable Action Groups to use your Azure AD Application.
+1. Enable Action Groups to use your Azure AD Application.
 
     > [!NOTE]
     > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
@@ -115,7 +115,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
     - Run the modified script.
     
-3. Configure the Action Group Secure Webhook action.
+1. Configure the Action Group Secure Webhook action.
     - Copy the value $myApp.ObjectId from the script and enter it in the Application Object ID field in the Webhook action definition.
     
     ![Secure Webhook action](./media/action-groups/action-groups-secure-webhook.png)
