@@ -98,7 +98,7 @@ If you've accepted the App ID URI proposed by the app registration portal, you d
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common",
-    "Audience"  : "custom App ID URI for your web API"
+    "Audience": "custom App ID URI for your web API"
   },
   // more lines
 }
