@@ -20,14 +20,13 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Limits, restrictions, and throttles | Value | Notes |
 |-----|-----|-----|
 | Number of interfaces that can be registered per hub | 1500 ||
-| Maximum number of components that can be registered per model | 299 ||
-| Maximum size of an interface file | 512 KB ||
-| Maximum size of a component name | 64 chars ||
-| Maximum size of a property name  | 64 bytes, 7 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
-| Maximum size of a property value | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size)||
+| Maximum size of a component name | 64 chars | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore(not as the first or last character). |
+| Maximum size of a property name | 64 chars | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore(not as the first or last character). |
+| Maximum size of a property value | Same as [DTDL v2] https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property
+5 levels in depth and may not be Array nor any complex schema that contains Array
+||
 | Maximum size of a command name | 64 chars ||
 | Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Resolution API calls across SKU (regardless of units) | 100 requests/second ||
 
 ## Model Repository
 
