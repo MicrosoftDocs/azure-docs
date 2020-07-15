@@ -24893,7 +24893,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/windows/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
@@ -26298,7 +26308,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/windows/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
