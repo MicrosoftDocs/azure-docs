@@ -91,7 +91,7 @@
       - name: SQL Managed Instance
         href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: SQL Server on Virtual Machines
-        href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md ?toc=/azure/azure-resource-manager/templates/toc.json 
+        href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
     - name: DevOps
       items:
       - name: DevTest Labs
