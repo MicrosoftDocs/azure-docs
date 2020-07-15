@@ -1,5 +1,6 @@
 ---
-title: Azure SQL Managed Instance Management Operations 
+title: Management Operations
+titleSuffix: Azure SQL Managed Instance 
 description: Learn about Azure SQL Managed Instance management operations duration and best practices.
 services: sql-database
 ms.service: sql-managed-instance
@@ -13,7 +14,7 @@ ms.reviewer: sstein, carlrab, MashaMSFT
 ms.date: 07/10/2020
 ---
 
-# Azure SQL Managed Instance management operations overview
+# Overview of Azure SQL Managed Instance management operations
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 ## What are management operations?
@@ -21,7 +22,7 @@ Azure SQL Managed Instance provides management operations that you can use to au
 
 To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and provide isolation and security for customers, SQL Managed Instance relies on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture), which represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in a new virtual cluster buildout.
 
-Subsequent operations on deployed managed instances might also have effects on the underlying virtual cluster. This affects the duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
+Subsequent operations on deployed managed instances might also have effects on the underlying virtual cluster. This operations affect the duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
 
 All management operations can be categorized as follows:
 
@@ -32,14 +33,14 @@ All management operations can be categorized as follows:
 ## Management operations duration
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters varies – below are the values that you can typically expect, based on existing service telemetry data:
 
-- **Virtual cluster creation**:  This is a synchronous step in instance management operations. **90% of operations finish in 4 hours**.
+- **Virtual cluster creation**:  Creation is a synchronous step in instance management operations. **90% of operations finish in 4 hours**.
 - **Virtual cluster resizing (expansion or shrinking)**: Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). **90% of cluster expansions finish in less than 2.5 hours**.
 - **Virtual cluster deletion**: Deletion is an asynchronous step, but it can also be [initiated manually](virtual-cluster-delete.md) on an empty virtual cluster, in which case it executes synchronously. **90% of virtual cluster deletions finish in 1.5 hours**.
 
-Additionally, management of instances may also include one of the operations on hosted databases, which results in longer durations:
+Additionally, management of instances may also include one of the operations on hosted databases, which result in longer durations:
 
-- **Attaching database files from Azure Storage**:  This is a synchronous step, such as compute (vCore), or storage scaling up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
-- **Always On availability group seeding**: This is a synchronous step, such as compute (vCore), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB/hour or higher**.
+- **Attaching database files from Azure Storage**:  This is a synchronous step, such as compute (vCores), or storage scaling up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
+- **Always On availability group seeding**: This is a synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB/hour or higher**.
 
 The following table summarizes operations and typical overall durations:
 
@@ -47,7 +48,7 @@ The following table summarizes operations and typical overall durations:
 |---------|---------|---------|---------|
 |**Deployment** |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours.|
 |Deployment |First instance of another hardware generation in a non-empty subnet (for example, first Gen 5 instance in a subnet with Gen 4 instances)|Virtual cluster creation*|90% of operations finish in 4 hours.|
-|Deployment |First instance creation of 4 vCores, in an empty or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours.|
+|Deployment |First instance creation of 4 vCores in an empty, or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours.|
 |Deployment |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours.|
 |**Update** |Instance property change (admin password, Azure AD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute.|
 |Update |Instance storage scaling up/down (General Purpose service tier)|Attaching database files|90% of operations finish in 5 minutes.|
@@ -73,7 +74,7 @@ SQL Managed Instance is not available to client applications during deployment a
 
 ## Management operations cross-impact
 
-Management operations on a managed instance can affect other management operations of the instances placed inside the same virtual cluster. This includes the following:
+Management operations on a managed instance can affect other management operations of the instances placed inside the same virtual cluster:
 
 - **Long-running restore operations** in a virtual cluster will put on hold other instance creation or scaling operations in the same subnet.<br/>**Example:** If there is a long-running restore operation and there is a create or scale request in the same subnet, this request will take longer to complete as it will wait for the restore operation to complete before it continues.
 	
@@ -107,7 +108,7 @@ In order to cancel the management operation, go to the overview blade and click 
 
 After a cancel request has been submitted and processed, you will get a notification if the cancel submission has been successful or not.
 
-In case of cancel success, the management operation will be canceled in a couple of minutes, resulting with a failure.
+If submitted cancel request is successful, the management operation will be canceled in a couple of minutes, resulting with a failure.
 
 ![Canceling operation result](./media/management-operations-overview/canceling-operation-result.png)
 
@@ -117,7 +118,7 @@ If the cancel request fails or the cancel button is not active, it means that th
 
 If you don't already have Azure PowerShell installed, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-To cancel management operation you need to specify management operation name. Therefore, first use get command for retrieving operation list, and then cancel specific operation.
+To cancel management operation, you need to specify management operation name. Therefore, first use get command for retrieving operation list, and then cancel specific operation.
 
 ```powershell-interactive
 $managedInstance = "yourInstanceName"
@@ -139,7 +140,7 @@ For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs
 
 If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-To cancel management operation you need to specify management operation name. Therefore, first use get command for retrieving operation list, and then cancel specific operation.
+To cancel management operation, you need to specify management operation name. Therefore, first use get command for retrieving operation list, and then cancel specific operation.
 
 ```azurecli-interactive
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName --query "[?state=='InProgress' && isCancellable].{Name: name}" -o tsv |
