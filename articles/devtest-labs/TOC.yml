@@ -14,9 +14,7 @@
 - name: Tutorials
   items:
   - name: Set up a lab
-    items: 
-    - name: Use Azure portal
-      href: tutorial-create-custom-lab.md 
+    href: tutorial-create-custom-lab.md 
   - name: Access a lab
     href: tutorial-use-custom-lab.md
 - name: Samples
