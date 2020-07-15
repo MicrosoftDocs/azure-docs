@@ -11,7 +11,7 @@ ms.date: 06/30/2020
 ms.author: cherylmc
 
 ---
-# ExpressRoute partners and peering locations
+# ExpressRoute connectivity partners and peering locations
 
 > [!div class="op_single_selector"]
 > * [Locations By Provider](expressroute-locations.md)
