@@ -393,4 +393,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## Next Steps
 
 * [Machine Learning and AI with ONNX in SQL Edge](onnx-overview.md)
-* [Machine Learning Services in Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md
+* [Machine Learning Services in Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md)
