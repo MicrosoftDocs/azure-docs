@@ -114,10 +114,8 @@
   items:
   - name: Create indexes and constructs
     items:
-    - name: Create a basic index
+    - name: Create an index
       href: search-what-is-an-index.md
-    - name: Create an index (portal)
-      href: search-create-index-portal.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Analyzers

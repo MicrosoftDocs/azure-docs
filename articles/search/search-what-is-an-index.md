@@ -12,7 +12,7 @@ ms.date: 07/15/2020
 ---
 # Create a basic search index in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* stores searchable content used for full text search and filter queries. An index is defined by a schema and saved to the service, with data import following as a second step. Search indexes contain *documents. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Cognitive Search, a *search index* stores searchable content used for full text search and filter queries. An index is defined by a schema and saved to the service, with data import following as a second step. Search indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 When you create an index, Azure Cognitive Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. Later, when you import documents, or submit search queries to Azure Cognitive Search, you are sending requests to a specific index in your search service.
 
@@ -69,7 +69,7 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 An index is required to have a name and one designated key field (of Edm.string) in the fields collection. The [*fields collection*](#fields-collection) is typically the largest part of an index, where each field is named, typed, and attributed with allowable behaviors that determine how it is used. 
 
-Other elements include [suggesters](#suggesters), [scoring profiles](#scoring-profiles), [analyzers](#analyzers) used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer, [CORS](#cors) settings, and [encryption key](#encryption-key) options.
+Other elements include [suggesters](#suggesters), [scoring profiles](#scoringprofiles), [analyzers](#analyzers) used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer, [CORS](#cors) settings, and [encryption key](#encryptionkey) options.
 
 ```json
 {
@@ -226,7 +226,9 @@ The following options can be set for CORS:
 
 While all Azure Cognitive Search indexes are encrypted by default using Microsoft-managed keys, indexes can be configured to be encrypted with **customer-managed keys** in Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
-## Index size (storage)
+<a name="index-size"></a>
+
+## Attributes and index size (storage implications)
 
 The size of an index is determined by the size of the documents you upload, plus index configuration, such as whether you include suggesters, and how you set attributes on individual fields. 
 
