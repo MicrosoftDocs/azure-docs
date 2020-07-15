@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
+title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart

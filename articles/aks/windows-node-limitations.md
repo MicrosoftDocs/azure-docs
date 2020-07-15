@@ -100,6 +100,10 @@ Group managed service accounts (gMSA) support is not currently available in AKS.
 
 Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) and metrics from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
 
+## Are there any limitations on the number of services on a cluster with Windows nodes?
+
+A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+
 ## What if I need a feature which is not supported?
 
 We work hard to bring all the features you need to Windows in AKS, but if you do encounter gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. Please make sure to check out our roadmap of features coming [AKS roadmap][aks-roadmap].
