@@ -127,7 +127,7 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
 
-1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
+1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
 
     1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
 

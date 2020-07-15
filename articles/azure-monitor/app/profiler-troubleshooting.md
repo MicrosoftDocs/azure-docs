@@ -12,7 +12,7 @@ ms.reviewer: mbullwin
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
 > [!CAUTION]
-> There is a bug running profiler for ASP.NET Core apps on Azure App Service. We have a fix, but it will take a few weeks to deploy world wide. You can work around the bug by adding the Application Insights SDK to your application with instructions [here](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
+> There is a bug running profiler for ASP.NET Core apps on Azure App Service. We have a fix, but it will take a few weeks to deploy world wide. You can work around the bug by adding the Application Insights SDK to your application with instructions [here](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
@@ -71,7 +71,7 @@ For Profiler to work properly:
 
 
 * The **ApplicationInsightsProfiler3** webjob must be running. To check the webjob:
-   1. Go to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. Go to [Kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret).
    1. In the **Tools** menu, select **WebJobs Dashboard**.  
       The **WebJobs** pane opens. 
    
@@ -189,11 +189,3 @@ If your application connects to the Internet via a proxy or a firewall, you may 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-
