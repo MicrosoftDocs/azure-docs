@@ -7,7 +7,7 @@ author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/08/2020
+ms.date: 07/15/2020
 ms.author: v-grpr
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
