@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 06/21/2020
+ms.date: 07/15/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -59,14 +59,17 @@ If you believe your metric alert shouldn't have fired but it did, the following 
 5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured with the *autoMitigate* property set to **false** (this property can only be configured via REST/PowerShell/CLI, so check the script used to deploy the alert rule). In such case, the alert rule does not autoresolve fired alerts, and does not require a fired alert to be resolved before firing again.
 
 
-## Can't find metric to alert on - virtual machines 
+## Can't find the metric to alert on - virtual machines guest metrics
 
-To alert on guest metrics on virtual machines (for memory, disk space), ensure you have set up diagnostic settings to send data to an Azure Monitor sink:
-    * [For Windows VMs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)
-    * [For Linux VMs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+To alert on guest operating system metrics of virtual machines (e.g. memory, disk space), ensure you have installed the required agent to collect this data to Azure Monitor Metrics:
+- [For Windows VMs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-windows-install)
+- [For Linux VMs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+
+For more information about collecting data from the guest operating system of a virtual machine, see [here](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure#guest-operating-system).
 	
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#configuring-metric-alert-for-logs).
+
 
 ## Can’t find the metric to alert on
 
