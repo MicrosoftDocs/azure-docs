@@ -154,7 +154,7 @@
     - name: Resource Manager templates
       href: template-description.md
   - name: Regions
-    href: regions.md
+    href: ../regions.md
     items:
     - name: About Azure Extensions
       href: ../extensions/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -165,7 +165,7 @@
   - name: Availability and performance
     items:
     - name: Availability
-      href: availability.md
+      href: ../availability.md
     - name: Co-location
       href: co-location.md
     - name: Network performance
@@ -287,7 +287,7 @@
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic
     - name: Isolated sizes
-      href: isolation.md
+      href: ../isolation.md
     - name: Azure compute units (ACU)
       href: ../acu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Benchmark scores
@@ -340,6 +340,8 @@
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machines-windows-security-controls.md
     - name: Bastion
@@ -385,9 +387,6 @@
         href: create-vm-specialized-portal.md
       - name: PowerShell
         href: create-vm-specialized.md
-    - name: Use ARM template with C#
-      href: csharp-template.md
-      displayName: Azure Resource Manager
     - name: Create VM with Chef
       href: ../../chef/chef-automation.md
     - name: Use Java

@@ -1,5 +1,5 @@
 ---
-title: Create a managed disk from a snapshot - CLI Sample
+title: Create managed disk from snapshot (Linux) - CLI sample
 description: Azure CLI Script Sample - Create a managed disk from a snapshot
 services: virtual-machines-linux
 documentationcenter: storage
@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a managed disk from a snapshot with CLI
+# Create a managed disk from a snapshot with CLI (Linux)
 
 This script creates a managed disk from a snapshot. Use it to restore a virtual machine from snapshots of OS and data disks. Create OS and data managed disks from respective snapshots and then create a new virtual machine by attaching managed disks. You can also restore data disks of an existing VM by attaching data disks created from snapshots.
 

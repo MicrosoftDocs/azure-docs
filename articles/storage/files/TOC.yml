@@ -245,7 +245,7 @@
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Reference
   items:
-  - name: Azure File Shares storage reference
+  - name: Azure Files reference
     href: ../files/reference.md
   - name: Resource Manager template
     displayName: arm
