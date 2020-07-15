@@ -302,8 +302,8 @@ If you don't want to use the default outbound rules and you do want to limit the
 - Deny outbound internet connection by using the NSG rules.
 
 - For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Storage, by using __Service Tag__ of __Storage__.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
    - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
@@ -501,6 +501,40 @@ By default, a public IP address is assigned to AKS deployments. When using AKS i
 
 A private IP address is enabled by configuring AKS to use an _internal load balancer_. 
 
+#### Network contributor role
+
+> [!IMPORTANT]
+> If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
+>
+> To add the identity as network contributor, use the following steps:
+
+1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    If this command returns a value of `msi`, use the following command to identify the principal ID for the managed identity:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. To find the ID of the resource group that contains your virtual network, use the following command. Replace `<resource-group-name>` with the name of the resource group that _contains the virtual network_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. To add the service principal or managed identity as a network contributor, use the following command. Replace `<SP-or-managed-identity>` with the ID returned for the service principal or managed identity. Replace `<resource-group-id>` with the ID returned for the resource group that contains the virtual network:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
+
+#### Enable private IP
+
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
 
@@ -590,38 +624,6 @@ aks_target.update(update_config)
 # Wait for the operation to complete
 aks_target.wait_for_completion(show_output = True)
 ```
-
-__Network contributor role__
-
-> [!IMPORTANT]
-> If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP.
->
-> To add the identity as network contributor, use the following steps:
-
-1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-    ``` 
-
-    If this command returns a value of `msi`, use the following command to identify the principal ID for the managed identity:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-    ```
-
-1. To find the ID of the resource group that contains your virtual network, use the following command. Replace `<resource-group-name>` with the name of the resource group that _contains the virtual network_:
-
-    ```azurecli-interactive
-    az group show -n <resource-group-name> --query id
-    ```
-
-1. To add the service principal or managed identity as a network contributor, use the following command. Replace `<SP-or-managed-identity>` with the ID returned for the service principal or managed identity. Replace `<resource-group-id>` with the ID returned for the resource group that contains the virtual network:
-
-    ```azurecli-interactive
-    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-    ```
-For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
 ## Use Azure Container Instances (ACI)
 
