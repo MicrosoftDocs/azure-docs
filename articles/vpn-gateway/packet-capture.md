@@ -60,8 +60,6 @@ See below an example of JSON and JSON schema with explanation of each property. 
 ### JSON schema
 ```JSON-interactive
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
     "type": "object",
     "title": "The Root Schema",
     "description": "The root schema input JSON filter for packet capture",
@@ -114,16 +112,16 @@ See below an example of JSON and JSON schema with explanation of each property. 
                 [
                     {
                         "Protocol": [
-                            6.0
+                            6
                         ],
                         "CaptureSingleDirectionTrafficOnly": true,
                         "SourcePort": [
-                            500.0
+                            500
                         ],
                         "DestinationPort": [
-                            4500.0
+                            4500
                         ],
-                        "TcpFlags": 16.0,
+                        "TcpFlags": 16,
                         "SourceSubnets": [
                             "20.1.1.0/24"
                         ],
@@ -143,12 +141,12 @@ See below an example of JSON and JSON schema with explanation of each property. 
                 "examples": [
                     {
                         "SourcePort": [
-                            500.0
+                            500
                         ],
                         "DestinationPort": [
-                            4500.0
+                            4500
                         ],
-                        "TcpFlags": 16.0,
+                        "TcpFlags": 16,
                         "SourceSubnets": [
                             "20.1.1.0/24"
                         ],
@@ -156,7 +154,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                             "10.1.1.0/24"
                         ],
                         "Protocol": [
-                            6.0
+                            6
                         ],
                         "CaptureSingleDirectionTrafficOnly": true
                     }
@@ -226,7 +224,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                         "default": [],
                         "examples": [
                             [
-                                500.0
+                                500
                             ]
                         ],
                         "additionalItems": true,
@@ -237,7 +235,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                             "description": "An explanation about the purpose of this instance.",
                             "default": 0,
                             "examples": [
-                                500.0
+                                500
                             ]
                         }
                     },
@@ -249,7 +247,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                         "default": [],
                         "examples": [
                             [
-                                4500.0
+                                4500
                             ]
                         ],
                         "additionalItems": true,
@@ -260,7 +258,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                             "description": "An explanation about the purpose of this instance.",
                             "default": 0,
                             "examples": [
-                                4500.0
+                                4500
                             ]
                         }
                     },
@@ -272,7 +270,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                         "default": [],
                         "examples": [
                             [
-                                6.0
+                                6
                             ]
                         ],
                         "additionalItems": true,
@@ -283,7 +281,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                             "description": "An explanation about the purpose of this instance.",
                             "default": 0,
                             "examples": [
-                                6.0
+                                6
                             ]
                         }
                     },
@@ -294,7 +292,7 @@ See below an example of JSON and JSON schema with explanation of each property. 
                         "description": "A list of TCP flags. The TCP flags set on the packet must match any flag in the list of flags provided. FIN = 0x01,SYN = 0x02,RST = 0x04,PSH = 0x08,ACK = 0x10,URG = 0x20,ECE = 0x40,CWR = 0x80. An OR of flags can be provided.",
                         "default": 0,
                         "examples": [
-                            16.0
+                            16
                         ]
                     },
                     "CaptureSingleDirectionTrafficOnly": {
