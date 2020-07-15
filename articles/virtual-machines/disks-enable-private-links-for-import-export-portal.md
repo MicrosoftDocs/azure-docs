@@ -47,7 +47,7 @@ You will need to note down the virtual network of the VM that your disks are att
 
 When your resource has been created, navigate directly to it.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot of the Go to resource button in the portal":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot of the Go to resource button in the portal":::
 
 ## Create a private endpoint
 
