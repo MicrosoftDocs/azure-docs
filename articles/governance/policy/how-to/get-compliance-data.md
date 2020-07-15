@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 05/20/2020
+ms.date: 07/15/2020
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -65,8 +65,25 @@ Evaluations of assigned policies and initiatives happen as the result of various
 
 ### On-demand evaluation scan
 
-An evaluation scan for a subscription or a resource group can be started with Azure PowerShell or a
-call to the REST API. This scan is an asynchronous process.
+An evaluation scan for a subscription or a resource group can be started with Azure CLI, Azure
+PowerShell, or a call to the REST API. This scan is an asynchronous process.
+
+#### On-demand evaluation scan - Azure CLI
+
+The compliance scan is started with the
+[az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) command.
+
+By default, `az policy state trigger-scan` starts an evaluation for all resources in the current
+subscription. To start an evaluation on a specific resource group, use the **resource-group**
+parameter. The following example starts a compliance scan in the current subscription for the _MyRG_
+resource group:
+
+```azurecli-interactive
+az policy state trigger-scan --resource-group "MyRG"
+```
+
+You can chose not to wait for the asynchronous process to complete before continuing with the
+**no-wait** parameter.
 
 #### On-demand evaluation scan - Azure PowerShell
 
@@ -80,7 +97,7 @@ parameter. The following example starts a compliance scan in the current subscri
 resource group:
 
 ```azurepowershell-interactive
-Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+Start-AzPolicyComplianceScan -ResourceGroupName 'MyRG'
 ```
 
 You can have PowerShell wait for the asynchronous call to complete before providing the results
