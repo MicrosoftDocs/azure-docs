@@ -61,7 +61,7 @@ To learn how to set up your Windows Virtual Desktop host pool, see [Create a hos
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
+- [Connect with Windows 10 or Windows 7](connect-windows-7-10.md)
 - [Connect with a web browser](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the macOS client](connect-macos.md)

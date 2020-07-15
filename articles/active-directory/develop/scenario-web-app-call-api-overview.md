@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
@@ -46,7 +46,7 @@ That's why they register a secret (an application password or certificate) with 
 
 Development for this scenario involves these specific tasks:
 
-- During [application registration](scenario-web-app-call-api-app-registration.md), you must provide a reply URI, secret, or certificate to be shared with Azure AD. If you deploy your app to several locations, you'll provide this information for each location.
+- During [application registration](scenario-web-app-call-api-app-registration.md), you must provide a reply URI, secret, or certificate to be shared with Azure AD. If you deploy your app to several locations, you'll provide a reply URI for each location.
 - The [application configuration](scenario-web-app-call-api-app-configuration.md) must provide the client credentials that were shared with Azure AD during application registration.
 
 ## Next steps

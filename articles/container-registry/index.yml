@@ -49,7 +49,7 @@ landingContent:
     - linkListType: learn 
       links:
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
+            url: /learn/modules/build-and-store-container-images/
     - linkListType: video
       links:
           - text: Azure Container Registry videos
