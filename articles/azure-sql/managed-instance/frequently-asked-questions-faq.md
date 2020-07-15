@@ -60,7 +60,7 @@ You can consider migrating to other Azure flavors that suit your workload: [Azur
 **Where can I migrate if I have specific hardware requirements such as larger RAM to vCore ratio or more CPUs?**
 You can consider migrating to [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) or [Azure SQL Database](../database/sql-database-paas-overview.md) memory/cpu optimized.
 
-## Known issues & defects
+## Known issues and defects
 
 **Where can I find known issues and defects?**
 

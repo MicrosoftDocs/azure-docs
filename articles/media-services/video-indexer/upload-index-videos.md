@@ -54,7 +54,7 @@ The article shows how to upload and index your videos with these options:
 
 See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
 
-## <a id="website"/>Upload and index a video using the Video Indexer website
+## <a name="website"></a>Upload and index a video using the Video Indexer website
 
 > [!NOTE]
 > A name of the video must be no greater than 80 characters.
@@ -70,7 +70,7 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-## <a id="apis"/>Upload and index with API
+## <a name="apis"></a>Upload and index with API
 
 Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
