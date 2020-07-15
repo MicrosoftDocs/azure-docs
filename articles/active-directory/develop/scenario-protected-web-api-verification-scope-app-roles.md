@@ -26,7 +26,7 @@ This article describes how you can add authorization to your web API. This prote
 > [!NOTE]
 > The code snippets from this article are extracted from the following samples, which are fully functional:
 >
-> - [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs) on GitHub
+> - [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
 > - [ASP.NET web API sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
 
 To protect an ASP.NET or ASP.NET Core web API, you must add the `[Authorize]` attribute to one of the following items:
