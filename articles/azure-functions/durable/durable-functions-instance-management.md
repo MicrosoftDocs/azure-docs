@@ -827,7 +827,7 @@ See [Start instances](#javascript-function-json) for the function.json configura
 # [Python](#tab/python)
 
 > [!NOTE]
-> This feature is currently not supported.
+> This feature is currently not supported in Python.
 
 <!-- ```python
 import azure.functions as func
