@@ -73,7 +73,7 @@ AZURE_CLIENT_ID=`az ad sp list --display-name "velero" --query '[0].appId' -o ts
 ```
 
 ```bash
-cat << EOF  > ./credentials-velero
+cat << EOF  > ./credentials-velero.yaml
 AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
 AZURE_TENANT_ID=${AZURE_TENANT_ID}
 AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
@@ -92,7 +92,7 @@ velero install \
 --provider azure \
 --plugins velero/velero-plugin-for-microsoft-azure:v1.1.0 \
 --bucket $BLOB_CONTAINER \
---secret-file ~/workspace/velero-stuff/credentials.yaml \
+--secret-file ~/path/to/credentials-velero.yaml \
 --backup-location-config resourceGroup=$AZURE_BACKUP_RESOURCE_GROUP,storageAccount=$AZURE_STORAGE_ACCOUNT_ID \
 --snapshot-location-config apiTimeout=15m \
 --velero-pod-cpu-limit="0" --velero-pod-mem-limit="0" \
