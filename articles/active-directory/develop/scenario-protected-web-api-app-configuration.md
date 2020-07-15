@@ -194,8 +194,14 @@ In ASP.NET Core, if you want to customize the token validation parameters, use t
 services.AddMicrosoftWebApiAuthentication(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-    options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
-    options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
+  var existingOnTokenValidatedHandler = options.Events.OnTokenValidated ;
+  options.Events.OnTokenValidated = async context =>
+  {
+       await existingOnTokenValidatedHandler(context);
+      // Your code to add extra configuration that will be executed after the current event implementation.
+      options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
+      options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
+  }
 });
 ```
 
