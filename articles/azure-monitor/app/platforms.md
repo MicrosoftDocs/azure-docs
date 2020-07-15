@@ -22,7 +22,7 @@ ms.reviewer: olegan
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md), including both web and worker roles
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+* [Azure Functions](../../azure-functions/functions-monitoring.md)
 ### Instrumentation through code (SDKs)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
@@ -35,11 +35,11 @@ ms.reviewer: olegan
 * [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
 
 ## Logging frameworks
-* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
+* [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J, or Logback](../../azure-monitor/app/java-trace-logs.md)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 ## Export and data analysis
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
