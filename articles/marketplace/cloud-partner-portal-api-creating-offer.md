@@ -283,6 +283,6 @@ Uploading artifacts
 Artifacts, such as images and logos, should be shared by uploading them to
 an accessible location on the web, then including each as a URI in the PUT
 request, as in the example above. The system will detect that these
-files are not present in the Azure marketplace storage and download
+files are not present in the Azure Marketplace storage and download
 these files into storage.  As a result, you will find that future GET requests
-will return an Azure marketplace service URL for these files.
+will return an Azure Marketplace service URL for these files.
