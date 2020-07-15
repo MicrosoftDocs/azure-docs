@@ -165,7 +165,7 @@
   - name: Availability and performance
     items:
     - name: Availability
-      href: availability.md
+      href: ../availability.md
     - name: Co-location
       href: co-location.md
     - name: Network performance

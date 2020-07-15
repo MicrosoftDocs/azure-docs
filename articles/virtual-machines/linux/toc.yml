@@ -182,7 +182,7 @@
   - name: Availability and performance
     items:
     - name: Availability
-      href: availability.md
+      href: ../availability.md
     - name: Co-location
       href: co-location.md
     - name: Network performance
@@ -765,7 +765,7 @@
             href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Custom JSON data
             href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-          - name: CollectD performance data
+          - name: collectd performance data
             href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Syslog
             href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
