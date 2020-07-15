@@ -45,7 +45,7 @@ For now, customer-managed keys have the following restrictions:
 
 ## Encryption at host - End-to-end encryption for your VM data
 
-End-to-end encryption starts from the VM host, the Azure server that your VM is allocated to. Data on your temp disks and OS/data disk caches are stored on that VM host. When you enable end-to-end encryption, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. End-to-end encryption does not use your VM's CPU and does not impact your VM's performance. 
+End-to-end encryption starts from the VM host, the Azure server that your VM is allocated to. Data on your temp disks, ephemeral OS disks and persisted OS/data disk caches are stored on that VM host. When you enable end-to-end encryption, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. End-to-end encryption does not use your VM's CPU and does not impact your VM's performance. 
 
 Temp disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
@@ -71,7 +71,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Server-side encryption versus Azure disk encryption
 
-[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages the [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows to encrypt managed disks with customer-managed keys within the guest VM.  Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
+[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages the [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
