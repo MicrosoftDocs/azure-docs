@@ -88,8 +88,10 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 ###  Symmetric key algorithms
 - **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
-- **AES-GCM** - AES encryption in Galois Counter Mode
+- **AES-GCM** - AES encryption in Galois Counter Mode ([NIST 800-38d](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf))
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode
+
+> [!NOTE] Current AES-GCM implementation and the corresponding APIs are experimental. The implementation and the APIs may change substantially in the future iterations. 
 
 ##  Key operations
 
