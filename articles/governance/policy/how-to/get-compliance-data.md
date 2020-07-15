@@ -279,10 +279,10 @@ the reason a resource is **non-compliant** or to find the change responsible, se
 ## Command line
 
 The same information available in the portal can be retrieved with the REST API (including with
-[ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI (preview).
-For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
-reference. The REST API reference pages have a green 'Try It' button on each operation that allows
-you to try it right in the browser.
+[ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI. For full
+details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/) reference. The
+REST API reference pages have a green 'Try It' button on each operation that allows you to try it
+right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
@@ -417,14 +417,218 @@ Your results resemble the following example:
 }
 ```
 
-For more information about querying policy events, see the [Azure Policy Events](/rest/api/policy-insights/policyevents)
-reference article.
+For more information about querying policy events, see the
+[Azure Policy Events](/rest/api/policy-insights/policyevents) reference article.
+
+### Azure CLI
+
+The [Azure CLI](/cli/azure/what-is-azure-cli) command group for Azure Policy covers most operations
+that are available in REST or Azure PowerShell. For the full list of available commands, see
+[Azure CLI - Azure Policy Overview](/cli/azure/policy).
+
+Example: Getting the state summary for the topmost assigned policy with the highest number of
+non-compliant resources.
+
+```azurecli-interactive
+az policy state summarize --top 1
+```
+
+The top portion of the response looks like this example:
+
+```json
+{
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
+    "odataid": null,
+    "policyAssignments": [{
+            "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+            "policyDefinitions": [{
+                "effect": "audit",
+                "policyDefinitionGroupNames": [
+                    ""
+                ],
+                "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+                "policyDefinitionReferenceId": "",
+                "results": {
+                    "nonCompliantPolicies": null,
+                    "nonCompliantResources": 398,
+                    "policyDetails": [{
+                        "complianceState": "noncompliant",
+                        "count": 1
+                    }],
+                    "policyGroupDetails": [{
+                        "complianceState": "noncompliant",
+                        "count": 1
+                    }],
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2020-07-14 14:01:22Z&$to=2020-07-15 14:01:22Z and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8' and PolicyDefinitionId eq '/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a'",
+                    "resourceDetails": [{
+                            "complianceState": "noncompliant",
+                            "count": 398
+                        },
+                        {
+                            "complianceState": "compliant",
+                            "count": 4
+                        }
+                    ]
+                }
+            }],
+    ...
+```
+
+Example: Getting the state record for the most recently evaluated resource (default is by timestamp
+in descending order).
+
+```azurecli-interactive
+az policy state list --top 1
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "Compliant",
+    "effectiveParameters": "",
+    "isCompliant": true,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/securitycenterbuiltin",
+    "policyAssignmentName": "SecurityCenterBuiltIn",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "auditifnotexists",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/aa633080-8b72-40c4-a2d7-d00c03e80bed",
+    "policyDefinitionName": "aa633080-8b72-40c4-a2d7-d00c03e80bed",
+    "policyDefinitionReferenceId": "identityenablemfaforownerpermissionsmonitoring",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "security center",
+    "policySetDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    "policySetDefinitionName": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "",
+    "resourceId": "/subscriptions/{subscriptionId}",
+    "resourceLocation": "",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Resources/subscriptions",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.903433+00:00"
+  }
+]
+```
+
+Example: Getting the details for all non-compliant virtual network resources.
+
+```azurecli-interactive
+az policy state list --filter "ResourceType eq 'Microsoft.Network/virtualNetworks'"
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "NonCompliant",
+    "effectiveParameters": "",
+    "isCompliant": false,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+    "policyAssignmentName": "e0704696df5e4c3c81c873e8",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "audit",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionName": "2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionReferenceId": "",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "",
+    "policySetDefinitionId": "",
+    "policySetDefinitionName": "",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "RG-Tags",
+    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Microsoft.Network/virtualNetworks/RG-Tags-vnet",
+    "resourceLocation": "westus2",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Network/virtualNetworks",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.901911+00:00"
+  }
+]
+```
+
+Example: Getting events related to non-compliant virtual network resources that occurred after a
+specific date.
+
+```azurecli-interactive
+az policy state list --filter "ResourceType eq 'Microsoft.Network/virtualNetworks'" --from '2020-07-14T00:00:00Z'
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "NonCompliant",
+    "effectiveParameters": "",
+    "isCompliant": false,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+    "policyAssignmentName": "e0704696df5e4c3c81c873e8",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "audit",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionName": "2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionReferenceId": "",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "",
+    "policySetDefinitionId": "",
+    "policySetDefinitionName": "",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "RG-Tags",
+    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Microsoft.Network/virtualNetworks/RG-Tags-vnet",
+    "resourceLocation": "westus2",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Network/virtualNetworks",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.901911+00:00"
+  }
+]
+```
 
 ### Azure PowerShell
 
-The Azure PowerShell module for Azure Policy is available on the PowerShell Gallery as [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
-Using PowerShellGet, you can install the module using `Install-Module -Name Az.PolicyInsights` (make
-sure you have the latest [Azure PowerShell](/powershell/azure/install-az-ps) installed):
+The Azure PowerShell module for Azure Policy is available on the PowerShell Gallery as
+[Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Using
+PowerShellGet, you can install the module using `Install-Module -Name Az.PolicyInsights` (make sure
+you have the latest [Azure PowerShell](/powershell/azure/install-az-ps) installed):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
