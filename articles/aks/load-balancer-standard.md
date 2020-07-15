@@ -290,6 +290,23 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+## How to maintain client's IP on inbound connections
+
+By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS won't persist the client's IP on the connection to the pod. The source IP on the packet delivered to the pod will be the private IP of the node. In order to maintain the client’s IP address, the `service.spec.externalTrafficPolicy` field needs to be set to `local` in the service definition. The following manifest shows an example of how to do this:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
 
 ## Additional customizations via Kubernetes Annotations
 
