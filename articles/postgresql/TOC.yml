@@ -173,6 +173,8 @@
       href: concepts-hyperscale-nodes.md
     - name: Distributed data
       href: concepts-hyperscale-distributed-data.md
+    - name: Determine application type
+      href: concepts-hyperscale-app-type.md
     - name: Choose a distribution column
       href: concepts-hyperscale-choose-distribution-column.md
     - name: Table colocation
