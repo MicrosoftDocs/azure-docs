@@ -27,7 +27,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
   1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
   1. Click **Manage Packages**
-  1. In the **Installed** tab, look for the following Python packages in the list of installed packages:
+  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
@@ -36,7 +36,6 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
      - **setuptools**
      - **skl2onnx**
      - **sqlalchemy**
-  1. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
 
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
