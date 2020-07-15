@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy ML models with designer'
+title: 'Tutorial: Deploy ML models with the designer (preview)'
 titleSuffix: Azure Machine Learning
 description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
 

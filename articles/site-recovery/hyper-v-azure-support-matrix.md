@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/14/2020
 ms.author: raynew
 ---
 
@@ -69,6 +69,8 @@ Guest VM network: Static IP (Windows) | Yes | Yes
 Guest VM network: Static IP (Linux) | No | No
 Guest VM network: Multi-NIC | Yes | Yes
 Https Proxy | No | No
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
+
 
 
 
@@ -132,11 +134,13 @@ Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
+Double Encryption at rest <br></br> (Only for failover to managed disks) <br></br> Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Premium storage | Yes | Yes
 Standard storage | Yes | Yes
 Import/Export service | No | No
 Azure Storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
+Secure transfer option | Yes
 
 
 ## Azure compute features

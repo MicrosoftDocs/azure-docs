@@ -21,7 +21,7 @@ The following features are supported by the `WfsClient` class:
 - Requests are made using `HTTP GET` only.
 - Supported operations:
 
-    | | |
+    | Operation | Description |
     | :-- | :-- |
     | GetCapabilities | Generates a metadata document with valid WFS operations and parameters |
     | GetFeature | Returns a selection of features from a data source |

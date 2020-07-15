@@ -10,7 +10,7 @@ ms.date: 05/06/2020
 
 # Dependency auto-collection
 
-Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) and [Transaction diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](./app-map.md) and [Transaction diagnostics](./transaction-diagnostics.md) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ## .NET
 
@@ -58,7 +58,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 > [!NOTE]
 > *Except reactive programing support.
-> <br>†Requires installation of [JVM Agent](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Requires installation of [JVM Agent](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## Node.js
 

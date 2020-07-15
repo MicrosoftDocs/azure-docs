@@ -1,5 +1,5 @@
 ---
-title: Create a VM from a snapshot - PowerShell Sample
+title: Create VM from snapshot (Linux) - PowerShell sample
 description: Azure PowerShell Script Sample - Create a VM from a snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a virtual machine from a snapshot with PowerShell
+# Create a virtual machine from a snapshot with PowerShell (Linux)
 
 This script creates a virtual machine from a snapshot of an OS disk.
 
@@ -45,15 +45,15 @@ This script uses the following commands to get snapshot properties, create a man
 
 | Command | Notes |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | Gets a snapshot using snapshot name. |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | Creates a disk configuration. This configuration is used with the disk creation process. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | Creates a managed disk. |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Attaches the managed disk as OS disk to the virtual machine |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Creates a network interface. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Creates a virtual machine. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Gets a snapshot using snapshot name. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Creates a disk configuration. This configuration is used with the disk creation process. |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Creates a managed disk. |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Attaches the managed disk as OS disk to the virtual machine |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Creates a network interface. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Creates a virtual machine. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 07/15/2020
 ---
 
 # Move resources to a new resource group or subscription
@@ -12,6 +12,8 @@ This article shows you how to move Azure resources to either another Azure subsc
 Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database. The lock can last for a maximum of four hours, but most moves complete in much less time.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
+
+If you are using Azure Stack Hub, you cannot move resources between groups.
 
 ## Checklist before moving resources
 
