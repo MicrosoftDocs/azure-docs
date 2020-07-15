@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 07/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -27,27 +27,27 @@ User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up commo
 
 ## Recommended user flows
 
-These are thoroughly-tested, preview user flows that include new features.
+Recommended user flows are preview versions that combine new features with legacy V2 and V1.1 capabilities. Going forward, Recommended user flows will be maintained and updated.
 
-| User flow | Recommended | Description |
-| --------- | ----------- | ----------- |
-| Password reset (preview) | No | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Age gating](basic-age-gating.md)</li><li>[password complexity requirements](user-flow-password-complexity.md)</li></ul> |
-| Profile editing (preview) | Yes | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
-| Sign in (preview) | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>Sign-in page customization</li></ul> |
-| Sign up (preview) | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
-| Sign up and sign in (preview) | No | Enables a user to create an account or sign in their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
+| User flow | Description |
+| --------- | ----------- |
+| Password reset (preview) | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Age gating](basic-age-gating.md)</li><li>[password complexity requirements](user-flow-password-complexity.md)</li></ul> |
+| Profile editing (preview) | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
+| Sign in (preview) | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>Sign-in page customization</li></ul> |
+| Sign up (preview) | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
+| Sign up and sign in (preview) | Enables a user to create an account or sign in their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Age gating](basic-age-gating.md)</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
 
 ## Standard user flows
 
-These user flows (previously referred to as V1) are stable and production-ready.
+Standard user flows (previously referred to as V1) are generally available, production-ready user flows. Standard user flows will not be updated going forward.
 
-| User flow | Recommended | Description |
+| User flow | Description |
 | --------- | ----------- | ----------- |
-| Password reset | Yes | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
-| Profile editing | Yes | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
-| Sign in | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>Block sign-in</li><li>Force password reset</li><li>Keep Me Signed In (KMSI)</ul><br>You can't customize the user interface with this user flow. |
-| Sign up | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
-| Sign up and sign in | Yes | Enables a user to create an account or sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul>|
+| Password reset | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>Token compatibility settings</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
+| Profile editing | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
+| Sign in | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>Block sign-in</li><li>Force password reset</li><li>Keep Me Signed In (KMSI)</ul><br>You can't customize the user interface with this user flow. |
+| Sign up | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul> |
+| Sign up and sign in | Enables a user to create an account or sign in to their account. Using this user flow, you can configure: <ul><li>[Multi-factor authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token lifetime](tokens-overview.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[Password complexity requirements](user-flow-password-complexity.md)</li></ul>|
 
 
 ## How to switch to a new Recommended user flow
@@ -67,9 +67,9 @@ To switch from a legacy version of a user flow to the new **Recommended** previe
 
 ## Frequently asked questions
 
-### Can I create new user flows?
+### Can I still create legacy V2 and V1.1 user flows?
 
-Creating new preview user flows will no longer supported. But you can continue to read, update, and delete any legacy V2 and V1.1 user flow you're currently using.
+You won't be able to create new user flows based on the legacy V2 and V1.1 versions, but you can continue to read, update, and delete any legacy V2 and V1.1 user flow you're using currently.
 
 ### Is there any reason to continue using legacy V2 and V1.1 user flows?
 

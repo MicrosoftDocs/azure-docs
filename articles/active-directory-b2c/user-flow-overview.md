@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # User flows in Azure Active Directory B2C
 
-To help you set up the most common identity tasks for your applications, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. A user flow lets you determine how users interact with your application when they take actions like sign in, sign up, edit a profile, or reset a password. With user flows, you can control the following capabilities:
+To help you set up the most common identity tasks for your applications, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. A user flow lets you determine how users interact with your application when they do things like sign in, sign up, edit a profile, or reset a password. With user flows, you can control the following capabilities:
 
 - Account types used for sign-in, such as social accounts like a Facebook or local accounts
 - Attributes to be collected from the consumer, such as first name, postal code, and shoe size
@@ -55,7 +55,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 Azure AD B2C includes several types of user flows:
 
-- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. Also included are separate **sign-up** user flow or a **sign-in** user flows. But we generally recommend the combined sign up and sign in user flow.
+- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. Also included are separate **sign-up** or **sign-in** user flows. But we generally recommend the combined sign up and sign in user flow.
 - **Profile editing** - Enables users to edit their profile information.
 - **Password reset** - Enables you to configure whether and how users can reset their password.
 

@@ -28,8 +28,7 @@ The resource owner password credentials (ROPC) flow is an OAuth standard authent
 2. To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
 3. Select **User flows**, and select **New user flow**.
 4. Select **Sign in using resource owner password credentials (ROPC)**.
-5. Under **Version**, select **Preview**.
-6. Select **Create**.
+5. Under **Version**, make sure **Preview** is selected, and then select **Create**.
 7. Provide a name for the user flow, such as *ROPC_Auth*.
 8. Under **Application claims**, click **Show more**.
 9. Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
