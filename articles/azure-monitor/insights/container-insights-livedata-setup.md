@@ -14,7 +14,7 @@ This feature supports the following methods to control access to the logs, event
 
 - AKS without Kubernetes RBAC authorization enabled
 - AKS enabled with Kubernetes RBAC authorization
-    - AKS configured with the cluster role binding **[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configured with the cluster role binding **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS enabled with Azure Active Directory (AD) SAML-based single-sign on
 
 These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD.
@@ -103,7 +103,7 @@ Azure AD client registration must be re-configured to allow the Azure portal to 
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers matching those specified in Step 3 below.
+>If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers matching those specified in Step 3 below.
 
 ### Client registration reconfiguration
 

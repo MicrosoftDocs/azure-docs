@@ -7,7 +7,7 @@ ms.date: 09/05/2018
 ---
 
 # Application Insights for Azure cloud services
-[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../platform/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
 
@@ -27,7 +27,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../../azure-monitor/platform/metrics-charts.md), [querying your data with Analytics](../../azure-monitor/app/analytics.md). 
+Your next steps are [viewing metrics from your app](../../azure-monitor/platform/metrics-charts.md), [querying your data with Analytics](../log-query/log-query-overview.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) and [add code to your webpages](../../azure-monitor/app/javascript.md).
 
@@ -128,7 +128,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
 This step is only needed if you want to capture full SQL queries on .NET Framework. 
 
-1. In `\*.csdef` file Add [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
+1. In `\*.csdef` file Add [startup task](../../cloud-services/cloud-services-startup-tasks.md) for each role similar to 
 
     ```xml
     <Startup>
@@ -174,7 +174,7 @@ If there is no data, do the following:
 For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
-You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights in the following locations:
+You can find the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
 * Performance counters are displayed as custom metrics. 
 * Windows event logs are shown as traces and custom events.
@@ -255,7 +255,7 @@ For an overall picture of your system, you can display the key monitoring charts
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Create queries in [Analytics](../../azure-monitor/app/analytics.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Create queries in [Analytics](../log-query/log-query-overview.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
@@ -280,6 +280,6 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

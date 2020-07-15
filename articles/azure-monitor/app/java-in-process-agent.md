@@ -28,11 +28,11 @@ Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` to your a
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
-For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
 
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
@@ -76,7 +76,7 @@ In the `ApplicationInsights.json` file, you can additionally configure:
 * HTTP Proxy
 * Self diagnostics
 
-See details at [3.0 Public Preview: Configuration Options](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+See details at [3.0 Public Preview: Configuration Options](./java-standalone-config.md).
 
 ## Autocollected requests, dependencies, logs, and metrics
 
