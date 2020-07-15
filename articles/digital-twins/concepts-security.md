@@ -74,6 +74,6 @@ The following list describes the levels at which you can scope access to Azure D
 
 ## Next steps
 
-* See how to walk through these steps with a sample client application in [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* See how to walk through these steps with a sample client application in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).

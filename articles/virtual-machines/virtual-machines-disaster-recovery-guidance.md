@@ -31,7 +31,7 @@ This is the best option if you have not set up Azure Site Recovery, read-access 
 
 
 > [!NOTE]
-> Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 
@@ -41,7 +41,7 @@ This is the best option if you have not set up Azure Site Recovery, read-access 
 
 - To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
+- To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 
 
 - If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf, contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

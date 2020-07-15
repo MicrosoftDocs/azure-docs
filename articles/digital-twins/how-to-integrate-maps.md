@@ -160,5 +160,5 @@ Depending on the configuration of your topology, you will be able to store these
 
 To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-* [How-to: Manage digital twins](./how-to-manage-twin.md)
-* [How-to: Query the twin graph](./how-to-query-graph.md)
+* [*How-to: Manage digital twins*](./how-to-manage-twin.md)
+* [*How-to: Query the twin graph*](./how-to-query-graph.md)

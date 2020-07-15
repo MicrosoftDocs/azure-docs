@@ -2,7 +2,7 @@
 title: Tutorial - Deploy vSphere Cluster in Azure
 description: Learn to deploy a vSphere Cluster in Azure using Azure VMWare Solution (AVS)
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 07/15/2020
 ---
 
 # Tutorial: Deploy an AVS private cloud in Azure
@@ -54,7 +54,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 | **Resource group** | The resource group for your private cloud resources. |
 | **Location** | Select a location, such as **east us**.|
 | **Resource name** | The name of your AVS private cloud. |
-| **SKU** | Select the followng SKU value: AV36 |
+| **SKU** | Select the following SKU value: AV36 |
 | **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
 | **vCenter admin password** | Enter a cloud administrator password. |
 | **NSX-T manager password** | Enter a NSX-T administrator password. |
@@ -97,9 +97,10 @@ To create an AVS private cloud you must provide a resource group name, a name fo
 |Location     | The location that is used for the private cloud         |
 |Cluster size     | The size of the cluster. The minimum value is 3.         |
 |Network block     | The CIDR range to use for the private cloud. It is recommended that it be unique from your on premises environment as well as your Azure environment.        |
+| SKU | The SKU value: AV36 |
 
 ```azurecli-interactive
-az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22
+az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
 ## Verify deployment was successful

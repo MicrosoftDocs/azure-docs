@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups",
       "redirect_document_id": false
@@ -808,6 +813,11 @@
     {
       "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
       "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
     },
     {
@@ -56792,6 +56802,11 @@
       "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
       "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
     }
   ]
 }

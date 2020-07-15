@@ -43,7 +43,7 @@ For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.m
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
-* [Concepts: Routing Azure Digital Twins events](concepts-route-events.md)
+* [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
-* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md)
