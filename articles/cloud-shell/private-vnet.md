@@ -23,6 +23,9 @@ ms.author: damaerte
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying Cloud Shell into an Azure virtual network, You can communicate securely with other resources in the virtual network. A regular Cloud Shell session runs in a container in a Microsoft network separate from your resources. This means that you could not access your resources (such as VMs or storage accounts) that can only be accessed from a specific virtual network.  Using Cloud Shell in your virtual network, you can execute commands in a container running in your own Azure Virtual Network.
 
+Below you can see the resource architecture that will be deployed and used in this scenario.
+
+::image type="content" source="media/private-vnet/datadiagram.PNG" alt-text="Illustrates the Cloud Shell isolated VNET architecture.":::
 
 Before you can use Cloud Shell in your own Azure Virtual Network, you will need to create several resources to support this functionality. This article shows how to set up the required resources to deploy Azure Cloud Shell to a virtual network via an ARM template provided.
 
@@ -45,11 +48,11 @@ Within the selected virtual network, a dedicated subnet must be allocated for Cl
 A network profile is a network configuration template for Azure resources that specifies certain network properties for the resource.
 
 ### Azure Relay
-An [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) allows two endpoints which are not directly reachable to communicate. In this case, it is used to allow the administrator's browser to communicate with the container in the private network.
+An [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) allows two endpoints that are not directly reachable to communicate. In this case, it is used to allow the administrator's browser to communicate with the container in the private network.
 
 The Azure Relay instance used for Cloud Shell can be configured to control which networks can access container resources: 
 - Accessible from the public internet: In this configuration, Cloud Shell provides a way to reach otherwise internal resources from outside. 
-- Accessible from specified networks: In this configuration, administrators will have to access the Azure Portal from a computer running in the appropriate network to be able to use Cloud Shell.
+- Accessible from specified networks: In this configuration, administrators will have to access the Azure portal from a computer running in the appropriate network to be able to use Cloud Shell.
 
 ## Storage requirements
 As required with standard Cloud Shell, a storage account is required while using Cloud Shell in a virtual network. Each administrator needs a file share to store their files.  The storage account needs to be accessible by the virtual network that is used by Cloud Shell. If the location of the file share is not accessible from the browser when Cloud Shell is running, the user will not be able to create the storage account and file share via Cloud Shell.  If this is the case, the user will need to create these resources ahead of time via the Azure portal or some other management tool. 
@@ -61,12 +64,10 @@ As required with standard Cloud Shell, a storage account is required while using
 
 ## Deploy network resources
  
-
 ### Create a resource group and virtual network
 If you already have a desired VNET that you would like to connect to, skip this section.
 
 In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a Resource Group and a virtual network in the new resource group.  These must be located in either WestCentralUS or WestUS, and the resource group and virtual network need to be in the same region.
-
 
 ### ARM templates
 Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for creating Cloud Shell resources in a virtual network, and the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template/storage) for creating necessary storage. Take note of your resource names, primarily your file share name.
@@ -76,7 +77,7 @@ Navigate to the relay created using the above template, select "Networking" in s
 
 ### Connecting resources with Cloud Shell
 Open Cloud Shell in the Azure portal or on shell.azure.com.  Select "Show advanced settings" and select the "Show VNET isolation settings" box.
-Fill in the fields in the pop-up.  Most fields will autofil to the available resources that can associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
+Fill in the fields in the pop-up.  Most fields will autofill to the available resources that can be associated with Cloud Shell in a virtual network.  The File Share name will have to be filled in by the user.
 
 
 ::image type="content" source="media/private-vnet/vnet-settings.PNG" alt-text="Illustrates the Cloud Shell isolated VNET first experience settings.":::
