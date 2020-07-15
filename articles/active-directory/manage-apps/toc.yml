@@ -38,8 +38,6 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
-    - name: One-click SSO
-      href: one-click-sso-tutorial.md
     - name: Application security
       items:
       - name: App access options
@@ -74,6 +72,8 @@
         href: isv-create-sso-documentation.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: One-click SSO
+        href: one-click-sso-tutorial.md
     - name: Cloud app visibility and control
       href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
