@@ -97,7 +97,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-### `E1_SayHellos` Activity function
+### `E1_SayHello` Activity function
 ```python
 def main(name: str) -> str:
     return f"Hello {name}!"
