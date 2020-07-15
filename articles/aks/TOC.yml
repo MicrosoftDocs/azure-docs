@@ -179,6 +179,8 @@
       href: azure-nfs-volume.md
     - name: Azure NetApp Files
       href: azure-netapp-files.md
+    - name: Use Azure Ultra Disks (preview)
+      href: use-ultra-disks.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network

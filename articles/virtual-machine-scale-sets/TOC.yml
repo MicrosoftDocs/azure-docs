@@ -102,12 +102,12 @@
     href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
-    href: ../virtual-machines/windows/regions.md
+    href: ../virtual-machines/regions.md
   - name: Availability and performance
     maintainContext: true
     items:
     - name: Availability
-      href: availability.md
+      href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
     - name: Co-location
       href: co-location.md
     - name: Network performance

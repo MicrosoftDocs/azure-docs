@@ -5,7 +5,7 @@ services: container-service
 manager: gwallace
 author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/13/2020
 ms.author: thomasge
 ---
 
@@ -21,6 +21,13 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
 Learn more about the AAD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
+
+## Region availability
+
+AKS-managed Azure Active Directory integration is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government isn't currently supported.
+* Azure China 21Vianet isn't currently supported.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
