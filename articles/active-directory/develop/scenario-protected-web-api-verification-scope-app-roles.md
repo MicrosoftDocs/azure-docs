@@ -86,7 +86,7 @@ For details see the source code in [ScopesRequiredHttpContextExtensions in Micro
 
 #### Verify the scopes more globally
 
-Defining granular scopes for your web API and to verify the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using the ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/claims)
+Defining granular scopes for your web API and to verify the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using the ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/aspnet/core/security/authorization/claims)
 
 ### .NET MVC
 
