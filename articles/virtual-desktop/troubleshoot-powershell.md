@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop (Spring 2020 version) environment.
+description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
