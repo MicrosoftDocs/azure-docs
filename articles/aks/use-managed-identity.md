@@ -2,7 +2,6 @@
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
-author: TomGeske
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: thomasge
@@ -23,7 +22,7 @@ You must have the following resource installed:
 ## Limitations
 
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
-* Existing AKS clusters can't be updated or upgraded to enable managed identities.
+* Existing AKS clusters can't be migrated to managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 
 ## Summary of managed identities
@@ -32,7 +31,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, and so on| Contributor role for Node resource group | Preview
+| Control plane | not visible | Used by AKS for managed networking resources including ingress load balancers and AKS managed public IPs | Contributor role for Node resource group | Preview
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
@@ -87,7 +86,7 @@ The result should look like:
 }
 ```
 
-The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
+Once the cluster is created, you can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
 
 > [!NOTE]
 > For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the worker node resource group, use the PrincipalID of the cluster System Assigned Managed Identity to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
@@ -100,9 +99,8 @@ Finally, get credentials to access the cluster:
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-
-## BYO control plane MI (Preview)
-In some cases, you may want to use an existing managed identity as control plane managed identity. It is useful, if you need to grant access to this managed identity ahead of cluster creation.
+## Bring your own (BYO) control plane MI (Preview)
+A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
