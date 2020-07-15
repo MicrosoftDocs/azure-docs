@@ -17,5 +17,4 @@ Learn ways to set up and manage multiple virtual machines to ensure high availab
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../virtual-machines-linux-load-balance.md).
-
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../../load-balancer/load-balancer-overview.md).
