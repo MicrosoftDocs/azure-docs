@@ -1,26 +1,26 @@
 ---
-title: Azure File Shares storage reference
+title: Azure Files reference
 description: Find Azure Storage API reference, readme files, and client library packages.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
 ---
 
-# Azure File Shares storage reference
+# Azure Files reference
 
-Find Azure File Shares storage API reference, library packages, readme files, and getting started articles.
+Find Azure Files API reference, library packages, readme files, and getting started articles.
 
 ## .NET client libraries
 
-The following table lists reference and sample documentation for Azure File Shares .NET APIs.
+The following table lists reference and sample documentation for Azure Files .NET APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure File Shares client library v12 for .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
+| 12.x | [Azure Files client library v12 for .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Develop for Azure Files with .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
 
 ### Storage management
@@ -41,7 +41,7 @@ The following table lists reference documentation for Azure Storage data movemen
 
 ## Java client libraries
 
-The following table lists reference and sample documentation for Azure File Shares Java APIs.
+The following table lists reference and sample documentation for Azure Files Java APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -58,7 +58,7 @@ The following table lists reference documentation for Azure Storage management J
 
 ## Python client libraries
 
-The following table lists reference and sample documentation for Azure File Shares Python APIs.
+The following table lists reference and sample documentation for Azure Files Python APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -67,7 +67,7 @@ The following table lists reference and sample documentation for Azure File Shar
 
 ## JavaScript client libraries
 
-The following table lists reference and sample documentation for Azure File Shares JavaScript APIs.
+The following table lists reference and sample documentation for Azure Files JavaScript APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -76,7 +76,7 @@ The following table lists reference and sample documentation for Azure File Shar
 
 ## REST APIs
 
-The following table lists reference and sample documentation for Azure File Shares REST APIs.
+The following table lists reference and sample documentation for Azure Files REST APIs.
 
 | Reference documentation | Overview |
 | ----------------------- | -------- |
