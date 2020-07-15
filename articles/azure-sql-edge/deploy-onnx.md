@@ -23,7 +23,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
+* Install Python packages needed for this quickstart:
 
   1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
   1. Click **Manage Packages**
