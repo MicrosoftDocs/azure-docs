@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 07/10/2020
 ---
 # ARM template best practices
 
@@ -154,7 +154,7 @@ The following information can be helpful when you work with [variables](template
 
 When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
-* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies.
+* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 

@@ -717,17 +717,21 @@
 
   - name: Concepts
     items:
-    - name: Transactional replication
-      href: managed-instance/replication-transactional-overview.md
-    - name: Management API reference
-      href: managed-instance/api-references-create-manage-instance.md
     - name: Resource limits
       href: managed-instance/resource-limits.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
+    - name: Transactional replication
+      href: managed-instance/replication-transactional-overview.md
 
+    - name: Management operations
+      items:
+      - name: Overview
+        href: managed-instance/management-operations-overview.md
+      - name: API reference
+        href: managed-instance/api-references-create-manage-instance.md
     - name: Machine Learning Services
       items:
       - name: Overview
@@ -911,6 +915,7 @@
       - name: PowerShell
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
       - name: ARM template
+        displayName: Resource Manager
         href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
@@ -967,6 +972,8 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Migrate storage to UltraSSD
+          href: virtual-machines/windows/storage-migrate-to-ultradisk.md
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:

@@ -53,7 +53,7 @@ The detailed information includes:
 Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > Deployment slots are not restored as part of your app. If you need to restore a staging slot use the `-Slot <slot-name>`  flag.
@@ -61,7 +61,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 The inputs for command are:
 
-- **Resource Group**: Target resource group where the app will be restored
+- **Target Resource Group**: Target resource group where the app will be restored
 - **Name**: Name for the app, should be globally unique.
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
