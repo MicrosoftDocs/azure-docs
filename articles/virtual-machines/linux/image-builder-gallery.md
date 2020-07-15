@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder with an image gallery for Linux VMs (preview)
+title: Use Azure Image Builder & Shared Image Gallery for Linux VMs (preview)
 description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
