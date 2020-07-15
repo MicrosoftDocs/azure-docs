@@ -42,8 +42,8 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
+| [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
+| [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
 
 ## Next steps
 
