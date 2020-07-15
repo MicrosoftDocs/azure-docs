@@ -14,45 +14,45 @@ ms.date: 07/15/2020
 
 In Azure Cognitive Search, a *search index* stores searchable content used for full text and filtered queries. An index is defined by a schema and saved to the service, with data import following as a second step. 
 
-Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+Indexes contain *documents*. Conceptually, a document is a single unit of searchable data in your index. A retailer might have a document for each product, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-When creating an index, Azure Cognitive Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. 
+The physical structure of an index is determined by the schema, with fields marked as "searchable" resulting in an inverted index created for that field. 
 
-You can create an index using the following tools and APIs:
+You can create an index with the following tools and APIs:
 
-* In the Azure portal, using either the **Add Index** tool or **Import data** wizard
+* In the Azure portal, use **Add Index** or **Import data** wizard
 * Using the [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * Using the [.NET SDK](search-create-index-dotnet.md)
 
-It's easier to learn with a portal tool. The portal enforces schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and adding it to your solution.
+It's easier to learn with a portal tool. The portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. Once you have a workable index, you can transition to code by retrieving the JSON definition from the service using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and adding it to your solution.
 
 ## Recommended workflow
 
 Arriving at a final index design is an iterative process. It's common to start with the portal to create the initial index and then switch to code to place the index under source control.
 
-1. Use [**Import data**](search-import-data-portal.md) and indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
+1. Determine whether you can use [**Import data**](search-import-data-portal.md)/ The wizard performs all-in-one indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
 
-1. If you can't use **Import data**, use **Add Index** to build the schema.
+1. If you can't use **Import data**, start with **Add Index** to define the schema.
 
-   ![Add index command](media/search-create-index-portal/add-index.png "Add index command")
+   ![Add index command](media/search-what-is-an-index/add-index.png "Add index command")
 
 1. Provide a name and key used to uniquely identify each search document in the index. The key is mandatory and must be of type Edm.String. During import, you should plan on mapping a unique field in source data to this field. 
 
    The portal gives you an `id` field for the key. To override the default `id`, create a new field  (for example, a new field definition called `HotelId`) and then select it in **Key**.
 
-   ![Fill in required properties](media/search-create-index-portal/field-attributes.png "Fill in required properties")
+   ![Fill in required properties](media/search-what-is-an-index//field-attributes.png "Fill in required properties")
 
 1. Add more fields. The portal shows you which attributes are available for different data types. If you're new to index design, this is helpful.
 
    If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
-1. Assign [Analyzers](#analyzers) and [suggesters](#suggesters) to string fields before the index is created.
+1. Assign any [Analyzers](#analyzers) to string fields before the index is created. Do the same for [suggesters](#suggesters) if you want to enabled autocomplete on specific fields.
 
 1. Click **Create** to build the physical structures in your search service.
 
-1. After an index is created, use additional commands for modifications.
+1. After an index is created, use additional commands to review definitions or add more elements.
 
-   ![Add index page showing attributes by data type](media/search-create-index-portal/field-definitions.png "Add index page showing attributes by data type")
+   ![Add index page showing attributes by data type](media/search-what-is-an-index//field-definitions.png "Add index page showing attributes by data type")
 
 1. Download the index schema using [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-get-started-postman.md). You now have a JSON representation of the index that you can adapt for code.
 
@@ -247,9 +247,8 @@ Indexes that support filter and sort are proportionally larger than indexes supp
 With an understanding of index composition, you can continue in the portal to create your first index. We recommend starting with **Import data** wizard, choosing either the real estate or hotels sample data source.
 
 > [!div class="nextstepaction"]
-> [Import data wizard (portal)](search-create-index-portal.md)
+> [Import data wizard (portal)](search-what-is-an-index/.md)
 
-For both samples, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer. 
+For both samples, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer.
 
-   ![Create a sample index](media/search-create-index-portal/import-wizard-sample-data.png "Create a sample index")
-
+   ![Create a sample index](media/search-what-is-an-index//import-wizard-sample-data.png "Create a sample index")
