@@ -31,8 +31,6 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 
 You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
-You can quickly start or close Azurite in the Visual Studio Code status bar. Click on **[Azurite Blob Service]** or **[Azurite Queue Service]**.
-
 The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
 
    - **Azurite: Clean** - Reset all Azurite services persistency data
