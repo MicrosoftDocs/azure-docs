@@ -16,17 +16,17 @@ tag: azure-Synapse
 
 # Analyze data with Azure Machine Learning
 
-This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
+This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse. The tutorial walks through the steps of building a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
 ## Prerequisites
 
 To step through this tutorial, you need:
 
-* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
+* a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
 
-## 1. Get the data
+## Get the data
 
-The data is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first loaded into Azure Data Lake Storage account. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the copy activity. Use the following query for import:
+The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first loaded into Azure Data Lake Storage account. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview). Use the following query for import:
 
 ```sql
 SELECT [CustomerKey]
@@ -48,25 +48,29 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to build the predictive pipeline. Follow the steps below to create a Datastore and Dataset:
+Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Follow the steps below to create a Datastore and a corresponding Dataset:
 
-1. Sign into [Azure Machine Learning studio](https://ml.azure.com/).
+1. Launch Azure Machine learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
 
-1. Click on **Datastores** on the left pane and click on New Datastore. 
+1. Click on **Datastores** on the left pane in the **Manage** section and then click on **New Datastore**. 
 
-1. Provide a name for the datastore, select the type as 'Azure Blob Storage', provide location and credentials. Click **Create**.
+    ![Datastores](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/datastorestab.png)
 
-1. Next, click on **Datasets** on the left pane. Select on **Create dataset** and select the option **From datastore**.
+1. Provide a name for the datastore, select the type as 'Azure Blob Storage', provide location and credentials. Then, click **Create**.
 
-1. Specify the name of the dataset and select the type to be **Tabular**. Click Next.
+1. Next, click on **Datasets** on the left pane in the **Assets** section. Select **Create dataset** with the option **From datastore**.
 
-1. In Select or create a datastore section, select the option Previously created datastore and select the datastore created earlier.Click Next and specify the path and file settings. Make sure to specify column header if the files contain one. Click Create to create the dataset.
+1. Specify the name of the dataset and select the type to be **Tabular**. Then, click **Next** to move forward.
+
+1. In **Select or create a datastore section**, select the option **Previously created datastore** and select the datastore created earlier. Click Next and specify the path and file settings. Make sure to specify column header if the files contain one.
+
+1. Finally, click **Create** to create the dataset.
 
 ## Configure designer experiment
 
 Next, follow steps below for designer configuration:
 
-1. Click on Designer tab on the left pane.
+1. Click on Designer tab on the left pane in the **Author** section.
 
 1. Select Easy-to-use prebuilt modules.
 
