@@ -135,7 +135,7 @@ Use the __Execute Python Script__ module to add logging logic to your designer e
 
 1. After the pipeline run is completed, you can see the *Mean_Absolute_Error* in the Experiment page.
 
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png.png)
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## Manage a run
 
