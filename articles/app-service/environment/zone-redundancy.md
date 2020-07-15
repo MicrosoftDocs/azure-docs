@@ -9,6 +9,9 @@ ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
+
+# Availability Zone support for App Service Environments
+
 App Service Environments (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
 
 An ILB ASE that is explicitly deployed into an AZ is considered a zonal resource because the ILB ASE is pinned to a specific zone. The following ILB ASE dependencies will be pinned to the specified zone:
@@ -68,7 +71,7 @@ The example ARM template snippet below shows the new ***zones*** property specif
       }
     ]
 
-To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant) upstream of the zonal ILB ASEs. 
+To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) upstream of the zonal ILB ASEs. 
 
 ## In Region Data Residency ##
 
