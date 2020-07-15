@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.subservice: files
 ---
