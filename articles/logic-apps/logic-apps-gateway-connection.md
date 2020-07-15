@@ -44,7 +44,7 @@ In Azure Logic Apps, the on-premises data gateway supports the [on-premises conn
 * SQL Server
 * Teradata
 
-Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
+Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations). Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 ## Prerequisites
 

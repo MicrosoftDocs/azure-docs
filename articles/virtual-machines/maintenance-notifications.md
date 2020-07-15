@@ -72,13 +72,13 @@ It is best to use self-service maintenance in the following cases:
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Availability for virtual machines in Azure](./linux/availability.md).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
 **A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription Admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
-**Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
+**Q: I don't see any indication of planned maintenance in the portal, PowerShell, or CLI. What is wrong?**
 
 **A:** Information related to planned maintenance is available during a planned maintenance wave only for the VMs that are going to be impacted by it. In other words, if you see not data, it could be that the maintenance wave has already completed (or not started) or that your virtual machine is already hosted in an updated server.
 
