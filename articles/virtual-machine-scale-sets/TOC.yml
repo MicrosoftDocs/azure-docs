@@ -202,7 +202,7 @@
       href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
   - name: Monitoring
-    href: ../virtual-machines/windows/monitor.md
+    href: ../azure-monitor/insights/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
