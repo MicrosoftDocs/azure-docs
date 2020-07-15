@@ -43,7 +43,7 @@ Create an [Azure resource group](../azure-resource-manager/management/overview.m
 az group create --name myresourcegroup --location westus
 ```
 
-Create an Azure Database for MySQL server with the **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)** command. A server can contain multiple databases.
+Create an Azure Database for MySQL server with the [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) command. A server can contain multiple databases.
 
 ```azurecli
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
@@ -63,10 +63,10 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration.
 >[!IMPORTANT] 
 >- The default MySQL version on your server is 5.7 . We currently have 5.6 and 8.0 versions also available.
 >- To view all the arguments for **az mysql server create** command, see this [reference document](/cli/azure/mysql/server#az-mysql-server-create).
->- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./howto-configure-ssl#step-4-verify-the-ssl-connection.md).
+>- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](howto-configure-ssl.md)
 
 ## Configure a server-level firewall rule 
-By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** command to give your local environment access to connect to the server. 
+By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server. 
 
 The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or use a range of IP addresses that correspond to where you'll be connecting from. If you don't know how to look for your IP, go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
 
@@ -129,7 +129,7 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)** command.
+If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
