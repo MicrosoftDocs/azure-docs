@@ -24,7 +24,7 @@ For more information on the various classes of service health notifications, see
 
     ![Screenshot of Monitor Activity log, with Alerts selected](./media/service-notifications/service-health-summary.png)
 
-1. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](./alerts-activity-log-service-notifications-portal.md).
 
 ## Next steps
 

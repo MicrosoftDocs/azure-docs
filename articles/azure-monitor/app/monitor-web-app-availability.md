@@ -19,7 +19,7 @@ There are three types of availability tests:
 
 * [URL ping test](#create-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
+* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 
 **You can create up to 100 availability tests per Application Insights resource.**
 
@@ -47,7 +47,7 @@ To create your first availability request, open the Availability pane and select
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
 |**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
-**If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > We strongly recommend testing from multiple locations with **a minimum of five locations**. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the **number of test locations be equal to the alert location threshold + 2**.
@@ -109,7 +109,7 @@ Click on the exception row to see the details of the server-side exception that 
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
@@ -127,5 +127,3 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
-
-

@@ -26,7 +26,7 @@ For production grade model training use an [Azure Machine Learning compute clust
 
 A compute instance is a fully-managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
 
-|Key benefits||
+|Key benefits|Description|
 |----|----|
 |Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace. You can also setup VS Code remote development using [SSH](how-to-set-up-vs-code-remote.md) |
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Auto-provisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Role-based access control (RBAC)](/azure/role-based-access-control/overview)<br/>- [Virtual network support](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH policy to enable/disable SSH access<br/>TLS 1.2 enabled |
@@ -35,8 +35,12 @@ A compute instance is a fully-managed cloud-based workstation optimized for your
 
 ## <a name="contents"></a>Tools and environments
 
-Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
+> [!IMPORTANT]
+> Tools marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
 These tools and environments are installed on the compute instance: 
 

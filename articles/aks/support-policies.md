@@ -72,7 +72,7 @@ Microsoft doesn't provide technical support for the following:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm and Kured. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Issues about multicloud or multivendor build-outs. For example, Microsoft doesn't support issues related to running a federated multipublic cloud vendor solution.
-* Network customizations other than those listed in the [AKS documentation](https://docs.microsoft.com/azure/aks/).
+* Network customizations other than those listed in the [AKS documentation](./index.yml).
   > [!NOTE]
   > Microsoft does support issues and bugs related to network security groups (NSGs). For example, Microsoft Support can answer questions about an NSG failure to update or an unexpected NSG or load balancer behavior.
 

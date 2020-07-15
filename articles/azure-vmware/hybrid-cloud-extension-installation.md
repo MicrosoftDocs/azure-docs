@@ -2,14 +2,14 @@
 title: Install Hybrid Cloud Extension (HCX)
 description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/15/2020
 ---
 
 # Install HCX for Azure VMware Solution
 
 In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
-HCX Advanced, the default installation, supports up to three external sites. If more than three sites are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise installation carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, the default installation, supports up to three vCenters. If more than three are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise installation carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 

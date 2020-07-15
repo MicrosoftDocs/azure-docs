@@ -16,7 +16,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 ## Brief summary
 
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
-* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](../../azure-functions/functions-overview.md).
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
@@ -31,6 +31,7 @@ The following table summarizes the sampling types available for each SDK and typ
 | ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
 | Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
 | Java | No | [Yes](#configuring-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
+| Node.JS | No | [Yes](./nodejs.md#sampling) | Only if no other sampling is in effect
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
 
@@ -204,7 +205,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### Configuring adaptive sampling for Azure Functions
 
-Follow instructions from [this page](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
+Follow instructions from [this page](../../azure-functions/functions-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
 
 ## Fixed-rate sampling
 
@@ -476,7 +477,7 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 
 ## Knowing whether sampling is in operation
 
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../../azure-monitor/app/analytics.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../log-query/log-query-overview.md) such as this:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -582,4 +583,4 @@ Prior to v2.5.0-beta2 of the ASP.NET SDK, and v2.2.0-beta3 of ASP.NET Core SDK, 
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
-* Read the Developer Network article [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Read the Developer Network article [Optimize Telemetry with Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).
