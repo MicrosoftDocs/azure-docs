@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
@@ -30,7 +30,7 @@ This article includes the following tutorials:
 
 If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, take the following steps:
 
-1. In the local web UI, go to **Contact Support** and click **Create Support package**.
+1. In the local web UI, go to **Contact Support** and select **Create Support package**.
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -38,7 +38,7 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once the Support package creation is complete, click **Download Support package**.
+3. Once the Support package creation is complete, select **Download Support package**.
 
     ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
@@ -53,7 +53,7 @@ You can shut down or restart your device using the local web UI. We recommend th
 To shut down your device, take the following steps.
 
 1. In the local web UI, go to **Shut down or restart**.
-2. Click **Shut down**.
+2. Select **Shut down**.
 
     ![Shut down Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -66,11 +66,11 @@ Once the device is shut down, use the power button on the front panel to turn on
 To restart your Data Box, perform the following steps.
 
 1. In the local web UI, go to **Shut down or restart**.
-2. Click **Restart**.
+2. Select **Restart**.
 
     ![Restart Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. When prompted for confirmation, click **OK** to proceed.
+3. When prompted for confirmation, select **OK** to proceed.
 
    The device shuts down and then restarts.
 
@@ -84,9 +84,9 @@ Before you begin, make sure that your device has completed **Prepare to ship** s
 
     ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Click **Download list of files** to download the list of files that were copied on your Data Box.
+2. Select **Download list of files** to download the list of files that were copied on your Data Box.
 
-    ![Click Download list of files](media/data-box-portal-admin/download-list-of-files.png)
+    ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png)
 
 3. In File Explorer, you will see that separate list of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
 
@@ -173,14 +173,14 @@ We strongly recommend that you do not disable checksum unless the performance is
     ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Disable** checksum validation
-3. Click **Apply**.
+3. Select **Apply**.
 
 > [!NOTE]
 > The skip checksum computation option is available only when the Azure Data Box is unlocked. You won't see this option when the device is locked.
 
 ## Enable SMB signing
 
-Server message block (SMB) signing is a feature through which communications using SMB can be digitally signed at the packet level. This signing prevents "man-in-the-middle" attacks that modify SMB packets in transit.
+Server message block (SMB) signing is a feature through which communications using SMB can be digitally signed at the packet level. This signing prevents attacks that modify SMB packets in transit.
 
 For more information related to SMB signing, see [Overview of Server Message Block signing](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
 
@@ -196,7 +196,7 @@ To enable SMB signing in your Azure Device:
 
 3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.
-5. Click **Restart**.
+5. Select **Restart**.
 
 ## Enable TLS 1.1
 
@@ -216,7 +216,7 @@ To enable TLS 1.1 in you Azure device:
 
 3. Select **Apply**.
 4. In the local web UI, go to **Shut down or restart**.
-5. Click **Restart**.
+5. Select **Restart**.
 
 ## Next steps
 
