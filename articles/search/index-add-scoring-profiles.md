@@ -249,7 +249,7 @@ The search score is computed based on statistical properties of the data and the
 ##  <a name="bkmk_interpolation"></a> Set interpolations  
  Interpolations allow you to set the shape of the slope used for scoring. Because scoring is high to low, the slope is always decreasing, but the interpolation determines the curve of the downward slope. The following interpolations can be used:  
 
-|||  
+| Interpolation | Description |  
 |-|-|  
 |`linear`|For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.|  
 |`constant`|For items that are within the start and ending range, a constant boost will be applied to the rank results.|  

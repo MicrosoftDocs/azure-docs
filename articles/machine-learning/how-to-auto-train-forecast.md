@@ -3,11 +3,10 @@ title: Auto-train a time-series forecast model
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to train a time-series forecasting regression model using automated machine learning.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 03/09/2020
 ---
