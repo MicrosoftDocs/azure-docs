@@ -73,6 +73,7 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 -   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption  
 -   **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.  
+-  **RSA-OAEP-256** – RSAES using Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256
 
 #### SIGN/VERIFY
 
@@ -86,10 +87,9 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 
 ###  Symmetric key algorithms
-- **AES-KW** - 
-- **AES-GCM** - 
-- **AES-CBC** - 
-
+- **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM** - AES encryption in Galois Counter Mode
+- **AES-CBC** - AES encryption in Cipher Block Chaining Mode
 
 ##  Key operations
 

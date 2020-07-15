@@ -17,7 +17,7 @@ ms.author: ambapat
 
 ## Control Access to your Managed HSM
 
-Managed HSM is a cloud service that safeguards encryption keys. Because keys are sensitive and business critical, you need to secure access to your HSM's by allowing only authorized applications and users. This [article](accerss-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
+Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your HSM pools by allowing only authorized applications and users. This [article](accerss-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
 
 Suggestions while controlling access to your vault are as follows:
 1. Lock down access to your management groups, subscriptions, resource groups and Managed HSMs - Use Azure RBAC to control access to your management groups, subscriptions, and resource groups
