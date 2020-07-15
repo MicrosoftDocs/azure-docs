@@ -183,7 +183,7 @@ Python, F#, PowerShell, Batch, or Bash, follow the steps in
 [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). 
 To develop your Azure function by using C# inside your solution, 
 use a C# class library by following the steps in 
-[Publish a .NET class library as a Function App](https://azure.microsoft.com/en-us/blog/?ref=msdn).
+[Publish a .NET class library as a Function App](https://azure.microsoft.com/blog/).
 
 ## Deploy functions from Visual Studio
 
