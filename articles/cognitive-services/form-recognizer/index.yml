@@ -49,10 +49,6 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
-      - linkListType: tutorial
-        links:
-          - text: Use Form Recognizer with Logic Apps
-            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:

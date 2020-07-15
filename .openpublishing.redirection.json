@@ -49281,6 +49281,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false

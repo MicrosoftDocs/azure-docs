@@ -40,8 +40,6 @@
         href: quickstarts/python-layout.md
 - name: Tutorials
   items:
-  - name: Use Form Recognizer with Logic Apps
-    href: tutorial-form-recognizer-with-logic-apps.md
   - name: Use Form Recognizer with Cognitive Search
     href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
 - name: How-to guides
