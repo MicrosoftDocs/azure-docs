@@ -32,7 +32,7 @@ When **Deny public network access** setting is set to **Yes**, only connections 
 
  ![Screenshot of connectivity with deny public network access][2]
 
-Any attempts to set **Deny public network access** setting to **Yes** without an existing private endpoints at the logical server will fail with an error message similar to:  
+Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
 
 ```output
 Error 42102

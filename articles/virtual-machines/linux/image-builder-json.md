@@ -112,7 +112,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## Identity
 By default, Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage. To use these, they must be publicly accessible.
@@ -136,8 +136,8 @@ Image Builder support for a User-Assigned Identity:
 •	Supports a single identity only
 •	Does not support custom domain names
 
-To learn more, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## Properties: source
 
@@ -149,15 +149,15 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### ISO source
-We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
+We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](../workloads/redhat/byos.md), please review the timelines below:
     * 31 March 2020 - Image Templates with RHEL ISO sources will now longer be accepted by the resource provider.
     * 30 April 2020- Image Templates that contain RHEL ISO sources will not be processed anymore.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../windows/image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -351,7 +351,7 @@ Customize properties:
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
 
 
 ### File customizer
@@ -545,7 +545,7 @@ A Shared Image Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](shared-images.md). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../shared-images-cli.md). 
 
 ```json
 {
