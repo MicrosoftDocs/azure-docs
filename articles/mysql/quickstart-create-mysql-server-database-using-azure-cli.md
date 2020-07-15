@@ -63,7 +63,7 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration.
 >[!IMPORTANT] 
 >- The default MySQL version on your server is 5.7 . We currently have 5.6 and 8.0 versions also available.
 >- To view all the arguments for **az mysql server create** command, see this [reference document](/cli/azure/mysql/server#az-mysql-server-create).
->- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](howto-configure-ssl.md)
+>- SSL is enabled by default on your server . For more infroamtion on SSL, see [Configure SSL connectivity](howto-configure-ssl.md)
 
 ## Configure a server-level firewall rule 
 By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server. 
@@ -116,7 +116,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
-**[mysql.exe]** (https://dev.mysql.com/downloads/) command-line tool is popular client used to conect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md).Alternatively, you can use mysql command line on your local environment if you have it available. 
+**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool is popular client used to conect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment if you have it available.
 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
