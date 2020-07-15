@@ -153,7 +153,7 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 **Java agent**
 
-For [Java agent 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) the cloud role name is set as follows:
+For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as follows:
 
 ```json
 {
@@ -256,15 +256,15 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Make sure you're using an officially supported SDK. Unsupported/community SDKs might not support correlation.
 
-    Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
+    Refer to this [article](./platforms.md) for a list of supported SDKs.
 
 2. Upgrade all components to the latest SDK version.
 
-3. If you're using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. If you're using Azure Functions with C#, upgrade to [Functions V2](../../azure-functions/functions-versions.md).
 
 4. Confirm [cloud role name](#set-cloud-role-name) is correctly configured.
 
-5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If not, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](./auto-collect-dependencies.md). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ### Too many nodes on the map
 
@@ -278,7 +278,7 @@ To fix this, you'll need to change your instrumentation to properly set the clou
 
 * Dependency type should represent the logical type of a dependency. For example, HTTP, SQL or Azure Blob are typical dependency types. It should not contain unique IDs.
 
-* The purpose of cloud role name is described in the [above section](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* The purpose of cloud role name is described in the [above section](#set-cloud-role-name).
 
 ## Portal feedback
 

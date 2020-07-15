@@ -1,12 +1,10 @@
 ---
 title: Partner Center Orders dashboard in Commercial Marketplace analytics
 description: Learn how to access analytic reports about your marketplace offer orders in a graphical and downloadable format.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 07/01/2020
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -26,12 +24,9 @@ The **Orders dashboard** of the **Analyze** menu displays the current orders for
 - [Orders by geography](#orders-by-geography)
 - [Orders by offers](#orders-by-offers)
 - [Orders trend per site versus per seat](#orders-trend-per-site-versus-per-seat)
-- [Orders by SKUs](#orders-by-skus)
+- [Orders by plans](#orders-by-plans)
 - [Orders and seats trend](#orders-and-seats-trend)
 - [Order details table](#order-details-table)
-
-> [!NOTE]
-> There are differences between how analytics reports display in the Cloud Partner Portal (CPP) and the new commercial marketplace program in Partner Center. One specific way is that the **Seller Insights** in CPP has an **Orders & Usage** tab, which displays data for usage-based offers and non-usage-based offers. In Partner Center, the **Orders** page has a separate tab for SaaS Offers.
 
 ## Order dashboard details
 
@@ -73,16 +68,16 @@ The **Orders by offers** donut graph organizes orders (including canceled orders
 
 The **per site versus per seat** donut chart represents the breakdown of per site SaaS and per seat SaaS orders purchased by customers (this chart includes canceled orders). The column chart represents the trend of per site SaaS and per seat SaaS orders purchased by customers (this chart includes canceled orders).
 
-### Orders by SKUs
+### Orders by plans
 
-The **Orders by SKUs** chart represents the trend of orders at the Stock Keeping Unit (SKU) level for all your offers (this includes canceled orders). The donut chart represents the breakdown of the top five SKU orders and the column chart represents the trend of orders for the top five SKUs.
+The **Orders by plans** chart represents the trend of orders at the plan level for all your offers (this includes canceled orders). The donut chart represents the breakdown of the top five plan orders and the column chart represents the trend of orders for the top five plans.
 
 ### Orders and Seats Trend
 
 The **orders and seats trend** chart presents the top 50 offers with the highest number of orders. These are displayed on a leader board and are sorted by highest order count and order percentage.
 
-- **Orders by SKUs**: Select an offer to view the breakdown of order count for the top five SKUs in the chart.
-- **Seats by SKUs**: The monthly trend of seats for the top five SKUs. If the offer you select is not a per seat offer, you will not see any data in this area chart.
+- **Orders by plans** – Select an offer to view the breakdown of order count for the top five plans in the chart.
+- **Seats by plans** – The monthly trend of seats for the top five plans. If the offer you select is not a per seat offer, you will not see any data in this area chart.
 
 ### Canceled orders by offers
 

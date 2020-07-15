@@ -1,11 +1,11 @@
 ---
 title: Update an existing Commercial Marketplace offer
 description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, canceling a publish request, stop selling an offer or plan, and syncing private audiences. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
 ---
 
@@ -15,37 +15,47 @@ You can view your existing offers on the **Overview** tab of the [Commercial Mar
 
 To update an existing offer that's currently live in the marketplace:
 
-1. Select the name of the offer you would like to update. The status of the offer may be listed as **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not being sold in the marketplace** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
-2. Select **Update** from the overview card, or the menu item from the left navigation, for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**. 
-3. Make your changes and then select **Save**. Repeat this process until all your changes are complete.
+1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
+2. Select **Update** from the card on the offer overview page, or the menu item on the left navigation for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**.
+3. Make your changes and select **Save draft**. Repeat this process until all your changes are complete.
 
 ## Review and publish an updated offer
 
-When you're ready to publish your updated offer, select **Publish** from any page. The **Review and publish** page will open. On this page you can:
+When you're ready to publish your updated offer, select **Review and publish** from any page. The **Review and publish** page will open. On this page you can:
 
 - See the completion status for the sections of the offer that you updated: 
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 - Provide additional information to the certification testing team to ensure that testing goes smoothly.
-- Submit the updated offer for publishing by selecting **Submit**.  We'll email you when a preview version of the updated offer is available for you to review and sign off.
+- Submit the updated offer for publishing by selecting **Publish**.  We'll email you when a preview version of the updated offer is available for you to review and sign off.
 
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
+
+## Add a plan to an existing offer
+
+To add a new plan within an existing offer that you've already published:
+
+1. With the **Offer overview** page for your existing offer open, go to the **Plan overview** page, and then select **Create new plan**.
+1. Create a new plan according to the [guidelines](./create-new-saas-offer.md#plan-overview) by using the **existing plans Pricing model**.
+1. Select **Save draft** after you change the plan name. 
+1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
 
 ## Update a plan within an existing offer
 
 To make changes to a plan within an existing offer that you've already published:
 
-- With the **Offer overview** page open for your existing offer, choose the plan that you want to change. If the plan is not accessible from the **Plan overview** list, select **See all plans**.
-- You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently plans are only available in English (United States)*.
-- Select **Save** after making any necessary changes to the plan name, description, pricing, or audience availability. 
-- Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates.
+1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
+1. Select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
+1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
+1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
+1. Submit the updated plan for publishing by selecting **Publish**. We'll email you when a preview version of the the updated offer is available for you to review and sign off.
 
 ## Compare changes to marketplace offers
 
-You can audit the changes you make to a [published](#compare-changes-to-published-offer) or [preview](#compare-changes-to-a-preview-offer) offer before making them live using **Compare**.
+You can audit the changes you make to a [published](#compare-changes-to-published-offer) or [preview](#compare-changes-to-a-preview-offer) offer before making them live by using **Compare**.
 
->[!NOTE]
+> [!NOTE]
 > A published offer is an offer that's been successfully published to Preview or Live state.
 
 See below for general auditing information:
@@ -117,9 +127,9 @@ After you confirm that you want to delete the draft plan, the plan will no longe
 
 To cancel an offer with the **Publish in progress** status:
 
-- Select the offer name to open the **Offer overview** page.
-- Select **Cancel publish** from the top right-hand corner of the page.
-- Confirm that you want to stop the offer from being published.
+1. Select the offer name to open the **Offer overview** page.
+1. Select **Cancel publish** from the top-right corner of the page.
+1. Confirm that you want to stop the offer from being published.
 
 If you want to publish the offer at a later time, you'll need to start the publishing process over.
 
@@ -128,19 +138,21 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 ## Stop selling an offer or plan
 
-To stop selling an offer after you've already published it, select **Stop selling** from the **Offer overview** page. To stop selling a plan, select **Stop selling** from the **Plan overview** page. (The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer.)
+To stop selling an offer after you've published it, select **Stop selling** from the **Offer overview** page.
 
-Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers can download it.
+Once you confirm that you want to stop selling the offer, within a few hours it will no longer be visible in the marketplace and no new customers will be able to download it.
 
-Any customers who previously acquired the offer or plan can still use it. They can download it again, but will not get updates if you update and republish the offer or plan at a later time. 
+To stop selling a plan, select **Stop selling** from the **Plan overview** page. The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer. Once you confirm you want to stop selling the plan, you must republish the offer for the change to take effect. After the offer is republished, the plan will no longer be visible in the marketplace and no new customers will be able to download it.
 
-After your request to stop selling the offer/plan has been completed, you'll still see it in the Commercial Marketplace portal on Partner Center. To delete the draft, select **Delete draft** from either the **Offer overview** or **Plan overview** page. 
+Any customers who previously acquired the offer or plan can still use it. They can download it again, but they won't get updates if you update and republish the offer or plan at a later time.
+
+After your request to stop selling the offer/plan has been completed, you'll still see it in the Commercial Marketplace portal on Partner Center with a **Not available** status.
 
 If you decide to list or sell this offer or plan again, follow the instructions to [update an existing offer](#update-an-existing-offer-in-the-commercial-marketplace). Don't forget that you will need to **publish** the offer or plan again after making any changes.
 
 ## Remove offers from existing customers
 
-To remove offers from existing customers, [log a support request](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Select your specific offer type from the **Problem type** list and then select **Remove a published offer** in the **Category** list. Submit the request. The support team will guide you through the offer removal process.
+To remove offers from existing customers, [log a support request](https://aka.ms/marketplacepublishersupport). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
 
 ## Sync private plan audiences
 

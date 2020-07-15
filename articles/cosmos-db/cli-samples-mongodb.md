@@ -16,7 +16,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 > [!NOTE]
 > Currently you can only create 3.2 version (that is, accounts using the endpoint in the format `*.documents.azure.com`) of Azure Cosmos DB's API for MongoDB accounts by using PowerShell, CLI, and Resource Manager templates. To create 3.6 version of accounts, use Azure portal instead.
 
-| |  |
+|Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and collection](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and collection for MongoDB API. |
 | [Change throughput](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and collection.|

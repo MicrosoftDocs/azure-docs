@@ -50,7 +50,7 @@ Soft delete preserves your data in many cases where objects are deleted or overw
 
 When a blob is overwritten using **Put Blob**, **Put Block List**, or **Copy Blob**, a version or snapshot of the blob's state prior to the write operation is automatically generated. This object is invisible unless soft-deleted objects are explicitly listed. See the [Recovery](#recovery) section to learn how to list soft deleted objects.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![A diagram showing how snapshots of blobs are stored as they are overwritten using Put Blob, Put Block List, or Copy Blob.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Soft deleted data is grey, while active data is blue. More recently written data appears beneath older data. When B0 is overwritten with B1, a soft deleted snapshot of B0 is generated. When B1 is overwritten with B2, a soft deleted snapshot of B1 is generated.*
 
@@ -62,13 +62,13 @@ When a blob is overwritten using **Put Blob**, **Put Block List**, or **Copy Blo
 
 When **Delete Blob** is called on a snapshot, that snapshot is marked as soft deleted. A new snapshot is not generated.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![A diagram showing how snapshots of blobs are soft deleted when using Delete Blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Soft deleted data is grey, while active data is blue. More recently written data appears beneath older data. When **Snapshot Blob** is called, B0 becomes a snapshot and B1 is the active state of the blob. When the B0 snapshot is deleted, it is marked as soft deleted.*
 
 When **Delete Blob** is called on a base blob (any blob that is not itself a snapshot), that blob is marked as soft deleted. Consistent with previous behavior, calling **Delete Blob** on a blob that has active snapshots returns an error. Calling **Delete Blob** on a blob with soft deleted snapshots does not return an error. You can still delete a blob and all its snapshots in single operation when soft delete is turned on. Doing so marks the base blob and snapshots as soft deleted.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![A diagram showing what happens when Delete Blog is called on a base blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Soft deleted data is grey, while active data is blue. More recently written data appears beneath older data. Here, a **Delete Blob** call is made to delete B2 and all associated snapshots. The active blob, B2, and all associated snapshots are marked as soft deleted.*
 
@@ -102,7 +102,7 @@ Calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation o
 
 To restore a blob to a specific soft deleted snapshot, you can call **Undelete Blob** on the base blob. Then, you can copy the snapshot over the now-active blob. You can also copy the snapshot to a new blob.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![A diagram showing what happens when Undelete blob is used.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Soft deleted data is grey, while active data is blue. More recently written data appears beneath older data. Here, **Undelete Blob** is called on blob B, thereby restoring the base blob, B1, and all associated snapshots, here just B0, as active. In the second step, B0 is copied over the base blob. This copy operation generates a soft deleted snapshot of B1.*
 
