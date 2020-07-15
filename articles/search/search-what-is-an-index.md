@@ -30,7 +30,7 @@ It's easier to learn with a portal tool. The portal enforces requirements and sc
 
 Arriving at a final index design is an iterative process. It's common to start with the portal to create the initial index and then switch to code to place the index under source control.
 
-1. Determine whether you can use [**Import data**](search-import-data-portal.md)/ The wizard performs all-in-one indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
+1. Determine whether you can use [**Import data**](search-import-data-portal.md). The wizard performs all-in-one indexer-based indexing if the source data is from a [supported data source type in Azure](search-indexer-overview.md#supported-data-sources).
 
 1. If you can't use **Import data**, start with **Add Index** to define the schema.
 
@@ -42,7 +42,7 @@ Arriving at a final index design is an iterative process. It's common to start w
 
    ![Fill in required properties](media/search-what-is-an-index//field-attributes.png "Fill in required properties")
 
-1. Add more fields. The portal shows you which attributes are available for different data types. If you're new to index design, this is helpful.
+1. Add more fields. The portal shows you which [field attributes](#index-attributes) are available for different data types. If you're new to index design, this is helpful.
 
    If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
@@ -166,36 +166,38 @@ Fields have a name, a type that classifies the stored data, and attributes that 
 
 | Type | Description |
 |------|-------------|
-| **Edm.String** |Text that can optionally be tokenized for full-text search (word-breaking, stemming, and so forth). |
-| **Collection(Edm.String)** |A list of strings that can optionally be tokenized for full-text search. There is no theoretical upper limit on the number of items in a collection, but the 16 MB upper limit on payload size applies to collections. |
-| **Edm.Boolean** |Contains true/false values. |
-| **Edm.Int32** |32-bit integer values. |
-| **Edm.Int64** |64-bit integer values. |
-| **Edm.Double** |Double-precision numeric data. |
-| **Edm.DateTimeOffset** |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
-| **Edm.GeographyPoint** |A point representing a geographic location on the globe. |
+| Edm.String |Text that can optionally be tokenized for full-text search (word-breaking, stemming, and so forth). |
+| Collection(Edm.String) |A list of strings that can optionally be tokenized for full-text search. There is no theoretical upper limit on the number of items in a collection, but the 16 MB upper limit on payload size applies to collections. |
+| Edm.Boolean |Contains true/false values. |
+| Edm.Int32 |32-bit integer values. |
+| Edm.Int64 |64-bit integer values. |
+| Edm.Double |Double-precision numeric data. |
+| Edm.DateTimeOffset |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| Edm.GeographyPoint |A point representing a geographic location on the globe. |
 
 For more information, see [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+
+<a name="index-attributes"></a>
 
 ### Attributes
 
 Field attributes determine how a field is used, such as whether it is used in full text search, faceted navigation, sort operations, and so forth. 
 
-String fields are often marked as **Searchable** and **Retrievable**. Fields used to narrow search results include **Sortable**, **Filterable**, and **Facetable**.
+String fields are often marked as "searchable" and "retrievable". Fields used to narrow search results include "sortable", "filterable", and "facetable".
 
 |Attribute|Description|  
 |---------------|-----------------|  
-|**searchable**|Full-text searchable, subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
-|**filterable**|Referenced in **$filter** queries. Filterable fields of type `Edm.String` or `Collection(Edm.String)` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. |  
-|**sortable**|By default the system sorts results by score, but you can configure sort based on fields in the documents. Fields of type `Collection(Edm.String)` cannot be **sortable**. |  
-|**facetable**|Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are **filterable**, **sortable**, or **facetable** can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
-|**key**|Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
-|**retrievable**|Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
+|"searchable" |Full-text searchable, subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
+|"filterable" |Referenced in $filter queries. Filterable fields of type `Edm.String` or `Collection(Edm.String)` do not undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", `$filter=f eq 'sunny'` will find no matches, but `$filter=f eq 'sunny day'` will. |  
+|"sortable" |By default the system sorts results by score, but you can configure sort based on fields in the documents. Fields of type `Collection(Edm.String)` cannot be "sortable". |  
+|"facetable" |Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are filterable, "sortable", or "facetable" can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|"key" |Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
+|"retrievable" |Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
 
 > [!NOTE]
-> The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, **searchable** and **retrievable** are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
+> The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, "searchable" and "retrievable" are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite is true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
 
 ## `analyzers`
 
@@ -231,11 +233,11 @@ A default scoring profile operates behind the scenes to compute a search score f
 
 The size of an index is determined by the size of the documents you upload, plus index configuration, such as whether you include suggesters, and how you set attributes on individual fields. 
 
-The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
+The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the "searchable" attribute selected and nothing else, *realestate-retrievable* index has the "retrievable" attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
+Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes.
 
 Indexes that support filter and sort are proportionally larger than indexes supporting just full text search. This is because filter and sort operations scan for exact matches, requiring the presence of verbatim text strings. In contrast, searchable fields supporting full-text queries use inverted indexes, which are populated with tokenized terms that consume less space than whole documents. 
 
@@ -244,11 +246,11 @@ Indexes that support filter and sort are proportionally larger than indexes supp
 
 ## Next steps
 
-With an understanding of index composition, you can continue in the portal to create your first index. We recommend starting with **Import data** wizard, choosing either the real estate or hotels sample data source.
+With an understanding of index composition, you can continue in the portal to create your first index. We recommend starting with **Import data** wizard, choosing either the *realestate-us-sample* or *hotels-sample* hosted data sources.
 
 > [!div class="nextstepaction"]
-> [Import data wizard (portal)](search-what-is-an-index/.md)
+> [Import data wizard (portal)](search-get-started-portal.md)
 
-For both samples, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer.
+For both data sets, the wizard can infer an index schema, import the data, and output a searchable index that you can query using Search Explorer. Find these data sources in the **Connect to your data** page of the **Import data** wizard.
 
    ![Create a sample index](media/search-what-is-an-index//import-wizard-sample-data.png "Create a sample index")
