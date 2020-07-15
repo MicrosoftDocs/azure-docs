@@ -131,7 +131,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), available as a NuGet package, replacing the code to Startup.cs:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. However, you can change the templates to use the Microsoft identity platform endpoint by using [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), available as a NuGet package, replacing the code in *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
