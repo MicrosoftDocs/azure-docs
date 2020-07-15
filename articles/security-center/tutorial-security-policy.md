@@ -88,11 +88,11 @@ Security Center uses Role-Based Access Control (RBAC), which provides built-in r
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
 
-## Disable security policies to disable recommendations
+## Disable security policies and disable recommendations
 
 When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
 
-If the recommendation you're disabling is required for a regulatory standard or regulation you've applied with Security Center's regulatory compliance dashboard, you won't be able to disable it.
+The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Security Center's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
 
 For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
