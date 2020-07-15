@@ -61,6 +61,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
+    "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/dcos-swarm/container-service-application-specific-marathon.md",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-application-specific-marathon",
       "redirect_document_id": false
@@ -803,6 +808,11 @@
     {
       "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
       "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
     },
     {
@@ -24893,7 +24903,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/windows/regions.md",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
@@ -25139,6 +25159,15 @@
     {
       "source_path": "articles/azure-stack/azure-stack-deploy-template-command-line.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-deploy-template-command-line",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "redirect_url": "/azure/virtual-machines/isolation",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/virtual-machines/virtual-machines/windows/isolation.md",
+      "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },
     {
@@ -26027,6 +26056,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/csharp.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-log-collector-extension.md",
       "redirect_url": "/azure/virtual-machines/windows/log-collector-extension",
       "redirect_document_id": false
@@ -26034,6 +26068,21 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-manage-availability.md",
       "redirect_url": "/azure/virtual-machines/windows/manage-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/virtual-machines/virtual-machines/linux/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machine-scale-sets/availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
     {
@@ -26298,7 +26347,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/windows/regions",
+      "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
@@ -56748,6 +56797,11 @@
       "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
       "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
     }
   ]
 }

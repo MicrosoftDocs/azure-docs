@@ -249,9 +249,11 @@ properties](#parameter-properties).
 ### strongType
 
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
-value. To determine if a _resource type_ is valid for **strongType**, use
-[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
+determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
+_resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
+`Microsoft.Network/virtualNetworks/subnets`.
 
 Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
 

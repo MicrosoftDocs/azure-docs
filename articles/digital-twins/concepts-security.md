@@ -59,7 +59,7 @@ You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
-For more detailed steps on how to do this, try it out in the [Azure Digital Twins tutorial: Connect an end-to-end solution](tutorial-end-to-end.md).
+For more detailed steps on how to do this, try it out in the [Azure Digital Twins tutorial: *Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 ## Permission scopes
 
