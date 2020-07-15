@@ -47,7 +47,7 @@ For now, customer-managed keys have the following restrictions:
 
 End-to-end encryption starts from the VM host, the Azure server that your VM is allocated to. Data on your temp disks, ephemeral OS disks and persisted OS/data disk caches are stored on that VM host. When you enable end-to-end encryption, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. End-to-end encryption does not use your VM's CPU and does not impact your VM's performance. 
 
-Temp disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
+Temp disks and ephemeral OS disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption. The OS and data disk caches are encrypted at rest with either customer-managed or platform-managed keys, depending on the encryption type. For example, if a disk is encrypted with customer-managed keys, then the cache for the disk is encrypted with customer-managed keys, and if a disk is encrypted with platform-managed keys then the cache for the disk is encrypted with platform-managed keys.
 
 ### Restrictions
 
