@@ -38,7 +38,7 @@ An AVS private cloud with access to the vCenter and NSX-T Manager management int
 
    :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Select Add Segment from Network SEgment overview page.":::
 
-1. Name the segment, choose the pre-configured Tier1 Gateway (TNTxx-T1) as the **_Connected Gateway_**, leave the type as **_Flexible_**, choose the pre-configure **_Overlay_** Transport Zone (TNTxx-OVERLAY-TZ), and then select **Set Subnets**.
+1. Name the segment, choose the pre-configured overlay **Transport Zone** (TNTxx-OVERLAY-TZ), and then select **Set Subnets**. All other settings in this section and the **PORTS** and **SEGMENT PROFILES** can remain in the default, as is, configuration.
 
    :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Set the Segment Name, Connected Gateway and Type, and Transport Zone, then select “Set Subnets”.":::
 
