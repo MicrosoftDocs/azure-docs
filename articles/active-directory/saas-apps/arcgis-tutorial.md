@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with ArcGIS Online | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Online.
 services: active-directory
@@ -37,6 +37,9 @@ To configure Azure AD integration with ArcGIS Online, you need the following ite
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * ArcGIS Online single sign-on enabled subscription
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 

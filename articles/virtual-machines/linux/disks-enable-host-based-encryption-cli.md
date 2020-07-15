@@ -30,7 +30,7 @@ You may also find the VM sizes programmatically. To learn how to retrieve them p
 
 ## Prerequisites
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
+In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
 
 ### Create an Azure Key Vault and DiskEncryptionSet
 
@@ -72,7 +72,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either:
 
-Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the `EncryptionAtHostSupported` capability is set to **True**.
+Calling the [Resource Skus API](/rest/api/compute/resourceskus/list) and checking that the `EncryptionAtHostSupported` capability is set to **True**.
 
 ```json
     {
@@ -93,7 +93,7 @@ Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/reso
     }
 ```
 
-Or, calling the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet.
+Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
