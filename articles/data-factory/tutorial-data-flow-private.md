@@ -14,7 +14,7 @@ ms.date: 05/19/2019
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction).
+If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data **from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink (both allowing access to only selected networks)** using mapping data flow in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet). The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow.
 
@@ -30,9 +30,9 @@ In this tutorial, you do the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. **Ensure the Storage account allows access only from 'Selected networks'.** 
+* **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. **Ensure the Storage account allows access only from 'Selected networks'.** 
 
-The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will be referencing a container named 'sample-data'.
+The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will be referencing a container named 'sample-data'.
 
 ## Create a data factory
 
@@ -74,7 +74,7 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 
 1. In the **Properties** pane for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
-1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-debug-mode).
+1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
 
     ![Data Flow debug](media/tutorial-data-flow-private/dataflow-debug.png)
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
@@ -165,7 +165,7 @@ In case you did not click into the hyperlink when testing the connection above, 
 1. Name your filter transformation **FilterYears**. Click on the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition.
 
     ![Filter years](media/tutorial-data-flow-private/filter-years.png)
-1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-expression-builder).
+1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
     * In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
 

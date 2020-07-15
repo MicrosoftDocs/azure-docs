@@ -19,11 +19,11 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet)**.** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet)**.** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
 
 > [!NOTE]
 >
-> - If you're new to Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction).
+> - If you're new to Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 
 In this tutorial, you perform the following steps:
 
@@ -33,8 +33,8 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. **Ensure the Storage account allows access only from 'Selected networks'.** 
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal) for steps to create one. **Ensure the Azure SQL Database account allows access only from 'Selected networks'.** 
+* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. **Ensure the Storage account allows access only from 'Selected networks'.** 
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) for steps to create one. **Ensure the Azure SQL Database account allows access only from 'Selected networks'.** 
 
 ### Create a blob and a SQL table
 
@@ -82,7 +82,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
-   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules).
+   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
 4. Select the Azure **subscription** in which you want to create the data factory.
 
@@ -92,7 +92,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     b. Select **Create new**, and enter the name of a resource group. 
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview). 
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
 
 6. Under **Version**, select **V2**.
 
@@ -112,7 +112,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 
 ## Create a pipeline
-In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-portal), you created a pipeline by following these steps:
+In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal), you created a pipeline by following these steps:
 
 1. Create the linked service.
 1. Create input and output datasets.
@@ -237,7 +237,7 @@ In case you did not click into the hyperlink when testing the connection above, 
 
     ![Pipeline tab](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)       
 
-You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-schema-and-type-mapping).
+You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping).
 
 #### Create a managed private endpoint
 

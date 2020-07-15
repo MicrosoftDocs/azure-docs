@@ -98,6 +98,8 @@
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+    - name: Build a copy pipeline using managed VNet and private endpoints
+      href: tutorial-copy-data-portal-private.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -126,6 +128,8 @@
           href: tutorial-transform-data-hive-virtual-network-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
+    - name: Build mapping dataflow pipeline using managed VNet and private endpoints
+    - href: tutorial-data-flow-private.md
   - name: Control Flow
     items:
     - name: User interface (UI)
@@ -162,6 +166,8 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+    name: Managed Virtual network
+    href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
     - name: Security baseline
