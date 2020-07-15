@@ -43,7 +43,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ## IoT Central metrics
 
-The metrics that are currently available for IoT Central are [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
+The metrics that are currently available for IoT Central are [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 
