@@ -14,7 +14,7 @@ Set an [availability web test](../../azure-monitor/app/monitor-web-app-availabil
 ### Email if my site is overloaded
 Set an [alert](../../azure-monitor/platform/alerts-log.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
 
-![](./media/how-do-i/030-server.png)
+![Screenshot that shows how to set an alert on Server response time.](./media/how-do-i/030-server.png)
 
 Your app might also show signs of strain by returning failure codes. Set an alert on **Failed requests**.
 
@@ -29,25 +29,31 @@ Let's suppose you'd like to get an email when a specific event occurs. Applicati
 
 Alerts can be set on [custom metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 or:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 Because alerts have two states, you have to send a low value when you consider the alert to have ended:
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 Create a chart in [metric explorer](../../azure-monitor/platform/metrics-charts.md) to see your alarm:
 
-![](./media/how-do-i/010-alarm.png)
+![Screenshot that shows how to create a chart in metric explorer to see your alarm.](./media/how-do-i/010-alarm.png)
 
 Now set an alert to fire when the metric goes above a mid value for a short period:
 
-![](./media/how-do-i/020-threshold.png)
+![Screenshot that shows how to set an alert to fire when the metric goes above mid value for a short period.](./media/how-do-i/020-threshold.png)
 
 Set the averaging period to the minimum.
 
@@ -64,7 +70,7 @@ Some points to consider:
 [Use PowerShell to create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Use PowerShell to Manage Application Insights
-* [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Create new resources](./create-new-resource.md#creating-a-resource-automatically)
 * [Create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Separate telemetry from different versions
@@ -96,11 +102,11 @@ You can then:
 
 * Search on specific user IDs
 
-![](./media/how-do-i/110-search.png)
+![Screenshot that shows the options for searchin on specific user IDs.](./media/how-do-i/110-search.png)
 
 * Filter metrics to either anonymous or authenticated users
 
-![](./media/how-do-i/115-metrics.png)
+![Screenshot that shows filtering metrixs to either anonymous or authenticated users.](./media/how-do-i/115-metrics.png)
 
 ## Modify property names or values
 Create a [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
@@ -127,9 +133,9 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 ### ASP.NET Classic applications
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### Other applications

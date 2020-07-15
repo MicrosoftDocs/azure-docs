@@ -13,31 +13,51 @@ ms.date: 06/30/2020
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article introduces monitoring at the service (resource) level, at the workload level (queries and indexing), and suggests a framework for monitoring user access.
+This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and add-on services like Azure Monitor.
 
-You can use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities can help you construct a feedback loop so that you can address problems as they emerge.
+Altogether, you can track the following:
+
+* Service: health/availability and changes to service configuration.
+* Storage: both used and available, with counts for each content type relative to the quota allowed for the service tier.
+* Query activity: volume, latency, and throttled or dropped queries. Logged query requests require [Azure Monitor](#add-azure-monitor).
+* Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor.
+
+A search service does not support per-user authentication, so no identity information will be found in the logs.
 
 ## Built-in monitoring
 
-Azure Cognitive Search uses internal data for reporting on storage consumption, query metrics, and service health information in the portal. Links in the main Overview page provide system information at a glance.
+Built-in monitoring refers to activities that are logged by a search service. With the exception of diagnostics, no configuration is required for this level of monitoring.
 
-The following screenshot helps you locate Azure Monitor features in the portal. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
+Azure Cognitive Search maintains internal data on a rolling 30-day schedule for reporting on service health and query metrics, which you can find in the portal or through these [REST APIs](#monitoring-apis).
 
-+ **Monitoring** tab, located in the main overview page, you can check query volumes, latency, and whether the service had to drop queries due to pressure. No configuration steps are required for this level of monitoring. The data used for these metrics is internal to your service, with service health metrics for up to 30 days.
-+ **Activity log**, just below Overview, is connected to Azure Resource Manager. The activity log reports on resource-level actions: service health, service provisioning and decommissioning, capacity adjustments, and API key request notifications.
-+ **Monitoring** settings, further down the left navigation pane, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
+The following screenshot helps you locate monitoring information in the portal. Data becomes available as soon as you start using the service. Portal pages are refreshed every few minutes.
+
+* **Monitoring** tab, on the main Overview page, shows query volume, latency, and whether the service is under pressure.
+* **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
+* **Monitoring** settings, further down, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
 ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
 
 > [!NOTE]
-> Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
+> Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
+
+<a name="monitoring-apis"> </a>
+
+### APIs useful for monitoring
+
+You can use the following APIs to retrieve the same information found in the Monitoring and Usage tabs in the portal.
+
+* [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
+* [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
+* [GET Document Counts](/rest/api/searchservice/count-documents)
+* [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
 
 ### Activity logs and service health
 
 The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
-One of the more common activities are references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests using the admin key (create or delete objects) and queries, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
+Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
@@ -51,63 +71,23 @@ The following illustration is for the free service, which is capped at 3 objects
  "Usage status relative to tier limits")
 
 > [!NOTE]
-> Storage monitoring is limited to visuals in the portal and diagnostic logging. Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) that emits resource-related notifications, where your code checks for storage size and handles the response. For more information about storage metrics, see [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+> Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](../azure-monitor/insights/solutions-creating.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
+
+<a name="add-azure-monitor"></a>
 
 ## Add-on monitoring with Azure Monitor
 
-Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. Azure Monitor has its own billing structure. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
 
-### Monitor query and indexing workloads
+[Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. 
+Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
 
-Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+Azure Monitor provides several storage options, and your choice determines how you can consume the data:
 
-Most of the logged data is for read-only operations ([query monitoring](search-monitor-queries.md)). For other create-update-delete operations not captured in the log, you can query the search service for system information.
+* Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
+* Choose Log Analytics if you want to explore data through Kusto queries.
 
-| OperationName | Description |
-|---------------|-------------|
-| ServiceStats | This operation is a routine call to [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
-| Query.Search |  Query requests against an index See [Monitor queries](search-monitor-queries.md) for information about logged queries.|
-| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
-| indexes.Prototype | This is an index created by the Import Data wizard. |
-| Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
-| Indexers.Get | Returns the name of an indexer whenever the indexer is run. |
-| Indexers.Status | Returns the status of an indexer whenever the indexer is run. |
-| DataSources.Get | Returns the name of the data source whenever an indexer is run.|
-| Indexes.Get | Returns the name of an index whenever an indexer is run. |
-
-### Kusto queries about workloads
-
-If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
-
-#### Example: List operations 
-
-Return a list of operations and a count of each one.
-
-```
-AzureDiagnostics
-| summarize count() by OperationName
-```
-
-#### Example: Correlate operations
-
-Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
-
-```
-AzureDiagnostics
-| summarize OperationName, Count=count()
-| where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
-| render timechart
-```
-
-### Use search APIs
-
-Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
-
-+ [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
-+ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
-+ [GET Document Counts](/rest/api/searchservice/count-documents)
-+ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
+Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
 
 ## Monitor user access
 

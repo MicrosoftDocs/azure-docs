@@ -26,16 +26,16 @@ This article describes the available sizes and options for the Azure virtual mac
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Learn more about how [Azure compute units (ACU)](../acu.md) can help you compare compute performance across Azure SKUs.
 
 ## REST API
 
 For information on using the REST API to query for VM sizes, see the following:
 
-- [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [List available virtual machine sizes for resizing](/rest/api/compute/virtualmachines/listavailablesizes)
+- [List available virtual machine sizes for a subscription](/rest/api/compute/resourceskus/list)
+- [List available virtual machine sizes in an availability set](/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## ACU
 
@@ -44,6 +44,10 @@ Learn more about how [Azure compute units (ACU)](../acu.md) can help you compare
 ## Benchmark scores
 
 Learn more about compute performance for Linux VMs using the [CoreMark benchmark scores](compute-benchmark-scores.md).
+
+## Manage costs
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

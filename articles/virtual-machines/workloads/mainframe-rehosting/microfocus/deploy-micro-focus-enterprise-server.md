@@ -16,7 +16,7 @@ ms.service: multiple
 
 # Deploy Micro Focus Enterprise Server 5.0 to AKS
 
-In a previous [blog post](https://techcommunity.microsoft.com/t5/AzureCAT/Running-Micro-Focus-Enterprise-Server-4-0-in-a-Docker-Container/ba-p/358622), I outlined the steps to run Micro Focus Enterprise Server 5.0 in a Docker container. As a follow up to that, I’d like to show you how to take it one step further and deploy that Docker image you created to Azure Kubernetes Service (AKS).
+In another [article](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container), I outlined the steps to run Micro Focus Enterprise Server 5.0 in a Docker container. As a follow up to that, I’d like to show you how to take it one step further and deploy that Docker image you created to Azure Kubernetes Service (AKS).
 
 Azure Kubernetes Service is a managed orchestration service based on Kubernetes. It enables you to deploy, scale, and manage Docker containers (and other container-based applications) across a cluster of container hosts.
 

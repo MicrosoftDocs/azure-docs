@@ -238,9 +238,14 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VMs to another subscription.
+- Moving an encrypted VMs to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
+- M-series VMs with Write Accelerator disks.
+- Applying ADE to a VM that has a data disk encrypted with [server-side encryption with customer-managed keys](disk-encryption.md) (SSE + CMK), or applying SSE + CMK to a data disk on a VM encrypted with ADE.
+- Migrating a VM encrypted with ADE to [server-side encryption with customer-managed keys](disk-encryption.md).
+
 
 ## Next steps
 

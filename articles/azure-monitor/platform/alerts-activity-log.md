@@ -24,6 +24,7 @@ When you create alert rules, ensure the following:
 - The criteria must be the level, status, caller, resource group, resource ID, or resource type event category on which the alert is configured.
 - There's no "anyOf" condition or nested conditions in the alert configuration JSON. Basically, only one "allOf" condition is allowed with no further "allOf" or "anyOf" conditions.
 - When the category is "administrative," you must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+- Alerts cannot be created for events in Alert category of activity log.
 
 ## Azure portal
 
@@ -196,6 +197,11 @@ To create an activity log alert rule by using an Azure Resource Manager template
 }
 ```
 The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Notice that the highest-level activity log alerts can be defined is subscription.
+  > Meaning there is no option to define alert on couple of subscriptions, therefore the definition should be alert  per subscription.
 
 The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields:
 Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. 

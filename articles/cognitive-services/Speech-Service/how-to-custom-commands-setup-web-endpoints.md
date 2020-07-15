@@ -43,11 +43,12 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
    | Name | UpdateDeviceState | Name for the web endpoint. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
-   | Headers | Key: app, Value: a unique name for your app | The header parameters to include in the request header.|
+   | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 
     > [!NOTE]
     > - The example web endpoint created using [Azure Function](https://docs.microsoft.com/azure/azure-functions/), which hooks up with the database that saves the device state of the tv and fan
     > - The suggested header is only needed for the example endpoint
+    > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your applicationId
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) that manages your devices
 
 1. Click **Save**.
@@ -71,6 +72,8 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
     > - The suggested query parameters are only needed for the example endpoint
 
 1. In **On Success - Action to execute**, select **Send speech response**.
+    
+    In **Simple editor**, enter `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
    > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -83,6 +86,9 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
    > - You can also directly access the fields in the http response by using `{YourWebEndpointName.FieldName}`. For example: `{UpdateDeviceState.TV}`
 
 1. In **On Failure - Action to execute**, select **Send speech response**
+
+    In **Simple editor**, enter `Sorry, {WebEndpointErrorMessage}`.
+
    > [!div class="mx-imgBorder"]
    > ![Call web endpoints action On Fail](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

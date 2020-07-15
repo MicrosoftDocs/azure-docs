@@ -4,7 +4,7 @@ description: Learn How to migrate Azure Firewall configurations to Azure Firewal
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ---
