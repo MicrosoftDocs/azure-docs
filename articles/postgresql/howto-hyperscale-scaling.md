@@ -6,16 +6,56 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 3/16/2020
+ms.date: 7/14/2020
 ---
 
-# Scale a Hyperscale (Citus) server group
+# Server group size
+
+## Picking initial size
+
+The size of a server group, in terms of number of nodes and their hardware
+capacity, is easy to change (see below). However you still need to choose an
+initial size for a new server group. Here are some tips for a reasonable
+choice.
+
+### Multi-Tenant SaaS Use-Case
+
+For those migrating to Hyperscale (Citus) from an existing single-node database
+instance, we recommend choosing a cluster where the number of worker vCores and
+RAM in total equals that of the original instance. In such scenarios we have
+seen 2-3x performance improvements because sharding improves resource
+utilization, allowing smaller indices etc.
+
+The number of vCores required for the coordinator node depends on your existing
+workload (write/read throughput). The coordinator node doesn't require as much
+RAM as worker nodes, but RAM allocation is determined based on vCore count (as
+described in the [Hyperscale configuration
+options](concepts-hyperscale-configuration-options)) so the vCore count is
+essentially the real decision.
+
+### Real-Time Analytics Use-Case
+
+Total vCores: when working data fits in RAM, you can expect a linear
+performance improvement on Hyperscale (Citus) proportional to the number of
+worker cores. To determine the right number of vCores for your needs, consider
+the current latency for queries in your single-node database and the required
+latency in Hyperscale (Citus). Divide current latency by desired latency, and
+round the result.
+
+Worker RAM: the best case would be providing enough memory that the majority of
+the working set fits in memory. The type of queries your application uses
+affect memory requirements. You can run EXPLAIN ANALYZE on a query to determine
+how much memory it requires. Remember that vCores and RAM are scaled together
+as described in the [Hyperscale configuration
+options](concepts-hyperscale-configuration-options) article.
+
+## Scale a Hyperscale (Citus) server group
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
 worker nodes, and to increase the vCores of existing nodes.
 
-## Add worker nodes
+### Add worker nodes
 
 To add nodes, go to the **Configure** tab in your Hyperscale (Citus) server
 group.  Dragging the slider for **Worker node count** changes the value.
@@ -28,7 +68,7 @@ Click the **Save** button to make the changed value take effect.
 > Once increased and saved, the number of worker nodes cannot be decreased
 > using the slider.
 
-### Rebalance shards
+#### Rebalance shards
 
 To take advantage of newly added nodes you must rebalance distributed table
 [shards](concepts-hyperscale-distributed-data.md#shards), which means moving
@@ -46,7 +86,7 @@ The `rebalance_table_shards` function rebalances all tables in the
 argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
 
-## Increase or decrease vCores on nodes
+### Increase or decrease vCores on nodes
 
 > [!NOTE]
 > This feature is currently in preview. To request a change in vCores for
@@ -66,5 +106,5 @@ Storage capacity of the coordinator. Change the sliders as desired and select
 
 ## Next steps
 
-Learn more about server group [performance
-options](concepts-hyperscale-configuration-options.md).
+- Learn more about server group [performance
+  options](concepts-hyperscale-configuration-options).
