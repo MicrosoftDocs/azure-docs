@@ -4,7 +4,7 @@ description: Learn how to create a backup of your Azure Red Hat OpenShift cluste
 ms.service: container-service
 ms.topic: article
 ms.date: 06/22/2020
-author: b-trconn
+author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
@@ -25,11 +25,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Install Velero
 
-To [install](https://velero.io/docs/master/basic-install/) Velero on your system use the recommended process for your operating system.
+To [install](https://velero.io/docs/master/basic-install/) Velero on your system, use the recommended process for your operating system.
 
 ### Set up Azure storage account and Blob container
 
-This will create a resource group outside of the Azure Red Hat OpenShift cluster's resource group.  This will allow the backups to persist to be able to restore applications to new clusters.
+This step will create a resource group outside of the ARO cluster's resource group.  This resource group will allow the backups to persist and can restore applications to new clusters.
 
 ```bash
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
@@ -52,7 +52,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 
 ### Create service principal
 
-Velero needs permissions to perform backups and restores. When you create a service principal, you are giving Velero permission to access the resource group you define in the previous step.
+Velero needs permissions to do backups and restores. When you create a service principal, you're giving Velero permission to access the resource group you define in the previous step.
 
 ```bash
 export AZURE_RESOURCE_GROUP=$RESOURCEGROUP
@@ -85,7 +85,7 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to perform backups and restores with Velero.
+This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero.
 
 ```bash
 velero install \
@@ -101,7 +101,7 @@ velero install \
 
 ## Create a backup with Velero
 
-To create an application backup with Velero you will need to include the namespace that this application is in.  If you have a `nginx-example` namespace and want to include all the resources in that namespace in the backup, run the following command in the terminal:
+To create an application backup with Velero, you'll need to include the namespace that this application is in.  If you have a `nginx-example` namespace and want to include all the resources in that namespace in the backup, run the following command in the terminal:
 
 ```bash
 velero create backup <name of backup> --include-namespaces=nginx-example
@@ -116,12 +116,12 @@ A successful backup will output `phase:Completed` and the objects will live in t
 
 ## Next steps
 
-In this article, an Azure Red Hat OpenShift OpenShift 4 cluster application was backed up. You learned how to:
+In this article, an Azure Red Hat OpenShift 4 cluster application was backed up. You learned how to:
 
 > [!div class="checklist"]
 > * Create a OpenShift v4 cluster application backup using Velero
 
 
-Advance to the next article to learn how to create a Azure Red Hat OpenShift 4 cluster application restore.
+Advance to the next article to learn how to create an Azure Red Hat OpenShift 4 cluster application restore.
 
 * [Create a Azure Red Hat OpenShift 4 cluster application restore](howto-create-a-restore.md)
