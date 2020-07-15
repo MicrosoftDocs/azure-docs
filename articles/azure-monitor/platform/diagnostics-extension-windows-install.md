@@ -15,7 +15,7 @@ ms.author: bwren
 The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) for details on installing and maintaining virtual machine extensions.
 
 ## Overview
-When you configure Windows Azure the diagnostics extension, you must specify a storage account where all specified data will be sent. You can optionally add one for more *data sinks* to send the data to different locations.
+When you configure Windows Azure the diagnostics extension, you must specify a storage account where all specified data will be sent. You can optionally add one or more *data sinks* to send the data to different locations.
 
 - Azure Monitor sink - Send guest performance data to Azure Monitor Metrics.
 - Event hub sink - Send guest performance and log data to Azure event hubs to forward outside of Azure. This sink cannot be configured in the Azure portal.

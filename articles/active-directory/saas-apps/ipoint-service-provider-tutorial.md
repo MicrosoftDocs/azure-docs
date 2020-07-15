@@ -83,11 +83,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using one of the following pattern:
 
-    |||
-    |-|-|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/`|
-    | `https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin`|
+    ```https
+    https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/
+    https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/
+    https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin
+    ```
 
 1. Click **Save**.
 

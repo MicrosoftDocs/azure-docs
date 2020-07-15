@@ -1,18 +1,10 @@
 ---
 title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
-services: event-hubs
-documentationcenter: na
-author: spelluru
-
-ms.assetid:
-ms.service: event-hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-
 ---
+
 # Overview of Event Hubs Dedicated
 
 *Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and sub-second latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 

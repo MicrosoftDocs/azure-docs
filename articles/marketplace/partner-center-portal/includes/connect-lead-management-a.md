@@ -2,12 +2,10 @@
 title: include file
 description: include file
 documentationcenter: partner-center-commercial-marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
-ms.author: dsindona
 ms.custom: include file
 ---
 

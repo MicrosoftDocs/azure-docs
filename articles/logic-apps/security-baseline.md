@@ -419,7 +419,7 @@ For connectors that use Azure Active Directory (Azure AD) OAuth, creating a conn
 
 * [Workflow Triggers API information](https://docs.microsoft.com/rest/api/logic/workflowtriggers)
 
-* [Understand connector configuration](https://docs.microsoft.com/azure/connectors/apis-list])
+* [Understand connector configuration](https://docs.microsoft.com/azure/connectors/apis-list)
 
 **Azure Security Center monitoring**: N/A
 
@@ -571,7 +571,7 @@ For logic apps that need direct access to resources in an Azure virtual network,
 
 When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network.
 
-Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control.
+Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC).
 
 * [Understand connectors for Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 
@@ -1227,7 +1227,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 * [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1273,7 +1273,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
 * [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 

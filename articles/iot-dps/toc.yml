@@ -23,6 +23,8 @@
           href: quick-create-simulated-device-symm-key.md
         - name: Java
           href: quick-create-simulated-device-symmetric-key-java.md
+        - name: Python
+          href: quick-create-device-symmetric-key-python.md
     - name: X.509 Certificate attestation
       items:
         - name: C
@@ -97,6 +99,8 @@
     href: concepts-security.md
   - name: TLS support
     href: tls-support.md
+  - name: Virtual networks support
+    href: virtual-network-support.md
   - name: Service
     href: concepts-service.md
   - name: Understanding DPS IP addresses
@@ -175,6 +179,8 @@
     href: https://github.com/Azure/azure-iot-sdk-java
   - name: Azure IoT SDK for .NET
     href: https://github.com/Azure/azure-iot-sdk-csharp
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

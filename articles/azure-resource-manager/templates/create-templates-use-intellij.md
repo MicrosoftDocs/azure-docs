@@ -82,4 +82,4 @@ The main focus of this article is to use IntelliJ IDEA to deploy an existing tem
 > [Beginner tutorials](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visit Java on Azure Dev center](https://docs.microsoft.com/azure/java)
+> [Visit Java on Azure Dev center](/azure/java)

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
+ms.date: 07/09/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -507,10 +507,12 @@ When you copy files from Amazon S3, Azure Blob storage, or Azure Data Lake Stora
 ## Mapping data flow properties
 
 When you're transforming data in mapping data flows, you can read and write files from Azure Blob storage in the following formats:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 

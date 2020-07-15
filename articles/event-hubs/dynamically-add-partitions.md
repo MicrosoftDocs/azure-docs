@@ -1,14 +1,8 @@
 ---
 title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.author: spelluru 
-ms.reviewer: shvija
 ---
 
 # Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs

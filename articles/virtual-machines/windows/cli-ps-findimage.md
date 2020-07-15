@@ -1,23 +1,21 @@
 ---
-title: Select Windows VM images in Azure 
+title: Find and use Azure Marketplace images 
 description: Use Azure PowerShell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 
 ---
-# Find Windows VM images in the Azure Marketplace with Azure PowerShell
+# Find and use VM images in the Azure Marketplace with Azure PowerShell
 
-This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image when you create a VM programmatically with PowerShell, Resource Manager templates, or other tools.
+This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image when you create a VM.
 
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
 
- 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -313,7 +311,6 @@ You'll then pass the VM configuration along with network configuration objects t
 
 To create a virtual machine quickly with the `New-AzVM` cmdlet by using basic image information, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
 
-
-See a PowerShell script example to [create a fully configured virtual machine](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+For more information on using Azure Marketplace images to create custom images in a shared image gallery, see [Supply Azure Marketplace purchase plan information when creating images](../marketplace-images.md).
 
 

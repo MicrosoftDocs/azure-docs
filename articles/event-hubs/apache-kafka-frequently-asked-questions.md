@@ -1,19 +1,8 @@
 ---
 title: Frequently asked questions - Azure Event Hubs for Apache Kafka 
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/23/2020
-ms.author: shvija
-
 ---
 
 # Frequently asked questions - Event Hubs for Apache Kafka 

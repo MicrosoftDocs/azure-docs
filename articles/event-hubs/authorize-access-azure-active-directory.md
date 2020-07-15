@@ -1,15 +1,8 @@
 ---
 title: Authorize access with Azure Active Directory
 description: This article provides information on authorizing access to Event Hubs resources using Azure Active Directory. 
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-
 ---
 
 # Authorize access to Event Hubs resources using Azure Active Directory

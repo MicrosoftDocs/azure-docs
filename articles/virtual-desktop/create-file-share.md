@@ -69,7 +69,8 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
 
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
-     ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
 ## Assign Azure RBAC permissions to Windows Virtual Desktop users
 
@@ -88,15 +89,17 @@ To assign role-based access control (RBAC) permissions:
 
 2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Select **Access Control (IAM)**.
+3. Select **File shares**, then select the name of the file share you plan to use.
 
-4. Select **Add a role assignment**.
+4. Select **Access Control (IAM)**.
 
-5. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
+5. Select **Add a role assignment**.
+
+6. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
 
      To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
 
-6. Select **Save**.
+7. Select **Save**.
 
 ## Assign users permissions on the Azure file share
 
