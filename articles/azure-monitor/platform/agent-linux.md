@@ -152,6 +152,19 @@ If authentication is required in either case, you need to specify the username a
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
+## Supported Linux hardening
+The OMS Agent has limited customization support for Linux. 
+
+The following are currently supported: 
+- FIPs
+
+The following are planned but not yet supported:
+- CIS
+-SELINUX
+
+Other hardening and customization methods are not supported nor planned for OMS Agent.  
+
+
 ## Upgrade from a previous release
 
 Upgrading from a previous version, starting with version 1.0.0-47, is supported in each release. Perform the installation with the `--upgrade` parameter to upgrade all components of the agent to the latest version.

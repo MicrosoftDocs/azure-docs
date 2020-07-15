@@ -3,14 +3,14 @@ title: Log ML experiments & metrics
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 
 ms.custom: seodec18
 ---
@@ -105,7 +105,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 Use the __Execute Python Script__ module to add logging logic to your designer experiments. You can log any value using this workflow, but it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across different runs.
 
-1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module.
+1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module. __Evaluate Model__ can output evaluation results of 2 models. The following example shows how to log the metrics of 2 output ports in parent run level. 
 
     ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -113,23 +113,29 @@ Use the __Execute Python Script__ module to add logging logic to your designer e
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. After the pipeline run is completed, you can see the *Mean_Absolute_Error* in the Experiment page.
+
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## Manage a run
 

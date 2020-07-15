@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall FQDN filtering in network rules (preview)
+title: Azure Firewall Manager filtering in network rules (preview)
 description: How to use FQDN filtering in network rules
 services: firewall-manager
 author: vhorne

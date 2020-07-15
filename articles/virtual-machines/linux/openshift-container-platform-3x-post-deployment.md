@@ -9,6 +9,7 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
+ms.custom: devx-track-ansible
 ---
 
 # Post-deployment tasks
