@@ -40,7 +40,7 @@ Windows uses the shutdown process to perform system maintenance operations, and 
 
 Use [Serial Console](./serial-console-windows.md) to complete the following steps:
 
-1. Open an administrative Powershell and check the service that stops responding upon stopping.
+1. Open an administrative PowerShell and check the service that stops responding upon stopping.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
