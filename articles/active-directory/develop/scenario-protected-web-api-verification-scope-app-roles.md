@@ -82,7 +82,6 @@ The `VerifyUserHasAnyAcceptedScope` method does something like the following ste
 - Verify there's a claim named `http://schemas.microsoft.com/identity/claims/scope` or `scp`.
 - Verify the claim has a value that contains the scope expected by the API.
 
-For details see the source code in [ScopesRequiredHttpContextExtensions in Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs#L32)
 
 #### Verify the scopes more globally
 
