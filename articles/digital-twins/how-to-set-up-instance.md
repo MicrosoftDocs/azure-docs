@@ -122,4 +122,4 @@ You now have an Azure Digital Twins instance ready to go, and permissions to man
 ## Next steps
 
 See how to set up and authenticate a client app to work with your instance:
-* [How-to: Authenticate a client application](how-to-authenticate-client.md)
+* [*How-to: Authenticate a client application*](how-to-authenticate-client.md)

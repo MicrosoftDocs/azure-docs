@@ -274,4 +274,4 @@ It is possible to debug Azure functions with an Event Grid trigger locally. For 
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Integration with other services](concepts-integration.md)
+* [*Concepts: Integration with other services*](concepts-integration.md)

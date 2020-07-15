@@ -37,4 +37,4 @@ In addition to generally managing your instance, the CLI is also a useful tool f
 ## Next steps
 
 For an alternative to CLI commands, see how to manage an Azure Digital Twins instance using APIs and SDKs:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
