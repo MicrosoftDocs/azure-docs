@@ -9,7 +9,7 @@ ms.date: 08/26/2019
 # Instrument web apps at runtime with Application Insights Codeless Attach
 
 > [!IMPORTANT]
-> Status Monitor is no longer recommended for use, and **starting June 1st 2021** this version of Status monitor will not be supported. It has been replaced by the Azure Monitor Application Insights Agent (formerly named Status Monitor v2). See our documentation for [on-premises server deployments](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) or [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Status Monitor is no longer recommended for use, and **starting June 1st 2021** this version of Status monitor will not be supported. It has been replaced by the Azure Monitor Application Insights Agent (formerly named Status Monitor v2). See our documentation for [on-premises server deployments](./status-monitor-v2-overview.md) or [Azure virtual machine and virtual machine scale set deployments](./azure-vm-vmss-apps.md).
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
 
@@ -93,7 +93,7 @@ These are some steps that you can perform to confirm that your installation was 
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- If you need to confirm that Application Insights is successfully attached, you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
+- If you need to confirm that Application Insights is successfully attached, you can run [Sysinternals Handle](/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
 
   ```console
   handle.exe /p w3wp.exe
@@ -141,7 +141,7 @@ We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsigh
 * To output verbose logs, modify the config file: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` and add `<add key="TraceLevel" value="All" />` to the `appsettings`.
 Then restart status monitor.
 
-* As Status Monitor is a .NET application you can also enable [.net tracing by adding the appropriate diagnostics to the config file](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). For example, in some scenarios it can be useful to see what's happening at the network level by [configuring network tracing](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* As Status Monitor is a .NET application you can also enable [.net tracing by adding the appropriate diagnostics to the config file](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). For example, in some scenarios it can be useful to see what's happening at the network level by [configuring network tracing](/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### Insufficient permissions
   
@@ -308,7 +308,7 @@ For applications already instrumented at compile time:
 
 ## <a name="download"></a>Download Status Monitor
 
-- Use the new [PowerShell Module](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Use the new [PowerShell Module](./status-monitor-v2-overview.md)
 - Download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor.
 
@@ -318,7 +318,7 @@ View your telemetry:
 
 * [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
+* [Analytics](../log-query/log-query-overview.md) for more advanced queries
 
 Add more telemetry:
 
@@ -333,6 +333,6 @@ Add more telemetry:
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md
