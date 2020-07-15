@@ -17,7 +17,6 @@ ms.localizationpriority: high
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
-<!-- Link doesn't work right now, because the export tutorial isn't in master yet -->
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Create export order for Azure Data Box](data-box-deploy-export-ordered.md)
 
 ## Prerequisites
