@@ -28,7 +28,7 @@ The following code continues the example code that's shown in [A web API that ca
 After you've acquired the token, use it as a bearer token to call the downstream API.
 
 ```csharp
-private async Task callTodoListService(string accessToken)
+private async Task CallTodoListService(string accessToken)
 {
 
 // After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
