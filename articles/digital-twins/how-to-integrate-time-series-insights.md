@@ -32,10 +32,6 @@ You will be attaching Time Series insights to Digital Twins through the path bel
 * You will need to create a digital Twins instance and be ready to update twin information. 
     * The Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) provides this environment, but you can use any other Twins instance.
 
-## Create a function to update time series insights when twins update
-
-First, you'll create a route in Azure Digital Twins to forward all twin update events to an event hub. Then, you'll create an Azure function to read those update messages. 
-
 ## Create a route and filter to twin update notifications
 
 Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. 
