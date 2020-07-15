@@ -78,7 +78,10 @@ Some application scenarios prefer or require the same port to be used by multipl
 At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
 Without Floating IP, Azure exposes a traditional load balancing IP address mapping scheme for ease of use (the VM instances' IP). Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
 
+
 ## <a name = "limitations"></a>Limitations
+
+- Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios.
 
 - A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
 
