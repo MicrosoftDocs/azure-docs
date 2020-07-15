@@ -18,7 +18,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure VM
 ## What does no local temp disk mean? 
 Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. a D: Drive). Now with these new VM sizes, that small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.
 
-## What if I still want local temp disk?
+## What if I still want a local temp disk?
 If your workload requires a local temporary disk, we also have new [Ddv4 and Ddsv4](ddv4-ddsv4-series.md) or [Edv4 and Edsv4](edv4-edsv4-series.md) VM sizes available. These sizes offer 50% larger temporary disk compared with the previous v3 sizes.
 
 > [!NOTE]
