@@ -199,7 +199,7 @@ The only supported host caching option is 'None'.
 If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
 
 **I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?**
-In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Please ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
+In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Can I use caching levels with an ultra disk?**
 No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to None.
@@ -458,7 +458,7 @@ You can leverage Private Links for restricting the export and import to Managed 
 
 **What can I ensure that a disk can be exported or imported only via Private Links?**
 
-You must set the `DiskAccessId` property to an instance of a disk access object and also set the NetworkAccessPolicy property to AllowPrivate.
+You must set the `DiskAccessId` property to an instance of a disk access object and also set the NetworkAccessPolicy property to `AllowPrivate`.
 
 **Can I link multiple virtual networks to the same disk access object?**
 
