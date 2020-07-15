@@ -954,7 +954,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
   * [Azure Dedicated Hosts for virtual machines](../virtual-machines/windows/dedicated-hosts.md)
-  * [Virtual machine isolation in Azure](../virtual-machines/windows/isolation.md)
+  * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
 * To create logic apps that run on dedicated resources and can access resources protected by an Azure virtual network, you can create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
