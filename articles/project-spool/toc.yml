@@ -38,6 +38,8 @@
     href: quickstarts/get-started-with-phone.md
   - name: Send an SMS
     href: quickstarts/get-started-with-sms.md
+  - name: Events quickstart
+    href: quickstarts/acs-events-quickstart.md
  # - name: Share Your Screen
  #   href: quickstarts/todo.md
  # - name: Implement Two-Factor Authentication
