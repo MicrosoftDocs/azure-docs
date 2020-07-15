@@ -248,6 +248,11 @@ Use the following procedure to create a ServiceNow connection:
 
 Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
+
+> [!NOTE]
+> In ServiceNow there is a rate limit for requests per hour. 
+> In order to configure the limit use this by defining "Inbound REST API rate limiting" in the ServiceNow instance.
+
 ### Create integration user role in ServiceNow app
 
 User the following procedure:

@@ -37,8 +37,10 @@ Bursts of traffic combined with poor `ThreadPool` settings can result in delays 
 
 Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis like below to further investigate:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 In the preceding exception, there are several issues that are interesting:
 
@@ -76,12 +78,14 @@ A large request/response can cause timeouts. As an example, suppose your timeout
 
 In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
-         |-------- 1 Second Timeout (B) ----------|
-         |-Request B-|
-                |- Read Response A --------|
-                                           |- Read Response B-| (**TIMEOUT**)
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
 
 This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 

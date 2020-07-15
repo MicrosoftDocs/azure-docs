@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
 ---
@@ -30,7 +30,7 @@ The data movement can be of the following types:
 
     - **Graphical interface** - If you occasionally transfer just a few files and do not need to automate the data transfer, you can choose a graphical interface tool such as Azure Storage Explorer or a web-based exploration tool in Azure portal.
     - **Scripted or programmatic transfer** - You can use optimized software tools that we provide or call our REST APIs/SDKs directly. The available scriptable tools are AzCopy, Azure PowerShell, and Azure CLI. For programmatic interface, use one of the SDKs for .NET, Java, Python, Node/JS, C++, Go, PHP or Ruby.
-    - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Data Box Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
+    - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Azure Stack Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
     - **Managed data pipeline** - You can set up a cloud pipeline to regularly transfer files between several Azure services, on-premises or a combination of two. Use Azure Data Factory to set up and manage data pipelines, and move and transform data for analysis.
 
 The following visual illustrates the guidelines to choose the various Azure data transfer tools depending upon the network bandwidth available for transfer, data size intended for transfer, and frequency of the transfer.
@@ -72,7 +72,7 @@ You can also go to your Azure Storage account in Azure portal and select the **D
 - Learn about:
 
     - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway and Azure Data Box Edge for online transfers](https://docs.microsoft.com/azure/databox-online/).
+    - [Azure Data Box Gateway and Azure Stack Edge for online transfers](https://docs.microsoft.com/azure/databox-online/).
 - [Learn what is Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Use the REST APIs to transfer data
 

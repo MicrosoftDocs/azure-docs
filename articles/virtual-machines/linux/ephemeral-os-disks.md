@@ -14,5 +14,4 @@ ms.subservice: disks
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure CLI](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
-
+You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).

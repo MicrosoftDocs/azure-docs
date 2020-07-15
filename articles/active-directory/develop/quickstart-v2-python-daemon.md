@@ -186,7 +186,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Where: ||
+> | Where: |Description |
 > |---------|---------|
 > | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
@@ -207,7 +207,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Where:| |
+> |Where:| Description |
 > |---------|---------|
 > | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 

@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
@@ -18,7 +18,7 @@ Pricing for Spot VMs is variable, based on region and SKU. For more information,
 
 You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for Spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
 
-The process to create a VM with Spot using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Spot' parameter and provide a max price or `-1`.
+The process to create a VM with Spot using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Spot' parameter, set the `--eviction-policy` to either Deallocate (this is the default) or `Delete`, and provide a max price or `-1`. 
 
 
 ## Install Azure CLI
@@ -33,7 +33,7 @@ az login
 
 ## Create a Spot VM
 
-This example shows how to deploy a Linux Spot VM that will not be evicted based on price. 
+This example shows how to deploy a Linux Spot VM that will not be evicted based on price. The eviction policy is set to deallocate the VM, so that it can be restarted at a later time. If you want to delete the VM and the underlying disk when the VM is evicted, set `--eviction-policy` to `Delete`.
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -44,8 +44,11 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1
+    --max-price -1 \
+	--eviction-policy Deallocate
 ```
+
+
 
 After the VM is created, you can query to see the max billing price for all of the VMs in the resource group.
 
@@ -58,6 +61,6 @@ az vm list \
 
 **Next steps**
 
-You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md) or a [template](spot-template.md).
+You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md), or a [template](spot-template.md).
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

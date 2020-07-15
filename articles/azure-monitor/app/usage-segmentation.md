@@ -53,7 +53,7 @@ The **Meet your users** section shows information about five sample users matche
 
 ## Next steps
 
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)

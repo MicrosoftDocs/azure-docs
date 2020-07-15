@@ -26,7 +26,7 @@ Ev4-series sizes run on the Intel Xeon&reg; Platinum 8272CL (Cascade Lake). The 
 Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Esv4 sizes. The pricing and billing meters for Esv4 sizes are the same as Ev4-series.
 
 > [!IMPORTANT]
-> These new sizes are currently under Public Preview Only. You can signup for these Dv4 and Dsv4-series [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> These new sizes are currently under Public Preview Only. You can signup for these Ev4 and Esv4-series [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195 - 210
 
@@ -55,7 +55,7 @@ Memory Preserving Updates: Supported
 Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Esv4-series instances are ideal for memory-intensive enterprise applications. Evs4-series VMs feature Intel&reg; Hyper-Threading Technology. Remote Data disk storage is billed separately from virtual machines.
 
 > [!IMPORTANT]
-> These new sizes are currently under Public Preview Only. You can signup for these Dv4 and Dsv4-series [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> These new sizes are currently under Public Preview Only. You can signup for these Ev4 and Esv4-series [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195-210
 
@@ -78,7 +78,7 @@ Memory Preserving Updates: Supported
 | Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Remote Storage Only | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> [Constrained core sizes available](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+<sup>1</sup> [Constrained core sizes available](./windows/constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

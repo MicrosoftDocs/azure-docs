@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 07/10/2020
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
@@ -29,10 +29,10 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks:
+Each AKS cluster includes four pre-created storage classes, two of them configured to work with Azure disks:
 
-* The *default* storage class provisions a standard Azure disk.
-    * Standard storage is backed by HDDs and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost-effective dev and test workload.
+* The *default* storage class provisions a standard SSD Azure disk.
+    * Standard storage is backed by Standard SSDs and delivers cost-effective storage while still delivering reliable performance. 
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
@@ -149,6 +149,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## Use Ultra Disks
+To leverage ultra disk see [Use Ultra Disks on Azure Kubernetes Service (AKS)](use-ultra-disks.md).
 
 ## Back up a persistent volume
 
@@ -282,3 +285,11 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

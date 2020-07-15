@@ -23,8 +23,8 @@ Transactional replication is a feature of Azure SQL Managed Instance and SQL Ser
 You can use transactional replication to push changes made in an Azure SQL Managed Instance to:
 
 - A SQL Server database - on-premises or on  Azure VM
-- A single or pooled database in Azure SQL Database
-- A single or pooled database in Azure SQL Managed Instance
+- A database in Azure SQL Database
+- An instance database in Azure SQL Managed Instance
 
   > [!NOTE]
   > To use all the features of Azure SQL Managed Instance, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
@@ -98,11 +98,10 @@ Transactional replication is useful in the following scenarios:
 
 ### Compare Data Sync with Transactional Replication
 
-| | Data Sync | Transactional Replication |
+| Category | Data Sync | Transactional Replication |
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
 | Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database <br/>- High maintenance cost |
-| | | |
 
 ## Common configurations
 

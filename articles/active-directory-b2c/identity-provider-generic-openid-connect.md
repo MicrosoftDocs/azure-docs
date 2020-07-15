@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
@@ -27,7 +27,7 @@ ms.subservice: B2C
 
 ## Configure the identity provider
 
-Every OpenID Connect identity provider describes a metadata document that contains most of the information required to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document is always located at an endpoint that ends in `.well-known\openid-configuration`. For the OpenID Connect identity provider you are looking to add, enter its metadata URL.
+Every OpenID Connect identity provider describes a metadata document that contains most of the information required to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document is always located at an endpoint that ends in `.well-known/openid-configuration`. For the OpenID Connect identity provider you are looking to add, enter its metadata URL.
 
 ## Client ID and secret
 

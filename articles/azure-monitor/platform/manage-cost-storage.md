@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/01/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -128,10 +128,9 @@ To set the default retention for your workspace,
 
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
-When the retention is lowered, there is a several day grace period before the oldest data is removed. 
-    
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
+When the retention is lowered, there is a several day grace period before the oldest data is removed. Also note workspaces with 30 days retention may actually retain data for 31 days. If it is imperative that data be kept for only 30 days, user Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 
 Two data types -- `Usage` and `AzureActivity` -- are retained for a minimum of 90 days by default, and there is no charge for for this 90 day retention. If the workspace retention is increased above 90 days, the retention of these data types will also be increased.  These data types are also free from data ingestion charges. 
 
@@ -185,11 +184,14 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## Manage your maximum daily data volume
 
-You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace.  
+You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage an **unexpected increase** in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace. It is not appropriate to set a daily cap so that it is met each day on a workspace.
 
 Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour cannot be configured. 
 
-Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. (Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level.) A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+
+> [!NOTE]
+> The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data.  
 
 > [!WARNING]
 > The daily cap does not stop the collection of data from Azure Sentinal or Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 

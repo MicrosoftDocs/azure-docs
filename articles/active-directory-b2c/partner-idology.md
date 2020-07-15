@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -37,7 +37,7 @@ The following architecture diagram shows the implementation.
 
 ![IDology architecture diagram](media/partner-idology/idology-architecture-diagram.png)
 
-|      |      |
+| Step | Description |
 |------|------|
 |1     | A user arrives at the sign-in page. |
 |2     | The user selects the sign-up option to create a new account and enter information into the page. Azure AD B2C collects the user attributes. |

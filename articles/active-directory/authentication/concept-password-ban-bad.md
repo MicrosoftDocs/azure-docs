@@ -128,7 +128,10 @@ Each of the above passwords does not specifically match the banned password "abc
 
 Substring matching is used on the normalized password to check for the user’s first and last name as well as the tenant name (note that tenant name matching is not done when validating passwords on an Active Directory domain controller).
 
-Example: assume that we have a user, Pol, who wants to reset their password to “P0l123fb”. After normalization, this password would become “pol123fb”. Substring matching finds that the password contains the user’s first name “Pol”. Even though “P0l123fb” was not specifically on either banned password list, substring matching found “Pol" in the password. Therefore this password would be rejected.
+   > [!IMPORTANT]
+   > Substring matching is only enforced for names (and other terms) that are at least four characters long.
+
+Example: assume that we have a user, Poll, who wants to reset their password to “p0LL23fb”. After normalization, this password would become “poll23fb”. Substring matching finds that the password contains the user’s first name “Poll”. Even though “poll23fb” was not specifically on either banned password list, substring matching found “Poll" in the password. Therefore this password would be rejected.
 
 #### Score Calculation
 
@@ -159,7 +162,7 @@ Since this password is at least five (5) points, it is accepted.
 
 ## License requirements
 
-|   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
+| Users | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
 | Cloud-only users | Azure AD Free | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |

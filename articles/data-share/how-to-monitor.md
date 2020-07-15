@@ -4,7 +4,7 @@ description: Learn how to monitor invitation status, share subscriptions, and sn
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
 ---
 
