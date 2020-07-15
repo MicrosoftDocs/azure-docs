@@ -68,8 +68,8 @@ The [Azure Activity log](platform-logs-overview.md) includes service health reco
 |:---|:---|
 | Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](./activity-log.md#view-the-activity-log) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](./activity-log.md) |
-| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](./resource-logs.md#collect-to-azure-storage)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](./resource-logs.md#collect-to-azure-event-hubs). |
+| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](./resource-logs.md#send-to-azure-storage)  |
+| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](./resource-logs.md#send-to-azure-event-hubs). |
 
 ### Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
@@ -91,7 +91,7 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](metrics-supported.md) |
-| Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](./resource-logs.md#collect-to-log-analytics-workspace) |
+| Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](./resource-logs.md#send-to-log-analytics-workspace) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
 ### Resource logs
@@ -101,9 +101,9 @@ The configuration requirements and content of resource logs vary by resource typ
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](./resource-logs.md#collect-to-azure-storage) |
-| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](./resource-logs.md#collect-to-log-analytics-workspace) |
-| Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](./resource-logs.md#collect-to-azure-event-hubs) |
+| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](./resource-logs.md#send-to-azure-storage) |
+| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](./resource-logs.md#send-to-log-analytics-workspace) |
+| Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](./resource-logs.md#send-to-azure-event-hubs) |
 
 ## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.

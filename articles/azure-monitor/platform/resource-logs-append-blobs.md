@@ -11,7 +11,7 @@ ms.subservice: logs
 # Format of Azure Monitor resource logs archived to a storage account
 
 > [!NOTE]
-> If you are sending [Azure resource resource logs or metrics to a storage account using resource diagnostic settings](./resource-logs.md#collect-to-azure-storage) or [activity logs to a storage account using log profiles](./activity-log.md#legacy-collection-methods), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
+> If you are sending [Azure resource resource logs or metrics to a storage account using resource diagnostic settings](./resource-logs.md#send-to-azure-storage) or [activity logs to a storage account using log profiles](./activity-log.md#legacy-collection-methods), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
 >
 > 
 
@@ -24,7 +24,7 @@ Azure Monitor offers a capability that enables you to send resource diagnostic d
 * Setting a diagnostic setting between now and November 1 continues to emit data in the current format until November 1.
 * This change will occur at once across all public cloud regions. The change will not occur in Microsoft Azure Operated by 21Vianet, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
-  * [Azure resource resource logs](./resource-logs.md#collect-to-azure-storage) ([see list of resources here](./resource-logs-schema.md))
+  * [Azure resource resource logs](./resource-logs.md#send-to-azure-storage) ([see list of resources here](./resource-logs-schema.md))
   * [Azure resource metrics being exported by diagnostic settings](diagnostic-settings.md)
   * [Azure Activity log data being exported by log profiles](./activity-log.md#legacy-collection-methods)
 * This change does not impact:
@@ -128,5 +128,5 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 ## Next steps
 
-* Learn about [archiving resource resource logs to a storage account](./resource-logs.md#collect-to-azure-storage)
+* Learn about [archiving resource resource logs to a storage account](./resource-logs.md#send-to-azure-storage)
 * Learn about [archiving activity log data to a storage account](./activity-log.md#legacy-collection-methods)
