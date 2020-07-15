@@ -391,6 +391,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+Monitor is currently not supported in PowerShell.
+
 ---
 
 When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When `nextCheck` exceeds `expiryTime`, the monitor ends.
@@ -489,6 +493,10 @@ main = df.Orchestrator.create(orchestrator_function)
 
 To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+# [PowerShell](#tab/powershell)
+
+Human interaction is currently not supported in PowerShell.
+
 ---
 
 An external client can deliver the event notification to a waiting orchestrator function by using the [built-in HTTP APIs](durable-functions-http-api.md#raise-event):
@@ -535,6 +543,10 @@ async def main(client: str):
     is_approved = True
     await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
+
+# [PowerShell](#tab/powershell)
+
+Human interaction is currently not supported in PowerShell.
 
 ---
 
@@ -617,6 +629,10 @@ module.exports = df.entity(function(context) {
 
 Durable entities are currently not supported in Python.
 
+# [PowerShell](#tab/powershell)
+
+Durable entities are currently not supported in PowerShell.
+
 ---
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
@@ -656,6 +672,10 @@ module.exports = async function (context) {
 # [Python](#tab/python)
 
 Durable entities are currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+Durable entities are currently not supported in PowerShell.
 
 ---
 
