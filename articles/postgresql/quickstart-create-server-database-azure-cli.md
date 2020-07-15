@@ -141,7 +141,9 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 
 ## Next steps
 > [!div class="nextstepaction"]
-> * [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
-> * [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
-> * [Connecct with Node.JS app](./connect-nodejs.md)
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
+> 
+> [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
+>
+> [Connect with Node.JS app](./connect-nodejs.md)
 
