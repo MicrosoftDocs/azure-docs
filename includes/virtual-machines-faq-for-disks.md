@@ -454,23 +454,23 @@ Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 Ti
 
 **What is the benefit of using Private Links for exporting and importing Managed Disks?**
 
-You can leverage Private Links for restricting the export and import to Managed Disks only from your Azure VNET. 
+You can leverage Private Links for restricting the export and import to Managed Disks only from your Azure virtual network. 
 
 **What can I ensure that a disk can be exported or imported only via Private Links?**
 
 You must set the `DiskAccessId` property to an instance of a disk access object and also set the NetworkAccessPolicy property to AllowPrivate.
 
-**Can I link multiple VNETs to the same disk access object?**
+**Can I link multiple virtual networks to the same disk access object?**
 
-No. Currently, you can link a disk access object to only one VNET.
+No. Currently, you can link a disk access object to only one virtual network.
 
-**Can I link a VNET to a disk access object in another subscription?**
+**Can I link a virtual network to a disk access object in another subscription?**
 
-No. Currently, you can link a disk access object to a VNET in the same subscription.
+No. Currently, you can link a disk access object to a virtual network in the same subscription.
 
-**Can I link a VNET to a disk access object in another subscription?**
+**Can I link a virtual network to a disk access object in another subscription?**
 
-No. Currently, you can link a disk access object to a VNET in the same subscription.
+No. Currently, you can link a disk access object to a virtual network in the same subscription.
 
 **How many exports or imports using the same disk access object can happen at the same time?**
 
