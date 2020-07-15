@@ -41,7 +41,11 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 ## What network plug-ins are supported?
 
-AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+
+## Is preserving the client source IP supported?
+
+At this time, [client source IP preservation][client-source-ip] is not supported with Windows nodes.
 
 ## Can I change the max. # of pods per node?
 
@@ -100,6 +104,10 @@ Group managed service accounts (gMSA) support is not currently available in AKS.
 
 Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) and metrics from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
 
+## Are there any limitations on the number of services on a cluster with Windows nodes?
+
+A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+
 ## What if I need a feature which is not supported?
 
 We work hard to bring all the features you need to Windows in AKS, but if you do encounter gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. Please make sure to check out our roadmap of features coming [AKS roadmap][aks-roadmap].
@@ -129,3 +137,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers

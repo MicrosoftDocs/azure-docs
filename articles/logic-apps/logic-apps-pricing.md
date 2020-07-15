@@ -72,7 +72,7 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 
@@ -92,7 +92,7 @@ A trigger is always the first step in a logic app workflow and is a special acti
 
 ## Actions
 
-Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
+Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
 
 Azure Logic Apps meters all successful and unsuccessful actions as executions. However, Logic Apps doesn't meter these actions:
 
@@ -117,7 +117,7 @@ If you have an [*integration service environment* (ISE)](../logic-apps/connect-v
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 

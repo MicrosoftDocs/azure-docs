@@ -1,5 +1,5 @@
 ---
-title: Configure GPU for Windows Virtual Desktop - Azure
+title: Configure GPU for Windows Virtual Desktop Fall 2019 - Azure
 description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop.
 services: virtual-desktop
 author: gundarev

@@ -35,8 +35,12 @@ A compute instance is a fully-managed cloud-based workstation optimized for your
 
 ## <a name="contents"></a>Tools and environments
 
-Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
+> [!IMPORTANT]
+> Tools marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
 These tools and environments are installed on the compute instance: 
 
