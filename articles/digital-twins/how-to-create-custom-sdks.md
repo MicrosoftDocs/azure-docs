@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title:  Create custom SDKs for Azure Digital Twins with AutoRest
+title: Create custom SDKs for Azure Digital Twins with AutoRest
 titleSuffix: Azure Digital Twins
 description: See how to generate custom SDKs, to use Azure Digital Twins with languages other than C#.
 author: baanders

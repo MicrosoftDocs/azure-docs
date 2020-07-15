@@ -15,25 +15,29 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-## Write client app authentication code: .NET (C#) SDK
+# Write client app authentication code
 
 After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to write code in that client app to authenticate it against the Azure Digital Twins instance.
 
-The code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
 
-### Prerequisites
+The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this process, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+
+You can also read more about the APIs and SDKs for Azure Digital Twins in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks).
+
+## Prerequisites
 
 First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance.md). This will ensure you have an Azure Digital Twins instance, your user has access permissions, and you've set up permissions for client applications. After all this setup, you are ready to write client app code.
 
-To proceed, you will need a client app .NET project in which you write your code. If you don't already have a client app project set up, create a basic .NET project to use with this tutorial.
+To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
-Next, include the following packages in your project In order to use the .NET SDK:
+## Authentication and client creation: .NET (C#) SDK
+
+First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
 * `Azure.Identity`
 
-Depending on your tools of choice, you can include the package using the Visual Studio package manager or the `dotnet` command line tool. 
-
-### Authentication and client creation: .NET
+Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
 
 To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library.
 
@@ -99,13 +103,15 @@ This section explains how to authenticate in that case.
 
 ### Prerequisites
 
+First, you should complete the steps to create a custom SDK with AutoRest, using the steps in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+
 This example uses a Typescript SDK generated with AutoRest. As a result, it also requires:
 * [msal-js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 * [ms-rest-js](https://github.com/Azure/ms-rest-js)
 
 ### Minimal authentication code sample
 
-To authenticate a .NET app with Azure services, you can use the following minimal code within your client app.
+To authenticate an app with Azure services, you can use the following minimal code within your client app.
 
 You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier, as well as the URL of your Azure Digital Twins instance.
 
