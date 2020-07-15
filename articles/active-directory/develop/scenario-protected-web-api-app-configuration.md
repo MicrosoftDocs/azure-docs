@@ -188,7 +188,7 @@ The validators are associated with properties of the **TokenValidationParameters
 
 In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well. For details see Microsoft.Identity.Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
-In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your startup.cs:
+In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your *Startup.cs*:
 
 ```c#
 services.AddMicrosoftWebApiAuthentication(Configuration);
