@@ -140,7 +140,7 @@ using Microsoft.Identity.Web;
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
- // Adds Microsoft Identity platform (AAD v2.0) support to protect this Api
+ // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
  services.AddMicrosoftWebApiAuthentication(Configuration, "AzureAd");
 
  services.AddControllers();
