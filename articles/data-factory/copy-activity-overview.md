@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/152020
+ms.date: 07/15/2020
 ms.author: jingwang
 
 ---
@@ -250,7 +250,7 @@ This feature is supported for the following connectors. You can find the option 
 
 ![Create sink tables](media/copy-activity-overview/create-sink-table.png)
 
-> [NOTE]
+> [!NOTE]
 > Currently auto table creation is not supported when [staged copy](copy-activity-performance-features.md#staged-copy) is enabled.
 
 ## Fault tolerance
