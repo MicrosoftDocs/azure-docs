@@ -310,7 +310,7 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 
 ### Skip API Version Check
 
-**Optional** -  When starting up, Azurite checks that the requested API version is valid. The following command skips the API version check:
+**Optional** - When starting up, Azurite checks that the requested API version is valid. The following command skips the API version check:
 
 ```console
 azurite --skipApiVersionCheck
