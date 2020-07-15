@@ -26,7 +26,7 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 When you use Custom Speech and Custom Voice, Speech service may store following data in the cloud:  
 
 * Speech trace data - only if your turn the trace on for your custom endpoint
-* Uploaded training and test data
+* Configuration JSON behind the Custom Commands application
 
 By default, your data are stored in Microsoft's storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service cannot directly access to your own data, such as speech trace data, customization training data and custom models.
 
@@ -46,5 +46,6 @@ The Speech service doesn't currently support Customer Lockbox. However, customer
 
 ## Next steps
 
-* [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk)
-* [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [Form Recognizer Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
