@@ -62,6 +62,11 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 ### Assisted machine learning (preview) 
 
+> [!IMPORTANT]
+> Assisted machine learning is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Machine learning algorithms may be triggered. If these algorithms are enabled in your project, you may see the following:
 
 * After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  

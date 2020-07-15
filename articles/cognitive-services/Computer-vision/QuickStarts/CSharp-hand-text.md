@@ -39,6 +39,7 @@ To create the sample in Visual Studio:
     2. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
     3. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
 3. Copy and paste the code below into the Program.cs file in your solution.
+1. Set `imageFilePath` to the path of your own image. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use.
 4. Run the program.
 
 ```csharp

@@ -24,7 +24,7 @@ With maintenance control, you can:
 
 ## Limitations
 
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
+- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
 
