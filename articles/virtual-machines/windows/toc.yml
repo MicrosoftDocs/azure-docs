@@ -154,7 +154,7 @@
     - name: Resource Manager templates
       href: template-description.md
   - name: Regions
-    href: regions.md
+    href: ../regions.md
     items:
     - name: About Azure Extensions
       href: ../extensions/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
