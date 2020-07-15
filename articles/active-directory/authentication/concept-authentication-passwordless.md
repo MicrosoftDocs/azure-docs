@@ -134,7 +134,7 @@ If you're a vendor and want to get your device on this list of supported devices
 To get started with FIDO2 security keys, complete the following how-to:
 
 > [!div class="nextstepaction"]
-> [Enable passwordless sign using FIDO2 security keys](howto-authentication-passwordless-security-key)
+> [Enable passwordless sign using FIDO2 security keys](howto-authentication-passwordless-security-key.md)
 
 
 ## What scenarios work with the preview?
