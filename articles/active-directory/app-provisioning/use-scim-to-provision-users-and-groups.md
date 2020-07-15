@@ -130,7 +130,7 @@ There are several endpoints defined in the SCIM RFC. You can get started with th
 |/Group|Perform CRUD operations on a group object.|
 |/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
 |/ResourceTypes|Specifies metadata about each resource|
-|/Schemas|The set of attributes supported by each client and service provider can vary. While one service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
+|/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
 
 
