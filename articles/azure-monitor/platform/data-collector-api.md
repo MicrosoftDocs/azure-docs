@@ -137,7 +137,7 @@ To identify a property's data type, Azure Monitor adds a suffix to the property 
 | GUID (stored as a string) |_g |
 
 > [!NOTE]
-> String values that appear to be GUIDs will be given the _g and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string is the _g in the name and the insertion of dashes if they aren't provided in the input. 
+> String values that appear to be GUIDs will be given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string is the _g in the name and the insertion of dashes if they aren't provided in the input. 
 
 The data type that Azure Monitor uses for each property depends on whether the record type for the new record already exists.
 
