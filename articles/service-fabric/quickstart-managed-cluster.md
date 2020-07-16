@@ -7,7 +7,7 @@ ms.date: 07/31/2020
 
 # Quickstart: Create a Managed Service Fabric cluster (preview)
 
-# Next steps
+## Next steps
 
 For a deeper dive on SFRP managed clusters, try the tutorial:
 
