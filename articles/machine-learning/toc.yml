@@ -394,58 +394,58 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-  - name: Build & use ML pipelines
-    displayName: pipelines
-    items: 
-      - name: Create ML pipelines (Python)
-        href: how-to-create-your-first-pipeline.md
-      - name: Moving data into and between ML pipeline steps (Python)
-        href: how-to-move-data-in-out-of-pipelines.md
-      - name: Schedule a pipeline (Python)
-        href: how-to-schedule-pipelines.md
-      - name: Trigger a pipeline
-        href: how-to-trigger-published-pipeline.md
-      - name: Debug & troubleshoot pipelines
-        displayName: designer
-        href: how-to-debug-pipelines.md
-      - name: Debug pipelines in Application Insights
-        href: how-to-debug-pipelines-application-insights.md
-      - name: Designer transform data
-        displayName: pipeline
-        href: how-to-designer-transform-data.md
-      - name: Designer retrain using published pipelines
-        displayName: retrain, designer, published pipeline
-        href: how-to-retrain-designer.md
-      - name: Designer batch predictions
-        displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-        href: how-to-run-batch-predictions-designer.md
-      - name: Designer execute Python code
-        displayName: feature extraction, feature engineering
-        href: how-to-designer-python.md
-      - name: Use parallel run step
-        displayName: score scoring batch consume pipeline parallelrunstep inference
-        href: how-to-use-parallel-run-step.md
-      - name: Debug & troubleshoot parallel run step
-        displayName: debug_batch consume pipeline parallelrunstep inference
-        href: how-to-debug-parallel-run-step.md
-      - name: Iterating and evolving machine learning pipelines
-        displayName: modularizing testing
-        href: concept-pipeline-practices-tips.md
-  - name: Azure Pipelines for CI/CD
-    displayName: continuous, integration, delivery
-    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
-  - name: Manage resource quotas
-    displayName: limits
-    href: how-to-manage-quotas.md
-  - name: Manage resources VS Code
-    displayName: vscode,resources
-    href: how-to-manage-resources-vscode.md
-  - name: Export and delete data
-    displayName: GDPR
-    href: how-to-export-delete-data.md
-  - name: Create event driven workflows
-    displayName: event grid
-    href: how-to-use-event-grid.md
+    - name: Build & use ML pipelines
+      displayName: pipelines
+      items: 
+        - name: Create ML pipelines (Python)
+          href: how-to-create-your-first-pipeline.md
+        - name: Moving data into and between ML pipeline steps (Python)
+          href: how-to-move-data-in-out-of-pipelines.md
+        - name: Schedule a pipeline (Python)
+          href: how-to-schedule-pipelines.md
+        - name: Trigger a pipeline
+          href: how-to-trigger-published-pipeline.md
+        - name: Debug & troubleshoot pipelines
+          displayName: designer
+          href: how-to-debug-pipelines.md
+        - name: Debug pipelines in Application Insights
+          href: how-to-debug-pipelines-application-insights.md
+        - name: Designer transform data
+          displayName: pipeline
+          href: how-to-designer-transform-data.md
+        - name: Designer retrain using published pipelines
+          displayName: retrain, designer, published pipeline
+          href: how-to-retrain-designer.md
+        - name: Designer batch predictions
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: Designer execute Python code
+          displayName: feature extraction, feature engineering
+          href: how-to-designer-python.md
+        - name: Use parallel run step
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: Debug & troubleshoot parallel run step
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
+        - name: Iterating and evolving machine learning pipelines
+          displayName: modularizing testing
+          href: concept-pipeline-practices-tips.md
+    - name: Azure Pipelines for CI/CD
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+    - name: Manage resource quotas
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Manage resources VS Code
+      displayName: vscode,resources
+      href: how-to-manage-resources-vscode.md
+    - name: Export and delete data
+      displayName: GDPR
+      href: how-to-export-delete-data.md
+    - name: Create event driven workflows
+      displayName: event grid
+      href: how-to-use-event-grid.md
 - name: Reference
   items: 
     - name: Python SDK
