@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Demand forecasting & AutoML
+title: 'Tutorial: Demand forecasting & AutoML'
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
