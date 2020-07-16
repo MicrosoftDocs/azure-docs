@@ -54239,6 +54239,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-az-cli-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
       "redirect_document_id": false
