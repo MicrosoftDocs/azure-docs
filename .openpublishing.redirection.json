@@ -49780,6 +49780,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/devtest-labs/enable-browser-connection-on-lab-virtual-machines.md",
+      "redirect_url": "/azure/devtest-labs/enable-browser-connection-lab-virtual-machines",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/lab-services/enable-managed-identities-lab-vms.md",
       "redirect_url": "/azure/devtest-labs/enable-managed-identities-lab-vms",
       "redirect_document_id": true
