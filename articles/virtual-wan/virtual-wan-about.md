@@ -64,7 +64,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ## <a name="connectivity"></a>Types of connectivity
 
-Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
+Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), Network Virtual Appliance (NVA) (Preview), and ExpressRoute.
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 
@@ -82,6 +82,11 @@ ExpressRoute lets you connect on-premises network to Azure over a private connec
 ### <a name="hub"></a>Hub-to-VNet connections
 
 You can connect an Azure virtual network to a virtual hub. For more information, see [Connect your VNet to a hub](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="nva"></a>Network Virtual Appliance connections (Preview)
+
+You can deploy a Barracuda CloudGen WAN Network Virtual Appliance (NVA) into a virtual hub, and connect your sites running Barracuda CPE to Virtual WAN. For connections between branch sites running Barracuda CPE and the Barracuda CloudGen WAN in the virtual hub, you configure this in the Barracuda portal. For more information, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan).
+
 
 ### <a name="transit"></a>Transit connectivity
 
