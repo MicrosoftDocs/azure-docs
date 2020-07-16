@@ -14,16 +14,19 @@ ms.date: 07/08/2020
 # What are Azure Machine Learning environments?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning environments specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
 
 You can use an `Environment` object on your local compute to:
 * Develop your training script.
 * Reuse the same environment on Azure Machine Learning Compute for model training at scale.
 * Deploy your model with that same environment.
+* Revisit the environment in which an existing model was trained.
 
 The following diagram illustrates how you can use a single `Environment` object in both your run configuration (for training) and your inference and deployment configuration (for web service deployments).
 
 ![Diagram of an environment in machine learning workflow](./media/concept-environments/ml-environment.png)
+
+The environment, compute target and training script together form the run configuration: the full specification of a training run.
 
 ## Types of environments
 
@@ -33,7 +36,7 @@ Curated environments are provided by Azure Machine Learning and are available in
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Conda doesn't check your environment or install anything for you. If you're defining your own environment, you must list `azureml-defaults` with version `>= 1.0.45` as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
-You use system-managed environments when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The Azure ML service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
+You use system-managed environments when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure ML service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
 
 ## Create and manage environments
 
