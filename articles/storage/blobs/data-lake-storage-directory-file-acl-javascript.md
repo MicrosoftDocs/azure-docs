@@ -214,6 +214,8 @@ async function ManageDirectoryACLs(fileSystemClient) {
 }
 ```
 
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`/`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
+
 ## Upload a file to a directory
 
 First, read a file. This example uses the Node.js `fs` module. Then, create a file reference in the target directory by creating a **FileClient** instance, and then calling the **FileClient.create** method. Upload a file by calling the **FileClient.append** method. Make sure to complete the upload by calling the **FileClient.flush** method.

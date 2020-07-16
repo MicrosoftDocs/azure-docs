@@ -12,7 +12,7 @@
   expanded: true
   items:
     - name: Use the Custom Script Extension
-      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
 - name: Concepts
   items:

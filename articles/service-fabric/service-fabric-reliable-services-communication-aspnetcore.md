@@ -466,8 +466,8 @@ Kestrel is the suggested web server for front-end services that expose external,
  
 When exposed to the internet, a stateless service should use a well-known and stable endpoint that's reachable through a load balancer. You'll provide this URL to your application's users. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | Kestrel is the preferred web server, as it's supported across Windows and Linux. |
 | Port configuration | static | A well-known static port should be configured in the `Endpoints` configuration of ServiceManifest.xml, such as 80 for HTTP or 443 for HTTPS. |
 | ServiceFabricIntegrationOptions | None | Use the `ServiceFabricIntegrationOptions.None` option when configuring Service Fabric integration middleware, so that the service doesn't attempt to validate incoming requests for a unique identifier. External users of your application won't know the unique identifying information that the middleware uses. |
@@ -491,8 +491,8 @@ If multiple externally exposed services share the same set of nodes, you can use
 ### Internal-only stateless ASP.NET Core service
 Stateless services that are only called from within the cluster should use unique URLs and dynamically assigned ports to ensure cooperation between multiple services. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | Although you can use HTTP.sys for internal stateless services, Kestrel is the best server to allow multiple service instances to share a host.  |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service might share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |
@@ -501,8 +501,8 @@ Stateless services that are only called from within the cluster should use uniqu
 ### Internal-only stateful ASP.NET Core service
 Stateful services that are only called from within the cluster should use dynamically assigned ports to ensure cooperation between multiple services. We recommend the following configuration:
 
-|  |  | **Notes** |
-| --- | --- | --- |
+| Type | Recommendation | Notes |
+| ---- | -------------- | ----- |
 | Web server | Kestrel | The `HttpSysCommunicationListener` isn't designed for use by stateful services in which replicas share a host process. |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service might share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |

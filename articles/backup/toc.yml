@@ -323,11 +323,11 @@
         href: azure-policy-configure-diagnostics.md
     - name: PowerShell
       items:
-      - name: Azure VMs in the Azure portal
+      - name: Azure VMs
         href: backup-azure-vms-automation.md
-      - name: DPM in the Azure portal
+      - name: Data Protection Manager (DPM)
         href: backup-dpm-automation.md
-      - name: Windows Server in the Azure portal
+      - name: Windows Server using the MARS agent
         href: backup-client-automation.md
       - name: SQL in Azure VM backups
         href: backup-azure-sql-automation.md

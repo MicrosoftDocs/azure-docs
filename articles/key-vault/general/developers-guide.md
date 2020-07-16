@@ -73,7 +73,7 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 
 #### Python
 
-[Azure Key Vault libraries for Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Azure Key Vault libraries for Python](/python/api/overview/azure/keyvault-keys-readme?view=azure-python)
 
 #### Azure CLI
 
