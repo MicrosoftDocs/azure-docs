@@ -3,17 +3,21 @@ title: 'Quickstart: Create a PHP web app'
 description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 05/25/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.date: 08/01/2020
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Create a PHP web app in Azure
+# Create a PHP web app in Azure App Service
 
-> [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a PHP web app in App Service on Linux](./containers/quickstart-php.md).
->
+::: zone pivot="platform-windows"  
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
+::: zone-end  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
+::: zone pivot="platform-linux"
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux.
+::: zone-end  
+
+You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -57,7 +61,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
+::: zone pivot="platform-windows"  
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
+::: zone-end  
+
+::: zone pivot="platform-linux"
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
+::: zone-end
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
@@ -65,8 +75,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. 
 
-In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
-
+In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.4`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -74,8 +83,9 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 # PowerShell
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 ```
+
 > [!NOTE]
-> The stop-parsing symbol `(--%)`, introduced in PowerShell 3.0, directs PowerShell to refrain from interpreting input as PowerShell commands or expressions. 
+> The stop-parsing symbol `(--%)`, introduced in PowerShell 3.0, directs PowerShell to refrain from interpreting input as PowerShell commands or expressions.
 >
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -101,10 +111,10 @@ You've created an empty new web app, with git deployment enabled.
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
 >
 
-Browse to your newly created web app. Replace _&lt;app name>_ with your unique app name created in the prior step.
+Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Here is what your new web app should look like:
