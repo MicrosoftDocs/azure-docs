@@ -43,7 +43,7 @@ You can mount a container in Blob storage from a Linux-based Azure Virtual Machi
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. If you plan to access a BlockBlobStorage account by using NFS 3.0 protocol, then register the `PremiumHns` feature by using the following command as well.
+5. Register the `PremiumHns` feature by using the following command as well.
 
    ```powershell
    Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
