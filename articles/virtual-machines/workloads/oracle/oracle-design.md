@@ -39,17 +39,17 @@ One important difference is that in an Azure implementation, resources such as V
 
 The following table lists some of the differences between an on-premises implementation and an Azure implementation of an Oracle database.
 
-> 
-> |  | **On-premises implementation** | **Azure implementation** |
-> | --- | --- | --- |
-> | **Networking** |LAN/WAN  |SDN (software-defined networking)|
-> | **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
-> | **Planned maintenance** |Patching/upgrades|[Availability sets](../../windows/infrastructure-example.md) (patching/upgrades managed by Azure) |
-> | **Resource** |Dedicated  |Shared with other clients|
-> | **Regions** |Datacenters |[Region pairs](/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Scale** |Vertical scale |Horizontal scale|
+
+|  | On-premises implementation | Azure implementation |
+| --- | --- | --- |
+| **Networking** |LAN/WAN  |SDN (software-defined networking)|
+| **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+| **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
+| **Planned maintenance** |Patching/upgrades|[Availability sets](../../windows/infrastructure-example.md) (patching/upgrades managed by Azure) |
+| **Resource** |Dedicated  |Shared with other clients|
+| **Regions** |Datacenters |[Region pairs](../../regions.md#region-pairs)|
+| **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Scale** |Vertical scale |Horizontal scale|
 
 
 ### Requirements
