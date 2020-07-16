@@ -6,7 +6,7 @@ ms.author: rymend
 ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
-ms.date: 06/30/2020
+ms.date: 07/17/2020
 ---
 
 # Accessing the Azure Education Hub
@@ -35,4 +35,5 @@ To access the Azure Education Hub, you should have already received an email not
 ## Next steps
 
 [Get started with the Azure Education Hub](get-started-education-hub.md)
+
 [Support options](educator-service-desk.md)
