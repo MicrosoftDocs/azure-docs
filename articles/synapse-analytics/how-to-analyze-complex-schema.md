@@ -80,7 +80,7 @@ The data frame above counts for 5 columns and 1 row only. After transformation, 
 
 With Synapse Spark, transforming nested structures into columns and array elements into multiple rows is easy. The following steps can be used for implementation.
 
-[![Spark transformations steps](./media/how-to-complex-schema/spark-transfo-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
+[![Spark transformations steps](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
 
 **Step 1**: We define a function to flatten the nested schema. This function can be used without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
 
@@ -194,22 +194,21 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 ```
 
 There are two different types of operations:
-1. The following line of code defines the column called `contextdataeventTime` that refers to the nested element: Context.Data.eventTime
+
+The first operation type is indicated in the following line of code, which defines the column called `contextdataeventTime` that refers to the nested element: Context.Data.eventTime 
 ```sql
 contextdataeventTime varchar(50) '$.context.data.eventTime'
 ```
 
 This line will define the column called contextdataeventTime that refers to the nest element: Context>Data>eventTime
 
-2.  `cross apply` is used to create new rows for each element under the array and then with defines each nested object similar to the first bullet point: 
+The second operation type uses `cross apply` to create new rows for each element under the array and then with defines each nested object similar to the first bullet point: 
 ```sql
 cross apply openjson (contextcustomdimensions) 
 with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
 ```
 
-If the array had 5 elements with 4 nested structures, SQL serverless would return 5 rows and 4 columns.
-
-SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns.
+If the array had 5 elements with 4 nested structures, SQL serverless would return 5 rows and 4 columns. SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns.
 
 ## Next steps
 
