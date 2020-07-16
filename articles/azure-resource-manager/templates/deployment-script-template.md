@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
 
 ---
@@ -602,32 +602,29 @@ After the script is tested successfully, you can use it as a deployment script i
 |------------|-------------|
 | Error code | Description |
 |------------|-------------|
-| DeploymentScriptInvalidOperation | The deployment script body contains invalid properties. |
-| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and its execution hasn't exceeded 1 hour. Cannot re-run two deployment scripts with the same resource identifier (same subscription, resource group name, and resource name) but different script body content. |
-| DeploymentScriptOperationFailed | Internal server error. |
+| DeploymentScriptInvalidOperation | The deployment script resource definition in the template contains invalid property names. |
+| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or cannot re-run the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time . |
+| DeploymentScriptOperationFailed | The deployment script operation failed internally. Please contact Microsoft support. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | The access key hasn't been specified for the existing storage account.|
-
-| DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by deployment script service got externally modified, and invalid containers got added. |
-| DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same name in the same resource group, and one of them has not finished its execution yet. |
-| DeploymentScriptStorageAccountInvalidKind | storage account does not support file shares. This error is shown when BlockBlobContainer or BlobContainer Kinds are used. |
-| DeploymentScriptStorageAccountInvalidKindAndSku | When using an existing storage account, the storage account does not support file shares. For a list of supported storage account kinds, see [Use existing storage acdcont](#use-existing-storage-account). |
-
-| DeploymentScriptStorageAccountNotFound | When running deployment scripts checks, the storage account was not found. When creating ACI and mounting a storage account, it is not found, probably got deleted by an external process or tool. |
-| DeploymentScriptStorageAccountWithServiceEndpointEnabled | storage account has Service Endpoint - not supported yet. |
+| DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by the deployment script service got externally modified, and invalid containers got added. |
+| DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them has not finished its execution yet. |
+| DeploymentScriptStorageAccountInvalidKind | The existing storage account of the BlobBlobStorage or BlobStorage type doesn't support file shares, and can't be used. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | The existing storage account does not support file shares. For a list of supported storage account kinds, see [Use existing storage account](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | The storage account doesn't exist or has been deleted by an external process or tool. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | The storage account specified has a service endpoint. A storage account with a service endpoint is not supported. |
 | DeploymentScriptStorageAccountInvalidAccessKey | Invalid access key specified for the existing storage account. |
-| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Invalid storage account key format (e.g. aaaaaaaaaa). |
-| DeploymentScriptExceededMaxAllowedTime | Script timeout property exceeded. |
-| DeploymentScriptInvalidOutputs | Script outputs is not a valid JSON object. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | Script wasn't able to successfully login after 10 attempts (with a wait of 1 min). |
-| DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. ???deployment scripts vs deployment script service|
-| DeploymentScriptDownloadFailure | Failed downloading the supporting script. See [Use supporting script](#use-supporting-script).|
-| DeploymentScriptError | Script threw an error. ??? script vs deployment script service|
-| DeploymentScriptBootstrapScriptExecutionFailed | Bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
-| DeploymentScriptExecutionFailed | For any unknown error that happens during the deployment script execution. |
-| DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance, the deployment script service threw a service unavailable error. ??? service vs deployment script service|
-| DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope. ???what scope|
-
-| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment). ??? need to document how to use an existing ACI.|
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Invalid storage account key format. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | Deployment script execution time exceeded the timeout value specified in the deployment script resource definition. |
+| DeploymentScriptInvalidOutputs | The deployment script outputs is not a valid JSON object. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity was not able to login after 10 attempts with 1 minute interval. |
+| DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. |
+| DeploymentScriptDownloadFailure | Failed downloading a supporting script. See [Use supporting script](#use-supporting-script).|
+| DeploymentScriptError | The user script threw an error. |
+| DeploymentScriptBootstrapScriptExecutionFailed | The bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
+| DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
+| DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance (ACI), ACI threw a service unavailable error. |
+| DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope (same subscription, resource group name, and resource name). |
+| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## Next steps
 
