@@ -16,14 +16,13 @@ ms.author: allensu
 ---
 
 
-# Diagnostic logs - Azure CDN
+# Diagnostic logs - Azure Content Delivery Network
 
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
  - Azure Storage account
- - Azure Event Hubs
  - Log Analytics workspace
- 
+  - Azure Event Hubs
 This feature is available on CDN endpoints for all pricing tiers. 
 
 Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
