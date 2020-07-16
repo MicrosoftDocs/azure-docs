@@ -34,7 +34,7 @@ For information on how Enterprise Agreement customers and pay-as-you-go customer
 
 The size of reservation is based on the total amount of compute used by the existing or soon-to-be-deployed coordinator and worker nodes in Hyperscale (Citus) server groups within a specific region.
 
-For example, let's suppose you're running one Hyperscale (Citus) server group with 16 vCore coordinator nodes and three 8 vCore worker nodes. Further, let's assume you plan to deploy within the next month an additional Hyperscale (Citus) server group with a 32 vCore coordinator and two 4 vCore worker nodes. Let's also suppose  you need these resources for at least one year.
+For example, let's suppose you're running one Hyperscale (Citus) server group with 16 vCore coordinator and three 8 vCore worker nodes. Further, let's assume you plan to deploy within the next month an additional Hyperscale (Citus) server group with a 32 vCore coordinator and two 4 vCore worker nodes. Let's also suppose  you need these resources for at least one year.
 
 In this case, purchase a one-year reservation for:
 
