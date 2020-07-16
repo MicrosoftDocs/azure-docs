@@ -48,23 +48,13 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 
 ## Region availability
 
-Azure HPC Cache is available in these Azure regions:
+Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) page to learn where Azure HPC Cache is available.
 
-| North America      | Europe         | Asia            | Australia      | Azure Government |
-|--------------------|----------------|-----------------|----------------|------------------|
-| East US            | North Europe   | Korea Central   | Australia East | US Gov Arizona   |
-| East US 2          | West Europe    | Southeast Asia  |                | US Gov Virginia  |
-| South Central US   | UK South       | | |
-| West US            | | | | |
-| West US 2          | | | | |
-
-The [customer-managed keys feature](customer-keys.md) is supported only in these regions:
+The [customer-managed keys feature](customer-keys.md) is supported only in these Azure regions:
 
 * East US
 * South Central US
 * West US 2
-
-Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
 
 ## Service availability
 
