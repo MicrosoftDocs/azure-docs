@@ -70,7 +70,7 @@ Now select **Add current client IP address** and then select **Save**. You can a
 > Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.  
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md)** to connect to the server from your local environment. In this quickstart , we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to connect to the server.
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart , we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to connect to the server.
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 
