@@ -13,7 +13,7 @@ ms.author: kenwith
 ROBOTS: NOINDEX
 ---
 
-# Get It Now - add an app from the Azure Marketplace for Azure AD apps
+# Get It Now - add an app from the Azure Marketplace
 
 You are almost there! 
 
