@@ -109,13 +109,13 @@ This section explains the process for setting up an Azure Digital Twins instance
 
 First, you will create a new Azure resource group for use in this how-to. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
 
-### Permission requirements
+#### Permission requirements
 
 Owner role required: **No**
 
 You do not have to be an owner on the Azure subscription to run this step.
 
-### Run the creation command
+#### Run the creation command
 
 In this section, you'll create an instance with the Cloud Shell command. You'll need to provide a name for your instance, a resource group to deploy it in, and a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
