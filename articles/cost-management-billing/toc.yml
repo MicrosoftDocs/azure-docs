@@ -271,7 +271,7 @@
         - name: App Service
           href: reservations/prepay-app-service-isolated-stamp.md
         - name: Azure Cache for Redis reservation
-          href: ../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+          href: /azure/data-explorer/pricing-reserved-capacity
         - name: Cosmos DB
           href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
         - name: Databricks
