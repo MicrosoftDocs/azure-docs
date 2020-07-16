@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -19,3 +19,6 @@ The following list describes the levels at which you can scope access to Azure b
 - **The storage account.** At this scope, a role assignment applies to all containers and their blobs, or to all queues and their messages.
 - **The resource group.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in the resource group.
 - **The subscription.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in all of the resource groups in the subscription.
+- **A management group.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in all of the resource groups in all of the subscriptions in the management group.
+
+For more information about RBAC role assignments and scope, see [What is Azure role-based access control (Azure RBAC)?](../articles/role-based-access-control/overview.md).
