@@ -45,7 +45,6 @@ Below is an example of XML dataset on Azure Blob Storage:
             "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",
@@ -64,11 +63,11 @@ Below is an example of XML dataset on Azure Blob Storage:
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the XML source.
 
-Learn about how to extract data from XML files and map to sink data store/format from [schema mapping](copy-activity-schema-and-type-mapping.md).
+Learn about how to map XML data and sink data store/format from [schema mapping](copy-activity-schema-and-type-mapping.md). When previewing XML files, data is shown with JSON hierarchy, and you use JSON path to point to the fields.
 
 ### XML as source
 
-The following properties are supported in the copy activity ***\*source\**** section.
+The following properties are supported in the copy activity ***\*source\**** section. Learn more from [XML connector behavior](#xml-connector-behavior).
 
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -81,18 +80,18 @@ Supported **XML read settings** under `formatSettings`:
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **XmlReadSettings**. | Yes      |
-| validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **None** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
-| namespacePrefixes | Namespace URI to prefix mapping which will be used to name columns when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the column name will be as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the column name will be “prefix:localName”. | No |
+| validationMode | Specifies whether to validate the XML schema.<br>Allowed values are **none** (default, no validation), **xsd** (validate using XSD), **dtd** (validate using DTD). | No |
+| namespacePrefixes | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
 | preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy. When set to true (default), Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`; when set to false, Data Factory writes unzipped files directly to `<path specified in dataset>`.  | No |
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read and write to XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
-The below table lists the properties supported by an XML source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional file settings which are the same as the properties described in [dataset properties](#dataset-properties) section.
+The below table lists the properties supported by an XML source. You can edit these properties in the **Source options** tab. Learn more from [XML connector behavior](#xml-connector-behavior). When using inline dataset, you will see additional file settings which are the same as the properties described in [dataset properties](#dataset-properties) section. 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -104,7 +103,8 @@ The below table lists the properties supported by an XML source. You can edit th
 | Filter by last modified | Choose to filter files based upon when they were last altered | No | Timestamp | modifiedAfter <br>modifiedBefore |
 | Validation mode | Specifies whether to validate the XML schema. | No | `None` (default, no validation)<br>`xsd` (validate using XSD)<br>`dtd` (validate using DTD). | validationMode |
 | Namespaces | Whether to enable namespace when parsing the XML files. | No | `true` (default) or `false` | namespaces |
-| Namespace prefix pairs | Namespace URI to prefix mapping which will be used to name columns when parsing the xml file.<br>If an XML file has namespace and namespace is enabled, by default, the column name will be as it is in the XML document<br>If there is an item defined for the namespace URI in this map, the column name will be “prefix:localName”. | No | Array with pattern`['URL1'->'prefix1','URL2'->'prefix2']` | namespacePrefixes |
+| Namespace prefix pairs | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.
+If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 
 ### XML source script example
 
@@ -129,13 +129,28 @@ source(allowSchemaDrift: true,
 	namespaces: true) ~> XMLSource
 ```
 
-## XML file pattern
+### XML connector behavior
 
-When copying data from XML files, Data Factory can parse the following pattern of XML files.
+Note the following when using XML as source.
 
-```xml
+- XML attributes:
 
-```
+    - Attributes of an element are parsed as the sub-fields of the element in the hierarchy.
+    - The name of the attribute field follows the pattern `@attributeName`.
+
+- XML schema validation:
+
+    - You can choose to not validate schema, or validate schema using XSD or DTD.
+    - When using XSD or DTD to validate XML files, the XSD/DTD must be referred inside the XML files through relative path.
+
+- Namespace handling:
+
+    - Namespace can be disabled when using data flow, in which case the attributes that defines the namespace will be parsed as normal attributes.
+    - When namespace is enabled, the names of the element and attributes follow the pattern       `namespaceUri,elementName` and `namespaceUri,@attributeName` by default. You can define namespace prefix for each namespace URI in source, in which case the names of the element and attributes follow the pattern `definedPrefix:elementName` or `definedPrefix:@attributeName` instead.
+
+- Value column:
+
+    - If an XML element has both simple text value and attributes/child elements, the simple text value       is parsed as the value of a "value column" with built-in field name `_value_`. And it inherits the namespace of the element as well if applies.
 
 ## Next steps
 
