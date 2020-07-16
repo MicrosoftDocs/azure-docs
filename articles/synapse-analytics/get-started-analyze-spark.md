@@ -101,5 +101,5 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Analyze using SQL on-demand](get-started-analyze-sql-on-demand.md)
+> [Analyze data in Storage](get-started-analyze-storage.md)
 
