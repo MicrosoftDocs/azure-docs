@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ---
 # Hybrid Runbook Worker overview
@@ -70,6 +70,17 @@ The service tag for the Azure Automation service only provides IPs used for the 
 
 >[!NOTE]
 >The service tag **GuestAndHybridManagement** currently doesn't support runbook job execution in an Azure sandbox, only directly on a Hybrid Runbook Worker.
+
+## Support for Impact Level 5 (IL5)
+
+Azure Automation Hybrid Runbook Worker can be used in Azure Government to support Impact Level 5 workloads in either of the following two configurations:
+
+* [Isolated virtual machine](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). When deployed, they consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
+
+* [Azure Dedicated Hosts](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), which provides physical servers that are able to host one or more virtual machines, dedicated to one Azure subscription.
+
+>[!NOTE]
+>Compute isolation through the Hybrid Runbook Worker role is available for Azure Commercial and US Government clouds. 
 
 ## Update Management on Hybrid Runbook Worker
 
