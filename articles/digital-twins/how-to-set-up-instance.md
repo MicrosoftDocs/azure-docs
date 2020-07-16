@@ -91,6 +91,12 @@ Here are the steps to run the deployment script in Cloud Shell.
 
 The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an AAD app registration for your client app to use.
 
+Here is an excerpt of the output log from the script:
+
+:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Cloud Shell window showing log of input and output through the run of the deploy script":::
+
+If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
+
 Upon script completion, you now have an Azure Digital Twins instance ready to go and permissions set up to manage it.
 
 ## Option 2: Manual setup
