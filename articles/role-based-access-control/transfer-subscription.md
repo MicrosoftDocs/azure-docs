@@ -184,7 +184,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 1. Review the [list of Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) to note where you might be using managed identities.
 
-1. Use [az ad sp list](/azure/ad/sp#az-ad-sp-list) to list your system-assigned and user-assigned managed identities.
+1. Use [az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) to list your system-assigned and user-assigned managed identities.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

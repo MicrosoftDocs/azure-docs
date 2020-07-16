@@ -80,23 +80,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-	| | |
-	|-|-|
-	| `https://<tenant_domain_name>.eu.uniflowonline.com`|
-	| `https://<tenant_domain_name>.us.uniflowonline.com`|
-	| `https://<tenant_domain_name>.sg.uniflowonline.com`|
-	| `https://<tenant_domain_name>.jp.uniflowonline.com`|
-	| `https://<tenant_domain_name>.au.uniflowonline.com`|
+	- `https://<tenant_domain_name>.eu.uniflowonline.com`
+	- `https://<tenant_domain_name>.us.uniflowonline.com`
+	- `https://<tenant_domain_name>.sg.uniflowonline.com`
+	- `https://<tenant_domain_name>.jp.uniflowonline.com`
+	- `https://<tenant_domain_name>.au.uniflowonline.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| | |
-	|-|-|
-	| `https://<tenant_domain_name>.eu.uniflowonline.com`|
-	| `https://<tenant_domain_name>.us.uniflowonline.com`|
-	| `https://<tenant_domain_name>.sg.uniflowonline.com`|
-	| `https://<tenant_domain_name>.jp.uniflowonline.com`|
-	| `https://<tenant_domain_name>.au.uniflowonline.com`|
+	- `https://<tenant_domain_name>.eu.uniflowonline.com`
+	- `https://<tenant_domain_name>.us.uniflowonline.com`
+	- `https://<tenant_domain_name>.sg.uniflowonline.com`
+	- `https://<tenant_domain_name>.jp.uniflowonline.com`
+	- `https://<tenant_domain_name>.au.uniflowonline.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.

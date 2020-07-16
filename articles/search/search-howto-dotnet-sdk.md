@@ -167,46 +167,49 @@ This time we use a query key since we do not need write access to the index. You
 If you run this application with a valid service name and API keys, the output should look like this example:
 (Some console output has been replaced with "..." for illustration purposes.)
 
-	Deleting index...
+```output
 
-	Creating index...
+Deleting index...
 
-	Uploading documents...
+Creating index...
 
-	Waiting for documents to be indexed...
+Uploading documents...
 
-	Search the entire index for the term 'motel' and return only the HotelName field:
+Waiting for documents to be indexed...
 
-	Name: Secret Point Motel
+Search the entire index for the term 'motel' and return only the HotelName field:
 
-	Name: Twin Dome Motel
+Name: Secret Point Motel
 
-
-	Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-	HotelId: 2
-	Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+Name: Twin Dome Motel
 
 
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
 
-	Name: Triple Landscape Hotel
-	Last renovated on: 9/20/2015 12:00:00 AM +00:00
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
 
-	Name: Twin Dome Motel
-	Last renovated on: 2/18/1979 12:00:00 AM +00:00
+HotelId: 2
+Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
 
 
-	Search the hotel names for the term 'hotel':
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
 
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
+Name: Triple Landscape Hotel
+Last renovated on: 9/20/2015 12:00:00 AM +00:00
 
-	Complete.  Press any key to end application... 
+Name: Twin Dome Motel
+Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+Search the hotel names for the term 'hotel':
+
+HotelId: 3
+Name: Triple Landscape Hotel
+...
+
+Complete.  Press any key to end application... 
+```
 
 The full source code of the application is provided at the end of this article.
 
@@ -563,7 +566,9 @@ When designing your own model classes to map to an Azure Cognitive Search index,
 
 This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Cognitive Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
@@ -677,9 +682,11 @@ WriteDocuments(results);
 
 In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` parameter. Here are the results:
 
-    Name: Secret Point Motel
+```output
+Name: Secret Point Motel
 
-    Name: Twin Dome Motel
+Name: Twin Dome Motel
+```
 
 The next query is a little more interesting.  We want to find any hotels that have a room with a nightly rate of less than $100 and return only the hotel ID and description:
 
@@ -700,11 +707,13 @@ This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`
 
 Here are the results of the query:
 
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+```output
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
 
-	HotelId: 2
-	Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+HotelId: 2
+Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+```
 
 Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
 
@@ -726,8 +735,10 @@ In this case, we again use OData syntax to specify the `OrderBy` parameter as `l
 
 Here are the results:
 
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```output
+Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```
 
 Finally, we want to find all hotels names that match the word "hotel":
 
@@ -743,9 +754,11 @@ WriteDocuments(results);
 
 And here are the results, which include all fields since we did not specify the `Select` property:
 
+```output
 	HotelId: 3
 	Name: Triple Landscape Hotel
 	...
+```
 
 This step completes the tutorial, but don't stop here. **Next steps provide additional resources for learning more about Azure Cognitive Search.
 

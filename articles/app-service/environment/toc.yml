@@ -46,6 +46,8 @@
     href: forced-tunnel-support.md
   - name: Firewall integration
     href: firewall-integration.md
+  - name: Zone redundancy
+    href: zone-redundancy.md
 - name: Reference
   items:
   - name: Management addresses

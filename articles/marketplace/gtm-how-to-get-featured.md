@@ -1,13 +1,12 @@
 ---
 title: Go-To-Market Services - How to get featured in marketplace | Azure Marketplace
 description: Go-To-Market Services - This section describes how to get a listing featured in Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-
 ---
 
 # How to get featured in AppSource and Azure Marketplace

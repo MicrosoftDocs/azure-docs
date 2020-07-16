@@ -1,14 +1,8 @@
 ---
 title: 'Quickstart: Send custom events to web endpoint - Event Grid, Azure portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
 ---
 
 # Quickstart: Route custom events to web endpoint with the Azure portal and Event Grid

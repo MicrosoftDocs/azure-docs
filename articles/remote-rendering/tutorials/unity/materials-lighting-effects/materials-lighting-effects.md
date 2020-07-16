@@ -1,8 +1,8 @@
 ---
 title: Refining materials, lighting, and effects
 description: Modify model materials and lighting. Add additional effects like outlining and cut planes.
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---

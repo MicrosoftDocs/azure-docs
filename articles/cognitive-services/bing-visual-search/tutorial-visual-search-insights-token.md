@@ -124,8 +124,8 @@ For more information about these data types, see [Images - Visual Search](https:
 
 The complete application returns the following URLs:
 
-|ActionType  |URL  | |
-|---------|---------|---------|
+|ActionType  |URL  |
+|---------|---------|
 |MoreSizes -> WebSearchUrl     |         |
 |VisualSearch -> WebSearchUrl     |         |
 |ImageById -> WebSearchUrl    |         |

@@ -156,8 +156,8 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
+**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
 Start a local cluster after the installation finishes.

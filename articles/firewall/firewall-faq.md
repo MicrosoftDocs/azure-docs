@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.author: victorh
 ---
 
@@ -218,3 +218,7 @@ A standard behavior of a network firewall is to ensure TCP connections are kept 
 ## Can I deploy Azure Firewall without a public IP address?
 
 No, currently you must deploy Azure Firewall with a public IP address.
+
+## Where does Azure Firewall store customer data?
+
+Azure Firewall doesn't move or store customer data out of the region it is deployed in.

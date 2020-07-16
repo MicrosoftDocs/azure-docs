@@ -80,7 +80,7 @@
       - name: Azure Storage
         href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Azure SQL
-        href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Logic apps
         href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Maintenance Control configuration

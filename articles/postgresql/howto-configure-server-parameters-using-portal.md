@@ -4,7 +4,7 @@ description: This article describes how to configure the Postgres parameters in 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2018
 ---
 

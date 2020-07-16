@@ -18,7 +18,7 @@ Review the [ExpressRoute circuits and routing domains](expressroute-circuit-peer
 ## NAT requirements for Microsoft peering
 The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, and Skype for Business. Microsoft expects to support bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. Traffic destined to your network from Microsoft cloud services must be SNATed at your Internet edge to prevent [asymmetric routing](expressroute-asymmetric-routing.md). The figure below provides a high-level picture of how the NAT should be set up for Microsoft peering.
 
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![High-level diagram of how the NAT should be set up for Microsoft peering.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 ### Traffic originating from your network destined to Microsoft
 * You must ensure that traffic is entering the Microsoft peering path with a valid public IPv4 address. Microsoft must be able to validate the owner of the IPv4 NAT address pool against the regional routing internet registry (RIR) or an internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute routing requirements](expressroute-routing.md) page for information on routing registries.
@@ -49,7 +49,7 @@ The Azure public peering path enables you to connect to all services hosted in A
 
 Traffic destined to Microsoft Azure on public peering must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. The figure below provides a high-level picture of how the NAT could be set up to meet the above requirement.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![High-level diagram of how the NAT could be set up to be SNATed to valid public IPv4 addresses before they enter the Microsoft network.](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### NAT IP pool and route advertisements
 You must ensure that traffic is entering the Azure public peering path with valid public IPv4 address. Microsoft must be able to validate the ownership of the IPv4 NAT address pool against a regional routing Internet registry (RIR) or an Internet routing registry (IRR). A check will be performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute routing requirements](expressroute-routing.md) page for information on routing registries.
