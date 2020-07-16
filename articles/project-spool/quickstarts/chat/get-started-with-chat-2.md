@@ -19,6 +19,12 @@ This sample application allows multiple users to connect with an agent simultane
 
 The chat application is a web application implemented with React (client) and .NET core (server) to demonstrate a set of features built on top of the Azure Communication Service platform. It shows how to use the the ACS Chat SDK JS, ACS configuration SDK C# and direct calls from the contoso server to the ACS Chat Gateway Apis.   
 
+> [!WARNING]
+> We are actively working on the packaging of this sample to reduce the size and its dependencies with other packages. Please check for the latest artifacts in the [release folder](https://github.com/Azure/communication-preview/release).
+>
+
+
+
 ## Prerequisites
 Before you get started, make sure to:
 
