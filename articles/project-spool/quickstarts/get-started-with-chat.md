@@ -5,7 +5,7 @@ author: mikben
 manager: jken
 services: azure-project-spool
 
-ms.author: gelli
+ms.author: gelli, juramir
 ms.date: 06/26/2020
 ms.topic: overview
 ms.service: azure-project-spool
@@ -23,14 +23,18 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Communication Resource](https://review.docs.microsoft.com/en-us/azure/project-spool/quickstarts/create-a-communication-resource?branch=pr-en-us-104477)
 > * Install [Node.js](https://nodejs.org)
-> * Download the [Azure Communication Services - Chat SDK](https://github.com/Azure/communication-preview/releases)
+> * Download the [Acs web chat SDK](https://github.com/Azure/communication-preview/releases/download/0.1.147/acs-chat-client-web-sdk-0.1.147.zip) 
 
 
-## Install the package
-Install the Azure Communication Services Javascript SDK
+
+## Installing the Acs web chat SDK
+Unzip the web chat sdk content on a local folder, and install each of the packages in the following order
+
 
 ```bash
-npm install @ic3/communicationservices-chat
+npm install "C:\yourfolder\ic3-communicationservices-client-0.1.147.tgz"
+npm install "C:\yourfolder\ic3-communicationservices-signaling-0.1.147.tgz"
+npm install "C:\yourfolder\ic3-communicationservices-chat-0.1.147.tgz"
 ```
 
 
@@ -101,8 +105,23 @@ let messageId = messageResponse.id;
 ```
 
 ## Receive messages from a thread
+You can subscribe your application to listen for message received events and update the current messages in memory accordingly. 
 
-Currently you can retrieve chat messages using `getMessages` method, and it will require your application to poll ACS.
+```Javascript
+        const clientOptions = {
+            isTestEnv: true,
+            signalingDisabled: false
+        };
+
+        var chatClient = new ChatClient('chatGatewayUrl', new UserAccessTokenCredential(token), clientOptions);
+
+        chatClient.on("messageReceived", (e) => {
+                console.log("Notification messageReceived!");
+                //your code here
+        });
+```
+
+Alternatively you can retrieve chat messages using the `getMessages` method on the chat client at specified intervals (polling). 
 
 ```Javascript
 let messages = await chatClient.getMessages(threadId);
@@ -125,7 +144,7 @@ await chatClient.addMembers(Thread_ID, {
 //Pass back to the user the USER_ID and Access Token both of which you get from the User Token Response.
 
 ```
-## Remove Users to a thread
+## Remove Users from a thread
 Similar to above, you can also remove users from a thread. In order to remove, you will need to track the ids of the members you have added.
 ```Javascript
 
@@ -149,7 +168,8 @@ In this quick start you learned how to:
 > * Create a thread with 2 users
 > * Send a message to the thread
 > * Receive messages from a thread
+> * Add Users to a thread
+> * Remove Users from a thread
 
-Now you can try the [chat demo sample web application](get-started-with-chat-2)
- and explore some more advanced features 
+Now you can try the [chat demo sample web application](get-started-with-chat-2) and explore some more advanced features 
 
