@@ -8,13 +8,12 @@ ms.date: 06/30/2020
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
-<!--
 > [!WARNING]
-> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
-
-**This document and feature are set for deprecation.**
--->
+> **The pod security policy feature on AKS is set for deprecation on October 15th, 2020** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md).
+>
+> The feature described in this document, pod security policy (preview), will be disabled for new clusters to enable after October 15th, 2020. Existing clusters using pod security policy (preview) after removal will be required to disable the feature to upgrade the cluster.
+>
+> It is highly recommended to begin testing scenarios with Azure Policy for AKS which offers unique policies to support scenarios supported by pod security policy. Click here to learn about [migrating to Azure Policy.](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy)
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
@@ -43,6 +42,8 @@ az extension update --name aks-preview
 ```
 
 ### Register pod security policy feature provider
+
+**This document and feature are set for deprecation on October 15th, 2020.**
 
 To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
