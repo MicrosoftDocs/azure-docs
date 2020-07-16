@@ -85,6 +85,8 @@ Next, follow steps below for designer configuration:
 
 1. Drag the dataset your created earlier into the canvas.
 
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Dataset on the canvas.":::
+
     ![Project Columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png)
 
 ## Clean the data
