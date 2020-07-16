@@ -41,7 +41,7 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 
 You can do the following operations with node pools:
 
-* Create a dedicated system node pool
+* Create a dedicated system node pool (enforced isolation for system pods from application pods)
 * Change a system node pool to be a user node pool, provided you have another system node pool to take its place in the AKS cluster.
 * Change a user node pool to be a system node pool.
 * Delete user node pools.
