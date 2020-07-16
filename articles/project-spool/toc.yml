@@ -129,7 +129,7 @@
       #- name: Data Channels
       #  href: concepts/video/data-channels.md
   - name: Diagnostics and metrics
-  items:
+    items:
     - name: Metrics definitions 
       href: concepts/azure-communication-metric-definitions.md
     - name: Leveraging metrics and logs
