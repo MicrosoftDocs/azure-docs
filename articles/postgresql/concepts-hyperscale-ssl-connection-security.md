@@ -20,7 +20,19 @@ Likewise, connection strings that are pre-defined in the "Connection Strings" se
 Some application frameworks that use PostgreSQL for their database services do not enable TLS by default during installation. If your PostgreSQL server enforces TLS connections but the application is not configured for TLS, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable TLS connections.
 
 ## Applications that require certificate verification for TLS connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Database for PostgreSQL - Hyperscale (Citus) is located at https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Download the certificate file and save it to your preferred location.
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Database for PostgreSQL - Hyperscale (Citus) is located at https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem. Download the certificate file and save it to your preferred location.
+
+> [!NOTE]
+>
+> To check the certificate's authenticity, you can verify its SHA-256
+> fingerprint using the OpenSSL commnad line tool:
+>
+> ```sh
+> openssl x509 -in DigiCertGlobalRootCA.crt.pem -noout -sha256 -fingerprint
+>
+> # should output:
+> # 43:48:A0:E9:44:4C:78:CB:26:5E:05:8D:5E:89:44:B4:D8:4F:96:62:BD:26:DB:25:7F:89:34:A4:43:C7:01:61
+> ```
 
 ### Connect using psql
 The following example shows how to connect to your Hyperscale (Citus) coordinator node using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
