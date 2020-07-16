@@ -91,7 +91,7 @@ If your application exchanges an authorization code for an access token, you nee
 #### [App registrations](#tab/app-reg-ga/)
 
 1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *webapp1*.
-1. In the left pane, in **Manage** section, select **Certificates & secrets**.
+1. In the left pane, under **Manage** section, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
