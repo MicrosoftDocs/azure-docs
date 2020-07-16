@@ -225,6 +225,8 @@ If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India 
     ```
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
+---
+
 ::: zone target="docs"
 
 ## Next steps
