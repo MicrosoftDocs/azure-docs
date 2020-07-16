@@ -27,7 +27,7 @@ To step through this tutorial, you need:
 
 ## Get the data
 
-The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first exported to Azure Data Lake Storage account as Azure Synapse doesn't currently support datasets. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview). Use the following query for import:
+The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first exported to Azure Data Lake Storage account as Azure Synapse doesn't currently support datasets. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-overview). Use the following query for import:
 
 ```sql
 SELECT [CustomerKey]
