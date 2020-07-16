@@ -175,7 +175,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 The following table shows the operating systems and languages that support portal editing:
 
-| | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
+| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

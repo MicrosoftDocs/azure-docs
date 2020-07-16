@@ -945,17 +945,17 @@ We will be following the guide to [create the availability group resources in th
 
 1. Use one of the following commands based on the environment chosen earlier to create the resource `ag_cluster` in the availability group `ag1`.
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Check your resource and ensure that they are online before proceeding using the following command:
 

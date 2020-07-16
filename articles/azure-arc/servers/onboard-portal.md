@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -146,6 +146,9 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
 `azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 ## Verify the connection with Azure Arc
 

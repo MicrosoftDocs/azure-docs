@@ -91,9 +91,9 @@ Environment(name="myenv")
 
 If you are defining your own environment, you must list `azureml-defaults` with version >= 1.0.45 as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
-### Use Conda, pip, and Docker files
+### Use Conda and pip specification files
 
-You can create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want. You can also create an environment from a Docker file with the [`load_from_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) method. In the method argument, include the path to the source directory containing the Docker file. 
+You can create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want. 
 
 ```python
 # From a Conda specification file
@@ -102,10 +102,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
 
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
-                                          file_path = "path-to-pip-requirements-file")
-                                          
-# From a Docker file
-myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
+                                          file_path = "path-to-pip-requirements-file")                                          
 ```
 
 ### Use existing environments
