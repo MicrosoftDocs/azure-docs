@@ -33,9 +33,12 @@ This section shows how to create an alert when you receive a HTTP status code 42
 
    * **Scope:** Open the **Select resource** blade and configure the following:
 
-     * Choose your **subscription** name
+     * Choose your **subscription** name.
+
      * Select **Azure Cosmos DB accounts** for the **resource type**.
+
      * The **location** of your Azure Cosmos account.
+
      * After filling in the details, a list of Azure Cosmos accounts in the selected scope are displayed. Choose the one for which you want to configure alerts and select **Done**.
 
    * **Condition:** Open the *Select condition** blade and configure the following:
@@ -56,13 +59,14 @@ This section shows how to create an alert when you receive a HTTP status code 42
 
      * After filling the form, select **Done**.
 
-     :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configure the logic to receive alerts for rate limited/429 requests":::
+       :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configure the logic to receive alerts for rate limited/429 requests":::
 
    * **Action group:** On the **Create rule** pane, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs. For this example, create an action group to send you an email notification when the alert is triggered.
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure the action type such as email notification to receive the alert":::
+      :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure the action type such as email notification to receive the alert":::
 
    * **Alert rule details:** Define a name for the rule, provide an optional description, the severity level of the alert, choose whether to enable the rule upon rule creation, and then select **Create rule alert** to create the metric rule alert.
 
-After creating the alert, it will be active within 10 minutes. 
+After creating the alert, it will be active within 10 minutes.
+
 ## Next steps
