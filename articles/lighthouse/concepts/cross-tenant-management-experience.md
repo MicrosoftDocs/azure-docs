@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 07/16/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
 ---
 
@@ -41,18 +41,17 @@ We also provide APIs that are specific to performing Azure Lighthouse tasks. For
 
 Most tasks and services can be performed on delegated resources across managed tenants. Below are some of the key scenarios where cross-tenant management can be especially effective.
 
-[Azure Arc for Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+[Azure Arc](../../azure-arc/index.yml):
 
-- [Connect a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
-- [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
-- Enforce policies across connected clusters
-
-[Azure Arc for servers (preview)](../../azure-arc/servers/overview.md):
-
-- [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
-- Manage connected machines using Azure constructs, such as Azure Policy and tagging
-- Ensure the same set of policies are applied across customers' hybrid environments
-- Use Azure Security Center to monitor compliance across customers' hybrid environments
+- Manage hybrid servers at scale - [Azure Arc for servers (preview)](../../azure-arc/servers/overview.md):
+  - [Connect Windows Server or Linux machines outside Azure](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
+  - Manage connected machines using Azure constructs, such as Azure Policy and tagging
+  - Ensure the same set of policies are applied across customers' hybrid environments
+  - Use Azure Security Center to monitor compliance across customers' hybrid environments
+- Manage hybrid Kubernetes clusters at scale - [Azure Arc for Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+  - [Connect a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
+  - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
+  - Enforce policies across connected clusters
 
 [Azure Automation](../../automation/index.yml):
 
