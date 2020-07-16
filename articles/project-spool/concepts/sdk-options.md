@@ -12,9 +12,9 @@ ms.service: azure-project-spool
 
 ---
 
-# SDKs Options
+# SDK Options
 
-ACS capabilities are conceptually organized into 7 areas, which align to packaged assembles and API namespaces where appropriate for the language. Some areas have fully open-sourced SDKs and can be directly accessed over the network. These open-source SDKs can be found in the Azure SDK GitHub repository. The Calling APIs use proprietary network interfaces and require packaged libraries built by the ACS team.
+Azure Communication Services (ACS) capabilities are conceptually organized into 7 areas, which align to packaged assembles and API namespaces where appropriate for the language. Some areas have fully open-sourced SDKs and can be directly accessed over the network. These open-source SDKs can be found in the Azure SDK GitHub repository. The Calling APIs use proprietary network interfaces and require packaged libraries built by the ACS team.
 
 Assembly    | Protocols| Namespaces| Capabilities
 ----|----|---|---|
