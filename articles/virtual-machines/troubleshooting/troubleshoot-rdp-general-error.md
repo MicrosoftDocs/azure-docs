@@ -180,7 +180,7 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
 #### Step 1: Turn on Remote Desktop
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. Start a Remote Desktop connection to the recovery VM.
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 4. Start a Remote Desktop connection to the recovery VM.

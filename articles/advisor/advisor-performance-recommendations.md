@@ -1,4 +1,4 @@
-﻿---
+---
 title: Improve performance of Azure apps with Advisor
 description: Use performance recommendations in Azure Advisor to improve the speed and responsiveness of your business-critical applications.
 ms.topic: article
@@ -11,7 +11,7 @@ The performance recommendations in Azure Advisor can help improve the speed and 
 
 ## Reduce DNS time-to-live on your Traffic Manager profile to fail over to healthy endpoints faster
 
-You can use [time-to-live (TTL) settings](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) on your Azure Traffic Manager profile to specify how quickly to switch endpoints if a given endpoint stops responding to queries. If you reduce the TTL values, clients will be routed to functioning endpoints faster.
+You can use [time-to-live (TTL) settings](../traffic-manager/traffic-manager-performance-considerations.md) on your Azure Traffic Manager profile to specify how quickly to switch endpoints if a given endpoint stops responding to queries. If you reduce the TTL values, clients will be routed to functioning endpoints faster.
 
 Azure Advisor identifies Traffic Manager profiles that have a longer TTL configured. It recommends configuring the TTL to either 20 seconds or 60 seconds, depending on whether the profile is configured for [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
@@ -22,7 +22,7 @@ Azure Advisor provides a consistent, consolidated view of recommendations for al
 > [!NOTE]
 > Before you can get recommendations, your database needs to be in use for about a week, and within that week there needs to be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
-For more information, see [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+For more information, see [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
 
 ## Upgrade your Storage client library to the latest version for better reliability and performance
 
@@ -34,7 +34,7 @@ Azure Advisor integrates recommendations for improving your App Service experien
 * Detection of instances where memory or CPU resources are exhausted by app runtimes, with mitigation options.
 * Detection of instances where co-locating resources like web apps and databases can improve performance and reduce cost.
 
-For more information, see [Best practices for Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+For more information, see [Best practices for Azure App Service](../app-service/app-service-best-practices.md).
 
 ## Use managed disks to prevent disk I/O throttling
 
@@ -48,11 +48,11 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ## Remove data skew on your SQL Data Warehouse tables to increase query performance
 
-Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
 ## Create or update outdated table statistics in your SQL Data Warehouse tables to increase query performance
 
-Advisor identifies tables that don't have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating the statistics. The query optimizer in Azure SQL Data Warehouse uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
+Advisor identifies tables that don't have up-to-date [table statistics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) and recommends creating or updating the statistics. The query optimizer in Azure SQL Data Warehouse uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
 
 ## Improve MySQL connection management
 
@@ -71,7 +71,7 @@ Advisor identifies tables that aren't replicated tables but that would benefit f
 - The table distribution type. 
 - The number of partitions on the SQL Data Warehouse table. 
 
-Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## Migrate your storage account to Azure Resource Manager to get the latest Azure features
 
@@ -83,7 +83,7 @@ Migrate your storage account deployment model to Azure Resource Manager to take 
 Advisor identifies any stand-alone storage accounts that are using the classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
-> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Classic alerts in Azure Monitor were retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [classic alerts retirement](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## Design your storage accounts to prevent reaching the maximum subscription limit
 
@@ -115,17 +115,17 @@ Advisor detects unsupported versions of Kubernetes.
 High utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help to optimize the runtime of the database queries and improve overall performance. Advisor identifies servers with a high CPU utilization that are likely running CPU-constrained workloads and recommends scaling your compute.
 
 ### Reduce memory constraints on your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers, or move to a Memory Optimized SKU
-A low cache hit ratio can result in slower query performance and increased IOPS. This condition could be caused by a bad query plan or a memory-intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends that you take one of these actions: 
+A low cache hit ratio can result in slower query performance and increased IOPS. This condition could be caused by a bad query plan or a memory-intensive workload. Fixing the query plan or [increasing the memory](../postgresql/concepts-pricing-tiers.md) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends that you take one of these actions: 
 - Fix the query plan
 - Move to an SKU that has more memory 
 - Increase storage size to get more IOPS.
 
 ### Use an Azure Database for MySQL or Azure Database for PostgreSQL read replica to scale out reads for read-intensive workloads
-Advisor uses workload-based heuristics like the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. An Azure Database for PostgreSQL or Azure Database for MySQL resource with a high read/write ratio can result in CPU or memory contentions and lead to slow query performance. Adding a [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) will help to scale out reads to the replica server and prevent CPU or memory constraints on the primary server. Advisor identifies servers with read-intensive workloads and recommends that you add a [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) to offload some of the read workloads.
+Advisor uses workload-based heuristics like the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. An Azure Database for PostgreSQL or Azure Database for MySQL resource with a high read/write ratio can result in CPU or memory contentions and lead to slow query performance. Adding a [replica](../postgresql/howto-read-replicas-portal.md) will help to scale out reads to the replica server and prevent CPU or memory constraints on the primary server. Advisor identifies servers with read-intensive workloads and recommends that you add a [read replica](../postgresql/concepts-read-replicas.md) to offload some of the read workloads.
 
 
 ### Scale your Azure Database for MySQL, Azure Database for PostgreSQL, or Azure Database for MariaDB server to a higher SKU to prevent connection constraints
-Each new connection to your database server occupies memory. The database server's performance degrades if connections to your server are failing because of an [upper limit](https://docs.microsoft.com/azure/postgresql/concepts-limits) in memory. Azure Advisor identifies servers running with many connection failures. It recommends upgrading your server's connection limits to provide more memory to your server by taking one of these actions:
+Each new connection to your database server occupies memory. The database server's performance degrades if connections to your server are failing because of an [upper limit](../postgresql/concepts-limits.md) in memory. Azure Advisor identifies servers running with many connection failures. It recommends upgrading your server's connection limits to provide more memory to your server by taking one of these actions:
 - Scale up compute. 
 - Use Memory Optimized SKUs, which have more compute per core.
 
@@ -163,4 +163,4 @@ To learn more about Advisor recommendations, see:
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)
 * [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)
