@@ -19,7 +19,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet)**.** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed VNet](managed-virtual-network-private-endpoint.md).** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
 
 > [!NOTE]
 >
@@ -75,8 +75,6 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 
-> [!NOTE]
-> During Private Preview, use [aka.ms/adfVnet](https://aka.ms/adfVnet) for creating a new data factory.
 
 2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**.
 
@@ -98,18 +96,24 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 
-8. Select the checkbox for **Enable Managed Virtual Network (Preview)**.
 
-9. Select **Create**.
+8. Select **Create**.
 
-   ![Create data factory](./media/tutorial-copy-data-portal-private/new-data-factory.png)
-> [!NOTE]
-> If you do not see 'Enable Managed VNet (Preview)' option, then use [aka.ms/adfVnet](https://aka.ms/adfVnet) for creating a new data factory
 
-10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
 
-11. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
+## Create a Azure Integration Runtime in ADF Managed Virtual Network
+In this step, you create a Azure Integration Runtime and enable Managed Virtual Network.
+
+1. In ADF portal, go to **Manage Hub** and click **New** to create a new Azure Integration Runtime.
+   ![Create new Azure Integration Runtime](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+2. Choose to create a **Azure** Integration Runtime.
+   ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/azure-ir.png)
+3. Enable **Virtual Network**.
+   ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+4. Select **Create**.
 
 ## Create a pipeline
 In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal), you created a pipeline by following these steps:
