@@ -12,7 +12,7 @@
   - name: Generating Reference Docs
     href: automatingreferencedocs.md
 - name: About Azure Communication Services
-    href: overview.md
+  href: overview.md
 - name: Quickstarts
   expanded: true
   items:
