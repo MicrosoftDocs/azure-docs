@@ -77,7 +77,7 @@ Take the following steps if returning the device in Europe.
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
 4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
-3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
+5. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
 ### [Australia](#tab/in-australia)
 
@@ -127,7 +127,6 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements.
     4. You receive a verbal confirmation if the request is made via telephone.
-
 
 ### [Singapore](#tab/in-singapore)
 
@@ -201,7 +200,7 @@ Attach the shipping label provided and paste it on the box. This label contains 
 |Phone:      | 400.889.6066 ext. 3603 |
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
-### [In Self-Managed](#tab/in-selfmanaged)
+### [Self-Managed](#tab/in-selfmanaged)
 
 If you are using Data Box Disk in Japan, Singapore, Korea, West Europe, or India and have selected the self-managed shipping option during order creation, follow these instructions.
 
@@ -233,7 +232,7 @@ In this tutorial, you learned about Azure Data Box Disk topics such as:
 Advance to the next how-to to learn how to verify data upload from Data Box Disk to the Azure Storage account.
 
 > [!div class="nextstepaction"]
-> [Verify data upload from Azure Data Box Disk](./data-box-disk-deploy-picked-up.md)
+> [Verify data upload from Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
 
