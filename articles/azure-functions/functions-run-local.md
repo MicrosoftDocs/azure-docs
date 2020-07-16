@@ -50,7 +50,7 @@ Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Windows](#tab/windows)
 
-The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/), or [Windows Package Manager](https://docs.microsoft.com/en-us/windows/package-manager). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Install [Node.js], which includes npm.
     - For version 3.x of the tools, only Node.js 10 and later versions are supported.
