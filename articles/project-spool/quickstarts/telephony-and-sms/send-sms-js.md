@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 # Quickstart: Send an SMS message with Javascript
-Azure Communication Services lets you easily send and receive SMS messages. In this quick start, learn how to use Communication Services to send SMS messages using the SDK in Javascript.
+Azure Communication Services lets you easily send and receive SMS messages. In this quickstart, learn how to use Communication Services to send SMS messages using the SDK in Javascript.
 
 You can receive SMS messages and Delivery Reports by using ACS' EventGrid integration to subscribe to webhooks, and have ACS call your service when an SMS message is received. See the [EventGrid concept for more information.](../concepts/acs-event-grid.md)
 

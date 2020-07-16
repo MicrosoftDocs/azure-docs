@@ -12,13 +12,13 @@ ms.service: azure-project-spool
 
 ---
 # Quickstart: How to place an outgoing telephone call from the application
-Azure Communication Services lets you aquire multiple telephone (PSTN) numbers to your your Azure Communication Services resource and placing and outgoing telephone call using those numbers.
+Azure Communication Services lets you acquire multiple telephone (PSTN) numbers to your your Azure Communication Services resource and placing and outgoing telephone call using those numbers.
 
 ## Prerequisites
 To be able to place an outgoing telephone call, you need following:
 
 - **Deployed Azure Communication Service resource.** Please follow a quickstart to [create an Azure Communication Resource](./create-a-communication-resource).
-- **An ACS configured telephone number(s).** Check out the quick start for telephone number management for more information on how to aquire a telephone number. NOTE: For private preview, please contact Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+- **An ACS configured telephone number(s).** Check out the quick start for telephone number management for more information on how to acquire a telephone number. NOTE: For private preview, please contact Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
 - **Download ACS Management SDK and deploy via Azure Functions** 
 - **Download Client SDK with Sample application** 
 

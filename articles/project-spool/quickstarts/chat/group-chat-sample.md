@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 
-# Group Chat Sample 1:N
+# Get Started With The 1:N Group Chat Sample
 
 This sample application allows multiple users to connect with an agent simultaneously and use different chat features including chat, emoticons, readreceipts, typing indicator among others.
 
