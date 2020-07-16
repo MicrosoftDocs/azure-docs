@@ -34,9 +34,9 @@ Before you get started, make sure to:
 2. Open the appSettings.json file, and replace the AcsResourceConnectionString and AcsResourceId from your Azure Communication Resource found in the Azure Portal (http://portal.azure.com/) as showed below:
 
 
-![AcsResourceConnectionString](./media/chat-groupsample0.png)
+![AcsResourceConnectionString](../media/chat-groupsample0.png)
 
-![AcsResourceId](./media/chat-groupsample1.png)
+![AcsResourceId](../media/chat-groupsample1.png)
 
 ## Update the appsettings.config
 On the Chat project, update the following 2 settings :
@@ -59,14 +59,14 @@ A new browser  should launch the 'user interface' on port 5000.
 You can simulate different 'users' by opening multiple tabs loading the same URL (https://localhost:5000).
 
 
-![ClientsScreen](./media/chat-groupsample2.png)
+![ClientsScreen](../media/chat-groupsample2.png)
 
  
 ### 3. Open a new tab, and go to : https://localhost:5000/agent
 This will load the 'Agent' interface, which will allow simultaneous / independent chats between each user and the agent.
 
 
-![AgentScreen](./media/chat-groupsample3.png)
+![AgentScreen](../media/chat-groupsample3.png)
 
 
 
