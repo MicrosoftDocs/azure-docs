@@ -17,22 +17,25 @@ ms.author: iainfou
 
 When you create an Azure Active Directory Domain Services (Azure AD DS) managed domain, you define a unique namespace. This namespace is the domain name, such as *aaddscontoso.com*, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set.
 
-You can expand a managed domain to have more than one replica set per Azure AD tenant. This ability provides geographical disaster recover for a managed domain. You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
 
 Replica sets are currently in preview.
 
 > [!NOTE]
-> Replica sets don't let you deploy multiple unique managed domains in a single Azure tenant.
+> Replica sets do not let you deploy multiple unique managed domains in a single Azure tenant. Each replica set contains the same data.
 
 ## How replica sets work
 
-When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created to apply the domain configuration. Additional replica sets share the same namespace and configuration. Configuration changes, or user and credentials updates, are applied to all replica sets in the managed domain using AD DS replication.
+When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Azure AD DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
 
-You create each replica set in a virtual network. Each virtual network must be peered to every other virtual network that hosts a managed domain's replica set. This configuration creates a mesh network topology that supports directory replication. A virtual network can support multiple replica sets provided each replica set is in a different virtual subnet.
+You create each replica set in a virtual network. Each virtual network must be peered to every other virtual network that hosts a managed domain's replica set. This configuration creates a mesh network topology that supports directory replication. A virtual network can support multiple replica sets, provided that each replica set is in a different virtual subnet.
 
-Users, groups, group memberships, and password hashes are replicated using normal intrasite replication to provide the quickest convergence possible.
+All replica sets are placed in the same Active Directory site. As the result, all changes are propagated using intrasite replication for quick convergence.
 
-The following diagram shows a managed domain with two replica sets. The first replica set is created with the domain namespace, and a second replica set is created afterwards:
+> [!NOTE]
+> It is not possible to define separate sites and define replication settings between replica sets.
+
+The following diagram shows a managed domain with two replica sets. The first replica set is created with the domain namespace. A second replica set is created after that:
 
 ![Diagram of example managed domain with two replica sets](./media/concepts-replica-sets/two-replica-set-example.png)
 
@@ -51,7 +54,7 @@ The default SKU for a managed domain is the *Enterprise* SKU, which supports mul
 
 The maximum number of replica sets supported during preview is four, including the first replica created when you created the managed domain.
 
-Azure bills each replica set based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, Azure bills your subscription per hour for each of the three replica sets.
+Billing for each replica set is based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, your subscription will be billed per hour for each of the three replica sets.
 
 ## Frequently asked questions
 
@@ -69,7 +72,7 @@ The preview is limited to a maximum of four replica sets - the initial replica s
 
 ### How does user and group information get synchronized to my replica sets?
 
-All replica sets are connected to each other using a mesh virtual network peering. One replica set receives user and group updates from Azure AD. Those changes are then replicated to the other replica sets using normal AD DS replication over the peered network.
+All replica sets are connected to each other using a mesh virtual network peering. One replica set receives user and group updates from Azure AD. Those changes are then replicated to the other replica sets using intrasite AD DS replication over the peered network.
 
 Just like with on-premises AD DS, an extended disconnected state can cause disruption in replication. As peered virtual networks aren't transitive, the design requirements for replica sets requires a fully meshed network topology.
 
