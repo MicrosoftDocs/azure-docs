@@ -154,6 +154,16 @@ Previously you could not delete the system node pool, which was the initial defa
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
+## Clean up resources
+
+To delete the cluster, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+
+
 ## Next steps
 
 In this article, you learned how to create and manage system node pools in an AKS cluster. For more information about how to use multiple node pools, see [use multiple node pools][use-multiple-node-pools].
