@@ -404,9 +404,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    The differences between the base images are described in the [App Services - Custom docker images tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Rebuild the image by using the `docker build` command again, replacing `<docker_id>` with your Docker ID:
 
     ```
