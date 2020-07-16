@@ -1,6 +1,6 @@
 ---
-title: Private Links (preview) for exporting and importing Azure Managed Disks 
-description: Private links for securely exporting and importing data to Azure Managed Disks
+title: Azure portal - Restrict import/export access to managed disks with Private Links (preview)
+description: Enable Private Links (preview) for your managed disks with Azure portal. Allowing you to securely export and import disks within only your virtual network.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable Private Links (preview) for importing and exporting managed disks - Azure portal
+# Azure portal - Restrict import/export access for managed disks with Private Links (preview)
 
 You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises.  Now you can leverage [private links](../private-link/private-link-overview.md) (preview) for restricting the export and import to Managed Disks only from your Azure virtual network. Moreover, you are rest assured that the data never goes over the public internet and always travels within the secure Microsoft backbone network when you use Private Links. 
 
@@ -43,7 +43,7 @@ You will need to note down the virtual network of the VM that your disks are att
 1. On the create blade, select your subscription, a resource group, enter a name, and select a region.
 1. Select **Review + create**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="Screenshot of disk access creation blade. Fill in the desired name, select a region, select a resource group, and proceed":::
 
 When your resource has been created, navigate directly to it.
 
@@ -56,13 +56,13 @@ Now that you have a disk access resource, you can use it to handle access to you
 1. From your disk access resource, select **Private endpoint connections**.
 1. Select **+ Private endpoint**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Screenshot of the overview blade for your disk access resource. Private endpoint connections is highlighted.":::
 
 1. Select a resource group
 1. Fill in the name and select the same region your disk access resource was created in.
 1. Select **Next: Resource >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot of the private endpoint creation workflow, first blade. If you do not select the appropriate region then you may encounter issues later on.":::
 
 1. On the **Resource** blade, select **Connect to an Azure resource in my directory**.
 1. For **Resource type** select **Microsoft.Compute/diskAccesses**
@@ -70,7 +70,7 @@ Now that you have a disk access resource, you can use it to handle access to you
 1. Leave the **Target sub-resource** as **disks**
 1. Select **Next : Configuration >**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Screenshot of the private endpoint creation workflow, second blade. With all the values highlighted (Resource type, Resource, Target sub-resource)":::
 
 1. Select the virtual network that you want to limit the disk export to, other virtual networks will not be able to export your disk.
 
@@ -80,7 +80,7 @@ Now that you have a disk access resource, you can use it to handle access to you
 1. Select the appropriate subnet
 1. Select **Review + create**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Screenshot of the private endpoint creation workflow, third blade. Virtual network and subnet emphasized.":::
 
 ## Enable private endpoint on your disk
 
@@ -89,7 +89,7 @@ Now that you have a disk access resource, you can use it to handle access to you
 1. Select **Private endpoint (through disk access)** and select the disk access you created earlier.
 1. Select **Save**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="example text":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Screenshot of the managed disk networking blade. Highlighting the private endpoint selection as well as the selected disk access. Saving this configures your disk for this access.":::
 
 You've now completed configuring Private Links that you can use when importing/exporting your managed disk.
 
