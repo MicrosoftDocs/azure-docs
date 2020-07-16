@@ -26,7 +26,7 @@ When you create an Azure Integration Runtime (IR) within Azure Data Factory Mana
 
 Creating an Azure IR within managed Virtual Network ensures that data integration process is isolated and secure. 
 
-Benefits of using Managed Virtual Network :
+Benefits of using Managed Virtual Network:
 
 - With a Managed Virtual Network, you can offload the burden of managing the Virtual Network to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime that could eventually use many private IPs from your Virtual Network and would require prior network infrastructure planning. 
 - It does not require deep Azure networking knowledge to do data integrations securely. Instead getting started with secure ETL is much simplified for data engineers. 
@@ -52,8 +52,9 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
->
-> **Warning**: If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+ 
+> [!WARNING]
+> If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
