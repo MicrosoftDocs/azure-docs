@@ -15,16 +15,17 @@ ms.custom: mvc
 > [!TIP]
 > Consider using the simpler [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
-This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL server in five minutes.  If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
->Note : If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+> [!NOTE]
+> If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Prerequisites
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property  which refers to **Subscription ID** for your Azure account. 
+You'll need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
@@ -46,19 +47,19 @@ az group create --name myresourcegroup --location westus
 Create an Azure Database for MySQL server with the [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) command. A server can contain multiple databases.
 
 ```azurecli
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
 ```
 
 Here are the details for arguments above : 
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Choose a unique name that identifies your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+name | mydemoserver | Enter a unique name for your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
 location | westus | The Azure location for the server.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. Please see the [pricing tiers](./concepts-pricing-tiers.md) for more infromation.
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](./concepts-pricing-tiers.md) for more information.
 
 >[!IMPORTANT] 
 >- The default MySQL version on your server is 5.7 . We currently have 5.6 and 8.0 versions also available.
@@ -66,9 +67,9 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration.
 >- SSL is enabled by default on your server . For more infroamtion on SSL, see [Configure SSL connectivity](howto-configure-ssl.md)
 
 ## Configure a server-level firewall rule 
-By default the server created is not publicly accessible and protected with firewall rules. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server. 
+By default the new server created is protected with firewall rules and not accessible publicly. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server. 
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or use a range of IP addresses that correspond to where you'll be connecting from. If you don't know how to look for your IP, go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address you will be connecting from. You can use an range of IP addresses if needed. Don't know how to look for your IP, then go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -116,7 +117,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
-**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool is popular client used to conect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment if you have it available.
+**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool is popular client used to connect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment if you have it available.
 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
