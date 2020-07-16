@@ -31896,6 +31896,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/time-series-insights/time-series-insights-long-data-type.md",
+      "redirect_url": "/azure/time-series-insights/breaking-changes-long-data-type",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/time-series-insights/tutorial-explore-js-client-lib.md",
       "redirect_url": "https://tsiclientsample.azurewebsites.net/",
       "redirect_document_id": false
