@@ -14,7 +14,7 @@ ms.service: azure-project-spool
 During private preview, follow the steps below to request phone numbers from the Communication services team:
 
 ### 1. Define the type and region where you want you want to get phone numbers from
-- Please refer to [this document](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/plan-your-telephony-and-sms-solution?branch=pr-en-us-104477) to understand the offers available as of now
+- Please refer to [this document](../../concepts/telephony-and-sms/plan-your-telephony-and-sms-solution) to understand the offers available as of now
 
 ### 2. Define how many phone numbers you want to acquire
 
@@ -22,8 +22,8 @@ During private preview, follow the steps below to request phone numbers from the
 - Log into the [Azure Portal](https://portal.azure.com/)
 - Navigate to your Communication services resource
 - You can find your **Stable Resource id** either in the `Overview page` or in the `Buy phone numbers dialog`:
-![stable resource id in overview page](./media/request-phone-number1.png)
-![stable resource id in buy phone numbers dialog](./media/request-phone-number2.png)
+![stable resource id in overview page]( ../media/request-phone-number1.png)
+![stable resource id in buy phone numbers dialog](../media/request-phone-number2.png)
 
 ### 4. Email the information above to phone@microsoft.com
 
