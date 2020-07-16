@@ -69,7 +69,7 @@ Welcome to what's new in the Cognitive Services docs from June 1, 2020 through J
 - [Use language generation templates for speech responses](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
 - [Implementing corrections in a command](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration)
 - [Add parameters to commands](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [Add simple commands](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
+- [Add simple commands](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands)
 - [Add validations to custom command parameters](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#add-validation-to-parameters)
 - [Create a Custom Commands application](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands#create-empty-application)
 - [CI/CD for Custom Speech](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
