@@ -129,7 +129,7 @@ source(allowSchemaDrift: true,
 	namespaces: true) ~> XMLSource
 ```
 
-### XML connector behavior
+## XML connector behavior
 
 Note the following when using XML as source.
 
