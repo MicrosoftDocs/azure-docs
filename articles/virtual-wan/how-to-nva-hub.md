@@ -9,7 +9,7 @@ ms.date: 07/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
-# How to create a Network Virtual Appliance in a Virtual WAN hub (Preview)
+# How to create a Network Virtual Appliance in an Azure Virtual WAN hub (Preview)
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance** (NVA) in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
