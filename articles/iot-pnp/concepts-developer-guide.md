@@ -1,152 +1,296 @@
 ---
 title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
-description: Description of device modeling for IoT Plug and Play developers
+description: Description of IoT Plug and Play for developers
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play Preview modeling developer guide
+# IoT Plug and Play Preview developer guide
 
 IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-To build an IoT Plug and Play device, you create a _model_ to describe the device using the [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL).
+This guide describes the basic steps required to create a device that follows the [IoT Plug and Play Convention](concepts-convention.md), and the available REST apis to interact with the device.
 
-## Device model
+To build an IoT Plug and Play device, you must follow the next steps:
 
-With DTDL, you create a model to describe your device in terms of Telemetry, Properties and Commands. These elements can be combined in different interfaces. A device model can be defined with one or more interfaces. To use more than one interface DTDL allows to use __components__ as the mechanism to create interface instances. 
+1. Ensure your device is using MQTT or MQTT over web sockets as the protocol to connect to Azure IoT Hub.
+1. Create your DTDL model to describe your device. Modeling is explained in more detail in [Understand components in Azure IoT Plug and Play models](concepts-components.md).
+1. Update your device to _announce_ the `model-id` as part of the device connection.
+1. Implement Telemetry, Properties and commands using the [IoT Plug and Play Convention](concepts-convention.md)
 
-## Components 
+Once your device implementation is ready, you can validate if it's _PnP conformant_ by  using the [Azure IoT Explorer](howto-use-iot-explorer.md).
 
-Components are described with DTDL interface, each interfaces is composed by one or more elements of type Telemetry, Properties and Commands:
+>[!Tip]
+>Note. All code fragments in this article use C# but the concepts are applicable to any of the avialble SDKs for C, Python, Node and Java.
 
-### Properties
+## Model Id announcement
 
-By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT hub. Your IoT hub can't set the value of a read-only property.
+To announce the Model Id the device must include the model id with the connection information
 
-You can also mark a property as writeable on an interface. A device can receive an update to a writeable property from your IoT hub as well as reporting property value updates to your hub.
+```csharp
+DeviceClient.CreateFromConnectionString(
+  connectionString,
+  TransportType.Mqtt,
+  new ClientOptions() { ModelId = modelId })
+```
 
-Devices don't have to be connected to receive property value updates. The updated values can be transferred when the device next connects to the hub.
+The new `ClientOptions` overload is available in all `DeviceClient` methods used to initialize the connection.
 
-Don't use properties to send telemetry from your device. For example, a readonly property such as `temperatureSetting=80` should mean that the device temperature has been set to 80, and the device is trying to get to, or stay at, this temperature.
+The model id announcement has been added to the next versions of the SDKs
 
-For writable properties, the device application must return a desired state status code, version, and description to indicate whether it received and applied the property value.
+|SDK|Version|
+|---|-------|
+|C-SDK|1.3.9|
+|.NET|1.27.0|
+|Java|1.14.0|
+|Node|1.17.0|
+|Python|2.1.4|
+
+## Implement Telemetry, Property and Commands
+
+As described in [Understand components in Azure IoT Plug and Play models](concepts-components.md), device developers must decide if they want to use components to describe their devices. When using components devices must follow the rules described in this section.
 
 ### Telemetry
 
-By default, IoT Hub routes all telemetry messages from devices to its [built-in service-facing endpoint (**messages/events**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) that's compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
+Models without components don't require any special property.
 
-You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-devguide-messages-d2c.md) to send telemetry to other destinations such as blob storage or other event hubs. Routing rules use message properties to select messages.
+When using components devices must set a message property with the component name
 
+```c#
+public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
+{
+  var message = new Message(Encoding.UTF8.GetBytes(serializedTelemetry));
+  message.Properties.Add("$.sub", componentName);
+  message.ContentType = "application/json";
+  message.ContentEncoding = "utf-8";
+  await deviceClient.SendEventAsync(message);
+}
+```
+
+### Read-only Properties
+
+Models without components don't require any special construct.
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+reportedProperties["maxTemperature"] = 38.7;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+The device twin will be updated with the next reported property:
+
+```json
+{
+  "reported": {
+      "maxTemperature" : 38.7
+  }
+}
+```
+
+When using components, properties must be created within the component name.
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection component = new TwinCollection();
+component["maxTemperature"] = 38.7;
+component["__t"] = "c"; // marker to identify a component
+reportedProperties["thermostat1"] = component;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+The device twin will be updated with the next reported property:
+
+```json
+{
+  "reported": {
+    "thermostat1" : {  
+      "__t" : "c",  
+      "maxTemperature" : 38.7
+     } 
+  }
+}
+```
+### Writable properties
+
+These properties can be set by reported by the device and/or updated by the solution, in that case the client will receive a notification as a callback in the `DeviceClient`, to be comformant with the convention the device must inform the service that the property was successfully received.
+
+#### Report a writable property
+When a device reports a writable property it must include the _ack_ values defined in the convention.
+
+To report a  writable property without components:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection ackProps = new TwinCollection();
+ackProps["value"] = 23.2;
+ackProps["ac"] = 200; // using HTTP status codes
+ackProps["av"] = 0; // not readed from a desired property
+ackProps["ad"] = "reported default value";
+reportedProperties["targetTemperature"] = ackProps;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+The device twin will be updated with the next reported property:
+
+```json
+{
+  "reported": {
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+  }
+}
+```
+
+To report a writable property from a component, the twin must include the same marker as with read-only properties:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection component = new TwinCollection();
+TwinCollection ackProps = new TwinCollection();
+component["__t"] = "c"; // marker to identify a component
+ackProps["value"] = 23.2;
+ackProps["ac"] = 200; // using HTTP status codes
+ackProps["av"] = 0; // not readed from a desired property
+ackProps["ad"] = "reported default value";
+component["targetTemperature"] = ackProps;
+reportedProperties["thermostat1"] = component;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+The device twin will be updated with the next reported property:
+
+```json
+{
+  "reported": {
+    "thermostat1": {
+      "__t" : "c",
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+    }
+  }
+}
+```
+
+#### Subscribe to desired property updates
+
+Services can update desired properties that will trigger a notification on the connected devices. This notification will include the updated desired properties, including the version number identifying the update. Devices must respond with the same _ack_ message in reported properties.
+
+Models without components will see the single property and will create the reportes _ack_ with the received version.
+
+```csharp
+await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) => 
+{
+  JValue targetTempJson = desired["targetTemperature"];
+  double targetTemperature = targetTempJson.Value<double>();
+
+  TwinCollection reportedProperties = new TwinCollection();
+  TwinCollection ackProps = new TwinCollection();
+  ackProps["value"] = targetTemperature;
+  ackProps["ac"] = 200;
+  ackProps["av"] = desired.Version; 
+  ackProps["ad"] = "desired property received";
+  reportedProperties["targetTemperature"] = ackProps;
+
+  await client.UpdateReportedPropertiesAsync(reportedProperties);
+}, null);
+```
+
+The device twin will show the property in the desired and reported sections.
+
+```json
+{
+  "desired" : {
+    "targetTemperature": 23.2,
+    "$version" : 3
+  },
+  "reported": {
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+  }
+}
+```
+
+Models with components will receive the desired properties wrapped with the component name, and should report back the _ack_ reported property:
+
+```csharp
+await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
+{
+  JObject thermostatComponent = desired["thermostat1"];
+  JToken targetTempProp = thermostatComponent["targetTemperature"];
+  double targetTemperature = targetTempProp.Value<double>();
+
+  TwinCollection reportedProperties = new TwinCollection();
+  TwinCollection component = new TwinCollection();
+  TwinCollection ackProps = new TwinCollection();
+  component["__t"] = "c"; // marker to identify a component
+  ackProps["value"] = targetTemperature;
+  ackProps["ac"] = 200; // using HTTP status codes
+  ackProps["av"] = desired.Version; // not readed from a desired property
+  ackProps["ad"] = "desired property received";
+  component["targetTemperature"] = ackProps;
+  reportedProperties["thermostat1"] = component;
+
+  await client.UpdateReportedPropertiesAsync(reportedProperties);
+}, null);
+```
+
+The device twin for components will show the desired and reported sections as follows:
+
+```json
+{
+  "desired" : {
+    "thermostat1" : {
+        "__t" : "c",
+        "targetTemperature": 23.2,
+    }
+    "$version" : 3
+  },
+  "reported": {
+    "thermostat1" : {
+        "__t" : "c",
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+    }
+  }
+}
+```
 ### Commands
 
-A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device doesn't respond in time, or the device isn't connected, then the command fails.
+Models without components will receive the command name as it was invoked by the service.
+
+Models with components will receive the command name prefixed with the component and the `*` separator.
 
 
-### Component-less models
-
-Devices with only on interface are called **component-less* models, and dont require any special implementation to participate in Plug and Play.
-
-The following example shows the model for a thermostat device:
-
-```json
+```csharp
+await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
-  "@type": "Interface",
-  "displayName": "Thermostat",
-  "description": "Reports current temperature and provides desired temperature control.",
-  "contents": [
-    {
-      "@type": [
-        "Telemetry",
-        "Temperature"
-      ],
-      "name": "temperature",
-      "displayName" : "Temperature",
-      "description" : "Temperature in degrees Celsius.",
-      "schema": "double",
-      "unit": "degreeCelsius"
-    },
-    {
-      "@type": [
-        "Property",
-        "Temperature"
-      ],
-      "name": "targetTemperature",
-      "schema": "double",
-      "displayName": "Target Temperature",
-      "description": "Allows to remotely specify the desired target temperature.",
-      "unit" : "degreeCelsius",
-      "writable": true
-    }
-  ]
-}
+  Console.WriteLine("REBOOT");
+  return Task.FromResult(new MethodResponse(200));
+},
+null);
 ```
 
-
-A model has some required fields:
-
-- `@id`: a unique ID in the form of a digital twin model identifier (DTMI).
-- `@type`: declares that this object is an interface.
-- `@context`: specifies the DTDL version used for the capability model.
-- `contents`: lists the interfaces that your device implements.
-
-Each entry in the list of the contents section has a:
-
-- `@type`: This can be a `Telemetry`, `Command`, `Property` or  `Component`
-- `name`: the programming name of the component.
-- `schema`: the interface the components implements.
-
-- `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
-- `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
-- `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off.
-
-There are other optional fields you can use to add more details to the model, such as display name and description.
-
-## Multi-component models
-
-With DTDL, you describe the model of your device using interfaces. An interface describes the _properties_, _telemetry_, and _commands_ a part of your device implements:
-
-The following example shows the interface for a temperature controller:
-
-```json
-{
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:TemperatureSensor;1",
-  "@type": "Interface",
-  "displayName": "Temperature Sensor",
-  "description": "Provides functionality to report temperature, and write property to set the target Temperature",
-  "comment": "Requires temperature sensors.",
-  "contents": [
-    {
-      "@type" : "Component",
-      "schema": "dtmi:com:example:Thermostat;1",
-      "name": "thermostat1",
-      "displayName": "Thermostat One",
-      "description": "Thermostat One of Two."
-    },
-  ]
-}
-```
-
-
-## Announce the model Id
-
-IoT Plug and Play makes it easy to advertise the mdel implemented by your device. A Plug and Play device must send it's **Model ID** when it connects to IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property and in the Device Twin property `modelId`.
-
-This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
-
-```c
-#define modelId "dtmi:com:example:Thermostat;1"
-deviceHandle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, MQTT_Protocol)
-IoTHubDeviceClient_SetOption(deviceHandle, OPTION_MODEL_ID, modelId)
-```
-
-## Use a device
+## Interact with the device 
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
@@ -160,7 +304,7 @@ GET /digitalTwins/t-123
 
 This call will include the Json property `$metadata.$model` with the model Id announced by the device.
 
-More generally, all properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
+All properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
 
 ```REST
 GET /digitalTwins/{device-id}
