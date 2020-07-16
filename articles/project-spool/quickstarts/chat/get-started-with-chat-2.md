@@ -26,20 +26,21 @@ Before you get started, make sure to:
 > * [Create an Azure Communication Resource](https://review.docs.microsoft.com/en-us/azure/project-spool/quickstarts/create-a-communication-resource?branch=pr-en-us-104477)
 > * Install [npm and Node.js](https://nodejs.org). [npm is distributed with Node.js- which means that when you download Node.js, you automatically get npm installed on your computer.]
 > * Install [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
-> * Download the sample zip file from [Azure Communication Services - Chat SDK sample](https://github.com/Azure/communication-preview/releases).
+> * Download the sample zip file from [Azure Communication Services - Chat SDK sample](https://github.com/Azure/communication-preview/releases/download/0.1.147/acs-samples-chat-e2e.zip).
 
 
-# Setup the solution
+## Setup the solution
 1. After the .zip is extracted, open the solution in visual studio.
-2. Open the appSettings.json file, and replace the AcsResourceConnectionString and AcsResourceId from your Azure Communication Resource found in the Azure Portal (http://portal.azure.com/) as showed below:
+![SolutionFile](../media/chat-groupsample4.png)
+2. Open the appSettings.json file under the Chat folder, and replace the AcsResourceConnectionString and AcsResourceId from your Azure Communication Resource found in the Azure Portal (http://portal.azure.com/) as showed below:
 
 
 ![AcsResourceConnectionString](../media/chat-groupsample0.png)
 
 ![AcsResourceId](../media/chat-groupsample1.png)
 
-## Update the appsettings.config
-On the Chat project, update the following 2 settings :
+## Update settings
+On the Chat project, update the following 2 settings on the appSettings.json file:
 
 ```http
 {
@@ -51,8 +52,10 @@ On the Chat project, update the following 2 settings :
 ```
 
 
-# Running the chat application
-### 1. Select the Chat project as the 'Startup project' in Visual Studio.
+## Running the chat application
+### 1. Set the Chat project as the 'Startup project' in Visual Studio.
+![StartUp](../media/chat-groupsample5.png)
+
 ### 2. Hit F5 to start a debugging session
 
 A new browser  should launch the 'user interface' on port 5000.
